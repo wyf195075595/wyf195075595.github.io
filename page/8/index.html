@@ -246,7 +246,7 @@
             
 
   
-    <article id="post-programming/javascript/svg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -254,7 +254,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/" target="_blank">SVG</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/" target="_blank">jq的$.load()方法</a>
   
     </h1>
   
@@ -262,7 +262,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -275,11 +275,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> standalone=<span class="string">&quot;no&quot;</span>?&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;10&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;60&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;10&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;25&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">r</span>=<span class="string">&quot;20&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;75&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;20&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;110&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;150&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">&quot;60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M20,230 Q40,205 50,230 T90,230&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;none&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3>
+    <h2 id="1、主页面加载"><a href="#1、主页面加载" class="headerlink" title="1、主页面加载"></a>1、主页面加载</h2>
     
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/#more">more >></a>
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/#more">more >></a>
     
     
 
@@ -317,7 +315,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/">展开全文 >></a>
     </p>
     
 
@@ -416,6 +414,107 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/svg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/" target="_blank">SVG</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> standalone=<span class="string">&quot;no&quot;</span>?&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;10&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;60&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;10&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;25&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">r</span>=<span class="string">&quot;20&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;75&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;20&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;110&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;150&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">&quot;60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M20,230 Q40,205 50,230 T90,230&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;none&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/svg/">展开全文 >></a>
     </p>
     
 
@@ -618,133 +717,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/upload/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/js番外拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" target="_blank">js拓展</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、发展史"><a href="#1、发展史" class="headerlink" title="1、发展史"></a>1、发展史</h2><h3 id="5大主流浏览器"><a href="#5大主流浏览器" class="headerlink" title="5大主流浏览器"></a>5大主流浏览器</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>内核</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IE</td>
-<td>trident</td>
-</tr>
-<tr>
-<td>chrome</td>
-<td>webkit blink</td>
-</tr>
-<tr>
-<td>safari</td>
-<td>webkit</td>
-</tr>
-<tr>
-<td>firefox</td>
-<td>gecko</td>
-</tr>
-<tr>
-<td>opera</td>
-<td>presto</td>
-</tr>
-</tbody></table>
-<h3 id="历史事件"><a href="#历史事件" class="headerlink" title="历史事件"></a>历史事件</h3><h2 id="2、js相关概念"><a href="#2、js相关概念" class="headerlink" title="2、js相关概念"></a>2、js相关概念</h2>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/">展开全文 >></a>
     </p>
     
 
@@ -977,104 +949,6 @@
 
 
   
-    <article id="post-programming/javascript/标签模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" target="_blank">标签模板</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建标签模板 防止用户恶意输入</span></span><br><span class="line"><span class="comment">//string：除变量外的其他字符串数组，argus：变量数组，前者总比后者长度大1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">SaferHTMLx</span>(<span class="params">string,...argus</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(string,argus);<span class="comment">//[&quot;&lt;p&gt;&quot;, &quot; has &quot;, &quot; sent you a message.&lt;/p&gt;&quot;] , </span></span><br><span class="line">    <span class="comment">// [&quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;, &quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;]</span></span><br><span class="line">    <span class="keyword">let</span> s = string[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; string.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> arg = <span class="title class_">String</span>(argus[i-<span class="number">1</span>]);</span><br><span class="line"> 	  <span class="comment">//对变量参数进行处理</span></span><br><span class="line">      s += arg.<span class="title function_">replace</span>(<span class="regexp">/&amp;/g</span>, <span class="string">&quot;&amp;amp;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&lt;/g</span>, <span class="string">&quot;&amp;lt;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&gt;/g</span>, <span class="string">&quot;&amp;gt;&quot;</span>);</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&quot;/g</span>, <span class="string">&quot;&amp;qout;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&quot;&amp;#27;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&quot;&amp;#x2F;&quot;</span>);</span><br><span class="line">      s += string[i]         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> senderx = <span class="string">&#x27;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//使用标签模板 </span></span><br><span class="line"><span class="keyword">let</span> messagex = <span class="title class_">SaferHTMLx</span><span class="string">`&lt;p&gt;<span class="subst">$&#123;senderx&#125;</span> has <span class="subst">$&#123;senderx&#125;</span>sent you a message.&lt;/p&gt;`</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(messagex);<span class="comment">//&lt;p&gt;&amp;lt;script&amp;gt;alert(&quot;abc&quot;)&amp;lt;/script&amp;gt; has sent you a message.&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/javascript/正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1178,7 +1052,7 @@
 
 
   
-    <article id="post-programming/javascript/网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/jsplugin/Rxjs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1186,7 +1060,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" target="_blank">网络通信</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/Rxjs/" target="_blank">Rxjs</a>
   
     </h1>
   
@@ -1194,7 +1068,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/Rxjs/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1207,10 +1081,127 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3>
+    <blockquote>
+<p>RxJS 是一个库，它通过使用 observable 序列来编写异步和基于事件的程序。它提供了一个核心类型 <a target="_blank" rel="noopener" href="https://cn.rx.js.org/manual/overview.html#observable">Observable</a>，附属类型 (Observer、 Schedulers、 Subjects) 和受 [Array#extras] 启发的操作符 (map、filter、reduce、every, 等等)，这些数组操作符可以把异步事件作为集合来处理。 通常集成在 Angular技术栈中</p>
+<p>可以把 RxJS 当做是用来处理事件的 <a target="_blank" rel="noopener" href="https://lodash.com/">Lodash</a> 。</p>
+<p>ReactiveX 结合了 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Observer_pattern">观察者模式</a>、<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Iterator_pattern">迭代器模式</a> 和 <a target="_blank" rel="noopener" href="http://martinfowler.com/articles/collection-pipeline/#NestedOperatorExpressions">使用集合的函数式编程</a>，以满足以一种理想方式来管理事件序列所需要的一切。</p>
+<p>在 RxJS 中用来解决异步事件管理的的基本概念是：</p>
+<ul>
+<li><strong>Observable (可观察对象):</strong> 表示一个概念，这个概念是一个可调用的未来值或事件的集合。</li>
+<li><strong>Observer (观察者):</strong> 一个回调函数的集合，它知道如何去监听由 Observable 提供的值。</li>
+<li><strong>Subscription (订阅):</strong> 表示 Observable 的执行，主要用于取消 Observable 的执行。</li>
+<li><strong>Operators (操作符):</strong> 采用函数式编程风格的纯函数 (pure function)，使用像 <code>map</code>、<code>filter</code>、<code>concat</code>、<code>flatMap</code> 等这样的操作符来处理集合。</li>
+<li><strong>Subject (主体):</strong> 相当于 EventEmitter，并且是将值或事件多路推送给多个 Observer 的唯一方式。</li>
+<li><strong>Schedulers (调度器):</strong> 用来控制并发并且是中央集权的调度员，允许我们在发生计算时进行协调，例如 <code>setTimeout</code> 或 <code>requestAnimationFrame</code> 或其他。</li>
+</ul>
+<p>官网 <a target="_blank" rel="noopener" href="https://rxjs.dev/">https://rxjs.dev/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=BA1vSZwzkK8">https://www.youtube.com/watch?v=BA1vSZwzkK8</a> </p>
+<p>官网：<a target="_blank" rel="noopener" href="https://rxjs-dev.firebaseapp.com/">https://rxjs-dev.firebaseapp.com/</a> </p>
+<p>图解rxjs: <a target="_blank" rel="noopener" href="https://reactive.how/">https://reactive.how/</a></p>
+<p>rxjs可视化工具： <a target="_blank" rel="noopener" href="https://rxviz.com/">https://rxviz.com/</a></p>
+</blockquote>
+<p>使用</p>
     
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/#more">more >></a>
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/Rxjs/#more">more >></a>
     
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/Rxjs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/标签模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" target="_blank">标签模板</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建标签模板 防止用户恶意输入</span></span><br><span class="line"><span class="comment">//string：除变量外的其他字符串数组，argus：变量数组，前者总比后者长度大1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">SaferHTMLx</span>(<span class="params">string,...argus</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(string,argus);<span class="comment">//[&quot;&lt;p&gt;&quot;, &quot; has &quot;, &quot; sent you a message.&lt;/p&gt;&quot;] , </span></span><br><span class="line">    <span class="comment">// [&quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;, &quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;]</span></span><br><span class="line">    <span class="keyword">let</span> s = string[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; string.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> arg = <span class="title class_">String</span>(argus[i-<span class="number">1</span>]);</span><br><span class="line"> 	  <span class="comment">//对变量参数进行处理</span></span><br><span class="line">      s += arg.<span class="title function_">replace</span>(<span class="regexp">/&amp;/g</span>, <span class="string">&quot;&amp;amp;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&lt;/g</span>, <span class="string">&quot;&amp;lt;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&gt;/g</span>, <span class="string">&quot;&amp;gt;&quot;</span>);</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&quot;/g</span>, <span class="string">&quot;&amp;qout;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&quot;&amp;#27;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&quot;&amp;#x2F;&quot;</span>);</span><br><span class="line">      s += string[i]         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> senderx = <span class="string">&#x27;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//使用标签模板 </span></span><br><span class="line"><span class="keyword">let</span> messagex = <span class="title class_">SaferHTMLx</span><span class="string">`&lt;p&gt;<span class="subst">$&#123;senderx&#125;</span> has <span class="subst">$&#123;senderx&#125;</span>sent you a message.&lt;/p&gt;`</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(messagex);<span class="comment">//&lt;p&gt;&amp;lt;script&amp;gt;alert(&quot;abc&quot;)&amp;lt;/script&amp;gt; has sent you a message.&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -1247,7 +1238,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
     </p>
     
 
@@ -1410,15 +1401,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,18 +1425,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -1454,7 +1433,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,11 +1465,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1486,15 +1473,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1503,6 +1490,26 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1518,15 +1525,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1534,15 +1533,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,19 +1545,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
