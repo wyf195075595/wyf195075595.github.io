@@ -246,6 +246,147 @@
             
 
   
+    <article id="post-programming/docker/基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/docker/%E5%9F%BA%E7%A1%80/" target="_blank">Docker</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/docker/%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="docker-基本操作图解"><a href="#docker-基本操作图解" class="headerlink" title="docker 基本操作图解"></a>docker 基本操作图解</h3><h3 id=""><a href="#" class="headerlink" title=""></a><img src="https://img-blog.csdnimg.cn/20191101140058874.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM5OTY5MjI2,size_16,color_FFFFFF,t_70" alt="img"></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、测试环境</span><br><span class="line">    play-<span class="keyword">with</span>-docker.<span class="property">com</span></span><br><span class="line"></span><br><span class="line">	登录注册后可以在浏览器在线现时使用 docker 而无需安装</span><br><span class="line">    </span><br><span class="line"><span class="number">2</span>、常用命令</span><br><span class="line">    - docker pull nginx	从仓库中pull镜像到docker 本地</span><br><span class="line">    - docker images	查询本地有哪些镜像</span><br><span class="line">    - docker run -d -p <span class="number">80</span>:<span class="number">80</span> nginx	将镜像运行到容器 nginx</span><br><span class="line">    	-d 后台运行	-p <span class="number">80</span>:<span class="number">80</span> 内部的端口<span class="number">80</span>和外部的端口<span class="number">80</span>映射</span><br><span class="line">    - docker ps 查看运行中的容器</span><br><span class="line">    - docker ps -a 查询所有运行的容器</span><br><span class="line">    - docker exec -it b2 bash	进入容器里面，可配置镜像（如：修改nginx配置文件）</span><br><span class="line">    	b2为docker run 运行容器后返回的id前两位</span><br><span class="line">        </span><br><span class="line">    - docker rm -f id</span><br><span class="line">    	id 在 docker ps 命令下可查看</span><br><span class="line">    - docker commit id 注解	通过容器将修改的镜像保存提交到本地（）</span><br><span class="line">    - ...</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"> <span class="number">3</span>、在自建 文件夹（/home/jysp/docker） 下创建 nginx文件夹，以及下级&#123;conf,conf.<span class="property">d</span>,html,logs&#125;</span><br><span class="line"> mkdir -p /home/jysp/docker/nginx/&#123;conf,conf.<span class="property">d</span>,html,logs&#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"> <span class="number">4</span>、地址映射   将docker 的<span class="number">80</span>端口映射到服务器 <span class="number">8080</span> 端口，将服务器路径映射到 docker 容器中的文件目录</span><br><span class="line">    </span><br><span class="line">    docker run  --name changlinheNginx -d -p <span class="number">8080</span>:<span class="number">80</span> -v /home/jysp/docker/nginx/<span class="attr">html</span>:<span class="regexp">/usr/</span>share/nginx/html -v /home/jysp/docker/nginx/conf/nginx.<span class="property">conf</span>:<span class="regexp">/etc/</span>nginx/nginx.<span class="property">conf</span> -v /home/jysp/docker/nginx/conf.<span class="property">d</span>:<span class="regexp">/etc/</span>nginx/conf.<span class="property">d</span>  -v /home/jysp/docker/nginx/<span class="attr">logs</span>:<span class="regexp">/var/</span>log/nginx nginx</span><br><span class="line"></span><br><span class="line"> <span class="number">5</span>、修改nginx configjs 文件</span><br><span class="line"> server &#123;</span><br><span class="line">        listen    <span class="number">80</span>;</span><br><span class="line">        server_name  localhost;</span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        #access_log  logs/host.<span class="property">access</span>.<span class="property">log</span>  main;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /usr/share/nginx/html;</span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">        &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、重启 docker 镜像服务</span><br><span class="line">docker stop changlinheNginx</span><br><span class="line">docker start changlinheNginx</span><br></pre></td></tr></table></figure>
+
+<p><a href="%5Bhttp://www.dockerinfo.net/%5D(docker%E4%B8%AD%E6%96%87%E7%BD%91)">docker 中文网</a></p>
+<p>Nginx 映射地址</p>
+<blockquote>
+<p>通过下面命令进入容器查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#启动容器</span><br><span class="line">docker run -itd nginx ``/bin/bash</span><br><span class="line">#进入容器</span><br><span class="line">docker attach xxxxxxxxxx</span><br></pre></td></tr></table></figure>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>说明</th>
+<th>文件</th>
+<th>挂载路径</th>
+<th>nginx路径</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>配置文件</td>
+<td>nginx.conf</td>
+<td>/data/nginx/conf/nginx.conf</td>
+<td>/etc/nginx/nginx.conf</td>
+</tr>
+<tr>
+<td>配置文件文件夹</td>
+<td>conf.d文件夹</td>
+<td>/data/nginx/conf.d</td>
+<td>/etc/nginx/conf.d</td>
+</tr>
+<tr>
+<td>首页文件夹html路径</td>
+<td>html文件夹</td>
+<td>/data/nginx/html</td>
+<td>/usr/share/nginx/html</td>
+</tr>
+<tr>
+<td>日志文件</td>
+<td>log文件夹</td>
+<td>/data/nginx/logs</td>
+<td>/var/log/nginx</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/246379.htm">参考连接</a></p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/docker//" class="article-tag-list-link color2">docker</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/docker/%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/javascript/Promise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -321,108 +462,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/Promise/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/electron/安装使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/electron/%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" target="_blank">electron 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/electron/%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="基础应用"><a href="#基础应用" class="headerlink" title="基础应用"></a>基础应用</h2><blockquote>
-<p>此笔记参考 刘晓伦著作的 ELectron实战：入门、进阶与性能优化</p>
-</blockquote>
-<h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">- npm i electron -D</span><br><span class="line"></span><br><span class="line"><span class="comment">// 在安装步骤执行到 &gt; node install.js 时，按ctrl+c中断过程</span></span><br><span class="line"><span class="comment">// 应为下载太慢了</span></span><br><span class="line"></span><br><span class="line">- 手动下载 所需zip包</span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//www.electronjs.org/fiddle</span></span><br><span class="line"></span><br><span class="line">- 本地缓存目录为  ~<span class="regexp">/.electron/</span>electron-v1<span class="number">.4</span><span class="number">.5</span>-darwin-x64.<span class="property">zip</span></span><br><span class="line"></span><br><span class="line">- 手动下载的zip包放到缓存目录所在位置。</span><br><span class="line"></span><br><span class="line">- 重新执行 npm install -g electron 即可</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">上面的下载地址和缓存目录是通过阅读install.<span class="property">js</span>脚本，尝试执行并打印部分变量得到的。</span><br><span class="line">对于很多其它的使用npm安装的功能模块，都可以通过这个方法，解决下载问题。</span><br><span class="line"></span><br><span class="line">安装成功后可以在项目 运行 ./node_modules/.<span class="property">bin</span>/electron 测试</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/electron/%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/electron//" class="article-tag-list-link color4">electron</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/electron/%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/">展开全文 >></a>
     </p>
     
 
@@ -553,7 +592,7 @@
 
 
   
-    <article id="post-programming/javascript/downLoad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/fullScreen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -561,7 +600,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/" target="_blank">文件下载方式</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/" target="_blank">页面元素的全屏</a>
   
     </h1>
   
@@ -569,7 +608,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -582,22 +621,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="文件下载方式"><a href="#文件下载方式" class="headerlink" title="文件下载方式"></a>文件下载方式</h1><ol>
-<li><p>get方式下载</p>
-<blockquote>
-<p>window.location.href = URL</p>
-<p>window.open(URL)</p>
-</blockquote>
-</li>
-<li><p>post方式</p>
-</li>
-</ol>
-<ul>
-<li><p>form表单</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formObj = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;form&#x27;</span>);</span><br><span class="line">          formObj.<span class="property">action</span> = downloadURL;<span class="comment">//设置下载路径</span></span><br><span class="line">          formObj.<span class="property">method</span> = method;<span class="comment">//设置请求方式</span></span><br><span class="line">		 <span class="comment">//formObj.enctype = &#x27;multipart/form-data&#x27; 设置Content-Type</span></span><br><span class="line">          formObj.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;<span class="comment">//样式隐藏</span></span><br><span class="line">          <span class="keyword">var</span> <span class="title function_">addFormItem</span> = (<span class="params">formObj,formItemName,formItemValue</span>) =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> formItem = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">            formItem.<span class="property">name</span> = formItemName; <span class="comment">// 传参的字段名</span></span><br><span class="line">            formItem.<span class="property">value</span> = formItemValue; <span class="comment">// 传参的值</span></span><br><span class="line">            formObj.<span class="title function_">appendChild</span>(formItem)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="title function_">addFormItem</span>(formObj,<span class="string">&#x27;token&#x27;</span>,<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;accessToken&#x27;</span>))<span class="comment">//设置token参数</span></span><br><span class="line">		 <span class="comment">//设置其他参数</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">let</span> data_key <span class="keyword">in</span> data)&#123;</span><br><span class="line">            <span class="title function_">addFormItem</span>(formObj,data_key,data[data_key])</span><br><span class="line">          &#125;</span><br><span class="line">    </span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(formObj);<span class="comment">//加入document</span></span><br><span class="line">          formObj.<span class="title function_">submit</span>();<span class="comment">//触发submit事件</span></span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(formObj);<span class="comment">//移除dom</span></span><br></pre></td></tr></table></figure></li>
-</ul>
+    <h1 id="页面元素的全屏"><a href="#页面元素的全屏" class="headerlink" title="页面元素的全屏"></a>页面元素的全屏</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、全屏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fullScreen</span>(<span class="params">ele</span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(ele);</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">RequestFullScreen</span>)&#123;</span><br><span class="line">         target.<span class="title class_">RequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等可以webkitRequestFullScreen也可以webkitRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE,只能写msRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msRequestFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msRequestFullscreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、退出全屏</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">exitFullScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>;</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">exitFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">exitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozCancelFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozCancelFullScreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/#more">more >></a>
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/#more">more >></a>
     
     
 
@@ -635,7 +661,106 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/date" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/" target="_blank">Date日期对象</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Date日期对象"><a href="#Date日期对象" class="headerlink" title="Date日期对象"></a>Date日期对象</h1>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/">展开全文 >></a>
     </p>
     
 
@@ -766,7 +891,7 @@
 
 
   
-    <article id="post-programming/javascript/date" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/downLoad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -774,7 +899,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/" target="_blank">Date日期对象</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/" target="_blank">文件下载方式</a>
   
     </h1>
   
@@ -782,7 +907,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -795,9 +920,22 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="Date日期对象"><a href="#Date日期对象" class="headerlink" title="Date日期对象"></a>Date日期对象</h1>
+    <h1 id="文件下载方式"><a href="#文件下载方式" class="headerlink" title="文件下载方式"></a>文件下载方式</h1><ol>
+<li><p>get方式下载</p>
+<blockquote>
+<p>window.location.href = URL</p>
+<p>window.open(URL)</p>
+</blockquote>
+</li>
+<li><p>post方式</p>
+</li>
+</ol>
+<ul>
+<li><p>form表单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formObj = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;form&#x27;</span>);</span><br><span class="line">          formObj.<span class="property">action</span> = downloadURL;<span class="comment">//设置下载路径</span></span><br><span class="line">          formObj.<span class="property">method</span> = method;<span class="comment">//设置请求方式</span></span><br><span class="line">		 <span class="comment">//formObj.enctype = &#x27;multipart/form-data&#x27; 设置Content-Type</span></span><br><span class="line">          formObj.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;<span class="comment">//样式隐藏</span></span><br><span class="line">          <span class="keyword">var</span> <span class="title function_">addFormItem</span> = (<span class="params">formObj,formItemName,formItemValue</span>) =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> formItem = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">            formItem.<span class="property">name</span> = formItemName; <span class="comment">// 传参的字段名</span></span><br><span class="line">            formItem.<span class="property">value</span> = formItemValue; <span class="comment">// 传参的值</span></span><br><span class="line">            formObj.<span class="title function_">appendChild</span>(formItem)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="title function_">addFormItem</span>(formObj,<span class="string">&#x27;token&#x27;</span>,<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;accessToken&#x27;</span>))<span class="comment">//设置token参数</span></span><br><span class="line">		 <span class="comment">//设置其他参数</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">let</span> data_key <span class="keyword">in</span> data)&#123;</span><br><span class="line">            <span class="title function_">addFormItem</span>(formObj,data_key,data[data_key])</span><br><span class="line">          &#125;</span><br><span class="line">    </span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(formObj);<span class="comment">//加入document</span></span><br><span class="line">          formObj.<span class="title function_">submit</span>();<span class="comment">//触发submit事件</span></span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(formObj);<span class="comment">//移除dom</span></span><br></pre></td></tr></table></figure></li>
+</ul>
     
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/#more">more >></a>
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/#more">more >></a>
     
     
 
@@ -835,204 +973,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/date/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/jsConsole" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/" target="_blank">jsConsole</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">group</span>(<span class="string">&quot;中奖了&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #9E9E9E; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #03A9F4; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #4CAF50; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">groupEnd</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//segmentfault.com/a/1190000012957199</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/fullScreen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/" target="_blank">页面元素的全屏</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="页面元素的全屏"><a href="#页面元素的全屏" class="headerlink" title="页面元素的全屏"></a>页面元素的全屏</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、全屏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fullScreen</span>(<span class="params">ele</span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(ele);</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">RequestFullScreen</span>)&#123;</span><br><span class="line">         target.<span class="title class_">RequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等可以webkitRequestFullScreen也可以webkitRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE,只能写msRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msRequestFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msRequestFullscreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、退出全屏</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">exitFullScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>;</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">exitFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">exitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozCancelFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozCancelFullScreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/fullScreen/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/downLoad/">展开全文 >></a>
     </p>
     
 
@@ -1180,7 +1121,7 @@
 
 
   
-    <article id="post-programming/javascript/load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/jsConsole" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1188,7 +1129,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/" target="_blank">jq的$.load()方法</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/" target="_blank">jsConsole</a>
   
     </h1>
   
@@ -1196,7 +1137,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1209,10 +1150,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="1、主页面加载"><a href="#1、主页面加载" class="headerlink" title="1、主页面加载"></a>1、主页面加载</h2>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/#more">more >></a>
-    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">group</span>(<span class="string">&quot;中奖了&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #9E9E9E; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #03A9F4; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #4CAF50; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">groupEnd</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//segmentfault.com/a/1190000012957199</span></span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -1249,7 +1189,105 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/load/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/jsConsole/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/objectPool/" target="_blank">对象池</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/objectPool/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象池工厂</span></span><br><span class="line"><span class="keyword">var</span> objectPoolFactory = <span class="keyword">function</span>(<span class="params">createObjFn</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> objectPool = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">create</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = objectPool.<span class="property">length</span> === <span class="number">0</span> ?</span><br><span class="line">				createObjFn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) : objectPool.<span class="title function_">shift</span>();</span><br><span class="line">			<span class="keyword">return</span> obj;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">recover</span>: <span class="keyword">function</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">			objectPool.<span class="title function_">push</span>(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> iframeFactory = <span class="title function_">objectPoolFactory</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">	<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"></span><br><span class="line">	iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		iframe.<span class="property">onload</span> = <span class="literal">null</span>;   <span class="comment">// 防止iframe重复加载</span></span><br><span class="line">		iframeFactory.<span class="title function_">recover</span>(iframe); <span class="comment">// iframe加载完了回收节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> iframe;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe1 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe1.<span class="property">src</span> = <span class="string">&#x27;https://www.baidu.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe2 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe2.<span class="property">src</span> = <span class="string">&#x27;http://www.qq.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe3 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">	iframe3.<span class="property">src</span> = <span class="string">&#x27;http://www.163.com&#x27;</span>;</span><br><span class="line">&#125;, <span class="number">750</span>);</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
     </p>
     
 
@@ -1416,15 +1454,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1432,19 +1462,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1460,7 +1482,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1468,7 +1510,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1480,7 +1522,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1492,27 +1550,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1520,15 +1558,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1536,11 +1578,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1552,7 +1594,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1560,19 +1602,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -448,7 +448,7 @@
 
 
   
-    <article id="post-programming/linux/nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -456,7 +456,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/nginx/" target="_blank">nginx 基础知识</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
   
     </h1>
   
@@ -464,7 +464,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/linux/nginx/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -477,12 +477,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个IMAP、POP3、SMTP代理服务器；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/nginx/#more">more >></a>
-    
+    <h2 id="Nodejs-主流框架"><a href="#Nodejs-主流框架" class="headerlink" title="Nodejs 主流框架"></a>Nodejs 主流框架</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Express</span></span><br><span class="line"><span class="title class_">Node</span>界最老牌的<span class="title class_">Web</span>框架，最成熟，生态最好。提供了基础的请求上下文封装，路由，中间件，模板引擎接口，静态资源服务。麻雀虽小，五脏俱全。很方便的进行扩展，大量的基于<span class="title class_">Express</span>的框架。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="title class_">Koa</span></span><br><span class="line"><span class="title class_">Express</span>原班人马打造，定义为下一代<span class="title class_">Web</span>开发框架。仅提供一个请求上下文，中间件机制，没有捆绑任何中间件。通过利用<span class="keyword">async</span>/<span class="keyword">await</span>，让你写出更优雅的代码。方便开发者针对自身需求开发自定义框架。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、egg</span><br><span class="line">eggjs是由阿里推出的一款web企业级框架，提供了完整的<span class="title class_">Web</span>开发所需的组件，使用koa作为底层。使用了约定大于配置的理念，提供强大的插件机制，方便扩展。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">NestJs</span></span><br><span class="line"><span class="title class_">NestJs</span>的主要卖点是<span class="title class_">TypeScript</span>的完全支持。大量的使用装饰器，代码看起来清爽多了。orm采用<span class="title class_">TypeORM</span>，使用类型加装饰器，代码比一般的orm整洁得多。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、<span class="title class_">Fastify</span></span><br><span class="line"><span class="title class_">Fastify</span>号称是最快的<span class="title class_">Nodejs</span> web框架，在<span class="title class_">Json</span>输出的场景下，通过<span class="title class_">Json</span> <span class="title class_">Schema</span>序列化为<span class="title class_">Json</span>数据，可以达到原生<span class="title class_">JSON</span>.<span class="property">stringify</span> <span class="number">2</span>倍的性能，在极端情况下可达到<span class="number">10</span>倍速。采用对象池，将请求上下文包装对象进行复用。使用trie树存储路由，查找效率更高（在大量有路由的情况下）。<span class="title class_">Fastify</span>提供了强大的插件机制，通过插件可以分割路由及中间件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">地址：</span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/</span></span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/charts.html?package=koa&amp;from=2021-01-01&amp;to=2022-04-27</span></span><br><span class="line"></span><br><span class="line">包下载量查询 <span class="number">2021</span>-<span class="number">01</span>-<span class="number">01</span> - <span class="number">2022</span>-<span class="number">04</span>-<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Express</span>	<span class="number">1</span>,<span class="number">258</span>,<span class="number">568</span>,<span class="number">282</span></span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">69</span>,<span class="number">468</span>,<span class="number">698</span></span><br><span class="line">egg	<span class="number">2</span>,<span class="number">177</span>,<span class="number">325</span></span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">160</span>,<span class="number">925</span></span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">19</span>,<span class="number">580</span>,<span class="number">835</span></span><br><span class="line"></span><br><span class="line">github星数</span><br><span class="line"></span><br><span class="line">xpress	<span class="number">87.</span>1k</span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">32.</span>5k</span><br><span class="line">egg	<span class="number">17.</span>9k</span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">46.</span>5k</span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">22.</span>8k</span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -498,7 +495,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -510,7 +507,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/linux//" class="article-tag-list-link color1">linux</a>
+        			<a href="/wyf195075595.github.io.git/categories/node//" class="article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -519,315 +516,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/nginx/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/安装pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" target="_blank">pm2 进程管理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="pm2安装"><a href="#pm2安装" class="headerlink" title="pm2安装"></a>pm2安装</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、全局安装</span><br><span class="line"></span><br><span class="line"> npm install pm2 -g</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、创建软连接</span><br><span class="line"></span><br><span class="line">ln -s /node-v12/bin/pm2  /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看进程</span><br><span class="line"></span><br><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/pm2.png"></p>
-<p>[注意]创建软连接的源文件路径可以在安装时找到    如上图  /node-v12/bin/pm2</p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pm2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/markdown/Markdown基础语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" target="_blank">Markdown基础语法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<p>相比WYSIWYG编辑器</p>
-<p><strong>优点：</strong><br> 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br> 2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</p>
-<p><strong>缺点：</strong><br> 1、需要记一些语法（当然，是很简单。五分钟学会）。<br> 2、有些平台不支持Markdown编辑模式。</p>
-<p>还好，简书是支持Markdown编辑模式的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开启方式：设置-&gt;默认编辑器-&gt;Markdown编辑器</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/mongodb/mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/" target="_blank">mongodb 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/mongodb//" class="article-tag-list-link color3">mongodb</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
     </p>
     
 
@@ -980,208 +669,6 @@
 
 
   
-    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Nodejs-主流框架"><a href="#Nodejs-主流框架" class="headerlink" title="Nodejs 主流框架"></a>Nodejs 主流框架</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Express</span></span><br><span class="line"><span class="title class_">Node</span>界最老牌的<span class="title class_">Web</span>框架，最成熟，生态最好。提供了基础的请求上下文封装，路由，中间件，模板引擎接口，静态资源服务。麻雀虽小，五脏俱全。很方便的进行扩展，大量的基于<span class="title class_">Express</span>的框架。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="title class_">Koa</span></span><br><span class="line"><span class="title class_">Express</span>原班人马打造，定义为下一代<span class="title class_">Web</span>开发框架。仅提供一个请求上下文，中间件机制，没有捆绑任何中间件。通过利用<span class="keyword">async</span>/<span class="keyword">await</span>，让你写出更优雅的代码。方便开发者针对自身需求开发自定义框架。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、egg</span><br><span class="line">eggjs是由阿里推出的一款web企业级框架，提供了完整的<span class="title class_">Web</span>开发所需的组件，使用koa作为底层。使用了约定大于配置的理念，提供强大的插件机制，方便扩展。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">NestJs</span></span><br><span class="line"><span class="title class_">NestJs</span>的主要卖点是<span class="title class_">TypeScript</span>的完全支持。大量的使用装饰器，代码看起来清爽多了。orm采用<span class="title class_">TypeORM</span>，使用类型加装饰器，代码比一般的orm整洁得多。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、<span class="title class_">Fastify</span></span><br><span class="line"><span class="title class_">Fastify</span>号称是最快的<span class="title class_">Nodejs</span> web框架，在<span class="title class_">Json</span>输出的场景下，通过<span class="title class_">Json</span> <span class="title class_">Schema</span>序列化为<span class="title class_">Json</span>数据，可以达到原生<span class="title class_">JSON</span>.<span class="property">stringify</span> <span class="number">2</span>倍的性能，在极端情况下可达到<span class="number">10</span>倍速。采用对象池，将请求上下文包装对象进行复用。使用trie树存储路由，查找效率更高（在大量有路由的情况下）。<span class="title class_">Fastify</span>提供了强大的插件机制，通过插件可以分割路由及中间件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">地址：</span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/</span></span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/charts.html?package=koa&amp;from=2021-01-01&amp;to=2022-04-27</span></span><br><span class="line"></span><br><span class="line">包下载量查询 <span class="number">2021</span>-<span class="number">01</span>-<span class="number">01</span> - <span class="number">2022</span>-<span class="number">04</span>-<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Express</span>	<span class="number">1</span>,<span class="number">258</span>,<span class="number">568</span>,<span class="number">282</span></span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">69</span>,<span class="number">468</span>,<span class="number">698</span></span><br><span class="line">egg	<span class="number">2</span>,<span class="number">177</span>,<span class="number">325</span></span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">160</span>,<span class="number">925</span></span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">19</span>,<span class="number">580</span>,<span class="number">835</span></span><br><span class="line"></span><br><span class="line">github星数</span><br><span class="line"></span><br><span class="line">xpress	<span class="number">87.</span>1k</span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">32.</span>5k</span><br><span class="line">egg	<span class="number">17.</span>9k</span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">46.</span>5k</span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">22.</span>8k</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/node//" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/python/python-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/python/python-base/" target="_blank">python基础</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/python/python-base/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>通用语言，脚本语言，开源语言，跨平台语言，多模型语言</p>
-<p>2000年 1.0 版本</p>
-<p>2008年 2.0 版本</p>
-<p>3.0系列 不兼容早期的2.0</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/python/python-base/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/python/python-base/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/node/node编程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1252,6 +739,521 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/mongodb/mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/" target="_blank">mongodb 基础知识</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mongodb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/mongodb//" class="article-tag-list-link color3">mongodb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/mongodb/mongodb/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/npm/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/npm/npm/" target="_blank">npm常用命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/npm/npm/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h2><blockquote>
+<p>npm -v      #显示版本，检查npm 是否正确安装。</p>
+<p>npm i express  #安装express模块</p>
+<p>npm i -g express  #i全局安装express模块</p>
+<p>npm list     #列出已安装模块</p>
+<p>npm show express   #显示模块详情</p>
+<p>npm update     #升级当前目录下的项目的所有模块</p>
+<p>npm update express   #升级当前目录下的项目的指定模块</p>
+<p>npm update -g express  #升级全局安装的express模块</p>
+<p>npm uninstall express  #删除指定的模块</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/npm/npm/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/npm//" class="article-tag-list-link color4">npm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/npm/npm/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/markdown/Markdown基础语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" target="_blank">Markdown基础语法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+<p>相比WYSIWYG编辑器</p>
+<p><strong>优点：</strong><br> 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br> 2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</p>
+<p><strong>缺点：</strong><br> 1、需要记一些语法（当然，是很简单。五分钟学会）。<br> 2、有些平台不支持Markdown编辑模式。</p>
+<p>还好，简书是支持Markdown编辑模式的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开启方式：设置-&gt;默认编辑器-&gt;Markdown编辑器</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/markdown//" class="article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/linux/安装pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" target="_blank">pm2 进程管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="pm2安装"><a href="#pm2安装" class="headerlink" title="pm2安装"></a>pm2安装</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、全局安装</span><br><span class="line"></span><br><span class="line"> npm install pm2 -g</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、创建软连接</span><br><span class="line"></span><br><span class="line">ln -s /node-v12/bin/pm2  /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看进程</span><br><span class="line"></span><br><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/pm2.png"></p>
+<p>[注意]创建软连接的源文件路径可以在安装时找到    如上图  /node-v12/bin/pm2</p>
+</blockquote>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pm2</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/npm/yarn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/npm/yarn/" target="_blank">npm常用命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/npm/yarn/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//vecode中yarn命令报</span><br><span class="line">yarn : 无法加载文件 C:\Users\Admin\AppData\Roaming\npm\yarn.ps1,因为在此系统因为在此系统上禁止运行脚本。</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">以管理员身份运行vscode;</span><br><span class="line">执行：get-ExecutionPolicy，显示Restricted，表示状态是禁止的;</span><br><span class="line">执行：set-ExecutionPolicy RemoteSigned;</span><br><span class="line">这时再执行get-ExecutionPolicy，就显示RemoteSigned;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yarn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/npm//" class="article-tag-list-link color4">npm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/npm/yarn/">展开全文 >></a>
     </p>
     
 
@@ -1418,15 +1420,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,19 +1428,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1462,7 +1448,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1470,7 +1476,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,7 +1488,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,27 +1516,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,15 +1524,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1538,11 +1544,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,7 +1560,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,19 +1568,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">

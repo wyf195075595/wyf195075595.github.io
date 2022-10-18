@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221013154058106.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221018082705146.png">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2022-10-18T00:55:17.496Z">
+<meta property="article:modified_time" content="2022-10-18T02:30:06.014Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -283,7 +283,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">18.4k字</span>
+      <span class="post-count">19.2k字</span>
     </span>
   </span>
 
@@ -292,7 +292,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">72分</span>
+      <span class="post-count">76分</span>
     </span>
   </span>
 </div>
@@ -454,7 +454,7 @@
 <p><strong>替换元素</strong></p>
 <blockquote>
 <p>什么是替换元素？</p>
-<p>通过修改某个属性值呈现的内容就可以被替换的元素就称为“替换元素”。因此，<img>、<object>、<video>、<iframe>或者表单元素<textarea>和<input>都是典型的替换元素。</p>
+<p>通过修改某个属性值呈现的内容就可以被替换的元素就称为“替换元素”。因此，<strong>img</strong>、<strong>替换元素</strong>、<strong>video</strong>、<strong>iframe</strong>或者表单元素<strong>textarea</strong>和<strong>input</strong>都是典型的替换元素。</p>
 </blockquote>
 <p>特性：</p>
 <ol>
@@ -470,7 +470,7 @@
 <p> 例如，图片、视频作为一个独立文件存在的时候，都是有着自己的宽度和高度的</p>
 </li>
 <li><p>HTML尺寸这个概念略微抽象 （简单来说就是标签自带的width,hieght等属性）</p>
-<p> 我们不妨将其想象成水煮蛋里面的那一层白色的膜，里面是“固有尺寸”这个蛋黄蛋白，外面是“CSS尺寸”这个蛋壳。“HTML尺寸”只能通过HTML原生属性改变，这些HTML原生属性包括<img>的width和height属性、<input>的size属性、<textarea>的cols和rows属性等。</p>
+<p> 我们不妨将其想象成水煮蛋里面的那一层白色的膜，里面是“固有尺寸”这个蛋黄蛋白，外面是“CSS尺寸”这个蛋壳。“HTML尺寸”只能通过HTML原生属性改变，这些HTML原生属性包括<strong>img</strong>的width和height属性、<strong>input</strong>的size属性、<strong>textarea</strong>的cols和rows属性等。</p>
 </li>
 <li><p>CSS尺寸</p>
 <p> 特指可以通过CSS的width和height或者max-width/min-width和max-height/min-height设置的尺寸，对应盒尺寸中的content box。</p>
@@ -483,14 +483,14 @@
 <p>替换元素具有固定的宽高比例，所以如果只设置宽/高， 另一个属性会俺比例自动计算</p>
 </blockquote>
 <blockquote>
-<p>如果任何尺寸都没有，则元素应该是300像素×150像素，这条规则<video>、<canvas>和<iframe>这些元素都符合，唯独图片例外。</p>
+<p>如果任何尺寸都没有，则元素应该是300像素×150像素，这条规则 <strong>video</strong>、<strong>canvas</strong>和<strong>iframe</strong>这些元素都符合，唯独图片例外。</p>
 <p>结果不仅不是这个尺寸，而且各个浏览器下的尺寸还不一样。IE浏览器下是28×30，如图4-2所示。Chrome浏览器下是0×0，如图4-3所示。Firefox浏览器下显示的是0×22</p>
 </blockquote>
 <blockquote>
 <p>关于图片的src 属性：除非没有 src 属性，否则不管是空值还是其他值，很多浏览器下还是会发送请求</p>
 </blockquote>
 <blockquote>
-<p>对于Firefox浏览器，src默认的<img>不是替换元素，而是一个普通的内联元素，所以使用的就不是替换元素的尺寸规则，而是类似<span>的内联元素尺寸规则，宽高会无效</p>
+<p>对于Firefox浏览器，src默认的<strong>img</strong>不是替换元素，而是一个普通的内联元素，所以使用的就不是替换元素的尺寸规则，而是类似<strong>span</strong>的内联元素尺寸规则，宽高会无效</p>
 <p>修复需设置</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123; <span class="attribute">display</span>: inline-block; &#125;</span><br></pre></td></tr></table></figure>
 
@@ -873,7 +873,7 @@
 </blockquote>
 <p><strong>vertical-align 作用的前提</strong></p>
 <p>有时候我们想设置 vertical-align 但是却不生效，为啥？</p>
-<p>因为vertical-align起作用是有前提条件的，这个前提条件就是：<strong>只能应用于内联元素以及display值为table-cell的元素。</strong>换句话说，vertical-align属性只能作用在display计算值为inline、inline-block, inline-table或table-cell的元素上。因此，默认情况下，<span>、<strong>、<em>等内联元素，<img>、<button>、<input>等替换元素，非HTML规范的自定义标签元素，以及<td>单元格，都是支持vertical-align属性的，其他块级元素则不支持。</p>
+<p>因为vertical-align起作用是有前提条件的，这个前提条件就是：<strong>只能应用于内联元素以及display值为table-cell的元素。</strong>换句话说，vertical-align属性只能作用在display计算值为inline、inline-block, inline-table或table-cell的元素上。因此，默认情况下，<strong>span</strong>、<strong>strong</strong>、<strong>em</strong>等内联元素，<strong>img</strong>、<strong>button</strong>、<strong>input</strong>等替换元素，非HTML规范的自定义标签元素，以及<td>单元格，都是支持vertical-align属性的，其他块级元素则不支持。</p>
 <blockquote>
 <p>如果设置了元素 浮动，定位 会让元素块状化。然后导致vertical-align不起作用</p>
 </blockquote>
@@ -962,7 +962,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">右边新增一个a标签</span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>标题<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#&quot;</span>&gt;</span>更多<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"></span><br><span class="line">a 标签设置 float: right;</span><br><span class="line"></span><br><span class="line">当标题文字出现换行时，更多 显示的位置？</span><br><span class="line">IE6/7中浮动元素会在第二行显示，IE8以上的浏览器会显示在第一行</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>在CSS世界中，float元素的“浮动参考”是“行框盒子”，也就是float元素在当前“行框盒子”内定位</p>
-<p>每一行内联元素都有一个“行框盒子”，这个例子中标题文字比较多，两行显示了，因此有上下两个“行框盒子”，而“更多”所在的<a>元素是在标题文字后面，位于第二行，因此，这里设置了float:right的<a>元素是相对于第二行的“行框盒子”对齐的。</p>
+<p>每一行内联元素都有一个“行框盒子”，这个例子中标题文字比较多，两行显示了，因此有上下两个“行框盒子”，而“更多”所在的<strong>a</strong>元素是在标题文字后面，位于第二行，因此，这里设置了float:right的<strong>a</strong>元素是相对于第二行的“行框盒子”对齐的。</p>
 <p>那如果标题文字刚好够两行，那么 <strong>更多</strong>显示的位置是？</p>
 <p>会单独展示在第三行？</p>
 <p><strong><a target="_blank" rel="noopener" href="http://demo.cssworld.cn/6/1-2.php">利用float 破坏流特性的两栏自适应布局</a></strong></p>
@@ -1137,8 +1137,8 @@
 
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.follow</span> &#123;</span><br><span class="line">    posotion: absolute;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.nav</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">40px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#333</span>;</span><br><span class="line">    <span class="attribute">color</span>: white;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">float</span>: left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>结果在IE和Chrome浏览器下，夹在中间的<img>在中间显示，但是Firefox浏览器却是在最后显示</p>
-<p>对于上述场景，如果希望各个浏览器的表现都是一样的，<img>外层嵌套一层标签并浮动即可，注意，是外层标签浮动。由于浮动和绝对定位水火不容，本身设置浮动是没有任何效果的。</p>
+<p>结果在IE和Chrome浏览器下，夹在中间的<strong>img</strong>在中间显示，但是Firefox浏览器却是在最后显示</p>
+<p>对于上述场景，如果希望各个浏览器的表现都是一样的，<strong>img</strong>外层嵌套一层标签并浮动即可，注意，是外层标签浮动。由于浮动和绝对定位水火不容，本身设置浮动是没有任何效果的。</p>
 <hr>
 <p><strong>absolute与text-align</strong></p>
 <p>按道理讲，absolute 与 float 一样，都可以让元素块状化，应该不会受到内联元素对齐的text-align属性的影响。但 <a target="_blank" rel="noopener" href="http://demo.cssworld.cn/6/5-8.php">text-align 可以改变absolute元素位置</a></p>
@@ -1326,6 +1326,38 @@
 
 <p>此时 父级z-index 层级为0，创建层叠上下文。比较父级层级，相同，后来居上，背景在上</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:relative; z-index:0;&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 美女 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position:absolute; z-index:2;&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position:relative; z-index:0;&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 美景 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;2.jpg&quot;</span> <span class="attr">style</span>=<span class="string">&quot;position:relative; z-index:1;&quot;</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Chrome等WebKit内核浏览器下，position:fixed元素天然层叠上下文元素，无须z-index为数值。根据我的测试，目前IE和Firefox仍是老套路。</p>
+</blockquote>
+<h4 id="css3与新时代的层叠上下文"><a href="#css3与新时代的层叠上下文" class="headerlink" title="css3与新时代的层叠上下文"></a>css3与新时代的层叠上下文</h4><p>（1）元素为flex布局元素（父元素display:flex|inline-flex），同时z-index值不是auto。</p>
+<p>（2）元素的opacity值不是1。</p>
+<p>（3）元素的transform值不是none。</p>
+<p>（4）元素mix-blend-mode值不是normal。</p>
+<p>（5）元素的filter值不是none。</p>
+<p>（6）元素的isolation值是isolate。</p>
+<p>（7）元素的will-change属性值为上面2～6的任意一个（如will-change:opacitg、will-chang:transform等）。</p>
+<p>（8）元素的-webkit-overflow-scrolling设为touch。</p>
+<h4 id="层叠上下文与层叠顺序"><a href="#层叠上下文与层叠顺序" class="headerlink" title="层叠上下文与层叠顺序"></a>层叠上下文与层叠顺序</h4><p>普通元素具有了层叠上下文，其层叠顺序就会不见高，那它的层叠顺序究竟在哪个位置、哪个级别呢？</p>
+<p>这里需要分两种情况讨论：</p>
+<p>（1）如果层叠上下文元素不依赖z-index数值，则其层叠顺序是z-index:auto，可看成z:index:0级别；</p>
+<p>（2）如果层叠上下文元素依赖z-index数值，则其层叠顺序由z-index值决定。</p>
+<blockquote>
+<p>元素一旦成为定位元素，其z-index就会自动生效，此时其z-index就是默认的auto，也就是0级别，根据上面的层叠顺序表，就会覆盖inline或block或float元素。而不支持z-index的层叠上下文元素天然是z-index:auto级别，也就意味着，层叠上下文元素和定位元素是一个层叠顺序的，于是当它们发生层叠的时候，遵循的是“后来居上”准则。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://demo.cssworld.cn/7/5-1.php">图片淡出，文字跑到图片后面</a></p>
+<ul>
+<li><h5 id="HTML：-10"><a href="#HTML：-10" class="headerlink" title="HTML："></a>HTML：</h5>  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span>&gt;</span>               </span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;text&quot;</span>&gt;</span>只有图片淡出，文案一直100%透明<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">&quot;fade&quot;</span> <span class="attr">src</span>=<span class="string">&quot;1.jpg&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><h5 id="CSS：-9"><a href="#CSS：-9" class="headerlink" title="CSS："></a>CSS：</h5>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@keyframes</span> fadeIn &#123;</span><br><span class="line">  <span class="number">0%</span> &#123; <span class="attribute">opacity</span>: <span class="number">0</span>; &#125;</span><br><span class="line">  <span class="number">100%</span> &#123; <span class="attribute">opacity</span>: <span class="number">1</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">256px</span>; <span class="attribute">height</span>: <span class="number">192px</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.text</span> &#123;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">position</span>: absolute; <span class="attribute">left</span>: <span class="number">0</span>; <span class="attribute">right</span>: <span class="number">0</span>; <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,.<span class="number">5</span>);</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade</span> &#123;</span><br><span class="line">  <span class="attribute">animation</span>: fadeIn <span class="number">2s</span> <span class="number">2s</span> infinite; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>opacity的值不是1的时候，是具有层叠上下文的，层叠顺序是z-index:auto级别，跟没有z-index值的absolute绝对定位元素是平起平坐的。而本实例中的文字元素在图片元素的前面，于是，只要CSS3动画不是最终一瞬间的opacity:1，位于DOM流后面的图片就会遵循“后来居上”准则而覆盖文字。</p>
+<p>知道原因，想要解决这个问题就很简单了：</p>
+<p>（1）调整DOM流的先后顺序；</p>
+<p>（2）提高文字的层叠顺序，例如，设置z-index:1。</p>
+<h4 id="z-index-的负值"><a href="#z-index-的负值" class="headerlink" title="z-index 的负值"></a>z-index 的负值</h4><blockquote>
+<p>一开始的时候，以为一个定位元素设置z-index负值，就会跑到页面的背后，隐藏掉，看不到了。结果实际上是有时候确实隐藏了，但有时候又隐藏不掉。为什么会这样？</p>
+</blockquote>
+
     
 
     
@@ -1443,18 +1475,18 @@
 
 <nav id="article-nav">
   
-    <a href="/wyf195075595.github.io.git/2022/06/17/programming/htmlcss/css/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/wyf195075595.github.io.git/2022/06/17/programming/htmlcss/%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BDjson%E6%95%B0%E6%8D%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          CSS
+          如何在页面下载json数据
         
       </div>
     </a>
   
   
-    <a href="/wyf195075595.github.io.git/2022/06/17/programming/htmlcss/%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BDjson%E6%95%B0%E6%8D%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">如何在页面下载json数据</div>
+    <a href="/wyf195075595.github.io.git/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">koa 基础语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -1795,6 +1827,86 @@ HTML：比较图片层级谁大谁先上，结果图片在上
     &lt;!-- 美景 --&gt;
     &lt;img src&#x3D;&quot;2.jpg&quot; style&#x3D;&quot;position:relative; z-index:1;&quot;&gt;  
 &lt;&#x2F;div&gt;
+
+
+
+Chrome等WebKit内核浏览器下，position:fixed元素天然层叠上下文元素，无须z-index为数值。根据我的测试，目前IE和Firefox仍是老套路。
+
+css3与新时代的层叠上下文（1）元素为flex布局元素（父元素display:flex|inline-flex），同时z-index值不是auto。
+（2）元素的opacity值不是1。
+（3）元素的transform值不是none。
+（4）元素mix-blend-mode值不是normal。
+（5）元素的filter值不是none。
+（6）元素的isolation值是isolate。
+（7）元素的will-change属性值为上面2～6的任意一个（如will-change:opacitg、will-chang:transform等）。
+（8）元素的-webkit-overflow-scrolling设为touch。
+层叠上下文与层叠顺序普通元素具有了层叠上下文，其层叠顺序就会不见高，那它的层叠顺序究竟在哪个位置、哪个级别呢？
+这里需要分两种情况讨论：
+（1）如果层叠上下文元素不依赖z-index数值，则其层叠顺序是z-index:auto，可看成z:index:0级别；
+（2）如果层叠上下文元素依赖z-index数值，则其层叠顺序由z-index值决定。
+
+元素一旦成为定位元素，其z-index就会自动生效，此时其z-index就是默认的auto，也就是0级别，根据上面的层叠顺序表，就会覆盖inline或block或float元素。而不支持z-index的层叠上下文元素天然是z-index:auto级别，也就意味着，层叠上下文元素和定位元素是一个层叠顺序的，于是当它们发生层叠的时候，遵循的是“后来居上”准则。
+
+图片淡出，文字跑到图片后面
+
+HTML：  1
+2
+3
+4
+&lt;div class&#x3D;&quot;box&quot;&gt;               
+    &lt;span class&#x3D;&quot;text&quot;&gt;只有图片淡出，文案一直100%透明&lt;&#x2F;span&gt;
+    &lt;img class&#x3D;&quot;fade&quot; src&#x3D;&quot;1.jpg&quot;&gt;
+&lt;&#x2F;div&gt;
+
+CSS：  1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.box {
+  width: 256px; height: 192px;
+  position: relative;
+}
+.text {
+  line-height: 30px;
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+.fade {
+  animation: fadeIn 2s 2s infinite; 
+}
+
+
+opacity的值不是1的时候，是具有层叠上下文的，层叠顺序是z-index:auto级别，跟没有z-index值的absolute绝对定位元素是平起平坐的。而本实例中的文字元素在图片元素的前面，于是，只要CSS3动画不是最终一瞬间的opacity:1，位于DOM流后面的图片就会遵循“后来居上”准则而覆盖文字。
+知道原因，想要解决这个问题就很简单了：
+（1）调整DOM流的先后顺序；
+（2）提高文字的层叠顺序，例如，设置z-index:1。
+z-index 的负值
+一开始的时候，以为一个定位元素设置z-index负值，就会跑到页面的背后，隐藏掉，看不到了。结果实际上是有时候确实隐藏了，但有时候又隐藏不掉。为什么会这样？
+
 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number"></span> <span class="toc-text">标签中的“CSS世界”这几个文字，通常有以下一些技术选型。
 
 下策是display:none或者visibility:hidden隐藏，因为屏幕阅读设备会忽略这里的文字。
@@ -2096,7 +2208,87 @@ HTML：比较图片层级谁大谁先上，结果图片在上
     &lt;!-- 美景 --&gt;
     &lt;img src&#x3D;&quot;2.jpg&quot; style&#x3D;&quot;position:relative; z-index:1;&quot;&gt;  
 &lt;&#x2F;div&gt;
-</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#absolute%E7%9A%84%E6%B5%81%E4%BD%93%E7%89%B9%E6%80%A7"><span class="toc-number">0.1.</span> <span class="toc-text">absolute的流体特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-relative"><span class="toc-number">0.2.</span> <span class="toc-text">position:relative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-fixed%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-number">0.3.</span> <span class="toc-text">position:fixed固定定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E4%B8%96%E7%95%8C%E7%9A%84%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">CSS世界的层叠规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#z-index%E5%8F%AA%E6%98%AFCSS%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99%E4%B8%AD%E7%9A%84%E4%B8%80%E5%8F%B6%E5%B0%8F%E8%88%9F"><span class="toc-number">1.1.</span> <span class="toc-text">z-index只是CSS层叠规则中的一叶小舟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3CSS%E4%B8%96%E7%95%8C%E7%9A%84%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E5%B1%82%E5%8F%A0%E6%B0%B4%E5%B9%B3%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">理解CSS世界的层叠上下文和层叠水平（概念）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%EF%BC%88%E8%A7%84%E5%88%99%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">理解元素的层叠顺序（规则）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">层叠上下文的特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.5.</span> <span class="toc-text">层叠上下文的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.</span> <span class="toc-text">根层叠上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E4%B8%8E%E4%BC%A0%E7%BB%9F%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.7.</span> <span class="toc-text">定位元素与传统层叠上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML%EF%BC%9A-9"><span class="toc-number">1.7.1.</span> <span class="toc-text">HTML：</span></a></li></ol></li></ol></li></ol>
+
+
+
+Chrome等WebKit内核浏览器下，position:fixed元素天然层叠上下文元素，无须z-index为数值。根据我的测试，目前IE和Firefox仍是老套路。
+
+css3与新时代的层叠上下文（1）元素为flex布局元素（父元素display:flex|inline-flex），同时z-index值不是auto。
+（2）元素的opacity值不是1。
+（3）元素的transform值不是none。
+（4）元素mix-blend-mode值不是normal。
+（5）元素的filter值不是none。
+（6）元素的isolation值是isolate。
+（7）元素的will-change属性值为上面2～6的任意一个（如will-change:opacitg、will-chang:transform等）。
+（8）元素的-webkit-overflow-scrolling设为touch。
+层叠上下文与层叠顺序普通元素具有了层叠上下文，其层叠顺序就会不见高，那它的层叠顺序究竟在哪个位置、哪个级别呢？
+这里需要分两种情况讨论：
+（1）如果层叠上下文元素不依赖z-index数值，则其层叠顺序是z-index:auto，可看成z:index:0级别；
+（2）如果层叠上下文元素依赖z-index数值，则其层叠顺序由z-index值决定。
+
+元素一旦成为定位元素，其z-index就会自动生效，此时其z-index就是默认的auto，也就是0级别，根据上面的层叠顺序表，就会覆盖inline或block或float元素。而不支持z-index的层叠上下文元素天然是z-index:auto级别，也就意味着，层叠上下文元素和定位元素是一个层叠顺序的，于是当它们发生层叠的时候，遵循的是“后来居上”准则。
+
+图片淡出，文字跑到图片后面
+
+HTML：  1
+2
+3
+4
+&lt;div class&#x3D;&quot;box&quot;&gt;               
+    &lt;span class&#x3D;&quot;text&quot;&gt;只有图片淡出，文案一直100%透明&lt;&#x2F;span&gt;
+    &lt;img class&#x3D;&quot;fade&quot; src&#x3D;&quot;1.jpg&quot;&gt;
+&lt;&#x2F;div&gt;
+
+CSS：  1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.box {
+  width: 256px; height: 192px;
+  position: relative;
+}
+.text {
+  line-height: 30px;
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,.5);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+.fade {
+  animation: fadeIn 2s 2s infinite; 
+}
+
+
+opacity的值不是1的时候，是具有层叠上下文的，层叠顺序是z-index:auto级别，跟没有z-index值的absolute绝对定位元素是平起平坐的。而本实例中的文字元素在图片元素的前面，于是，只要CSS3动画不是最终一瞬间的opacity:1，位于DOM流后面的图片就会遵循“后来居上”准则而覆盖文字。
+知道原因，想要解决这个问题就很简单了：
+（1）调整DOM流的先后顺序；
+（2）提高文字的层叠顺序，例如，设置z-index:1。
+z-index 的负值
+一开始的时候，以为一个定位元素设置z-index负值，就会跑到页面的背后，隐藏掉，看不到了。结果实际上是有时候确实隐藏了，但有时候又隐藏不掉。为什么会这样？
+
+</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#absolute%E7%9A%84%E6%B5%81%E4%BD%93%E7%89%B9%E6%80%A7"><span class="toc-number">0.1.</span> <span class="toc-text">absolute的流体特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-relative"><span class="toc-number">0.2.</span> <span class="toc-text">position:relative</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#position-fixed%E5%9B%BA%E5%AE%9A%E5%AE%9A%E4%BD%8D"><span class="toc-number">0.3.</span> <span class="toc-text">position:fixed固定定位</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS%E4%B8%96%E7%95%8C%E7%9A%84%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99"><span class="toc-number">1.</span> <span class="toc-text">CSS世界的层叠规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#z-index%E5%8F%AA%E6%98%AFCSS%E5%B1%82%E5%8F%A0%E8%A7%84%E5%88%99%E4%B8%AD%E7%9A%84%E4%B8%80%E5%8F%B6%E5%B0%8F%E8%88%9F"><span class="toc-number">1.1.</span> <span class="toc-text">z-index只是CSS层叠规则中的一叶小舟</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3CSS%E4%B8%96%E7%95%8C%E7%9A%84%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C%E5%B1%82%E5%8F%A0%E6%B0%B4%E5%B9%B3%EF%BC%88%E6%A6%82%E5%BF%B5%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">理解CSS世界的层叠上下文和层叠水平（概念）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E5%85%83%E7%B4%A0%E7%9A%84%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F%EF%BC%88%E8%A7%84%E5%88%99%EF%BC%89"><span class="toc-number">1.3.</span> <span class="toc-text">理解元素的层叠顺序（规则）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">层叠上下文的特性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">1.5.</span> <span class="toc-text">层叠上下文的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.6.</span> <span class="toc-text">根层叠上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E5%85%83%E7%B4%A0%E4%B8%8E%E4%BC%A0%E7%BB%9F%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.7.</span> <span class="toc-text">定位元素与传统层叠上下文</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML%EF%BC%9A-9"><span class="toc-number">1.7.1.</span> <span class="toc-text">HTML：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#css3%E4%B8%8E%E6%96%B0%E6%97%B6%E4%BB%A3%E7%9A%84%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">1.8.</span> <span class="toc-text">css3与新时代的层叠上下文</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E5%B1%82%E5%8F%A0%E9%A1%BA%E5%BA%8F"><span class="toc-number">1.9.</span> <span class="toc-text">层叠上下文与层叠顺序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#HTML%EF%BC%9A-10"><span class="toc-number">1.9.1.</span> <span class="toc-text">HTML：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#CSS%EF%BC%9A-9"><span class="toc-number">1.9.2.</span> <span class="toc-text">CSS：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#z-index-%E7%9A%84%E8%B4%9F%E5%80%BC"><span class="toc-number">1.10.</span> <span class="toc-text">z-index 的负值</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -2258,15 +2450,7 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2274,19 +2458,11 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2302,7 +2478,27 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2310,7 +2506,7 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2322,7 +2518,23 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2334,27 +2546,7 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2362,15 +2554,19 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2378,11 +2574,11 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2394,7 +2590,7 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2402,19 +2598,15 @@ HTML：比较图片层级谁大谁先上，结果图片在上
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
