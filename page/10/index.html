@@ -349,7 +349,7 @@
 
 
   
-    <article id="post-programming/jsplugin/uuid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/jsplugin/openlayers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -357,7 +357,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/uuid/" target="_blank">UUID</a>
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/openlayers/" target="_blank">OpenLayers</a>
   
     </h1>
   
@@ -365,7 +365,7 @@
 
   
   
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/uuid/" class="archive-article-date">
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/openlayers/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -379,20 +379,12 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写，是一种软件建构的标准，亦为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A/1223731">开放软件基金会</a>组织在分布式计算环境领域的一部分。其目的，是让<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。如此一来，每个人都可以创建不与其它人冲突的UUID。在这样的情况下，就不需考虑<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>创建时的名称重复问题。最广泛应用的UUID，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF%E5%85%AC%E5%8F%B8/732128">微软公司</a>的全局唯一标识符（GUID），而其他重要的应用，则有Linux ext2/ext3文件系统、LUKS加密分区、GNOME、KDE、Mac OS X等等。另外我们也可以在e2fsprogs包中的UUID库找到实现。</p>
+<p>OpenLayers 5的体系架构可见，可把整个地图看成一个容器（Map），核心为地图图层（Layer）、对应图层的数据源（Source）与矢量图层样式（Style）、与地图表现相关的地图视图（View）.</p>
 </blockquote>
-<p><strong>1. Install</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uuid</span><br></pre></td></tr></table></figure>
-
-<p><strong>2. Create a UUID</strong> (ES6 module syntax)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; v4 as uuidv4 &#125; from &#x27;uuid&#x27;;</span><br><span class="line">uuidv4(); // ⇨ &#x27;9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>… or using CommonJS syntax:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; v4: uuidv4 &#125; = require(&#x27;uuid&#x27;);</span><br><span class="line">uuidv4(); // ⇨ &#x27;1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="API-Summary"><a href="#API-Summary" class="headerlink" title="API Summary"></a>API Summary</h2>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/openLayers.png"></p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、数据组织</span><br><span class="line"></span><br><span class="line">    从表现形态来看，空间数据的矢量数据由点、线、面三类要素构成.</span><br><span class="line">    </span><br><span class="line">    矢量数据的抽象主要由ol.<span class="property">geom</span>.<span class="property">Geometry</span>基类下的几何对象子类实现</span><br><span class="line"></span><br><span class="line">	几何对象子类，即</span><br><span class="line">    -<span class="title class_">Point</span>与<span class="title class_">MultiPoint</span>（点与多点）</span><br><span class="line">	-<span class="title class_">LineString</span>与<span class="title class_">MultiLineString</span>（线与多线）</span><br><span class="line">    -<span class="title class_">Polygon</span>与<span class="title class_">MultiPolygon</span>（区与多区）</span><br><span class="line">    -<span class="title class_">LinearRing</span>（线性环）</span><br><span class="line">	-<span class="title class_">Circle</span>（圆），均继承于<span class="title class_">SimpleGeometry</span>子类</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/uuid/#more">more >></a>
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/openlayers/#more">more >></a>
     
     
 
@@ -430,7 +422,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/uuid/">展开全文 >></a>
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/jsplugin/openlayers/">展开全文 >></a>
     </p>
     
 
@@ -566,305 +558,6 @@
 
 
   
-    <article id="post-programming/react/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">markdown 编辑器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/" target="_blank">react 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="react项目创建"><a href="#react项目创建" class="headerlink" title="react项目创建"></a>react项目创建</h1><h2 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/react/plugin/" target="_blank">react 插件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/react/plugin/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react-loadable"><a href="#react-loadable" class="headerlink" title="react-loadable"></a>react-loadable</h3><p>React 项目打包时，如果不进行异步组件的处理，那么所有页面所需要的 js 都在同一文件中（bundle.js），整个js文件很大，从而导致首屏加载时间过长。</p>
-<hr>
-<p>所有，可以对组件进行异步加载处理，通常可以使用 <code>React-loadable</code>。</p>
-    
-    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/plugin/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/plugin/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/qiankun/子应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -937,106 +630,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/" target="_blank">react 拓展</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react移动端框架"><a href="#react移动端框架" class="headerlink" title="react移动端框架"></a>react移动端框架</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">React</span> 移动端框架</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="title class_">Material</span>-<span class="variable constant_">UI</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="title class_">Semantic</span>-<span class="variable constant_">UI</span>-<span class="title class_">React</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> <span class="title class_">Ant</span> <span class="title class_">Design</span> <span class="title class_">Mobile</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> <span class="title class_">Onsen</span> <span class="variable constant_">UI</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> react <span class="title class_">Native</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">React</span> 小程序</span><br><span class="line"><span class="number">1</span>、<span class="title class_">Taro</span> </span><br></pre></td></tr></table></figure>
-
-<p>小程序</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/article/doc/000eaadb944de06374485c3ed51813">https://developers.weixin.qq.com/community/develop/article/doc/000eaadb944de06374485c3ed51813</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/wyf195075595.github.io.git/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/">展开全文 >></a>
     </p>
     
 
@@ -1272,6 +865,439 @@
 
 
   
+    <article id="post-programming/vue/vitevue3项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" target="_blank">vite + vue3 + tailwindcss</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>中前台项目 开发</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="开发使用到的技术及开发插件"><a href="#开发使用到的技术及开发插件" class="headerlink" title="开发使用到的技术及开发插件"></a>开发使用到的技术及开发插件</h2><h3 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h3><blockquote>
+<p>以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发</p>
+</blockquote>
+<h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><blockquote>
+<p>vue 最新版，搭配 vite 使用更佳</p>
+</blockquote>
+<h3 id="tailwindcss"><a href="#tailwindcss" class="headerlink" title="tailwindcss"></a>tailwindcss</h3><blockquote>
+<p>前端 css 四种模式</p>
+<ol>
+<li>行内样式，自由度极高但复用性极差</li>
+<li>通用组件库，风格固定，自定义性差</li>
+<li>原子样式， tailwindcss 众多类名，每个类名都对应一个 css 样式，类似于boostrap</li>
+<li>经典模式， class 类名方式，但是媒体查询需要重写</li>
+</ol>
+</blockquote>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add tailwindcss postcss@8.4.8 autoprefixer@10.4.2 -D</span><br></pre></td></tr></table></figure>
+
+<p>报错缺少依赖 sass</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add sass -D</span><br></pre></td></tr></table></figure>
+
+<p>生成配置文件 tailwind.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init -p</span><br></pre></td></tr></table></figure>
+
+<p>配置文件 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    purge: [&#x27;./index.html&#x27;, &#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;],</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/基础语法2.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" target="_blank">vue 2.0 基础知识</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="http://cn.vuejs.org/images/mvvm.png?_=5619070" alt="这里写图片描述"></p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>v-once：执行一次性地插值，当数据改变时，插值处的内容不会更新</p>
+<p>v-html：双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html</p>
+<p>v-text:更新元素的 <code>textContent</code>。如果要更新部分的 <code>textContent</code>，需要使用 <code>&#123;&#123; Mustache &#125;&#125;</code> 插值</p>
+<p>v-pre:跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译</p>
+<p>v-cloak:这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 <code>[v-cloak] &#123; display: none &#125;</code> 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[v-cloak]</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    计算属性是一个属性不需要函数调用方式进行使用，简写的默认为get方法，一般计算属性没有set方法，只读属性。</p>
+<p>计算属性会进行缓存，多次使用计算属性之后调用一次</p>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/基础语法3.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" target="_blank">vue 3.0 基础知识</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="js组合式api"><a href="#js组合式api" class="headerlink" title="js组合式api"></a>js组合式api</h3>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/手写组件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E6%89%8B%E5%86%99%E7%BB%84%E4%BB%B6/" target="_blank">vue 多选月份组件</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E6%89%8B%E5%86%99%E7%BB%84%E4%BB%B6/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>📅多选月份</p>
+    
+    <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E6%89%8B%E5%86%99%E7%BB%84%E4%BB%B6/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">组件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/wyf195075595.github.io.git/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/wyf195075595.github.io.git/2022/06/17/programming/vue/%E6%89%8B%E5%86%99%E7%BB%84%E4%BB%B6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/wyf195075595.github.io.git/page/9/">« Prev</a><a class="page-number" href="/wyf195075595.github.io.git/">1</a><span class="space">&hellip;</span><a class="page-number" href="/wyf195075595.github.io.git/page/8/">8</a><a class="page-number" href="/wyf195075595.github.io.git/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/wyf195075595.github.io.git/page/11/">11</a><a class="page-number" href="/wyf195075595.github.io.git/page/12/">12</a><a class="extend next" rel="next" href="/wyf195075595.github.io.git/page/11/">Next »</a>
@@ -1409,19 +1435,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1437,15 +1463,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,11 +1475,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1465,15 +1487,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1481,7 +1495,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1489,11 +1507,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1501,15 +1519,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1517,7 +1531,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1529,18 +1563,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1549,11 +1571,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,6 +1584,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
