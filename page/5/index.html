@@ -246,104 +246,6 @@
             
 
   
-    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Nodejs-主流框架"><a href="#Nodejs-主流框架" class="headerlink" title="Nodejs 主流框架"></a>Nodejs 主流框架</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Express</span></span><br><span class="line"><span class="title class_">Node</span>界最老牌的<span class="title class_">Web</span>框架，最成熟，生态最好。提供了基础的请求上下文封装，路由，中间件，模板引擎接口，静态资源服务。麻雀虽小，五脏俱全。很方便的进行扩展，大量的基于<span class="title class_">Express</span>的框架。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="title class_">Koa</span></span><br><span class="line"><span class="title class_">Express</span>原班人马打造，定义为下一代<span class="title class_">Web</span>开发框架。仅提供一个请求上下文，中间件机制，没有捆绑任何中间件。通过利用<span class="keyword">async</span>/<span class="keyword">await</span>，让你写出更优雅的代码。方便开发者针对自身需求开发自定义框架。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、egg</span><br><span class="line">eggjs是由阿里推出的一款web企业级框架，提供了完整的<span class="title class_">Web</span>开发所需的组件，使用koa作为底层。使用了约定大于配置的理念，提供强大的插件机制，方便扩展。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">NestJs</span></span><br><span class="line"><span class="title class_">NestJs</span>的主要卖点是<span class="title class_">TypeScript</span>的完全支持。大量的使用装饰器，代码看起来清爽多了。orm采用<span class="title class_">TypeORM</span>，使用类型加装饰器，代码比一般的orm整洁得多。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、<span class="title class_">Fastify</span></span><br><span class="line"><span class="title class_">Fastify</span>号称是最快的<span class="title class_">Nodejs</span> web框架，在<span class="title class_">Json</span>输出的场景下，通过<span class="title class_">Json</span> <span class="title class_">Schema</span>序列化为<span class="title class_">Json</span>数据，可以达到原生<span class="title class_">JSON</span>.<span class="property">stringify</span> <span class="number">2</span>倍的性能，在极端情况下可达到<span class="number">10</span>倍速。采用对象池，将请求上下文包装对象进行复用。使用trie树存储路由，查找效率更高（在大量有路由的情况下）。<span class="title class_">Fastify</span>提供了强大的插件机制，通过插件可以分割路由及中间件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">地址：</span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/</span></span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/charts.html?package=koa&amp;from=2021-01-01&amp;to=2022-04-27</span></span><br><span class="line"></span><br><span class="line">包下载量查询 <span class="number">2021</span>-<span class="number">01</span>-<span class="number">01</span> - <span class="number">2022</span>-<span class="number">04</span>-<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Express</span>	<span class="number">1</span>,<span class="number">258</span>,<span class="number">568</span>,<span class="number">282</span></span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">69</span>,<span class="number">468</span>,<span class="number">698</span></span><br><span class="line">egg	<span class="number">2</span>,<span class="number">177</span>,<span class="number">325</span></span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">160</span>,<span class="number">925</span></span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">19</span>,<span class="number">580</span>,<span class="number">835</span></span><br><span class="line"></span><br><span class="line">github星数</span><br><span class="line"></span><br><span class="line">xpress	<span class="number">87.</span>1k</span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">32.</span>5k</span><br><span class="line">egg	<span class="number">17.</span>9k</span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">46.</span>5k</span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">22.</span>8k</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/node/node编程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -443,7 +345,7 @@
 
 
   
-    <article id="post-programming/npm/yarn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/node/命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -451,7 +353,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/npm/yarn/" target="_blank">npm常用命令</a>
+	  <a class="article-title" href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/" target="_blank">node 升级命令</a>
   
     </h1>
   
@@ -459,7 +361,7 @@
 
   
   
-<a href="/2022/06/17/programming/npm/yarn/" class="archive-article-date">
+<a href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -472,8 +374,33 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//vecode中yarn命令报</span><br><span class="line">yarn : 无法加载文件 C:\Users\Admin\AppData\Roaming\npm\yarn.ps1,因为在此系统因为在此系统上禁止运行脚本。</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">以管理员身份运行vscode;</span><br><span class="line">执行：get-ExecutionPolicy，显示Restricted，表示状态是禁止的;</span><br><span class="line">执行：set-ExecutionPolicy RemoteSigned;</span><br><span class="line">这时再执行get-ExecutionPolicy，就显示RemoteSigned;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <p>// 版本查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 
+<p>// 如果上面查看的版本比较低，则可以开始升级</p>
+<p>// 清除 npm cache</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<p>//升级之前还需要安装n模块，n模块是专门用来管理nodejs的版本</p>
+<p>输入npm install -g n</p>
+<p>// 如果上边命令报错，则使用下边这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g n --force</span><br></pre></td></tr></table></figure>
+
+<p>//升级<br>还可以直接输入n stable，升级到nodejs最新稳定的版本</p>
+<h3 id="Linux-安装-node"><a href="#Linux-安装-node" class="headerlink" title="Linux 安装 node"></a>Linux 安装 node</h3><p>网上下载安装包，然后上传至服务器，解压</p>
+<h3 id="Linux-添加环境变量"><a href="#Linux-添加环境变量" class="headerlink" title="Linux 添加环境变量"></a>Linux 添加环境变量</h3><ul>
+<li><p>修改profile文件</p>
+<p>打开文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_14782715/5082236">参考文章</a></p>
+</li>
+</ul>
+<h3 id="远程-执行node-脚本-自定义变量找不到"><a href="#远程-执行node-脚本-自定义变量找不到" class="headerlink" title="远程 执行node 脚本,自定义变量找不到"></a>远程 执行node 脚本,自定义变量找不到</h3><p>问题出现就是，xshell 上执行命名 运行一个js文件没有问题，但是通过nodo-ssh远程执行一个js脚本则会出现 Cannot find module xxx，因为脚本中引用了 某个全局的js依赖包，而我在etc/peofile 设置的 全局变量，在这种通过 远程指令 方式下执行会出现读取不到设置的全局变量。</p>
+<p>解决方法，在 etc/bashrc 文件中 再设置一次变量（此方式设置所有用户都能访问），或 用户HOME中的 <strong>.bashrc</strong> 文件中设置变量（此方式只此用户能访问此变量）</p>
 
     
 
@@ -490,7 +417,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yarn</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -502,7 +429,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/npm//" class="article-tag-list-link color4">npm</a>
+        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -511,7 +438,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/npm/yarn/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/">展开全文 >></a>
     </p>
     
 
@@ -541,7 +468,7 @@
 
 
   
-    <article id="post-programming/wechat/index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/python/python-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -549,7 +476,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/wechat/index/" target="_blank">微信小程序拓展</a>
+	  <a class="article-title" href="/2022/06/17/programming/python/python-base/" target="_blank">python基础</a>
   
     </h1>
   
@@ -557,105 +484,7 @@
 
   
   
-<a href="/2022/06/17/programming/wechat/index/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：<span class="title class_">WeUI</span> 小程序–使用教程</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//weui.io/</span></span><br><span class="line"></span><br><span class="line">官方介绍：<span class="title class_">WeUI</span> 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。小程序开发中最常用到的一款框架，受广大开发人员的欢迎。</span><br><span class="line"></span><br><span class="line">[图片上传失败...(image-5dd2d3-<span class="number">1654073247786</span>)]</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：美团小程序框架mpvue</span><br><span class="line"><span class="title class_">Github</span>：<span class="attr">https</span>:<span class="comment">//github.com/Meituan-Dianping/mpvue 官网： http://mpvue.com/</span></span><br><span class="line"></span><br><span class="line">官方介绍：mpvue是一个使用 <span class="title class_">Vue</span>.<span class="property">js</span>开发小程序的前端框架。框架基于 <span class="title class_">Vue</span>.<span class="property">js</span>核心，mpvue修改了 <span class="title class_">Vue</span>.<span class="property">js</span>的 runtime和 compiler实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套<span class="title class_">Vue</span>.<span class="property">js</span>开发体验。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>：组件化开发框架wepy</span><br><span class="line"><span class="title class_">Github</span>地址: <span class="attr">https</span>:<span class="comment">//github.com/Tencent/wepy 官网地址： https://tencent.github.io/wepy</span></span><br><span class="line"></span><br><span class="line">官方介绍：组件化开发，完美解决组件隔离，组件嵌套，组件通信等问题,支持使用第三方 npm 资源，自动处理 npm 资源之间的依赖关系，完美兼容所有无平台依赖的 npm 资源包.</span><br><span class="line"></span><br><span class="line">[图片上传失败...(image-f7e73e-<span class="number">1654073247786</span>)]</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>：官方框架<span class="variable constant_">MINA</span></span><br><span class="line">地址：<span class="attr">https</span>:<span class="comment">//developers.weixin.qq.com/miniprogram/dev/framework/MINA.html</span></span><br><span class="line"></span><br><span class="line">官方介绍：框架提供了自己的视图层描述语言 <span class="variable constant_">WXML</span> 和 <span class="variable constant_">WXSS</span>，以及基于 <span class="title class_">JavaScript</span> 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，可以让开发者可以方便的聚焦于数据与逻辑上。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>：<span class="title class_">Tina</span>.<span class="property">js</span> 一款轻巧的渐进式微信小程序框架</span><br><span class="line"><span class="title class_">Tina</span>.<span class="property">js</span> 开源框架地址： <span class="attr">https</span>:<span class="comment">//github.com/tinajs/tina</span></span><br><span class="line"></span><br><span class="line">官方介绍：是一款轻巧的渐进式微信小程序框架，保留 <span class="variable constant_">MINA</span> (微信小程序官方框架) 的大部分 <span class="variable constant_">API</span> 设计；无论你有无小程序开发经验，都可以轻松过渡上手。</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>：前端框架weweb</span><br><span class="line">地址: <span class="attr">https</span>:<span class="comment">//github.com/wdfe/weweb</span></span><br><span class="line"></span><br><span class="line">官方介绍：weweb是一个兼容小程序语法的前端框架，你可以用小程序的写法，来写web应用。如果你已经有小程序了，通过它你可以将你的小程序运行在浏览器中。</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>：微信<span class="variable constant_">UI</span>组件库 iView <span class="title class_">Weapp</span></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//weapp.iviewui.com/</span></span><br><span class="line"></span><br><span class="line">介绍：iView <span class="title class_">Weapp</span> 提供了与 iView 一致的 <span class="variable constant_">UI</span> 和尽可能相同的接口名称，大幅度降低了学习成本，是一套一套高质量的微信小程序 <span class="variable constant_">UI</span> 组件库。</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>：<span class="title class_">ZanUI</span>-<span class="title class_">WeApp</span> -- 一个颜值高、好用、易扩展的微信小程序 <span class="variable constant_">UI</span> 库</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//cnodejs.org/topic/589d625a5c8036f7019e7a4a</span></span><br><span class="line"></span><br><span class="line">官方介绍：<span class="title class_">ZanUI</span>-<span class="title class_">WeApp</span>结合了微信的视觉规范，为用户提供更加统一的使用感受。 包含 badge、btn、等共计 <span class="number">17</span> 类组件或元素。</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>：uniApp -- 一个多端混合开发的好用的框架，熟悉一个适用性超强</span><br><span class="line">框架地址： <span class="attr">https</span>:<span class="comment">//uniapp.dcloud.io/collocation/pages 文档地址： https://uniapp.dcloud.io/README 相适应的ide：Hbuilder 可以直接使用该ide打包相应所需的端代码 官方介绍：开发一次，覆盖多端</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/wechat/index/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/webpack/架构搭建5.ｘ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/" target="_blank">webpack 配置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/" class="archive-article-date">
+<a href="/2022/06/17/programming/python/python-base/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -669,19 +498,13 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>涉及知识</p>
+<p>通用语言，脚本语言，开源语言，跨平台语言，多模型语言</p>
+<p>2000年 1.0 版本</p>
+<p>2008年 2.0 版本</p>
+<p>3.0系列 不兼容早期的2.0</p>
 </blockquote>
-<ul>
-<li>构建工具：Webpack5.x</li>
-<li>前端框架：Vue 3.x</li>
-<li>路由工具：Vue Router 4.x</li>
-<li>CSS 预编译：Less</li>
-<li>Git Hook 工具：husky</li>
-<li>代码规范：Prettier + Eslint + Airbnb</li>
-<li>自动部署：Github Actions</li>
-</ul>
     
-    <a class="article-more-a" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/python/python-base/#more">more >></a>
     
     
 
@@ -698,7 +521,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
         		</li>
       		
 		</ul>
@@ -710,7 +533,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
         		</li>
       		
 		</ul>
@@ -719,7 +542,303 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/python/python-base/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Nodejs-主流框架"><a href="#Nodejs-主流框架" class="headerlink" title="Nodejs 主流框架"></a>Nodejs 主流框架</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Express</span></span><br><span class="line"><span class="title class_">Node</span>界最老牌的<span class="title class_">Web</span>框架，最成熟，生态最好。提供了基础的请求上下文封装，路由，中间件，模板引擎接口，静态资源服务。麻雀虽小，五脏俱全。很方便的进行扩展，大量的基于<span class="title class_">Express</span>的框架。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="title class_">Koa</span></span><br><span class="line"><span class="title class_">Express</span>原班人马打造，定义为下一代<span class="title class_">Web</span>开发框架。仅提供一个请求上下文，中间件机制，没有捆绑任何中间件。通过利用<span class="keyword">async</span>/<span class="keyword">await</span>，让你写出更优雅的代码。方便开发者针对自身需求开发自定义框架。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、egg</span><br><span class="line">eggjs是由阿里推出的一款web企业级框架，提供了完整的<span class="title class_">Web</span>开发所需的组件，使用koa作为底层。使用了约定大于配置的理念，提供强大的插件机制，方便扩展。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">NestJs</span></span><br><span class="line"><span class="title class_">NestJs</span>的主要卖点是<span class="title class_">TypeScript</span>的完全支持。大量的使用装饰器，代码看起来清爽多了。orm采用<span class="title class_">TypeORM</span>，使用类型加装饰器，代码比一般的orm整洁得多。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、<span class="title class_">Fastify</span></span><br><span class="line"><span class="title class_">Fastify</span>号称是最快的<span class="title class_">Nodejs</span> web框架，在<span class="title class_">Json</span>输出的场景下，通过<span class="title class_">Json</span> <span class="title class_">Schema</span>序列化为<span class="title class_">Json</span>数据，可以达到原生<span class="title class_">JSON</span>.<span class="property">stringify</span> <span class="number">2</span>倍的性能，在极端情况下可达到<span class="number">10</span>倍速。采用对象池，将请求上下文包装对象进行复用。使用trie树存储路由，查找效率更高（在大量有路由的情况下）。<span class="title class_">Fastify</span>提供了强大的插件机制，通过插件可以分割路由及中间件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">地址：</span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/</span></span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/charts.html?package=koa&amp;from=2021-01-01&amp;to=2022-04-27</span></span><br><span class="line"></span><br><span class="line">包下载量查询 <span class="number">2021</span>-<span class="number">01</span>-<span class="number">01</span> - <span class="number">2022</span>-<span class="number">04</span>-<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Express</span>	<span class="number">1</span>,<span class="number">258</span>,<span class="number">568</span>,<span class="number">282</span></span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">69</span>,<span class="number">468</span>,<span class="number">698</span></span><br><span class="line">egg	<span class="number">2</span>,<span class="number">177</span>,<span class="number">325</span></span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">160</span>,<span class="number">925</span></span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">19</span>,<span class="number">580</span>,<span class="number">835</span></span><br><span class="line"></span><br><span class="line">github星数</span><br><span class="line"></span><br><span class="line">xpress	<span class="number">87.</span>1k</span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">32.</span>5k</span><br><span class="line">egg	<span class="number">17.</span>9k</span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">46.</span>5k</span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">22.</span>8k</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/python/爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/" target="_blank">python 爬虫</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="通过网络获取远程对象"><a href="#通过网络获取远程对象" class="headerlink" title="通过网络获取远程对象"></a>通过网络获取远程对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	urlopen 用来打开并读取一个从网络获取的远程对象。因为它是一个非常通用的函数（可以轻松读取 HTML 文件、图像文件或其他任何文件流）</span><br><span class="line"><span class="comment">#python 内置库</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"></span><br><span class="line">html =urlopen(<span class="string">&#x27;http://pythonscraping.com/pages/page1.html&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/python/外星人" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/" target="_blank">外星人入侵</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="python-包管理"><a href="#python-包管理" class="headerlink" title="python 包管理"></a>python 包管理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pip设置安装源</span><br><span class="line">pip国内的一些镜像</span><br><span class="line"></span><br><span class="line">  阿里云 http://mirrors.aliyun.com/pypi/simple/ </span><br><span class="line">  中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ </span><br><span class="line">  豆瓣(douban) http://pypi.douban.com/simple/ </span><br><span class="line">  清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ </span><br><span class="line">  中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line"></span><br><span class="line">修改源方法：</span><br><span class="line"></span><br><span class="line">1)临时生效</span><br><span class="line"></span><br><span class="line">可以在使用pip的时候在后面加上-i参数，指定pip源 </span><br><span class="line">eg: pip install jieba -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">2)永久生效：</span><br><span class="line"></span><br><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br><span class="line">输入以下内容</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/">展开全文 >></a>
     </p>
     
 
@@ -1117,7 +1236,7 @@
 
 
   
-    <article id="post-programming/python/python-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/wechat/index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1125,7 +1244,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/python/python-base/" target="_blank">python基础</a>
+	  <a class="article-title" href="/2022/06/17/programming/wechat/index/" target="_blank">微信小程序拓展</a>
   
     </h1>
   
@@ -1133,7 +1252,105 @@
 
   
   
-<a href="/2022/06/17/programming/python/python-base/" class="archive-article-date">
+<a href="/2022/06/17/programming/wechat/index/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>：<span class="title class_">WeUI</span> 小程序–使用教程</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//weui.io/</span></span><br><span class="line"></span><br><span class="line">官方介绍：<span class="title class_">WeUI</span> 是一套同微信原生视觉体验一致的基础样式库，由微信官方设计团队为微信内网页和微信小程序量身设计，令用户的使用感知更加统一。小程序开发中最常用到的一款框架，受广大开发人员的欢迎。</span><br><span class="line"></span><br><span class="line">[图片上传失败...(image-5dd2d3-<span class="number">1654073247786</span>)]</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>：美团小程序框架mpvue</span><br><span class="line"><span class="title class_">Github</span>：<span class="attr">https</span>:<span class="comment">//github.com/Meituan-Dianping/mpvue 官网： http://mpvue.com/</span></span><br><span class="line"></span><br><span class="line">官方介绍：mpvue是一个使用 <span class="title class_">Vue</span>.<span class="property">js</span>开发小程序的前端框架。框架基于 <span class="title class_">Vue</span>.<span class="property">js</span>核心，mpvue修改了 <span class="title class_">Vue</span>.<span class="property">js</span>的 runtime和 compiler实现，使其可以运行在小程序环境中，从而为小程序开发引入了整套<span class="title class_">Vue</span>.<span class="property">js</span>开发体验。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>：组件化开发框架wepy</span><br><span class="line"><span class="title class_">Github</span>地址: <span class="attr">https</span>:<span class="comment">//github.com/Tencent/wepy 官网地址： https://tencent.github.io/wepy</span></span><br><span class="line"></span><br><span class="line">官方介绍：组件化开发，完美解决组件隔离，组件嵌套，组件通信等问题,支持使用第三方 npm 资源，自动处理 npm 资源之间的依赖关系，完美兼容所有无平台依赖的 npm 资源包.</span><br><span class="line"></span><br><span class="line">[图片上传失败...(image-f7e73e-<span class="number">1654073247786</span>)]</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>：官方框架<span class="variable constant_">MINA</span></span><br><span class="line">地址：<span class="attr">https</span>:<span class="comment">//developers.weixin.qq.com/miniprogram/dev/framework/MINA.html</span></span><br><span class="line"></span><br><span class="line">官方介绍：框架提供了自己的视图层描述语言 <span class="variable constant_">WXML</span> 和 <span class="variable constant_">WXSS</span>，以及基于 <span class="title class_">JavaScript</span> 的逻辑层框架，并在视图层与逻辑层间提供了数据传输和事件系统，可以让开发者可以方便的聚焦于数据与逻辑上。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>：<span class="title class_">Tina</span>.<span class="property">js</span> 一款轻巧的渐进式微信小程序框架</span><br><span class="line"><span class="title class_">Tina</span>.<span class="property">js</span> 开源框架地址： <span class="attr">https</span>:<span class="comment">//github.com/tinajs/tina</span></span><br><span class="line"></span><br><span class="line">官方介绍：是一款轻巧的渐进式微信小程序框架，保留 <span class="variable constant_">MINA</span> (微信小程序官方框架) 的大部分 <span class="variable constant_">API</span> 设计；无论你有无小程序开发经验，都可以轻松过渡上手。</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>：前端框架weweb</span><br><span class="line">地址: <span class="attr">https</span>:<span class="comment">//github.com/wdfe/weweb</span></span><br><span class="line"></span><br><span class="line">官方介绍：weweb是一个兼容小程序语法的前端框架，你可以用小程序的写法，来写web应用。如果你已经有小程序了，通过它你可以将你的小程序运行在浏览器中。</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>：微信<span class="variable constant_">UI</span>组件库 iView <span class="title class_">Weapp</span></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//weapp.iviewui.com/</span></span><br><span class="line"></span><br><span class="line">介绍：iView <span class="title class_">Weapp</span> 提供了与 iView 一致的 <span class="variable constant_">UI</span> 和尽可能相同的接口名称，大幅度降低了学习成本，是一套一套高质量的微信小程序 <span class="variable constant_">UI</span> 组件库。</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>：<span class="title class_">ZanUI</span>-<span class="title class_">WeApp</span> -- 一个颜值高、好用、易扩展的微信小程序 <span class="variable constant_">UI</span> 库</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//cnodejs.org/topic/589d625a5c8036f7019e7a4a</span></span><br><span class="line"></span><br><span class="line">官方介绍：<span class="title class_">ZanUI</span>-<span class="title class_">WeApp</span>结合了微信的视觉规范，为用户提供更加统一的使用感受。 包含 badge、btn、等共计 <span class="number">17</span> 类组件或元素。</span><br><span class="line"></span><br><span class="line"><span class="number">9</span>：uniApp -- 一个多端混合开发的好用的框架，熟悉一个适用性超强</span><br><span class="line">框架地址： <span class="attr">https</span>:<span class="comment">//uniapp.dcloud.io/collocation/pages 文档地址： https://uniapp.dcloud.io/README 相适应的ide：Hbuilder 可以直接使用该ide打包相应所需的端代码 官方介绍：开发一次，覆盖多端</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/wechat/index/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/webpack/架构搭建5.ｘ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/" target="_blank">webpack 配置</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1147,13 +1364,19 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>通用语言，脚本语言，开源语言，跨平台语言，多模型语言</p>
-<p>2000年 1.0 版本</p>
-<p>2008年 2.0 版本</p>
-<p>3.0系列 不兼容早期的2.0</p>
+<p>涉及知识</p>
 </blockquote>
+<ul>
+<li>构建工具：Webpack5.x</li>
+<li>前端框架：Vue 3.x</li>
+<li>路由工具：Vue Router 4.x</li>
+<li>CSS 预编译：Less</li>
+<li>Git Hook 工具：husky</li>
+<li>代码规范：Prettier + Eslint + Airbnb</li>
+<li>自动部署：Github Actions</li>
+</ul>
     
-    <a class="article-more-a" href="/2022/06/17/programming/python/python-base/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/#more">more >></a>
     
     
 
@@ -1170,7 +1393,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -1182,7 +1405,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
         		</li>
       		
 		</ul>
@@ -1191,7 +1414,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/python/python-base/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/webpack/%E6%9E%B6%E6%9E%84%E6%90%AD%E5%BB%BA5.%EF%BD%98/">展开全文 >></a>
     </p>
     
 
@@ -1221,7 +1444,7 @@
 
 
   
-    <article id="post-programming/python/外星人" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/wechat/小程序/入门开发到实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1229,7 +1452,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/" target="_blank">外星人入侵</a>
+	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%E5%88%B0%E5%AE%9E%E8%B7%B5/" target="_blank">微信小程序入门实践</a>
   
     </h1>
   
@@ -1237,7 +1460,7 @@
 
   
   
-<a href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/" class="archive-article-date">
+<a href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%E5%88%B0%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1250,9 +1473,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="python-包管理"><a href="#python-包管理" class="headerlink" title="python 包管理"></a>python 包管理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pip设置安装源</span><br><span class="line">pip国内的一些镜像</span><br><span class="line"></span><br><span class="line">  阿里云 http://mirrors.aliyun.com/pypi/simple/ </span><br><span class="line">  中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ </span><br><span class="line">  豆瓣(douban) http://pypi.douban.com/simple/ </span><br><span class="line">  清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ </span><br><span class="line">  中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line"></span><br><span class="line">修改源方法：</span><br><span class="line"></span><br><span class="line">1)临时生效</span><br><span class="line"></span><br><span class="line">可以在使用pip的时候在后面加上-i参数，指定pip源 </span><br><span class="line">eg: pip install jieba -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">2)永久生效：</span><br><span class="line"></span><br><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br><span class="line">输入以下内容</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+    <blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/debug/wxadoc/dev/demo.html">https://mp.weixin.qq.com/debug/wxadoc/dev/demo.html</a></p>
+<p>实例源码</p>
+<p>可在微信中搜索“小程序示例”</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">所有项目源代码、资源文件等内容都将在微信公众号中提供下载地址。读者可以从我的微信公众号中获取项目效果图和最新版本源代码。代码包括Orange Can项目的小程序代码及部分功能的服务端PHP代码。</span><br><span class="line">• 微信公众号：小楼昨夜又秋风</span><br><span class="line">• 知乎专栏：小楼昨夜又秋风</span><br><span class="line">• 知乎ID：七月在夏天</span><br><span class="line">读者可以访问地址：http://pan.baidu.com/s/1cxQXie（注意区分数字和英文字母大小写）获得本书源代码。如果在下载过程中遇到问题，请发电子邮件至booksaga@126.com，邮件主题设置为“微信小程序开发入门与实践配书资源”。</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%E5%88%B0%E5%AE%9E%E8%B7%B5/#more">more >></a>
     
     
 
@@ -1269,7 +1497,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -1281,7 +1509,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -1290,204 +1518,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/python/%E5%A4%96%E6%98%9F%E4%BA%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/python/爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/" target="_blank">python 爬虫</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="通过网络获取远程对象"><a href="#通过网络获取远程对象" class="headerlink" title="通过网络获取远程对象"></a>通过网络获取远程对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	urlopen 用来打开并读取一个从网络获取的远程对象。因为它是一个非常通用的函数（可以轻松读取 HTML 文件、图像文件或其他任何文件流）</span><br><span class="line"><span class="comment">#python 内置库</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"></span><br><span class="line">html =urlopen(<span class="string">&#x27;http://pythonscraping.com/pages/page1.html&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/wechat/公众号/环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_blank">微信公众号环境搭建</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="注册微信公众号"><a href="#注册微信公众号" class="headerlink" title="注册微信公众号"></a>注册微信公众号</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、注册地址</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//mp.weixin.qq.com/</span></span><br><span class="line"></span><br><span class="line">-服务号：主要偏向于服务交互（功能类似<span class="number">12315</span>，<span class="number">114</span>，银行，提供绑定信息，服务交互），每月可群发<span class="number">4</span>条消息；服务号适用人群：**媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line">-订阅号：主要偏向于为用户传达资讯，（功能类似报纸杂志，为用户提供新闻信息或娱乐趣事），每天可群发<span class="number">1</span>条消息；订阅号适用人群**：个人、媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、注册测试公众号</span><br><span class="line">	个人订阅号有一些接口是没有权限的，也就是说个人订阅号无法调用一些高级的权限接口,如生成二维码、网页授权、自定义菜单、微信支付这样的接口权限个人订阅号是没有调用权限的, 幸运的是，微信公众平台提供了测试公众账号，测试公众号有很多个人订阅号不具备的权限, 测试公众号的注册地址为：</span><br><span class="line">	<span class="attr">http</span>:<span class="comment">//mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login</span></span><br><span class="line">	</span><br><span class="line"><span class="number">3</span>、搭建本地测试环境</span><br><span class="line">	开发基于微信公众号的应用最大的痛苦之处就是调试问题，每次实现一个功能后都需要部署到一个公网服务器进行测试，因为微信用户每次向公众号发起请求时，微信服务器会先接收到用户的请求，然后再转发到我们的服务器上，也就是说，微信服务器是要和我们的服务器进行网络交互，所以我们必须保证我们的服务器外网可以访问到</span><br><span class="line">    国内提供<span class="title class_">Ngrok</span>服务比较好的网站是:<span class="attr">http</span>:<span class="comment">//natapp.cn/</span></span><br><span class="line">	需手机号，支付宝注册，实名</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信公众号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信公众号//" class="article-tag-list-link color1">微信公众号</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%E5%88%B0%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
     </p>
     
 
@@ -1650,10 +1681,6 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
@@ -1663,6 +1690,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1678,15 +1709,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1694,11 +1721,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1714,15 +1741,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1738,18 +1773,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
@@ -1758,15 +1781,43 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1782,11 +1833,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1794,27 +1845,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
             
             <div class="clearfix"></div>
