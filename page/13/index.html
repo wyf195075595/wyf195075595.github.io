@@ -246,6 +246,207 @@
             
 
   
+    <article id="post-programming/红宝书笔记/第十八章 canvas与动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/" target="_blank">第十八章 canvas与动画</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">早期js动画 都是通过定时器 来控制动画的执行。但是动画的时间间隔精度不足毫秒一直是个问题。</span><br><span class="line"></span><br><span class="line"> <span class="title class_">IE8</span> 及更早版本的计时器精度为 <span class="number">15.625</span> 毫秒； </span><br><span class="line"> <span class="title class_">IE9</span> 及更晚版本的计时器精度为 <span class="number">4</span> 毫秒； </span><br><span class="line"> <span class="title class_">Firefox</span> 和 <span class="title class_">Safari</span> 的计时器精度为约 <span class="number">10</span> 毫秒； </span><br><span class="line"> <span class="title class_">Chrome</span> 的计时器精度为 <span class="number">4</span> 毫秒。</span><br><span class="line"></span><br><span class="line"><span class="title function_">requestAnimationFrame</span>()方法接收一个参数，此参数是一个要在重绘屏幕前调用的函数。这个</span><br><span class="line"></span><br><span class="line">函数就是修改 <span class="variable constant_">DOM</span> 样式以反映下一次重绘有什么变化的地方。为了实现动画循环，可以把多个 <span class="title function_">requestAnimationFrame</span>()调用串联起来，就像以前使用 <span class="built_in">setTimeout</span>()时一样： </span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateProgress</span>(<span class="params"></span>) &#123; </span><br><span class="line">	<span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;status&quot;</span>); </span><br><span class="line">	div.<span class="property">style</span>.<span class="property">width</span> = (<span class="built_in">parseInt</span>(div.<span class="property">style</span>.<span class="property">width</span>, <span class="number">10</span>) + <span class="number">5</span>) + <span class="string">&quot;%&quot;</span>; </span><br><span class="line">	<span class="keyword">if</span> (div.<span class="property">style</span>.<span class="property">left</span> != <span class="string">&quot;100%&quot;</span>) &#123; </span><br><span class="line">	<span class="title function_">requestAnimationFrame</span>(updateProgress); </span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="title function_">requestAnimationFrame</span>(updateProgress); </span><br><span class="line"></span><br><span class="line">因为 <span class="title function_">requestAnimationFrame</span>()只会调用一次传入的函数，所以每次更新用户界面时需要再手 动调用它一次。同样，也需要控制动画何时停止。结果就会得到非常平滑的动画。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cancelAnimationFrame</span><br><span class="line"></span><br><span class="line">	与 <span class="built_in">setTimeout</span> 类似， requestAnimationFrame 返回<span class="variable constant_">ID</span>，可以通过 cancelAnimationFrame来取消</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> requestID = <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Repaint!&#x27;</span>); </span><br><span class="line">    &#125;); </span><br><span class="line">	<span class="variable language_">window</span>.<span class="title function_">cancelAnimationFrame</span>(requestID);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">通过requestAnimationFrame节流</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">expensiveOperation</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Invoked at&#x27;</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>()); &#125; <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(expensiveOperation); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//因为重绘是非常繁琐的操作，所以上不上真正的节流</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">expensiveOperation</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Invoked at&#x27;</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>()); &#125; </span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (!expensiveOperation.<span class="property">enabled</span>) &#123; </span><br><span class="line">        expensiveOperation.<span class="property">enabled</span> = <span class="literal">true</span>; </span><br><span class="line">        <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(expensiveOperation); </span><br><span class="line">        <span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> expensiveOperation.<span class="property">enabled</span> = <span class="literal">false</span>, <span class="number">50</span>); &#125; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/红宝书笔记/第十五章 事件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%20%E4%BA%8B%E4%BB%B6/" target="_blank">第十五章 事件</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%20%E4%BA%8B%E4%BB%B6/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。</p>
+</blockquote>
+<h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、事件冒泡</span><br><span class="line">事件定义从最为具体的元素开始触发，然后传播至没那么具体的元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、事件捕获</span><br><span class="line">最不具体的元素节点应该最先受到事件，而最具体的元素因该最后收到事件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="title class_">DOM2</span> <span class="title class_">Events</span> 规范规定事件流分为 <span class="number">3</span> 个阶段：事件捕获、到达目标和事件冒泡。事件捕获最先发生， 为提前拦截事件提供了可能。然后，实际的目标元素接收到事件。最后一个阶段是冒泡，最迟要在这个 阶段响应事件。仍以前面那个简单的 <span class="variable constant_">HTML</span> 为例，点击&lt;div&gt;元素会以如图 <span class="number">17</span>-<span class="number">3</span> 所示的顺序触发事件。</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%20%E4%BA%8B%E4%BB%B6/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%20%E4%BA%8B%E4%BB%B6/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/红宝书笔记/第十四章 DOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -317,105 +518,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%20DOM/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/红宝书笔记/第十八章 canvas与动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/" target="_blank">第十八章 canvas与动画</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="requestAnimationFrame"><a href="#requestAnimationFrame" class="headerlink" title="requestAnimationFrame"></a>requestAnimationFrame</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">早期js动画 都是通过定时器 来控制动画的执行。但是动画的时间间隔精度不足毫秒一直是个问题。</span><br><span class="line"></span><br><span class="line"> <span class="title class_">IE8</span> 及更早版本的计时器精度为 <span class="number">15.625</span> 毫秒； </span><br><span class="line"> <span class="title class_">IE9</span> 及更晚版本的计时器精度为 <span class="number">4</span> 毫秒； </span><br><span class="line"> <span class="title class_">Firefox</span> 和 <span class="title class_">Safari</span> 的计时器精度为约 <span class="number">10</span> 毫秒； </span><br><span class="line"> <span class="title class_">Chrome</span> 的计时器精度为 <span class="number">4</span> 毫秒。</span><br><span class="line"></span><br><span class="line"><span class="title function_">requestAnimationFrame</span>()方法接收一个参数，此参数是一个要在重绘屏幕前调用的函数。这个</span><br><span class="line"></span><br><span class="line">函数就是修改 <span class="variable constant_">DOM</span> 样式以反映下一次重绘有什么变化的地方。为了实现动画循环，可以把多个 <span class="title function_">requestAnimationFrame</span>()调用串联起来，就像以前使用 <span class="built_in">setTimeout</span>()时一样： </span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateProgress</span>(<span class="params"></span>) &#123; </span><br><span class="line">	<span class="keyword">var</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;status&quot;</span>); </span><br><span class="line">	div.<span class="property">style</span>.<span class="property">width</span> = (<span class="built_in">parseInt</span>(div.<span class="property">style</span>.<span class="property">width</span>, <span class="number">10</span>) + <span class="number">5</span>) + <span class="string">&quot;%&quot;</span>; </span><br><span class="line">	<span class="keyword">if</span> (div.<span class="property">style</span>.<span class="property">left</span> != <span class="string">&quot;100%&quot;</span>) &#123; </span><br><span class="line">	<span class="title function_">requestAnimationFrame</span>(updateProgress); </span><br><span class="line">	&#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="title function_">requestAnimationFrame</span>(updateProgress); </span><br><span class="line"></span><br><span class="line">因为 <span class="title function_">requestAnimationFrame</span>()只会调用一次传入的函数，所以每次更新用户界面时需要再手 动调用它一次。同样，也需要控制动画何时停止。结果就会得到非常平滑的动画。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">cancelAnimationFrame</span><br><span class="line"></span><br><span class="line">	与 <span class="built_in">setTimeout</span> 类似， requestAnimationFrame 返回<span class="variable constant_">ID</span>，可以通过 cancelAnimationFrame来取消</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> requestID = <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(<span class="function">() =&gt;</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Repaint!&#x27;</span>); </span><br><span class="line">    &#125;); </span><br><span class="line">	<span class="variable language_">window</span>.<span class="title function_">cancelAnimationFrame</span>(requestID);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">通过requestAnimationFrame节流</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">expensiveOperation</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Invoked at&#x27;</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>()); &#125; <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(expensiveOperation); </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//因为重绘是非常繁琐的操作，所以上不上真正的节流</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"><span class="keyword">function</span> <span class="title function_">expensiveOperation</span>(<span class="params"></span>) &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Invoked at&#x27;</span>, <span class="title class_">Date</span>.<span class="title function_">now</span>()); &#125; </span><br><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;scroll&#x27;</span>, <span class="function">() =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (!expensiveOperation.<span class="property">enabled</span>) &#123; </span><br><span class="line">        expensiveOperation.<span class="property">enabled</span> = <span class="literal">true</span>; </span><br><span class="line">        <span class="variable language_">window</span>.<span class="title function_">requestAnimationFrame</span>(expensiveOperation); </span><br><span class="line">        <span class="variable language_">window</span>.<span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> expensiveOperation.<span class="property">enabled</span> = <span class="literal">false</span>, <span class="number">50</span>); &#125; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/">展开全文 >></a>
     </p>
     
 
@@ -660,7 +762,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -787,11 +889,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,15 +905,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -827,30 +953,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
@@ -859,11 +961,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,7 +989,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,27 +1001,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,6 +1010,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -931,19 +1037,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

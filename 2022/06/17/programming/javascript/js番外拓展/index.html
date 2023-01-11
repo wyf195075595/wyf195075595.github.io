@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20220705093349805.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210529172033614.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-09-22T03:36:48.319Z">
+<meta property="article:modified_time" content="2023-01-10T01:13:54.590Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="拓展">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">35.2k字</span>
+      <span class="post-count">35.4k字</span>
     </span>
   </span>
 
@@ -291,7 +291,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">150分</span>
+      <span class="post-count">151分</span>
     </span>
   </span>
 </div>
@@ -454,7 +454,21 @@
 <h3 id="js运行机制"><a href="#js运行机制" class="headerlink" title="js运行机制"></a>js运行机制</h3><p><img src="D:\Typora\workSpace\resource\jsrunning.png"></p>
 <h3 id=""><a href="#" class="headerlink" title=""></a></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、堆</span><br><span class="line">	基于散列算法的数据结构，存储引用类型的数据，如对象、数组等</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、栈</span><br><span class="line">	先进后出的数据结构</span><br><span class="line">    基本数据类型都是一些简单的数据段，它们是存储在栈内存中</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、调用栈</span><br><span class="line">	<span class="title class_">JavaScript</span>是单线程的，意味着他有一个单独的调用栈，意味着他一次能做一件事。</span><br><span class="line">    <span class="title class_">JavaScript</span>的运行时一次只能做一件事</span><br><span class="line">	调用栈就是一个记录程序执行位置的数据结构。程序进入一个函数，就往栈里面塞东西。如果程序从函数中<span class="keyword">return</span>了，就从栈顶弹出一些东西</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">WebApi</span></span><br><span class="line">	webapi = <span class="variable constant_">DOM</span> + <span class="variable constant_">BOM</span></span><br><span class="line">	浏览器提供的api 如 <span class="variable constant_">DOM</span>操作，<span class="title class_">Ajax</span>、fetch、<span class="built_in">setTimeout</span>等，webApi会把它的回调函数推到 回调队列中</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、事件循环</span><br><span class="line">	它再监视 调用栈 里面是否有东西，如果没有就将回调队列第一个函数取出来，放到调用栈让它执行</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、回调队列</span><br><span class="line">	一种先进先出（<span class="variable constant_">FIFO</span>）的数据结构，用于放置webApi推过来的函数</span><br><span class="line"></span><br><span class="line"><span class="number">7</span>、阻塞</span><br><span class="line">    实际上就是程序执行慢。执行<span class="variable language_">console</span>.<span class="property">log</span>不慢，但是一个从<span class="number">1</span>到<span class="number">1</span>,<span class="number">000</span>,<span class="number">000</span>,<span class="number">000</span>的<span class="keyword">while</span>循环，图像处理或者网络请求这些操作的执行就比较费时了。这些执行慢的东西堆在一起就发生了阻塞。</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="字符串编码"><a href="#字符串编码" class="headerlink" title="字符串编码"></a>字符串编码</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="variable constant_">ASCII</span> 码</span><br><span class="line">		我们知道，计算机内部，所有信息最终都是一个二进制值。每一个二进制位（bit）有<span class="number">0</span>和<span class="number">1</span>两种状态，因此八个二进制位就可以组合出 <span class="number">256</span> 种状态，这被称为一个字节（byte）。也就是说，一个字节一共可以用来表示 <span class="number">256</span> 种不同的状态，每一个状态对应一个符号，就是 <span class="number">256</span> 个符号，从 <span class="number">00000000</span>到 <span class="number">11111111</span>。</span><br><span class="line"></span><br><span class="line">	上个世纪<span class="number">60</span>年代，美国制定了一套字符编码，对英语字符与二进制位之间的关系，做了统一规定。这被称为 <span class="variable constant_">ASCII</span> 码，一直沿用至今。</span><br><span class="line"></span><br><span class="line">	<span class="variable constant_">ASCII</span> 码一共规定了<span class="number">128</span>个字符的编码，比如空格 <span class="variable constant_">SPACE</span> 是<span class="number">32</span>（二进制 <span class="number">00100000</span>），大写的字母A是<span class="number">65</span>（二进制 <span class="number">01000001</span>）。这<span class="number">128</span>个符号（包括<span class="number">32</span>个不能打印出来的控制符号），只占用了一个字节的后面<span class="number">7</span>位，最前面的一位统一规定为<span class="number">0</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、非<span class="variable constant_">ASCII</span> 码</span><br><span class="line">	英语用<span class="number">128</span>个符号编码就够了，但是用来表示其他语言，<span class="number">128</span>个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 <span class="variable constant_">ASCII</span> 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的é的编码为<span class="number">130</span>（二进制 <span class="number">10000010</span>）。这样一来，这些欧洲国家使用的编码体系，可以表示最多<span class="number">256</span>个符号。</span><br><span class="line"></span><br><span class="line">但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用<span class="number">256</span>个符号的编码方式，代表的字母却不一样。比如，<span class="number">130</span>在法语编码中代表了é，在希伯来语编码中却代表了字母<span class="title class_">Gimel</span> (ג)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，<span class="number">0</span>--<span class="number">127</span>表示的符号是一样的，不一样的只是<span class="number">128</span>--<span class="number">255</span>的这一段。</span><br><span class="line"></span><br><span class="line">至于亚洲国家的文字，使用的符号就更多了，汉字就多达<span class="number">10</span>万左右。一个字节只能表示<span class="number">256</span>种符号，肯定是不够的，就必须使用多个字节表达一个符号。比如，简体中文常见的编码方式是 <span class="title class_">GB2312</span>，使用两个字节表示一个汉字，所以理论上最多可以表示 <span class="number">256</span> x <span class="number">256</span> = <span class="number">65536</span> 个符号。</span><br><span class="line"></span><br><span class="line">中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节表示一个符号，但是<span class="variable constant_">GB</span>类的汉字编码与后文的 <span class="title class_">Unicode</span> 和 <span class="variable constant_">UTF</span>-<span class="number">8</span> 是毫无关系的。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="title class_">Unicode</span></span><br><span class="line">	正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</span><br><span class="line"></span><br><span class="line">	可以想象，如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是 <span class="title class_">Unicode</span>，就像它的名字都表示的，这是一种所有符号的编码。</span><br><span class="line"></span><br><span class="line">	<span class="title class_">Unicode</span> 当然是一个很大的集合，现在的规模可以容纳<span class="number">100</span>多万个符号。每个符号的编码都不一样，比如，U+<span class="number">0639</span>表示阿拉伯字母<span class="title class_">Ain</span>，U+<span class="number">0041</span>表示英语的大写字母A，U+<span class="number">4E25</span>表示汉字严。具体的符号对应表，可以查询unicode.<span class="property">org</span>，或者专门的汉字对应表。</span><br><span class="line"></span><br><span class="line">【<span class="title class_">Unicode</span>的问题】</span><br><span class="line">	需要注意的是，<span class="title class_">Unicode</span> 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。</span><br><span class="line"></span><br><span class="line">比如，汉字严的 <span class="title class_">Unicode</span> 是十六进制数<span class="number">4E25</span>，转换成二进制数足足有<span class="number">15</span>位（<span class="number">100111000100101</span>），也就是说，这个符号的表示至少需要<span class="number">2</span>个字节。表示其他更大的符号，可能需要<span class="number">3</span>个字节或者<span class="number">4</span>个字节，甚至更多。</span><br><span class="line"></span><br><span class="line">	这里就有两个严重的问题，第一个问题是，如何才能区别 <span class="title class_">Unicode</span> 和 <span class="variable constant_">ASCII</span> ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 <span class="title class_">Unicode</span> 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是<span class="number">0</span>，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。</span><br><span class="line"></span><br><span class="line">它们造成的结果是：<span class="number">1</span>）出现了 <span class="title class_">Unicode</span> 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 <span class="title class_">Unicode</span>。<span class="number">2</span>）<span class="title class_">Unicode</span> 在很长一段时间内无法推广，直到互联网的出现。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="variable constant_">UTF</span>-<span class="number">8</span></span><br><span class="line">	互联网的普及，强烈要求出现一种统一的编码方式。<span class="variable constant_">UTF</span>-<span class="number">8</span> 就是在互联网上使用最广的一种 <span class="title class_">Unicode</span> 的实现方式。其他实现方式还包括 <span class="variable constant_">UTF</span>-<span class="number">16</span>（字符用两个字节或四个字节表示）和 <span class="variable constant_">UTF</span>-<span class="number">32</span>（字符用四个字节表示），不过在互联网上基本不用。重复一遍，这里的关系是，<span class="variable constant_">UTF</span>-<span class="number">8</span> 是 <span class="title class_">Unicode</span> 的实现方式之一。</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">UTF</span>-<span class="number">8</span> 最大的一个特点，就是它是一种变长的编码方式。它可以使用<span class="number">1</span>~<span class="number">4</span>个字节表示一个符号，根据不同的符号而变化字节长度。</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">UTF</span>-<span class="number">8</span> 的编码规则很简单，只有二条：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>）对于单字节的符号，字节的第一位设为<span class="number">0</span>，后面<span class="number">7</span>位为这个符号的 <span class="title class_">Unicode</span> 码。因此对于英语字母，<span class="variable constant_">UTF</span>-<span class="number">8</span> 编码和 <span class="variable constant_">ASCII</span> 码是相同的。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>）对于n字节的符号（n &gt; <span class="number">1</span>），第一个字节的前n位都设为<span class="number">1</span>，第n + <span class="number">1</span>位设为<span class="number">0</span>，后面字节的前两位一律设为<span class="number">10</span>。剩下的没有提及的二进制位，全部为这个符号的 <span class="title class_">Unicode</span> 码。</span><br><span class="line"></span><br><span class="line">下表总结了编码规则，字母x表示可用编码的位。</span><br><span class="line"></span><br><span class="line"><span class="title class_">Unicode</span>符号范围     |        <span class="variable constant_">UTF</span>-<span class="number">8</span>编码方式</span><br><span class="line">(十六进制)          |        （二进制）</span><br><span class="line">----------------------+---------------------------------------------</span><br><span class="line"><span class="number">0000</span> <span class="number">0000</span>-<span class="number">0000</span> 007F | 0xxxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0080</span>-<span class="number">0000</span> 07FF | 110xxxxx 10xxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0800</span>-<span class="number">0000</span> <span class="variable constant_">FFFF</span> | 1110xxxx 10xxxxxx 10xxxxxx</span><br><span class="line"><span class="number">0001</span> <span class="number">0000</span>-<span class="number">0010</span> <span class="variable constant_">FFFF</span> | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</span><br><span class="line">跟据上表，解读 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码非常简单。如果一个字节的第一位是<span class="number">0</span>，则这个字节单独就是一个字符；如果第一位是<span class="number">1</span>，则连续有多少个<span class="number">1</span>，就表示当前字符占用多少个字节。</span><br><span class="line"></span><br><span class="line">下面，还是以汉字严为例，演示如何实现 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码。</span><br><span class="line"></span><br><span class="line">	严的 <span class="title class_">Unicode</span> 是<span class="number">4E25</span>（<span class="number">100111000100101</span>），根据上表，可以发现<span class="number">4E25</span>处在第三行的范围内（<span class="number">0000</span> <span class="number">0800</span> - <span class="number">0000</span> <span class="variable constant_">FFFF</span>），因此严的 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补<span class="number">0</span>。这样就得到了，严的 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码是<span class="number">11100100</span> <span class="number">10111000</span> <span class="number">10100101</span>，转换成十六进制就是<span class="variable constant_">E4B8A5</span>。</span><br><span class="line">    </span><br><span class="line"><span class="number">5</span>、<span class="variable constant_">BMP</span> 与 代理对</span><br><span class="line">	<span class="number">16</span> 位只能唯一表示 <span class="number">65</span> <span class="number">536</span> 个字符。这对于大多数语言字符集是足够了，在 <span class="title class_">Unicode</span> 中称为基本多语言平面（<span class="variable constant_">BMP</span>）。为了 表示更多的字符，<span class="title class_">Unicode</span> 采用了一个策略，即每个字符使用另外 <span class="number">16</span> 位去选择一个增补平面。这种每个 字符使用两个 <span class="number">16</span> 位码元的策略称为代理对。</span><br><span class="line">    </span><br><span class="line">【资料拓展】</span><br><span class="line">	<span class="attr">http</span>:<span class="comment">//www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html</span></span><br></pre></td></tr></table></figure>
+<h3 id="字符串编码"><a href="#字符串编码" class="headerlink" title="字符串编码"></a>字符串编码</h3><blockquote>
+<p>最早出现的编码表是美国的ASCII码表【采用一个字节编码】，但支持数字英文和符号。</p>
+<p>随着计算机发展，后来出现了一种编码放啊是，是国际化标准组织ISO制定的，这种编码方式支持西欧语言，向上兼容 ACSCII码，但不支持中文。这种编码方式为：ISO-8859-1【latain-1】</p>
+<p>随着计算机向亚洲发展，计算机开始支持中文，日文，韩文等国家文字，其中支持中文的编码方式：</p>
+<p><strong>BG2312</strong> &lt; <strong>GBK</strong> &lt; <strong>GB18030</strong></p>
+<p>支持繁体中文：大五码 <strong>big5</strong></p>
+<p>后来出现了一种编码方式统一了全球所有文字，容量较大，这种编码方式叫做：Unicode编码，它有很多具体的实现方式：</p>
+<ul>
+<li>UTF-8</li>
+<li>UTF-16</li>
+<li>UTF-32</li>
+<li>…</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="variable constant_">ASCII</span> 码</span><br><span class="line">		我们知道，计算机内部，所有信息最终都是一个二进制值。每一个二进制位（bit）有<span class="number">0</span>和<span class="number">1</span>两种状态，因此八个二进制位就可以组合出 <span class="number">256</span> 种状态，这被称为一个字节（byte）。也就是说，一个字节一共可以用来表示 <span class="number">256</span> 种不同的状态，每一个状态对应一个符号，就是 <span class="number">256</span> 个符号，从 <span class="number">00000000</span>到 <span class="number">11111111</span>。</span><br><span class="line"></span><br><span class="line">	上个世纪<span class="number">60</span>年代，美国制定了一套字符编码，对英语字符与二进制位之间的关系，做了统一规定。这被称为 <span class="variable constant_">ASCII</span> 码，一直沿用至今。</span><br><span class="line"></span><br><span class="line">	<span class="variable constant_">ASCII</span> 码一共规定了<span class="number">128</span>个字符的编码，比如空格 <span class="variable constant_">SPACE</span> 是<span class="number">32</span>（二进制 <span class="number">00100000</span>），大写的字母A是<span class="number">65</span>（二进制 <span class="number">01000001</span>）。这<span class="number">128</span>个符号（包括<span class="number">32</span>个不能打印出来的控制符号），只占用了一个字节的后面<span class="number">7</span>位，最前面的一位统一规定为<span class="number">0</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、非<span class="variable constant_">ASCII</span> 码</span><br><span class="line">	英语用<span class="number">128</span>个符号编码就够了，但是用来表示其他语言，<span class="number">128</span>个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 <span class="variable constant_">ASCII</span> 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的é的编码为<span class="number">130</span>（二进制 <span class="number">10000010</span>）。这样一来，这些欧洲国家使用的编码体系，可以表示最多<span class="number">256</span>个符号。</span><br><span class="line"></span><br><span class="line">但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用<span class="number">256</span>个符号的编码方式，代表的字母却不一样。比如，<span class="number">130</span>在法语编码中代表了é，在希伯来语编码中却代表了字母<span class="title class_">Gimel</span> (ג)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，<span class="number">0</span>--<span class="number">127</span>表示的符号是一样的，不一样的只是<span class="number">128</span>--<span class="number">255</span>的这一段。</span><br><span class="line"></span><br><span class="line">至于亚洲国家的文字，使用的符号就更多了，汉字就多达<span class="number">10</span>万左右。一个字节只能表示<span class="number">256</span>种符号，肯定是不够的，就必须使用多个字节表达一个符号。比如，简体中文常见的编码方式是 <span class="title class_">GB2312</span>，使用两个字节表示一个汉字，所以理论上最多可以表示 <span class="number">256</span> x <span class="number">256</span> = <span class="number">65536</span> 个符号。</span><br><span class="line"></span><br><span class="line">中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节表示一个符号，但是<span class="variable constant_">GB</span>类的汉字编码与后文的 <span class="title class_">Unicode</span> 和 <span class="variable constant_">UTF</span>-<span class="number">8</span> 是毫无关系的。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="title class_">Unicode</span></span><br><span class="line">	正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</span><br><span class="line"></span><br><span class="line">	可以想象，如果有一种编码，将世界上所有的符号都纳入其中。每一个符号都给予一个独一无二的编码，那么乱码问题就会消失。这就是 <span class="title class_">Unicode</span>，就像它的名字都表示的，这是一种所有符号的编码。</span><br><span class="line"></span><br><span class="line">	<span class="title class_">Unicode</span> 当然是一个很大的集合，现在的规模可以容纳<span class="number">100</span>多万个符号。每个符号的编码都不一样，比如，U+<span class="number">0639</span>表示阿拉伯字母<span class="title class_">Ain</span>，U+<span class="number">0041</span>表示英语的大写字母A，U+<span class="number">4E25</span>表示汉字严。具体的符号对应表，可以查询unicode.<span class="property">org</span>，或者专门的汉字对应表。</span><br><span class="line"></span><br><span class="line">【<span class="title class_">Unicode</span>的问题】</span><br><span class="line">	需要注意的是，<span class="title class_">Unicode</span> 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。</span><br><span class="line"></span><br><span class="line">比如，汉字严的 <span class="title class_">Unicode</span> 是十六进制数<span class="number">4E25</span>，转换成二进制数足足有<span class="number">15</span>位（<span class="number">100111000100101</span>），也就是说，这个符号的表示至少需要<span class="number">2</span>个字节。表示其他更大的符号，可能需要<span class="number">3</span>个字节或者<span class="number">4</span>个字节，甚至更多。</span><br><span class="line"></span><br><span class="line">	这里就有两个严重的问题，第一个问题是，如何才能区别 <span class="title class_">Unicode</span> 和 <span class="variable constant_">ASCII</span> ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 <span class="title class_">Unicode</span> 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是<span class="number">0</span>，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。</span><br><span class="line"></span><br><span class="line">它们造成的结果是：<span class="number">1</span>）出现了 <span class="title class_">Unicode</span> 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 <span class="title class_">Unicode</span>。<span class="number">2</span>）<span class="title class_">Unicode</span> 在很长一段时间内无法推广，直到互联网的出现。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="variable constant_">UTF</span>-<span class="number">8</span></span><br><span class="line">	互联网的普及，强烈要求出现一种统一的编码方式。<span class="variable constant_">UTF</span>-<span class="number">8</span> 就是在互联网上使用最广的一种 <span class="title class_">Unicode</span> 的实现方式。其他实现方式还包括 <span class="variable constant_">UTF</span>-<span class="number">16</span>（字符用两个字节或四个字节表示）和 <span class="variable constant_">UTF</span>-<span class="number">32</span>（字符用四个字节表示），不过在互联网上基本不用。重复一遍，这里的关系是，<span class="variable constant_">UTF</span>-<span class="number">8</span> 是 <span class="title class_">Unicode</span> 的实现方式之一。</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">UTF</span>-<span class="number">8</span> 最大的一个特点，就是它是一种变长的编码方式。它可以使用<span class="number">1</span>~<span class="number">4</span>个字节表示一个符号，根据不同的符号而变化字节长度。</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">UTF</span>-<span class="number">8</span> 的编码规则很简单，只有二条：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>）对于单字节的符号，字节的第一位设为<span class="number">0</span>，后面<span class="number">7</span>位为这个符号的 <span class="title class_">Unicode</span> 码。因此对于英语字母，<span class="variable constant_">UTF</span>-<span class="number">8</span> 编码和 <span class="variable constant_">ASCII</span> 码是相同的。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>）对于n字节的符号（n &gt; <span class="number">1</span>），第一个字节的前n位都设为<span class="number">1</span>，第n + <span class="number">1</span>位设为<span class="number">0</span>，后面字节的前两位一律设为<span class="number">10</span>。剩下的没有提及的二进制位，全部为这个符号的 <span class="title class_">Unicode</span> 码。</span><br><span class="line"></span><br><span class="line">下表总结了编码规则，字母x表示可用编码的位。</span><br><span class="line"></span><br><span class="line"><span class="title class_">Unicode</span>符号范围     |        <span class="variable constant_">UTF</span>-<span class="number">8</span>编码方式</span><br><span class="line">(十六进制)          |        （二进制）</span><br><span class="line">----------------------+---------------------------------------------</span><br><span class="line"><span class="number">0000</span> <span class="number">0000</span>-<span class="number">0000</span> 007F | 0xxxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0080</span>-<span class="number">0000</span> 07FF | 110xxxxx 10xxxxxx</span><br><span class="line"><span class="number">0000</span> <span class="number">0800</span>-<span class="number">0000</span> <span class="variable constant_">FFFF</span> | 1110xxxx 10xxxxxx 10xxxxxx</span><br><span class="line"><span class="number">0001</span> <span class="number">0000</span>-<span class="number">0010</span> <span class="variable constant_">FFFF</span> | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</span><br><span class="line">跟据上表，解读 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码非常简单。如果一个字节的第一位是<span class="number">0</span>，则这个字节单独就是一个字符；如果第一位是<span class="number">1</span>，则连续有多少个<span class="number">1</span>，就表示当前字符占用多少个字节。</span><br><span class="line"></span><br><span class="line">下面，还是以汉字严为例，演示如何实现 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码。</span><br><span class="line"></span><br><span class="line">	严的 <span class="title class_">Unicode</span> 是<span class="number">4E25</span>（<span class="number">100111000100101</span>），根据上表，可以发现<span class="number">4E25</span>处在第三行的范围内（<span class="number">0000</span> <span class="number">0800</span> - <span class="number">0000</span> <span class="variable constant_">FFFF</span>），因此严的 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码需要三个字节，即格式是1110xxxx 10xxxxxx 10xxxxxx。然后，从严的最后一个二进制位开始，依次从后向前填入格式中的x，多出的位补<span class="number">0</span>。这样就得到了，严的 <span class="variable constant_">UTF</span>-<span class="number">8</span> 编码是<span class="number">11100100</span> <span class="number">10111000</span> <span class="number">10100101</span>，转换成十六进制就是<span class="variable constant_">E4B8A5</span>。</span><br><span class="line">    </span><br><span class="line"><span class="number">5</span>、<span class="variable constant_">BMP</span> 与 代理对</span><br><span class="line">	<span class="number">16</span> 位只能唯一表示 <span class="number">65</span> <span class="number">536</span> 个字符。这对于大多数语言字符集是足够了，在 <span class="title class_">Unicode</span> 中称为基本多语言平面（<span class="variable constant_">BMP</span>）。为了 表示更多的字符，<span class="title class_">Unicode</span> 采用了一个策略，即每个字符使用另外 <span class="number">16</span> 位去选择一个增补平面。这种每个 字符使用两个 <span class="number">16</span> 位码元的策略称为代理对。</span><br><span class="line">    </span><br><span class="line">【资料拓展】</span><br><span class="line">	<span class="attr">http</span>:<span class="comment">//www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Object与Function关系"><a href="#Object与Function关系" class="headerlink" title="Object与Function关系"></a>Object与Function关系</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>、<span class="title class_">Function</span>和其它对象的关系可以归纳为下面四点：</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、一切对象都最终继承自<span class="title class_">Object</span>对象，<span class="title class_">Object</span>对象直接继承自根源对象<span class="literal">null</span></span><br><span class="line"></span><br><span class="line">	.... → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>。</span><br><span class="line">    例如定义一个num变量<span class="keyword">var</span> num = <span class="number">1</span>，</span><br><span class="line">    则num的原型链为x → <span class="title class_">Number</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>; </span><br><span class="line"></span><br><span class="line">	定义一个函数对象fn<span class="keyword">function</span> <span class="title function_">fn</span>(<span class="params"></span>) &#123;&#125;，</span><br><span class="line">    则fn的原型链为fn → <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>;等等...</span><br><span class="line">    </span><br><span class="line">    一切对象都包含有<span class="title class_">Object</span>的原型方法，<span class="title class_">Object</span>的原型方法包括了toString、valueOf、hasOwnProperty等等，在js中不管是普通对象，还是函数对象都拥有这些方法</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、一切函数对象（包括<span class="title class_">Object</span>对象)都直接继承自<span class="title class_">Function</span>对象</span><br><span class="line">	函数对象包括了<span class="title class_">Function</span>、<span class="title class_">Object</span>、<span class="title class_">Array</span>、<span class="title class_">String</span>、<span class="title class_">Number</span>，还有正则对象<span class="title class_">RegExp</span>、<span class="title class_">Date</span>对象等等，它们在js中的构造源码都是<span class="keyword">function</span> <span class="title function_">xxx</span>(<span class="params"></span>) &#123;[native code]);，<span class="title class_">Function</span>其实不仅让我们用于构造函数，它也充当了函数对象的构造器，甚至它也是自己的构造器。</span><br><span class="line"></span><br><span class="line">从原型链可以佐证：</span><br><span class="line"></span><br><span class="line"> js中 对象.<span class="property">__proto__</span> === 构造器.<span class="property"><span class="keyword">prototype</span></span>，由此可以见得它们之间的关系。</span><br><span class="line">                                                                                               </span><br><span class="line"> </span><br><span class="line"><span class="number">3</span>、<span class="title class_">Object</span>对象直接继承自<span class="title class_">Function</span>对象</span><br><span class="line"><span class="number">4</span>、<span class="title class_">Function</span>对象直接继承自己，最终继承自<span class="title class_">Object</span>对象</span><br><span class="line"></span><br><span class="line">【疑问】</span><br><span class="line"> <span class="number">1</span>）<span class="title class_">Object</span>对象都继承自<span class="title class_">Function</span>对象了，而一切对象又都继承自<span class="title class_">Object</span>对象，这边是不是有矛盾，<span class="title class_">Object</span>对象和<span class="title class_">Function</span>对象的关系是不是有点♂复♀杂？</span><br><span class="line"></span><br><span class="line">   答：其实疑问的内容就是上面结论的三四点，它们没有矛盾，关系也不复杂。</span><br><span class="line"></span><br><span class="line"> （<span class="number">1</span>）.一切对象都继承自<span class="title class_">Object</span>对象是因为一切对象的原型链最终都是.... → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>，包括<span class="title class_">Function</span>对象，只是<span class="title class_">Function</span>的原型链稍微绕了一点，</span><br><span class="line">    <span class="title class_">Function</span>的原型链为<span class="title class_">Function</span> → <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>，它与其它对象的特别之处就在于它的构造器为自己，即直接继承了自己，最终继承于<span class="title class_">Object</span>，上面的原型链可以在浏览器验证：</span><br><span class="line">    </span><br><span class="line"> （<span class="number">2</span>）. <span class="title class_">Object</span>继承自<span class="title class_">Function</span>，<span class="title class_">Object</span>的原型链为 <span class="title class_">Object</span> → <span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="title class_">Object</span>.<span class="property"><span class="keyword">prototype</span></span> → <span class="literal">null</span>，原型链又绕回来了，并且跟第一点没有冲突。可以说<span class="title class_">Object</span>和<span class="title class_">Function</span>是互相继承的关系</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>）一切对象继承自<span class="title class_">Object</span>，<span class="title class_">Object</span>又继承自<span class="title class_">Function</span>，那一切对象是不是都有<span class="title class_">Function</span>的原型方法？</span><br><span class="line"></span><br><span class="line">答：不对，普通对象都没有<span class="title class_">Function</span>的原型方法。从我们所写原型链中可以看出，<span class="title class_">Object</span>是继承自<span class="title class_">Function</span>，而<span class="title class_">Object</span>也有<span class="title class_">Function</span>的原型方法（比如bind），但<span class="title class_">Object</span>继承得到的方法储存于__proto__属性中，普通对象从<span class="title class_">Object</span>继承到的原型方法却在于prototype属性中，因而不对。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>）<span class="title class_">Function</span>对象怎么那么怪，自己继承自己？</span><br><span class="line"></span><br><span class="line">答：就是 就是。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//扩充类型</span></span><br><span class="line"><span class="title class_">Function</span>.<span class="property"><span class="keyword">prototype</span></span>,method = <span class="keyword">function</span> (<span class="params">name, fn</span>)&#123;</span><br><span class="line">    <span class="keyword">if</span>(!<span class="variable language_">this</span>.<span class="property"><span class="keyword">prototype</span></span>[name])&#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property"><span class="keyword">prototype</span></span>[name] = fn;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1453,18 +1467,18 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/load/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/javascript/iframe/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jq的$.load()方法
+          js/jquery获取其他窗口的元素
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/svg/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SVG</div>
+    <a href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js编码解码</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -1530,7 +1544,7 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -1657,11 +1671,11 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1673,15 +1687,39 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1697,30 +1735,6 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
@@ -1729,11 +1743,27 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1741,7 +1771,7 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1753,27 +1783,7 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1782,6 +1792,14 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1801,19 +1819,19 @@ esm 是未来的趋势，目前一些 CDN 厂商，前端构建工具均致力�
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

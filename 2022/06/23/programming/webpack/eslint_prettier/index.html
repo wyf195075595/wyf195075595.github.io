@@ -18,7 +18,7 @@
 <meta property="og:description" content="为了项目代码风格统一，但又不会使人难受。自动化检测格式化代码方案   Prettier  一个流行的代码格式化工具的名称,它能够解析代码,使用你自己设定的规则来重新打印出格式规范的代码。   Eslint    ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-23T10:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-25T08:27:15.546Z">
+<meta property="article:modified_time" content="2022-11-28T08:00:06.130Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="eslint">
 <meta name="twitter:card" content="summary">
@@ -274,7 +274,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">715字</span>
+      <span class="post-count">956字</span>
     </span>
   </span>
 
@@ -283,7 +283,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -316,30 +316,31 @@
 <p> 都是开发依赖</p>
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install eslint prettier --save-dev</span><br><span class="line"></span><br><span class="line">npm install eslint-config-prettier eslint-plugin-prettier --save-dev</span><br></pre></td></tr></table></figure></li>
 <li><p>vscode 插件安装</p>
+</li>
+</ol>
 <blockquote>
 <p>安装 vscode 插件 <a href="https://link.juejin.cn/?target=https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint">ESLint</a> 和 <a href="https://link.juejin.cn/?target=https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a></p>
+<p>（ESLint 、Prettier-Code formatter、stylelint、Vetur）</p>
 </blockquote>
-<p> 需要每次保存时就自动格式化代码，添加以下配置</p>
+<p>  需要每次保存时就自动格式化代码，添加以下配置</p>
 <ul>
 <li><p>项目下创建 .vscode/settings.json 配置 (也可以配置到全局)</p>
 </li>
 <li><p>配置每次报错自动ESLint检查规则并格式化</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">&quot;editor.codeActionsOnSave&quot;</span>: &#123;</span><br><span class="line">   <span class="string">&quot;source.fixAll.eslint&quot;</span>: <span class="literal">true</span></span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"> <span class="string">&quot;eslint.validate&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;javascript&quot;</span>,</span><br><span class="line">    <span class="string">&quot;javascriptreact&quot;</span>,</span><br><span class="line">    <span class="string">&quot;html&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vue&quot;</span>,</span><br><span class="line">    <span class="string">&quot;typescript&quot;</span>,</span><br><span class="line">    <span class="string">&quot;typescriptreact&quot;</span>,</span><br><span class="line">    <span class="string">&quot;css&quot;</span>,</span><br><span class="line">],</span><br><span class="line"><span class="string">&quot;editor.codeActionsOnSave&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;source.fixAll.eslint&quot;</span>: <span class="literal">true</span></span><br><span class="line">&#125;,</span><br><span class="line"><span class="string">&quot;stylelint.autoFix&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-</li>
-<li><p>添加配置文件</p>
+<ol start="3">
+<li>添加配置文件</li>
+</ol>
 <ul>
 <li><p>添加配置文件 .eslintrc.js</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">root</span>: <span class="literal">true</span>, </span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;prettier&#x27;</span>],  <span class="comment">// prettier 一定要是最后一个，才能确保覆盖</span></span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;prettier/prettier&#x27;</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;plugin:prettier/recommended&#x27;</span>],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>  上边配置运行报错就用下边的</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&#x27;prettier&#x27;</span>],</span><br><span class="line">  <span class="attr">parser</span>: <span class="string">&quot;vue-eslint-parser&quot;</span>,</span><br><span class="line">  <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">sourceType</span>: <span class="string">&#x27;module&#x27;</span>,</span><br><span class="line">    <span class="attr">ecmaVersion</span>: <span class="number">2020</span>,</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&#x27;babel-eslint&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;prettier/prettier&#x27;</span>: <span class="string">&#x27;error&#x27;</span>,</span><br><span class="line">    <span class="string">&quot;parser&quot;</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [<span class="string">&#x27;plugin:prettier/recommended&#x27;</span>],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// .eslintrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">root</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">env</span>: &#123;</span><br><span class="line">    <span class="attr">node</span>: <span class="literal">true</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">extends</span>: [</span><br><span class="line">    <span class="string">&quot;plugin:vue/essential&quot;</span>,</span><br><span class="line">    <span class="string">&quot;eslint:recommended&quot;</span>,</span><br><span class="line">    <span class="string">&quot;plugin:prettier/recommended&quot;</span>,</span><br><span class="line">  ],</span><br><span class="line"> <span class="attr">parserOptions</span>: &#123;</span><br><span class="line">    <span class="attr">parser</span>: <span class="string">&quot;@babel/eslint-parser&quot;</span>,</span><br><span class="line"> &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [<span class="string">&quot;vue&quot;</span>],</span><br><span class="line">  <span class="attr">rules</span>: &#123;</span><br><span class="line">    <span class="string">&quot;prettier/prettier&quot;</span>: <span class="string">&quot;error&quot;</span>,</span><br><span class="line">    <span class="string">&quot;no-console&quot;</span>: <span class="string">&quot;off&quot;</span>,</span><br><span class="line">    <span class="string">&quot;no-debugger&quot;</span>: process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span> ? <span class="string">&quot;warn&quot;</span> : <span class="string">&quot;off&quot;</span>,</span><br><span class="line">    <span class="string">&quot;vue/multi-word-component-names&quot;</span>: [</span><br><span class="line">      <span class="string">&quot;error&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">ignores</span>: [<span class="string">&quot;index&quot;</span>], <span class="comment">// 需要忽略的组件名</span></span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
 <li><p>添加配置文件 .prettierrc.js</p>
-  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.prettierrc.js</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// 一行最多 120 字符</span></span><br><span class="line">  <span class="attr">printWidth</span>: <span class="number">120</span>,</span><br><span class="line">  <span class="comment">// 使用 2 个空格缩进</span></span><br><span class="line">  <span class="attr">tabWidth</span>: <span class="number">2</span>,</span><br><span class="line">  <span class="comment">// 不使用 tab 缩进，而使用空格</span></span><br><span class="line">  <span class="attr">useTabs</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 行尾需要有分号</span></span><br><span class="line">  <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 使用单引号代替双引号</span></span><br><span class="line">  <span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 对象的 key 仅在必要时用引号</span></span><br><span class="line">  <span class="attr">quoteProps</span>: <span class="string">&#x27;as-needed&#x27;</span>,</span><br><span class="line">  <span class="comment">// jsx 不使用单引号，而使用双引号</span></span><br><span class="line">  <span class="attr">jsxSingleQuote</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 末尾使用逗号</span></span><br><span class="line">  <span class="attr">trailingComma</span>: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">  <span class="comment">// 大括号内的首尾需要空格 &#123; foo: bar &#125;</span></span><br><span class="line">  <span class="attr">bracketSpacing</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="comment">// 箭头函数，只有一个参数的时候，也需要括号</span></span><br><span class="line">  <span class="attr">arrowParens</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">  <span class="comment">// 每个文件格式化的范围是文件的全部内容</span></span><br><span class="line">  <span class="attr">rangeStart</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">rangeEnd</span>: <span class="title class_">Infinity</span>,</span><br><span class="line">  <span class="comment">// 不需要写文件开头的 @prettier</span></span><br><span class="line">  <span class="attr">requirePragma</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 不需要自动在文件开头插入 @prettier</span></span><br><span class="line">  <span class="attr">insertPragma</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="comment">// 使用默认的折行标准</span></span><br><span class="line">  <span class="attr">proseWrap</span>: <span class="string">&#x27;preserve&#x27;</span>,</span><br><span class="line">  <span class="comment">// 根据显示样式决定 html 要不要折行</span></span><br><span class="line">  <span class="attr">htmlWhitespaceSensitivity</span>: <span class="string">&#x27;css&#x27;</span>,</span><br><span class="line">  <span class="comment">// 换行符使用 lf</span></span><br><span class="line">  <span class="attr">endOfLine</span>: <span class="string">&#x27;lf&#x27;</span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">	<span class="comment">//.prettierrc.js</span></span><br><span class="line">	<span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	  <span class="comment">// 一行最多 120 字符</span></span><br><span class="line">	  <span class="attr">printWidth</span>: <span class="number">120</span>,</span><br><span class="line">	  <span class="comment">// 使用 2 个空格缩进</span></span><br><span class="line">	  <span class="attr">tabWidth</span>: <span class="number">2</span>,</span><br><span class="line">	  <span class="comment">// 不使用 tab 缩进，而使用空格</span></span><br><span class="line">	  <span class="attr">useTabs</span>: <span class="literal">false</span>,</span><br><span class="line">	  <span class="comment">// 行尾需要有分号</span></span><br><span class="line">	  <span class="attr">semi</span>: <span class="literal">true</span>,</span><br><span class="line">	  <span class="comment">// 使用单引号代替双引号</span></span><br><span class="line">	  <span class="attr">singleQuote</span>: <span class="literal">true</span>,</span><br><span class="line">	  <span class="comment">// 对象的 key 仅在必要时用引号</span></span><br><span class="line">	  <span class="attr">quoteProps</span>: <span class="string">&#x27;as-needed&#x27;</span>,</span><br><span class="line">	  <span class="comment">// jsx 不使用单引号，而使用双引号</span></span><br><span class="line">	  <span class="attr">jsxSingleQuote</span>: <span class="literal">false</span>,</span><br><span class="line">	  <span class="comment">// 末尾使用逗号</span></span><br><span class="line">	  <span class="attr">trailingComma</span>: <span class="string">&#x27;all&#x27;</span>,</span><br><span class="line">	  <span class="comment">// 大括号内的首尾需要空格 &#123; foo: bar &#125;</span></span><br><span class="line">	  <span class="attr">bracketSpacing</span>: <span class="literal">true</span>,</span><br><span class="line">	  <span class="comment">// 箭头函数，只有一个参数的时候，也需要括号</span></span><br><span class="line">	  <span class="attr">arrowParens</span>: <span class="string">&#x27;always&#x27;</span>,</span><br><span class="line">	  <span class="comment">// 每个文件格式化的范围是文件的全部内容</span></span><br><span class="line">	  <span class="attr">rangeStart</span>: <span class="number">0</span>,</span><br><span class="line">	  <span class="attr">rangeEnd</span>: <span class="title class_">Infinity</span>,</span><br><span class="line">	  <span class="comment">// 不需要写文件开头的 @prettier</span></span><br><span class="line">	  <span class="attr">requirePragma</span>: <span class="literal">false</span>,</span><br><span class="line">	  <span class="comment">// 不需要自动在文件开头插入 @prettier</span></span><br><span class="line">	  <span class="attr">insertPragma</span>: <span class="literal">false</span>,</span><br><span class="line">	  <span class="comment">// 使用默认的折行标准</span></span><br><span class="line">	  <span class="attr">proseWrap</span>: <span class="string">&#x27;preserve&#x27;</span>,</span><br><span class="line">	  <span class="comment">// 根据显示样式决定 html 要不要折行</span></span><br><span class="line">	  <span class="attr">htmlWhitespaceSensitivity</span>: <span class="string">&#x27;css&#x27;</span>,</span><br><span class="line">	  <span class="comment">// 换行符使用 lf</span></span><br><span class="line">	  <span class="attr">endOfLine</span>: <span class="string">&#x27;lf&#x27;</span>,</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">	  <span class="attr">printWidth</span>: <span class="number">80</span>, <span class="comment">//一行的字符数，如果超过会进行换行，默认为80</span></span><br><span class="line">	  <span class="attr">tabWidth</span>: <span class="number">2</span>, <span class="comment">//一个tab代表几个空格数</span></span><br><span class="line">	  <span class="attr">useTabs</span>: <span class="literal">false</span>, <span class="comment">//是否使用tab进行缩进，默认为false，表示用空格进行缩减</span></span><br><span class="line">	  <span class="attr">singleQuote</span>: <span class="literal">false</span>, <span class="comment">//字符串是否使用单引号，默认为false，使用双引号</span></span><br><span class="line">	  <span class="attr">semi</span>: <span class="literal">true</span>, <span class="comment">//行位是否使用分号，默认为true</span></span><br><span class="line">	  <span class="attr">trailingComma</span>: <span class="string">&quot;es5&quot;</span>, <span class="comment">//是否使用尾逗号，有三个可选值&quot;&lt;none|es5|all&gt;&quot;</span></span><br><span class="line">	  <span class="attr">bracketSpacing</span>: <span class="literal">true</span>, <span class="comment">//对象大括号直接是否有空格，默认为true，效果：&#123; foo: bar &#125;</span></span><br><span class="line">	  <span class="attr">endOfLine</span>: <span class="string">&quot;auto&quot;</span>,</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-</li>
+<ol start="4">
 <li><p>添加命令</p>
 <p> 在 package.json 中的 scripts 中添加</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;lint&quot;</span>: <span class="string">&quot;eslint --ext .js,.vue src&quot;</span>,  <span class="comment">// 一键检查项目是否符合eslint规则</span></span><br><span class="line">    </span><br><span class="line"><span class="string">&quot;prettier&quot;</span>: <span class="string">&quot;prettier --write .&quot;</span>,     <span class="comment">// 一键格式化所有文件</span></span><br></pre></td></tr></table></figure>
@@ -349,14 +350,30 @@
 <p> 某些文件不需要格式检查或代码格式化的，可以添加到配置</p>
 <ul>
 <li><p><strong>eslint忽略文件</strong>    <strong>.eslintignore</strong></p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/*.json</span><br><span class="line">/*.js</span><br><span class="line">dist</span><br><span class="line">node_modules</span><br></pre></td></tr></table></figure>
-
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/node_modules/*</span><br><span class="line">/dist/*</span><br><span class="line">/public/*</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>prettier忽略文件</strong>  <strong>.prettierignore</strong></p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">dist</span><br><span class="line">dist-ssr</span><br><span class="line">*.local</span><br><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">dist</span><br><span class="line">dist-ssr</span><br><span class="line">*.local</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ol>
+<ul>
+<li><strong>prettier忽略文件</strong>  <strong>.prettierignore</strong>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">dist</span><br><span class="line">dist-ssr</span><br><span class="line">*.local</span><br><span class="line">node_modules</span><br><span class="line">.DS_Store</span><br><span class="line">dist</span><br><span class="line">dist-ssr</span><br><span class="line">*.local</span><br></pre></td></tr></table></figure>
+  <em><strong>css 单位转换问题</strong></em><blockquote>
+<p>不想被转换（px =&gt; rem）</p>
+<p>+ 方法一：</p>
+<p>  使用 Px 或者 PX（与 eslint-prettier 冲突，需要加 <code>/* prettier-ignore */</code> 注释），例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* prettier-ignore */</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">60Px</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>+ 方法二：</p>
+<p>  使用 <code>/*no*/</code> 注释，例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.test</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">60px</span>;<span class="comment">/*no*/</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+</li>
+</ul>
 <blockquote>
 <p>结语：</p>
 <p>参考链接：</p>
@@ -558,7 +575,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -685,11 +702,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,15 +718,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,30 +766,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
@@ -757,11 +774,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,7 +802,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,27 +814,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,6 +823,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,19 +850,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

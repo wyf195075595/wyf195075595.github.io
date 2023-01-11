@@ -10,18 +10,20 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="中前台项目 开发 开发使用到的技术及开发插件vite 以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发  vue3 vue 最新版，搭配 vite 使用更佳  tailwindcss 前端 css 四种模式  行内样式，自由度极高但复用性极差 通用组件库，风格固定，自定义性差 原子样式， tailwindcss 众多类名，每个类名都对应一个 css 样式">
+  <meta name="description" content="中前台项目 开发 项目架构  开发使用到的技术及开发插件vite 以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发  创建项目： 1npm init vite@latest  没有安装vite@latest会提示勾选安装 vue3 vue 最新版，搭配 vite 使用更佳  tailwindcss 前端 css 四种模式  行内样式，自由度极高但复用性极">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vite + vue3 + tailwindcss">
 <meta property="og:url" content="https://wyf195075595.github.io/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="中前台项目 开发 开发使用到的技术及开发插件vite 以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发  vue3 vue 最新版，搭配 vite 使用更佳  tailwindcss 前端 css 四种模式  行内样式，自由度极高但复用性极差 通用组件库，风格固定，自定义性差 原子样式， tailwindcss 众多类名，每个类名都对应一个 css 样式">
+<meta property="og:description" content="中前台项目 开发 项目架构  开发使用到的技术及开发插件vite 以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发  创建项目： 1npm init vite@latest  没有安装vite@latest会提示勾选安装 vue3 vue 最新版，搭配 vite 使用更佳  tailwindcss 前端 css 四种模式  行内样式，自由度极高但复用性极">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221208154045915.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-08-18T02:20:38.545Z">
+<meta property="article:modified_time" content="2023-01-06T02:35:31.372Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vite">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221208154045915.png">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
   
@@ -274,7 +276,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.2k字</span>
+      <span class="post-count">2.6k字</span>
     </span>
   </span>
 
@@ -283,7 +285,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">12分</span>
     </span>
   </span>
 </div>
@@ -295,9 +297,15 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>中前台项目 开发</p>
+<p>项目架构</p>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221208154045915.png" alt="image-20221208154045915"></p>
 <h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="开发使用到的技术及开发插件"><a href="#开发使用到的技术及开发插件" class="headerlink" title="开发使用到的技术及开发插件"></a>开发使用到的技术及开发插件</h2><h3 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h3><blockquote>
 <p>以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发</p>
 </blockquote>
+<p>创建项目：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vite@latest</span><br></pre></td></tr></table></figure>
+
+<p>没有安装vite@latest会提示勾选安装</p>
 <h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><blockquote>
 <p>vue 最新版，搭配 vite 使用更佳</p>
 </blockquote>
@@ -320,17 +328,29 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init -p</span><br></pre></td></tr></table></figure>
 
 <p>配置文件 </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    purge: [&#x27;./index.html&#x27;, &#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;],</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// purge: [], purge在3.0 更改为 content</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">purge</span>: [<span class="string">&#x27;./index.html&#x27;</span>, <span class="string">&#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;</span>],</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 最新</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// purge: [], purge在3.0 更改为 content tailwind 应用范围</span></span><br><span class="line">  <span class="attr">content</span>: [</span><br><span class="line">    <span class="string">&#x27;./index.html&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">theme</span>: &#123;</span><br><span class="line">    <span class="attr">extend</span>: &#123;</span><br><span class="line">      <span class="attr">height</span>: &#123;</span><br><span class="line">        <span class="attr">header</span>: <span class="string">&#x27;72px&#x27;</span>,</span><br><span class="line">        <span class="attr">main</span>: <span class="string">&#x27;calc(100vh - 72px)&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">fontSize</span>: &#123;</span><br><span class="line">        <span class="attr">xs</span>: [<span class="string">&#x27;0.25rem&#x27;</span>, <span class="string">&#x27;0.35rem&#x27;</span>],</span><br><span class="line">        <span class="attr">sm</span>: [<span class="string">&#x27;0.35rem&#x27;</span>, <span class="string">&#x27;0.45rem&#x27;</span>],</span><br><span class="line">        <span class="attr">base</span>: [<span class="string">&#x27;0.42rem&#x27;</span>, <span class="string">&#x27;0.52rem&#x27;</span>],</span><br><span class="line">        <span class="attr">lg</span>: [<span class="string">&#x27;0.55rem&#x27;</span>, <span class="string">&#x27;0.65rem&#x27;</span>],</span><br><span class="line">        <span class="attr">xl</span>: [<span class="string">&#x27;0.65rem&#x27;</span>, <span class="string">&#x27;0.75rem&#x27;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">boxShadow</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;l-white&#x27;</span>: <span class="string">&#x27;-10px 0 10px white&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;l-zinc&#x27;</span>: <span class="string">&#x27;-10px 0 10px #18181b&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">colors</span>: &#123;</span><br><span class="line">        <span class="attr">main</span>: <span class="string">&#x27;#f44c58&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;hover-main&#x27;</span>: <span class="string">&#x27;#f32836&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-100&#x27;</span>: <span class="string">&#x27;#F2F9EC&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-200&#x27;</span>: <span class="string">&#x27;#E4F2DB&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-300&#x27;</span>: <span class="string">&#x27;#7EC050&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-100&#x27;</span>: <span class="string">&#x27;#FCF6ED&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-200&#x27;</span>: <span class="string">&#x27;#F8ECDA&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-300&#x27;</span>: <span class="string">&#x27;#DCA550&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-100&#x27;</span>: <span class="string">&#x27;#ED7456&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-200&#x27;</span>: <span class="string">&#x27;#f3471c&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-300&#x27;</span>: <span class="string">&#x27;#ffffff&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">backdropBlur</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;4xl&#x27;</span>: <span class="string">&#x27;240px&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">variants</span>: &#123;</span><br><span class="line">        <span class="attr">scrollbar</span>: [<span class="string">&#x27;dark&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [],</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在src下新建styles文件夹， 增加 index.scss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ./your-css-folder/styles.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+
+<p>然后在mian.js中引用这个index.scss.tailwind CSS就引入成功了,</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@/styles/index.scss&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>tailwind CSS 依赖scss,可能需要手动安装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add sass@<span class="number">1.54</span><span class="number">.4</span> -D</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 
-<h3 id="vscode-插件"><a href="#vscode-插件" class="headerlink" title="vscode 插件"></a>vscode 插件</h3><h4 id="prettier-code-formater"><a href="#prettier-code-formater" class="headerlink" title="prettier-code formater"></a>prettier-code formater</h4><p>​    在根目录之下创建 .prettierrc, 配置如下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	// 代码结尾不加分号</span><br><span class="line">	&quot;semi&quot;: false,</span><br><span class="line">	// 优先单引号</span><br><span class="line">	&quot;singleQuote&quot;: true,</span><br><span class="line">	// 不添加结尾逗号</span><br><span class="line">	&quot;trailingComma&quot;: &quot;none&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="vscode-插件"><a href="#vscode-插件" class="headerlink" title="vscode 插件"></a>vscode 插件</h3><h4 id="prettier-code-formater"><a href="#prettier-code-formater" class="headerlink" title="prettier-code formater"></a>prettier-code formater</h4><blockquote>
+<p>对代码做格式化，统一代码风格</p>
+</blockquote>
+<p>​    在根目录之下创建 .prettierrc, 配置如下</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">	// 代码结尾不加分号</span><br><span class="line">	&quot;semi&quot;: false,</span><br><span class="line">	// 优先单引号</span><br><span class="line">	<span class="string">&quot;singleQuote&quot;</span>: true,</span><br><span class="line">	// 不添加结尾逗号</span><br><span class="line">	<span class="string">&quot;trailingComma&quot;</span>: <span class="string">&quot;none&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>配置默认使用</p>
 <p>vscode 中 右键代码格式化，配置默认值为 prettier</p>
 <p>设置保存自动生效</p>
-<p>到 设置 中搜索 save 勾选保存时自动格式化文件</p>
+<p>到 设置 中搜索 save,找到 Edit：Format OnSave选项 勾选保存时自动格式化文件</p>
 <h4 id="Tailwind-CSS-intelliSense"><a href="#Tailwind-CSS-intelliSense" class="headerlink" title="Tailwind CSS intelliSense"></a>Tailwind CSS intelliSense</h4><blockquote>
 <p>进行 Tailwind  类名提示， 在class 中按空格可提示类名</p>
 </blockquote>
@@ -383,6 +403,44 @@
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;m-svg-icon class=&quot;w-1.5 h-1.5&quot; name=&quot;hamburger&quot;&gt;&lt;/m-svg-icon&gt;</span><br></pre></td></tr></table></figure>
 
+<h3 id="全局指令注册"><a href="#全局指令注册" class="headerlink" title="全局指令注册"></a>全局指令注册</h3><blockquote>
+<p>文件目录结构</p>
+<p>-directives</p>
+<p>–modules</p>
+<p>—lazy.js</p>
+<p>–index.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">    defineAsyncComponent</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    <span class="title function_">install</span>(<span class="params">app</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> directives =</span><br><span class="line">            <span class="keyword">import</span>.<span class="property">meta</span>.<span class="title function_">globEager</span>(<span class="string">&#x27;./modules/*.js&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> [key, value] <span class="keyword">of</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(directives)) &#123;</span><br><span class="line">            <span class="comment">// 拼接指令注册的 name</span></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(key);</span><br><span class="line">            <span class="keyword">const</span> name = key.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">2</span>].<span class="title function_">replace</span>(<span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">            <span class="comment">// 通过 defineAsyncComponent 异步导入指定路径下的组件</span></span><br><span class="line">            app.<span class="title function_">directive</span>(name, <span class="title function_">defineAsyncComponent</span>(value))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="第三方平台登录"><a href="#第三方平台登录" class="headerlink" title="第三方平台登录"></a>第三方平台登录</h3><blockquote>
+<p>QQ，微信。通过扫码授权等方式，用户同意之后会获取到第三方的用户信息。然后就需要在本平台进行判定</p>
+<p>该第三方用户是否在本平台注册？因为我们拿到的第三方数据没有关键的用户名，密码，手机号。</p>
+<p>1、当前用户已注册，就直接登录</p>
+<p>2、当前用户未注册，执行注册。获取用户唯一标识，如手机号，不重复的用户名等</p>
+<p>核心步骤：</p>
+<p>1、对接第三方平台，获取第三方平台用户信息</p>
+<p>2、利用该童虎信息，完成本应用的注册</p>
+</blockquote>
+<h4 id="qq"><a href="#qq" class="headerlink" title="qq"></a>qq</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://connect.qq.com/manage.html#/">qq互联</a> 需要qq登录认证开发者，创建应用。两者都需要认证。扫码登录时后跳转至一个新的页面，这个页面获取到用户数据后要传回之前的页面。要使用跨页面传输方式。 为保证兼容性使用 BroadcastChannel + localStroage + window.onstorage 两种方式兼容写法</p>
+</blockquote>
+<p>Broadcast.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 频道名</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">LOGIN_SUCCESS_CHANNEL</span> = <span class="string">&quot;LOGIN_SUCCESS_CHANNEL&quot;</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">BroadcastUtils</span> &#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">BroadcastChannel</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">broadcastChannel</span> = <span class="keyword">new</span> <span class="title class_">BroadcastChannel</span>(<span class="variable constant_">LOGIN_SUCCESS_CHANNEL</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">wait</span>(<span class="params">callback</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">broadcastChannel</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">broadcastChannel</span>.<span class="property">onmessage</span> = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        callback &amp;&amp; <span class="title function_">callback</span>(e.<span class="property">data</span>);</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">window</span>.<span class="property">onstorage</span> = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (e.<span class="property">key</span> === <span class="variable constant_">LOGIN_SUCCESS_CHANNEL</span>) &#123;</span><br><span class="line">          callback &amp;&amp; <span class="title function_">callback</span>(<span class="title class_">JSON</span>.<span class="title function_">parse</span>(e.<span class="property">newValue</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">send</span>(<span class="params">data</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">broadcastChannel</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">broadcastChannel</span>.<span class="title function_">postMessage</span>(data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">localStorage</span>.<span class="title function_">setItem</span>(<span class="variable constant_">LOGIN_SUCCESS_CHANNEL</span>, <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(data));</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">clear</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">broadcastChannel</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">broadcastChannel</span>.<span class="title function_">close</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">localStorage</span>.<span class="title function_">removeItem</span>(<span class="variable constant_">LOGIN_SUCCESS_CHANNEL</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>从 第三方数据获取：</p>
+<p>完整代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// QQ 登录的 URL</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">QQ_LOGIN_URL</span> =</span><br><span class="line">  <span class="string">&#x27;https://graph.qq.com/oauth2.0/authorize?client_id=101998494&amp;response_type=token&amp;scope=all&amp;redirect_uri=https%3A%2F%2Fimooc-front.lgdsunday.club%2Flogin&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 处理 QQ 登录视窗</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">openQQWindow</span> = <span class="keyword">async</span> (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="variable language_">window</span>.<span class="title function_">open</span>(</span><br><span class="line">    <span class="variable constant_">QQ_LOGIN_URL</span>,</span><br><span class="line">    <span class="string">&#x27;oauth2Login_10609&#x27;</span>,</span><br><span class="line">    <span class="string">&#x27;height=525,width=585, toolbar=no, menubar=no, scrollbars=no, status=no, location=yes, resizable=yes&#x27;</span></span><br><span class="line">  )</span><br><span class="line">  <span class="comment">// 打开视窗之后开始等待</span></span><br><span class="line">  brodacast.<span class="title function_">wait</span>().<span class="title function_">then</span>(<span class="keyword">async</span> (oauthObj) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 登录成功,关闭通知</span></span><br><span class="line">    brodacast.<span class="title function_">clear</span>()</span><br><span class="line">    <span class="comment">// 执行登录操作</span></span><br><span class="line">    <span class="title function_">oauthLogin</span>(<span class="variable constant_">LOGIN_TYPE_QQ</span>, oauthObj)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 登录按钮事件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">onQQLogin</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">  <span class="title function_">openQQWindow</span>()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// QQ 登录挂起</span></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable constant_">QC</span>.<span class="title class_">Login</span>(</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">btnId</span>: <span class="string">&#x27;qqLoginBtn&#x27;</span> <span class="comment">//插入按钮的节点id</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 登录成功之后的回调，但是需要注意，这个回调只会在《登录回调页面中被执行》</span></span><br><span class="line">    <span class="comment">// 登录存在缓存，登录成功一次之后，下次进入会自动重新登录（即：触发该方法，所以我们应该在离开登录页面时，注销登录）</span></span><br><span class="line">    <span class="function">(<span class="params">data, opts</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;QQ登录成功&#x27;</span>)</span><br><span class="line">      <span class="comment">// 1. 注销登录，否则在后续登录中会直接触发该回调</span></span><br><span class="line">      <span class="variable constant_">QC</span>.<span class="property">Login</span>.<span class="title function_">signOut</span>()</span><br><span class="line">      <span class="comment">// 2. 获取当前用户唯一标识，作为判断用户是否已注册的依据</span></span><br><span class="line">      <span class="keyword">const</span> accessToken = <span class="regexp">/access_token=((.*))&amp;expires_in/</span>.<span class="title function_">exec</span>(</span><br><span class="line">        <span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">hash</span></span><br><span class="line">      )[<span class="number">1</span>]</span><br><span class="line">      <span class="comment">// 3. 拼接请求对象</span></span><br><span class="line">      <span class="keyword">const</span> oauthObj = &#123;</span><br><span class="line">        <span class="attr">nickname</span>: data.<span class="property">nickname</span>,</span><br><span class="line">        <span class="attr">figureurl_qq_2</span>: data.<span class="property">figureurl_qq_2</span>,</span><br><span class="line">        accessToken</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 4. 完成跨页面传输</span></span><br><span class="line">      brodacast.<span class="title function_">send</span>(oauthObj)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 针对于 移动端而言：通过移动端触发 QQ 登录会展示三个页面，原页面、QQ 吊起页面、回调页面。并且移动端一个页面展示整屏内容，且无法直接通过 window.close() 关闭，所以在移动端中，我们需要在当前页面继续进行后续操作。</span></span><br><span class="line">      <span class="title function_">oauthLogin</span>(<span class="variable constant_">LOGIN_TYPE_QQ</span>, oauthObj)</span><br><span class="line">      <span class="comment">// 5. 在 PC 端下，关闭第三方窗口</span></span><br><span class="line">      <span class="variable language_">window</span>.<span class="title function_">close</span>()</span><br><span class="line">    &#125;</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>要获取的数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> oauthObj = &#123;</span><br><span class="line">    <span class="attr">nickname</span>: data.<span class="property">nickname</span>,<span class="comment">// 昵称</span></span><br><span class="line">    <span class="attr">figureurl_qq_2</span>: data.<span class="property">figureurl_qq_2</span>,<span class="comment">// 头像</span></span><br><span class="line">    accessToken <span class="comment">// accessToken qq登录返回的唯一标识</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>继而访问登录接口，接口返回值返回状态标识用户是否注册。没注册则跳转至注册页面</p>
+</blockquote>
+<p><strong>移动端没有窗口的概念，所以我们直接在回调页面执行登录</strong></p>
+<p>针对于 移动端而言：通过移动端触发 QQ 登录会展示三个页面，原页面、QQ 吊起页面、回调页面。并且移动端一个页面展示整屏内容，且无法直接通过 window.close() 关闭，所以在移动端中，我们需要在当前页面继续进行后续操作。</p>
 
     
 
@@ -501,18 +559,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/vue/drective/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          指令
+          插件
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">插件</div>
+    <a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue 2.0 基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -539,7 +597,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">开发使用到的技术及开发插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vite"><span class="toc-number">2.1.</span> <span class="toc-text">vite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue3"><span class="toc-number">2.2.</span> <span class="toc-text">vue3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tailwindcss"><span class="toc-number">2.3.</span> <span class="toc-text">tailwindcss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode-%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">vscode 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prettier-code-formater"><span class="toc-number">2.4.1.</span> <span class="toc-text">prettier-code formater</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tailwind-CSS-intelliSense"><span class="toc-number">2.4.2.</span> <span class="toc-text">Tailwind CSS intelliSense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-language-Featrues"><span class="toc-number">2.4.3.</span> <span class="toc-text">Vue language Featrues</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-vueuse-%E4%B8%AD%E7%9A%84-useWindowSize-%E5%88%A4%E6%96%AD-%E5%BD%93%E5%89%8DPC%E7%AB%AF%E8%BF%98%E6%98%AF%E6%89%8B%E6%9C%BA%E7%AB%AF"><span class="toc-number">2.5.</span> <span class="toc-text">使用 vueuse 中的 useWindowSize 判断 当前PC端还是手机端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85axios-%E6%8C%82%E8%BD%BD%E5%85%A8%E5%B1%80%E5%B9%B6%E5%9C%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.6.</span> <span class="toc-text">安装axios 挂载全局并在子组件引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">环境变量设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">开发代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86-svg-%E6%B3%A8%E5%86%8C%E6%88%90%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">2.9.</span> <span class="toc-text">将 svg 注册成全局组件</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84%E6%8A%80%E6%9C%AF%E5%8F%8A%E5%BC%80%E5%8F%91%E6%8F%92%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">开发使用到的技术及开发插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vite"><span class="toc-number">2.1.</span> <span class="toc-text">vite</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue3"><span class="toc-number">2.2.</span> <span class="toc-text">vue3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tailwindcss"><span class="toc-number">2.3.</span> <span class="toc-text">tailwindcss</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vscode-%E6%8F%92%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">vscode 插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#prettier-code-formater"><span class="toc-number">2.4.1.</span> <span class="toc-text">prettier-code formater</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tailwind-CSS-intelliSense"><span class="toc-number">2.4.2.</span> <span class="toc-text">Tailwind CSS intelliSense</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue-language-Featrues"><span class="toc-number">2.4.3.</span> <span class="toc-text">Vue language Featrues</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-vueuse-%E4%B8%AD%E7%9A%84-useWindowSize-%E5%88%A4%E6%96%AD-%E5%BD%93%E5%89%8DPC%E7%AB%AF%E8%BF%98%E6%98%AF%E6%89%8B%E6%9C%BA%E7%AB%AF"><span class="toc-number">2.5.</span> <span class="toc-text">使用 vueuse 中的 useWindowSize 判断 当前PC端还是手机端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85axios-%E6%8C%82%E8%BD%BD%E5%85%A8%E5%B1%80%E5%B9%B6%E5%9C%A8%E5%AD%90%E7%BB%84%E4%BB%B6%E5%BC%95%E7%94%A8"><span class="toc-number">2.6.</span> <span class="toc-text">安装axios 挂载全局并在子组件引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.7.</span> <span class="toc-text">环境变量设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%BB%A3%E7%90%86%E8%AE%BE%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">开发代理设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86-svg-%E6%B3%A8%E5%86%8C%E6%88%90%E5%85%A8%E5%B1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">2.9.</span> <span class="toc-text">将 svg 注册成全局组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%8C%87%E4%BB%A4%E6%B3%A8%E5%86%8C"><span class="toc-number">2.10.</span> <span class="toc-text">全局指令注册</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E5%B9%B3%E5%8F%B0%E7%99%BB%E5%BD%95"><span class="toc-number">2.11.</span> <span class="toc-text">第三方平台登录</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#qq"><span class="toc-number">2.11.1.</span> <span class="toc-text">qq</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -578,7 +636,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -705,11 +763,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,15 +779,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -745,30 +827,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
@@ -777,11 +835,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -789,7 +863,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -801,27 +875,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,6 +884,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,19 +911,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
