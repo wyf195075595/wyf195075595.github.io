@@ -246,105 +246,6 @@
             
 
   
-    <article id="post-programming/javascript/fullScreen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/fullScreen/" target="_blank">页面元素的全屏</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/fullScreen/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="页面元素的全屏"><a href="#页面元素的全屏" class="headerlink" title="页面元素的全屏"></a>页面元素的全屏</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、全屏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fullScreen</span>(<span class="params">ele</span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(ele);</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">RequestFullScreen</span>)&#123;</span><br><span class="line">         target.<span class="title class_">RequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等可以webkitRequestFullScreen也可以webkitRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE,只能写msRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msRequestFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msRequestFullscreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、退出全屏</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">exitFullScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>;</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">exitFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">exitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozCancelFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozCancelFullScreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/javascript/iframe" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -417,133 +318,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/iframe/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/js番外拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" target="_blank">js拓展</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、发展史"><a href="#1、发展史" class="headerlink" title="1、发展史"></a>1、发展史</h2><h3 id="5大主流浏览器"><a href="#5大主流浏览器" class="headerlink" title="5大主流浏览器"></a>5大主流浏览器</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>内核</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IE</td>
-<td>trident</td>
-</tr>
-<tr>
-<td>chrome</td>
-<td>webkit blink</td>
-</tr>
-<tr>
-<td>safari</td>
-<td>webkit</td>
-</tr>
-<tr>
-<td>firefox</td>
-<td>gecko</td>
-</tr>
-<tr>
-<td>opera</td>
-<td>presto</td>
-</tr>
-</tbody></table>
-<h3 id="历史事件"><a href="#历史事件" class="headerlink" title="历史事件"></a>历史事件</h3><h2 id="2、js相关概念"><a href="#2、js相关概念" class="headerlink" title="2、js相关概念"></a>2、js相关概念</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/">展开全文 >></a>
     </p>
     
 
@@ -691,6 +465,104 @@
 
 
   
+    <article id="post-programming/javascript/jsConsole" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/jsConsole/" target="_blank">jsConsole</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/jsConsole/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">group</span>(<span class="string">&quot;中奖了&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #9E9E9E; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #03A9F4; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #4CAF50; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">groupEnd</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//segmentfault.com/a/1190000012957199</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/jsConsole/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/javascript/load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -790,6 +662,118 @@
 
 
   
+    <article id="post-programming/javascript/downLoad" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/downLoad/" target="_blank">文件下载方式</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/downLoad/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="文件下载方式"><a href="#文件下载方式" class="headerlink" title="文件下载方式"></a>文件下载方式</h1><ol>
+<li><p>get方式下载</p>
+<blockquote>
+<p>window.location.href = URL</p>
+<p>window.open(URL)</p>
+</blockquote>
+</li>
+<li><p>post方式</p>
+</li>
+</ol>
+<ul>
+<li><p>form表单</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> formObj = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;form&#x27;</span>);</span><br><span class="line">          formObj.<span class="property">action</span> = downloadURL;<span class="comment">//设置下载路径</span></span><br><span class="line">          formObj.<span class="property">method</span> = method;<span class="comment">//设置请求方式</span></span><br><span class="line">		 <span class="comment">//formObj.enctype = &#x27;multipart/form-data&#x27; 设置Content-Type</span></span><br><span class="line">          formObj.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;none&#x27;</span>;<span class="comment">//样式隐藏</span></span><br><span class="line">          <span class="keyword">var</span> <span class="title function_">addFormItem</span> = (<span class="params">formObj,formItemName,formItemValue</span>) =&gt; &#123;</span><br><span class="line">            <span class="keyword">let</span> formItem = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;input&#x27;</span>);</span><br><span class="line">            formItem.<span class="property">name</span> = formItemName; <span class="comment">// 传参的字段名</span></span><br><span class="line">            formItem.<span class="property">value</span> = formItemValue; <span class="comment">// 传参的值</span></span><br><span class="line">            formObj.<span class="title function_">appendChild</span>(formItem)</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="title function_">addFormItem</span>(formObj,<span class="string">&#x27;token&#x27;</span>,<span class="variable language_">localStorage</span>.<span class="title function_">getItem</span>(<span class="string">&#x27;accessToken&#x27;</span>))<span class="comment">//设置token参数</span></span><br><span class="line">		 <span class="comment">//设置其他参数</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="keyword">let</span> data_key <span class="keyword">in</span> data)&#123;</span><br><span class="line">            <span class="title function_">addFormItem</span>(formObj,data_key,data[data_key])</span><br><span class="line">          &#125;</span><br><span class="line">    </span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(formObj);<span class="comment">//加入document</span></span><br><span class="line">          formObj.<span class="title function_">submit</span>();<span class="comment">//触发submit事件</span></span><br><span class="line">          <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(formObj);<span class="comment">//移除dom</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/downLoad/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/downLoad/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -859,107 +843,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/tampermonkey" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/tampermonkey/" target="_blank">Tampermonkey脚本</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/tampermonkey/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、基本格式"><a href="#1、基本格式" class="headerlink" title="1、基本格式"></a>1、基本格式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         脚本的名称</span></span><br><span class="line"><span class="comment">// @namespace    可以写个人的网站什么的</span></span><br><span class="line"><span class="comment">// @version      版本号</span></span><br><span class="line"><span class="comment">// @description  脚本的描述</span></span><br><span class="line"><span class="comment">// @author       作者</span></span><br><span class="line"><span class="comment">// @match        匹配站点，在那个网页中启用该脚本，可使用正则进行匹配</span></span><br><span class="line"><span class="comment">// @match        http://119.36.55.224:6850/zentao/my/</span></span><br><span class="line"><span class="comment">// @match        http://www.iqiyi.com/v_*</span></span><br><span class="line"><span class="comment">// @grant        需要什么权限（GM_addStyle添加css样式权限）</span></span><br><span class="line"><span class="comment">// @grant        GM_addStyle</span></span><br><span class="line"><span class="comment">// @require		 引用外部js</span></span><br><span class="line"><span class="comment">// @require		 http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//在这里编写我们的脚本</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、基本语法"><a href="#2、基本语法" class="headerlink" title="2、基本语法"></a>2、基本语法</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/tampermonkey/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/tampermonkey/">展开全文 >></a>
     </p>
     
 
@@ -1162,6 +1045,107 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/upload/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/tampermonkey" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/tampermonkey/" target="_blank">Tampermonkey脚本</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/tampermonkey/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1、基本格式"><a href="#1、基本格式" class="headerlink" title="1、基本格式"></a>1、基本格式</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         脚本的名称</span></span><br><span class="line"><span class="comment">// @namespace    可以写个人的网站什么的</span></span><br><span class="line"><span class="comment">// @version      版本号</span></span><br><span class="line"><span class="comment">// @description  脚本的描述</span></span><br><span class="line"><span class="comment">// @author       作者</span></span><br><span class="line"><span class="comment">// @match        匹配站点，在那个网页中启用该脚本，可使用正则进行匹配</span></span><br><span class="line"><span class="comment">// @match        http://119.36.55.224:6850/zentao/my/</span></span><br><span class="line"><span class="comment">// @match        http://www.iqiyi.com/v_*</span></span><br><span class="line"><span class="comment">// @grant        需要什么权限（GM_addStyle添加css样式权限）</span></span><br><span class="line"><span class="comment">// @grant        GM_addStyle</span></span><br><span class="line"><span class="comment">// @require		 引用外部js</span></span><br><span class="line"><span class="comment">// @require		 http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line">$(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">//在这里编写我们的脚本</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、基本语法"><a href="#2、基本语法" class="headerlink" title="2、基本语法"></a>2、基本语法</h2>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/tampermonkey/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/tampermonkey/">展开全文 >></a>
     </p>
     
 
@@ -1428,15 +1412,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1444,15 +1424,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1464,27 +1448,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1500,15 +1464,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1516,19 +1488,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1536,7 +1508,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1544,19 +1516,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1564,7 +1536,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1584,19 +1580,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
