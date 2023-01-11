@@ -1,12 +1,14 @@
 ---
-title: CSS 2.0
-date: 2022-06-17 18:23:10
+title: CSS 2.1
+date: 2022-10-20 18:00:00
 tags: CSS
 categories: htmlcss
 
 ---
 
-本章内容来自于《css的世界》-张鑫旭，类似于读书笔记吧。主要介绍css2.0的语法。本书主要用于进阶学习，不适用于初学者，书中也默认忽略一些基础的知识
+本章内容来自于《css的世界》-张鑫旭，类似于读书笔记吧。主要介绍css2.1的语法。本书主要用于进阶学习，不适用于初学者，书中也默认忽略一些基础的知识.
+
+CSS2.1中的CSS属性的设计初衷是展示图文
 
 ### css 的世界
 
@@ -285,7 +287,7 @@ height使用的值是默认的auto，应该都知道的auto是个关键字值，
 
 > 什么是替换元素？
 >
-> 通过修改某个属性值呈现的内容就可以被替换的元素就称为“替换元素”。因此，<img>、<object>、<video>、<iframe>或者表单元素<textarea>和<input>都是典型的替换元素。
+> 通过修改某个属性值呈现的内容就可以被替换的元素就称为“替换元素”。因此，**img**、**替换元素**、**video**、**iframe**或者表单元素**textarea**和**input**都是典型的替换元素。
 
 特性：
 
@@ -307,7 +309,7 @@ height使用的值是默认的auto，应该都知道的auto是个关键字值，
 
 2. HTML尺寸这个概念略微抽象 （简单来说就是标签自带的width,hieght等属性）
 
-	我们不妨将其想象成水煮蛋里面的那一层白色的膜，里面是“固有尺寸”这个蛋黄蛋白，外面是“CSS尺寸”这个蛋壳。“HTML尺寸”只能通过HTML原生属性改变，这些HTML原生属性包括<img>的width和height属性、<input>的size属性、<textarea>的cols和rows属性等。
+	我们不妨将其想象成水煮蛋里面的那一层白色的膜，里面是“固有尺寸”这个蛋黄蛋白，外面是“CSS尺寸”这个蛋壳。“HTML尺寸”只能通过HTML原生属性改变，这些HTML原生属性包括**img**的width和height属性、**input**的size属性、**textarea**的cols和rows属性等。
 
 3. CSS尺寸
 
@@ -323,13 +325,13 @@ object-fit 属性就是用来修改图片设配方式的
 
 > 替换元素具有固定的宽高比例，所以如果只设置宽/高， 另一个属性会俺比例自动计算
 
-> 如果任何尺寸都没有，则元素应该是300像素×150像素，这条规则<video>、<canvas>和<iframe>这些元素都符合，唯独图片例外。
+> 如果任何尺寸都没有，则元素应该是300像素×150像素，这条规则 **video**、**canvas**和**iframe**这些元素都符合，唯独图片例外。
 >
 > 结果不仅不是这个尺寸，而且各个浏览器下的尺寸还不一样。IE浏览器下是28×30，如图4-2所示。Chrome浏览器下是0×0，如图4-3所示。Firefox浏览器下显示的是0×22
 
 > 关于图片的src 属性：除非没有 src 属性，否则不管是空值还是其他值，很多浏览器下还是会发送请求
 
-> 对于Firefox浏览器，src默认的<img>不是替换元素，而是一个普通的内联元素，所以使用的就不是替换元素的尺寸规则，而是类似<span>的内联元素尺寸规则，宽高会无效
+> 对于Firefox浏览器，src默认的**img**不是替换元素，而是一个普通的内联元素，所以使用的就不是替换元素的尺寸规则，而是类似**span**的内联元素尺寸规则，宽高会无效
 >
 > 修复需设置
 >
@@ -1261,7 +1263,7 @@ margin，padding都是相对于宽度计算。假设如果boder支持%，那么�
 
 有时候我们想设置 vertical-align 但是却不生效，为啥？
 
-因为vertical-align起作用是有前提条件的，这个前提条件就是：**只能应用于内联元素以及display值为table-cell的元素。**换句话说，vertical-align属性只能作用在display计算值为inline、inline-block, inline-table或table-cell的元素上。因此，默认情况下，<span>、<strong>、<em>等内联元素，<img>、<button>、<input>等替换元素，非HTML规范的自定义标签元素，以及<td>单元格，都是支持vertical-align属性的，其他块级元素则不支持。
+因为vertical-align起作用是有前提条件的，这个前提条件就是：**只能应用于内联元素以及display值为table-cell的元素。**换句话说，vertical-align属性只能作用在display计算值为inline、inline-block, inline-table或table-cell的元素上。因此，默认情况下，**span**、**strong**、**em**等内联元素，**img**、**button**、**input**等替换元素，非HTML规范的自定义标签元素，以及<td>单元格，都是支持vertical-align属性的，其他块级元素则不支持。
 
 > 如果设置了元素 浮动，定位 会让元素块状化。然后导致vertical-align不起作用
 >
@@ -1484,7 +1486,7 @@ IE6/7中浮动元素会在第二行显示，IE8以上的浏览器会显示在第
 
 在CSS世界中，float元素的“浮动参考”是“行框盒子”，也就是float元素在当前“行框盒子”内定位
 
-每一行内联元素都有一个“行框盒子”，这个例子中标题文字比较多，两行显示了，因此有上下两个“行框盒子”，而“更多”所在的<a>元素是在标题文字后面，位于第二行，因此，这里设置了float:right的<a>元素是相对于第二行的“行框盒子”对齐的。
+每一行内联元素都有一个“行框盒子”，这个例子中标题文字比较多，两行显示了，因此有上下两个“行框盒子”，而“更多”所在的**a**元素是在标题文字后面，位于第二行，因此，这里设置了float:right的**a**元素是相对于第二行的“行框盒子”对齐的。
 
 那如果标题文字刚好够两行，那么 **更多**显示的位置是？
 
@@ -1820,9 +1822,9 @@ body {
 }
 ```
 
-结果在IE和Chrome浏览器下，夹在中间的<img>在中间显示，但是Firefox浏览器却是在最后显示
+结果在IE和Chrome浏览器下，夹在中间的**img**在中间显示，但是Firefox浏览器却是在最后显示
 
-对于上述场景，如果希望各个浏览器的表现都是一样的，<img>外层嵌套一层标签并浮动即可，注意，是外层标签浮动。由于浮动和绝对定位水火不容，本身设置浮动是没有任何效果的。
+对于上述场景，如果希望各个浏览器的表现都是一样的，**img**外层嵌套一层标签并浮动即可，注意，是外层标签浮动。由于浮动和绝对定位水火不容，本身设置浮动是没有任何效果的。
 
 ****
 
@@ -1972,7 +1974,7 @@ clip: rect(top, right, bottom, left)
 >
 > 这里的4个值有一个明显不一样的地方，就是不能缩写，且和border-width类似，是不支持百分比值的。
 
-场景：很多网站左上角都有包含自己网站名称的标识（logo），而这些标识一般都是图片，为了更好地SEO以及无障碍识别，我们一般会使用<h1>标签写上网站的名称，代码如下：
+场景：很多网站左上角都有包含自己网站名称的标识（logo），而这些标识一般都是图片，为了更好地SEO以及无障碍识别，我们一般会使用\<h1>标签写上网站的名称，代码如下：
 
 ```html
 <a href="/" class="logo">
@@ -1982,7 +1984,7 @@ clip: rect(top, right, bottom, left)
 </a>
 ```
 
-如何隐藏<h1>标签中的“CSS世界”这几个文字，通常有以下一些技术选型。
+如何隐藏\<h1>标签中的“CSS世界”这几个文字，通常有以下一些技术选型。
 
 - 下策是display:none或者visibility:hidden隐藏，因为屏幕阅读设备会忽略这里的文字。
 
@@ -2020,7 +2022,7 @@ clip: rect(top, right, bottom, left)
 
 	
 
-> 当一个控件元素被focus的时候，浏览器会自动改变滚动高度，让这个控件元素在屏幕内显示。假如说我们的<label>“提交”按钮在第二屏，则点击按钮的时候浏览器会自动跳到第一屏置顶，因为按钮隐藏在了屏幕外，于是发生了非常糟糕的体验问题。而clip就地剪裁，就不会有“页面跳动”的体验问题。于是，权衡成本和效果，clip隐藏成为了最佳选择，特别是对于桌面端项目。
+> 当一个控件元素被focus的时候，浏览器会自动改变滚动高度，让这个控件元素在屏幕内显示。假如说我们的\<label>“提交”按钮在第二屏，则点击按钮的时候浏览器会自动跳到第一屏置顶，因为按钮隐藏在了屏幕外，于是发生了非常糟糕的体验问题。而clip就地剪裁，就不会有“页面跳动”的体验问题。于是，权衡成本和效果，clip隐藏成为了最佳选择，特别是对于桌面端项目。
 
 > **clip隐藏仅仅是决定了哪部分是可见的，非可见部分无法响应点击事件等**
 >
@@ -2097,7 +2099,7 @@ clip: rect(top, right, bottom, left)
 
 #### position:fixed固定定位
 
-> position:fixed固定定位元素的“包含块”是根元素，我们可以将其近似看成<html>元素。换句话说，唯一可以限制固定定位元素的就是<html>根元素
+> position:fixed固定定位元素的“包含块”是根元素，我们可以将其近似看成\<html>元素。换句话说，唯一可以限制固定定位元素的就是\<html>根元素
 
 实现将目标元素定位到某个模块的右上角：
 
@@ -2242,7 +2244,7 @@ background/border为装饰属性，浮动和块状元素一般用作布局，而
 
 对于position值为relative/absolute以及Firefox/IE浏览器（不包括Chrome浏览器）下含有position:fixed声明的定位元素，当其z-index值不是auto的时候，会创建层叠上下文。
 
-##### HTML：
+HTML：
 
 比较图片层级谁大谁先上，结果图片在上
 
@@ -2269,3 +2271,1805 @@ background/border为装饰属性，浮动和块状元素一般用作布局，而
     <img src="2.jpg" style="position:relative; z-index:1;">  
 </div>
 ```
+
+> Chrome等WebKit内核浏览器下，position:fixed元素天然层叠上下文元素，无须z-index为数值。根据我的测试，目前IE和Firefox仍是老套路。
+
+#### css3与新时代的层叠上下文
+
+（1）元素为flex布局元素（父元素display:flex|inline-flex），同时z-index值不是auto。
+
+（2）元素的opacity值不是1。
+
+（3）元素的transform值不是none。
+
+（4）元素mix-blend-mode值不是normal。
+
+（5）元素的filter值不是none。
+
+（6）元素的isolation值是isolate。
+
+（7）元素的will-change属性值为上面2～6的任意一个（如will-change:opacitg、will-chang:transform等）。
+
+（8）元素的-webkit-overflow-scrolling设为touch。
+
+
+
+#### 层叠上下文与层叠顺序
+
+普通元素具有了层叠上下文，其层叠顺序就会不见高，那它的层叠顺序究竟在哪个位置、哪个级别呢？
+
+这里需要分两种情况讨论：
+
+（1）如果层叠上下文元素不依赖z-index数值，则其层叠顺序是z-index:auto，可看成z:index:0级别；
+
+（2）如果层叠上下文元素依赖z-index数值，则其层叠顺序由z-index值决定。
+
+> 元素一旦成为定位元素，其z-index就会自动生效，此时其z-index就是默认的auto，也就是0级别，根据上面的层叠顺序表，就会覆盖inline或block或float元素。而不支持z-index的层叠上下文元素天然是z-index:auto级别，也就意味着，层叠上下文元素和定位元素是一个层叠顺序的，于是当它们发生层叠的时候，遵循的是“后来居上”准则。
+
+[图片淡出，文字跑到图片后面](https://demo.cssworld.cn/7/5-1.php)
+
+- ##### HTML：
+
+	```html
+	<div class="box">               
+	    <span class="text">只有图片淡出，文案一直100%透明</span>
+	    <img class="fade" src="1.jpg">
+	</div>
+	```
+
+- ##### CSS：
+
+	```css
+	@keyframes fadeIn {
+	  0% { opacity: 0; }
+	  100% { opacity: 1; }
+	}
+	
+	.box {
+	  width: 256px; height: 192px;
+	  position: relative;
+	}
+	.text {
+	  line-height: 30px;
+	  position: absolute; left: 0; right: 0; bottom: 0;
+	  background-color: rgba(0,0,0,.5);
+	  color: #fff;
+	  text-align: center;
+	  font-size: 14px;
+	}
+	.fade {
+	  animation: fadeIn 2s 2s infinite; 
+	}
+	```
+
+opacity的值不是1的时候，是具有层叠上下文的，层叠顺序是z-index:auto级别，跟没有z-index值的absolute绝对定位元素是平起平坐的。而本实例中的文字元素在图片元素的前面，于是，只要CSS3动画不是最终一瞬间的opacity:1，位于DOM流后面的图片就会遵循“后来居上”准则而覆盖文字。
+
+知道原因，想要解决这个问题就很简单了：
+
+（1）调整DOM流的先后顺序；
+
+（2）提高文字的层叠顺序，例如，设置z-index:1。
+
+
+
+#### z-index 的负值
+
+> 一开始的时候，以为一个定位元素设置z-index负值，就会跑到页面的背后，隐藏掉，看不到了。结果实际上是有时候确实隐藏了，但有时候又隐藏不掉。为什么会这样？
+
+z-index负值元素的层级：层叠上下文元素上面 <  z-index负值  < block元素的下面
+
+[一个栗子](https://demo.cssworld.cn/7/6-1.php)
+
+- ##### HTML：
+
+	```html
+	/* 此时图片被.box背景遮挡*/
+	<h4>.box非层叠上下文元素</h4>
+	<div class="box">
+	    <img src="1.jpg">
+	</div>
+	
+	/* 此时图片在.box背景上方*/
+	<h4>.box是层叠上下文元素</h4>
+	<div class="box context">
+	    <img src="1.jpg">
+	</div>
+	```
+
+- ##### CSS：
+
+	```css
+	.box {
+	    background-color: blue;
+	}
+	.box > img { 
+	    position: relative; 
+	    z-index: -1; 
+	    right: -50px;
+	}
+	
+	.context {
+	    transform: scale(1);
+	}
+	```
+
+负值的应用：
+
+1. IE8下的多背景模拟
+
+	```css
+	.box {
+	    background-image: (1.jpg);
+	    position: relative;
+	    z-index: 0; /*创建层叠上下文*/
+	}
+	.box:before,
+	.box:after {
+	    content: '';
+	    position: absolute;
+	    z-index: -1;
+	}
+	.box:before {
+	    background-image: (2.png);
+	}
+	.box:after {
+	    background-image: (3.png);
+	}
+	```
+
+	此时，就算．box元素里面是纯文字，伪元素图片照样在文字下面，如此广泛的适用场景使上面的处理几乎可以作为通用的多背景模拟实现准则来实现了
+
+2. [定位在元素的后面](http://demo.cssworld.cn/7/6-2.php)
+
+3. 可访问性隐藏
+
+	z-index负值可以隐藏元素，只需要层叠上下文内的某一个父元素加个背景色就可以
+
+
+
+#### z-index ”不犯二“准则
+
+> 对于非浮层元素，避免设置z-index值，z-index值没有任何道理需要超过2。由于z-index不能超过2，因此，我称其为“不犯二”准则。
+
+**为啥需要设置这个准则？**
+
+（1）定位元素一旦设置了z-index值，就从普通定位元素变成了层叠上下文元素，相互间的层叠顺序就发生了根本的变化，很容易出现设置了巨大的z-index值也无法覆盖其他元素的问题。
+
+（2）避免z-index“一山比一山高”的样式混乱问题。此问题多发生在多人协作以及后期维护的时候。例如，A小图标定位，习惯性写了个z-index:9; B一看，自己原来的实现被覆盖了，立马写了个z-index:99；结果比弹框组件层级还高，那还得了，立马弹框组件来一个z-index:999999；谁知后来，弹框中又要有出错提示效果……显然，最后项目的z-index层级管理就是一团糟。
+
+> 很重要的一点，我这里的“不犯二”准则，并不包括那些在页面上飘来飘去的元素定位，弹框、出错提示、一些下拉效果等都不受这一准则限制。
+>
+> 对于这类JavaScript驱动的浮层组件，我会借助“层级计数器”来管理
+>
+> （1）总会遇到意想不到的高层级元素；
+>
+> （2）组件的覆盖规则具有动态性。
+
+**层级计数器**
+
+实际上就是一段JavaScript脚本，会遍历所有 **body** **处于显示状态的子元素**，并得到最大z-index值，和默认的z-index做比较。如果超出，则显示的组件的z-index自动加1，这样就不会出现有组件被其他组件覆盖的问题；如果不超出，就使用默认的z-index值，
+
+
+
+### 强大的文本处理能力
+
+#### font-size和vertical-align
+
+> line-height的部分类别属性值是相对于font-size计算的，vertical-align百分比值属性值又是相对于line-height计算的，于是，看上去八辈子都搭不上边的vertical-align和font-size属性背后其实也有有着关联的。
+
+如下：
+
+```css
+p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+p > img {
+    vertical-align: -25%;
+}
+```
+
+此时 img 的vertical-align 的值是多少？
+
+> 16 * 1.5 * -25% = -6px
+
+
+
+#### 理解font-size与ex、em和rem的关系
+
+> ex是字符x高度，显然和font-size关系密切，font-size值越大，自然ex对应的大小也就大
+>
+> 某元素 font-size 大小是多少，其1em 就是font Size 大小，em就是’中’等汉字的高度
+>
+> 根元素 font-size 大小就是 1rem 的大小
+
+
+
+#### font-size的关键字属性值
+
+1. 相对尺寸关键字
+
+	• larger：大一点，是<big>元素的默认font-size属性值。
+
+	• smaller：小一点，是<small>元素的默认font-size属性值。
+
+2. 绝对尺寸关键字
+
+	与当前元素font-size无关，仅受浏览器设置的字号影响。注意这里的措辞，是“浏览器设置”，而非“根元素”，两者是有区别的。
+
+	• xx-large：好大好大，和<h1>元素计算值一样。
+
+	• x-large：好大，和<h2>元素计算值一样。
+
+	• large：大，和<h3>元素计算值近似（“近似”指计算值偏差在1像素以内，下同）。
+
+	• medium：不上不下，是font-size的初始值，和<h4>元素计算值一样
+
+	• small：小，和<h5>元素计算值近似。
+
+	• x-small：好小，和<h6>元素计算值近似。• xx-small：好小好小，无对应的HTML元素。
+
+
+
+#### font-size:0与文本的隐藏
+
+> 桌面Chrome浏览器下有个12px的字号限制，就是文字的font-size计算值不能小于12px，我猜是因为中文，如宋体，要是小于12px，就会挤成成一团，略丑，Chrome看不下去，就直接禁用了。
+
+如果font-size:0的字号表现就是0，那么文字会直接被隐藏掉，并且只能是font-size:0，哪怕设置成font-size:0.0000001px，都还是会被当作12px处理的。
+
+
+
+#### 字体属性家族的大家长font-family
+
+font-family支持两类属性值，
+
+一类是“字体名”
+
+```css
+body {
+    font-family: simsun; /*字体名称有空格就需要引号包起来*/
+    /* 多字体 */
+    font-family: 'PingFang SC','Microsoft Yahei';
+}
+```
+
+一类是“字体族”
+
+```css
+font-family: serif;
+```
+
+- serif：衬线字体
+
+	通俗讲就是笔画开始、结束的地方有额外装饰而且壁画粗细会有所不同的字体
+
+- sans-serif：无衬线字体。
+
+- monospace：等宽字体。
+
+- cursive：手写字体。
+
+- fantasy：奇幻字体。
+
+- system-ui：系统UI字体。
+
+字体族与字体名一起时，要将字体名放在前面，不然字体名可能不会加载，应为字体族满足文本渲染就不会在往后面解析了
+
+
+
+#### 等宽字体的实践价值
+
+> 所谓等宽字体，一般是针对英文字体而言的。据我所知，东亚字体应该都是等宽的，就是每个字符在同等font-size下占据的宽度是一样的。但是英文字体就不一定了，我随便写一个单词，就iMac吧，大家很明显地发现这个字符i要比M占据的宽度小。
+
+首先等宽字体利于代码呈现。对于写代码的人来说，无论是什么语言，易读是第一位，使用等宽字体，我们阅读起来会更轻松舒服。因此，一般编辑器使用的字体或者Web上需要呈现源代码的字体都是等宽字体
+
+[等宽字体与图形呈现案例一则](http://demo.cssworld.cn/8/2-1.php)
+
+```css
+    font-family: Consolas, Monaco, monospace;
+```
+
+
+
+#### ch单位与等宽字体布局
+
+> ch和em、rem、ex一样，是CSS中和字符相关的相对单位。和ch相关的字符是0，没错，就是阿拉伯数字0。1ch表示一个0字符的宽度
+
+但是我们网页内容的字符不可能都是0，所以这个单位乍看就显得很鸡肋。但是，如果和等宽字体在一起使用，它就可以发挥不一样的威力
+
+
+
+#### 中文字体和英文名称
+
+> 虽然一些常见中文字体，如宋体、微软雅黑等，直接使用中文名称作为CSS font-family的属性值也能生效，但我们一般都不使用中文名称，而是使用英文名称，主要是为了规避乱码的风险。还有一些中文字体直接使用中文名称作为CSS font-family的属性值是没有效果的，如思源黑体、兰亭黑体等，需要使用字体对应的英文名称才可以生效。
+
+
+
+#### 补充说明
+
+> 微软正黑体是一款全面支持ClearType技术的TrueType无衬线字体，用于繁体中文系统。相对应地，中国大陆地区用的是微软雅黑
+
+> “思源黑体”和“思源宋体”是Adobe与Google合作推出的开源字体。其设计目标是可以广泛用于多种用途的计算机字体，比如用于手机、平板或者桌面的用户界面、网页浏览或者电子书阅读等，均包含7个字重
+
+> 文泉驿微米黑”是Google Droid的开源衍生字体。Droid字体系是Google包含在著名的开源手机平台Android系统中的默认字体，其中的Droid Sans Fallback包含CJK标准汉字16000余个，是目前所知为数不多的开源中文字体之一（也是继文泉驿正黑之后第二个开源中文黑体）
+
+#### 字体家族其他成员
+
+**font-weight**
+
+关键字：normal 和 bold
+
+属性值：
+
+• 100：文字很细，细如发丝。
+
+• 200：文字很轻，轻如鸿毛。
+
+• 300：文字较轻，轻如飞燕。
+
+• 400：文字正常，等同normal。
+
+• 500：文字不粗不细，不轻不重。
+
+• 600：文字略粗，粗如小腿。
+
+• 700：文字加粗，等同bold。
+
+• 800：文字超粗，粗如大腿。
+
+• 900：文字很重，重如泰山。
+
+> 如果我们在设置属性值时发现文字没啥变化，那就是当前字体不行，可以换一个字体试试 （思源黑体）
+
+
+
+#### 具有近似姐妹花属性值的font-style
+
+```css
+font-style
+
+italic/oblique 这两个关键字都表示“斜体”
+```
+
+italic是使用当前字体的斜体字体，而oblique只是单纯地让文字倾斜。如果当前字体没有对应的斜体字体，则退而求其次，解析为oblique，也就是单纯形状倾斜。
+
+
+
+#### font属性
+
+font属性进行文本相关样式的缩写。可以缩写在font属性中的属性非常多，包括font-style、font-variant、font-weight、font-size、line-height、font-family等。完整语法为：
+
+```css
+[[font-style] || font-variant || font-weight]? font-size [/ line-hieght]? font-familly ]
+
+? 表示0/1
+|| 表示 或
+
+font-size和font-family后面没有问号，也就是说是必需的
+```
+
+font-family 不能省略，而且很长，每次写都要带一大串就很不好，有啥技巧避免？
+
+- 方法1
+
+	可以随便找一个系统根本不存在的字体名占位，如字母a，或者特殊一点，用笑脸表情☺，然后再设置font-family:inherit来重置这个占位字体
+
+	```css
+	.font {
+	    font: 30px/30px '☺';
+	    font-family: inherit;
+	}
+	```
+
+- 利用@font face规则将我们的字体列表重定义为一个字体，这是兼容性很好、效益很高的一种解决方法
+
+**font 关键字**
+
+• icon：包含图标内容所使用的字体，如所有文件夹名称、文件名称、磁盘名称，甚至浏览器窗口标题所使用的字体。
+
+• caption：活动窗口标题栏使用的字体。
+
+• status-bar：窗体状态栏使用的字体。
+
+• small-caption：调色板标题所使用的字体。
+
+• message-box：消息盒里面使用的字体。
+
+• menu：菜单使用的字体，如文件夹菜单。
+
+此外还有很多非标准关键字,略
+
+
+
+#### **字体属性的应用价值**
+
+目前，非常多网站的通用font-family直接就是：
+
+```css
+html {
+	font-family: 'Microsoft YaHei';
+}
+```
+
+这样一设置，就意味着所有操作系统下的所有浏览器都要使用“微软雅黑”字体。假如说用户的iMac或者macbook因为某些原因安装了“微软雅黑”字体，那岂不是这些系统原本更加漂亮的中文字体就不能使用了？
+
+**设置让字体跟随系统**
+
+```css
+/* 三选一设置 */
+html { font: menu; }
+body { font-size: 16px; }
+
+html { font: small-caption; }
+body { font-size: 16px; }
+
+html { font: status-bar; }
+body { font-size: 16px; }
+
+```
+
+
+
+#### 真正了解@font face规则
+
+> 很多人只要一提到@font face规则，心中就会不由自主“哦”地一声：“这个我知道，可以用来生成自定义字符小图标！”话是没错，问题在于很多人以为生成字符小图标就是@font face规则的全部，实际上这只是其功能之一，一旦真正了解@font face规则，你会发现，@font face规则可以做的事情其实非常多。
+
+**@font face的本质是变量**
+
+> 虽然说CSS3新世界中才出现真正意义上的变量var，但实际上，在CSS世界中已经出现了本质上就是变量的东西，@font face规则就是其中之一。@font face本质上就是一个定义字体或字体集的变量，这个变量不仅仅是简单地自定义字体，还包括字体重命名、默认字体样式设置等。
+
+```css
+@font-face {
+    font-family: 'example';
+    src: url(example.ttf);
+    font-style: normal;
+    font-weight: normal;
+    unicode-range: U+0025-00FF;
+}
+```
+
+1. **font-family**
+
+	这里的 font-family 可以看成是一个字体变量，名称可以随意设置 如 “$”
+
+2. **src**
+
+	src表示引入的字体资源可以是系统字体，也可以是外链字体。如果是使用系统安装字体，则使用local()【IE9以上支持】功能符；如果是使用外链字体，则使用url()功能符
+
+	示例：
+
+	```css
+	@font-face {
+	    font-family: ICON;
+	    src: url('icon.eot') format('eot');
+	    src: url('icon.eot?#iefix') format('embeded-opentype'),
+	    	 url ('icon.woff2') format('woff2'),
+	    	 url ('icon.woff') format('woff'),
+	    	 url ('icon.ttf') format('typetrue'),
+	    	 url ('icon.svg#icon') format('svg');
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	```
+
+	**出现的格式**
+
+	• svg格式是为了兼容iOS 4.1及其之前的版本，考虑到现如今iOS的版本数已经翻了一番，所以svg格式的兼容代码大可舍弃。
+
+	• eot格式是IE私有的。注意，目前所有版本的IE浏览器都支持eot格式，并不是只有IE6～IE8支持。只是，IE6～IE8仅支持eot这一种字体格式。
+
+	• woff是web open font format几个词的首字母简写，是专门为Web开发而设计的字体格式，显然是优先使用的字体格式，其字体尺寸更小，加载更快。Android 4.4开始全面支持。
+
+	• woff2是比woff尺寸更小的字体，小得非常明显。因此，Web开发第一首选字体就是woff2，只是此字体目前仅Chrome和Firefox支持得比较好。
+
+	• ttf格式作为系统安装字体比较多，Web开发也能用，就是尺寸大了点儿，优点在于老版本Android也支持。
+
+	**综合上面的分析，我们可以得到如下的结论。**
+
+	> （1）svg格式果断舍弃。
+	>
+	> （2）如果无须兼容IE8浏览器，eot格式果断舍弃。
+	>
+	> （3）如果无须兼容Android 4.3之前版本手机，ttf格式果断舍弃。
+
+	之所以存在上面的写法，就是因为 **兼容性** 
+
+	**#iefix 有什么用？**
+
+	> 实际上没啥用，真正有用的其实是前面的问号。是这样的，IE9之前的版本解析有一个严重的问题，当src属性包含多个url()时，会把长长的字符当作一个地址解析而返回404错误。因此把eot格式放在第一位，然后在字体文件url地址后加上问号，这样IE9之前的版本会把问号之后的内容当作url的参数。、
+
+	**为什么需要两个src?**
+
+	> 如果是原生的IE7和IE8浏览器，第一个src实际上是多余的，为什么这么讲呢？之所以要放上来，很大一部分原因是为了测试工程师。因为现在测试工程师测试低版本的IE浏览器喜欢使用兼容模式，兼容模式的IE和原生同版本的IE的解析是有区别的，其中区别之一就是兼容模式的IE7和IE8不认识问号（?）解决方案，导致第二个src无法识别，不得已才多了第一行的src。
+
+	**font-weight:normal和font-style:normal是不是多余的？**
+
+	> 如果你没有同字体名的多字体设置，则它就是多余的，至少我在常规项目中删掉这两行CSS没有出现任何异常。
+
+	**format()功能符有什么作用，可不可以省略？**
+
+	> 我的回答是最好不要省略。format()功能符的作用是让浏览器提前知道字体的格式，以决定是否需要加载这个字体，而不是加载完了之后再自动判断。
+
+	例子：
+
+	```css
+	@font-face {
+	    font-family: ICON;
+	    src: url('icon.eot') format('embedded-opentype'),
+	        url('icon.ttf');
+	}
+	```
+
+	> 这种写法只会加载ttf这一种格式字体，因为浏览器提前知道了文件格式是自己无法识别的
+
+	于是乎最上面那种写法可以优化成：
+
+	```css
+	@font-face {
+	    font-family: ICON;
+	    src: url('icon.eot');
+	    src: local('😊'),
+	    	 url ('icon.woff2') format('woff2'),
+	    	 url ('icon.woff') format('woff'),
+	    	 url ('icon.ttf');
+	}
+	```
+
+3. **font-style**
+
+	> 在Chrome浏览器下，@font face规则设置font-style:italic可以让文字倾斜，但是这并不是其作用所在。
+
+	@font face规则中的font-style和font-weight类似，都是用来设置对应字体样式或字重下该使用什么字体。因为有些字体可能会有专门的斜体字体，注意这个斜体字体并不是让文字的形状倾斜，而是专门设计的倾斜的字体，所以很多细节会跟物理上的请求不一样:
+
+	```css
+	@font-face {
+	    font-family: 'I';
+	    font-style: normal;
+	    src: local('FZYaoti');
+	}
+	@font-face {
+	    font-family: 'I';
+	    font-style: italic;
+	    src: local('FZShuTi');
+	}
+	```
+
+	制定一个字体，名叫’I'，当文字样式正常的时候，字体表现使用“方正姚体”；当文字设置了font-style:italic的时候，字体表现为“方正舒体”。
+
+4. **font-weight**
+
+	> font-weight和font-style类似，只不过它定义了不同字重、使用不同字体
+
+	```css
+	@font-face {
+	    font-family: 'QH';
+	    font-weight: 400;
+	    src: local('HYQihei 40S');
+	}
+	
+	@font-face {
+	    font-family: 'QH';
+	    font-weight: 500;
+	    src: local('HYQihei 50S');
+	}
+	@font-face {
+	    font-family: 'QH';
+	    font-weight: 600;
+	    src: local('HYQihei 60S');
+	}
+	```
+
+	是一个全新的字体，名为’QH'。当字重font-weight为400的时候，使用“汉仪旗黑40S”字重字体；为500的时候，使用“汉仪旗黑50S”字重字体；为600的时候，使用“汉仪旗黑60S”字重字体。
+
+	[借助font-weight实现响应式图标实例页面](https://demo.cssworld.cn/8/5-1.php)
+
+5. **unicode-range**
+
+	unicode-range的作用是可以让特定的字符或者特定范围的字符使用指定的字体。例如，“微软雅黑”字体的引号左右间隙不均，方向不明，实在是看着不舒服，此时我们就专门指定这两个引号使用其他字体，CSS代码如下：
+
+	```css
+	@font-face {
+	    font-family: quote;
+	    src: local('SimSun');
+	    unicode-range: U+201c, U+201d;
+	}
+	.font {
+	    font-family: quote, 'Mircorosoft Yahei';
+	}
+	```
+
+	
+
+#### @font face与字体图标技术
+
+> 从面向未来的角度讲，字体图标技术的使用会越来越边缘化，因为和SVG图标技术相比，其唯一的优势就是兼容一些老的IE浏览器。等再过几年，IE8等浏览器彻底被淘汰了，我们就没有任何使用字体图标技术的理由了。
+
+
+
+**字体的本质是什么?**
+
+> 所谓字体，本质上是字符集和图形的一种映射关系
+>
+> 一个字体文件就好比一个巨型商品房，里面有很多房间，每个房间都有一个唯一的门牌号，然后这些房间就专门用来挂名画。这里的“门牌号”就是“字符集”，“房间里的名画”就是我们的“字体图形”
+>
+> 举个例子，“家”这个汉字Unicode编码是5BB6，这个5BB6就是“门牌号”，在中文字体中，这个“门牌号”对应的房间里面的画作就长得是“家”这个肉眼所见的字符形状。也就是说，一个字符编码对应一个形状。
+
+现在如果我们通过一定的手段，把挂5BB6这个“门牌号”房间里面的画作改成一个房屋的形状，那岂不是使用这个字体文件的时候，“家”就不是“家”，而是房子了呢？
+
+字体图标技术就是使用类似的原理实现的，即把通常的字符映射成为另外的图标形状，于是，虽然我们眼睛看到的是个图标，但是实际上它本质上就是一个普通的字符。
+
+```css
+@font-face {
+	font-family: ICON;
+    src: url(icon.eot);
+    src: url(icon.eot?#iefix) format('embedded-opentype'),
+        url(icon.eot.woff2) format('woff2'),
+        url(icon.eot.woff) format('woff');
+        
+}
+.icon {
+    font-family: ICON;
+}
+.icon-microphone:before {
+    content: '\1f3a4';
+}
+```
+
+> 这里，1f3a4就是一个唯一的“门牌号”，在通常的字体下，其字符展示的是一个斜的麦克风。但是，在ICON这个字体中，1f3a4的图形被映射成了一个正立的麦克风图形。
+
+**知道了字体图标技术的原理**，我们就能很好地理解一些渲染现象了。
+
+（1）因为原始字符和最终的图形表现相差很大，所以当我们的字体文件加载缓慢的时候，可以明显看到字符变图形的过程，这种加载体验是不太友好的，字体内联在CSS文件中可以有效避免这一问题，但往往字体文件体积都比较大，这样处理得不偿失。据我所知，除此之外并没有非常好的解决方法。
+
+（2）原始的字符x-height和最终的图形x-height往往是不一样的，这会影响内联元素的垂直对齐，因此很容易出现页面高度闪动情况，这种加载体验也是不友好的。
+
+（3）原始字符的ch宽度，也就是水平占据的宽度和最终的图形也是不一样的，因此很容易出现内联元素水平方向晃动的问题，这种加载体验也是不友好的，为此图标就需要设定具体宽度值
+
+```css
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+    font-family: ICON;
+}
+```
+
+**我可不可以把映射字符直接写在页面中，而不是放在：before伪元素中？**
+
+> 从技术实现的角度来讲这是完全可以的，而且不支持伪元素的IE7等浏览器都支持这样做。但是在实际开发的时候，我并不建议这么做，有两点原因：一是不好维护，如果以后字符映射关系改变，而图标HTML是散布在各个页面中的，那么我们的改动就会很麻烦；二是从语义角度考虑，图标字符往往是不包含任何意义的，应该没有必要让搜索引擎知道，也无须让辅助设备读取，而伪元素恰好有这样的功能，如果内联在HTML中，则反而成了一种干扰。
+
+
+
+#### 文本的控制
+
+
+
+**text-indent与内联元素缩进**
+
+> ，text-indent就是对文本进行缩进控制。但是这种缩进对内容要求比较高，如果段落掺杂英文、数字或者图片等内容，缩进反而可能会给人以参差不齐的感觉，加上现代Web形式更加多样，text-indent在实际项目中的应用已经脱离了它原本的设计初衷。
+
+首先用得比较多的是text-indent负值隐藏文本内容
+
+```html
+<h1 class="logo"> CSS世界 </h1>
+
+.logo {
+	width: 120px;
+	background: url(logo.png);
+	text-indent: -120px;
+}
+```
+
+有些人喜欢设置一个很大的 text-indent 负值：如 -9999em;
+
+> 我是不建议这么做的。首先，这样做在某些设备下有潜在的性能风险，体现在滚屏的时候会发生卡顿；其次，对于一些智能设备的屏幕阅读软件，如VoiceOver，如果内容缩进在屏幕之外，它是不会读取的，这样就降低了页面的无障碍访问能力。另外，text-indent负值缩进在部分浏览器下会影响元素的outline区域，通常需要再设置overflow:hidden。
+
+
+
+**如果单看最终的CSS样式效果下面代码是否等同？**
+
+```css
+.logo {
+    width: 120px;
+    text-indent: -120px;
+}
+
+.logo {
+    width: 120px;
+    text-indent: -100%;
+}
+```
+
+答案是不等同，
+
+text-indent的百分比值是相对于当前元素的“包含块”计算的，而不是当前元素。由于text-indent最终作用的是当前元素里的内联盒子，因此很容易让人误以为text-indent的百分比值是相对于当前元素宽度计算的。【补充：Chrome 72改变了百分比计算策略】
+
+[示例](http://demo.cssworld.cn/8/6-1.php)
+
+[实现百分比居中](https://demo.cssworld.cn/8/6-2.php)
+
+**最后再说几个你可能不知道的小知识**。
+
+> （1）text-indent仅对第一行内联盒子内容有效。
+>
+> （2）非替换元素以外的display计算值为inline的内联元素设置text-indent值无效，如果计算值是inline-block/inline-table则会生效。因此，如果父级块状元素设置了text-indent属性值，子inline-block/inline-table需要设置text-indent:0重置。
+>
+> （3）**input**标签按钮text-indent值无效。
+>
+> （4）**button**标签按钮text-indent值有效，但是存在兼容性差异，IE浏览器理解为单标签，百分比值按照容器计算，而Chrome和Firefox浏览器标签内还有其他Shadow DOM元素，因此百分比值是按照自身的尺寸计算的。
+>
+> （5）**input**和**textarea**输入框的text-indent在低版本IE浏览器下有兼容问题。
+
+
+
+**letter-spacing与字符间距**
+
+> letter-spacing可以用来控制字符之间的间距，这里说的“字符”包括英文字母、汉字以及空格等。
+
+（1）继承性。
+
+（2）默认值是normal而不是0。虽然说正常情况下，normal的计算值就是0，但两者还是有差别的，在有些场景下，letter-spacing会调整normal的计算值以实现更好的版面布局。
+
+（3）支持负值，且值足够大的时候，会让字符形成重叠，甚至反向排列（非IE浏览器)
+
+（4）和text-indent属性一样，无论值多大或多小，第一行一定会保留至少一个字符。letter-spacing还有一个非常有意思的特性就是，在默认的左对齐情况下，无论值如何设置，第一个字符的位置一定是纹丝不动的。
+
+（5）支持小数值，即使0.1px也是支持的，但并不总能看到效果，这与屏幕的密度有关。对普通的桌面显示器，设备像素比是1，最小渲染单位是1px，因此，需要至少连续10个字符，才能看到0.1px产生的1px间距变化，如果是9个字符，则不会有效果，这很可能会让人误以为letter-spacing不支持非常小的数值，实际上是支持的。
+
+（6）暂不支持百分比值。在实际开发的时候，letter-spacing除了控制文字内容排版外，还可以修复一些布局上的问题。例如，清除inline-block列表由于换行符或者空格产生的空白间隙，使我们的布局控制更精准
+
+```css
+.box {
+    letter-spacing: -1em;
+}
+.list {
+    letter-spacing: 0;
+}
+```
+
+由于letter-spacing负值的字体重叠特性，我们还可以利用该属性实现一些文本动效
+
+[字符动效分步示意](http://demo.cssworld.cn/8/6-4.php)
+
+
+
+**word-spacing与单词间距**
+
+word-spacing和letter-spacing名称类似，其特性也有很多共通之处：
+
+（1）都具有继承性。
+
+（2）默认值都是normal而不是0。通常情况下，两者表现并无差异。
+
+（3）都支持负值，都可以让字符重叠，但是对于inline-block和inline-table元素却存在兼容性差异，Chrome浏览器下可以重叠，IE和Firefox浏览器下则再大的负值也不会重叠，因此不适合使用word-spacing来清除空白间隙。
+
+（4）都支持小数值，如word-spacing:0.5px。
+
+（5）在目前的CSS2.1规范中，并不支持百分比值，但新的草案中新增了对百分值的支持，是根据相对于字符的“步进宽度”（advance width）计算的。这属于新世界内容，本书不做介绍。
+
+（6）间隔算法都会受到text-align:justify两端对齐的影响。
+
+letter-spacing作用于所有字符，但word-spacing仅作用于空格字符。注意，是作用在“空格”上，而不是字面意义上的“单词”。例如，假设有以下CSS和HTML：
+
+```html
+.wp {
+	word-spacing: 20px;
+}
+<p class="wp">
+    我love前端！
+</p>
+```
+
+love虽然是单词，但是没有空格，那么word-spacing 就无效
+
+**如何设置CSS，让多按钮的时候中间自动有合适的间距呢？**
+
+```css
+.box {
+    word-spacing: 20px;
+}
+```
+
+在IE6时代，这确实是个非常好的方法，但如今下面的做法可能要更合适些：
+
+```css
+button + button {
+	margin-left: 20px;
+}
+```
+
+
+
+**了解word-break和word-wrap的区别**
+
+> 准确来讲是 了解word-break:break-all和word-wrap:break-word的区别
+
+word-break属性：
+
+• normal：使用默认的换行规则。
+
+• break-all：允许任意非CJK（Chinese/Japanese/Korean）文本间的单词断行。
+
+• keep-all：不允许CJK文本中的单词换行，只能在半角空格或连字符处换行。非CJK文本的行为实际上和normal一致。【此属性兼容性不咋好】
+
+word-wrap属性：
+
+• normal：就是大家平常见得最多的正常的换行规则。
+
+• break-word：一行单词中实在没有其他靠谱的换行点的时候换行。
+
+> 它之前由于和word-break长得太像，难免会让人记不住或搞混，于是在CSS3规范里，这个属性的名称被修改了，叫作overflow-wrap 【兼容性可能不佳】
+
+[那两者的区别是什么呢？](http://demo.cssworld.cn/8/6-5.php)
+
+> word-break:break-all的作用是所有的都换行，毫不留情，一点儿空隙都不放过，而word-wrap:break-word则带有怜悯之心，如果这一行文字有可以换行的点，如空格或CJK（中文/日文/韩文）之类的，就不打英文单词或字符的主意了，在这些换行点换行，至于对不对齐、好不好看则不关心，因此，很容易出现一片一片空白区域的情况。
+
+
+
+**white-space与换行和空格的控制**
+
+> white-space属性声明了如何处理元素内的空白字符，这类空白字符包括Space（空格）键、Enter（回车）键、Tab（制表符）键产生的空白。因此，white-space可以决定图文内容是否在一行显示（回车空格是否生效），是否显示大段连续空白（空格是否生效）等。
+
+属性值:
+
+• normal：合并空白字符和换行符。
+
+• pre：空白字符不合并，并且内容只在有换行符的地方换行。
+
+• nowrap：该值和normal一样会合并空白字符，但不允许文本环绕。
+
+• pre-wrap：空白字符不合并，并且内容只在有换行符的地方换行，同时允许文本环绕。
+
+• pre-line：合并空白字符，但只在有换行符的地方换行，允许文本环绕。
+
+![image-20221019154123966](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221019154123966.png)
+
+
+
+**text-align与元素对齐 **
+
+> 因为CSS是母语为英语的人发明的，所以在早期的时候，对中文或其他东亚语言并没有考虑得那么细致，从text-align:justify的表现上就可以窥见一斑。例如，IE浏览器（至少到IE11）到目前为止使用text-align:justify都无法让中文两端对齐，而Chrome、Firefox和Safari等浏览器都是可以的。
+>
+> 不过，好在IE有一个私有的CSS属性text-justify（目前也写入规范草案了）可以实现中文两端对齐的。
+
+通过下面的CSS代码组合就可以实现全部浏览器都兼容的中文两端对齐
+
+```css
+.justify {
+    text-align: justify;
+    text-justify: inter-ideograph;
+}
+```
+
+其中，属性值inter-ideograph的字面意思是“国际象形文字”，非官方非标准，可以放心使用，不用担心以后其他浏览器也支持之后出现新旧渲染不一致的问题。
+
+[中文的两端对齐效果实现实例页面](http://demo.cssworld.cn/8/6-7.php)
+
+CSS世界中有一个text-align-last属性，可以规定最后一行内联内容的排列方式，这是从IE浏览器过来的
+
+```css
+.justify {
+    text-align-last: justify;
+}
+```
+
+> 好一个及时雨！然而可惜，Safari浏览器，包括Safari 10，都不支持，以至于移动端和桌面端都不能使用，甚是遗憾。
+
+[两端对齐案例](http://demo.cssworld.cn/8/6-8.php)
+
+
+
+**如何解决text-decoration下划线和文本重叠的问题**
+
+> 如果对细节要求较高，就会发现，下划线经常会和中文文字的下边缘粘连在一起，英文的话甚至直接穿过，越看越有心痛的感觉。
+
+最佳实践就是使用 border 模拟下划线。另外，使用border-bottom模拟下划线的时候，border-color最好省略，这样就会使用文字的color颜色作为边框色，鼠标hover的时候，下划线会自动和文字一起变色
+
+text-decoration还支持同时设置多个属性
+
+```css
+a {
+    text-decoration: underline overline;
+}
+```
+
+
+
+**一本万利的text-transform字符大小写**
+
+> text-transform也是为英文字符设计的，要么全大写text-transform:uppercase，要么全小写text-transform:lowercase，似乎没什么值得挖掘的，但有一些场景使用它却会有一本万利的效果。
+
+1. 身份证输入
+
+	我国的身份证最后一位有可能是字母X，且各种场合都是指定必须大写。如果我们给输入身份证的 **input** 输入框设置
+
+	```css
+	input {
+	    text-transform: uppercase;
+	}
+	```
+
+	就算我们敲小写x,出现的也是大写
+
+2. 验证码输入
+
+	如果验证码不区分大小写，那么设置全转大写起步爽歪歪
+
+
+
+#### **first-letter/:first-line伪元素**
+
+> 很多年前，Chrome浏览器和IE9浏览器还未出现，那时候first-letter叫伪类选择器，写法是前面加一个冒号，如：first-letter。那时候的语义要更直白一些，选择第一个字符，然后设置一些样式。后来，伪类和伪元素被划分得更加明确和规范了，::after、::before、::backdrop、::first-letter、::first-line、::selection等是伪元素，:active、:focus、:checked等被称为伪类，这就导致：:first-letter的语义发生了一些变化—首字符作为元素的假想子元素。
+
+
+
+::first-letter**伪元素生效的前提**
+
+> 首先，元素的display计算值必须是block、inline-block、list-item、table-cell或者table-caption，其他所有display计算值都没有用，包括display:table和display:flex等。
+
+**此外，不是所有的字符都能单独作为：:first-letter伪元素存在的。什么意思呢？我们看一个简单的例子，CSS和HTML代码如下：**
+
+```html
+p:first-letter { color: silver; }
+<p>？？？？？？？</p>
+```
+
+
+
+按照我们的设想，第一个问号是银色，但实际上全部都是
+
+> 为什么呢？这是因为常见的标点符号、各类括号和引号在：:first-letter伪元素眼中全部都是“辅助类”字符，有点儿买东西送赠品的感觉，但是赠品本身却不能购买，这里的问号“? ”就属于赠品
+
+```html
+p:first-letter { color: silver; }
+<p>？？？？？？？辅助</p>
+```
+
+这次我们发现，"？？？？？？？辅" 变成了银色。这就是**赠品**的表现
+
+> 有人可能会有疑问：那到底哪些字符属于“赠品”，哪些属于“商品”呢？我特意做了测试，总结下来就是，“赠品字符”包括·@#%&＊()（）[]【】{}::"""; ; '''》《, , .。? ? ! ! …＊、/\。
+>
+> 正常情况下可以直接作为伪元素的字符就是数字、英文字母、中文、$、一些运算符，以及非常容易被忽视的空格等。这里的“空格”有必要再加粗强调一下，因为它的确是很容易被忽视的一个字符。
+
+> 最后说明一点，字符前面不能有图片或者inline-block/inline-table之类的元素存在
+
+如下：会导致不生效
+
+```html
+p:first-letter {color: silver;}
+<p><i style="display:inline-block;"></i>银色</p>
+```
+
+> **::before伪元素也参与：:first-letter伪元素**
+
+```html
+p:before {
+	content: '新闻';
+}
+p:first-letter {
+	color: silver;
+}
+<p>这是新闻的标题......</p>
+```
+
+结果“新”变成了银色,包括IE8在内的浏览器都是这样的表现。
+
+
+
+**::first-letter伪元素可以生效的CSS属性**
+
+• 所有字体相关属性：font、font-style、font-variant、font-weight、font-size、line-height和font-family。
+
+• 所有背景相关属性：background-color、background-image、background-position、background-repeat、background-size和background-attachment。
+
+• 所有margin相关属性：margin、margin-top、margin-right、margin-bottom和margin-left。
+
+• 所有padding相关属性：padding、padding-top、padding-right、padding-bottom和padding-left。
+
+• 所有border相关属性：缩写的border、border-style、border-color、border-width和普通书写的属性。
+
+• color属性。
+
+• text-decoration、text-transform、letter-spacing、word-spacing（合适情境下）、line-height、float和vertical-align（只有当float为none的时候）等属性。
+
+> 因此，如果妄图使用visibility:hidden或者display:none隐藏：:first-letter伪元素，还是省省吧。
+
+
+
+**::first-letter伪元素的一些有意思的特点**
+
+1. 支持部分display属性值标签嵌套。::first-letter伪元素获取可以跨标签，也就是不仅能选择匿名内联盒子，还能透过层层标签进行选择，但是也有一些限制，并不是所有标签嵌套都是有用的。
+
+	> display值如果是inline、block、table、table-row、table-caption、table-cell、list-item都是可以的，但是不能是inline-block和inline-table，否则：:first-letter伪元素会直接无效；而display:flex则改变了规则，直接选择了下一行的字符内容。
+
+	[眼见为实](http://demo.cssworld.cn/8/7-1.php)
+
+2. 颜色等权重总是多了一层。
+
+	这是非常容易犯的一个错误，也是CSS世界十大不易理解问题之一。例如，下面这个问题是某同行发邮件问我的，我简单编辑了一下：
+
+	```html
+	p:first-letter {
+	    color: red;
+	}
+	p > span {
+		color: blue!important;
+	}
+	
+	<p><span>第一个</span>字符看看会不会变红？</p>
+	```
+
+	请问“第”这个字符的颜色是什么？
+
+> 基本上，超过95%的前端人员会认为是blue，因为大家都是从CSS选择器权重的角度去考虑的。这个答案本身没问题，但是却忽略了很重要的一点，::first-letter伪元素其实是作为子元素存在的，或者说应当看出是子元素，于是就很好理解了。对于类似color这样的继承属性，子元素的CSS设置一定比父元素的级别要高，哪怕父级使用了重量级的！important，因为子元素会先继承，然后再应用自身设置。因此，上面CSS和HTML代码的最终结果是，第一个字符“第”字的颜色是red，红色！这就是：:first-letter伪元素的另外一个重要特性—颜色等权重总是多了一层。
+
+
+
+**::first-letter实际应用举例**
+
+- 电商产品经常会有价格，价格前面一般都有一个¥符号，这个符号字体往往会比较特殊，字号也比较大，同时和文字的数值有几像素的距离
+
+	```html
+	.price:first-letter {
+		maargin-right: 5px;
+		font-size: xx-large;
+		...
+	}
+	<p>
+	    ￥399
+	</p>
+	```
+
+	
+
+	
+
+**故事相对较少的：first-line伪元素**
+
+> 它们长得类似，很多特性也类似。但是相比之下，:first-line的故事要少一些，没有“赠品字符”之类的梗存在。
+
+• :first-line和：first-letter伪元素一样，IE9及以上版本浏览器支持双冒号：:first-line{}写法，IE8浏览器只认识单冒号写法。
+
+• :first-line和：first-letter伪元素一样，只能作用在块级元素上，也就是display为block、inline-block、list-item、table-cell或者table-caption的元素设置：first-line才有效，table、flex之类都是无效的。
+
+• :first-line和：first-letter伪元素一样，仅支持部分CSS属性，例如：
+
+所有字体相关属性；
+
+- color属性；
+
+- 所有背景相关属性；
+
+- text-decoration、text-transfor、letter-spacing、word-spacing、line-height和vertical-align等属性。
+
+
+
+• :first-line和：first-letter伪元素一样，color等继承属性的权重总是多了一层，毕竟称为“伪元素”，就好像里面还有个子元素。如果：first-line和：first-letter同时设置颜色，:first-letter级别比：first-line高，即使：first-line写在后面，甚至加！important（如果浏览器支持）也是如此。
+
+• :first-line和：first-letter伪元素一样，也支持标签嵌套，但是具体细则和：first-letter出入较大，例如，它不支持table相关属性等。
+
+[眼见为实](http://demo.cssworld.cn/8/7-2.php)
+
+> 在Chrome 中inline-block 元素会阻断 first-line
+
+
+
+### 元素装饰与美化
+
+
+
+#### 少得可怜的颜色关键字
+
+> CSS1的时候只支持16个基本颜色关键字
+>
+> CSS2的时候，显然应该要新增一些颜色关键字。或许很多人满怀希望，总以为会有什么惊喜，结果果然很惊喜：居然只加入了一个颜色—橙色orange。
+>
+> 到了CSS3的时候，以为又会是“雷声大，雨点小”，结果这次却出人意料，一下子增加了100多个颜色关键字
+>
+> 到了CSS4的时候，以为又会有什么惊人之举，结果又仅增加了一个颜色关键字—rebeccapurple
+>
+> [更多](http://www.zhangxinxu.com/wordpress/? p=4859)
+
+> currentColor变量是个好东西，可以使用当前color计算值，即所谓颜色值。
+>
+> IE9+浏览器才支持它。
+
+####  CSS世界的background很单调
+
+> CSS世界中的background大部分有意思的内容都是在CSS3新世界中才出现的，如Multiple backgrounds（多背景）、background-size（背景尺寸）、background-origin（背景初始定位盒子）、background-clip（背景剪切盒子）等。
+
+background相关属性的集合，包括：
+
+• background-image: none
+
+• background-position: 0% 0%
+
+• background-repeat: repeat
+
+• background-attachment: scroll
+
+• background-color: transparent
+
+如果是IE9+浏览器，则还包括：
+
+• background-size: auto auto
+
+• background-origin: padding-box
+
+• background-clip: border-box
+
+
+
+**隐藏元素的background-image到底加不加载?**
+
+> 根据我的测试，一个元素如果display计算值为none，在IE浏览器下（IE8～IE11，更高版本不确定）依然会发送图片请求，Firefox浏览器不会，至于Chrome和Safari浏览器则似乎更加智能一点：如果隐藏元素同时又设置了background-image，则图片依然会去加载；如果是父元素的display计算值为none，则背景图不会请求，此时浏览器或许放心地认为这个背景图暂时是不会使用的。
+
+> 如果想用background-image实现鼠标光标经过变换图片的效果（例如，灰色的关闭图片鼠标光标经过变成深色），则务必将这两张图片合并在一张图片上，除了减少请求外，这样做更重要的好处是交互体验更好了。如果图片不合在一起，当鼠标光标经过的时候，就会去请求另外一张图片的地址，如果这个图片没有被缓存，则请求发出去到图片显示是有一段时间的，很容易出现鼠标光标经过关闭图片，结果图片消失的情况，实际上图片不是消失了，而是还在请求的路上。
+
+
+
+**与众不同的background-position百分比计算方式**
+
+![image-20221020103129977](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221020103129977.png)
+
+IE8浏览器最多只支持同时出现2个值，从IE9开始支持同时出现3个值或4个值，**作用是指定定位的偏移计算从哪个方位算起**
+
+```css
+background-position: right 40px bottom 20px;
+```
+
+表示距离右边缘40像素，距离底边缘20像素
+
+**position值也支持百分比值**
+
+position值的百分比值有着特殊的计算公式：
+
+```js
+position = (容器的宽 - 图片的宽) * percentX
+
+position = (容器的高 - 图片的高) * percentY
+```
+
+因此，当background-position:100% 100%时候，实际定位值就是容器尺寸和图片尺寸的差，于是就有了右下角所示的定位效果。
+
+**当我们设置百分比负值时**
+
+```css
+background-position: -50% -50%;
+```
+
+结果他的效果类似于
+
+```css
+background-position: 40px 10px;
+```
+
+> 深受传统百分比定位迷惑的我们可能一时会想不通，明明是个负值百分比定位，怎么会是一个正值效果呢？
+>
+> 我们套用 **position** 百分比值计算公式，就豁然开朗了！此案例中容器尺寸是160×160，图片尺寸是256×192，图片尺寸大于容器尺寸，所以：
+>
+> •（容器的宽度-图片的宽度）×（-50%）的结果是个正值；
+>
+> •（容器的高度-图片的高度）×（-50%）的结果也是个正值。
+>
+> 因此，最终的表现并不是图片定位在容器外，而是定位在容器内。
+
+
+
+** background-repeat与渲染性能**
+
+> background-repeat支持repeat、repeat-x、repeat-y这几个值，语义清晰，兼容性好，没什么有趣的故事。background-repeat以前用得很多，但如今设计趋势是喜欢扁平和纯色，其使用频率下降明显，反倒是在实现一些复杂纹理或者配合“蝉原则”实现随机背景这些比较新潮的地方见到的比较多。
+
+关于 background-repeat 性能，
+
+```css
+.overlay {
+	background: url('alpha.png');
+	background: rgba(0,0,0, .75);
+}
+```
+
+> 有些人为了追求极致，把 alpha.png 做成了1X1像素大小，，但是遮罩背景出现的时候会有明显的卡顿，体验非常不好。究其原因，就是平铺图片尺寸太小，平铺次数太多，渲染太吃力，其实我们大可把背景图保存成100像素×100像素大小，这样一来，图片尺寸并没有大多少，但是渲染性能却有明显提升。
+
+**外强中干的background-attachment:fixed**
+
+> 在CSS世界中，background-attachment支持scroll和fixed两个属性值，其中scroll是默认值，就是平常使用背景图的效果表现；fixed表示背景相对于当前文档视区定位，也就是页面再怎么滚动背景图片位置依旧纹丝不动，稳若泰山。
+>
+> 听上去，background-attachmen:fixed应该和position:fixed声明一样，是个很厉害的角色才对。但实际上其外强中干，在某些场合它确实很厉害，但是局限太大，没法实用。
+
+- 要实现一个图片局部动态模糊效果
+
+	```css
+	.box {
+		width: 256px; hieght: 1192px;
+	    background-image: url(1.jpg);
+	    background-attachment: fixed;
+	    position: relative;
+	    overflow: hidden;
+	}
+	.box > .drag {
+	    width: 100px; height: 100px;
+	    background: inherit;
+	    filter: blur(5px);
+	    cursor: grap;
+	    position: absolute;
+	}
+	```
+
+	> drag元素的background继承于父元素．box，同样的背景图，同样的background-attachment: fixed锁定，根本就不需要JavaScript动态改变background-position位置，因为元素都是相对于文档视区定位的。这看似美好，却有一个很大的局限性，那就是页面的高度不能超过一屏，因为页面一旦可以滚动，效果就完全被毁掉，背景图立马就显示不全了，因为元素被滚走了，但是背景图还是固定的。
+	>
+	> 而绝大多数网页都是可滚动的，这就让background-attachment:fixed只能局限于窗体背景图的使用上。当然，也有不太好的支持方法，就是background-attachment:fixed交互做出一个独立的小页面，然后主页面使用一个小的iframe嵌套。
+	>
+	> IE9及以上版本浏览器新增了一个background- attachment属性值local，难道它就是用来解决上面的“不合乎预期”的现象的？不好意思，你想多了，它们不是一路的。local的作用是，如果．box元素可以滚动，则．box元素的背景图也可以被滚走，默认的scroll值是固定的，和fixed无半点儿关系。
+
+**background-color背景色永远是最低的**
+
+> 什么意思呢？就是background无论是单背景图还是多背景图，背景色一定是在最底下的位置。
+>
+> 知道这一特性有什么作用呢？为了及时准确反馈用户的点击行为，我们会在链接或按钮元素上增加：active样式，通常的思路是：active时变换一下背景色，但是这样有一个很大的问题，即每个按钮的背景色都是不一样的，那岂不是要写很多个：active样式？有没有什么整站通用的简单代码呢？当然有。我们可以试试使用背景图片代替背景色
+
+```CSS
+a[href]:active, button:active {
+    background-image: linear-gradient(to top, rgba(0,0,0, .05), rgba(0,0,0, .05))
+}
+```
+
+因为背景色一定是在最底下的位置，所以这里的background-image一定是覆盖在按钮等元素背景色之上的，不会影响按钮原来的背景色。
+
+如果是桌面端Web项目，需要兼容IE8和IE9浏览器，我的建议是使用一个同等效果的PNG图片代替，具体代码如下：
+
+```css
+a[href]:active, button:active {
+    /*IE8,IE9*/
+    background-image: url(xxx);
+    /*IE10+*/
+    background-image: linear-gradient(to top, rgba(0,0,0, .05), rgba(0,0,0, .05))
+}
+```
+
+
+
+**利用多背景的属性hack小技巧**
+
+> 虽然IE8浏览器并不支持多背景，但是并不表示IE8浏览器和多背景效果无缘。因为IE8浏览器支持：before和：after两个伪元素，所以配合z-index负值，我们可以实现最多3个图片的多背景效果，对绝大部分的需求来说足够了。
+
+
+
+**IE9浏览器不支持背**
+
+> IE9浏览器不支持背景渐变，不过，也是有手段可以做兼容的，那就是使用IE私有的渐变滤镜。例如，一个红蓝渐变，可以使用下面的代码：
+
+```css
+filter: progid: DXImageTransform.Micorosoft.gradient(startcolorstr=red, encolorstr=blue, gradientType=1);
+```
+
+> 这行滤镜代码主要有3个参数，依次是startcolorstr、endcolorstr和gradient Type。其中gradientType=1代表横向渐变，gradientType=0代表纵向淅渐变，startcolorstr代表渐变起始的色彩。除了使用颜色关键字，还可以使用十六进制颜色表示法，如startcolorstr=#FF0000; endcolorstr代表渐变结尾的色彩，也支持十六进制颜色表示法，如endcolorstr=#0000FF。
+
+> 想要渐变半透明怎么办？可以使用IE浏览器的8字符的十六进制颜色表示法，其格式为#AARRGGBB, AA、RR、GG、BB均为十六进制正整数，取值范围为00～FF。RR指定红色值，GG指定绿色值，BB指定蓝色值，AA指定透明度。00表示完全透明，FF表示完全不透明。超出取值范围的值将被恢复为默认值。例如，渐变起始红色可以写成startcolorstr=#FFFF0000。
+
+有些人并不清楚如何将0～1的CSS3标准透明度值转换成十六进制。事实上，可以这样处理：打开浏览器控制台，假设需要转换的透明度是opacity，则可以输入下面的代码再回车：
+
+```js
+Math.round(256*opacity).toString(16);
+```
+
+综上所述，要想实现一个100%红色到50%透明度蓝色垂直渐变，可以使用如下代码组合：
+
+```css
+.gradient {
+    filter: progid:DXImageTransform.Micorosoft.gradient(startsolorstr=#FFFF0000, endcolorstr=#7F0000FF, gradientType=0);
+    background: linear-gradient(to bottom, red, rgba(0,0,255, .5))
+}
+
+:root .bgcolor {
+    filter: none;
+}
+```
+
+在IE9浏览器下，rgba半透明和filter渐变会同时起作用，因此使用：root选择器重置了一下。
+
+
+
+### 元素的显示与隐藏
+
+> 使用CSS让元素不可见的方法很多，剪裁、定位到屏幕外、明度变化等都是可以的。虽然它们都是肉眼不可见，但背后却在多个维度上都有差别。
+
+**总结的一些比较好的隐藏实践。**
+
+- 如果希望元素不可见，同时不占据空间，辅助设备无法访问，同时不渲染，可以使用 **script** 标签隐藏。
+
+	```html
+	<script type="text/html">
+		<img src="1.jpg" />
+	</script>
+	```
+
+	此时图片是不会有请求的，如果希望在 **script** 标签中再放置其他不渲染的模板内容，可以试试 **textarea** 元素
+
+	```html
+	<script type="text/html">
+		<img src="1.jpg" />
+		<textarea style="display:none;">
+			<img src="2.jpg" />
+		</textarea>
+	</script>
+	```
+
+	图片2.jpg也是不会有请求的。另外， **script**  标签隐藏内容获取使用script.innerHTML, **textarea** 使用textarea.value。
+
+- 如果希望元素不可见，同时不占据空间，辅助设备无法访问，但资源有加载，DOM可访问，则可以直接使用display:none隐藏
+
+- 如果希望元素不可见，同时不占据空间，辅助设备无法访问，但显隐的时候可以有transition淡入淡出效果，则可以使用
+
+	```css
+	.hidden {
+	    position: absolute;
+	    visibility: hidden;
+	}
+	```
+
+- 如果希望元素不可见，不能点击，辅助设备无法访问，但占据空间保留，则可以使用visibility:hidden隐藏
+
+- 如果希望元素不可见，不能点击，不占据空间，但键盘可访问，则可以使用clip剪裁隐藏
+
+	```css
+	.clip {
+	    position: absolute;
+	    clip: rect(0 0 0 0);
+	}
+	.out {
+	    position: relative;
+	    left: -999em;
+	}
+	```
+
+- 如果希望元素不可见，不能点击，但占据空间，且键盘可访问，则可以试试relative隐藏。例如，如果条件允许，也就是和层叠上下文之间存在设置了背景色的父元素，则也可以使用更友好的z-index负值隐藏。例如：
+
+	```css
+	.lover {
+	    position: relative;
+	    z-index: -1;
+	}
+	```
+
+- 如果希望元素不可见，但可以点击，而且不占据空间，则可以使用透明度。
+
+	```css
+	.opacity {
+	    position: absolute;
+	    opacity: 0;
+	    filter: Alpha(opcity=0);
+	}
+	```
+
+- 如果单纯希望元素看不见，但位置保留，依然可以点可以选，则直接让透明度为0。
+
+	```css
+	.opacity {
+	    opacity: 0;
+	    filter: Alpha(opcity=0);
+	}
+	```
+
+	
+
+> 实际开发场景千变万化，上面罗列的实践不足以覆盖全部情形。例如，在标签受限的情况下希望隐藏某文字，可能使用text-indent缩进是最友好的方法。如果希望显示的时候可以加一个transition动画，就可能要使用max-height进行隐藏了
+
+```css
+.hidden {
+    max-height: 0;
+    overflow: hidden;
+}
+```
+
+
+
+> 在Firefox浏览器下，display:none的元素的background-image图片是不加载的，包括父元素display:none也是如此；如果是Chrome和Safari浏览器，则要分情况，若父元素display:none，图片不加载，若本身背景图所在元素隐藏，则图片依旧会去加载；对IE浏览器而言，无论怎样都会请求图片资源。
+
+```html
+.bg1 {
+    background: url(1.png);
+}
+.bg2 {
+    background: url(2.png);
+}
+
+<div hidden class="bgl"></div>
+<div hidden >
+   <div class="bg2"></div> 
+</div>
+```
+
+> 我们发现只加载了1.png，因此，在实际开发的时候，如头图轮播切换效果，那些默认需要隐藏的图片作为背景图藏在隐藏元素的子元素上，微小的改动就可以明显提升页面的加载体验，可以说是非常实用的小技巧。
+
+还有一些属性也是天然display:none的。例如，hidden类型的 **input 输入框
+
+```css
+<input type="hidden" name="id" value="1">
+```
+
+HTML5中新增了hidden这个布尔属性，可以让元素天生display:none隐藏。例如：
+
+```html
+<div hidden>
+    看不见我
+</div>
+```
+
+IE11以及其他现代浏览器都支持它，因此，如果要兼容桌面端，需要如下CSS设置：
+
+```css
+[hidden] {
+	display: none;	
+}
+```
+
+
+
+#### visibility与元素的显隐
+
+> 有一些人简单地认为display:none和visibility:hidden两个隐藏的区别就在于：display:none隐藏后的元素不占据任何空间，而visibility:hidden隐藏的元素空间依旧保留。实际上并没有这么简单，visibility是一个非常有故事的属性。
+
+1. visibility的继承性
+
+	首先，它最有意思的一个特点就是继承性。父元素设置visibility:hidden，子元素也会看不见，究其原因是继承性，子元素继承了visibility:hidden，但是，如果子元素设置了visibility:visible，则子元素又会显示出来。这个和display隐藏有着质的区别。
+
+	[眼见为实](http://demo.cssworld.cn/10/2-1.php)
+
+2. visibility与CSS计数器
+
+	visibility:hidden不会影响计数器的计数，这和display:none完全不一样
+
+	> visibility:hidden虽然让其中一个列表不可见了，但是其计数效果依然在运行。相比之下，设置display:none的列表就完全没有参与计数运算。
+
+3. visibility与transition
+
+	下面的CSS是会让．box元素hover时显示．target子元素，但不会有过渡效果：
+
+	```css
+	.box > .target {
+	    display: none;
+	    position: absolute;
+	    opacity: 0;
+	    transition: opacity .25s;
+	}
+	
+	.box:hover > .target {
+	    display: block;
+	    opacity: 1;
+	}
+	
+	```
+
+	但是，下面的CSS语句却可以让．target子元素有淡出的过渡效果：
+
+	```css
+	.box > .target {
+	    position: absolute;
+	    opacity: 0;
+	    transition: opacity .25s;
+	    visibililty: hidden;
+	}
+	
+	.box:hover > .target {
+	    visibililty: visible;
+	    opacity: 1;
+	}
+	
+	```
+
+	这是为什么呢？因为CSS3 transition支持的CSS属性中有visibility，但是并没有display。
+
+	hover 列表操作出现下拉，鼠标移入第二行，但因为经过第一行导致第一行出现下拉导致第二行触发不了，这种现象。
+
+	[visibility与内容hover的延时显示实例页面](http://demo.cssworld.cn/10/2-3.php)
+
+
+
+### 用户界面样式
+
+
+
+#### 和border形似的outline属性
+
+> outline表示元素的轮廓，语法和border属性非常类似，分宽度、类型和颜色，支持的关键字和属性值与border属性一模一样
+
+Highlight是系统高亮色，这里用来模拟IE和Firefox浏览器的outline效果相当合适
+
+```css
+:focus + label.btn {
+	outline: 1px dotted Hghlight;
+    outline: 5px auto -webkit-focus-ring-color;
+}
+```
+
+
+
+**真正的不占据空间的outline及其应用**
+
+> 内联元素的上下padding值似乎不占据任何空间，但是一旦祖先元素overflow计算值不是visible，同时padding值足够大，滚动条就会出现，暴露出“不占据空间”其实是一个假象。但是outline属性确实不占据任何空间，轮廓宽度设置得再宽广，也不会影响任何元素的任何布局，并且outline轮廓是可穿透的。考虑到outline是一个从IE8开始就被支持的CSS属性，这就注定了outline要脱离其设计初衷，在其他方面大显神通，例如，用于实现一些看似棘手的布局效果。
+
+**头像裁剪时，只有选择范围清晰，其他区域黑色透明背景**
+
+```css
+.crop {
+    overflow: hidden;
+}
+.crop > .crop-area {
+    width: 80px; height: 80px;
+    outline: 256px solid rgba(0,0,0,.5);
+    background: url(about:blank);
+    background: linear-gradient(to top, transparent, transparent);
+    filter: alpha(opacity=50);
+    cursor: move;
+}
+:root .crop-area {
+    filter: none;
+}
+```
+
+用一句话概括就是使用一个大大的 outline 来实现周围半透明黑色遮罩。因为 outline 宽度设置再大，也不会对布局产生任何影响，至于超出的区域，通过容器overflow:hidden 隐藏就可以了。没错，原理就是这么简单。
+
+
+
+**自动填满屏幕剩余空间的应用技巧**
+
+页面内容不足一屏中间高度是由内容撑开的。所以导致底部留白的现象
+
+如何让底部背景色正好填满剩余屏幕区域呢？目前我知道的最好的办法就是巧用outline属性。假设底部HTML代码是这样的：
+
+```html
+<div class="footer">
+    <p>
+        Designed &amp; Powered by zhangxinxu
+    </p>
+</div>
+```
+
+```css
+.footer {
+    height: 50px;
+}
+.footer > p {
+    position: absolute;
+    left: 0; right: 0;
+    text-align: center;
+    padding: 15px 0;
+    background-color: #a0b3d6;
+    outline: 999px solid #a0b3d6;
+    clip: rect(0 9999px 9999px 0);
+}
+```
+
+
+
+#### 光标属性cursor
+
+> cursor属性值几乎可以认为是当下支持的关键字属性值最多的CSS属性，没有之一。
+
+面就是按照功能特性对其进行的分类以及具体解释描述。
+
+1. 常规
+
+	- cursor:auto:cursor默认值。
+
+		> auto表示光标形状根据内容类别浏览器自动进行处理。例如，输入框里面光标表现为cursor:text，带href属性的链接表现为cursor:pointer，而原生的 **button** 表现为cursor:default等。
+
+	
+
+	
+
+	- cursor:default：系统默认光标形状
+
+		> 于是，久而久之，大家就约定俗成，所有链接和按钮都使用手形。以至于发展到现在，使用原生的<button>按钮甚至下拉框的时候，都要设置一个cursor:pointer。这种奇怪的发展史真是比小说还精彩
+
+	- cursor:none：这个声明非常有意思，可以让光标隐藏不见。
+
+		> 看视频的时候，尤其全屏看视频的时候。此时鼠标一直在界面上晃着，是很碍眼、很难受的。一般可以这么处理：如果鼠标静止3秒不动，就设置页面或视频元素cursor:none隐藏光标，如果有mousemove行为，再显示即可！
+
+		
+
+2. 链接和状态
+
+	- cursor:pointer：光标表现为一只伸出食指的手，类似这样
+
+	- cursor:help：帮助，通常是光标头上带了个问号
+
+	- cursor:progress：表示进行中的意思。从语义上讲，其适合loading处理
+
+		> 有一个场景却非常适合使用cursor:progress，那就是页面加载的时候。如今进行Web开发，没有JavaScript几乎寸步难行，而JavaScript加载完毕是需要一定时间的，网络不好的时候，这个加载时间延迟可能会非常明显，于是用户就会遇到明明界面已经呈现了，但是点击“展开更多”按钮却没有任何反应，原因就是JavaScript还没有完全加载完毕。此时就非常适合cursor:progress出马了，我们默认在<body>标签上设置：
+
+		```css
+		body {
+		    cursor: progreess;
+		}
+		```
+
+		js加载完毕可再设置为 auto
+
+	-  cursor:wait：我们先看看光标形状，可能是[插图]这样的转圈圈，或者是沙漏或者是表，总之和电脑死机时候的光标是一样的。
+
+	- cursor:context-menu:cursor:context-menu兼容性比较复杂，Mac OS X和Linux系统下的Chrome和Firefox浏览器是支持的，但是Windows系统下的Chrome和Firefox浏览器却不支持。
+
+3. 选择
+
+	- cursor:text：潜台词是文字可被选中，形状类似。默认文本字符或者可输入的单复选框的光标就表现成这样，因为文字可以被选中；反过来，如果文字是不能被选中的，光标就不应该是cursor:text。
+	- cursor:vertical-text：潜台词是文字可以垂直选中，形状类似 |——|
+	- cursor:crosshair：十字光标
+	- cursor:cell:cursor:cell中的cell和display:table-cell中的cell其实可以看成是同一个东西，也就是单元格
+
+4. 拖拽
+
+	- cursor:move：光标变成cursor:move，往往就意味着当前元素是可以移动的
+	- cursor:copy：光标变成cursor:copy，往往就意味着当前元素是可以被复制的
+	- cursor:alias：光标变成cursor:copy，往往就意味着当前元素是可以创建别名或者快捷方式的
+	- cursor:no-drop：光标变成cursor:copy，往往就意味着当前元素放开到当前位置是不允许的
+	- cursor:not-allowed：光标变成cursor:not-allowed，往往就意味着当前行为是禁止的，形状类似 🚫
+
+5. 滚动
+
+	- cursor:all-scroll：表示上下左右都可以滚动，但有一个很糟糕的问题：Windows系统下光标表现和cursor:move一样。再考虑到本身作用场景局限，我觉得可以忽略此声明。
+
+6. 拉伸
+
+	- cursor:col-resize：光标形状类似 <-||-> 它适用于移动垂直线条
+	- cursor:row-resize：光标形状类似 上面的旋转90° 。它适用于移动水平线条
+	- 单向拉伸：总共8个方位8个不同的关键字属性值
+	- 双向拉伸：总共4个对立方位组合
+
+7. 缩放
+
+	- cursor:zoom-in：光标形似放大镜
+	- cursor:zoom-out：光标形似缩小镜
+
+8. 抓取
+
+	- cursor:grab：光标是一个五指张开的手
+	- cursor:grabbing：光标是一个五指收起的手
+
+
+
+**自定义光标**
+
+> 从IE6开始，我们就可以自定义网页中的光标样式，因此，对于cursor属性，兼容性都不是问题。例如，IE8不支持上面提到的cursor:none，就是通过自定义手段实现兼容的
+
+```css
+.cur-none {
+    cursor: url(transparent.cur);
+}
+```
+
+对于Chrome等浏览器，可以直接使用PNG图片作为光标，但是IE浏览器不行。IE仅支持专门的．cur格式的光标文件.
+
+
+
+### 流向的改变
+
+> 至少在我接触的这么多项目里，没有见到有谁使用过CSS的direction属性。为什么呢？是因为direction长得丑吗？虽然说direction确实其貌不扬，但是CSS世界不会有这样的歧视。那是因为兼容性吗？更不是了，direction早在IE6时代就已经被支持了
+>
+> 那究竟是什么原因呢？
+>
+> 我认为多半是因为宣传不够。要是所有前端人能够人手一本这本书，自然就不会有这样的问题了，因为本书热衷于挖掘CSS属性的潜力，可以让那些默默无闻但有能力的CSS属性熠熠生辉、焕发青春。direction就是一个典型，该属性简单且好记，属性值少，兼容性好，关键时候省心省力。
+
+#### **direction简介**
+
+基本上只要关心这两个属性
+
+```css
+direction: ltr;// 左到右
+direction: rtl// 右到左
+```
+
+direction属性默认有这么一个特性，即可以改变替换元素或者inline-block/inline-table元素的水平呈现顺序
+
+[举个栗子](https://demo.cssworld.cn/12/1-1.php)
+
+通常，我们让单行文字溢出用点显示，这个点通常都是在右边的，省略的都是最后的文字，配合direction属性，我们可以让这个点打在开头，让前面的文字省略
+
+```html
+.ell {
+	width: 240px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-ovverflow: hidden;
+}
+
+<P class="ell" dir="ltr">
+    开头，中间，结束
+</P>
+<P class="ell" dir="rtl">
+    开头，中间，结束
+</P>
+
+```
+
+[示例](https://demo.cssworld.cn/12/1-2.php)
+
+direction属性还可以轻松改变表格中列的呈现顺序,将表头位置反向
+
+
+
+directionL:rtl还可以让text-justify两端对齐元素，最后一行落单的元素右对齐显示
+
+[示例](https://demo.cssworld.cn/12/1-3.php)
+
+
+
+**direction的黄金搭档unicode-bidi**
+
+> direction属性似乎只能改变图片或者按钮的呈现顺序，但对纯字符内容（尤其中文）好像并没有什么效果，但实际上，我们也是可以指定中文每个字符都反向呈现的，方法就是借助direction的搭档属性unicode-bidi。
+
+> unicode-bidi
+>
+> 中文和英文夹杂，或者阿拉伯文和英文夹杂，此时就会出现文本阅读方向不一样的情况，阿拉伯文是从右往左读，英文是从左往右，而这种混合方向同时出现的现象就称为“双向性”，因此unicode-bidi作用就是明确字符出现“双向性”时应当有的表现。
+
+```css
+unicode-bidi: normal
+unicode-bidi: embed
+unicode-bidi: bidi-override
+```
+
+- normal：正常排列。假设设置了direction:rtl，则图片、按钮以及问号、加号之类的字符会从右往左显示，但是中文、英文字符还是从左往右显示。
+- embed:embed属性值要想起作用，只能作用在内联元素上。在通常情况下，embed属性值的表现和normal是一样的，导致很多人不明白embed到底和normal有什么区别。其实它们的区别很简单，embed属性值的字符排序是独立内嵌的，不受外部影响  [举个栗子](https://demo.cssworld.cn/12/1-4.php)
+- bidi-override：顾名思义，bidi-override就是“重写双向排序规则”，通常样式表现为所有的字符都按照统一的direction顺序排列，例如，若设置direction:rtl，则所有字符都会从右往左反向排列，效果强烈。
+
+
+
+> 实际上我们无须设置unicode-bidi:bidi-override以及direction属性，直接在元素前后分别插入U+202E字符和U+202C字符（可缺省）也可以实现字符反向排列效果
+>
+> ```html
+> <p>
+>     &#x202E;123456789
+> </p>
+> ```
+>
+> 
+
+
+
+#### 改变CSS世界纵横规则的writing-mode
+
+> writing-mode之所以给人“生僻”的感觉，是有原因的。实际上writing-mode这个CSS属性很早就诞生了，IE5.5浏览器就已经支持它了。那就奇怪了！writing-mode既然这么厉害，出现的时间早、资格老，为什么一直沉寂了差不多20年呢？那是因为在很长一段时间里，Firefox、Chrome这些现代浏览器都不支持writing-mode, writing-mode基本上就是IE浏览器的私有产物。很多人对IE一直没什么好感，对吧？由此及彼，自然对writing-mode也不待见。
+
+> 和float属性有些类似，writing-mode原本是为控制内联元素的显示而设计的（即所谓的文本布局）。因为在亚洲，尤其像中国这样的东亚国家，存在文字的排版不是水平而是垂直的情况，如中国的古诗文.和float属性有些类似，writing-mode原本是为控制内联元素的显示而设计的（即所谓的文本布局）。因为在亚洲，尤其像中国这样的东亚国家，存在文字的排版不是水平而是垂直的情况，如中国的古诗文
+
+```css
+/*关键字值*/
+writing-mode: horizontal-tb;// 水平方向
+writing-mode: horizontal-rl;// 垂直方向
+writing-mode: horizontal-lr;// 垂直方向
+```
+
+![image-20221020173039576](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221020173039576.png)
+
+
+
+补充说明如下。
+
+• 相同的writing-mode属性值并不会累加。例如，如果父子元素均设置了writing-mode:tb-rl，只会渲染一次，子元素并不会两次“旋转”。
+
+• 在IE浏览器下，如果一个自身具有布局的元素（不是纯文本之类元素）writing-mode属性值和父元素不同，那么当子元素的布局流变化的时候，其父元素坐标系统的可用空间会被充分利用。这段文字太过术语化，我解释一下就是：在IE浏览器下，当布局元素从水平变成垂直的时候（举个例子），你就想象为元素在垂直方向是100%自适应父元素高度的。因此，IE浏览器下（不包括Edge 13及以上版本），元素vertical流的时候你会发现高度高得吓人，布局和其他现代浏览器不一样，正是这个原因。
+
+• 虽然Chrome和Opera认识tb-rl等老的IE属性值，但也仅仅是认识而已，并没有任何实际效果！
+
+
+
+**writing-mode不经意改变了哪些规则**
+
+> writing-mode将页面默认的水平流改成了垂直流，颠覆了我们以往的很多认知，基于原本水平方向才适用的规则全部都可以在垂直方向适用！
+
+[水平方向margin合并](http://demo.cssworld.cn/12/2-1.php)
+
+[普通块元素可以使用margin:auto实现垂直居中](http://demo.cssworld.cn/12/2-2.php)
+
+[writing-mode下块元素垂直居中](http://demo.cssworld.cn/12/2-3.php)
+
+[使用text-indent实现文字下沉效果](http://demo.cssworld.cn/12/2-5.php)
+
+[我们要实现小图标的旋转效果是很麻烦的，因](http://demo.cssworld.cn/12/2-6.php)
+
+> writing-mode和direction的关系writing-mode、direction和unicode-bidi是CSS世界中三大可以改变文本布局流向的属性，其中direction和unicode-bidi属于近亲，经常一起使用，也是仅有的两个不受CSS3的all属性影响的CSS属性，基本上就是和内联元素一起使用。它貌似是为阿拉伯文字设计的。
+>
+> 乍一看，writing-mode似乎包含了direction和unicode-bidi的某些功能和行为，例如，vertical-rl的rl和direction的rtl值有相似之处，都是从右往左。然而，实际上两者是没有交集的。因为vertical-rl此时的文档流为垂直方向，rl表示水平方向，此时再设置direction:rtl，实际上值rtl改变的是垂直方向的内联元素的文本方向，一横一纵，没有交集。而且writing-mode可以对块状元素产生影响，直接改变了CSS世界的纵横规则，要比direction强大得多。它貌似是为东亚文字设计的。
+>
+> 然而，CSS的奇妙之处就在于：某些特性当初可能就是为某些图文排版设计的，但是我们可以利用它带来的特性发挥自己的创造力，实现其他很多意想不到的效果。因此，上面出现的“三剑客”都是非常好的资源。

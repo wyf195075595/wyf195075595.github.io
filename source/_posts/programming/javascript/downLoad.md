@@ -685,3 +685,9 @@ export function downloadFile(configs = {}, fileName) {
 }
 ```
 
+
+
+### 支持下载的常用的两个包：
+
+1. 小文件下载： file-saver
+2. 大文件下载： streamsave

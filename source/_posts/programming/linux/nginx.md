@@ -206,7 +206,7 @@ http {
 环境准备
 1、因为Nginx依赖于gcc的编译环境，所以，需要安装编译环境来使Nginx能够编译起来
 
-yum install gcc-c++
+yum install gcc-c++cd
 
 2、Nginx的http模块需要使用pcre来解析正则表达式，需要安装pcre。
 yum install -y pcre pcre-devel

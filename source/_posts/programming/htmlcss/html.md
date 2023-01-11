@@ -942,3 +942,28 @@ capture属性指定
 ```html
 <input type="week" name="week" />
 ```
+
+## 手机直接捕获摄像头数据
+
+```html
+<body>
+  <label for="environment">Capture environment:</label>
+  <br>
+  <input
+    type="file"
+    id="environment"
+    capture="environment"
+    accept="video/*"
+  >
+  <br><br>
+  <label for="user">Capture user:</label>
+  <br>
+  <input
+    type="file"
+    id="user"
+    capture="user"
+    accept="image/*"
+  >
+</body>
+```
+
