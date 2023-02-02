@@ -645,3 +645,6 @@ clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
 ```
 
+### [:has 属性](https://webkit.org/blog/13096/css-has-pseudo-class/#styling-form-states-without-js)
+
+> CSS 新增的`:has()`支持很多表单状态，完全可以不使用 JS 脚本，就实现可以跟用户互动的表单。
