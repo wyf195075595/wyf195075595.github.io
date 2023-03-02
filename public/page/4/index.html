@@ -246,6 +246,914 @@
             
 
   
+    <article id="post-programming/htmlcss/剪切板操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/" target="_blank">浏览器中实现剪切板的内容操作</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/" class="archive-article-date">
+        <time datetime="2022-06-28T07:40:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>浏览器允许 JavaScript 脚本读写剪贴板，自动复制或粘贴内容。主要是用来操作文本、图片</p>
+</blockquote>
+<h3 id="有三种方式可操作剪切板"><a href="#有三种方式可操作剪切板" class="headerlink" title="有三种方式可操作剪切板"></a>有三种方式可操作剪切板</h3><ul>
+<li>Document.execCommand() 【此API已从W3C标准中删除】</li>
+<li>Clipboard API （推荐）</li>
+<li>事件监听 copy、paste、cut</li>
+</ul>
+    
+    <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/htmlcss/图片懒加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/28/programming/htmlcss/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" target="_blank">图片懒加载</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/28/programming/htmlcss/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/" class="archive-article-date">
+        <time datetime="2022-06-28T07:04:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-28</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>图片懒加载： 在页面长列表展示时（就说页面很长出现滚动条那种🤡），在页面不可见区域的图片资源默认不加载。当图片元素滚动到可视区域时再加载图片资源的这么个效果</p>
+</blockquote>
+<h3 id="实现方式："><a href="#实现方式：" class="headerlink" title="实现方式："></a>实现方式：</h3><ol>
+<li><p>位置计算 + 滚动事件 (Scroll) + DataSet API</p>
+<p> 通过对元素的位置属性 clientTop<code>，</code>offsetTop<code>，</code>clientHeight<code>以及</code>scrollTop等 再加上监听滚动条的事件来判断图片资源是否出现在可视区域</p>
+</li>
+<li><p>getBoundingClientRect API + Scroll with Throttle + DataSet API</p>
+    
+    <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/用户离开页面时发送请求" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/24/programming/javascript/%E7%94%A8%E6%88%B7%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E6%97%B6%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" target="_blank">在用户离开页面时可靠地发送 HTTP 请求</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/24/programming/javascript/%E7%94%A8%E6%88%B7%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E6%97%B6%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/" class="archive-article-date">
+        <time datetime="2022-06-24T01:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-24</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>在某些情况下，我们可能有这样的需求，在跳转或离开当前页面时发送一个HTTP请求。如何确保请求能如我们意料的那样发送出去</p>
+</blockquote>
+<p>eg: 在点击a标签跳转时，发送一个请求.</p>
+<p>下面两种方式咋一看是同步的，但实际上请求却没有发送成功。浏览器测试时切换3G网络模式即可看到 network 信息</p>
+    
+    <a class="article-more-a" href="/2022/06/24/programming/javascript/%E7%94%A8%E6%88%B7%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E6%97%B6%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/24/programming/javascript/%E7%94%A8%E6%88%B7%E7%A6%BB%E5%BC%80%E9%A1%B5%E9%9D%A2%E6%97%B6%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/webpack/eslint_prettier" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/23/programming/webpack/eslint_prettier/" target="_blank">ESLint + Prettier规范项目代码</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/23/programming/webpack/eslint_prettier/" class="archive-article-date">
+        <time datetime="2022-06-23T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>为了项目代码风格统一，但又不会使人难受。自动化检测格式化代码方案</p>
+</blockquote>
+<ul>
+<li><p>Prettier</p>
+<blockquote>
+<p>一个流行的代码格式化工具的名称,它能够解析代码,使用你自己设定的规则来重新打印出格式规范的代码。</p>
+</blockquote>
+</li>
+<li><p>Eslint</p>
+</li>
+</ul>
+<blockquote>
+<p>ESLint是一个用来识别 ECMAScript 并且按照规则给出报告的代码检测工具，使用它可以避免低级错误和统一代码的风格。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/23/programming/webpack/eslint_prettier/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">eslint</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/23/programming/webpack/eslint_prettier/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/npm/svn密码管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/23/programming/npm/svn%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86/" target="_blank">SVN 密码管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/23/programming/npm/svn%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2022-06-23T07:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>小海龟svn 没有账号密码管理，每次切换用户baidu告诉我说，清除用户信息🙄，</p>
+<p>这也太烦了把。话说上次输入密码还是前一年的事，密码账户都忘了。于是乎想了个感觉还不错的💡</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/23/programming/npm/svn%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">svn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/svn//" class="article-tag-list-link color4">svn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/23/programming/npm/svn%E5%AF%86%E7%A0%81%E7%AE%A1%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/node/node多版本" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/23/programming/node/node%E5%A4%9A%E7%89%88%E6%9C%AC/" target="_blank">Nodejs 多版本管理</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/23/programming/node/node%E5%A4%9A%E7%89%88%E6%9C%AC/" class="archive-article-date">
+        <time datetime="2022-06-23T03:01:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>当运行其他项目需要不同版本的node环境时所需，切换高版本或低版本</p>
+</blockquote>
+<h3 id="NVM"><a href="#NVM" class="headerlink" title="NVM"></a>NVM</h3><blockquote>
+<p>nvm 就是用来做这件事的</p>
+<p>GitHub地址： <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">https://github.com/coreybutler/nvm-windows/releases</a></p>
+<p>GitHub映射地址： <a target="_blank" rel="noopener" href="https://hub.nuaa.cf/coreybutler/nvm-windows/releases">https://hub.nuaa.cf/coreybutler/nvm-windows/releases</a></p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/23/programming/node/node%E5%A4%9A%E7%89%88%E6%9C%AC/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">nvm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/23/programming/node/node%E5%A4%9A%E7%89%88%E6%9C%AC/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/others/vbs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/20/programming/others/vbs/" target="_blank">vebscript</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/20/programming/others/vbs/" class="archive-article-date">
+        <time datetime="2022-06-20T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>Vbscript 脚本语言，运行在 windos 的脚本语言。</p>
+    
+    <a class="article-more-a" href="/2022/06/20/programming/others/vbs/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vbs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/20/programming/others/vbs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/others/快速建站" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/20/programming/others/%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/" target="_blank">快速建站</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/20/programming/others/%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/" class="archive-article-date">
+        <time datetime="2022-06-20T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="hexo"><a href="#hexo" class="headerlink" title="hexo"></a>hexo</h2><p>hexo + gitee page + 畅言</p>
+<blockquote>
+<p>gitee page 限制太多了，时不时可能就部署不了，说存在敏感文字啥风险的，建议去 guthub,vercel 平台</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/20/programming/others/%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/20/programming/others/%E5%BF%AB%E9%80%9F%E5%BB%BA%E7%AB%99/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/20/index/" target="_blank">雪中悍刀行</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/20/index/" class="archive-article-date">
+        <time datetime="2022-06-20T01:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="/imgs/hello-world/0df431adcbef76091bf6bb1c23dda3cc7dd99eb7.jpg"></p>
+<h3 id="初始版"><a href="#初始版" class="headerlink" title="初始版"></a>初始版</h3><p>有个白狐脸儿，佩双刀绣冬春雷，要做那天下第一；</p>
+<p>湖底有白发老魁爱吃荤；</p>
+<p>缺门牙老仆背剑匣；</p>
+<p>山上有个骑青牛的年轻师叔祖，不敢下山；</p>
+<p>有个骑大猫扛向日葵不太冷的少女杀手；</p>
+    
+    <a class="article-more-a" href="/2022/06/20/index/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/20/index/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/htmlcss/html" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -379,912 +1287,9 @@ Firefox和Opera 允许
 
 
   
-    <article id="post-computer/http" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/computer/http/" target="_blank">计算机网络科普</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/computer/http/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/computer/http/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">http</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/computerNetwork//" class="article-tag-list-link color1">computerNetwork</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/computer/http/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-computer/科普" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/computer/%E7%A7%91%E6%99%AE/" target="_blank">电脑知识科普</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/computer/%E7%A7%91%E6%99%AE/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="CPU-命名解析"><a href="#CPU-命名解析" class="headerlink" title="CPU 命名解析"></a>CPU 命名解析</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/computer/%E7%A7%91%E6%99%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/computer//" class="article-tag-list-link color4">computer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/computer/%E7%A7%91%E6%99%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/htmlcss/css/" target="_blank">CSS</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/htmlcss/css/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>种表示法</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、英文单词</span><br><span class="line">	<span class="attr">color</span>:red;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、十六进制</span><br><span class="line">	<span class="attr">color</span>:#<span class="variable constant_">RRGGBB</span>; </span><br><span class="line">    <span class="comment">//RR 红  GG 绿  BB 蓝  </span></span><br><span class="line">    <span class="comment">//值得范围 00-ff</span></span><br><span class="line">    <span class="comment">//简写 #RGB</span></span><br><span class="line"><span class="number">3</span>、rgb 颜色</span><br><span class="line">	<span class="attr">color</span>:<span class="title function_">rgb</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//红绿蓝</span></span><br><span class="line">	<span class="comment">//值得范围 0-255、0%-100%</span></span><br><span class="line">	<span class="comment">//rgba(0,0,0)  a 代表透明度  （0-1、0%-100%）</span></span><br><span class="line"><span class="number">4</span>、<span class="variable constant_">HSL</span></span><br><span class="line">	<span class="variable constant_">HSL</span>分别表示：</span><br><span class="line">    -色相 色轮上的程度 <span class="number">0</span>-<span class="number">360</span>   （<span class="number">0</span>，<span class="number">360</span>表示红，<span class="number">120</span>绿，<span class="number">240</span>蓝）</span><br><span class="line">    -饱和度 <span class="number">0</span>%-<span class="number">100</span>%  (<span class="number">0</span>%灰色，<span class="number">100</span>%全彩)</span><br><span class="line">    -亮度	<span class="number">0</span>%-<span class="number">100</span>% （<span class="number">0</span>%黑色，<span class="number">100</span>%白色）</span><br><span class="line">    注意：<span class="title class_">IE9</span>,<span class="title class_">Firefox</span>,<span class="title class_">Chrome</span>,<span class="title class_">Safari</span>,和<span class="title class_">Opera10</span>+.支持<span class="variable constant_">HSL</span>颜色值。其他三种基本都支持</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/htmlcss/css/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/htmlcss/css/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/页面下载json数据" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/htmlcss/%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BDjson%E6%95%B0%E6%8D%AE/" target="_blank">如何在页面下载json数据</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/htmlcss/%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BDjson%E6%95%B0%E6%8D%AE/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ol>
-<li>利用 DataURL 进行下载</li>
-<li>转化为 Object URL 进行下载</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">download</span>(<span class="params">url, name</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">  a.<span class="property">download</span> = name;</span><br><span class="line">  a.<span class="property">rel</span> = <span class="string">&quot;noopener&quot;</span>;</span><br><span class="line">  a.<span class="property">href</span> = url;</span><br><span class="line">  <span class="comment">// 触发模拟点击</span></span><br><span class="line">  a.<span class="title function_">dispatchEvent</span>(<span class="keyword">new</span> <span class="title class_">MouseEvent</span>(<span class="string">&quot;click&quot;</span>));</span><br><span class="line">  <span class="comment">// 或者 a.click()</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> json = &#123;</span><br><span class="line">  <span class="attr">a</span>: <span class="number">3</span>,</span><br><span class="line">  <span class="attr">b</span>: <span class="number">4</span>,</span><br><span class="line">  <span class="attr">c</span>: <span class="number">5</span>,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> str = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(json, <span class="literal">null</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案一：Text -&gt; DataURL</span></span><br><span class="line"><span class="keyword">const</span> dataUrl = <span class="string">`data:,<span class="subst">$&#123;str&#125;</span>`</span>;</span><br><span class="line"><span class="title function_">download</span>(dataUrl, <span class="string">&quot;demo.json&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方案二：Text -&gt; Blob -&gt; ObjectURL</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(<span class="keyword">new</span> <span class="title class_">Blob</span>(str.<span class="title function_">split</span>(<span class="string">&quot;&quot;</span>)));</span><br><span class="line"><span class="title function_">download</span>(url, <span class="string">&quot;demo1.json&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>方法一有 2 个缺点：<br>1、无法保留缩进<br>2、字符串里面的空格会被删除</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/htmlcss/%E9%A1%B5%E9%9D%A2%E4%B8%8B%E8%BD%BDjson%E6%95%B0%E6%8D%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/koa/koa基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/" target="_blank">koa 基础语法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="一、创建koa项目"><a href="#一、创建koa项目" class="headerlink" title="一、创建koa项目"></a>一、创建koa项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、新建node项目</span></span><br><span class="line">新建文件夹 进入目录 执行</span><br><span class="line">npm init</span><br><span class="line">生成package.<span class="property">json</span>文件</span><br><span class="line"><span class="comment">//2、项目引入koa</span></span><br><span class="line">npm i koa -S</span><br><span class="line"><span class="comment">//3、新建app.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;port 3000 is running!&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//运行 node app.js</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="二、中间件"><a href="#二、中间件" class="headerlink" title="二、中间件"></a>二、中间件</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/koa//" class="article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/koa/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">添加markdown编辑器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、引入依赖"><a href="#2、引入依赖" class="headerlink" title="2、引入依赖"></a>2、引入依赖</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/koa//" class="article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/linux/nginx/" target="_blank">nginx 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/linux/nginx/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个IMAP、POP3、SMTP代理服务器；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/linux/nginx/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/linux/nginx/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/安装pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" target="_blank">pm2 进程管理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="pm2安装"><a href="#pm2安装" class="headerlink" title="pm2安装"></a>pm2安装</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、全局安装</span><br><span class="line"></span><br><span class="line"> npm install pm2 -g</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、创建软连接</span><br><span class="line"></span><br><span class="line">ln -s /node-v12/bin/pm2  /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看进程</span><br><span class="line"></span><br><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/pm2.png"></p>
-<p>[注意]创建软连接的源文件路径可以在安装时找到    如上图  /node-v12/bin/pm2</p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pm2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/markdown/Markdown基础语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" target="_blank">Markdown基础语法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<p>相比WYSIWYG编辑器</p>
-<p><strong>优点：</strong><br> 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br> 2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</p>
-<p><strong>缺点：</strong><br> 1、需要记一些语法（当然，是很简单。五分钟学会）。<br> 2、有些平台不支持Markdown编辑模式。</p>
-<p>还好，简书是支持Markdown编辑模式的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开启方式：设置-&gt;默认编辑器-&gt;Markdown编辑器</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/5/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/3/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/">Next »</a>
     </nav>
   
 
@@ -1423,11 +1428,11 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1435,11 +1440,11 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1447,11 +1452,35 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mysql基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1459,7 +1488,7 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1467,11 +1496,11 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1483,15 +1512,23 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1503,19 +1540,11 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1523,7 +1552,15 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1535,15 +1572,7 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1551,11 +1580,19 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1571,15 +1608,15 @@ Firefox和Opera 允许
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -246,6 +246,1140 @@
             
 
   
+    <article id="post-programming/java/springboot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/03/02/programming/java/springboot/" target="_blank">springboot基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/03/02/programming/java/springboot/" class="archive-article-date">
+        <time datetime="2023-03-02T08:40:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="配置容器"><a href="#配置容器" class="headerlink" title="配置容器"></a>配置容器</h3><ul>
+<li><p>xml配置容器</p>
+<p>  就是spring 的 xml文件中那样的写法</p>
+</li>
+<li><p>javaConfig配置容器</p>
+<p>  采用java类的方式来配置</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SpringConfig</span> &#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">    	创建方法，方法的返回值是对象。在方法上加上@Bean</span></span><br><span class="line"><span class="comment">    	方法的返回值对象就注入到容器中。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">springboot基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java配置//" class="article-tag-list-link color2">java配置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/03/02/programming/java/springboot/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/other" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/22/programming/java/other/" target="_blank">拓展</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/22/programming/java/other/" class="archive-article-date">
+        <time datetime="2023-02-22T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-22</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="扫描远程文件"><a href="#扫描远程文件" class="headerlink" title="扫描远程文件"></a>扫描远程文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 连接sftp服务器</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> host     主机</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> port     端口</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> username 用户名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> password 密码</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> ChannelSftp <span class="title function_">connect</span><span class="params">(String host, <span class="type">int</span> port, String username,String password)</span> &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">sftp</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">JSch</span> <span class="variable">jsch</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSch</span>();</span><br><span class="line">            <span class="comment">//jsch.getSession(username, host, port);</span></span><br><span class="line">            <span class="type">Session</span> <span class="variable">sshSession</span> <span class="operator">=</span> jsch.getSession(username, host, port);</span><br><span class="line">            System.out.println(<span class="string">&quot;Session created.&quot;</span>);</span><br><span class="line">            sshSession.setPassword(password);</span><br><span class="line">            <span class="type">Properties</span> <span class="variable">sshConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            sshConfig.put(<span class="string">&quot;StrictHostKeyChecking&quot;</span>, <span class="string">&quot;no&quot;</span>);</span><br><span class="line">            sshSession.setConfig(sshConfig);</span><br><span class="line">            sshSession.connect();</span><br><span class="line">            System.out.println(<span class="string">&quot;Session connected.&quot;</span>);</span><br><span class="line">            System.out.println(<span class="string">&quot;Opening Channel.&quot;</span>);</span><br><span class="line">            <span class="type">Channel</span> <span class="variable">channel</span> <span class="operator">=</span> sshSession.openChannel(<span class="string">&quot;sftp&quot;</span>);</span><br><span class="line">            channel.connect();</span><br><span class="line">            sftp = (ChannelSftp) channel;</span><br><span class="line">            System.out.println(<span class="string">&quot;Connected to &quot;</span> + host + <span class="string">&quot;.&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sftp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 列出目录下的文件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> directory 要列出的目录</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> sftp</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> SftpException</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Vector <span class="title function_">listFiles</span><span class="params">(String directory, ChannelSftp sftp)</span> <span class="keyword">throws</span> SftpException &#123;</span><br><span class="line">        <span class="keyword">return</span> sftp.ls(directory);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试：</span></span><br><span class="line"></span><br><span class="line"><span class="type">ChannelSftp</span> <span class="variable">sftp</span> <span class="operator">=</span> connect(HOST, PORT, USER, PWD);</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地文件扫描"><a href="#本地文件扫描" class="headerlink" title="本地文件扫描"></a>本地文件扫描</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/codeLife1993/article/details/81906996">参考</a></p>
+</blockquote>
+<h3 id="解析JSON文件"><a href="#解析JSON文件" class="headerlink" title="解析JSON文件"></a>解析JSON文件</h3><blockquote>
+<p>我们用来解析json格式的jar包有很多，jackson，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=fastjson&spm=1001.2101.3001.7020">fastjson</a>，gson都行。但本人喜欢用fastjson。所以本篇都是以fastjson来解析json文件。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jeck_wu/article/details/118755971">参考</a></p>
+</blockquote>
+<h3 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>文件上传<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://127.0.0.1:18080/api/upload-test&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span> <span class="attr">webkitdirectory</span> <span class="attr">mozdirectory</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传文件夹&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;http://127.0.0.1:18080/api/upload-test&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span> <span class="attr">enctype</span>=<span class="string">&quot;multipart/form-data&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;file&quot;</span> <span class="attr">name</span>=<span class="string">&quot;files&quot;</span> <span class="attr">multiple</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上传文件&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="保存到本地"><a href="#保存到本地" class="headerlink" title="保存到本地"></a>保存到本地</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/upload-test&quot;, method = RequestMethod.POST)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">uploadTest</span><span class="params">(<span class="meta">@RequestParam(&quot;files&quot;)</span> MultipartFile[] files)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (MultipartFile file: files) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file.transferTo(<span class="keyword">new</span> <span class="title class_">File</span>(<span class="string">&quot;D:/Download/&quot;</span> + file.getOriginalFilename()));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="保存至远程服务器"><a href="#保存至远程服务器" class="headerlink" title="保存至远程服务器"></a>保存至远程服务器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RequestMapping(value=&quot;/upload-test&quot;, method = RequestMethod.POST)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">uploadTest</span><span class="params">(<span class="meta">@RequestParam(&quot;files&quot;)</span> MultipartFile[] files)</span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (MultipartFile file: files) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String[] strings = file.getOriginalFilename().split(<span class="string">&quot;\\/&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> strings[strings.length - <span class="number">1</span>];</span><br><span class="line">            <span class="type">String</span> <span class="variable">newPath</span> <span class="operator">=</span> file.getOriginalFilename().replace(fileName, <span class="string">&quot;&quot;</span>);</span><br><span class="line">            sftpUtil.upload(uploadAnnotateFile + newPath, fileName , file.getInputStream());</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(<span class="string">&quot;上传结束&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="远程连接配置"><a href="#远程连接配置" class="headerlink" title="远程连接配置"></a>远程连接配置</h4><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/fengfangithub/study-sftp">参考</a></p>
+</blockquote>
+<ol>
+<li><p>pom.xml 引入依赖</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- sftp --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.jcraft<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jsch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.1.55<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 连接池 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.commons<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-pool2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>application-xxx.yml 文件配置参数</p>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 远程访问服务器配置</span></span><br><span class="line"><span class="attr">sftp:</span></span><br><span class="line">  <span class="comment">#服务器ip</span></span><br><span class="line">  <span class="attr">host:</span> <span class="number">192.168</span><span class="number">.1</span><span class="number">.245</span></span><br><span class="line">  <span class="comment">#ssh端口</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">22</span></span><br><span class="line">  <span class="comment">#用户名</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">zkrd</span></span><br><span class="line">  <span class="comment">#密码</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">zkrd12#$</span></span><br><span class="line">  <span class="comment"># 上传标注文件服务器路径</span></span><br><span class="line">  <span class="attr">uploadAnnotateFile:</span> <span class="string">/home/zkrd/label_system/</span></span><br><span class="line">  <span class="comment">#连接池参数</span></span><br><span class="line">  <span class="attr">pool:</span></span><br><span class="line">    <span class="comment">#对象池中管理的最多对象个数。默认值是8</span></span><br><span class="line">    <span class="attr">max-total:</span> <span class="number">10</span></span><br><span class="line">    <span class="comment">#对象池中最大的空闲对象个数。默认值是8</span></span><br><span class="line">    <span class="attr">max-idle:</span> <span class="number">10</span></span><br><span class="line">    <span class="comment">#对象池中最小的空闲对象个数。默认值是0</span></span><br><span class="line">    <span class="attr">min-idle:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure></li>
+<li><p>封装类</p>
+<p> SftpFactory.java</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.jcraft.jsch.ChannelSftp;</span><br><span class="line"><span class="keyword">import</span> com.jcraft.jsch.JSch;</span><br><span class="line"><span class="keyword">import</span> com.jcraft.jsch.JSchException;</span><br><span class="line"><span class="keyword">import</span> com.jcraft.jsch.Session;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.pool2.BasePooledObjectFactory;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.pool2.PooledObject;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.pool2.impl.DefaultPooledObject;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SftpFactory</span> <span class="keyword">extends</span> <span class="title class_">BasePooledObjectFactory</span>&lt;ChannelSftp&gt; &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;sftp.host&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String host;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;sftp.port&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> port;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;sftp.username&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;sftp.password&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> ChannelSftp <span class="title function_">create</span><span class="params">()</span> <span class="keyword">throws</span> JSchException &#123;</span><br><span class="line">        <span class="type">JSch</span> <span class="variable">jsch</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JSch</span>();</span><br><span class="line">        <span class="type">Session</span> <span class="variable">sshSession</span> <span class="operator">=</span> jsch.getSession(username, host, port);</span><br><span class="line">        sshSession.setPassword(password);</span><br><span class="line">        <span class="type">Properties</span> <span class="variable">sshConfig</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">        sshConfig.put(<span class="string">&quot;StrictHostKeyChecking&quot;</span>, <span class="string">&quot;no&quot;</span>);</span><br><span class="line">        sshSession.setConfig(sshConfig);</span><br><span class="line">        sshSession.connect();</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">channel</span> <span class="operator">=</span> (ChannelSftp) sshSession.openChannel(<span class="string">&quot;sftp&quot;</span>);</span><br><span class="line">        channel.connect();</span><br><span class="line">        <span class="keyword">return</span> channel;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> PooledObject&lt;ChannelSftp&gt; <span class="title function_">wrap</span><span class="params">(ChannelSftp channelSftp)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">DefaultPooledObject</span>&lt;&gt;(channelSftp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 销毁对象</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> p</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     * <span class="doctag">@author</span> fengfan</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@date</span> 2022/1/14 15:26</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">destroyObject</span><span class="params">(PooledObject&lt;ChannelSftp&gt; p)</span> &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">channelSftp</span> <span class="operator">=</span> p.getObject();</span><br><span class="line">        channelSftp.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 激活连接池里面的sftp连接</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> p</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">activateObject</span><span class="params">(PooledObject&lt;ChannelSftp&gt; p)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">channelSftp</span> <span class="operator">=</span> p.getObject();</span><br><span class="line">        <span class="keyword">if</span>(!channelSftp.isConnected())&#123;</span><br><span class="line">            channelSftp.connect();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p> SftpGenericObjectPool.java </p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.jcraft.jsch.ChannelSftp;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.pool2.impl.GenericObjectPool;</span><br><span class="line"><span class="keyword">import</span> org.apache.commons.pool2.impl.GenericObjectPoolConfig;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SftpGenericObjectPool</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> GenericObjectPool&lt;ChannelSftp&gt; genericObjectPool;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SftpGenericObjectPool</span><span class="params">(SftpFactory sftpFactory, GenericObjectPoolConfig&lt;ChannelSftp&gt; sftpPoolConfig)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.genericObjectPool = <span class="keyword">new</span> <span class="title class_">GenericObjectPool</span>&lt;&gt;(sftpFactory, sftpPoolConfig);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> ChannelSftp <span class="title function_">borrowObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> genericObjectPool.borrowObject();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">returnObject</span><span class="params">(ChannelSftp obj)</span> &#123;</span><br><span class="line">        genericObjectPool.returnObject(obj);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> SftpUtil.java</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.jcraft.jsch.ChannelSftp;</span><br><span class="line"><span class="keyword">import</span> com.jcraft.jsch.SftpException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SftpUtil</span> &#123;</span><br><span class="line">    <span class="comment">//连接池</span></span><br><span class="line">    <span class="keyword">private</span> SftpGenericObjectPool pool;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SftpUtil</span><span class="params">(SftpGenericObjectPool pool)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.pool = pool;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下载文件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dir  远程目录</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name 远程文件名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> 文件字节数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> InputStream <span class="title function_">download</span><span class="params">(String dir, String name)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">sftp</span> <span class="operator">=</span> pool.borrowObject();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            sftp.cd(dir);</span><br><span class="line">            <span class="keyword">return</span> sftp.get(name);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            pool.returnObject(sftp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 上传文件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dir  远程目录</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name 远程文件名</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> in   输入流</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">upload</span><span class="params">(String dir, String name, InputStream in)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">sftp</span> <span class="operator">=</span> pool.borrowObject();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            mkdirs(sftp, dir);</span><br><span class="line">            sftp.cd(dir);</span><br><span class="line">            sftp.put(in, name);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            pool.returnObject(sftp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除文件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dir  远程目录</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> name 远程文件名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">delete</span><span class="params">(String dir, String name)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="type">ChannelSftp</span> <span class="variable">sftp</span> <span class="operator">=</span> pool.borrowObject();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            sftp.cd(dir);</span><br><span class="line">            sftp.rm(name);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            pool.returnObject(sftp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 递归创建多级目录</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> dir 多级目录</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">mkdirs</span><span class="params">(ChannelSftp sftp, String dir)</span> <span class="keyword">throws</span> SftpException &#123;</span><br><span class="line">        String[] folders = dir.split(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">        sftp.cd(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (String folder : folders) &#123;</span><br><span class="line">            <span class="keyword">if</span> (folder.length() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    sftp.cd(folder);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">                    sftp.mkdir(folder);</span><br><span class="line">                    sftp.cd(folder);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> SftpGenericObjectPool <span class="title function_">getPool</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> pool;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPool</span><span class="params">(SftpGenericObjectPool pool)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.pool = pool;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>使用</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册实例化 sftpUtil</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> SftpUtil sftpUtil;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h4 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h4><blockquote>
+<p>java在response中设置文件流，在浏览器中直接显示或直接下载</p>
+<p>在浏览器地址栏输入文件请求url，能在浏览器上直接显示文件，而不直接下载</p>
+<p>解决方式设置文件ContentType类型</p>
+<p>当设置了ContentType为“image/jpg”时，浏览器可以直接显示图片；</p>
+<p>没设置ContentType时，浏览器会直接下载图片到本地。</p>
+<p>备注：不能设置<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=header&spm=1001.2101.3001.7020">header</a>，否则当设置了ContentType时也是直接下载图片</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/q289658763/article/details/125928198">参考</a></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 响应体加入文件流</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> response	</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> filePath	文件从盘符开始的完整路径</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">responseFileStream</span><span class="params">(HttpServletResponse response, String filePath)</span>&#123;</span><br><span class="line">		logger.debug(<span class="string">&quot;responseFileStream imgPath:&quot;</span>+filePath);</span><br><span class="line">		<span class="keyword">if</span>(filePath.contains(<span class="string">&quot;%&quot;</span>))&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				filePath = URLDecoder.decode(filePath,<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">				logger.debug(<span class="string">&quot;responseFileStream decode error:&quot;</span>+e.toString());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(filePath.contains(<span class="string">&quot;%&quot;</span>))&#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				filePath = URLDecoder.decode(filePath,<span class="string">&quot;UTF-8&quot;</span>);</span><br><span class="line">			&#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">				logger.debug(<span class="string">&quot;responseFileStream decode error:&quot;</span>+e.toString());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="type">ServletOutputStream</span> <span class="variable">out</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="type">FileInputStream</span> <span class="variable">in</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			in = <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(filePath));</span><br><span class="line">			String[] dir = filePath.split(<span class="string">&quot;/&quot;</span>);</span><br><span class="line">			<span class="type">String</span> <span class="variable">fileName</span> <span class="operator">=</span> dir[dir.length-<span class="number">1</span>];</span><br><span class="line">			String[] array = fileName.split(<span class="string">&quot;[.]&quot;</span>);</span><br><span class="line">			<span class="type">String</span> <span class="variable">fileType</span> <span class="operator">=</span> array[array.length-<span class="number">1</span>].toLowerCase();</span><br><span class="line">			<span class="comment">//设置文件ContentType类型</span></span><br><span class="line">			<span class="keyword">if</span>(<span class="string">&quot;jpg,jepg,gif,png&quot;</span>.contains(fileType))&#123;<span class="comment">//图片类型</span></span><br><span class="line">				response.setContentType(<span class="string">&quot;image/&quot;</span>+fileType);</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">&quot;pdf&quot;</span>.contains(fileType))&#123;<span class="comment">//pdf类型</span></span><br><span class="line">				response.setContentType(<span class="string">&quot;application/pdf&quot;</span>);</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;<span class="comment">//自动判断下载文件类型 </span></span><br><span class="line">				response.setContentType(<span class="string">&quot;multipart/form-data&quot;</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//设置文件头：最后一个参数是设置下载文件名</span></span><br><span class="line">	        <span class="comment">//response.setHeader(&quot;Content-Disposition&quot;, &quot;attachment;fileName=&quot;+fileName);   </span></span><br><span class="line">			out = response.getOutputStream();</span><br><span class="line">			<span class="comment">// 读取文件流</span></span><br><span class="line">			<span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">			<span class="type">byte</span>[] buffer = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span> * <span class="number">10</span>];</span><br><span class="line">			<span class="keyword">while</span> ((len = in.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">				out.write(buffer, <span class="number">0</span>, len);</span><br><span class="line">			&#125;</span><br><span class="line">			out.flush();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">			logger.error(<span class="string">&quot;responseFileStream error:FileNotFoundException&quot;</span> + e.toString());</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			logger.error(<span class="string">&quot;responseFileStream error:&quot;</span> + e.toString());</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				out.close();</span><br><span class="line">				in.close();</span><br><span class="line">			&#125; <span class="keyword">catch</span> (NullPointerException e) &#123;</span><br><span class="line">				logger.error(<span class="string">&quot;responseFileStream stream close() error:NullPointerException&quot;</span> + e.toString());</span><br><span class="line">			&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">				logger.error(<span class="string">&quot;responseFileStream stream close() error:&quot;</span> + e.toString());</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/22/programming/java/other/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/17/programming/java/spring/" target="_blank">spring基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/17/programming/java/spring/" class="archive-article-date">
+        <time datetime="2023-02-17T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>什么是OCP？</strong></p>
+<p>OCP是软件开发的七大开发原则：开闭原则</p>
+<p>核心：其他6个原则的基础</p>
+</blockquote>
+<blockquote>
+<p><strong>OCP开闭原则核心是什么？</strong></p>
+<p>只要你在扩展功能的时候，没有修改以前写好的代码，那么就是符合OCP原则的，反之则违背了OCP原则    </p>
+<p>当系统功能拓展时，如果动了之前稳定的程序，修改了之前的程序。之前所有程序都需要测试，这是不想看到的</p>
+</blockquote>
+<blockquote>
+<p><strong>违背依赖倒置原则（DIP原则）</strong></p>
+<p><strong>上依赖下就是违背</strong>：如：表示层依赖服务层，服务层依赖持久层</p>
+</blockquote>
+<blockquote>
+<p><strong>控制反转</strong></p>
+<p>一种编程思想。或设计模式</p>
+<ul>
+<li>不在程序中采用硬编码方式来 new 对象</li>
+<li>不在程序中采用硬编码方式来 维护对象关系</li>
+</ul>
+</blockquote>
+<h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><ul>
+<li>Spring框架实现了控制反转IoC这种思想<ul>
+<li>spring帮你new对象</li>
+<li>spring帮你维护对象关系</li>
+</ul>
+</li>
+<li>Spring 时一个实现了IoC思想的容器<ul>
+<li>依赖注入的两种方式（依赖注入时现实IoC的具体实现: XML解析+工厂模式+反射机制）<ul>
+<li>set 注入(执行set给属性赋值)</li>
+<li>构造方法 注入(执行构造方法给属性赋值)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230217170739281.png" alt="image-20230217170739281"></p>
+    
+    <a class="article-more-a" href="/2023/02/17/programming/java/spring/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/17/programming/java/spring/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/maven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/14/programming/java/maven/" target="_blank">maven基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/14/programming/java/maven/" class="archive-article-date">
+        <time datetime="2023-02-14T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="项目管理器，可以帮我们做什么？"><a href="#项目管理器，可以帮我们做什么？" class="headerlink" title="项目管理器，可以帮我们做什么？"></a>项目管理器，可以帮我们做什么？</h3><blockquote>
+<ul>
+<li>管理jar 文件</li>
+<li>自动下载jar和他的文档源码</li>
+<li>管理jar直接的依赖，a.jar 依赖b.jar 他会自动下载b.jar</li>
+<li>帮你管理jar的版本</li>
+<li>帮你编译程序： java-&gt; class</li>
+<li>帮你测试代码</li>
+<li>帮你打包，形成jar/war 文件</li>
+<li>帮你部署项目</li>
+</ul>
+</blockquote>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ol>
+<li><p>POM</p>
+<p> 把一个项目当作模型使用。控制maven构建项目的过程</p>
+</li>
+<li><p>约定的目录结构</p>
+<p> maven项目的目录和文件和位置都是规范的</p>
+</li>
+<li><p>依赖仓库</p>
+<p> 管理项目可以使用的jar</p>
+</li>
+<li><p>仓库管理</p>
+<p> 资源存放的位置</p>
+</li>
+<li><p>生命周期</p>
+</li>
+<li><p>插件和木比爱哦</p>
+</li>
+<li><p>继承</p>
+</li>
+<li><p>聚合</p>
+</li>
+</ol>
+<h3 id="修改本机资源存放目录位置"><a href="#修改本机资源存放目录位置" class="headerlink" title="修改本机资源存放目录位置"></a>修改本机资源存放目录位置</h3><p>修改maven的配置文件，maven的安装目录/conf/settings.xml</p>
+<p>为啥要改？因为默认放在C盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;D://maven//localSpace&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2023/02/14/programming/java/maven/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">maven基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/maven//" class="article-tag-list-link color1">maven</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/14/programming/java/maven/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/myBatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/14/programming/java/myBatis/" target="_blank">mybatis 基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/14/programming/java/myBatis/" class="archive-article-date">
+        <time datetime="2023-02-13T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><blockquote>
+<p>O (Object) jvm中的对象</p>
+<p>R (Relational) 关系型数据库</p>
+<p>M (Mapping) 映射</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230214134743208.png" alt="image-20230214134743208"></p>
+<ol>
+<li>支持定制化 SQL、存储过程、基本映射以及高级映射</li>
+<li>避免了几乎所有的JDBC代码中手动设置参数以及获取结果集</li>
+<li>支持XML开发，也支持注解式开发。[为了保证sql语句的灵活，所以mybatis大部分是采用XML方式开发。]</li>
+<li>将接口和Java 的 POJOs(Plain rdinary Java Object，简单普通的Java对象)映射成数据库中的记录体积小好学: </li>
+<li>两个jar包，两个XML配置文件。</li>
+<li>完全做到sal解耦合</li>
+<li>提供了基本映射标签</li>
+<li>提供了高级映射标签</li>
+<li>提供了XML标签，支持动态SQL的编写</li>
+</ol>
+    
+    <a class="article-more-a" href="/2023/02/14/programming/java/myBatis/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mybatis 基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/14/programming/java/myBatis/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/10/programming/java/jdbc/" target="_blank">jdbc基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/10/programming/java/jdbc/" class="archive-article-date">
+        <time datetime="2023-02-10T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>JDBC 是SUN公司制定的一套接口</p>
+</blockquote>
+<h3 id="JDBC-准备工作，加载jar-驱动包，然后配置到环境变量-classpath-当中"><a href="#JDBC-准备工作，加载jar-驱动包，然后配置到环境变量-classpath-当中" class="headerlink" title="JDBC 准备工作，加载jar 驱动包，然后配置到环境变量 classpath 当中"></a>JDBC 准备工作，加载jar 驱动包，然后配置到环境变量 classpath 当中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath=.;xxx/mysql-connector-java-<span class="number">5.1</span><span class="number">.23</span>-bin.jar</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中配置了两个路径，一个是当前路径，一个是mysql驱动架包路径。这里的配置在集成工具中不需要配</p>
+</blockquote>
+<h3 id="jdbc-编程6步"><a href="#jdbc-编程6步" class="headerlink" title="jdbc 编程6步"></a>jdbc 编程6步</h3><ol>
+<li><p>注册驱动　（连接哪个数据库）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Driver</span> <span class="variable">driver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">com</span>.mysql.jdbc.Driver();</span><br><span class="line">DriverManager.registerDriver(driver);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二, 应为参数是字符串可以提出配置，类加载时自动执行静态代码 自动注册</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>获取连接　（JVM进程与数据库连接，重量级通信）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">pwd</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">Connection</span> <span class="variable">coon</span> <span class="operator">=</span> DriverManager.getConnection(url, user, pwd);</span><br><span class="line">System.out.println(<span class="string">&quot;数据库连接对象&quot;</span> + coon);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>获取数据库操作对象（专门执行SQL）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> coon.createStatement();</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>执行SQL语句</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;delete * from tb_emp&quot;</span>;</span><br><span class="line">        <span class="comment">// executeUpdate 专门执行DML语句（insert、delete、update）,返回影响数据库中记录的条数</span></span><br><span class="line"><span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> stmt.executeUpdate(sql);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>处理查询结果集</p>
+</li>
+<li><p>释放资源（关闭连接）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从小到大关闭</span></span><br><span class="line">stmt.close();</span><br><span class="line">coon.close();</span><br></pre></td></tr></table></figure></li>
+</ol>
+    
+    <a class="article-more-a" href="/2023/02/10/programming/java/jdbc/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jdbc基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/10/programming/java/jdbc/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/10/programming/java/javaweb/" target="_blank">jdbcweb基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/10/programming/java/javaweb/" class="archive-article-date">
+        <time datetime="2023-02-10T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>servlet 是JavaEE 规范之一。</p>
+<p>javaEE 目前最高版本时javaEE8,它被Oracle捐献给Apache。之后被改名为 Jakarta EE。从此没有javaEE 了</p>
+<p>javaEE8中的Servlet类名：javax.servlet.Servlet</p>
+<p>javaEE9中的Servlet类名：jakarta.servlet.Servlet</p>
+</blockquote>
+<h3 id="关于系统架构"><a href="#关于系统架构" class="headerlink" title="关于系统架构"></a>关于系统架构</h3><ol>
+<li><p>系统架构包括</p>
+<ul>
+<li><p>C/S 架构</p>
+<p>  就是需要安装的软件</p>
+</li>
+<li><p>B/S 架构</p>
+<p>  就是运行在浏览器的页面</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><blockquote>
+<p>开源免费的轻量级ＷＥＢ服务器</p>
+</blockquote>
+<h4 id="tomcat-目录"><a href="#tomcat-目录" class="headerlink" title="tomcat 目录"></a>tomcat 目录</h4><ul>
+<li>bin：存放命令文件<ul>
+<li>.bat 文件，批量执行windows DOS命令</li>
+<li>.sh 文件，批量执行 Linux 命令</li>
+<li></li>
+</ul>
+</li>
+<li>conf：配置文件</li>
+<li>lib：tomcat核心程序目录</li>
+<li>logs：日志目录</li>
+<li>temp：临时目录</li>
+<li>webapps：存放web应用</li>
+<li>work：存放jsp文件翻译之后的Java文件以及编译之后的class文件</li>
+</ul>
+<p>配置tomcat环境</p>
+<ol>
+<li>CATALINA_HOME=D:\tomcat\apache-tomcat-10.0.27</li>
+<li>JAVA＿HOME=C:\Program Files\Java\jdk1.8.0_321</li>
+<li>JRE_HOME=%JAVA＿HOME%\jre</li>
+</ol>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startup.bat</span><br></pre></td></tr></table></figure>
+
+<p><strong>出现中文乱码</strong></p>
+<blockquote>
+<p>修改conf/logging.properties</p>
+<p>java.util.logging.ConsoleHandler.encoding = GBK</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2023/02/10/programming/java/javaweb/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jdbcweb基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/10/programming/java/javaweb/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/jsconfig" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/08/programming/javascript/jsconfig/" target="_blank">jsconfig.json</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/08/programming/javascript/jsconfig/" class="archive-article-date">
+        <time datetime="2023-02-08T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="vue项目中-jsconfig-json-文件是什么-有啥用？"><a href="#vue项目中-jsconfig-json-文件是什么-有啥用？" class="headerlink" title="vue项目中 jsconfig.json 文件是什么?有啥用？"></a><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=vue%E9%A1%B9%E7%9B%AE&spm=1001.2101.3001.7020">vue项目</a>中 jsconfig.json 文件是什么?有啥用？</h3><blockquote>
+<p>当您在工作空间中有一个定义项目上下文的jsconfig.json文件时，JavaScript体验会得到改进。</p>
+</blockquote>
+<p>目录中存在tsconfig.json文件表明该目录是 TypeScript 项目的根目录。该tsconfig.json文件指定编译项目所需的根文件和编译器选项。</p>
+<p>JavaScript 项目可以使用jsconfig.json文件来代替，它的作用几乎相同，但默认启用了一些与 JavaScript 相关的编译器标志。</p>
+<blockquote>
+<p>jsconfig.json源于tsconfig.json，是TypeScript的配置文件。</p>
+<p> jsconfig.json相当于tsconfig.json的“allowJs”属性设置为true</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2023/02/08/programming/javascript/jsconfig/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/08/programming/javascript/jsconfig/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/01/31/programming/java/mysql/" target="_blank">mysql基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/01/31/programming/java/mysql/" class="archive-article-date">
+        <time datetime="2023-01-31T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="安装与删除"><a href="#安装与删除" class="headerlink" title="安装与删除"></a>安装与删除</h3><blockquote>
+<p>通过exe 文件安装</p>
+<p>卸载时再点击安装程序，选择 remove 即可卸载。卸载后还需删除两个地方文件。</p>
+<ul>
+<li>C:/ProgrameData/mySQL</li>
+<li>C:/program Files(x86)/mySQL</li>
+</ul>
+<p>如果不删除干净，下次会安装不上</p>
+</blockquote>
+<h3 id="sql-DB-DBMS分别是什么？啥关系？"><a href="#sql-DB-DBMS分别是什么？啥关系？" class="headerlink" title="sql,DB,DBMS分别是什么？啥关系？"></a>sql,DB,DBMS分别是什么？啥关系？</h3><ul>
+<li><p>DB: </p>
+<p>  DataBase (数据库，数据库实际再电脑上以文件形式存在)</p>
+</li>
+<li><p>DBMS： </p>
+<p>  DataBase Management System(数据库管理系统，常见 MYSQL，Oracle，DB2,SqlServer…)</p>
+</li>
+<li><p>SQL: </p>
+<p>  结构化查询语句，是一门标准化通用语言。标准的sql适用于所有数据库产品</p>
+</li>
+</ul>
+<p>关系： DBMS 执行 SQL 操作 DB</p>
+    
+    <a class="article-more-a" href="/2023/01/31/programming/java/mysql/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mysql基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/mysql//" class="article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/01/31/programming/java/mysql/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/java/入门基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -362,947 +1496,9 @@
 
 
   
-    <article id="post-programming/javascript/你不知道的javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/15/programming/javascript/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/" target="_blank">你不知道的JavaScript</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/15/programming/javascript/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/" class="archive-article-date">
-        <time datetime="2022-11-15T00:58:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-15</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>LHS与RHS</strong></p>
-<blockquote>
-<p>LHS和RHS的含义是“赋值操作的左侧或右侧”并不一定意味着就是“=赋值操作符的左侧或右侧”。赋值操作还有其他几种形式，因此在概念上最好将其理解为“赋值操作的目标是谁（LHS）”以及“谁是赋值操作的源头（RHS）”</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">foo</span>(<span class="params">a</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> b = a;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> c = <span class="title function_">foo</span>(<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
-
-<p>1．找到其中所有的LHS查询。（这里有3处！）</p>
-<p>2．找到其中所有的RHS查询。（这里有4处！）</p>
-<p><strong>ReferenceError</strong></p>
-<blockquote>
-<p>如果RHS查询在所有嵌套的作用域中遍寻不到所需的变量，引擎就会抛出ReferenceError异常.</p>
-<p>相较之下，当引擎执行LHS查询时，如果在顶层（全局作用域）中也无法找到目标变量，全局作用域中就会创建一个具有该名称的变量，并将其返还给引擎，前提是程序运行在非“严格模式”下。</p>
-</blockquote>
-<p><strong>TypeError</strong></p>
-<blockquote>
-<p>ReferenceError同作用域判别失败相关，而TypeError则代表作用域判别成功了，但是对结果的操作是非法或不合理的。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/11/15/programming/javascript/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/15/programming/javascript/%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84javascript/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/others" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/11/11/programming/javascript/others/" target="_blank">性能优化篇</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/11/11/programming/javascript/others/" class="archive-article-date">
-        <time datetime="2022-11-11T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="缓存你的-CORS"><a href="#缓存你的-CORS" class="headerlink" title="缓存你的 CORS"></a>缓存你的 CORS</h3><blockquote>
-<p>在您的浏览器发出任何跨源请求（例如 example.com 到 api.example.com）之前，如果它不是一个<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS#simple_requests">简单的请求</a>，那么浏览器首先发送一个预检请求，并在发送真正的请求之前等待成功的响应。</p>
-<p>这个预检请求是对服务器的一个 OPTIONS 请求，描述了浏览器要发送的请求，并首先请求权限。</p>
-<p>实际上，几乎所有跨域 API 请求都需要这些预检请求，特别是包括：</p>
-<ul>
-<li>任何带有 JSON 或 XML 正文的请求</li>
-<li>任何请求，包括凭据</li>
-<li>任何不是 GET、POST 或 HEAD 的请求</li>
-<li>流式传输请求或响应正文的任何交换</li>
-<li><code>Accept</code>使用除、<code>Accept-Language</code>和以外的任何<code>Content-Language</code>标题<code>Content-Type</code></li>
-</ul>
-</blockquote>
-<p>要在浏览器中缓存 CORS 响应，只需将此标头添加到您的预检响应中：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Access-Control-Max-Age: 86400</span><br></pre></td></tr></table></figure>
-
-<p>要在浏览器和 API 服务器之间的 CDN 和其他代理中缓存 CORS 响应，请添加：</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Cache-Control: public, max-age=86400</span><br><span class="line">Vary: origin</span><br></pre></td></tr></table></figure>
-
-<p>在nodejs中缓存 CORS</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">app.<span class="title function_">use</span>(<span class="title function_">cors</span>(&#123;</span><br><span class="line">    <span class="comment">// Set the browser cache time for preflight responses</span></span><br><span class="line">    <span class="attr">maxAge</span>: <span class="number">86400</span>,</span><br><span class="line">    <span class="attr">preflightContinue</span>: <span class="literal">true</span> <span class="comment">// Allow us to manually add to preflights</span></span><br><span class="line">&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Add cache-control to preflight responses in a separate middleware:</span></span><br><span class="line">app.<span class="title function_">use</span>(<span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (req.<span class="property">method</span> === <span class="string">&#x27;OPTIONS&#x27;</span>) &#123;</span><br><span class="line">        res.<span class="title function_">setHeader</span>(<span class="string">&#x27;Cache-Control&#x27;</span>, <span class="string">&#x27;public, max-age=86400&#x27;</span>);</span><br><span class="line">        <span class="comment">// No Vary required: cors sets it already set automatically</span></span><br><span class="line">        res.<span class="title function_">end</span>();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">next</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<p>使用 Java Spring 缓存 CORS</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AddPreflightCacheControlWebFilter</span> <span class="keyword">implements</span> <span class="title class_">WebFilter</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Mono&lt;Void&gt; <span class="title function_">filter</span><span class="params">(ServerWebExchange exchange, WebFilterChain chain)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (CorsUtils.isPreFlightRequest(exchange.getRequest())) &#123;</span><br><span class="line">            exchange.getResponse()</span><br><span class="line">                .getHeaders()</span><br><span class="line">                .add(<span class="string">&quot;Cache-Control&quot;</span>, <span class="string">&quot;public, max-age=86400&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> chain.filter(exchange);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://httptoolkit.com/blog/cache-your-cors/">参考文章</a></p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">性能优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/11/11/programming/javascript/others/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/css3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/10/26/programming/htmlcss/css3/" target="_blank">CSS 3.0</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/10/26/programming/htmlcss/css3/" class="archive-article-date">
-        <time datetime="2022-10-26T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-26</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><strong>CSS世界已经有了CSS2和CSS3，那会有CSS4吗？</strong></p>
-<p>答案是：不会有CSS4！</p>
-<blockquote>
-<p>实际上，现在连CSS3这个词都已经名存实亡了，因为CSS3已经解体了。为什么说CSS3解体了呢？因为CSS按照大版本的方式进行迭代实在是太低效了。低效的原因其实很好理解，如果CSS这门语言必须按照大版本迭代发布的话，只要其中一个版本有一个CSS特性存在极大的争议，那这个版本的CSS的发布时间就会延后。例如，CSS2.1的规范在2002年开始制定，而一直到2011年才成为推荐规范，整个过程足足花费了10年的时间，就是因为一些次要的CSS特性拖了后腿。</p>
-<p>为了加速没有争议的CSS特性的标准化，W3C的CSS工作组做出了一项被称为“Beijing doctrine”的决定，该决定将CSS划分为更小的组件，并把这些组件称为模块。这些模块互相独立，各自按照自己的速度走向标准化。例如，CSS选择器模块已经到了Level 4了，弹性布局模块还是Level 1。</p>
-<p>将CSS划分为独立的模块是一个非常明智的决定，浏览器厂商可以根据对自己需求的判断决定究竟对哪些模块进行支持，哪怕这个模块还处于草案状态。例如CSS的env()函数的规范还是草案状态，但是Chrome和Safari浏览器的厂商却快速响应，对其进行了支持。对开发者而言，如此迅速地支持新特性犹如一场及时雨。</p>
-<p>当然，这种模块化的设计也不是没有弊端，最大的问题就是设计冗余。例如，弹性布局和网格布局中的对齐属性其实可以统一，但它们却是分离的，这就会徒增学习成本；分栏布局、弹性布局和网格布局中的间隙其实可以统一，但它们也都是分离的，各有各的间隙属性。好在纠正及时，现在这三大布局全部开始改用gap属性表示间隙，减少了因为模块化带来的设计冗余。</p>
-<p>模块化策略带来的好处远远大于弊端，正所谓瑕不掩瑜，与带来的好处相比，模块化设计的弊端几乎可以忽略不计。从这个角度看，CSS2.1之后的CSS世界就是模块化的新世界，所以我称之为CSS新世界。这个CSS新世界带来了新的CSS属性，并让很多CSS2中模糊的概念有了明确的定义，如尺寸体系、逻辑属性、CSS值类型划分等。CSS新世界中各模块虽然发展独立，但是相互间还是有很多共性和联系的。因此，CSS新世界不仅是一个模块化的世界，还是一个缤纷多彩，同时又自成一体的严谨的世界。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/10/26/programming/htmlcss/css3/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/26/programming/htmlcss/css3/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/css2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/10/20/programming/htmlcss/css2/" target="_blank">CSS 2.1</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/10/20/programming/htmlcss/css2/" class="archive-article-date">
-        <time datetime="2022-10-20T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>本章内容来自于《css的世界》-张鑫旭，类似于读书笔记吧。主要介绍css2.1的语法。本书主要用于进阶学习，不适用于初学者，书中也默认忽略一些基础的知识.</p>
-<p>CSS2.1中的CSS属性的设计初衷是展示图文</p>
-<h3 id="css-的世界"><a href="#css-的世界" class="headerlink" title="css 的世界"></a>css 的世界</h3><blockquote>
-<p>已操作系统划分世界，不同的操作系统就是平行世界。每种浏览器就是一个王国。</p>
-<p>在CSS世界中，HTML是魔法石，选择器就是选择法器，CSS属性就是魔法师，CSS各种属性值就是魔法师的魔法技能，浏览器就是他们所在的“王国”，“王国”会不断更新法律法规（版本升级），决定是否允许使用新的魔法石（HTML5新标签新属性），是否允许新的魔法师入“国籍”（CSS3新属性），或者允许魔法师使用某些新技能（CSS新的属性值），以及是否舍弃某些魔法技能（如display:run-in）；操作系统就是他们所在的世界，不同的操作系统代表不同的平行世界，所以，CSS世界有这么几个比较大的平行世界，即Windows世界、OS X世界以及移动端的iOS世界和Android世界。不同世界的浏览器王国的命运不一样，例如，在OS X世界中，IE王国是不存在的，而Safari王国却异常强大，但在Windows世界中，Safari王国却异常落寞。以上这一切就构成了完整的CSS世界的“世界观”。</p>
-</blockquote>
-<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h3><ol>
-<li><p>属性</p>
-</li>
-<li><p>值</p>
-</li>
-<li><p>关键字</p>
-</li>
-<li><p>变量</p>
-</li>
-<li><p>长度单位</p>
-<p> 时间单位（如s、ms），还有角度单位（如deg、rad等）</p>
-<p> 相对长度单位：如em,rem(相对字体),vh,vw,vmin,vmax(相对视区)</p>
-<p> 绝对长度单位：px</p>
-</li>
-<li><p>功能符</p>
-<p> 值以函数的形式指定（就是被括号括起来的那种），主要用来表示颜色（rgba和hsla）、背景图片地址（url）、元素属性值、计算（calc）和过渡效果等，如rgba(0,0,0, .5)、url(‘css-world.png’)、attr(‘href’)和scale(-1)。</p>
-</li>
-<li><p>属性值</p>
-</li>
-<li><p>声明</p>
-<p> 属性名加上属性值就是声明</p>
-</li>
-<li><p>声明块</p>
-<p> 就是选择器 {} 区域</p>
-</li>
-<li><p>规则或规则集</p>
-<p>选择器后面的声明块就是一个规则集</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    ... 规则集</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>选择器</p>
-</li>
-<li><p>关系选择器</p>
-<p>常见的符号有空格、&gt;、～，还有+等，这些都是非常常用的选择器。</p>
-</li>
-<li><p>@规则</p>
-<p>@规则指的是以@字符开始的一些规则，像@media、@font-face、@page或者@support，诸如此类</p>
-</li>
-</ol>
-    
-    <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-computer/电脑常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>微软商店提示无法加载该页面</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xueyuan2016/article/details/125754410">参考</a></p>
-<p><strong>1、代理服务器</strong>的设置问题</p>
-<p>设置 <strong>Internet选项 -连接-局域网设置-取消勾选代理服务器</strong></p>
-<p>2、TLS 版本过低</p>
-<p>Internet选项-高级-勾选 tls 1.2,1.3</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/18/computer/%E7%94%B5%E8%84%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/vue/plugins" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/09/23/programming/vue/plugins/" target="_blank">插件合集</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/09/23/programming/vue/plugins/" class="archive-article-date">
-        <time datetime="2022-09-23T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="1、VueUse"><a href="#1、VueUse" class="headerlink" title="1、VueUse"></a>1、VueUse</h3><blockquote>
-<p>​    VueUse 是 <strong>Anthony Fu  大佬</strong>的一个开源项目，它为Vue的开发者提供了大量用于 Vue2 和Vue3 的基本 <strong>Composition API</strong> 实用工具函数。</p>
-<p>它有几十个用于常见开发人员用例的解决方案，如跟踪<code>ref</code>更改，检测元素可见性，简化常见Vue模式，键盘/鼠标输入等。 这是真正节省开发时间的好方法，因为我们不必自己亲手添加所有这些标准功能，拿来主义，用就对了(再次感谢大佬的付出)。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/react实践与优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" target="_blank">react 插件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-08-05T03:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react-PureComponent-与-React-Component-区别"><a href="#react-PureComponent-与-React-Component-区别" class="headerlink" title="react.PureComponent 与 React.Component 区别"></a>react.PureComponent 与 React.Component 区别</h3><blockquote>
-<p>唯一的区别在于 Rect.Component 没有实现 shouldComponentUpdate() *<strong>一个不太常用的生命周期方法*</strong>, 而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。</p>
-</blockquote>
-<blockquote>
-<p><strong>注意</strong></p>
-<p>React.PureComponent 中的 <strong>shouldComponentUpdate()</strong> 仅作<strong>对象的浅层比较</strong>。如果对象中包含复杂的数据结构，则可能无法检查到深层的差别，产生错误的对比结果。所以只在props 和 state 比较简单时使用这个，或者在深层数据结构发生变化时调用<strong>forceUpdate()<strong>来确保组件被正确地更新。也可以使用</strong>immutable</strong> 对象加速嵌套数据的比较。</p>
-<p>此外，React中 的 <strong>shouldComponentUpdate()</strong> 将跳过所有子组件树的 prop 更新。因此，确保所有子组件也是“纯的”组件。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/vue/实践及优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" target="_blank">vue 实践与优化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-08-05T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果"><a href="#在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果" class="headerlink" title="在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果"></a>在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果</h3><p>这是应为 组件内 在加载前和加载中是一个类名为el-image__placeholder的div标签，在加载后和加载出错后的处理分别是一个div和img标签。</p>
-<p>解决方法：在加载前和加载后的样式上做更改，可以<strong>重写覆盖</strong>类名<strong>el-image__placeholder</strong>和<strong>el-image__error</strong>来自定义自己想要的效果了</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 将默认的白色背景去除</span><br><span class="line"></span><br><span class="line">::v-deep .el-image__placeholder,</span><br><span class="line">::v-deep .el-image__error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">background</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vuex//" class="article-tag-list-link color5">vuex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">linux 常用命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-08-02T02:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="用命令netstat查侦听端口"><a href="#用命令netstat查侦听端口" class="headerlink" title="用命令netstat查侦听端口"></a>用命令netstat查侦听端口</h3><p><code>netstat</code> 是一个命令行工具，可以提供有关网络连接的信息。</p>
-<p>要列出正在侦听的所有TCP或UDP端口，包括使用端口和套接字状态的服务，请使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp</span><br></pre></td></tr></table></figure>
-
-<p>此命令中使用的选项具有以下含义：</p>
-<ul>
-<li>-t - 显示TCP端口。</li>
-<li>-u - 显示UDP端口。</li>
-<li>-n - 显示数字地址而不是解析主机。</li>
-<li>-l - 仅显示侦听端口。</li>
-<li>-p - 显示监听器进程的PID和名称。仅当您以root或sudo用户身份运行命令时，才会显示此信息。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
     </nav>
   
 
@@ -1441,11 +1637,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1453,11 +1649,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1465,11 +1661,35 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mysql基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1477,7 +1697,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1485,11 +1705,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1501,15 +1721,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1521,19 +1749,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1541,7 +1761,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1553,15 +1781,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1569,11 +1789,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1589,15 +1817,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
