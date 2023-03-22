@@ -64,6 +64,8 @@ ChannelSftp sftp = connect(HOST, PORT, USER, PWD);
 
 > [参考](https://blog.csdn.net/codeLife1993/article/details/81906996)
 
+<!-- more -->
+
 ### 解析JSON文件
 
 > 我们用来解析json格式的jar包有很多，jackson，[fastjson](https://so.csdn.net/so/search?q=fastjson&spm=1001.2101.3001.7020)，gson都行。但本人喜欢用fastjson。所以本篇都是以fastjson来解析json文件。
@@ -453,5 +455,52 @@ public void uploadTest(@RequestParam("files") MultipartFile[] files) {
 			}
 		}
 	}
+```
+
+
+
+### 前端图片预览
+
+> 通过访问地址，在img 标签 src中 渲染
+
+后端：
+
+```java
+public static String viewPicture(HttpServletResponse response, String filePath) {
+
+    String format = filePath.substring(filePath.lastIndexOf(".") + 1);
+    File file = new File( filePath);
+    try {
+
+        if (file.exists() && file.isFile()) {
+            //读取图片文件流
+            BufferedImage image = ImageIO.read(new FileInputStream(file));
+            //将图片写到输出流
+            ImageIO.write(image, format, response.getOutputStream());
+            return null;
+        } else {
+            return "文件不存在";
+        }
+
+    } catch (IOException e) {
+        return "预览失败";
+    }
+
+}
+```
+
+```java
+// uploadAnnotateFile 是上传根路径
+@RequestMapping(value="/viewPicture", method = RequestMethod.GET)
+public ResponseBean viewPicture(HttpServletResponse res,String path) {
+    String msg = FolderUtil.viewPicture(res, uploadAnnotateFile + path);
+    return ResponseBean.success(msg);
+}
+```
+
+前端：
+
+```hmtl
+<img src="http:xxx:xxx/api/viewPicture?path=/xxx.jpg" />
 ```
 

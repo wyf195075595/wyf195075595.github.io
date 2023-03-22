@@ -259,6 +259,18 @@ initial 属性值
 
 ### 自定义web组件
 
+> 主要包括三种技术模块：自定义元素、影子DOM、HTML模板。
+>
+> 生命周期回调函数处理一些业务：
+>
+> - connectedCallback 自定义元素被插入文档DOM时，调用。
+> - disconnectedCallback 自定义元素从文档删除时，调用。
+> - adoptedCallback 自定义元素被移动到新的文档时，调用。
+> - attributeChangedCallback 自定义元素增加、删除、修改属性时 ，调用。
+> 	**触发此回调函数，必须监听变化的属性static get observedAttributes() ,返回监听的属性。**
+
+
+
 ```html
 <style>
 	search-box:not(:defined) {

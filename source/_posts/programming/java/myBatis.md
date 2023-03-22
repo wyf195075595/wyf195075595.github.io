@@ -1709,7 +1709,10 @@ mybatis 缓存包括
 
 从maven找到插件 mybatis-generator,展开。 双击mybatis-generator:generate
 
-
+> MyBatis逆向工程dao接口只生成两个方法，原因：
+> 1.是你的mysql版本太高了，换成6一下的版本即可
+> 2.看看你的表有没有设置主键，如果没有设置一下即可 
+> 3.如果想使用高版本的mysql在url后面加nullCatalogMeansCurrent=true
 
 ### PAgeHelper 分页插件
 

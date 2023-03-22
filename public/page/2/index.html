@@ -11,7 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     
-    <!-- <meta name="keywords" content="前端小站，前端，博客">
+    <!-- <meta name="keywords" content="前端小站，前端，博客，笔记">
     <meta name="description" content="前端摸鱼"> -->
   
   <meta name="description" content="前端摸鱼">
@@ -22,7 +22,7 @@
 <meta property="og:description" content="前端摸鱼">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="王不留行">
-<meta property="article:tag" content="前端小站，前端，博客">
+<meta property="article:tag" content="前端小站，前端，博客，笔记">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
@@ -91,7 +91,7 @@
 			<h1 class="header-author"><a href="/">王不留行</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">白小纯</p>
+		<p class="header-subtitle">前端小趴菜</p>
 		
 
 		<nav class="header-menu">
@@ -99,7 +99,11 @@
 			
 				<li><a href="/" target="_blank">主页</a></li>
 			
+				<li><a href="/categories/%E9%9A%8F%E7%AC%94/" target="_blank">随笔</a></li>
+			
 				<li><a href="/tags/js/" target="_blank">javascript</a></li>
+			
+				<li><a href="/categories/java/" target="_blank">java</a></li>
 			
 			</ul>
 		</nav>
@@ -185,9 +189,13 @@
 			  <h1 class="header-author js-header-author">王不留行</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>白小纯<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>前端小趴菜<i class="icon icon-quo-right"></i></p>
 			
 			
+			
+				
+			
+				
 			
 				
 			
@@ -222,12 +230,16 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/js/">javascript</a></li>
+					<li style="width: 25%"><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/js/">javascript</a></li>
+		        
+					<li style="width: 25%"><a href="/categories/java/">java</a></li>
 		        
 				</ul>
 			</nav>
@@ -244,6 +256,737 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-programming/java/myBatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/14/programming/java/myBatis/" target="_blank">mybatis 基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/14/programming/java/myBatis/" class="archive-article-date">
+        <time datetime="2023-02-13T17:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="ORM"><a href="#ORM" class="headerlink" title="ORM"></a>ORM</h2><blockquote>
+<p>O (Object) jvm中的对象</p>
+<p>R (Relational) 关系型数据库</p>
+<p>M (Mapping) 映射</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230214134743208.png" alt="image-20230214134743208"></p>
+<ol>
+<li>支持定制化 SQL、存储过程、基本映射以及高级映射</li>
+<li>避免了几乎所有的JDBC代码中手动设置参数以及获取结果集</li>
+<li>支持XML开发，也支持注解式开发。[为了保证sql语句的灵活，所以mybatis大部分是采用XML方式开发。]</li>
+<li>将接口和Java 的 POJOs(Plain rdinary Java Object，简单普通的Java对象)映射成数据库中的记录体积小好学: </li>
+<li>两个jar包，两个XML配置文件。</li>
+<li>完全做到sal解耦合</li>
+<li>提供了基本映射标签</li>
+<li>提供了高级映射标签</li>
+<li>提供了XML标签，支持动态SQL的编写</li>
+</ol>
+    
+    <a class="article-more-a" href="/2023/02/14/programming/java/myBatis/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mybatis 基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/14/programming/java/myBatis/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/jdbc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/10/programming/java/jdbc/" target="_blank">jdbc基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/10/programming/java/jdbc/" class="archive-article-date">
+        <time datetime="2023-02-10T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>JDBC 是SUN公司制定的一套接口</p>
+</blockquote>
+<h3 id="JDBC-准备工作，加载jar-驱动包，然后配置到环境变量-classpath-当中"><a href="#JDBC-准备工作，加载jar-驱动包，然后配置到环境变量-classpath-当中" class="headerlink" title="JDBC 准备工作，加载jar 驱动包，然后配置到环境变量 classpath 当中"></a>JDBC 准备工作，加载jar 驱动包，然后配置到环境变量 classpath 当中</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath=.;xxx/mysql-connector-java-<span class="number">5.1</span><span class="number">.23</span>-bin.jar</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>其中配置了两个路径，一个是当前路径，一个是mysql驱动架包路径。这里的配置在集成工具中不需要配</p>
+</blockquote>
+<h3 id="jdbc-编程6步"><a href="#jdbc-编程6步" class="headerlink" title="jdbc 编程6步"></a>jdbc 编程6步</h3><ol>
+<li><p>注册驱动　（连接哪个数据库）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Driver</span> <span class="variable">driver</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">com</span>.mysql.jdbc.Driver();</span><br><span class="line">DriverManager.registerDriver(driver);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方式二, 应为参数是字符串可以提出配置，类加载时自动执行静态代码 自动注册</span></span><br><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>获取连接　（JVM进程与数据库连接，重量级通信）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">url</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">user</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">String</span> <span class="variable">pwd</span> <span class="operator">=</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line"><span class="type">Connection</span> <span class="variable">coon</span> <span class="operator">=</span> DriverManager.getConnection(url, user, pwd);</span><br><span class="line">System.out.println(<span class="string">&quot;数据库连接对象&quot;</span> + coon);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>获取数据库操作对象（专门执行SQL）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Statement</span> <span class="variable">stmt</span> <span class="operator">=</span> coon.createStatement();</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>执行SQL语句</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">sql</span> <span class="operator">=</span> <span class="string">&quot;delete * from tb_emp&quot;</span>;</span><br><span class="line">        <span class="comment">// executeUpdate 专门执行DML语句（insert、delete、update）,返回影响数据库中记录的条数</span></span><br><span class="line"><span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> stmt.executeUpdate(sql);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>处理查询结果集</p>
+</li>
+<li><p>释放资源（关闭连接）</p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 从小到大关闭</span></span><br><span class="line">stmt.close();</span><br><span class="line">coon.close();</span><br></pre></td></tr></table></figure></li>
+</ol>
+    
+    <a class="article-more-a" href="/2023/02/10/programming/java/jdbc/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jdbc基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/10/programming/java/jdbc/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/10/programming/java/javaweb/" target="_blank">jdbcweb基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/10/programming/java/javaweb/" class="archive-article-date">
+        <time datetime="2023-02-10T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>servlet 是JavaEE 规范之一。</p>
+<p>javaEE 目前最高版本时javaEE8,它被Oracle捐献给Apache。之后被改名为 Jakarta EE。从此没有javaEE 了</p>
+<p>javaEE8中的Servlet类名：javax.servlet.Servlet</p>
+<p>javaEE9中的Servlet类名：jakarta.servlet.Servlet</p>
+</blockquote>
+<h3 id="关于系统架构"><a href="#关于系统架构" class="headerlink" title="关于系统架构"></a>关于系统架构</h3><ol>
+<li><p>系统架构包括</p>
+<ul>
+<li><p>C/S 架构</p>
+<p>  就是需要安装的软件</p>
+</li>
+<li><p>B/S 架构</p>
+<p>  就是运行在浏览器的页面</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h3><blockquote>
+<p>开源免费的轻量级ＷＥＢ服务器</p>
+</blockquote>
+<h4 id="tomcat-目录"><a href="#tomcat-目录" class="headerlink" title="tomcat 目录"></a>tomcat 目录</h4><ul>
+<li>bin：存放命令文件<ul>
+<li>.bat 文件，批量执行windows DOS命令</li>
+<li>.sh 文件，批量执行 Linux 命令</li>
+<li></li>
+</ul>
+</li>
+<li>conf：配置文件</li>
+<li>lib：tomcat核心程序目录</li>
+<li>logs：日志目录</li>
+<li>temp：临时目录</li>
+<li>webapps：存放web应用</li>
+<li>work：存放jsp文件翻译之后的Java文件以及编译之后的class文件</li>
+</ul>
+<p>配置tomcat环境</p>
+<ol>
+<li>CATALINA_HOME=D:\tomcat\apache-tomcat-10.0.27</li>
+<li>JAVA＿HOME=C:\Program Files\Java\jdk1.8.0_321</li>
+<li>JRE_HOME=%JAVA＿HOME%\jre</li>
+</ol>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">startup.bat</span><br></pre></td></tr></table></figure>
+
+<p><strong>出现中文乱码</strong></p>
+<blockquote>
+<p>修改conf/logging.properties</p>
+<p>java.util.logging.ConsoleHandler.encoding = GBK</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2023/02/10/programming/java/javaweb/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">jdbcweb基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/10/programming/java/javaweb/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/jsconfig" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/08/programming/javascript/jsconfig/" target="_blank">jsconfig.json</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/08/programming/javascript/jsconfig/" class="archive-article-date">
+        <time datetime="2023-02-08T14:11:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="vue项目中-jsconfig-json-文件是什么-有啥用？"><a href="#vue项目中-jsconfig-json-文件是什么-有啥用？" class="headerlink" title="vue项目中 jsconfig.json 文件是什么?有啥用？"></a><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=vue%E9%A1%B9%E7%9B%AE&spm=1001.2101.3001.7020">vue项目</a>中 jsconfig.json 文件是什么?有啥用？</h3><blockquote>
+<p>当您在工作空间中有一个定义项目上下文的jsconfig.json文件时，JavaScript体验会得到改进。</p>
+</blockquote>
+<p>目录中存在tsconfig.json文件表明该目录是 TypeScript 项目的根目录。该tsconfig.json文件指定编译项目所需的根文件和编译器选项。</p>
+<p>JavaScript 项目可以使用jsconfig.json文件来代替，它的作用几乎相同，但默认启用了一些与 JavaScript 相关的编译器标志。</p>
+<blockquote>
+<p>jsconfig.json源于tsconfig.json，是TypeScript的配置文件。</p>
+<p> jsconfig.json相当于tsconfig.json的“allowJs”属性设置为true</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2023/02/08/programming/javascript/jsconfig/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/08/programming/javascript/jsconfig/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/mysql" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/01/31/programming/java/mysql/" target="_blank">mysql基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/01/31/programming/java/mysql/" class="archive-article-date">
+        <time datetime="2023-01-31T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="安装与删除"><a href="#安装与删除" class="headerlink" title="安装与删除"></a>安装与删除</h3><blockquote>
+<p>通过exe 文件安装</p>
+<p>卸载时再点击安装程序，选择 remove 即可卸载。卸载后还需删除两个地方文件。</p>
+<ul>
+<li>C:/ProgrameData/mySQL</li>
+<li>C:/program Files(x86)/mySQL</li>
+</ul>
+<p>如果不删除干净，下次会安装不上</p>
+</blockquote>
+<h3 id="sql-DB-DBMS分别是什么？啥关系？"><a href="#sql-DB-DBMS分别是什么？啥关系？" class="headerlink" title="sql,DB,DBMS分别是什么？啥关系？"></a>sql,DB,DBMS分别是什么？啥关系？</h3><ul>
+<li><p>DB: </p>
+<p>  DataBase (数据库，数据库实际再电脑上以文件形式存在)</p>
+</li>
+<li><p>DBMS： </p>
+<p>  DataBase Management System(数据库管理系统，常见 MYSQL，Oracle，DB2,SqlServer…)</p>
+</li>
+<li><p>SQL: </p>
+<p>  结构化查询语句，是一门标准化通用语言。标准的sql适用于所有数据库产品</p>
+</li>
+</ul>
+<p>关系： DBMS 执行 SQL 操作 DB</p>
+    
+    <a class="article-more-a" href="/2023/01/31/programming/java/mysql/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/01/31/programming/java/mysql/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/入门基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/01/09/programming/java/%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" target="_blank">java基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/01/09/programming/java/%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+        <time datetime="2023-01-09T05:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="java-特性"><a href="#java-特性" class="headerlink" title="java 特性"></a>java 特性</h2><h3 id="Java-程序的版本"><a href="#Java-程序的版本" class="headerlink" title="Java 程序的版本"></a>Java 程序的版本</h3><blockquote>
+<p>java SE (标准版)</p>
+<p>java EE（企业版）</p>
+<p>java ME（精简版）</p>
+</blockquote>
+<h3 id="java-程序可移植性"><a href="#java-程序可移植性" class="headerlink" title="java 程序可移植性"></a>java 程序可移植性</h3><blockquote>
+<p>什么是可移植性？</p>
+<p>java 程序可以做到一次编译，到处运行。可就是说可以运行到windows,linux等操作系统上。这个被称作Java程序的可移植性，或者叫跨平台。</p>
+<p>如何实现呢？</p>
+<p>Windows操作系统于Linux操作系统的内核肯定不一样，系统执行指令的而方式也不一样。 Java程序不能直接和系统打交道，因为Java程序只有一份。操作系统原理都不同</p>
+<p>解决：</p>
+<p>sum团队想到了一个办法，他们让Java程序运行在一台虚拟的计算机中，这个虚拟计算机叫Java虚拟机，简称JVM。Java虚拟机再和底层操作系统打交道。</p>
+<p>这个虚拟机不能直接安装，而是通过安装适合自己操作系统的 <strong>java jdk</strong> 来实现的</p>
+</blockquote>
+<h3 id="Java-的加载与执行"><a href="#Java-的加载与执行" class="headerlink" title="Java 的加载与执行"></a>Java 的加载与执行</h3><blockquote>
+<p>编译阶段主要任务是检查 Java 源程序是否符合 Java 语法（不进行运算），符合则生成正常字节码文件 (xxx.class)。不符合则无法生成字节码文件</p>
+</blockquote>
+<p>.java -&gt; .class -&gt;     类装载器 -&gt; java 虚拟机（JVM） -&gt; 操作系统 -&gt; 硬件平台</p>
+    
+    <a class="article-more-a" href="/2023/01/09/programming/java/%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">java基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/01/09/programming/java/%E5%85%A5%E9%97%A8%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-programming/javascript/你不知道的javascript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -719,567 +1462,6 @@
 
 
   
-    <article id="post-computer/电脑常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>微软商店提示无法加载该页面</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xueyuan2016/article/details/125754410">参考</a></p>
-<p><strong>1、代理服务器</strong>的设置问题</p>
-<p>设置 <strong>Internet选项 -连接-局域网设置-取消勾选代理服务器</strong></p>
-<p>2、TLS 版本过低</p>
-<p>Internet选项-高级-勾选 tls 1.2,1.3</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/18/computer/%E7%94%B5%E8%84%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/vue/plugins" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/09/23/programming/vue/plugins/" target="_blank">插件合集</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/09/23/programming/vue/plugins/" class="archive-article-date">
-        <time datetime="2022-09-23T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="1、VueUse"><a href="#1、VueUse" class="headerlink" title="1、VueUse"></a>1、VueUse</h3><blockquote>
-<p>​    VueUse 是 <strong>Anthony Fu  大佬</strong>的一个开源项目，它为Vue的开发者提供了大量用于 Vue2 和Vue3 的基本 <strong>Composition API</strong> 实用工具函数。</p>
-<p>它有几十个用于常见开发人员用例的解决方案，如跟踪<code>ref</code>更改，检测元素可见性，简化常见Vue模式，键盘/鼠标输入等。 这是真正节省开发时间的好方法，因为我们不必自己亲手添加所有这些标准功能，拿来主义，用就对了(再次感谢大佬的付出)。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/react实践与优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" target="_blank">react 插件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-08-05T03:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react-PureComponent-与-React-Component-区别"><a href="#react-PureComponent-与-React-Component-区别" class="headerlink" title="react.PureComponent 与 React.Component 区别"></a>react.PureComponent 与 React.Component 区别</h3><blockquote>
-<p>唯一的区别在于 Rect.Component 没有实现 shouldComponentUpdate() *<strong>一个不太常用的生命周期方法*</strong>, 而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。</p>
-</blockquote>
-<blockquote>
-<p><strong>注意</strong></p>
-<p>React.PureComponent 中的 <strong>shouldComponentUpdate()</strong> 仅作<strong>对象的浅层比较</strong>。如果对象中包含复杂的数据结构，则可能无法检查到深层的差别，产生错误的对比结果。所以只在props 和 state 比较简单时使用这个，或者在深层数据结构发生变化时调用<strong>forceUpdate()<strong>来确保组件被正确地更新。也可以使用</strong>immutable</strong> 对象加速嵌套数据的比较。</p>
-<p>此外，React中 的 <strong>shouldComponentUpdate()</strong> 将跳过所有子组件树的 prop 更新。因此，确保所有子组件也是“纯的”组件。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/vue/实践及优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" target="_blank">vue 实践与优化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-08-05T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果"><a href="#在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果" class="headerlink" title="在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果"></a>在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果</h3><p>这是应为 组件内 在加载前和加载中是一个类名为el-image__placeholder的div标签，在加载后和加载出错后的处理分别是一个div和img标签。</p>
-<p>解决方法：在加载前和加载后的样式上做更改，可以<strong>重写覆盖</strong>类名<strong>el-image__placeholder</strong>和<strong>el-image__error</strong>来自定义自己想要的效果了</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 将默认的白色背景去除</span><br><span class="line"></span><br><span class="line">::v-deep .el-image__placeholder,</span><br><span class="line">::v-deep .el-image__error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">background</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/vuex//" class="article-tag-list-link color5">vuex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">linux 常用命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-08-02T02:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-02</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="用命令netstat查侦听端口"><a href="#用命令netstat查侦听端口" class="headerlink" title="用命令netstat查侦听端口"></a>用命令netstat查侦听端口</h3><p><code>netstat</code> 是一个命令行工具，可以提供有关网络连接的信息。</p>
-<p>要列出正在侦听的所有TCP或UDP端口，包括使用端口和套接字状态的服务，请使用以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp</span><br></pre></td></tr></table></figure>
-
-<p>此命令中使用的选项具有以下含义：</p>
-<ul>
-<li>-t - 显示TCP端口。</li>
-<li>-u - 显示UDP端口。</li>
-<li>-n - 显示数字地址而不是解析主机。</li>
-<li>-l - 仅显示侦听端口。</li>
-<li>-p - 显示监听器进程的PID和名称。仅当您以root或sudo用户身份运行命令时，才会显示此信息。</li>
-</ul>
-    
-    <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/项目中遇到的样式问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/" target="_blank">项目中遇到的样式问题</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2022-07-23T05:07:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="scss-文件引入样式不生效"><a href="#scss-文件引入样式不生效" class="headerlink" title="scss 文件引入样式不生效"></a>scss 文件引入样式不生效</h3><blockquote>
-<p>​    vue + sacc 项目, 公用样式 common.scss 样式嵌套写法导入不生效</p>
-<p>现象：样式表只有最外层样式生效，嵌套样式不生效（没有解析嵌套语法）</p>
-</blockquote>
-<p>下面这种方式导入，样式不能嵌套写。 必须使用 层级选择器方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import url(&#x27;@/style/common.scss&#x27;);</span><br></pre></td></tr></table></figure>
-
-<p>解决：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &#x27;@/style/common.scss&#x27;;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/">« Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">Next »</a>
@@ -1413,7 +1595,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1421,11 +1603,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,7 +1627,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1441,7 +1635,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1461,23 +1691,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mysql基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1485,35 +1703,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1521,19 +1711,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1541,35 +1719,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1581,11 +1755,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1597,11 +1775,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1609,7 +1791,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">

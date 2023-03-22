@@ -2,7 +2,7 @@
 title: maven基础
 date: 2023-02-14 11:20:00
 tags: maven基础
-categories: maven
+categories: java
 ---
 
 ### 项目管理器，可以帮我们做什么？

@@ -1,8 +1,8 @@
 ---
 title: mysql基础
 date: 2023-02-00 21:00:00
-tags: mysql基础
-categories: mysql
+tags: 数据库
+categories: java
 ---
 
 ### 安装与删除

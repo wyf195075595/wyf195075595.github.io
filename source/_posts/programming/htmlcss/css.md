@@ -648,3 +648,36 @@ clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
 ### [:has 属性](https://webkit.org/blog/13096/css-has-pseudo-class/#styling-form-states-without-js)
 
 > CSS 新增的`:has()`支持很多表单状态，完全可以不使用 JS 脚本，就实现可以跟用户互动的表单。
+
+### initial-letter
+
+> 首字母样式下沉。它需要两个空格分隔的值
+>
+> - 第一个参数定义字母的大小以及它将占据多少行。该字母将在保持其纵横比的同时放大。您不能使用负值，但可以使用小数值。
+> - 第二个参数定义字母接收器。这可以被认为是字母所在位置的偏移量。第二个值是可选的，不能为负数。如果它不存在，它假定字母大小的值下降到最接近的整数。这相当于使用关键字“drop”。sink 还接受另一个关键字值“raise”，相当于 sink 为 1。
+>
+> ```css
+> .selector:first-letter {
+>     initial-letter: 2  2;
+> }
+> ```
+>
+> VS以前得写法
+>
+> ```css
+> p:first-letter {
+>     color: hsl(220, 94%, 51%);
+>     font-weight: bold;
+>     font-size: 4rem;
+>     float: left;
+>     line-height: 1;
+>     margin-right: 0.25rem;
+> }
+> ```
+>
+> 
+>
+> ```css
+> // 测试支持
+> @supports (initial-letter: 1 1) { /* Your supported styles */ }
+> ```
