@@ -270,9 +270,6 @@ categories: js
 	> 
 	> # 发布, 此处如果报错403，重名错误。修改package.json name 属性。应为全网name不能重复。提交时可以增加 忽略文件 .gitignore
 	> npm publish
-	> 
-	> # 发布成功以后，在设回淘宝镜像
-	> npm config set registry=https://registry.npm.taobao.org/
 	> ```
 	>
 	> 

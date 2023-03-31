@@ -126,7 +126,7 @@
 			<div class="social">
 				
 					
-						<a class="github" href="https://github.com/wyf195075595" 
+						<a class="github" href="https://hub.nuaa.cf/wyf195075595/studyCode/" 
 												title="GitHub" target="_blank"><i class="icon-github"></i></a>
 					
 				
@@ -208,7 +208,7 @@
 					
 						
 						<a class="github" target="_blank" 
-							href="https://github.com/wyf195075595" title="GitHub"><i class="icon-github"></i></a>
+							href="https://hub.nuaa.cf/wyf195075595/studyCode/" title="GitHub"><i class="icon-github"></i></a>
 						
 					
 						
@@ -256,315 +256,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-
-  
-    <article id="post-programming/红宝书笔记/第二章 HTML中的javaScript" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20HTML%E4%B8%AD%E7%9A%84javaScript/" target="_blank">第二章 HTML中的javaScript</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20HTML%E4%B8%AD%E7%9A%84javaScript/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>如何在HTML页面中引入JavaScript。最早在Netsape Navigator2 实现 script 元素</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">script元素的属性</span><br><span class="line"><span class="number">1</span>、 <span class="keyword">async</span> :可选。<span class="title class_">HTML5</span>新增。异步执行脚本。与defer属性类似。只适用于外部脚本。告诉浏览器立即下载。与defer不同的是，标记 <span class="keyword">async</span> 的脚本不能保证按照他们出现的顺序执行。异步脚本保证会在页面的 load 事件前执行，但可能会在 <span class="title class_">DOMContentLoaded</span> 之前或之后。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、defer：可选。推迟执行脚本。延迟至整个页面解析完毕后执行，执行时不改变页面结构，<span class="title class_">DOMContentLoaded</span>事件前，按顺序执行。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="attr">charset</span>:可选。使用src属性指定的代码字符集。基本没啥用。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、crossorigin：可选。配置相关请求的<span class="variable constant_">CORS</span>（跨源资源共享）设置。默认不使用<span class="variable constant_">CORS</span>。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、integrity：可选。允许比对接收到的资源和指定的加密签名以验证子资源完整性(<span class="variable constant_">SRI</span>)。</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、language：废弃。最初用于表示代码块中的脚本语言（如<span class="string">&quot;JavaScript&quot;</span>、<span class="string">&quot;JavaScript）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">7、src：可选。表示包含要执行的代码的外部文件。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">8、type:代替language。表示脚本语言的内容类型（MIME类型）。值为 module 时，代码会被当成ES6模块。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&lt;!--more--&gt;</span></span><br><span class="line"><span class="string"></span></span><br></pre></td></tr></table></figure>
-<p>在HTML中使用</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./test2.js&quot;</span> <span class="attr">defer</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./test2.js&quot;</span> <span class="attr">async</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">			<span class="keyword">function</span> <span class="title function_">loadScript</span>(<span class="params">path</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">let</span> script = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                script.<span class="property">src</span> = path ;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// script.async = false;//这种方式添加的脚本默认async为true，但有些浏览器不支持 async</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">append</span>(script);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//提高浏览器预加载资源队列优先级</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">addPreload</span>(<span class="params">path,type</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="keyword">let</span> link = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;link&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">                link.<span class="property">rel</span> = <span class="string">&#x27;preload&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">                link.<span class="property">href</span> = path;</span></span><br><span class="line"><span class="language-javascript">                link.<span class="property">as</span> = type||<span class="string">&#x27;script&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">document</span>.<span class="property">head</span>.<span class="title function_">append</span>(link);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">		</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./test1.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">使用 async、defer标签，会使脚本资源队列优先级下降</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">拓展：</span><br><span class="line"></span><br><span class="line">-资源提升使用场景：</span><br><span class="line">	1、网站现在有多个首屏图像，但它们并具有相同的优先级，比如在轮播图中只有第一张图需要更高的优先级。</span><br><span class="line"></span><br><span class="line">	2、将 <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml"> 声明为 async 或 defer 可以告诉浏览器异步加载它们。但是，根据我们上面的分析，这些 <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-handlebars"><span class="language-xml"> 也被分配了 “低” 优先级。但是你可能希望在确保浏览器异步下载它们的同时提高它们的优先级，尤其是一些对用户体验至关重要脚本。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    3、浏览器为 JavaScript fetch API 异步获取资源或数据分配了高优先级，但是某些场景下你可能不希望以高优先级请求所有资源。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    4、浏览器为 CSS、Font 分配了同样的高优先级，但是并不是所有 CSS 和 Font 资源都是一样重要的，你可能需要更具体的指定它们的优先级。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    </span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">-importance 属性</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">	你可以使用一个 importance 属性来更细力度的控制资源加载的优先级，包括 link、img、script 和 iframe 这些标签。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">	- importance 属性可以指定三个值：</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">        - high：你认为该资源具有高优先级，并希望浏览器对其进行优先级排序。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">        - low：你认为该资源的优先级较低，并希望浏览器降低其优先级。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">        - auto：采用浏览器的默认优先级。</span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">        </span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">     <span class="comment">&lt;!-- We don&#x27;t want a high priority for this above-the-fold image --&gt;</span></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/in_viewport_but_not_important.svg&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;I&#x27;m an unimportant image!&quot;</span>&gt;</span></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    <span class="comment">&lt;!-- We want to initiate an early fetch for a resource, but also deprioritize it --&gt;</span></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/js/script.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars"></span></span></span></span></span><br><span class="line"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">      <span class="title function_">fetch</span>(<span class="string">&#x27;https://example.com/&#x27;</span>, &#123;<span class="attr">importance</span>: <span class="string">&#x27;low&#x27;</span>&#125;).<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> &#123;</span></span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">        <span class="comment">// Trigger a low priority fetch</span></span></span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">      &#125;);</span></span></span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="language-handlebars"><span class="language-xml"><span class="language-handlebars">    </span></span></span></span></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- The third-party contents of this iframe can load with a low priority --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;https://example.com&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span> <span class="attr">height</span>=<span class="string">&quot;400&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- 降低首屏图片的优先级</span><br><span class="line">	使用 importance 属性降低可能不重要的首屏图片的优先级</span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;carousel&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/carousel-1.jpg&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;high&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/carousel-2.jpg&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/carousel-3.jpg&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;img/carousel-4.jpg&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">- 降低预加载资源的优先级</span><br><span class="line">	想要阻止预加载资源和其他关键资源的竞争，可以降低其优先级：</span><br><span class="line">	</span><br><span class="line">	<span class="comment">&lt;!-- Lower priority only for non-critical preloaded scripts --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> <span class="attr">href</span>=<span class="string">&quot;critical-script.js&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/js/script.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Preload CSS and hero images without blocking other resources --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">as</span>=<span class="string">&quot;style&quot;</span> <span class="attr">href</span>=<span class="string">&quot;theme.css&quot;</span> <span class="attr">importance</span>=<span class="string">&quot;low&quot;</span> <span class="attr">onload</span>=<span class="string">&quot;this.rel=stylesheet&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">- 脚本的优先级</span><br><span class="line">	如果页面上有一些必要的交互脚本，但不需要阻塞其他资源，你可以把它们标记为具有高优先级，同时异步加载它们</span><br><span class="line">	</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;async_but_important.js&quot;</span> <span class="attr">async</span> <span class="attr">importance</span>=<span class="string">&quot;high&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- fetch </span><br><span class="line">	浏览器默认会以高优先级执行 fetch 请求，你可以降低不太关键的数据请求的优先级</span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// Important validation data (high by default)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> authenticate = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/user&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// Less important content data (suggested low)</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">let</span> suggestedContent = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/content/suggested&#x27;</span>, &#123;<span class="attr">importance</span>: <span class="string">&#x27;low&#x27;</span>&#125;);</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>noscript 标签</p>
-<p><noscript>元素可以包含任何可以出现在<body>中的 HTML 元素，<script>除外。在下列两种 情况下，浏览器将显示包含在<noscript>中的内容：<br> 浏览器不支持脚本；<br> 浏览器对脚本的支持被关闭.</p>
-</blockquote>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%8C%E7%AB%A0%20HTML%E4%B8%AD%E7%9A%84javaScript/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/红宝书笔记/第九章 代理与反射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/" target="_blank">第九章 代理与反射</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>ECMAScript 6 新增的代理和反射为开发者提供了拦截并向基本操作嵌入额外行为的能力。具体地 说，可以给目标对象定义一个关联的代理对象，而这个代理对象可以作为抽象的目标对象来使用。在对 目标对象的各种操作影响目标对象之前，可以在代理对象中对这些操作加以控制。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、创建代理对象</span><br><span class="line">	<span class="keyword">const</span> target = &#123; <span class="attr">id</span>: <span class="string">&#x27;target&#x27;</span> &#125;; </span><br><span class="line">	<span class="keyword">const</span> handler = &#123;&#125;; </span><br><span class="line">	<span class="comment">//两个参数必传，不然会抛出类型错误</span></span><br><span class="line">	<span class="keyword">const</span> proxy = <span class="keyword">new</span> <span class="title class_">Proxy</span>(target, handler);</span><br><span class="line"></span><br><span class="line">	操作 proxy,target 都会作用于目标对象</span><br><span class="line">    <span class="title class_">Proxy</span>.<span class="property"><span class="keyword">prototype</span></span> 是 <span class="literal">undefined</span>,所以不能用 <span class="keyword">instanceof</span></span><br><span class="line">    严格相等可以用于区分代理和目标</span><br><span class="line">	proxy === target ;<span class="comment">//false</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B9%9D%E7%AB%A0%20%E4%BB%A3%E7%90%86%E4%B8%8E%E5%8F%8D%E5%B0%84/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/红宝书笔记/第五章 基本引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" target="_blank">第五章 基本引用类型</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title function_">getTimezoneOffset</span>() 返回格林威治时间（<span class="variable constant_">UTC</span>）与本地时间的差（分钟）</span><br><span class="line"><span class="number">2</span>、<span class="title function_">parse</span>() 将<span class="string">&#x27;2020/12/12 12:00:00&#x27;</span> 转为时间戳</span><br><span class="line"><span class="number">3</span>、<span class="title function_">toLocalString</span>() 转化为本地日期格式字符串 <span class="string">&quot;2021/3/13下午10:46:45&quot;</span></span><br><span class="line"><span class="number">4</span>、<span class="title function_">toString</span>()  <span class="string">&quot;Sat Mar 13 2021 22:42:46 GMT+0800 (中国标准时间)&quot;</span></span><br><span class="line"><span class="number">5</span>、<span class="title function_">toDateString</span>() <span class="string">&quot;Sat Mar 13 2021&quot;</span> 周/月/日/年</span><br><span class="line"><span class="number">6</span>、<span class="title function_">toTimeString</span>()  <span class="string">&quot;22:49:21 GMT+0800 (中国标准时间)&quot;</span></span><br><span class="line"><span class="number">7</span>、<span class="title function_">toUTCString</span>()   <span class="string">&quot;Sat, 13 Mar 2021 14:51:16 GMT&quot;</span></span><br><span class="line"><span class="number">8</span>、<span class="title function_">UTC</span>(...options)  参数 options = [<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">12</span>,<span class="number">10</span>,<span class="number">55</span>] 年月（<span class="number">1</span>月是<span class="number">0</span>）必须，默认 <span class="number">1</span>日 其他为<span class="number">0</span></span><br><span class="line">我们直接获取的时间为本地时间（东八区），而<span class="variable constant_">UTC</span>时间则是<span class="number">0</span>时区时间</span><br></pre></td></tr></table></figure>
-
-<h2 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
 
   
     <article id="post-programming/红宝书笔记/第六章 集合引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
@@ -637,106 +328,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E9%9B%86%E5%90%88%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/红宝书笔记/第十一章 期约与异步函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" target="_blank">第十一章 期约与异步函数</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><pre><code>结束了回调地狱
-</code></pre>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/">展开全文 >></a>
     </p>
     
 
@@ -867,7 +458,7 @@
 
 
   
-    <article id="post-programming/红宝书笔记/第十二章 BOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/红宝书笔记/第五章 基本引用类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -875,7 +466,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" target="_blank">第十二章 BOM</a>
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" target="_blank">第五章 基本引用类型</a>
   
     </h1>
   
@@ -883,7 +474,7 @@
 
   
   
-<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" class="archive-article-date">
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -896,9 +487,11 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><p>window对象是BOM的核心对象，表示浏览器的实例。ECMAScript 中的 Global 对象。</p>
+    <h2 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title function_">getTimezoneOffset</span>() 返回格林威治时间（<span class="variable constant_">UTC</span>）与本地时间的差（分钟）</span><br><span class="line"><span class="number">2</span>、<span class="title function_">parse</span>() 将<span class="string">&#x27;2020/12/12 12:00:00&#x27;</span> 转为时间戳</span><br><span class="line"><span class="number">3</span>、<span class="title function_">toLocalString</span>() 转化为本地日期格式字符串 <span class="string">&quot;2021/3/13下午10:46:45&quot;</span></span><br><span class="line"><span class="number">4</span>、<span class="title function_">toString</span>()  <span class="string">&quot;Sat Mar 13 2021 22:42:46 GMT+0800 (中国标准时间)&quot;</span></span><br><span class="line"><span class="number">5</span>、<span class="title function_">toDateString</span>() <span class="string">&quot;Sat Mar 13 2021&quot;</span> 周/月/日/年</span><br><span class="line"><span class="number">6</span>、<span class="title function_">toTimeString</span>()  <span class="string">&quot;22:49:21 GMT+0800 (中国标准时间)&quot;</span></span><br><span class="line"><span class="number">7</span>、<span class="title function_">toUTCString</span>()   <span class="string">&quot;Sat, 13 Mar 2021 14:51:16 GMT&quot;</span></span><br><span class="line"><span class="number">8</span>、<span class="title function_">UTC</span>(...options)  参数 options = [<span class="number">2020</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">12</span>,<span class="number">10</span>,<span class="number">55</span>] 年月（<span class="number">1</span>月是<span class="number">0</span>）必须，默认 <span class="number">1</span>日 其他为<span class="number">0</span></span><br><span class="line">我们直接获取的时间为本地时间（东八区），而<span class="variable constant_">UTC</span>时间则是<span class="number">0</span>时区时间</span><br></pre></td></tr></table></figure>
+
+<h2 id="RegExp"><a href="#RegExp" class="headerlink" title="RegExp"></a>RegExp</h2>
     
-    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/#more">more >></a>
     
     
 
@@ -936,7 +529,107 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/红宝书笔记/第十一章 期约与异步函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" target="_blank">第十一章 期约与异步函数</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h3><pre><code>结束了回调地狱
+</code></pre>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0%20%E6%9C%9F%E7%BA%A6%E4%B8%8E%E5%BC%82%E6%AD%A5%E5%87%BD%E6%95%B0/">展开全文 >></a>
     </p>
     
 
@@ -1068,6 +761,105 @@
 
 
   
+    <article id="post-programming/红宝书笔记/第十二章 BOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" target="_blank">第十二章 BOM</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><p>window对象是BOM的核心对象，表示浏览器的实例。ECMAScript 中的 Global 对象。</p>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/红宝书笔记/第十八章 canvas与动画" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1138,6 +930,204 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/红宝书笔记/第四章 变量作用域与内存" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" target="_blank">第四章 变量作用域与内存</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、复制值|传递参数</span><br><span class="line">基本类型是直接赋值，引用类型只是复制其引用</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、执行上下文作用域</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%9B%9B%E7%AB%A0%20%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F%E4%B8%8E%E5%86%85%E5%AD%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/红宝书笔记/第十四章 DOM" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%20DOM/" target="_blank">第十四章 DOM</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%20DOM/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Node类型"><a href="#Node类型" class="headerlink" title="Node类型"></a>Node类型</h3><pre><code>DOM Level 1 描述了名为 Node 的接口，这个接口是所有 DOM 节点类型都必须实现的。Node 接口 在 JavaScript中被实现为 Node 类型，在除 IE之外的所有浏览器中都可以直接访问这个类型。在 JavaScript 中，所有节点类型都继承 Node 类型，因此所有类型都共享相同的基本属性和方法。
+</code></pre>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%20DOM/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">红宝书笔记</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0%20DOM/">展开全文 >></a>
     </p>
     
 
@@ -1272,7 +1262,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/13/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/15/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/13/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span>
     </nav>
   
 
@@ -1407,15 +1397,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1423,15 +1409,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1443,19 +1421,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1463,35 +1441,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1499,7 +1449,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1515,11 +1473,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1531,7 +1517,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,7 +1525,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1547,43 +1533,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1591,11 +1545,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1603,15 +1573,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1619,7 +1589,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1684,17 +1666,47 @@
                 
                   <img src="https://zhousiwei.gitee.io/ibooks/favicon.ico">
                 
-                周思伟
+                技术笔记
               </a>
             </li>
           
             <li class="search-li">
-              <a href="https://a937321983.gitee.io/blog/" target="_blank" 
-                class="search-title" title="有朋自远方来，不亦乐乎。">
+              <a href="https://github.com/JoeyBling" target="_blank" 
+                class="search-title" >
                 
-                  <img src="https://a937321983.gitee.io//blog/img/fluid.png">
+                  <i class="icon-link icon"></i>
                 
-                LiYongci
+                GitHub
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/zhousiwei" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                码云
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.jianshu.com/u/02cbf31a043a" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                简书
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://blog.csdn.net/qq_30930805" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                CSDN
               </a>
             </li>
           

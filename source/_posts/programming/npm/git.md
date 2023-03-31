@@ -298,8 +298,3 @@ IdentityFile ~/.ssh/github_id
 >
 > 
 
-
-
-### Github Action 配置示例
-
-> [参考链接](https://www.5axxw.com/wiki/content/1rg23q)

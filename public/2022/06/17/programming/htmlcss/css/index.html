@@ -17,14 +17,11 @@
 <meta property="og:site_name" content="myBlog">
 <meta property="og:description" content="颜色1234567891011121314151617181920214种表示法1、英文单词	color:red;2、十六进制	color:#RRGGBB;     &#x2F;&#x2F;RR 红  GG 绿  BB 蓝      &#x2F;&#x2F;值得范围 00-ff    &#x2F;&#x2F;简写 #RGB3、rgb 颜色	color:rgb(0,0,0);	&#x2F;&#x2F;红绿蓝	&#x2F;&#x2F;值得范围 0-255、0%-100%	&#x2F;&#x2F;rgba(0,0,0)">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091459773.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091431176.png">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2023-03-31T01:38:37.812Z">
+<meta property="article:modified_time" content="2023-03-17T01:25:53.892Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091459773.png">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
   
@@ -127,7 +124,7 @@
 			<div class="social">
 				
 					
-						<a class="github" href="https://github.com/wyf195075595" 
+						<a class="github" href="https://hub.nuaa.cf/wyf195075595/studyCode/" 
 												title="GitHub" target="_blank"><i class="icon-github"></i></a>
 					
 				
@@ -209,7 +206,7 @@
 					
 						
 						<a class="github" target="_blank" 
-							href="https://github.com/wyf195075595" title="GitHub"><i class="icon-github"></i></a>
+							href="https://hub.nuaa.cf/wyf195075595/studyCode/" title="GitHub"><i class="icon-github"></i></a>
 						
 					
 						
@@ -289,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.3k字</span>
+      <span class="post-count">4.7k字</span>
     </span>
   </span>
 
@@ -298,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">22分</span>
+      <span class="post-count">20分</span>
     </span>
   </span>
 </div>
@@ -485,52 +482,7 @@
 
 
 
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 测试支持</span><br><span class="line"><span class="keyword">@supports</span> (<span class="attribute">initial-letter</span>: <span class="number">1</span> <span class="number">1</span>) &#123; <span class="comment">/* Your supported styles */</span> &#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="适配移动端视口的单位"><a href="#适配移动端视口的单位" class="headerlink" title="适配移动端视口的单位"></a>适配移动端视口的单位</h3><blockquote>
-<p>桌面端的 vh,vw 单位在移动端下 设置100%，由于状态栏，浏览器导航栏，📱下面的按钮栏，会导致 100% vh出现滚动条。</p>
-<p>为了解决这个问题，CSS 工作组规定了视口的各种状态。</p>
-<ul>
-<li><strong>大视口</strong>：视口大小假设任何动态扩展和缩回的 UA 接口被缩回。</li>
-<li><strong>小视口</strong>：视口大小假设任何动态扩展和缩回的 UA 接口都可以扩展。</li>
-</ul>
-</blockquote>
-<p>新视口也分配了单位：</p>
-<ul>
-<li>代表大视口的单位有<code>lv</code>前缀。单位为<code>lvw</code>、<code>lvh</code>、<code>lvi</code>、<code>lvb</code>、<code>lvmin</code>和<code>lvmax</code>。</li>
-<li>代表小视口的单位有<code>sv</code>前缀。单位为<code>svw</code>、<code>svh</code>、<code>svi</code>、<code>svb</code>、<code>svmin</code>和<code>svmax</code>。</li>
-</ul>
-<p>除非调整视口本身的大小，否则这些视口百分比单位的大小是固定的（因此是稳定的）。</p>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091459773.png" alt="image-20230331091459773"></p>
-<p>除了大视口和小视口之外，还有一个动态视口，它动态考虑了 UA UI：</p>
-<ul>
-<li>当动态工具栏展开时，动态视口等于小视口的大小。</li>
-<li>当动态工具栏被缩回时，动态视口等于大视口的大小。</li>
-</ul>
-<p>它的伴随单位有<code>dv</code>前缀：<code>dvw</code>, <code>dvh</code>, <code>dvi</code>, <code>dvb</code>, <code>dvmin</code>, 和<code>dvmax</code>。它们的尺寸夹在它们<code>lv*</code>和<code>sv*</code>对应物之间。</p>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091431176.png" alt="image-20230331091431176"></p>
-<p>这些单元在 Chrome 108 中发布，加入了已经支持的 Safari 和 Firefox。</p>
-<p>浏览器支持</p>
-<ul>
-<li>chrome 108</li>
-<li>火狐 101</li>
-<li>Edge 108</li>
-<li>sofari 15.4</li>
-</ul>
-<p>在没有动态 UA UI 的浏览器中（例如桌面版 Chrome），大视口、小视口和动态视口的大小是相同的。</p>
-<p><strong><a target="_blank" rel="noopener" href="https://web.dev/viewport-units/#caveats">注意事项</a></strong></p>
-<p>关于视口单位，有几点需要注意：</p>
-<ul>
-<li>没有一个视口单元考虑滚动条的大小。在启用了经典滚动条的系统上，元素大小<code>100vw</code>因此会有点太宽。这是按照[规格](<a target="_blank" rel="noopener" href="https://www.w3.org/TR/css-values-4/#viewport-relative-lengths:~:text=In">https://www.w3.org/TR/css-values-4/#viewport-relative-lengths:~:text=In</a> all cases%2C scrollbars are assumed not to exist.)。</li>
-<li>动态视口的值不会以 60fps 更新。在所有浏览器中，随着 UA UI 展开或缩回，更新会受到限制。一些浏览器甚至完全根据使用的手势（慢速滚动与滑动）来消除更新。</li>
-<li>屏幕键盘（也称为虚拟键盘）不被视为 UA UI 的一部分。因此它不会影响视口单位的大小。在 Chrome 中，<a target="_blank" rel="noopener" href="https://developer.chrome.com/blog/viewport-resize-behavior/#opting-in-to-a-different-behavior">您可以选择加入虚拟键盘的存在会影响视口单位的行为</a>。</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://web.dev/viewport-units/">参考地址</a></p>
-</blockquote>
-<h3 id="用于理解css3D"><a href="#用于理解css3D" class="headerlink" title="用于理解css3D"></a><a target="_blank" rel="noopener" href="https://garden.bradwoods.io/notes/css/3d">用于理解css3D</a></h3><blockquote>
-<p>一个网站，这个网页提供互动演示，帮助理解 CSS 里面与 3D 有关的各项属性。</p>
-</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 测试支持</span><br><span class="line"><span class="keyword">@supports</span> (<span class="attribute">initial-letter</span>: <span class="number">1</span> <span class="number">1</span>) &#123; <span class="comment">/* Your supported styles */</span> &#125;</span><br></pre></td></tr></table></figure></blockquote>
 
     
 
@@ -687,7 +639,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">移动端适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E7%9B%91%E5%90%AC-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-MediaQueryList"><span class="toc-number">3.</span> <span class="toc-text">js 监听 媒体查询 MediaQueryList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">4.</span> <span class="toc-text">网格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E6%94%BB%E5%87%BB"><span class="toc-number">5.</span> <span class="toc-text">css 攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%94%A8-transform-%E5%AF%BC%E8%87%B4%E6%96%87%E6%9C%AC%E6%A8%A1%E7%B3%8A%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">运用 transform 导致文本模糊的现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-variable-%EF%BC%88css%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">css variable （css变量）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-specificity-%E6%9D%83%E9%87%8D"><span class="toc-number">8.</span> <span class="toc-text">css specificity 权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B-css-%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%83%BD%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-number">9.</span> <span class="toc-text">有哪些 css 属性不能展示动画效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position-sticky"><span class="toc-number">10.</span> <span class="toc-text">position: sticky</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%AE%9E%E7%8E%B0%E9%BB%91%E6%9A%97%E6%A8%A1%E5%BC%8F"><span class="toc-number">11.</span> <span class="toc-text">网页实现黑暗模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8A%9E%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">隐藏元素的几种办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#01-display-none"><span class="toc-number">12.1.</span> <span class="toc-text">01 display: none</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02-opacity-0"><span class="toc-number">12.2.</span> <span class="toc-text">02 opacity: 0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03-visibility-hidden"><span class="toc-number">12.3.</span> <span class="toc-text">03 visibility: hidden</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04-content-visibility"><span class="toc-number">12.4.</span> <span class="toc-text">04 content-visibility</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E4%BA%8E%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%8D%E5%8F%AF%E8%A7%81%E4%BD%8D%E7%BD%AE"><span class="toc-number">12.5.</span> <span class="toc-text">05 绝对定位于当前页面的不可见位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E8%AE%BE%E7%BD%AE%E4%B8%BA-0"><span class="toc-number">12.6.</span> <span class="toc-text">06 字体大小设置为 0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E4%B8%89%E7%AD%89%E5%88%86%EF%BC%8C%E4%B8%AD%E5%B1%8F%E4%BA%8C%E7%AD%89%E5%88%86%EF%BC%8C%E5%B0%8F%E5%B1%8F1%E7%AD%89%E5%88%86"><span class="toc-number">13.</span> <span class="toc-text">大屏三等分，中屏二等分，小屏1等分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">14.</span> <span class="toc-text">自定义滚动条的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93%E4%BC%98%E5%85%88"><span class="toc-number">15.</span> <span class="toc-text">网站字体设置默认字体优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E9%81%BF%E5%85%8D%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81"><span class="toc-number">16.</span> <span class="toc-text">css 避免命名冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-number">17.</span> <span class="toc-text">css 实现方格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5%EF%BC%8C%E8%B6%85%E5%87%BA%E5%A4%9A%E8%A1%8C%E7%9C%81%E7%95%A5"><span class="toc-number">18.</span> <span class="toc-text">css 实现超出省略，超出多行省略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E9%95%BF%E5%BA%A6%E4%B8%BA%E7%88%B6%E5%AE%B9%E5%99%A8%E4%B8%80%E5%8D%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">19.</span> <span class="toc-text">垂直居中长度为父容器一半的子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">20.</span> <span class="toc-text">BFC 块级格式化上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem%E3%80%81em%E3%80%81vw%E3%80%81vh-%E7%9A%84%E5%80%BC%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">21.</span> <span class="toc-text">rem、em、vw、vh 的值各是什么意思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize-css-%E4%B8%8E-reset-css-%E5%8F%88%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">22.</span> <span class="toc-text">normalize.css 与 reset.css 又何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E7%9A%84%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">23.</span> <span class="toc-text">CSS 的盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%A3%81%E5%89%AA"><span class="toc-number">24.</span> <span class="toc-text">样式裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#has-%E5%B1%9E%E6%80%A7"><span class="toc-number">25.</span> <span class="toc-text">:has 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#initial-letter"><span class="toc-number">26.</span> <span class="toc-text">initial-letter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%86%E5%8F%A3%E7%9A%84%E5%8D%95%E4%BD%8D"><span class="toc-number">27.</span> <span class="toc-text">适配移动端视口的单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E7%90%86%E8%A7%A3css3D"><span class="toc-number">28.</span> <span class="toc-text">用于理解css3D</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">移动端适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E7%9B%91%E5%90%AC-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-MediaQueryList"><span class="toc-number">3.</span> <span class="toc-text">js 监听 媒体查询 MediaQueryList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">4.</span> <span class="toc-text">网格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E6%94%BB%E5%87%BB"><span class="toc-number">5.</span> <span class="toc-text">css 攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%94%A8-transform-%E5%AF%BC%E8%87%B4%E6%96%87%E6%9C%AC%E6%A8%A1%E7%B3%8A%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">运用 transform 导致文本模糊的现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-variable-%EF%BC%88css%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">css variable （css变量）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-specificity-%E6%9D%83%E9%87%8D"><span class="toc-number">8.</span> <span class="toc-text">css specificity 权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B-css-%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%83%BD%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-number">9.</span> <span class="toc-text">有哪些 css 属性不能展示动画效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position-sticky"><span class="toc-number">10.</span> <span class="toc-text">position: sticky</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%AE%9E%E7%8E%B0%E9%BB%91%E6%9A%97%E6%A8%A1%E5%BC%8F"><span class="toc-number">11.</span> <span class="toc-text">网页实现黑暗模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8A%9E%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">隐藏元素的几种办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#01-display-none"><span class="toc-number">12.1.</span> <span class="toc-text">01 display: none</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02-opacity-0"><span class="toc-number">12.2.</span> <span class="toc-text">02 opacity: 0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03-visibility-hidden"><span class="toc-number">12.3.</span> <span class="toc-text">03 visibility: hidden</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04-content-visibility"><span class="toc-number">12.4.</span> <span class="toc-text">04 content-visibility</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E4%BA%8E%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%8D%E5%8F%AF%E8%A7%81%E4%BD%8D%E7%BD%AE"><span class="toc-number">12.5.</span> <span class="toc-text">05 绝对定位于当前页面的不可见位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E8%AE%BE%E7%BD%AE%E4%B8%BA-0"><span class="toc-number">12.6.</span> <span class="toc-text">06 字体大小设置为 0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E4%B8%89%E7%AD%89%E5%88%86%EF%BC%8C%E4%B8%AD%E5%B1%8F%E4%BA%8C%E7%AD%89%E5%88%86%EF%BC%8C%E5%B0%8F%E5%B1%8F1%E7%AD%89%E5%88%86"><span class="toc-number">13.</span> <span class="toc-text">大屏三等分，中屏二等分，小屏1等分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">14.</span> <span class="toc-text">自定义滚动条的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93%E4%BC%98%E5%85%88"><span class="toc-number">15.</span> <span class="toc-text">网站字体设置默认字体优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E9%81%BF%E5%85%8D%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81"><span class="toc-number">16.</span> <span class="toc-text">css 避免命名冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-number">17.</span> <span class="toc-text">css 实现方格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5%EF%BC%8C%E8%B6%85%E5%87%BA%E5%A4%9A%E8%A1%8C%E7%9C%81%E7%95%A5"><span class="toc-number">18.</span> <span class="toc-text">css 实现超出省略，超出多行省略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E9%95%BF%E5%BA%A6%E4%B8%BA%E7%88%B6%E5%AE%B9%E5%99%A8%E4%B8%80%E5%8D%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">19.</span> <span class="toc-text">垂直居中长度为父容器一半的子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">20.</span> <span class="toc-text">BFC 块级格式化上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem%E3%80%81em%E3%80%81vw%E3%80%81vh-%E7%9A%84%E5%80%BC%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">21.</span> <span class="toc-text">rem、em、vw、vh 的值各是什么意思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize-css-%E4%B8%8E-reset-css-%E5%8F%88%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">22.</span> <span class="toc-text">normalize.css 与 reset.css 又何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E7%9A%84%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">23.</span> <span class="toc-text">CSS 的盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%A3%81%E5%89%AA"><span class="toc-number">24.</span> <span class="toc-text">样式裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#has-%E5%B1%9E%E6%80%A7"><span class="toc-number">25.</span> <span class="toc-text">:has 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#initial-letter"><span class="toc-number">26.</span> <span class="toc-text">initial-letter</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -849,15 +801,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,15 +813,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -885,19 +825,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,35 +845,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,7 +853,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -957,11 +877,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,7 +921,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -981,7 +929,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -989,43 +937,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1033,11 +949,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1045,15 +977,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1061,7 +993,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,17 +1070,47 @@
                 
                   <img src="https://zhousiwei.gitee.io/ibooks/favicon.ico">
                 
-                周思伟
+                技术笔记
               </a>
             </li>
           
             <li class="search-li">
-              <a href="https://a937321983.gitee.io/blog/" target="_blank" 
-                class="search-title" title="有朋自远方来，不亦乐乎。">
+              <a href="https://github.com/JoeyBling" target="_blank" 
+                class="search-title" >
                 
-                  <img src="https://a937321983.gitee.io//blog/img/fluid.png">
+                  <i class="icon-link icon"></i>
                 
-                LiYongci
+                GitHub
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://gitee.com/zhousiwei" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                码云
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.jianshu.com/u/02cbf31a043a" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                简书
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://blog.csdn.net/qq_30930805" target="_blank" 
+                class="search-title" >
+                
+                  <i class="icon-link icon"></i>
+                
+                CSDN
               </a>
             </li>
           

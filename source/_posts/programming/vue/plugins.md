@@ -569,19 +569,3 @@ TypeScript
 ### Ramda.js
 
 为开发者提供了许多实用的工具原子函数
-
-### 单页面应用 seo优化
-
-> 
->
-> 1. title,描述，关键字   vue-mate-info
-> 2. 多页面   prerender-spa-plugin 预渲染
-> 3. 网站内容
->
-> 预渲染（Prerender）技术应运而生。
->
-> 预渲染先读取配置文件，模拟浏览器加载配置的页面，获取页面接口内容，渲染页面，获取页面全部dom，最后保存为html
->
-> [参考文章](https://blog.csdn.net/weixin_44997474/article/details/128615032)
-
-预渲染无法配置动态路由页面，title,关键字来自接口数据也是不行的，适合只有几个页面需要做SEO的项目
