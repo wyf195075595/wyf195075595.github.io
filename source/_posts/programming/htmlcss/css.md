@@ -681,3 +681,55 @@ clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
 > // 测试支持
 > @supports (initial-letter: 1 1) { /* Your supported styles */ }
 > ```
+
+### 适配移动端视口的单位
+
+> 桌面端的 vh,vw 单位在移动端下 设置100%，由于状态栏，浏览器导航栏，📱下面的按钮栏，会导致 100% vh出现滚动条。
+>
+> 为了解决这个问题，CSS 工作组规定了视口的各种状态。
+>
+> - **大视口**：视口大小假设任何动态扩展和缩回的 UA 接口被缩回。
+> - **小视口**：视口大小假设任何动态扩展和缩回的 UA 接口都可以扩展。
+
+新视口也分配了单位：
+
+- 代表大视口的单位有`lv`前缀。单位为`lvw`、`lvh`、`lvi`、`lvb`、`lvmin`和`lvmax`。
+- 代表小视口的单位有`sv`前缀。单位为`svw`、`svh`、`svi`、`svb`、`svmin`和`svmax`。
+
+除非调整视口本身的大小，否则这些视口百分比单位的大小是固定的（因此是稳定的）。
+
+![image-20230331091459773](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091459773.png)
+
+除了大视口和小视口之外，还有一个动态视口，它动态考虑了 UA UI：
+
+- 当动态工具栏展开时，动态视口等于小视口的大小。
+- 当动态工具栏被缩回时，动态视口等于大视口的大小。
+
+它的伴随单位有`dv`前缀：`dvw`, `dvh`, `dvi`, `dvb`, `dvmin`, 和`dvmax`。它们的尺寸夹在它们`lv*`和`sv*`对应物之间。
+
+![image-20230331091431176](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091431176.png)
+
+这些单元在 Chrome 108 中发布，加入了已经支持的 Safari 和 Firefox。
+
+浏览器支持
+
+- chrome 108
+- 火狐 101
+- Edge 108
+- sofari 15.4
+
+在没有动态 UA UI 的浏览器中（例如桌面版 Chrome），大视口、小视口和动态视口的大小是相同的。
+
+**[注意事项](https://web.dev/viewport-units/#caveats)**
+
+关于视口单位，有几点需要注意：
+
+- 没有一个视口单元考虑滚动条的大小。在启用了经典滚动条的系统上，元素大小`100vw`因此会有点太宽。这是按照[规格](https://www.w3.org/TR/css-values-4/#viewport-relative-lengths:~:text=In all cases%2C scrollbars are assumed not to exist.)。
+- 动态视口的值不会以 60fps 更新。在所有浏览器中，随着 UA UI 展开或缩回，更新会受到限制。一些浏览器甚至完全根据使用的手势（慢速滚动与滑动）来消除更新。
+- 屏幕键盘（也称为虚拟键盘）不被视为 UA UI 的一部分。因此它不会影响视口单位的大小。在 Chrome 中，[您可以选择加入虚拟键盘的存在会影响视口单位的行为](https://developer.chrome.com/blog/viewport-resize-behavior/#opting-in-to-a-different-behavior)。
+
+> [参考地址](https://web.dev/viewport-units/)
+
+### [用于理解css3D](https://garden.bradwoods.io/notes/css/3d)
+
+> 一个网站，这个网页提供互动演示，帮助理解 CSS 里面与 3D 有关的各项属性。
