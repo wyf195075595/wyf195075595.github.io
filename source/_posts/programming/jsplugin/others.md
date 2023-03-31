@@ -1143,3 +1143,7 @@ console.log('还原对象:', toObj)
 ### 入门级物联网“玩具”Arduino
 
 > Arduino作为一个控制单元，能够连接各种各样的传感器来实现感知和数据采集，并通过控制LED灯、马达、舵机等机电元件来提供动力输出或实现控制。
+
+### SweetAlert2强大的纯Js模态消息对话框插件
+
+> https://www.jq22.com/jquery-info8169
