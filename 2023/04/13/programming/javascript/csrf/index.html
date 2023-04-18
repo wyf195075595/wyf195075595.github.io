@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wyf195075595.github.io">
-  <title>nuxtjs 基础 | myBlog</title>
+  <title>csrf 跨站点请求伪造 | myBlog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="服务端渲染解决方案，视图层渲染基于vue.js  目录结构 assets，components，layouts，middleware，pages，plugins，static，store，nuxt.config.js 文件，package.json 文件 详情参考官网1 详情参考官网2  nuxt.config.js 配置文件 build，css，dev，env，generate，head，lo">
+  <meta name="description" content="CSRF概念：CSRF跨站点请求伪造(Cross—Site Request Forgery)，跟XSS攻击一样，存在巨大的危害性，你可以这样来理解：    攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 如下：其中Web A为存在CS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="nuxtjs 基础">
-<meta property="og:url" content="https://wyf195075595.github.io/2022/06/17/programming/vue/nuxtjs/index.html">
+<meta property="og:title" content="csrf 跨站点请求伪造">
+<meta property="og:url" content="https://wyf195075595.github.io/2023/04/13/programming/javascript/csrf/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="服务端渲染解决方案，视图层渲染基于vue.js  目录结构 assets，components，layouts，middleware，pages，plugins，static，store，nuxt.config.js 文件，package.json 文件 详情参考官网1 详情参考官网2  nuxt.config.js 配置文件 build，css，dev，env，generate，head，lo">
+<meta property="og:description" content="CSRF概念：CSRF跨站点请求伪造(Cross—Site Request Forgery)，跟XSS攻击一样，存在巨大的危害性，你可以这样来理解：    攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 如下：其中Web A为存在CS">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2023-03-29T00:44:31.784Z">
+<meta property="article:published_time" content="2023-04-13T07:23:10.000Z">
+<meta property="article:modified_time" content="2023-04-13T07:47:19.568Z">
 <meta property="article:author" content="王不留行">
-<meta property="article:tag" content="nuxtjs">
+<meta property="article:tag" content="拓展">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
@@ -253,14 +253,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-programming/vue/nuxtjs" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-programming/javascript/csrf" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      nuxtjs 基础
+      csrf 跨站点请求伪造
     </h1>
   
 
@@ -272,8 +272,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/06/17/programming/vue/nuxtjs/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+<a href="/2023/04/13/programming/javascript/csrf/" class="archive-article-date">
+        <time datetime="2023-04-13T07:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
 </a>
 
   
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.3k字</span>
+      <span class="post-count">3k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">10分</span>
     </span>
   </span>
 </div>
@@ -307,113 +307,51 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>服务端渲染解决方案，视图层渲染基于vue.js</p>
+<p><strong>CSRF概念：</strong><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=CSRF&spm=1001.2101.3001.7020">CSRF</a>跨站点请求伪造(Cross—Site Request Forgery)，跟XSS攻击一样，存在巨大的危害性，你可以这样来理解：<br>    攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 如下：其中Web A为存在CSRF漏洞的网站，Web B为攻击者构建的恶意网站，User C为Web A网站的合法用户。</p>
 </blockquote>
-<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><blockquote>
-<p>assets，components，layouts，middleware，pages，plugins，static，store，nuxt.config.js 文件，package.json 文件</p>
-<p><a target="_blank" rel="noopener" href="https://www.nuxtjs.cn/guide/directory-structure">详情参考官网1</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.nuxt.com.cn/docs/getting-started/seo-meta">详情参考官网2</a></p>
-</blockquote>
-<h3 id="nuxt-config-js-配置文件"><a href="#nuxt-config-js-配置文件" class="headerlink" title="nuxt.config.js 配置文件"></a>nuxt.config.js 配置文件</h3><blockquote>
-<h3 id="build，css，dev，env，generate，head，loading，modules，modulesDir，plugins，rootDir，router，server，srcDir，dir，transition"><a href="#build，css，dev，env，generate，head，loading，modules，modulesDir，plugins，rootDir，router，server，srcDir，dir，transition" class="headerlink" title="build，css，dev，env，generate，head，loading，modules，modulesDir，plugins，rootDir，router，server，srcDir，dir，transition"></a>build，css，dev，env，generate，head，loading，modules，modulesDir，plugins，rootDir，router，server，srcDir，dir，transition</h3><p><a target="_blank" rel="noopener" href="https://www.nuxtjs.cn/guide/configuration">详情参考官网</a></p>
-</blockquote>
+<h3 id="CSRF攻击攻击原理及过程如下："><a href="#CSRF攻击攻击原理及过程如下：" class="headerlink" title="CSRF攻击攻击原理及过程如下："></a><strong>CSRF攻击攻击原理及过程如下：</strong></h3><ol>
+<li>用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；</li>
+<li>在用户信息通过验证后，网站A产生Cookie信息并返回给浏览器，此时用户登录网站A成功，可以正常发送请求到网站A；</li>
+<li> 用户未退出网站A之前，在同一浏览器中，打开一个TAB页访问网站B；</li>
+<li>. 网站B接收到用户请求后，返回一些攻击性代码，并发出一个请求要求访问第三方站点A；</li>
+<li>浏览器在接收到这些攻击性代码后，根据网站B的请求，在用户不知情的情况下携带Cookie信息，向网站A发出请求。网站A并不知道该请求其实是由B发起的，所以会根据用户C的Cookie信息以C的权限处理该请求，导致来自网站B的恶意代码被执行。 </li>
+</ol>
 <span id="more"></span>
 
-<h3 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h3><blockquote>
-<p>components 文件夹下的vue文件会自动注册为全局组件</p>
+<h3 id="CSRF攻击实例"><a href="#CSRF攻击实例" class="headerlink" title="CSRF攻击实例"></a>CSRF攻击实例</h3><p>受害者 Bob 在银行有一笔存款，通过对银行的网站发送请求</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">http</span>:<span class="comment">//bank.example/withdraw?account=bob&amp;amount=1000000&amp;for=bob2 </span></span><br></pre></td></tr></table></figure>
+
+<p>可以使 Bob 把 1000000 的存款转到 bob2 的账号下。通常情况下，该请求发送到网站后，服务器会先验证该请求是否来自一个合法的 session，并且该 session 的用户 Bob 已经成功登陆。</p>
+<p>​    黑客 Mallory 自己在该银行也有账户，他知道上文中的 URL 可以把钱进行转帐操作。Mallory 可以自己发送一个请求给银行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">http</span>:<span class="comment">//bank.example/withdraw?account=bob&amp;amount=1000000&amp;for=Mallory</span></span><br></pre></td></tr></table></figure>
+
+<p>。但是这个请求来自 Mallory 而非 Bob，他不能通过安全认证，因此该请求不会起作用。</p>
+<p>​    这时，Mallory 想到使用 CSRF 的攻击方式，他先自己做一个网站，在网站中放入如下代码： </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">src=<span class="string">&quot;http://bank.example/withdraw?account=bob&amp;amount=1000000&amp;for=Mallory&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>，并且通过广告等诱使 Bob 来访问他的网站。当 Bob 访问该网站时，上述 url 就会从 Bob 的浏览器发向银行，而这个请求会附带 Bob 浏览器中的 cookie 一起发向银行服务器。大多数情况下，该请求会失败，因为他要求 Bob 的认证信息。但是，如果 Bob 当时恰巧刚访问他的银行后不久，他的浏览器与银行网站之间的 session 尚未过期，浏览器的 cookie 之中含有 Bob 的认证信息。这时，悲剧发生了，这个 url 请求就会得到响应，钱将从 Bob 的账号转移到 Mallory 的账号，而 Bob 当时毫不知情。等以后 Bob 发现账户钱少了，即使他去银行查询日志，他也只能发现确实有一个来自于他本人的合法请求转移了资金，没有任何被攻击的痕迹。而 Mallory 则可以拿到钱后逍遥法外。 </p>
+<h3 id="CSRF漏洞检测："><a href="#CSRF漏洞检测：" class="headerlink" title="CSRF漏洞检测："></a><strong>CSRF漏洞检测：</strong></h3><p>检测CSRF漏洞是一项比较繁琐的工作，最简单的方法就是抓取一个正常请求的数据包，去掉Referer字段后再重新提交，如果该提交还有效，那么基本上可以确定存在CSRF漏洞。</p>
+<p>​    随着对CSRF漏洞研究的不断深入，不断涌现出一些专门针对CSRF漏洞进行检测的工具，如CSRFTester，CSRF Request Builder等。</p>
+<p>​    以CSRFTester工具为例，CSRF漏洞检测工具的测试原理如下：使用CSRFTester进行测试时，首先需要抓取我们在浏览器中访问过的所有链接以及所有的表单等信息，然后通过在CSRFTester中修改相应的表单等信息，重新提交，这相当于一次伪造客户端请求。如果修改后的测试请求成功被网站服务器接受，则说明存在CSRF漏洞，当然此款工具也可以被用来进行CSRF攻击。</p>
+<h3 id="防御CSRF攻击："><a href="#防御CSRF攻击：" class="headerlink" title="防御CSRF攻击："></a><strong>防御CSRF攻击：</strong></h3><blockquote>
+<p>目前防御 CSRF 攻击主要有三种策略：验证 HTTP Referer 字段；在请求地址中添加 token 并验证；在 HTTP 头中自定义属性并验证。</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">	header</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;&quot;&gt;header&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;!--</span><br><span class="line">	footer</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;&quot;&gt;footer&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="（1）验证-HTTP-Referer-字段"><a href="#（1）验证-HTTP-Referer-字段" class="headerlink" title="（1）验证 HTTP Referer 字段"></a><strong>（1）验证 HTTP Referer 字段</strong></h4><p>​    根据 HTTP 协议，在 HTTP 头中有一个字段叫 Referer，它记录了该 HTTP 请求的来源地址。在通常情况下，访问一个安全受限页面的请求来自于同一个网站，比如需要访问 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">http</span>:<span class="comment">//bank.example/withdraw?account=bob&amp;amount=1000000&amp;for=Mallory</span></span><br></pre></td></tr></table></figure>
 
+<p>，用户必须先登陆 bank.example，然后通过点击页面上的按钮来触发转账事件。这时，该转帐请求的 Referer 值就会是转账按钮所在的页面的 URL，通常是以 bank.example 域名开头的地址。而如果黑客要对银行网站实施 CSRF 攻击，他只能在他自己的网站构造请求，当用户通过黑客的网站发送请求到银行时，该请求的 Referer 是指向黑客自己的网站。因此，要防御 CSRF 攻击，银行网站只需要对于每一个转账请求验证其 Referer 值，如果是以 bank.example 开头的域名，则说明该请求是来自银行网站自己的请求，是合法的。如果 Referer 是其他网站的话，则有可能是黑客的 CSRF 攻击，拒绝该请求。</p>
+<p>​    这种方法的显而易见的好处就是简单易行，网站的普通开发人员不需要操心 CSRF 的漏洞，只需要在最后给所有安全敏感的请求统一增加一个拦截器来检查 Referer 的值就可以。特别是对于当前现有的系统，不需要改变当前系统的任何已有代码和逻辑，没有风险，非常便捷。</p>
+<p>​    然而，这种方法并非万无一失。Referer 的值是由浏览器提供的，虽然 HTTP 协议上有明确的要求，但是每个浏览器对于 Referer 的具体实现可能有差别，并不能保证浏览器自身没有安全漏洞。使用验证 Referer 值的方法，就是把安全性都依赖于第三方（即浏览器）来保障，从理论上来讲，这样并不安全。事实上，对于某些浏览器，比如 IE6 或 FF2，目前已经有一些方法可以篡改 Referer 值。如果 bank.example 网站支持 IE6 浏览器，黑客完全可以把用户浏览器的 Referer 值设为以 bank.example 域名开头的地址，这样就可以通过验证，从而进行 CSRF 攻击。</p>
+<p>即便是使用最新的浏览器，黑客无法篡改 Referer 值，这种方法仍然有问题。因为 Referer 值会记录下用户的访问来源，有些用户认为这样会侵犯到他们自己的隐私权，特别是有些组织担心 Referer 值会把组织内网中的某些信息泄露到外网中。因此，用户自己可以设置浏览器使其在发送请求时不再提供 Referer。当他们正常访问银行网站时，网站会因为请求没有 Referer 值而认为是 CSRF 攻击，拒绝合法用户的访问。</p>
+<h4 id="（2）在请求地址中添加-token-并验证"><a href="#（2）在请求地址中添加-token-并验证" class="headerlink" title="（2）在请求地址中添加 token 并验证"></a><strong>（2）在请求地址中添加 token 并验证</strong></h4><p>​     CSRF 攻击之所以能够成功，是因为黑客可以完全伪造用户的请求，该请求中所有的用户验证信息都是存在于 cookie 中，因此黑客可以在不知道这些验证信息的情况下直接利用用户自己的 cookie 来通过安全验证。要抵御 CSRF，关键在于在请求中放入黑客所不能伪造的信息，并且该信息不存在于 cookie 之中。可以在 HTTP 请求中以参数的形式加入一个随机产生的 token，并在服务器端建立一个拦截器来验证这个 token，如果请求中没有 token 或者 token 内容不正确，则认为可能是 CSRF 攻击而拒绝该请求。</p>
+<p>​    这种方法要比检查 Referer 要安全一些，token 可以在用户登陆后产生并放于 session 之中，然后在每次请求时把 token 从 session 中拿出，与请求中的 token 进行比对，但这种方法的难点在于如何把 token 以参数的形式加入请求。对于 GET 请求，token 将附在请求地址之后，这样 URL 就变成 <a target="_blank" rel="noopener" href="http://url/?csrftoken=tokenvalue%E3%80%82">http://url?csrftoken=tokenvalue。</a> 而对于 POST 请求来说，要在 form 的最后加上 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;hidden&quot;</span> <span class="attr">name</span>=<span class="string">&quot;csrftoken&quot;</span> <span class="attr">value</span>=<span class="string">&quot;tokenvalue&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-
-<h3 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h3><blockquote>
-<p>nuxt 会根据 pages 文件夹自动生成路由。 </p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">	app.vue</span><br><span class="line">	</span><br><span class="line">	NuxtPage: 类似于 router-view 路由出口</span><br><span class="line">--&gt; </span><br><span class="line">&lt;div class=&quot;page&quot;&gt;</span><br><span class="line">    &lt;Header /&gt;</span><br><span class="line">    &lt;NuxtPage /&gt;</span><br><span class="line">    &lt;Footer /&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="路由跳转"><a href="#路由跳转" class="headerlink" title="路由跳转"></a>路由跳转</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">	pages/index.vue: 此页面就是app.vue主路由出口的组件</span><br><span class="line">	/about: pages/about.vue</span><br><span class="line">	/about/us: pages/about/us.vue</span><br><span class="line">--&gt;</span><br><span class="line">&lt;NuxtLink to=&quot;/about&quot;&gt;about page&lt;/NuxtLink&gt;&lt;br/&gt;</span><br><span class="line">&lt;NuxtLink to=&quot;/about/us&quot;&gt;about us page&lt;/NuxtLink&gt;&lt;br/&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="子路由嵌套"><a href="#子路由嵌套" class="headerlink" title="子路由嵌套"></a>子路由嵌套</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">	pages/about.vue</span><br><span class="line">	/post-38: pages/post-[id].vue</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;h2&gt;about us&lt;/h2&gt;</span><br><span class="line">    &lt;NuxtLink to=&quot;/post-38&quot;&gt;id page&lt;/NuxtLink&gt;</span><br><span class="line">    &lt;!-- 子路由出口 --&gt;</span><br><span class="line">    &lt;NuxtPage /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">	pages/about/us.vue</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;NuxtLayout name=&quot;aside&quot;&gt;</span><br><span class="line">        &lt;template #icon&gt;myIcon&lt;/template&gt;</span><br><span class="line">        us page</span><br><span class="line">    &lt;/NuxtLayout&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="动态路由"><a href="#动态路由" class="headerlink" title="动态路由"></a>动态路由</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;NuxtLink to=&quot;/post-38&quot;&gt;id page&lt;/NuxtLink&gt;</span><br><span class="line"></span><br><span class="line">&lt;!--</span><br><span class="line">	pages/post-[id].vue</span><br><span class="line"></span><br><span class="line">    NuxtLayout: 使用模板	</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;NuxtLayout name=&quot;aside&quot;&gt;</span><br><span class="line">        &lt;template #icon&gt;myIcon&lt;/template&gt;</span><br><span class="line">        us page</span><br><span class="line">    &lt;/NuxtLayout&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="404路由"><a href="#404路由" class="headerlink" title="404路由"></a>404路由</h4><blockquote>
-<p>pages/_.vue</p>
-</blockquote>
-<h3 id="layouts-布局-模板"><a href="#layouts-布局-模板" class="headerlink" title="layouts 布局 模板"></a>layouts 布局 模板</h3><blockquote>
-<p>可以复用相同的组件，支持插槽</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line">	layouts/aside.vue</span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;aside&quot;&gt;</span><br><span class="line">    &lt;slot name=&quot;icon&quot;&gt;icon&lt;/slot&gt;</span><br><span class="line">    &lt;p&gt;name&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;age&lt;/p&gt;</span><br><span class="line">    &lt;p&gt;sex&lt;/p&gt;</span><br><span class="line">    &lt;slot /&gt;</span><br><span class="line">    end</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="assets-public-静态文件"><a href="#assets-public-静态文件" class="headerlink" title="assets,public 静态文件"></a>assets,public 静态文件</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- assets 中图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;~/assets/action1.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;action1.jpg&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- public 中图片 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/imgs/playgame.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;playgame.jpg&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="处理公共样式"><a href="#处理公共样式" class="headerlink" title="处理公共样式"></a>处理公共样式</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.nuxt.com.cn/docs/getting-started/assets">参考文档</a></p>
-</blockquote>
-<p>样式文件放在 assets/_colors.scss</p>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$primary</span>: <span class="number">#49240F</span>;</span><br><span class="line"><span class="variable">$secondary</span>: <span class="number">#E4A79D</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.page-enter-active</span>,</span><br><span class="line"><span class="selector-class">.page-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.page-enter-from</span>,</span><br><span class="line"><span class="selector-class">.page-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">filter</span>: blur(<span class="number">1rem</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.layout-enter-active</span>,</span><br><span class="line"><span class="selector-class">.layout-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.layout-enter-from</span>,</span><br><span class="line"><span class="selector-class">.layout-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">filter</span>: grayscale(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.rotate-enter-active</span>,</span><br><span class="line"><span class="selector-class">.rotate-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.4s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.rotate-enter-from</span>,</span><br><span class="line"><span class="selector-class">.rotate-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: rotate3d(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">15deg</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.slide-left-enter-active</span>,</span><br><span class="line"><span class="selector-class">.slide-left-leave-active</span>,</span><br><span class="line"><span class="selector-class">.slide-right-enter-active</span>,</span><br><span class="line"><span class="selector-class">.slide-right-leave-active</span> &#123;</span><br><span class="line">  <span class="attribute">transition</span>: all <span class="number">0.2s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-left-enter-from</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: translate(<span class="number">50px</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-left-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: translate(-<span class="number">50px</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-right-enter-from</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: translate(-<span class="number">50px</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.slide-right-leave-to</span> &#123;</span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">transform</span>: translate(<span class="number">50px</span>, <span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置 nuxt.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtConfig</span>(&#123;</span><br><span class="line">  <span class="attr">vite</span>: &#123;</span><br><span class="line">    <span class="attr">css</span>: &#123;</span><br><span class="line">      <span class="attr">preprocessorOptions</span>: &#123;</span><br><span class="line">        <span class="attr">scss</span>: &#123;</span><br><span class="line">          <span class="attr">additionalData</span>: <span class="string">&#x27;@use &quot;@/assets/_colors.scss&quot; as *;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="过渡"><a href="#过渡" class="headerlink" title="过渡"></a>过渡</h3><blockquote>
-<p>过渡动画。页面过渡，布局过渡</p>
-</blockquote>
-<p>全局页面设置在过渡</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtConfig</span>(&#123;</span><br><span class="line">    <span class="attr">app</span>: &#123;</span><br><span class="line">        <span class="attr">pageTransition</span>: &#123; <span class="attr">name</span>: <span class="string">&#x27;page&#x27;</span>, <span class="attr">mode</span>: <span class="string">&#x27;in-out&#x27;</span> &#125;,</span><br><span class="line">        <span class="attr">layoutTransition</span>: &#123; <span class="attr">name</span>: <span class="string">&#x27;layout&#x27;</span>, <span class="attr">mode</span>: <span class="string">&#x27;in-out&#x27;</span> &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h4 id="页面单独设置过渡"><a href="#页面单独设置过渡" class="headerlink" title="页面单独设置过渡"></a>页面单独设置过渡</h4><blockquote>
-<p>此设置会覆盖全局配置</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">definePageMeta</span>(&#123;</span><br><span class="line">  <span class="attr">pageTransition</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;slide-right&#x27;</span>,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;out-in&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="页面动态设置过渡效果"><a href="#页面动态设置过渡效果" class="headerlink" title="页面动态设置过渡效果"></a>页面动态设置过渡效果</h4><blockquote>
-<p>通过中间件 监听路由，动态设置 过渡动画</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">definePageMeta</span>(&#123;</span><br><span class="line">  <span class="attr">pageTransition</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;slide-right&#x27;</span>,</span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;out-in&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  middleware (to, <span class="keyword">from</span>) &#123;</span><br><span class="line">    to.<span class="property">meta</span>.<span class="property">pageTransition</span>.<span class="property">name</span> = +to.<span class="property">params</span>.<span class="property">id</span> &gt; +<span class="keyword">from</span>.<span class="property">params</span>.<span class="property">id</span> ? <span class="string">&#x27;slide-left&#x27;</span> : <span class="string">&#x27;slide-right&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="路由中间件"><a href="#路由中间件" class="headerlink" title="路由中间件"></a>路由中间件</h3><blockquote>
-<p>所有中间件都放在 middleware 文件夹下</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// auth.js	路由中间件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineNuxtRouteMiddleware</span>(<span class="function">(<span class="params">to, <span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 判断组件校验是否通过</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="title function_">isAuthenticated</span>() === <span class="literal">false</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">navigateTo</span>(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止导航</span></span><br><span class="line"><span class="title function_">abortNavigation</span>()</span><br><span class="line"><span class="comment">// 重定向</span></span><br><span class="line"><span class="title function_">navigateTo</span>()</span><br><span class="line"><span class="comment">// 页面路由鉴权结果</span></span><br><span class="line"><span class="title function_">isAuthenticated</span>()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>在页面中判断是否通过校验</p>
-<blockquote>
-<p>通过 页面参数 validate ,返回 true 进入，返回false 执行 navigateTo(‘/‘) 重定向到首页</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">definePageMeta</span>(&#123;</span><br><span class="line">  <span class="attr">validate</span>: <span class="keyword">async</span> (route) =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> nuxtApp = <span class="title function_">useNuxtApp</span>();</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(nuxtApp);</span><br><span class="line">    <span class="comment">// 检查是否 有id</span></span><br><span class="line">    <span class="keyword">return</span> <span class="regexp">/^\d+$/</span>.<span class="title function_">test</span>(route.<span class="property">params</span>.<span class="property">id</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>单页面中间件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 只在当前页面生效</span></span><br><span class="line"><span class="title function_">definePageMeta</span>(&#123;</span><br><span class="line">    <span class="attr">middleware</span>: [<span class="string">&#x27;middleware 中定义的中间件&#x27;</span>]</span><br><span class="line">    <span class="attr">middleware</span>:<span class="function">(<span class="params">to,<span class="keyword">from</span></span>) =&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// 匿名中间件</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><blockquote>
-<p><strong>composables</strong> 文件夹下所有第一层文件暴露的 方法都会被放到 公共方法 注入到所有页面，可直接使用。</p>
-<p>如果此名录有文件夹，nuxt只会读取 第二层文件夹中的 index.js</p>
-</blockquote>
-<h3 id="获取数据"><a href="#获取数据" class="headerlink" title="获取数据"></a>获取数据</h3><blockquote>
-<p>nuxt 提供了 4种获取数据方法。底层其实是封装了axios</p>
-<ol>
-<li>useFetch <strong>√</strong></li>
-<li>useAsyncData<strong>√</strong></li>
-<li>useLazyFetch , 相当于在上面方法加参数 lazy: true</li>
-<li>useLazyAsyncData  , 相当于在上面方法加参数 lazy: true</li>
-</ol>
-<p><a target="_blank" rel="noopener" href="https://www.nuxt.com.cn/docs/getting-started/data-fetching">详情查看文档</a></p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">	const &#123; data: count &#125; = await useFetch(&#x27;/api/count&#x27;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  Page visits: &#123;&#123; count &#125;&#125;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">--------------------------------------------------------------</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">    const &#123; data &#125; = await useAsyncData(&#x27;count&#x27;, () =&gt; $fetch(&#x27;/api/count&#x27;))</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  Page visits: &#123;&#123; data &#125;&#125;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
-
+<p>，这样就把 token 以参数的形式加入请求了。但是，在一个网站中，可以接受请求的地方非常多，要对于每一个请求都加上 token 是很麻烦的，并且很容易漏掉，通常使用的方法就是在每次页面加载时，使用 javascript 遍历整个 dom 树，对于 dom 中所有的 a 和 form 标签后加入 token。这样可以解决大部分的请求，但是对于在页面加载之后动态生成的 html 代码，这种方法就没有作用，还需要程序员在编码时手动添加 token。</p>
+<p>​     该方法还有一个缺点是难以保证 token 本身的安全。特别是在一些论坛之类支持用户自己发表内容的网站，黑客可以在上面发布自己个人网站的地址。由于系统也会在这个地址后面加上 token，黑客可以在自己的网站上得到这个 token，并马上就可以发动 CSRF 攻击。为了避免这一点，系统可以在添加 token 的时候增加一个判断，如果这个链接是链到自己本站的，就在后面添加 token，如果是通向外网则不加。不过，即使这个 csrftoken 不以参数的形式附加在请求之中，黑客的网站也同样可以通过 Referer 来得到这个 token 值以发动 CSRF 攻击。这也是一些用户喜欢手动关闭浏览器 Referer 功能的原因。</p>
+<p>   <strong>（3）在 HTTP 头中自定义属性并验证</strong></p>
+<p>​    这种方法也是使用 token 并进行验证，和上一种方法不同的是，这里并不是把 token 以参数的形式置于 HTTP 请求之中，而是把它放到 HTTP 头中自定义的属性里。通过 XMLHttpRequest 这个类，可以一次性给所有该类请求加上 csrftoken 这个 HTTP 头属性，并把 token 值放入其中。这样解决了上种方法在请求中加入 token 的不便，同时，通过 XMLHttpRequest 请求的地址不会被记录到浏览器的地址栏，也不用担心 token 会透过 Referer 泄露到其他网站中去。</p>
+<p>​    然而这种方法的局限性非常大。XMLHttpRequest 请求通常用于 Ajax 方法中对于页面局部的异步刷新，并非所有的请求都适合用这个类来发起，而且通过该类请求得到的页面不能被浏览器所记录下，从而进行前进，后退，刷新，收藏等操作，给用户带来不便。另外，对于没有进行 CSRF 防护的遗留系统来说，要采用这种方法来进行防护，要把所有请求都改为 XMLHttpRequest 请求，这样几乎是要重写整个网站，这代价无疑是不能接受的。</p>
 
     
 
@@ -428,7 +366,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://wyf195075595.github.io/2022/06/17/programming/vue/nuxtjs/" title="nuxtjs 基础" target="_blank">https://wyf195075595.github.io/2022/06/17/programming/vue/nuxtjs/</a>
+          <a href="https://wyf195075595.github.io/2023/04/13/programming/javascript/csrf/" title="csrf 跨站点请求伪造" target="_blank">https://wyf195075595.github.io/2023/04/13/programming/javascript/csrf/</a>
         </li>
         
         <li>
@@ -450,7 +388,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">nuxtjs</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
         		</li>
       		
 		</ul>
@@ -462,7 +400,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -517,7 +455,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wyf195075595.github.io/2022/06/17/programming/vue/nuxtjs/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wyf195075595.github.io/2023/04/13/programming/javascript/csrf/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -532,18 +470,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/python/%E7%88%AC%E8%99%AB/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/04/17/programming/linux/%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python 爬虫
+          手机端搭建linux环境
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/wechat/index/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">微信小程序拓展</div>
+    <a href="/2023/04/01/index/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">雪中悍刀行</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -570,7 +508,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nuxt-config-js-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">nuxt.config.js 配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#build%EF%BC%8Ccss%EF%BC%8Cdev%EF%BC%8Cenv%EF%BC%8Cgenerate%EF%BC%8Chead%EF%BC%8Cloading%EF%BC%8Cmodules%EF%BC%8CmodulesDir%EF%BC%8Cplugins%EF%BC%8CrootDir%EF%BC%8Crouter%EF%BC%8Cserver%EF%BC%8CsrcDir%EF%BC%8Cdir%EF%BC%8Ctransition"><span class="toc-number">3.</span> <span class="toc-text">build，css，dev，env，generate，head，loading，modules，modulesDir，plugins，rootDir，router，server，srcDir，dir，transition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1"><span class="toc-number">5.</span> <span class="toc-text">路由</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E8%B7%B3%E8%BD%AC"><span class="toc-number">5.1.</span> <span class="toc-text">路由跳转</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%90%E8%B7%AF%E7%94%B1%E5%B5%8C%E5%A5%97"><span class="toc-number">5.2.</span> <span class="toc-text">子路由嵌套</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">5.3.</span> <span class="toc-text">动态路由</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#404%E8%B7%AF%E7%94%B1"><span class="toc-number">5.4.</span> <span class="toc-text">404路由</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layouts-%E5%B8%83%E5%B1%80-%E6%A8%A1%E6%9D%BF"><span class="toc-number">6.</span> <span class="toc-text">layouts 布局 模板</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assets-public-%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">assets,public 静态文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E5%85%AC%E5%85%B1%E6%A0%B7%E5%BC%8F"><span class="toc-number">8.</span> <span class="toc-text">处理公共样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E6%B8%A1"><span class="toc-number">9.</span> <span class="toc-text">过渡</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%8D%95%E7%8B%AC%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%B8%A1"><span class="toc-number">9.1.</span> <span class="toc-text">页面单独设置过渡</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE%E8%BF%87%E6%B8%A1%E6%95%88%E6%9E%9C"><span class="toc-number">9.2.</span> <span class="toc-text">页面动态设置过渡效果</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%B8%AD%E9%97%B4%E4%BB%B6"><span class="toc-number">10.</span> <span class="toc-text">路由中间件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E5%85%B1%E6%96%B9%E6%B3%95"><span class="toc-number">11.</span> <span class="toc-text">公共方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">12.</span> <span class="toc-text">获取数据</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF%E6%94%BB%E5%87%BB%E6%94%BB%E5%87%BB%E5%8E%9F%E7%90%86%E5%8F%8A%E8%BF%87%E7%A8%8B%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">CSRF攻击攻击原理及过程如下：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF%E6%94%BB%E5%87%BB%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">CSRF攻击实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF%E6%BC%8F%E6%B4%9E%E6%A3%80%E6%B5%8B%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">CSRF漏洞检测：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E5%BE%A1CSRF%E6%94%BB%E5%87%BB%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">防御CSRF攻击：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E9%AA%8C%E8%AF%81-HTTP-Referer-%E5%AD%97%E6%AE%B5"><span class="toc-number">4.1.</span> <span class="toc-text">（1）验证 HTTP Referer 字段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%9C%A8%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80%E4%B8%AD%E6%B7%BB%E5%8A%A0-token-%E5%B9%B6%E9%AA%8C%E8%AF%81"><span class="toc-number">4.2.</span> <span class="toc-text">（2）在请求地址中添加 token 并验证</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -583,7 +521,7 @@
 
 
 
-<div id="SOHUCS" sid="programming/vue/nuxtjs" ></div> 
+<div id="SOHUCS" sid="programming/javascript/csrf" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -736,7 +674,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -744,11 +682,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,15 +694,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -776,39 +710,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -816,11 +722,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,23 +734,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -856,7 +782,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,7 +802,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,7 +814,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -884,11 +822,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,19 +854,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -929,14 +871,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/v2-1d23d0fcb5c423d69da86237d6201af7_r.jpg">
 <meta property="article:published_time" content="2022-09-23T00:23:10.000Z">
-<meta property="article:modified_time" content="2023-03-30T00:30:39.981Z">
+<meta property="article:modified_time" content="2023-04-06T09:06:05.127Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -621,17 +621,11 @@
 <p>TypeScript </p>
 <p>学习成本相对较高，但是功能更加强大。</p>
 <h3 id="Ramda-js"><a href="#Ramda-js" class="headerlink" title="Ramda.js"></a>Ramda.js</h3><p>为开发者提供了许多实用的工具原子函数</p>
-<h3 id="单页面应用-seo优化"><a href="#单页面应用-seo优化" class="headerlink" title="单页面应用 seo优化"></a>单页面应用 seo优化</h3><blockquote>
-<ol>
-<li>title,描述，关键字   vue-mate-info</li>
-<li>多页面   prerender-spa-plugin 预渲染</li>
-<li>网站内容</li>
-</ol>
-<p>预渲染（Prerender）技术应运而生。</p>
-<p>预渲染先读取配置文件，模拟浏览器加载配置的页面，获取页面接口内容，渲染页面，获取页面全部dom，最后保存为html</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44997474/article/details/128615032">参考文章</a></p>
+<h3 id="babel-plugin-transform-remove-console"><a href="#babel-plugin-transform-remove-console" class="headerlink" title="babel-plugin-transform-remove-console"></a>babel-plugin-transform-remove-console</h3><blockquote>
+<p>通过配置在生产环境打包时自动去除 console.log</p>
 </blockquote>
-<p>预渲染无法配置动态路由页面，title,关键字来自接口数据也是不行的，适合只有几个页面需要做SEO的项目</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bable.config.js</span></span><br><span class="line"><span class="keyword">const</span> plugins = [];</span><br><span class="line"><span class="keyword">const</span> isProduction = process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">  plugins.<span class="title function_">push</span>([<span class="string">&quot;transform-remove-console&quot;</span>, &#123; <span class="attr">exclude</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;warn&quot;</span>] &#125;]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@vue/cli-plugin-babel/preset&quot;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: plugins,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -788,7 +782,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81VueUse"><span class="toc-number">1.</span> <span class="toc-text">1、VueUse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81vue-print-nb"><span class="toc-number">2.</span> <span class="toc-text">2、vue-print-nb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81qrcode"><span class="toc-number">3.</span> <span class="toc-text">3、qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mitt"><span class="toc-number">4.</span> <span class="toc-text">mitt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-countTo"><span class="toc-number">5.</span> <span class="toc-text">vue-countTo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-persist"><span class="toc-number">6.</span> <span class="toc-text">vuex-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify"><span class="toc-number">7.</span> <span class="toc-text">Vuetify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NUXTJS"><span class="toc-number">8.</span> <span class="toc-text">NUXTJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress"><span class="toc-number">9.</span> <span class="toc-text">vuepress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-mate"><span class="toc-number">10.</span> <span class="toc-text">vue-mate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-charts-js"><span class="toc-number">11.</span> <span class="toc-text">vue-charts .js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-grid-layout"><span class="toc-number">12.</span> <span class="toc-text">vue grid layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-draggable"><span class="toc-number">13.</span> <span class="toc-text">vue draggable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vee-validate"><span class="toc-number">14.</span> <span class="toc-text">vee validate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Toastification"><span class="toc-number">15.</span> <span class="toc-text">vue Toastification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Tour"><span class="toc-number">16.</span> <span class="toc-text">vue Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trois-%E8%AF%AD%E6%B3%95%E4%B8%BAthree-vue3%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">Trois (语法为three) vue3库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-presistedstate"><span class="toc-number">18.</span> <span class="toc-text">vue-presistedstate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">19.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eventemitter3"><span class="toc-number">20.</span> <span class="toc-text">eventemitter3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amfe-flexible"><span class="toc-number">21.</span> <span class="toc-text">amfe-flexible</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#postcss-pxtorem"><span class="toc-number">22.</span> <span class="toc-text">postcss-pxtorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSAP%EF%BC%88GreenSock%EF%BC%89"><span class="toc-number">23.</span> <span class="toc-text">GSAP（GreenSock）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESLint"><span class="toc-number">24.</span> <span class="toc-text">ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Requirejs-%E4%B8%8E-%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8E%A8%E6%BC%94"><span class="toc-number">25.</span> <span class="toc-text">Requirejs 与 模块化推演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loadsh-js"><span class="toc-number">26.</span> <span class="toc-text">Loadsh.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">27.</span> <span class="toc-text">静态类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">28.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8-seo%E4%BC%98%E5%8C%96"><span class="toc-number">29.</span> <span class="toc-text">单页面应用 seo优化</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81VueUse"><span class="toc-number">1.</span> <span class="toc-text">1、VueUse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81vue-print-nb"><span class="toc-number">2.</span> <span class="toc-text">2、vue-print-nb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81qrcode"><span class="toc-number">3.</span> <span class="toc-text">3、qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mitt"><span class="toc-number">4.</span> <span class="toc-text">mitt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-countTo"><span class="toc-number">5.</span> <span class="toc-text">vue-countTo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-persist"><span class="toc-number">6.</span> <span class="toc-text">vuex-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify"><span class="toc-number">7.</span> <span class="toc-text">Vuetify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NUXTJS"><span class="toc-number">8.</span> <span class="toc-text">NUXTJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress"><span class="toc-number">9.</span> <span class="toc-text">vuepress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-mate"><span class="toc-number">10.</span> <span class="toc-text">vue-mate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-charts-js"><span class="toc-number">11.</span> <span class="toc-text">vue-charts .js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-grid-layout"><span class="toc-number">12.</span> <span class="toc-text">vue grid layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-draggable"><span class="toc-number">13.</span> <span class="toc-text">vue draggable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vee-validate"><span class="toc-number">14.</span> <span class="toc-text">vee validate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Toastification"><span class="toc-number">15.</span> <span class="toc-text">vue Toastification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Tour"><span class="toc-number">16.</span> <span class="toc-text">vue Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trois-%E8%AF%AD%E6%B3%95%E4%B8%BAthree-vue3%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">Trois (语法为three) vue3库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-presistedstate"><span class="toc-number">18.</span> <span class="toc-text">vue-presistedstate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">19.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eventemitter3"><span class="toc-number">20.</span> <span class="toc-text">eventemitter3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amfe-flexible"><span class="toc-number">21.</span> <span class="toc-text">amfe-flexible</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#postcss-pxtorem"><span class="toc-number">22.</span> <span class="toc-text">postcss-pxtorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSAP%EF%BC%88GreenSock%EF%BC%89"><span class="toc-number">23.</span> <span class="toc-text">GSAP（GreenSock）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESLint"><span class="toc-number">24.</span> <span class="toc-text">ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Requirejs-%E4%B8%8E-%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8E%A8%E6%BC%94"><span class="toc-number">25.</span> <span class="toc-text">Requirejs 与 模块化推演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loadsh-js"><span class="toc-number">26.</span> <span class="toc-text">Loadsh.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">27.</span> <span class="toc-text">静态类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">28.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel-plugin-transform-remove-console"><span class="toc-number">29.</span> <span class="toc-text">babel-plugin-transform-remove-console</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -954,7 +948,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -962,11 +956,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,15 +968,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -994,39 +984,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1034,11 +996,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1050,23 +1008,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1074,7 +1056,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1082,7 +1076,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1094,7 +1088,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,11 +1096,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1126,19 +1128,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1147,14 +1145,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

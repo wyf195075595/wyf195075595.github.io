@@ -18,7 +18,7 @@
 <meta property="og:description" content="用命令netstat查侦听端口netstat 是一个命令行工具，可以提供有关网络连接的信息。 要列出正在侦听的所有TCP或UDP端口，包括使用端口和套接字状态的服务，请使用以下命令： 1sudo netstat -tunlp  此命令中使用的选项具有以下含义：  -t - 显示TCP端口。 -u - 显示UDP端口。 -n - 显示数字地址而不是解析主机。 -l - 仅显示侦听端口。 -p - 显">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-02T02:54:10.000Z">
-<meta property="article:modified_time" content="2023-03-09T01:36:32.821Z">
+<meta property="article:modified_time" content="2023-04-04T01:19:44.714Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">233字</span>
+      <span class="post-count">626字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">2分</span>
     </span>
   </span>
 </div>
@@ -327,15 +327,50 @@
 </blockquote>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip addr</span><br></pre></td></tr></table></figure>
 
-<h3 id="解压-gz-文件"><a href="#解压-gz-文件" class="headerlink" title="解压 .gz 文件"></a>解压 .gz 文件</h3><blockquote>
+<h3 id="解压-tar-gz-文件"><a href="#解压-tar-gz-文件" class="headerlink" title="解压.tar .gz 文件"></a>解压.tar .gz 文件</h3><blockquote>
 <p>解压文件redis-7.0.4.tar.gz到指定路径 /xxx/redis， 不写 -C 参数 默认解压到当前文件夹</p>
 </blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-7.0.4.tar.gz -C /xxx/redis</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-7.0.4.tar.gz -C /xxx/redis</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
+<h3 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h3><blockquote>
+<ul>
+<li>-x：解压</li>
+<li>-z：有gzip属性的</li>
+<li>-v：显示所有过程</li>
+<li>-f：使用档案名字，这个参数是最后一个参数，后面只能接档案名</li>
+<li>-j：有bz2属性的</li>
+</ul>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tar –xvf file.tar</span><br><span class="line"></span><br><span class="line">1、tar –xvf file.tar；</span><br><span class="line">2、tar -xzvf file.tar.gz；</span><br><span class="line">3、tar -xjvf file.tar.bz2；</span><br><span class="line">4、tar –xZvf file.tar.Z。</span><br><span class="line"></span><br><span class="line">tar –xvf file.tar命令的作用是解压tar包，</span><br><span class="line"></span><br><span class="line">tar -xzvf file.tar.gz命令的作用是解压tar.gz，</span><br><span class="line"></span><br><span class="line">tar -xjvf file.tar.bz2命令的作用是解压tar.bz2，</span><br><span class="line"></span><br><span class="line">tar –xZvf file.tar.Z命令的作用是解压tar.Z。</span><br></pre></td></tr></table></figure>
 
 <p>查看<em>PATH</em>环境变量详解</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo $PATH</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h3><p><strong>只对当前shell生效（shell脚本中常用）</strong><br>方法一：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$</span><span class="language-bash">PATH=<span class="string">&quot;<span class="variable">$PATH</span>&quot;</span>:YOUR_PATH</span></span><br></pre></td></tr></table></figure>
+
+<p>方法二：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对所有用户所有shell都生效, 需要root权限（管理员常用）</strong><br>方法一（修改environment文件）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">打开environment文件</span></span><br><span class="line"></span><br><span class="line">vim /etc/environment</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改PATH变量，在变量字符串末尾加:和 YOUR_PATH</span></span><br><span class="line"></span><br><span class="line">PATH=&quot;...:YOUR_PATH&quot;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使配置立即生效</span></span><br><span class="line"></span><br><span class="line">source /etc/environment</span><br></pre></td></tr></table></figure>
+
+<p>如果设置后，系统重启后不可登录的解决方法：</p>
+<p>在登录界面进入命令行模式：按组合键 alt +ctrl+f1<br>/usr/bin/sudo /usr/bin/vi /etc/environment<br>修改为正确配置，或者直接删除为空<br>保存退出后重启<br><strong>方法二（修改profile文件）：</strong></p>
+<p>打开文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>在打开的文件末添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p>只对某个用户的所有shell生效，只需要用户权限即可（用户常用）<br>打开设置文件</p>
+<figure class="highlight vim"><figcaption><span>~/.bashrc</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">shell</span></span><br></pre></td></tr></table></figure>
+
+<p>在打开的文件末添加</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p>使文件配置立即生效</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.bashrc</span><br></pre></td></tr></table></figure>
 
 
     
@@ -493,7 +528,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4netstat%E6%9F%A5%E4%BE%A6%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">用命令netstat查侦听端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2nginx%E4%B8%BB%E8%BF%9B%E7%A8%8B%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">查询nginx主进程号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-IP"><span class="toc-number">3.</span> <span class="toc-text">查询 IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B-gz-%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">解压 .gz 文件</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4netstat%E6%9F%A5%E4%BE%A6%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">用命令netstat查侦听端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2nginx%E4%B8%BB%E8%BF%9B%E7%A8%8B%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">查询nginx主进程号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-IP"><span class="toc-number">3.</span> <span class="toc-text">查询 IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B-tar-gz-%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">解压.tar .gz 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">解压文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">设置环境变量</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -659,7 +694,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -667,11 +702,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -679,15 +714,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -699,39 +730,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,11 +742,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -755,23 +754,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,7 +802,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -787,7 +822,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,7 +834,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,11 +842,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,19 +874,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,14 +891,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

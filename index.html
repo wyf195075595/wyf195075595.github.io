@@ -258,6 +258,217 @@
             
 
   
+    <article id="post-programming/linux/手机作为服务器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/04/17/programming/linux/%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_blank">手机端搭建linux环境</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/04/17/programming/linux/%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="archive-article-date">
+        <time datetime="2023-04-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>将手机作为Linux服务器</p>
+<p>在手机端安装 Linux 系统,通过一个名为<a href="(https://f-droid.org/packages/com.termux/)"><strong>Termux</strong></a>的软件。Termux 是适用于 Android 的终端仿真器和 Linux 环境。它在 Google Play 商店中可用。安装后无需额外配置。</p>
+</blockquote>
+<p>安装完成后运行就可以得到Linux 环境，接下来设置 ssh 连接。通过一个名为<strong>Dropbear</strong>的软件</p>
+    
+    <a class="article-more-a" href="/2023/04/17/programming/linux/%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/17/programming/linux/%E6%89%8B%E6%9C%BA%E4%BD%9C%E4%B8%BA%E6%9C%8D%E5%8A%A1%E5%99%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/csrf" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/04/13/programming/javascript/csrf/" target="_blank">csrf 跨站点请求伪造</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/04/13/programming/javascript/csrf/" class="archive-article-date">
+        <time datetime="2023-04-13T07:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p><strong>CSRF概念：</strong><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=CSRF&spm=1001.2101.3001.7020">CSRF</a>跨站点请求伪造(Cross—Site Request Forgery)，跟XSS攻击一样，存在巨大的危害性，你可以这样来理解：<br>    攻击者盗用了你的身份，以你的名义发送恶意请求，对服务器来说这个请求是完全合法的，但是却完成了攻击者所期望的一个操作，比如以你的名义发送邮件、发消息，盗取你的账号，添加系统管理员，甚至于购买商品、虚拟货币转账等。 如下：其中Web A为存在CSRF漏洞的网站，Web B为攻击者构建的恶意网站，User C为Web A网站的合法用户。</p>
+</blockquote>
+<h3 id="CSRF攻击攻击原理及过程如下："><a href="#CSRF攻击攻击原理及过程如下：" class="headerlink" title="CSRF攻击攻击原理及过程如下："></a><strong>CSRF攻击攻击原理及过程如下：</strong></h3><ol>
+<li>用户C打开浏览器，访问受信任网站A，输入用户名和密码请求登录网站A；</li>
+<li>在用户信息通过验证后，网站A产生Cookie信息并返回给浏览器，此时用户登录网站A成功，可以正常发送请求到网站A；</li>
+<li> 用户未退出网站A之前，在同一浏览器中，打开一个TAB页访问网站B；</li>
+<li>. 网站B接收到用户请求后，返回一些攻击性代码，并发出一个请求要求访问第三方站点A；</li>
+<li>浏览器在接收到这些攻击性代码后，根据网站B的请求，在用户不知情的情况下携带Cookie信息，向网站A发出请求。网站A并不知道该请求其实是由B发起的，所以会根据用户C的Cookie信息以C的权限处理该请求，导致来自网站B的恶意代码被执行。 </li>
+</ol>
+    
+    <a class="article-more-a" href="/2023/04/13/programming/javascript/csrf/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/04/13/programming/javascript/csrf/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -333,128 +544,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2023/04/01/index/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/others/rtsp视频" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/03/27/programming/others/rtsp%E8%A7%86%E9%A2%91/" target="_blank">h5播放rtsp格式视频</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/03/27/programming/others/rtsp%E8%A7%86%E9%A2%91/" class="archive-article-date">
-        <time datetime="2023-03-27T02:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-27</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e16a453bbfcc">Linux下载和安装yasm、FFmpeg、流媒体服务SRS4.0</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.ffmpeg.org/releases/">FFmpeg下载</a></p>
-</blockquote>
-<h3 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h3><p>前端：</p>
-<ul>
-<li>jsmpeg.js (连接wbesocket，绘制视频图像)</li>
-</ul>
-<p>服务端（node）：</p>
-<ul>
-<li>express（静态服务，接口处理）</li>
-<li>body-parser（处理接口接收数据）</li>
-<li>node-rtsp-stream-jsmpeg （下发FFmpeg指令，创建websocke服务端）</li>
-<li>child_process（启动shell脚本指令）</li>
-</ul>
-<p>其他：</p>
-<ul>
-<li>FFmpeg(视频流转码)</li>
-<li>pm2(node进程守护)</li>
-<li>云台控制程序（通过视频厂家提供的sdk二次开发，通过ajax调用）</li>
-</ul>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903949309313037">参考链接</a></p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2023/03/27/programming/others/rtsp%E8%A7%86%E9%A2%91/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">rtsp</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/03/27/programming/others/rtsp%E8%A7%86%E9%A2%91/">展开全文 >></a>
     </p>
     
 
@@ -1306,142 +1395,6 @@
 
 
   
-    <article id="post-programming/java/spring" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/02/17/programming/java/spring/" target="_blank">spring基础</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/02/17/programming/java/spring/" class="archive-article-date">
-        <time datetime="2023-02-17T08:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>什么是OCP？</strong></p>
-<p>OCP是软件开发的七大开发原则：开闭原则</p>
-<p>核心：其他6个原则的基础</p>
-</blockquote>
-<blockquote>
-<p><strong>OCP开闭原则核心是什么？</strong></p>
-<p>只要你在扩展功能的时候，没有修改以前写好的代码，那么就是符合OCP原则的，反之则违背了OCP原则    </p>
-<p>当系统功能拓展时，如果动了之前稳定的程序，修改了之前的程序。之前所有程序都需要测试，这是不想看到的</p>
-</blockquote>
-<blockquote>
-<p><strong>违背依赖倒置原则（DIP原则）</strong></p>
-<p><strong>上依赖下就是违背</strong>：如：表示层依赖服务层，服务层依赖持久层</p>
-</blockquote>
-<blockquote>
-<p><strong>控制反转</strong></p>
-<p>一种编程思想。或设计模式</p>
-<ul>
-<li>不在程序中采用硬编码方式来 new 对象</li>
-<li>不在程序中采用硬编码方式来 维护对象关系</li>
-</ul>
-</blockquote>
-<h2 id="Spring框架"><a href="#Spring框架" class="headerlink" title="Spring框架"></a>Spring框架</h2><ul>
-<li>Spring框架实现了控制反转IoC这种思想<ul>
-<li>spring帮你new对象</li>
-<li>spring帮你维护对象关系</li>
-</ul>
-</li>
-<li>Spring 时一个实现了IoC思想的容器<ul>
-<li>依赖注入的两种方式（依赖注入时现实IoC的具体实现: XML解析+工厂模式+反射机制）<ul>
-<li>set 注入(执行set给属性赋值)</li>
-<li>构造方法 注入(执行构造方法给属性赋值)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230217170739281.png" alt="image-20230217170739281"></p>
-    
-    <a class="article-more-a" href="/2023/02/17/programming/java/spring/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">spring基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/02/17/programming/java/spring/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
@@ -1583,7 +1536,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1591,11 +1544,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1603,15 +1556,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1623,39 +1572,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1663,11 +1584,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1679,23 +1596,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1703,7 +1644,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1711,7 +1664,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1723,7 +1676,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1731,11 +1684,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1755,19 +1716,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1776,14 +1733,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

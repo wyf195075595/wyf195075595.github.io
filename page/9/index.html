@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/electron/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/electron/plugins" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/electron/%E6%8B%93%E5%B1%95/" target="_blank">electron 拓展</a>
+	  <a class="article-title" href="/2022/06/17/programming/electron/plugins/" target="_blank">electron 插件</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/electron/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+<a href="/2022/06/17/programming/electron/plugins/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,11 +287,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="Electron"><a href="#Electron" class="headerlink" title="Electron"></a><strong>Electron</strong></h4><p><em>2021-01-01</em> - <em>2022-04-27</em> 下载量    34,441,621    GitHub star 101k</p>
-<p>html+css+js一直是网页开发的三剑客，不过经过electron的整合，现在它们也能够开发桌面应用程序。它采用chromium引擎ui，可以非常方便地进行跨平台页面的开发。并且它可以访问诸如Developer Tools和Storage Access之类的工具，使得它开发桌面程序更加方便。</p>
-<p><img src="https://pics6.baidu.com/feed/562c11dfa9ec8a13f17eff0e6467f988a1ecc060.jpeg?token=56e747e51fac691738c8a2cefe2d1e62" alt="img"></p>
+    <h2 id="plugins"><a href="#plugins" class="headerlink" title="plugins"></a>plugins</h2><h3 id="electron-remote"><a href="#electron-remote" class="headerlink" title="@electron/remote"></a>@electron/remote</h3><blockquote>
+<p>用来代替 electron remote 模块</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">在主进程中</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> remoteMain = <span class="built_in">require</span>(<span class="string">&#x27;@electron/remote/main&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化</span></span><br><span class="line">remoteMain.<span class="title function_">initialize</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 开启之后能在子进程访问主进程</span></span><br><span class="line">remoteMain.<span class="title function_">enable</span>(win.<span class="property">webContents</span>)</span><br><span class="line"></span><br><span class="line">在子进程中</span><br><span class="line"><span class="keyword">const</span> remote = <span class="built_in">require</span>(<span class="string">&#x27;@electron/remote&#x27;</span>);</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2022/06/17/programming/electron/%E6%8B%93%E5%B1%95/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/electron/plugins/#more">more >></a>
     
     
 
@@ -329,7 +330,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/electron/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/electron/plugins/">展开全文 >></a>
     </p>
     
 
@@ -1175,7 +1176,7 @@
 
 
   
-    <article id="post-programming/javascript/js编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/jsConsole" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1183,7 +1184,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" target="_blank">js编码解码</a>
+	  <a class="article-title" href="/2022/06/17/programming/javascript/jsConsole/" target="_blank">jsConsole</a>
   
     </h1>
   
@@ -1191,7 +1192,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" class="archive-article-date">
+<a href="/2022/06/17/programming/javascript/jsConsole/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1204,28 +1205,8 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <ol>
-<li><p>编码 encodeURI和encodeURIComponent</p>
-<blockquote>
-<p>它们都是编码URL，唯一区别就是编码的字符范围了：</p>
-<p>encodeURI方法<strong>不会</strong>对下列字符编码 ASCII字母、数字、~!@#$&amp;*()=:/,;?+’</p>
-<p>encodeURIComponent方法<strong>不会</strong>对下列字符编码 ASCII字母、数字、~!*()’</p>
-<p>所以encodeURIComponent比encodeURI编码的范围更大。</p>
-<p><strong>当你要编码整个URL，使用这个URL，那么用encodeURI。</strong></p>
-<p><strong>当你要编码URL中的参数的时候，那么encodeURIComponent是最好方法。</strong></p>
-</blockquote>
-</li>
-<li><p>解码 decodeURI()和decodeURIComponent()函数</p>
-<blockquote>
-<ul>
-<li><p>decodeURIComponent()定义和用法：decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。</p>
-</li>
-<li><p>decodeURI()定义和用法：decodeURI() 函数可对 encodeURI() 函数编码过的URI 进行解码。</p>
-</li>
-</ul>
-</blockquote>
-</li>
-</ol>
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">group</span>(<span class="string">&quot;中奖了&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #9E9E9E; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #03A9F4; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #4CAF50; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">groupEnd</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//segmentfault.com/a/1190000012957199</span></span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -1263,7 +1244,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/jsConsole/">展开全文 >></a>
     </p>
     
 
@@ -1434,7 +1415,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,11 +1423,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1454,15 +1435,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,39 +1451,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,11 +1463,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1530,23 +1475,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1554,7 +1523,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,7 +1543,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1574,7 +1555,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1582,11 +1563,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,19 +1595,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">nuxtjs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1627,14 +1612,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
