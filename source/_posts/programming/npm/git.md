@@ -298,3 +298,66 @@ IdentityFile ~/.ssh/github_id
 >
 > 
 
+#### 本地仓库ssh提交失败
+
+> 报错：
+>
+> fatal: Could not read from remote repository.
+
+原因：客户端与服务端的ssh key不匹配
+
+重写生成ssh key.
+
+1. 先删除 .ssh 目录下之前得  id_rsa以及id_rsa.pub这两个文件
+
+2. 生成新的
+
+	```shell
+	ssh-keygen -t rsa -C "youremail@example.com"
+	```
+
+3. 将SSH key 添加到 ssh-agent
+
+	```shell
+	# id_rsa 以生成得文件名为主
+	ssh-add ~/.ssh/id_rsa
+	
+	#如果出现“Could not open a connection to your authentication agent.”的错误可以使用以下两种方式解决：
+	eval "$(ssh-agent -s)"
+	eval `ssh-agent`
+	
+	# 然后再次执行指令。
+	ssh-add ~/.ssh/id_rsa 
+	```
+
+4. 去GitHub 添加 sshKey
+
+5. 测试
+
+	```shell
+	ssh -T git@github.com
+	```
+
+	
+
+#### SSH连接时出现Host key verification failed
+
+> 用OpenSSH的人都知ssh会把你每个你访问过计算机的公钥(public key)都记录在~/.ssh/known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告，避免你受到DNS Hijack之类的攻击。
+>
+> SSH对主机的public_key的检查等级是根据StrictHostKeyChecking变量来配置的。默认情况下，StrictHostKeyChecking=ask。
+
+简单说下它的三种配置值：
+
+- StrictHostKeyChecking=no
+	最不安全的级别，当然也没有那么多烦人的提示了，相对安全的内网时建议使用。如果连接server的key在本地不存在，那么就自动添加到文件中（默认是known_hosts），并且给出一个警告。
+
+- StrictHostKeyChecking=ask
+	默认的级别，就是出现刚才的提示了。如果连接和key不匹配，给出提示，并拒绝登录。
+
+- StrictHostKeyChecking=yes
+	最安全的级别，如果连接与key不匹配，就拒绝连接，不会提示详细信息。
+
+解决：
+
+删除~/.ssh/known_hosts文件
+

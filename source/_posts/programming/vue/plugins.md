@@ -569,3 +569,23 @@ TypeScript
 ### Ramda.js
 
 为开发者提供了许多实用的工具原子函数
+
+### babel-plugin-transform-remove-console
+
+> 通过配置在生产环境打包时自动去除 console.log
+
+```js
+// bable.config.js
+const plugins = [];
+const isProduction = process.env.NODE_ENV === "production";
+if (isProduction) {
+  plugins.push(["transform-remove-console", { exclude: ["error", "warn"] }]);
+}
+
+module.exports = {
+  presets: ["@vue/cli-plugin-babel/preset"],
+  plugins: plugins,
+};
+
+```
+

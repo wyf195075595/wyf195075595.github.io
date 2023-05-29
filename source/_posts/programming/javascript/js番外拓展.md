@@ -2606,7 +2606,17 @@ const safe = require("safe-regex");
 safe(re); // false
 ```
 
+### 在网站开发中，常见的跨域问题。
 
+ 
+
+1. 不同域名属于跨域，如：www.a.com 和www.b.com，另外www.a.com 和www.a.com.cn也属于不同域名
+
+2. 主域名和子域名（二级域名、三级域名等）跨域，如：www.a.com 和 bbs.a.com 跨域
+
+3. 不同协议属于跨域，如：http://www.a.com 和 https://www.a.com
+
+4. Ip和域名属于跨域，如：123.23.23.12 和 www.a.com
 
 ## 方法
 
@@ -4368,7 +4378,66 @@ const isDarkMode = () => window.matchMedia && window.matchMedia("(prefers-color-
 console.log(isDarkMode())
 ```
 
+#### **Intl.Segmenter**
 
+> 浏览器方法：	**字符串拆分为句子、单词或字素**。 话说不是有 split 方法么，为啥还要这个捏？
+
+```js
+'Hello! How are you?'.split(/[.!?]/);
+// ['Hello', ' How are you', '']
+
+// I am a cat. My name is Tanuki.
+'吾輩は猫である。名前はたぬき。'
+
+问题：
+将丢失定义的分隔符并在所有位置包含所有这些空格。而且因为它依赖于硬编码的定界符，所以它对语言不敏感。
+如果不会日语，怎么拆分句子，单词呢？
+```
+
+由此它诞生了。
+
+```js
+const segmenter = new Intl.Segmenter(
+  // 语言，granularity：sentence-句子,grapheme-字素,word-单词.返回值为类数组对象
+  'en', { granularity: 'grapheme' }
+);
+
+console.log(
+  Array.from(
+    segmenter.segment(`I'm like 🫣. But you are, too! 🫵`),
+    s => s.segment
+  )
+);
+```
+
+
+
+> 服务器端，它从 Node.js 16 开始支持。
+
+## 属性
+
+### document.referrer
+
+> **`document.referrer`** 返回的是一个 [URI](https://www.w3.org/Addressing/#background)，当前页面就是从这个 URI 所代表的页面跳转或打开的。
+
+例如：领奖页面A.html, 从此页面点击跳转 到领奖详情 B.html. 此时B.html 中 输出  document.referrer 值为 A.html. 但是如果 不从 A.html 点击跳转进入，直接访问 B.html 则  此时B.html 中 输出  document.referrer 值为 空
+
+**下面的场景无法获得 referrer 信息**
+
+- 直接在浏览器中输入地址
+- 使用location.reload()刷新（location.href或者location.replace()刷新有信息）
+- 在微信对话框中，点击进入微信自身浏览器
+- 扫码进入微信或QQ的浏览器
+- 直接新窗口打开一个页面
+- 从https的网站直接进入一个http协议的网站（Chrome下亲测）
+- a标签设置rel="noreferrer"（兼容IE7+）
+- meta标签来控制不让浏览器发送referer
+- 点击 flash 内部链接
+- Chrome4.0以下，IE 5.5+以下返回空的字符串
+- 使用 修改 Location 进行页面导航的方法，会导致在IE下丢失 referrer，这可能是IE的一个BUG
+- 跨域
+
+> 在 [`iframe`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe) 中，`Document.referrer` 会初始化为父窗口 [`Window.location`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location) 的 [`href`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLAnchorElement/href)。
 
 ## js拓展
 

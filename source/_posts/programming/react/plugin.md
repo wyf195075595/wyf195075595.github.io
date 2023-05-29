@@ -458,6 +458,34 @@ color: #333;
 
 > 页面顶部进度条，用来代替加载中动画。使用时记得引入样式，否则进度条不显示。
 
+### Immer
+
+> 更新嵌套对象，数组时，可以不用结构赋值繁琐操作
+
+```react
+import { useImmer } from 'use-immer';
+const initialList = [
+  { id: 0, title: 'Big Bellies', seen: false },
+  { id: 1, title: 'Lunar Landscape', seen: false },
+  { id: 2, title: 'Terracotta Army', seen: true },
+];
+
+
+ const [yourList, updateYourList] = useImmer(
+   initialList
+ );
+ function handleToggleYourList(artworkId, nextSeen) {
+    updateYourList(draft => {
+      const artwork = draft.find(a =>
+        a.id === artworkId
+      );
+      artwork.seen = nextSeen;
+    });
+  }
+```
+
+
+
 ### react-router-dom 与 react-router-dom 区别
 
 > 都是路由管理的插件，它拓展了一下在浏览器环境下运行的一些功能。

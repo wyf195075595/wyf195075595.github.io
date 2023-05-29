@@ -504,3 +504,58 @@ public ResponseBean viewPicture(HttpServletResponse res,String path) {
 <img src="http:xxx:xxx/api/viewPicture?path=/xxx.jpg" />
 ```
 
+
+
+### 跨域cookie共享
+
+> 主域 www.xxx.com， iframe 嵌入子页面 22.56.128.50:8888,子页面调用接口歇尔代主页面 的cookie。
+
+```html
+<iframe src="www.xxx.com/config/xxxLogin?target=page1">
+    
+</iframe>
+```
+
+iframe 中的地址是主页面的地址，利用 nginx  匹配 **/config** 转发 到 **22.56.128.50:8888** 这样一来 内嵌页面与主页面不跨域了。可以访问主页面的cookie。
+
+但是有个问题，子页面跨域自动携带 cookie 失败了（暂时不大明白原因）。只能通过 js读取cookie 作为参数传递给后端
+
+
+
+### Mysql 查询表字段结构注释
+
+> 数据库名 是需要修改的
+
+```sql
+SELECT
+a.table_name 表名,
+a.table_comment 表说明,
+b.COLUMN_NAME 字段名,
+b.column_comment 字段说明,
+b.column_type 字段类型,
+b.column_key 约束
+FROM
+information_schema. TABLES a
+LEFT JOIN information_schema. COLUMNS b ON a.table_name = b.TABLE_NAME
+WHERE
+a.table_schema = '数据库名'
+ORDER BY
+a.table_name
+```
+
+> 原文链接：https://blog.csdn.net/LQZ8888/article/details/127879597
+
+### **查询某数据库下的所有表名 表注释**
+
+```sql
+SELECT
+table_name 表名,
+table_comment 表说明
+FROM
+information_schema.TABLES
+WHERE
+table_schema = '数据库名'
+ORDER BY
+table_name
+```
+
