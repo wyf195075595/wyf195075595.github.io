@@ -482,6 +482,85 @@ const initialList = [
       artwork.seen = nextSeen;
     });
   }
+
+```
+
+使用 useImmerReducer 优化 Reducer
+
+```react
+import { useImmerReducer } from 'use-immer';
+import AddTask from './AddTask.js';
+import TaskList from './TaskList.js';
+
+function tasksReducer(draft, action) {
+  switch (action.type) {
+    case 'added': {
+      draft.push({
+        id: action.id,
+        text: action.text,
+        done: false,
+      });
+      break;
+    }
+    case 'changed': {
+      const index = draft.findIndex((t) => t.id === action.task.id);
+      draft[index] = action.task;
+      break;
+    }
+    case 'deleted': {
+      return draft.filter((t) => t.id !== action.id);
+    }
+    default: {
+      throw Error('未知 action：' + action.type);
+    }
+  }
+}
+
+export default function TaskApp() {
+  const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);
+
+  function handleAddTask(text) {
+    dispatch({
+      type: 'added',
+      id: nextId++,
+      text: text,
+    });
+  }
+
+  function handleChangeTask(task) {
+    dispatch({
+      type: 'changed',
+      task: task,
+    });
+  }
+
+  function handleDeleteTask(taskId) {
+    dispatch({
+      type: 'deleted',
+      id: taskId,
+    });
+  }
+
+  return (
+    <>
+      <h1>布拉格的行程安排</h1>
+      <AddTask onAddTask={handleAddTask} />
+      <TaskList
+        tasks={tasks}
+        onChangeTask={handleChangeTask}
+        onDeleteTask={handleDeleteTask}
+      />
+    </>
+  );
+}
+
+let nextId = 3;
+const initialTasks = [
+  {id: 0, text: '参观卡夫卡博物馆', done: true},
+  {id: 1, text: '看木偶戏', done: false},
+  {id: 2, text: '打卡列侬墙', done: false},
+];
+
 ```
 
 
@@ -521,3 +600,14 @@ Router 默认是模糊匹配, Switch 只能匹配其中第一个
 ### ahooks
 
 > [ahooks](https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Falibaba%2Fhooks) 是一套开源的 React Hooks 库，封装了大量好用的 Hooks。在当前 React 项目研发过程中，一套好用的 React Hooks 库是必不可少的，希望 ahooks 能成为您的选择。
+
+
+
+### react 的状态管理
+
+> Redux`、`Recoil`、还有 React 自带的`useContext`+`useReducer
+>
+> `recoil`>`useContext + useReducer`>`Reudx`>其他
+>
+> [参考文章](https://juejin.cn/post/6986261889412136991#heading-0)
+

@@ -1178,7 +1178,9 @@ killall 进程名字
 
 	
 
+#### 查看CPU、内存和硬盘详细信息
 
+> [参考链接](https://blog.csdn.net/lishiyu93/article/details/120951677)
 
 ### 服务管理
 

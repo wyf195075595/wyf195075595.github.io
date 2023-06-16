@@ -225,10 +225,57 @@ var fn_downLoadTest = async (ctx, next) => {
 };
 ```
 
+### archiver 文件打包下载
+
+```js
+const router = require('koa-router')();
+ 
+const send = require('koa-send');
+ 
+const archiver = require('archiver');
+ 
+router.post('/downloadAll', async (ctx){
+// 将要打包的文件列表
+    const list = [{name: '1.txt'},{name: '2.txt'}];
+    const zipName = '1.zip';
+    const zipStream = fs.createWriteStream(zipName);
+    const zip = archiver('zip');
+    zip.pipe(zipStream);
+    for (let i = 0; i < list.length; i++) {
+        // 添加单个文件到压缩包
+        zip.append(
+            fs.createReadStream(list[i].name), 
+            { name: list[i].name }
+        )
+    }
+    await zip.finalize();
+    ctx.attachment(zipName);
+    await send(ctx, zipName);
+ 
+})
+```
+
+如果直接打包整个文件夹，则不需要去遍历每个文件 append 到压缩包里
+
+```js
+const zipStream = fs.createWriteStream('1.zip');
+const zip = archiver('zip');
+zip.pipe(zipStream);
+// 添加整个文件夹到压缩包
+zip.directory('upload/');
+zip.finalize();
+```
+
+> 注意：打包整个文件夹，生成的压缩包文件不可存放到该文件夹下，否则会不断的打包。
+>
+> [参考文档](https://blog.csdn.net/qq_39197547/article/details/81316856)
+
+
+
 ### koa-body文件上传
 
 ```js
-const cors = require('koa-body');
+const {koaBody } = require('koa-body');
 //处理上传文件
 app.use(koaBody({
     multipart: true,//多文件
@@ -338,5 +385,31 @@ userModel.findOne({name},function(err,data){
         data:xxx
     })
 })
+```
+
+
+
+## koa 获取参数
+
+1、获取 query (问好后面的内容)
+
+```js
+ctx.query
+```
+
+2、获取路由参数 （/user/:id 的 id）
+
+```
+ctx.param
+```
+
+3、获取请求体参数
+
+> 需要借助中间件 koa-bodyparser
+
+4、获取header
+
+```
+ctx.header.content-type
 ```
 

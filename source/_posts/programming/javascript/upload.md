@@ -5,7 +5,7 @@ tags: js
 categories: js
 ---
 
-## upload函数
+### upload函数
 
 ```js
 // 绑定上传按钮事件
@@ -112,3 +112,80 @@ $('.file').on('change',function(e){
 |*.xlw	|application/vnd.ms-excel|	MS Excel Workspace|
 |*.xml	|text/xml, application/xml	|Extensible Markup Language|
 |*.zip	|aplication/zip	|Compressed Archive|
+
+
+
+### 大文件切片文件上传
+
+前端：
+
+```html
+<fieldset>
+    <legend>切片上传</legend>
+    <progress id="progress"  max="100" value="0"></progress>
+    <span id="tips"></span>
+    <label for="files1" >
+        <span>文件：</span>
+        <input id="files1" type="file" name="files" />
+    </label>
+    <button id="btn-submit">传送</button>
+</fieldset>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+	 const oProgress = document.getElementById("progress");
+        const oFile = document.getElementById("files1");
+        const oTips = document.getElementById("tips");
+        const TIP_INFO = {
+            "NOT_SURPORT": "不支持此类型文件",
+            "NO_FILE": "未选择文件",
+            "UPLOAD_FAIL": "上传文件失败",
+            "UPLOAD_SUCCESS": "上传文件成功",
+        }
+        const API = {
+            upload: "http://localhost:8000/uploadFile"
+        }
+        // 切片大小
+        const CHUNK_SIZE = 1024 * 1024;
+        // 已上传大小
+        let uploadSize = 0;
+        const uploadReslut = null;
+        document.getElementById("btn-submit").onclick = async function() {
+            const { files: [files] } = oFile;
+            console.log(files);
+            if(!files) {
+                oTips.innerText = TIP_INFO.NO_FILE;
+                console.warn(TIP_INFO.NO_FILE);
+            }
+            const { name, type, size} = files;
+            oProgress.max = size;
+            oTips.innerText = "";
+            while(uploadSize <= size) {
+                const fileName = new Date().getTime() + "_" + name;
+                const fileChunk = files.slice(uploadSize, uploadSize + CHUNK_SIZE);
+                const formData = createFormData({name, type, size, fileName, uploadSize, file: fileChunk});
+                try {
+                    uploadReslut = await axios.post(API.upload, formData);
+                } catch (error) {
+                    oTips.innerText = TIP_INFO.UPLOAD_FAIL;
+                }
+                uploadSize += fileChunk.size;
+                if(fileChunk.size == 0) break;
+                oProgress.value = uploadSize;
+            }
+            oTips.innerText = TIP_INFO.UPLOAD_SUCCESS;
+            uploadSize = 0;
+            function createFormData ({name, type, size, fileName, uploadSize, file}) {
+               const fd =  new FormData();
+               fd.append("name", name);
+               fd.append("type", type);
+               fd.append("size", size);
+               fd.append("fileName", fileName);
+               fd.append("uploadSize", uploadSize);
+               fd.append("file", file);
+               return fd;
+            }
+        }
+</script>
+```
+

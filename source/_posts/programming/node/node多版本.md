@@ -33,22 +33,28 @@ categories: node
 
 	
 
-3. 配置settings.txt
+3. 配置settings.txt, 环境变量
 
-	我的配置
+  我的配置
 
-	```
-	# 路径不能出现中文、不能有空格
-	# nvm 安装路径
-	root: C:\Users\19507\AppData\Roaming\nvm
-	# 创建快捷方式
-	path: C:\Users\19507\AppData\Roaming\nvm\nodejs
-	# 镜像地址 提高下载速度
-	node_mirror: https://npm.taobao.org/mirrors/node/ 
-	npm_mirror: https://npm.taobao.org/mirrors/npm/
-	```
+  ```
+  # 路径不能出现中文、不能有空格
+  # nvm 安装路径
+  root: C:\Users\19507\AppData\Roaming\nvm
+  # 创建快捷方式
+  path: C:\Users\19507\AppData\Roaming\nvm\nodejs
+  # 镜像地址 提高下载速度
+  node_mirror: https://npm.taobao.org/mirrors/node/ 
+  npm_mirror: https://npm.taobao.org/mirrors/npm/
+  ```
 
-	
+  ```js
+  # 安装时会自动设置 环境变量
+  NVM HOME	C:/Users/19507/AppData/Roaming/nvm
+  NVM SYMLINK	C:/Users/19507/AppData/Roaming/nvm/nodejs
+  ```
+
+  
 
 4. 常用命令
 
@@ -151,7 +157,7 @@ categories: node
 	  如果使用的是 yarn 可以全局安装就是了
 
 	  ```
-  npm install -g yarn
+    npm install -g yarn
 	  ```
 	
 	  
@@ -161,4 +167,16 @@ categories: node
 		今天碰见的一个问题，需要用到 node版本切换，于是记录了下来。虽然没有解决那个问题😩
 	
 	
+
+> 拓展：n 模块管理 node版本（后面发现的）。但 `n` 不适用于 Microsoft Windows，在 macOS、Linux（包括 Windows Subsystem for Linux）和其他各种类 unix 系统上受支持。
+>
+> ```js
+> # 安装
+> npm install -g n
+> 
+> # 变更 node 版本
+> n 14.17.0
+> ```
+>
+> 
 
