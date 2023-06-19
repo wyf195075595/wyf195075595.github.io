@@ -18,7 +18,7 @@
 <meta property="og:description" content="react-loadableReact 项目打包时，如果不进行异步组件的处理，那么所有页面所需要的 js 都在同一文件中（bundle.js），整个js文件很大，从而导致首屏加载时间过长。  所有，可以对组件进行异步加载处理，通常可以使用 React-loadable。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-08-17T07:55:43.824Z">
+<meta property="article:modified_time" content="2023-06-13T08:56:25.705Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.2k字</span>
+      <span class="post-count">2.5k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">11分</span>
+      <span class="post-count">14分</span>
     </span>
   </span>
 </div>
@@ -356,6 +356,16 @@
 <h3 id="nprogress"><a href="#nprogress" class="headerlink" title="nprogress"></a>nprogress</h3><blockquote>
 <p>页面顶部进度条，用来代替加载中动画。使用时记得引入样式，否则进度条不显示。</p>
 </blockquote>
+<h3 id="Immer"><a href="#Immer" class="headerlink" title="Immer"></a>Immer</h3><blockquote>
+<p>更新嵌套对象，数组时，可以不用结构赋值繁琐操作</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useImmer &#125; from &#x27;use-immer&#x27;;</span><br><span class="line">const initialList = [</span><br><span class="line">  &#123; id: 0, title: &#x27;Big Bellies&#x27;, seen: false &#125;,</span><br><span class="line">  &#123; id: 1, title: &#x27;Lunar Landscape&#x27;, seen: false &#125;,</span><br><span class="line">  &#123; id: 2, title: &#x27;Terracotta Army&#x27;, seen: true &#125;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> const [yourList, updateYourList] = useImmer(</span><br><span class="line">   initialList</span><br><span class="line"> );</span><br><span class="line"> function handleToggleYourList(artworkId, nextSeen) &#123;</span><br><span class="line">    updateYourList(draft =&gt; &#123;</span><br><span class="line">      const artwork = draft.find(a =&gt;</span><br><span class="line">        a.id === artworkId</span><br><span class="line">      );</span><br><span class="line">      artwork.seen = nextSeen;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用 useImmerReducer 优化 Reducer</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useImmerReducer &#125; from &#x27;use-immer&#x27;;</span><br><span class="line">import AddTask from &#x27;./AddTask.js&#x27;;</span><br><span class="line">import TaskList from &#x27;./TaskList.js&#x27;;</span><br><span class="line"></span><br><span class="line">function tasksReducer(draft, action) &#123;</span><br><span class="line">  switch (action.type) &#123;</span><br><span class="line">    case &#x27;added&#x27;: &#123;</span><br><span class="line">      draft.push(&#123;</span><br><span class="line">        id: action.id,</span><br><span class="line">        text: action.text,</span><br><span class="line">        done: false,</span><br><span class="line">      &#125;);</span><br><span class="line">      break;</span><br><span class="line">    &#125;</span><br><span class="line">    case &#x27;changed&#x27;: &#123;</span><br><span class="line">      const index = draft.findIndex((t) =&gt; t.id === action.task.id);</span><br><span class="line">      draft[index] = action.task;</span><br><span class="line">      break;</span><br><span class="line">    &#125;</span><br><span class="line">    case &#x27;deleted&#x27;: &#123;</span><br><span class="line">      return draft.filter((t) =&gt; t.id !== action.id);</span><br><span class="line">    &#125;</span><br><span class="line">    default: &#123;</span><br><span class="line">      throw Error(&#x27;未知 action：&#x27; + action.type);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default function TaskApp() &#123;</span><br><span class="line">  const [tasks, dispatch] = useImmerReducer(tasksReducer, initialTasks);</span><br><span class="line"></span><br><span class="line">  function handleAddTask(text) &#123;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type: &#x27;added&#x27;,</span><br><span class="line">      id: nextId++,</span><br><span class="line">      text: text,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function handleChangeTask(task) &#123;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type: &#x27;changed&#x27;,</span><br><span class="line">      task: task,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function handleDeleteTask(taskId) &#123;</span><br><span class="line">    dispatch(&#123;</span><br><span class="line">      type: &#x27;deleted&#x27;,</span><br><span class="line">      id: taskId,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;h1&gt;布拉格的行程安排&lt;/h1&gt;</span><br><span class="line">      &lt;AddTask onAddTask=&#123;handleAddTask&#125; /&gt;</span><br><span class="line">      &lt;TaskList</span><br><span class="line">        tasks=&#123;tasks&#125;</span><br><span class="line">        onChangeTask=&#123;handleChangeTask&#125;</span><br><span class="line">        onDeleteTask=&#123;handleDeleteTask&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let nextId = 3;</span><br><span class="line">const initialTasks = [</span><br><span class="line">  &#123;id: 0, text: &#x27;参观卡夫卡博物馆&#x27;, done: true&#125;,</span><br><span class="line">  &#123;id: 1, text: &#x27;看木偶戏&#x27;, done: false&#125;,</span><br><span class="line">  &#123;id: 2, text: &#x27;打卡列侬墙&#x27;, done: false&#125;,</span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="react-router-dom-与-react-router-dom-区别"><a href="#react-router-dom-与-react-router-dom-区别" class="headerlink" title="react-router-dom 与 react-router-dom 区别"></a>react-router-dom 与 react-router-dom 区别</h3><blockquote>
 <p>都是路由管理的插件，它拓展了一下在浏览器环境下运行的一些功能。</p>
 <p>react-router-dom 依赖 react-router 。安装了前者就不用再安装后者</p>
@@ -371,6 +381,11 @@
 </blockquote>
 <h3 id="ahooks"><a href="#ahooks" class="headerlink" title="ahooks"></a>ahooks</h3><blockquote>
 <p><a target="_blank" rel="noopener" href="https://links.jianshu.com/go?to=https://github.com/alibaba/hooks">ahooks</a> 是一套开源的 React Hooks 库，封装了大量好用的 Hooks。在当前 React 项目研发过程中，一套好用的 React Hooks 库是必不可少的，希望 ahooks 能成为您的选择。</p>
+</blockquote>
+<h3 id="react-的状态管理"><a href="#react-的状态管理" class="headerlink" title="react 的状态管理"></a>react 的状态管理</h3><blockquote>
+<p>Redux<code>、</code>Recoil<code>、还有 React 自带的</code>useContext<code>+</code>useReducer</p>
+<p><code>recoil</code>&gt;<code>useContext + useReducer</code>&gt;<code>Reudx</code>&gt;其他</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6986261889412136991#heading-0">参考文章</a></p>
 </blockquote>
 
     
@@ -500,8 +515,8 @@
     </a>
   
   
-    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E4%BB%80%E4%B9%88%E6%98%AFJavaScript/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一章 什么是JavaScript</div>
+    <a href="/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react 基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -528,7 +543,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-loadable"><span class="toc-number">1.</span> <span class="toc-text">react-loadable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history"><span class="toc-number">2.</span> <span class="toc-text">history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel-plugin-import"><span class="toc-number">3.</span> <span class="toc-text">babel-plugin-import</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antd"><span class="toc-number">4.</span> <span class="toc-text">antd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#craco-craco"><span class="toc-number">5.</span> <span class="toc-text">@craco&#x2F;craco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-photo-view"><span class="toc-number">6.</span> <span class="toc-text">react-photo-view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#styled-components"><span class="toc-number">7.</span> <span class="toc-text">styled-components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nprogress"><span class="toc-number">8.</span> <span class="toc-text">nprogress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-router-dom-%E4%B8%8E-react-router-dom-%E5%8C%BA%E5%88%AB"><span class="toc-number">9.</span> <span class="toc-text">react-router-dom 与 react-router-dom 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux-persist"><span class="toc-number">10.</span> <span class="toc-text">redux-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ahooks"><span class="toc-number">11.</span> <span class="toc-text">ahooks</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-loadable"><span class="toc-number">1.</span> <span class="toc-text">react-loadable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#history"><span class="toc-number">2.</span> <span class="toc-text">history</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel-plugin-import"><span class="toc-number">3.</span> <span class="toc-text">babel-plugin-import</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antd"><span class="toc-number">4.</span> <span class="toc-text">antd</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#craco-craco"><span class="toc-number">5.</span> <span class="toc-text">@craco&#x2F;craco</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-photo-view"><span class="toc-number">6.</span> <span class="toc-text">react-photo-view</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#styled-components"><span class="toc-number">7.</span> <span class="toc-text">styled-components</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nprogress"><span class="toc-number">8.</span> <span class="toc-text">nprogress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Immer"><span class="toc-number">9.</span> <span class="toc-text">Immer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-router-dom-%E4%B8%8E-react-router-dom-%E5%8C%BA%E5%88%AB"><span class="toc-number">10.</span> <span class="toc-text">react-router-dom 与 react-router-dom 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#redux-persist"><span class="toc-number">11.</span> <span class="toc-text">redux-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ahooks"><span class="toc-number">12.</span> <span class="toc-text">ahooks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#react-%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="toc-number">13.</span> <span class="toc-text">react 的状态管理</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -690,11 +705,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -710,11 +725,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,67 +749,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -806,15 +769,59 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,11 +829,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,6 +865,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -850,7 +881,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -858,15 +897,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -874,7 +917,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,7 +929,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,7 +937,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -902,11 +945,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">

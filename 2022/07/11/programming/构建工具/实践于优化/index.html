@@ -18,7 +18,7 @@
 <meta property="og:description" content="如何删除项目中没有使用到的 package12345678910$ npm install depcheck -g$ depcheckUnused dependencies* underscoreUnused devDependencies* jasmineMissing dependencies* lodash  查看 node_modules(某一文件夹) 的体积有多大">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-07-11T09:23:10.000Z">
-<meta property="article:modified_time" content="2022-08-02T03:02:59.037Z">
+<meta property="article:modified_time" content="2023-06-15T02:35:26.196Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="前端小站，前端，博客，笔记">
 <meta name="twitter:card" content="summary">
@@ -387,17 +387,13 @@
 <h3 id="按需加载"><a href="#按需加载" class="headerlink" title="按需加载"></a>按需加载</h3><h4 id="Vue"><a href="#Vue" class="headerlink" title="Vue"></a>Vue</h4><p>这种方式下一个组件生成一个js文件</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>([<span class="string">&#x27;../components/Login&#x27;</span>], resolve)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ES6&spm=1001.2101.3001.7020">ES6</a>的import()方法</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种方式下, 没有指定webpackChunkName, 每个组件会打包成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../pages/components/Login&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../pages/components/Layout&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"><span class="comment">// 这种方式下, 指定了webpakeChunkName, 多个组件会合并成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpakeChunkName: demo */</span> <span class="string">&#x27;../pages/components/Login&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpakeChunkName: demo */</span> <span class="string">&#x27;../pages/components/Layout&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<h4 id="ES6的import-方法"><a href="#ES6的import-方法" class="headerlink" title="ES6的import()方法"></a><a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=ES6&spm=1001.2101.3001.7020">ES6</a>的import()方法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种方式下, 没有指定webpackChunkName, 每个组件会打包成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../pages/components/Login&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="string">&#x27;../pages/components/Layout&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br><span class="line"><span class="comment">// 这种方式下, 指定了webpakeChunkName, 多个组件会合并成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;Login&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpakeChunkName: demo */</span> <span class="string">&#x27;../pages/components/Login&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="title function_">import</span>(<span class="comment">/* webpakeChunkName: demo */</span> <span class="string">&#x27;../pages/components/Layout&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
 
-<p>webpake提供的resolve + require.ensure()</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种情况下, 多个路由指定相同的chunkNmae会合并打包成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>.<span class="title function_">ensure</span>([], <span class="function">() =&gt;</span> <span class="title function_">resolve</span>(<span class="built_in">require</span>(<span class="string">&#x27;../pages/components/Login&#x27;</span>)), <span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>.<span class="title function_">ensure</span>([], <span class="function">() =&gt;</span> <span class="title function_">resolve</span>(<span class="built_in">require</span>(<span class="string">&#x27;../pages/components/Layout&#x27;</span>)), <span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+<h4 id="webpake提供的resolve-require-ensure"><a href="#webpake提供的resolve-require-ensure" class="headerlink" title="webpake提供的resolve + require.ensure()"></a>webpake提供的resolve + require.ensure()</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这种情况下, 多个路由指定相同的chunkNmae会合并打包成一个js文件</span></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  <span class="attr">router</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;login&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>.<span class="title function_">ensure</span>([], <span class="function">() =&gt;</span> <span class="title function_">resolve</span>(<span class="built_in">require</span>(<span class="string">&#x27;../pages/components/Login&#x27;</span>)), <span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;layout&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> <span class="built_in">require</span>.<span class="title function_">ensure</span>([], <span class="function">() =&gt;</span> <span class="title function_">resolve</span>(<span class="built_in">require</span>(<span class="string">&#x27;../pages/components/Layout&#x27;</span>)), <span class="string">&#x27;demo&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
 
-<p>组件的按需加载</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">components</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;helloWord&#x27;</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> &#123;<span class="built_in">require</span>([<span class="string">&#x27;../components/test.vue&#x27;</span>]), resolve&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="组件的按需加载"><a href="#组件的按需加载" class="headerlink" title="组件的按需加载"></a>组件的按需加载</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">  <span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">    data () &#123;</span><br><span class="line">      <span class="keyword">return</span> &#123;&#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">components</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;helloWord&#x27;</span>: <span class="function"><span class="params">resolve</span> =&gt;</span> &#123;<span class="built_in">require</span>([<span class="string">&#x27;../components/test.vue&#x27;</span>]), resolve&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>导入组件的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%87%92%E5%8A%A0%E8%BD%BD&spm=1001.2101.3001.7020">懒加载</a></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;@/pages/home/index.vue&#x27;</span> <span class="comment">// es6提供的import方法</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = (<span class="params"></span>) =&gt; <span class="title function_">import</span>(<span class="string">&#x27;@/pages/home/index.vue&#x27;</span>) <span class="comment">// 懒加载的方法</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = resolve =&gt; <span class="built_in">require</span>([<span class="string">&#x27;@/pages/home/index.vue&#x27;</span>], resolve) <span class="comment">// 懒加载的方法</span></span><br></pre></td></tr></table></figure>
+<h4 id="导入组件的懒加载"><a href="#导入组件的懒加载" class="headerlink" title="导入组件的懒加载"></a>导入组件的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%87%92%E5%8A%A0%E8%BD%BD&spm=1001.2101.3001.7020">懒加载</a></h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;@/pages/home/index.vue&#x27;</span> <span class="comment">// es6提供的import方法</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = (<span class="params"></span>) =&gt; <span class="title function_">import</span>(<span class="string">&#x27;@/pages/home/index.vue&#x27;</span>) <span class="comment">// 懒加载的方法</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">Home</span> = resolve =&gt; <span class="built_in">require</span>([<span class="string">&#x27;@/pages/home/index.vue&#x27;</span>], resolve) <span class="comment">// 懒加载的方法</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -680,7 +676,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84-package"><span class="toc-number">1.</span> <span class="toc-text">如何删除项目中没有使用到的 package</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-node-modules-%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E5%A4%B9-%E7%9A%84%E4%BD%93%E7%A7%AF%E6%9C%89%E5%A4%9A%E5%A4%A7"><span class="toc-number">2.</span> <span class="toc-text">查看 node_modules(某一文件夹) 的体积有多大</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optionalDependencies-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">3.</span> <span class="toc-text">optionalDependencies 的使用场景是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">前端性能分析工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dependencies-%E4%B8%8E-devDependencies-%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">dependencies 与 devDependencies 有何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%90%A6%E5%BC%95%E7%94%A8%E6%9F%90%E4%B8%AA%E4%BE%9D%E8%B5%96"><span class="toc-number">6.</span> <span class="toc-text">确认项目是否引用某个依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E9%A1%B9%E7%9B%AE%E6%8C%87%E5%AE%9Anode%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">7.</span> <span class="toc-text">为项目指定node版本号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8F%B7-%E8%AE%BE%E7%BD%AE"><span class="toc-number">8.</span> <span class="toc-text">版本号 设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.</span> <span class="toc-text">npm 钩子函数, 生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%88%86%E5%8C%85"><span class="toc-number">10.</span> <span class="toc-text">webpack 分包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-BFF-%E5%B1%82"><span class="toc-number">11.</span> <span class="toc-text">引入 BFF 层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%89%8D%E7%AB%AF-js-%E7%9A%84%E4%BD%93%E7%A7%AF"><span class="toc-number">12.</span> <span class="toc-text">压缩前端 js 的体积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD"><span class="toc-number">13.</span> <span class="toc-text">按需加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue"><span class="toc-number">13.1.</span> <span class="toc-text">Vue</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%8E%8B%E7%BC%A9"><span class="toc-number">14.</span> <span class="toc-text">代码压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">15.</span> <span class="toc-text">代码分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN-%E4%BC%98%E5%8C%96"><span class="toc-number">16.</span> <span class="toc-text">CDN 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip-%E5%8A%A0%E9%80%9F"><span class="toc-number">17.</span> <span class="toc-text">gzip 加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E6%97%B6-v-deep-%E8%AF%AD%E6%B3%95%E6%8A%A5%E9%94%99"><span class="toc-number">18.</span> <span class="toc-text">打包时 ::v-deep 语法报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E6%97%B6%E9%97%B4"><span class="toc-number">19.</span> <span class="toc-text">首屏加载时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF-%E5%B0%8F%E5%9B%BE%E7%89%87%E8%BD%AC-base64"><span class="toc-number">20.</span> <span class="toc-text">前端　小图片转　base64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#browserslist"><span class="toc-number">21.</span> <span class="toc-text">browserslist</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E9%A1%B9%E7%9B%AE%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%BD%BF%E7%94%A8%E5%88%B0%E7%9A%84-package"><span class="toc-number">1.</span> <span class="toc-text">如何删除项目中没有使用到的 package</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B-node-modules-%E6%9F%90%E4%B8%80%E6%96%87%E4%BB%B6%E5%A4%B9-%E7%9A%84%E4%BD%93%E7%A7%AF%E6%9C%89%E5%A4%9A%E5%A4%A7"><span class="toc-number">2.</span> <span class="toc-text">查看 node_modules(某一文件夹) 的体积有多大</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#optionalDependencies-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">3.</span> <span class="toc-text">optionalDependencies 的使用场景是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">前端性能分析工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dependencies-%E4%B8%8E-devDependencies-%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">dependencies 与 devDependencies 有何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A1%AE%E8%AE%A4%E9%A1%B9%E7%9B%AE%E6%98%AF%E5%90%A6%E5%BC%95%E7%94%A8%E6%9F%90%E4%B8%AA%E4%BE%9D%E8%B5%96"><span class="toc-number">6.</span> <span class="toc-text">确认项目是否引用某个依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E9%A1%B9%E7%9B%AE%E6%8C%87%E5%AE%9Anode%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">7.</span> <span class="toc-text">为项目指定node版本号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%88%E6%9C%AC%E5%8F%B7-%E8%AE%BE%E7%BD%AE"><span class="toc-number">8.</span> <span class="toc-text">版本号 设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#npm-%E9%92%A9%E5%AD%90%E5%87%BD%E6%95%B0-%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">9.</span> <span class="toc-text">npm 钩子函数, 生命周期</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%88%86%E5%8C%85"><span class="toc-number">10.</span> <span class="toc-text">webpack 分包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-BFF-%E5%B1%82"><span class="toc-number">11.</span> <span class="toc-text">引入 BFF 层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E5%89%8D%E7%AB%AF-js-%E7%9A%84%E4%BD%93%E7%A7%AF"><span class="toc-number">12.</span> <span class="toc-text">压缩前端 js 的体积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD"><span class="toc-number">13.</span> <span class="toc-text">按需加载</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Vue"><span class="toc-number">13.1.</span> <span class="toc-text">Vue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ES6%E7%9A%84import-%E6%96%B9%E6%B3%95"><span class="toc-number">13.2.</span> <span class="toc-text">ES6的import()方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#webpake%E6%8F%90%E4%BE%9B%E7%9A%84resolve-require-ensure"><span class="toc-number">13.3.</span> <span class="toc-text">webpake提供的resolve + require.ensure()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E7%9A%84%E6%8C%89%E9%9C%80%E5%8A%A0%E8%BD%BD"><span class="toc-number">13.4.</span> <span class="toc-text">组件的按需加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AF%BC%E5%85%A5%E7%BB%84%E4%BB%B6%E7%9A%84%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">13.5.</span> <span class="toc-text">导入组件的懒加载</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%8E%8B%E7%BC%A9"><span class="toc-number">14.</span> <span class="toc-text">代码压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">15.</span> <span class="toc-text">代码分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN-%E4%BC%98%E5%8C%96"><span class="toc-number">16.</span> <span class="toc-text">CDN 优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip-%E5%8A%A0%E9%80%9F"><span class="toc-number">17.</span> <span class="toc-text">gzip 加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E6%97%B6-v-deep-%E8%AF%AD%E6%B3%95%E6%8A%A5%E9%94%99"><span class="toc-number">18.</span> <span class="toc-text">打包时 ::v-deep 语法报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A6%96%E5%B1%8F%E5%8A%A0%E8%BD%BD%E6%97%B6%E9%97%B4"><span class="toc-number">19.</span> <span class="toc-text">首屏加载时间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF-%E5%B0%8F%E5%9B%BE%E7%89%87%E8%BD%AC-base64"><span class="toc-number">20.</span> <span class="toc-text">前端　小图片转　base64</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#browserslist"><span class="toc-number">21.</span> <span class="toc-text">browserslist</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -842,11 +838,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -862,11 +858,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,67 +882,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,15 +902,59 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -974,11 +962,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -994,6 +998,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1002,7 +1014,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1010,15 +1030,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1026,7 +1050,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1038,7 +1062,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,7 +1070,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,11 +1078,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">

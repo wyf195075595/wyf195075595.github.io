@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/state%E6%95%B0%E6%8D%AE%E6%B5%81.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/callbackflow.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-08-05T03:18:56.960Z">
+<meta property="article:modified_time" content="2023-06-12T01:38:12.201Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="基础知识">
 <meta name="twitter:card" content="summary">
@@ -291,7 +291,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.5k字</span>
+      <span class="post-count">2.8k字</span>
     </span>
   </span>
 
@@ -300,7 +300,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">13分</span>
+      <span class="post-count">15分</span>
     </span>
   </span>
 </div>
@@ -349,6 +349,17 @@
 
 
 <h3 id="HOC-Higher-order-component"><a href="#HOC-Higher-order-component" class="headerlink" title="HOC - Higher order component"></a>HOC - Higher order component</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">高阶组件： 一个函数，接收一个组件作为参数，返回一个新的组件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="userReduce"><a href="#userReduce" class="headerlink" title="userReduce"></a>userReduce</h3><p>commonContext.jsx</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> * @Description: 全局状态管理</span><br><span class="line"> * @Author:  </span><br><span class="line"> * @Date: 2023-05-31 10:20:39</span><br><span class="line"> * @LastEditTime: 2023-05-31 11:15:09</span><br><span class="line"> * @LastEditors:  </span><br><span class="line"> */</span><br><span class="line">import &#123; createContext, useContext, useReducer &#125; from &#x27;react&#x27;</span><br><span class="line"></span><br><span class="line">const UserInfoContext = createContext(null);</span><br><span class="line">const UserInfoDispatchContext = createContext(null);</span><br><span class="line"></span><br><span class="line">const initUserInfo = &#123;</span><br><span class="line">    age: &quot;&quot;,</span><br><span class="line">    gender: &quot;&quot;,</span><br><span class="line">    hobbies: [],</span><br><span class="line">    intro: &quot;&quot;,</span><br><span class="line">    name: &quot;&quot;,</span><br><span class="line">    occupation: &quot;&quot;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// eslint-disable-next-line react/prop-types</span><br><span class="line">export function ContextProvider (&#123; children &#125;) &#123;</span><br><span class="line">    const [userinfo, dispatch] = useReducer(userInfoReducer, initUserInfo)</span><br><span class="line"></span><br><span class="line">    return (</span><br><span class="line">        &lt;UserInfoContext.Provider value=&#123;userinfo&#125;&gt;</span><br><span class="line">            &lt;UserInfoDispatchContext.Provider value=&#123;dispatch&#125;&gt;</span><br><span class="line">                &#123; children &#125;</span><br><span class="line">            &lt;/UserInfoDispatchContext.Provider&gt;</span><br><span class="line">        &lt;/UserInfoContext.Provider&gt;</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function useUserInfo() &#123;</span><br><span class="line">    return useContext(UserInfoContext);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function useUserInfoDispatch() &#123;</span><br><span class="line">    return useContext(UserInfoDispatchContext);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function userInfoReducer(userInfo, action) &#123;</span><br><span class="line">    console.log(userInfo, action);</span><br><span class="line">    const &#123; type, ...payload &#125; = action;</span><br><span class="line">    switch(type) &#123;</span><br><span class="line">        case &quot;add&quot;: &#123;</span><br><span class="line">            return &#123;</span><br><span class="line">                ...useUserInfo,</span><br><span class="line">                ...payload</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">        default: &#123;</span><br><span class="line">            throw Error(&#x27;未知操作：&#x27; + action.type);</span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>main.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ContextProvider &#125; from &#x27;./utils/commonContext&#x27;</span><br><span class="line"></span><br><span class="line">ReactDOM.createRoot(document.getElementById(&#x27;root&#x27;)).render(</span><br><span class="line">  // &lt;React.StrictMode&gt;</span><br><span class="line">  &lt;ContextProvider&gt;</span><br><span class="line">    &lt;App /&gt;</span><br><span class="line">  &lt;/ContextProvider&gt;</span><br><span class="line">  // &lt;/React.StrictMode&gt;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>App.jsx</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useUserInfo &#125; <span class="keyword">from</span> <span class="string">&#x27;./utils/commonContext&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Form</span> <span class="keyword">from</span> <span class="string">&#x27;./views/form/Form&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> userInfo = <span class="title function_">useUserInfo</span>();</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;useUserInfo:&quot;</span>, userInfo);</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>name: &#123;userInfo.name&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>age: &#123;userInfo.age&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>intro: &#123;userInfo.intro&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>gender: &#123;userInfo.gender&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Form</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">App</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 
 <h2 id="在线笔记项目"><a href="#在线笔记项目" class="headerlink" title="在线笔记项目"></a>在线笔记项目</h2><h3 id="原型图"><a href="#原型图" class="headerlink" title="原型图"></a>原型图</h3><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E4%BA%91%E7%AC%94%E8%AE%B0%E5%8E%9F%E5%9E%8B%E5%9B%BE.png"></p>
 <h3 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h3><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E9%9C%80%E6%B1%82%E5%88%86%E6%9E%90.png"></p>
@@ -487,11 +498,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E4%B8%80%E7%AB%A0%20%E4%BB%80%E4%B9%88%E6%98%AFJavaScript/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/react/plugin/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          第一章 什么是JavaScript
+          react 插件
         
       </div>
     </a>
@@ -525,7 +536,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">react项目创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2、组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0"><span class="toc-number">1.3.</span> <span class="toc-text">3、表单元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.4.</span> <span class="toc-text">4、路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、路由传参</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hooks"><span class="toc-number">1.6.</span> <span class="toc-text">Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useState"><span class="toc-number">1.6.1.</span> <span class="toc-text">useState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect"><span class="toc-number">1.6.2.</span> <span class="toc-text">useEffect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89hook"><span class="toc-number">1.6.3.</span> <span class="toc-text">自定义hook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hook-%E8%A7%84%E5%88%99"><span class="toc-number">1.6.4.</span> <span class="toc-text">Hook 规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HOC-Higher-order-component"><span class="toc-number">1.6.5.</span> <span class="toc-text">HOC - Higher order component</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AE%B0%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.7.</span> <span class="toc-text">在线笔记项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%9B%BE"><span class="toc-number">1.7.1.</span> <span class="toc-text">原型图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">1.7.2.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%AD%97%E4%BD%93%E5%BA%93"><span class="toc-number">1.7.3.</span> <span class="toc-text">引入字体库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">1.7.4.</span> <span class="toc-text">内置类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classnames"><span class="toc-number">1.7.5.</span> <span class="toc-text">classnames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5WangEditor"><span class="toc-number">1.7.6.</span> <span class="toc-text">引入WangEditor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5wangeditor-v4%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.7.</span> <span class="toc-text">引入wangeditor  v4版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">1.7.8.</span> <span class="toc-text">State设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#App-state-%E5%88%86%E6%9E%90"><span class="toc-number">1.7.9.</span> <span class="toc-text">App  state 分析</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#react%E9%A1%B9%E7%9B%AE%E5%88%9B%E5%BB%BA"><span class="toc-number">1.</span> <span class="toc-text">react项目创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">1、创建项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">2、组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E8%A1%A8%E5%8D%95%E5%85%83%E7%B4%A0"><span class="toc-number">1.3.</span> <span class="toc-text">3、表单元素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">1.4.</span> <span class="toc-text">4、路由</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%B7%AF%E7%94%B1%E4%BC%A0%E5%8F%82"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、路由传参</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">1.5.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hooks"><span class="toc-number">1.6.</span> <span class="toc-text">Hooks</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#useState"><span class="toc-number">1.6.1.</span> <span class="toc-text">useState</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useEffect"><span class="toc-number">1.6.2.</span> <span class="toc-text">useEffect</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89hook"><span class="toc-number">1.6.3.</span> <span class="toc-text">自定义hook</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Hook-%E8%A7%84%E5%88%99"><span class="toc-number">1.6.4.</span> <span class="toc-text">Hook 规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HOC-Higher-order-component"><span class="toc-number">1.6.5.</span> <span class="toc-text">HOC - Higher order component</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#userReduce"><span class="toc-number">1.6.6.</span> <span class="toc-text">userReduce</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E7%AC%94%E8%AE%B0%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.7.</span> <span class="toc-text">在线笔记项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E5%9E%8B%E5%9B%BE"><span class="toc-number">1.7.1.</span> <span class="toc-text">原型图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">1.7.2.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%AD%97%E4%BD%93%E5%BA%93"><span class="toc-number">1.7.3.</span> <span class="toc-text">引入字体库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">1.7.4.</span> <span class="toc-text">内置类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#classnames"><span class="toc-number">1.7.5.</span> <span class="toc-text">classnames</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5WangEditor"><span class="toc-number">1.7.6.</span> <span class="toc-text">引入WangEditor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5wangeditor-v4%E7%89%88%E6%9C%AC"><span class="toc-number">1.7.7.</span> <span class="toc-text">引入wangeditor  v4版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#State%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="toc-number">1.7.8.</span> <span class="toc-text">State设计原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#App-state-%E5%88%86%E6%9E%90"><span class="toc-number">1.7.9.</span> <span class="toc-text">App  state 分析</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -687,11 +698,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,11 +718,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,67 +742,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -803,15 +762,59 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -819,11 +822,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,6 +858,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -847,7 +874,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -855,15 +890,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,7 +910,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,7 +922,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -891,7 +930,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,11 +938,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">

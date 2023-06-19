@@ -258,6 +258,829 @@
             
 
   
+    <article id="post-programming/htmlcss/css2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/10/20/programming/htmlcss/css2/" target="_blank">CSS 2.1</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/10/20/programming/htmlcss/css2/" class="archive-article-date">
+        <time datetime="2022-10-20T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>本章内容来自于《css的世界》-张鑫旭，类似于读书笔记吧。主要介绍css2.1的语法。本书主要用于进阶学习，不适用于初学者，书中也默认忽略一些基础的知识.</p>
+<p>CSS2.1中的CSS属性的设计初衷是展示图文</p>
+<h3 id="css-的世界"><a href="#css-的世界" class="headerlink" title="css 的世界"></a>css 的世界</h3><blockquote>
+<p>已操作系统划分世界，不同的操作系统就是平行世界。每种浏览器就是一个王国。</p>
+<p>在CSS世界中，HTML是魔法石，选择器就是选择法器，CSS属性就是魔法师，CSS各种属性值就是魔法师的魔法技能，浏览器就是他们所在的“王国”，“王国”会不断更新法律法规（版本升级），决定是否允许使用新的魔法石（HTML5新标签新属性），是否允许新的魔法师入“国籍”（CSS3新属性），或者允许魔法师使用某些新技能（CSS新的属性值），以及是否舍弃某些魔法技能（如display:run-in）；操作系统就是他们所在的世界，不同的操作系统代表不同的平行世界，所以，CSS世界有这么几个比较大的平行世界，即Windows世界、OS X世界以及移动端的iOS世界和Android世界。不同世界的浏览器王国的命运不一样，例如，在OS X世界中，IE王国是不存在的，而Safari王国却异常强大，但在Windows世界中，Safari王国却异常落寞。以上这一切就构成了完整的CSS世界的“世界观”。</p>
+</blockquote>
+<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h3><ol>
+<li><p>属性</p>
+</li>
+<li><p>值</p>
+</li>
+<li><p>关键字</p>
+</li>
+<li><p>变量</p>
+</li>
+<li><p>长度单位</p>
+<p> 时间单位（如s、ms），还有角度单位（如deg、rad等）</p>
+<p> 相对长度单位：如em,rem(相对字体),vh,vw,vmin,vmax(相对视区)</p>
+<p> 绝对长度单位：px</p>
+</li>
+<li><p>功能符</p>
+<p> 值以函数的形式指定（就是被括号括起来的那种），主要用来表示颜色（rgba和hsla）、背景图片地址（url）、元素属性值、计算（calc）和过渡效果等，如rgba(0,0,0, .5)、url(‘css-world.png’)、attr(‘href’)和scale(-1)。</p>
+</li>
+<li><p>属性值</p>
+</li>
+<li><p>声明</p>
+<p> 属性名加上属性值就是声明</p>
+</li>
+<li><p>声明块</p>
+<p> 就是选择器 {} 区域</p>
+</li>
+<li><p>规则或规则集</p>
+<p>选择器后面的声明块就是一个规则集</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    ... 规则集</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>选择器</p>
+</li>
+<li><p>关系选择器</p>
+<p>常见的符号有空格、&gt;、～，还有+等，这些都是非常常用的选择器。</p>
+</li>
+<li><p>@规则</p>
+<p>@规则指的是以@字符开始的一些规则，像@media、@font-face、@page或者@support，诸如此类</p>
+</li>
+</ol>
+    
+    <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-computer/电脑常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>微软商店提示无法加载该页面</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xueyuan2016/article/details/125754410">参考</a></p>
+<p><strong>1、代理服务器</strong>的设置问题</p>
+<p>设置 <strong>Internet选项 -连接-局域网设置-取消勾选代理服务器</strong></p>
+<p>2、TLS 版本过低</p>
+<p>Internet选项-高级-勾选 tls 1.2,1.3</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/10/18/computer/%E7%94%B5%E8%84%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/plugins" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/09/23/programming/vue/plugins/" target="_blank">插件合集</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/09/23/programming/vue/plugins/" class="archive-article-date">
+        <time datetime="2022-09-23T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="1、VueUse"><a href="#1、VueUse" class="headerlink" title="1、VueUse"></a>1、VueUse</h3><blockquote>
+<p>​    VueUse 是 <strong>Anthony Fu  大佬</strong>的一个开源项目，它为Vue的开发者提供了大量用于 Vue2 和Vue3 的基本 <strong>Composition API</strong> 实用工具函数。</p>
+<p>它有几十个用于常见开发人员用例的解决方案，如跟踪<code>ref</code>更改，检测元素可见性，简化常见Vue模式，键盘/鼠标输入等。 这是真正节省开发时间的好方法，因为我们不必自己亲手添加所有这些标准功能，拿来主义，用就对了(再次感谢大佬的付出)。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/react/react实践与优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" target="_blank">react 插件</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/" class="archive-article-date">
+        <time datetime="2022-08-05T03:19:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="react-PureComponent-与-React-Component-区别"><a href="#react-PureComponent-与-React-Component-区别" class="headerlink" title="react.PureComponent 与 React.Component 区别"></a>react.PureComponent 与 React.Component 区别</h3><blockquote>
+<p>唯一的区别在于 Rect.Component 没有实现 shouldComponentUpdate() *<strong>一个不太常用的生命周期方法*</strong>, 而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。</p>
+</blockquote>
+<blockquote>
+<p><strong>注意</strong></p>
+<p>React.PureComponent 中的 <strong>shouldComponentUpdate()</strong> 仅作<strong>对象的浅层比较</strong>。如果对象中包含复杂的数据结构，则可能无法检查到深层的差别，产生错误的对比结果。所以只在props 和 state 比较简单时使用这个，或者在深层数据结构发生变化时调用<strong>forceUpdate()<strong>来确保组件被正确地更新。也可以使用</strong>immutable</strong> 对象加速嵌套数据的比较。</p>
+<p>此外，React中 的 <strong>shouldComponentUpdate()</strong> 将跳过所有子组件树的 prop 更新。因此，确保所有子组件也是“纯的”组件。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/08/05/programming/react/react%E5%AE%9E%E8%B7%B5%E4%B8%8E%E4%BC%98%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/实践及优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" target="_blank">vue 实践与优化</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/" class="archive-article-date">
+        <time datetime="2022-08-05T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-05</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果"><a href="#在使用-element-UI-的-el-image-时，首次加载图片出现白色闪现效果" class="headerlink" title="在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果"></a>在使用 element UI 的 el-image 时，首次加载图片出现白色闪现效果</h3><p>这是应为 组件内 在加载前和加载中是一个类名为el-image__placeholder的div标签，在加载后和加载出错后的处理分别是一个div和img标签。</p>
+<p>解决方法：在加载前和加载后的样式上做更改，可以<strong>重写覆盖</strong>类名<strong>el-image__placeholder</strong>和<strong>el-image__error</strong>来自定义自己想要的效果了</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// 将默认的白色背景去除</span><br><span class="line"></span><br><span class="line">::v-deep .el-image__placeholder,</span><br><span class="line">::v-deep .el-image__error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="attribute">background</span>: none <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="vue-路由-tab切换时，动态判断左右切换过渡动画"><a href="#vue-路由-tab切换时，动态判断左右切换过渡动画" class="headerlink" title="vue 路由 tab切换时，动态判断左右切换过渡动画"></a>vue 路由 tab切换时，动态判断左右切换过渡动画</h3><blockquote>
+<p>预置三种动画</p>
+<ol>
+<li>opacity-scale</li>
+<li>switch-right</li>
+<li>switch-left</li>
+</ol>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    transition-动画 [透明缩放]</span></span><br><span class="line"><span class="comment">    name: &quot;opacity-scale&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="selector-class">.opacity-scale-enter-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.65s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-scale-leave-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.65s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-scale-enter</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-scale-enter-to</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-scale-leave</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-scale-leave-to</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">scale</span>(<span class="number">0.9</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    transition-动画 [透明]</span></span><br><span class="line"><span class="comment">    name: &quot;opacity-scale&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"> <span class="selector-class">.opacity-enter-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.65s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-leave-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.65s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-enter</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-enter-to</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-leave</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.opacity-leave-to</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    transition-动画 [幻灯片（从左向右）]</span></span><br><span class="line"><span class="comment">    name: &quot;switch-left&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="selector-class">.switch-left-enter-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.85s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-left-leave-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.85s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-left-enter</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">100%</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">85</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-left-enter-to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-left-leave</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-left-leave-to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">100%</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">85</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    transition-动画 [幻灯片（从右向左）]</span></span><br><span class="line"><span class="comment">    name: &quot;switch-right&quot;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="selector-class">.switch-right-enter-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.85s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-right-leave-active</span> &#123;</span><br><span class="line">    <span class="attribute">transition</span>: all <span class="number">0.85s</span> ease;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-right-enter</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">100%</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">85</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-right-enter-to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-right-leave</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.switch-right-leave-to</span> &#123;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateX</span>(-<span class="number">100%</span>);</span><br><span class="line">    <span class="attribute">opacity</span>: .<span class="number">85</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    菜单下拉动画</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="selector-class">.menu-upbit-anim</span> &#123;</span><br><span class="line">    <span class="attribute">animation-duration</span>: .<span class="number">3s</span>;</span><br><span class="line">    <span class="attribute">animation-fill-mode</span>: both;</span><br><span class="line">    <span class="attribute">animation-name</span>: menu-top-to-bottom;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@keyframes</span> menu-top-to-bottom&#123;</span><br><span class="line">    <span class="selector-tag">from</span>&#123;</span><br><span class="line">        <span class="attribute">opacity</span>:.<span class="number">3</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: -<span class="number">30px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">to</span>&#123;</span><br><span class="line">        <span class="attribute">opacity</span>:<span class="number">1</span>;</span><br><span class="line">        <span class="attribute">margin-top</span>: <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>设置路由</strong></p>
+<p>通过设置路由属性 meta.sort 来记录路由位置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> routers = [</span><br><span class="line">	 &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&quot;/defectControl&quot;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&quot;defectControl&quot;</span>,</span><br><span class="line">    <span class="attr">meta</span>: &#123;</span><br><span class="line">      <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">sort</span>: <span class="string">&quot;c-1&quot;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">      <span class="title function_">import</span>(</span><br><span class="line">        <span class="comment">/* webpackChunkName: &quot;defectControl-index&quot; */</span> <span class="string">&quot;@/views/defectControl/index.vue&quot;</span></span><br><span class="line">      ),</span><br><span class="line">    <span class="attr">children</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="comment">// 首页</span></span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;frontPage&quot;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;defectControl-frontPage&quot;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="attr">sort</span>: <span class="string">&quot;c-2&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">          <span class="title function_">import</span>(</span><br><span class="line">            <span class="comment">/* webpackChunkName: &quot;defectControl-frontPage&quot; */</span> <span class="string">&quot;@/views/defectControl/frontPage.vue&quot;</span></span><br><span class="line">          ),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;defectPool&quot;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;defectControl-defectPool&quot;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="attr">sort</span>: <span class="string">&quot;c-3&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">          <span class="title function_">import</span>(</span><br><span class="line">            <span class="comment">/* webpackChunkName: &quot;defectControl-defectPool&quot; */</span> <span class="string">&quot;@/views/defectControl/defectPool.vue&quot;</span></span><br><span class="line">          ),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;defectCondition&quot;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;defectControl-defectCondition&quot;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="attr">sort</span>: <span class="string">&quot;c-4&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">          <span class="title function_">import</span>(</span><br><span class="line">            <span class="comment">/* webpackChunkName: &quot;defectControl-defectCondition&quot; */</span> <span class="string">&quot;@/views/defectControl/defectCondition.vue&quot;</span></span><br><span class="line">          ),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;defectFocal&quot;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;defectControl-defectFocal&quot;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="attr">sort</span>: <span class="string">&quot;c-5&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">          <span class="title function_">import</span>(</span><br><span class="line">            <span class="comment">/* webpackChunkName: &quot;defectControl-defectFocal&quot; */</span> <span class="string">&quot;@/views/defectControl/defectFocal.vue&quot;</span></span><br><span class="line">          ),</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&quot;defect&quot;</span>,</span><br><span class="line">        <span class="attr">name</span>: <span class="string">&quot;defectControlConfiguration-defectConfig&quot;</span>,</span><br><span class="line">        <span class="attr">meta</span>: &#123;</span><br><span class="line">          <span class="attr">keepAlive</span>: <span class="literal">false</span>,</span><br><span class="line">          <span class="attr">sort</span>: <span class="string">&quot;c-6&quot;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">component</span>: <span class="function">() =&gt;</span></span><br><span class="line">          <span class="title function_">import</span>(</span><br><span class="line">            <span class="comment">/* webpackChunkName: &quot;defectControlConfiguration-defectConfig&quot; */</span> <span class="string">&quot;@/views/defectControl/defectControlConfiguration/defectView.vue&quot;</span></span><br><span class="line">          ),</span><br><span class="line">      &#125;,</span><br><span class="line">    ],</span><br><span class="line">  &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>监听路由变化</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="title function_">data</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            <span class="attr">transitionName</span>: <span class="string">&quot;opacity-scale&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">	<span class="attr">watch</span>: &#123;</span><br><span class="line">		$route(to, <span class="keyword">from</span>) &#123;</span><br><span class="line">          <span class="comment">// 查看路由元信息中是否设置了动画名</span></span><br><span class="line">          <span class="keyword">if</span> (to?.<span class="property">meta</span>?.<span class="property">transitionName</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">this</span>.<span class="property">transitionName</span> = to.<span class="property">meta</span>.<span class="property">transitionName</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 如果是主模块，不是子模块不需要动画</span></span><br><span class="line">          <span class="keyword">if</span> (<span class="keyword">from</span>.<span class="property">path</span> === <span class="string">&quot;/defectControl&quot;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">this</span>.<span class="property">transitionName</span> = <span class="string">&quot;none&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">const</span> toSort = to?.<span class="property">meta</span>?.<span class="property">sort</span>;</span><br><span class="line">          <span class="keyword">const</span> fromSort = <span class="keyword">from</span>?.<span class="property">meta</span>?.<span class="property">sort</span>;</span><br><span class="line">          <span class="comment">// 未设置路由元信息位置，默认透明缩放效果</span></span><br><span class="line">          <span class="keyword">if</span> (!<span class="title function_">isString</span>(toSort) || !<span class="title function_">isString</span>(fromSort)) &#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="variable language_">this</span>.<span class="property">transitionName</span> = <span class="string">&quot;opacity-scale&quot;</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 比较路由位置判断左右切换的动画名称</span></span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">transitionName</span> =</span><br><span class="line">            toSort.<span class="title function_">localeCompare</span>(fromSort) &gt; <span class="number">0</span> ? <span class="string">&quot;switch-right&quot;</span> : <span class="string">&quot;switch-left&quot;</span>;</span><br><span class="line">        &#125;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vuex//" class="article-tag-list-link color5">vuex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/08/05/programming/vue/%E5%AE%9E%E8%B7%B5%E5%8F%8A%E4%BC%98%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/linux/常用命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">linux 常用命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2022-08-02T02:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-02</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="用命令netstat查侦听端口"><a href="#用命令netstat查侦听端口" class="headerlink" title="用命令netstat查侦听端口"></a>用命令netstat查侦听端口</h3><p><code>netstat</code> 是一个命令行工具，可以提供有关网络连接的信息。</p>
+<p>要列出正在侦听的所有TCP或UDP端口，包括使用端口和套接字状态的服务，请使用以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -tunlp</span><br></pre></td></tr></table></figure>
+
+<p>此命令中使用的选项具有以下含义：</p>
+<ul>
+<li>-t - 显示TCP端口。</li>
+<li>-u - 显示UDP端口。</li>
+<li>-n - 显示数字地址而不是解析主机。</li>
+<li>-l - 仅显示侦听端口。</li>
+<li>-p - 显示监听器进程的PID和名称。仅当您以root或sudo用户身份运行命令时，才会显示此信息。</li>
+</ul>
+    
+    <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/08/02/programming/linux/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/htmlcss/项目中遇到的样式问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/" target="_blank">项目中遇到的样式问题</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <time datetime="2022-07-23T05:07:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="scss-文件引入样式不生效"><a href="#scss-文件引入样式不生效" class="headerlink" title="scss 文件引入样式不生效"></a>scss 文件引入样式不生效</h3><blockquote>
+<p>​    vue + sacc 项目, 公用样式 common.scss 样式嵌套写法导入不生效</p>
+<p>现象：样式表只有最外层样式生效，嵌套样式不生效（没有解析嵌套语法）</p>
+</blockquote>
+<p>下面这种方式导入，样式不能嵌套写。 必须使用 层级选择器方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import url(&#x27;@/style/common.scss&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@import &#x27;@/style/common.scss&#x27;;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/23/programming/htmlcss/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E6%A0%B7%E5%BC%8F%E9%97%AE%E9%A2%98/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/rem适配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/07/21/programming/javascript/rem%E9%80%82%E9%85%8D/" target="_blank">页面 rem 适配</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/07/21/programming/javascript/rem%E9%80%82%E9%85%8D/" class="archive-article-date">
+        <time datetime="2022-07-21T13:54:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-21</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>rem 自适应方案</p>
+</blockquote>
+<h3 id="宽度-1920-时-1rem-等于-100px-方便换算"><a href="#宽度-1920-时-1rem-等于-100px-方便换算" class="headerlink" title="宽度 1920 时, 1rem 等于 100px.方便换算"></a>宽度 1920 时, 1rem 等于 100px.方便换算</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">function</span>(<span class="params">doc, win</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> docEl = doc.<span class="property">documentElement</span>,</span><br><span class="line">        resizeEvt = <span class="string">&quot;orientationchange&quot;</span> <span class="keyword">in</span> <span class="variable language_">window</span> ? <span class="string">&quot;orientationchange&quot;</span> : <span class="string">&quot;resize&quot;</span>,</span><br><span class="line">    recalc = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> width = docEl.<span class="property">clientWidth</span> / <span class="number">19.20</span>;</span><br><span class="line">        docEl.<span class="property">style</span>.<span class="property">fontSize</span> = width + <span class="string">&quot;px&quot;</span>;</span><br><span class="line">        scaleNum = width;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (!doc.<span class="property">addEventListener</span>) <span class="keyword">return</span>;</span><br><span class="line">    win.<span class="title function_">addEventListener</span>(resizeEvt, recalc, <span class="literal">false</span>);</span><br><span class="line">    doc.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, recalc, <span class="literal">false</span>);</span><br><span class="line">&#125;)(<span class="variable language_">document</span>, <span class="variable language_">window</span>);</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/07/21/programming/javascript/rem%E9%80%82%E9%85%8D/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/07/21/programming/javascript/rem%E9%80%82%E9%85%8D/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/jsplugin/patch-package" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -466,836 +1289,9 @@
 
 
   
-    <article id="post-programming/jsplugin/isarray" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/13/programming/jsplugin/isarray/" target="_blank">isarray 兼容旧版本浏览器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/13/programming/jsplugin/isarray/" class="archive-article-date">
-        <time datetime="2022-07-13T06:43:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-13</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>判断一个对象是否为数组，兼容 哪些旧版本浏览器。</p>
-<p>如果 不需要兼容旧版浏览器，建议直接使用 数组的 isArray 方法</p>
-</blockquote>
-<p>安装</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install isarray</span><br></pre></td></tr></table></figure>
-
-<p>示例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isArray = <span class="built_in">require</span>(<span class="string">&#x27;isarray&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isArray</span>([])); <span class="comment">// =&gt; true</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">isArray</span>(&#123;&#125;)); <span class="comment">// =&gt; false</span></span><br></pre></td></tr></table></figure>
-
-<p>简单的展示其原理</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isArray = <span class="title class_">Array</span>.<span class="property">isArray</span> || <span class="function"><span class="params">list</span> =&gt;</span> (&#123;&#125;).<span class="property">toString</span>.<span class="title function_">call</span>(list) === <span class="string">&#x27;[object Array]&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/13/programming/jsplugin/isarray/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/构建工具/实践于优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/11/programming/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/%E5%AE%9E%E8%B7%B5%E4%BA%8E%E4%BC%98%E5%8C%96/" target="_blank">webpack 实践与优化</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/11/programming/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/%E5%AE%9E%E8%B7%B5%E4%BA%8E%E4%BC%98%E5%8C%96/" class="archive-article-date">
-        <time datetime="2022-07-11T09:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="如何删除项目中没有使用到的-package"><a href="#如何删除项目中没有使用到的-package" class="headerlink" title="如何删除项目中没有使用到的 package"></a>如何删除项目中没有使用到的 package</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$ npm install depcheck -g</span><br><span class="line"></span><br><span class="line">$ depcheck</span><br><span class="line"></span><br><span class="line"><span class="title class_">Unused</span> dependencies</span><br><span class="line">* underscore</span><br><span class="line"><span class="title class_">Unused</span> devDependencies</span><br><span class="line">* jasmine</span><br><span class="line"><span class="title class_">Missing</span> dependencies</span><br><span class="line">* lodash</span><br></pre></td></tr></table></figure>
-
-<h3 id="查看-node-modules-某一文件夹-的体积有多大"><a href="#查看-node-modules-某一文件夹-的体积有多大" class="headerlink" title="查看 node_modules(某一文件夹) 的体积有多大"></a>查看 node_modules(某一文件夹) 的体积有多大</h3>
-    
-    <a class="article-more-a" href="/2022/07/11/programming/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/%E5%AE%9E%E8%B7%B5%E4%BA%8E%E4%BC%98%E5%8C%96/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/webpack//" class="article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/11/programming/%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/%E5%AE%9E%E8%B7%B5%E4%BA%8E%E4%BC%98%E5%8C%96/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/fetch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/11/programming/javascript/fetch/" target="_blank">fetch API 的使用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/11/programming/javascript/fetch/" class="archive-article-date">
-        <time datetime="2022-07-11T08:55:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>Fetch API 能够执行 XMLHttpRequest 对象的所有任务，</p>
-<p>Fetch API 则必须是异步。 </p>
-</blockquote>
-<h3 id="简单示例："><a href="#简单示例：" class="headerlink" title="简单示例："></a>简单示例：</h3><p>fetch()只有一个必需的参数 input。多数情况下，这个参数是要获取资源的 URL。这个方法返回 一个期约：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="title function_">fetch</span>(<span class="string">&#x27;../resource/001.txt&#x27;</span>);</span><br><span class="line"><span class="comment">// 获取文本</span></span><br><span class="line">p.<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span></span><br><span class="line">    res.<span class="title function_">text</span>()</span><br><span class="line">).<span class="title function_">then</span>(<span class="function"><span class="params">text</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文本:&#x27;</span>,text);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="响应状态"><a href="#响应状态" class="headerlink" title="响应状态"></a>响应状态</h3><blockquote>
-<p>200 成功  | res.redirected 重定向为 ture 时 状态码 依然是200 不是 301</p>
-<p>状态码在 非 200~299 时，检查对象 res.ok属性 true 则请求成功</p>
-</blockquote>
-<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, options)</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/07/11/programming/javascript/fetch/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/11/programming/javascript/fetch/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/jsplugin/图片裁剪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/" target="_blank">方便快捷的实现图片裁剪</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/" class="archive-article-date">
-        <time datetime="2022-07-11T02:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>JavaScript image cropper.</p>
-<p><a target="_blank" rel="noopener" href="https://fengyuanchen.github.io/cropperjs/">官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://hub.nuaa.cf/fengyuanchen/cropperjs/blob/main/README.md">1.5.12文档</a></p>
-</blockquote>
-<h3 id="CDN-地址"><a href="#CDN-地址" class="headerlink" title="CDN 地址"></a>CDN 地址</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.0</span></span><br><span class="line">&lt;link href=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/2.0.0-alpha.1/cropper.min.css&quot;</span> rel=<span class="string">&quot;stylesheet&quot;</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/2.0.0-alpha.1/cropper.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.5.12</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/1531383-20191201202454722-1046050136.jpg" alt="img"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># cropper - 裁剪图片 - <span class="title class_">IE9</span>+</span><br><span class="line"></span><br><span class="line">## 使用 cropperjs</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Cropper</span> <span class="keyword">from</span> <span class="string">&#x27;cropperjs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;cropperjs/dist/cropper.css&#x27;</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span> = <span class="keyword">new</span> <span class="title class_">Cropper</span>(<span class="string">&#x27;被裁剪对象&#x27;</span>, <span class="string">&#x27;配置对象&#x27;</span>) <span class="comment">//返回一个cropper对象</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCroppedCanvas</span>().<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/jpeg&#x27;</span>) <span class="comment">//拿到裁剪后的base64的图片</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCropBoxData</span>();    <span class="comment">//获取裁剪框数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">setCropBoxData</span>();    <span class="comment">//设置裁剪框数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCanvasData</span>();      <span class="comment">//获取图片数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">setCanvasData</span>();      <span class="comment">//设置图片数据</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/others/有趣的工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/08/programming/others/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/" target="_blank">有趣的工具</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/08/programming/others/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/" class="archive-article-date">
-        <time datetime="2022-07-08T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="BaseMap"><a href="#BaseMap" class="headerlink" title="BaseMap"></a><a target="_blank" rel="noopener" href="https://github.com/bojue/BaseMap">BaseMap</a></h3><blockquote>
-<p>一个开源的机房平面图（园区，楼栋，楼层，房间）绘制工具，也可用来生成办公室、工厂、园区的平面图</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/bojue/BaseMap">https://github.com/bojue/BaseMap</a></p>
-</blockquote>
-<h3 id="VCSLabel"><a href="#VCSLabel" class="headerlink" title="VCSLabel"></a><a target="_blank" rel="noopener" href="https://github.com/pxzxj/VCSLabel">VCSLabel</a></h3><blockquote>
-<p>一款 Intellij IDEA 插件（也可用于WebStorm、PyCharm），显示每个文件的最后提交时间和提交人。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/07/08/programming/others/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">plugin</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/08/programming/others/%E6%9C%89%E8%B6%A3%E7%9A%84%E5%B7%A5%E5%85%B7/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/拖拽" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/08/programming/javascript/%E6%8B%96%E6%8B%BD/" target="_blank">拖拽</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/08/programming/javascript/%E6%8B%96%E6%8B%BD/" class="archive-article-date">
-        <time datetime="2022-07-08T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-08</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p><img src="https://img-blog.csdnimg.cn/a0cf52da3d9d414fa7f1403d8ea8e586.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAVGFyYV9fXw==,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
-<blockquote>
-<p>可拖拽元素　设置　draggable: true.可绑定监听事件 dragstart、drag、dragend</p>
-<p>放置区域：可绑定监听事件 dragenter、dragover、dragleave、drop</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 可拖拽原素</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;test&quot;</span> <span class="attr">src</span>=<span class="string">&quot;xxx&quot;</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">// 可放置区域</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;layer-photos-box&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/07/08/programming/javascript/%E6%8B%96%E6%8B%BD/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/08/programming/javascript/%E6%8B%96%E6%8B%BD/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/cookie的操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/29/programming/javascript/cookie%E7%9A%84%E6%93%8D%E4%BD%9C/" target="_blank">cookie的操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/29/programming/javascript/cookie%E7%9A%84%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2022-06-29T08:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>直接上操作：</p>
-</blockquote>
-<p>以前的方式：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">cookie</span> = <span class="string">&quot;a=3; max-age=-1&quot;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Cookie_Store_API">“Cookie Store API”</a></p>
-    
-    <a class="article-more-a" href="/2022/06/29/programming/javascript/cookie%E7%9A%84%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cookie</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/29/programming/javascript/cookie%E7%9A%84%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/剪切板操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/" target="_blank">浏览器中实现剪切板的内容操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2022-06-28T07:40:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-28</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>浏览器允许 JavaScript 脚本读写剪贴板，自动复制或粘贴内容。主要是用来操作文本、图片</p>
-</blockquote>
-<h3 id="有三种方式可操作剪切板"><a href="#有三种方式可操作剪切板" class="headerlink" title="有三种方式可操作剪切板"></a>有三种方式可操作剪切板</h3><ul>
-<li>Document.execCommand() 【此API已从W3C标准中删除】</li>
-<li>Clipboard API （推荐）</li>
-<li>事件监听 copy、paste、cut</li>
-</ul>
-    
-    <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/28/programming/htmlcss/%E5%89%AA%E5%88%87%E6%9D%BF%E6%93%8D%E4%BD%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><a class="extend next" rel="next" href="/page/5/">Next »</a>
+      <a class="extend prev" rel="prev" href="/page/3/">« Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/5/">Next »</a>
     </nav>
   
 
@@ -1430,11 +1426,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1450,11 +1446,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,67 +1470,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1546,15 +1490,59 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,11 +1550,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1582,6 +1586,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1590,7 +1602,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1598,15 +1618,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,7 +1638,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1626,7 +1650,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1634,7 +1658,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1642,11 +1666,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
