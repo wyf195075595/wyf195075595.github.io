@@ -18,7 +18,7 @@
 <meta property="og:description" content="初始化项目1yarn init -y    添加 webpack-cli1yarn add webpack-cli -D  基础配置:(webpack.config.js) 123456789101112let path &#x3D; require(&amp;#x27;path&amp;#x27;);module.exports &#x3D; &amp;#123;    mode: &amp;#x27;development&amp;#x27;, &#x2F;&#x2F;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2023-06-19T03:40:58.828Z">
+<meta property="article:modified_time" content="2023-06-20T09:29:51.637Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="webpack">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4.1k字</span>
+      <span class="post-count">4.2k字</span>
     </span>
   </span>
 
@@ -579,6 +579,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> str <span class="keyword">from</span> <span class="string">&#x27;./data&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="variable language_">module</span>.<span class="property">hot</span>) &#123;</span><br><span class="line">    <span class="variable language_">module</span>.<span class="property">hot</span>.<span class="title function_">accept</span>(<span class="string">&#x27;./data&#x27;</span>, <span class="function">()=&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">let</span> str = <span class="built_in">require</span>(<span class="string">&#x27;./data&#x27;</span>);</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(str)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+
+<h3 id="图片压缩方案"><a href="#图片压缩方案" class="headerlink" title="图片压缩方案"></a>图片压缩方案</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/webpack-contrib/image-minimizer-webpack-plugin/">image-minimizer-webpack-plugin</a></p>
+</blockquote>
+<p>vue-cli 项目中 vue.config.js</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">const ImageMinimizerPlugin = require(<span class="string">&quot;image-minimizer-webpack-plugin&quot;</span>);</span><br><span class="line"></span><br><span class="line">module.exports = <span class="punctuation">&#123;</span></span><br><span class="line">  configureWebpack<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    plugins<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      new ImageMinimizerPlugin(<span class="punctuation">&#123;</span></span><br><span class="line">        minimizerOptions<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          plugins<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="punctuation">[</span><span class="string">&quot;gifsicle&quot;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span> interlaced<span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="punctuation">[</span><span class="string">&quot;jpegtran&quot;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span> progressive<span class="punctuation">:</span> <span class="keyword">true</span> <span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="punctuation">[</span><span class="string">&quot;optipng&quot;</span><span class="punctuation">,</span> <span class="punctuation">&#123;</span> optimizationLevel<span class="punctuation">:</span> <span class="number">5</span> <span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="punctuation">[</span></span><br><span class="line">              <span class="string">&quot;svgo&quot;</span><span class="punctuation">,</span></span><br><span class="line">              <span class="punctuation">&#123;</span></span><br><span class="line">                plugins<span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">                  <span class="punctuation">&#123;</span></span><br><span class="line">                    removeViewBox<span class="punctuation">:</span> <span class="keyword">false</span></span><br><span class="line">                  <span class="punctuation">&#125;</span></span><br><span class="line">                <span class="punctuation">]</span></span><br><span class="line">              <span class="punctuation">&#125;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">          <span class="punctuation">]</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span>)</span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
     
 
     
@@ -734,7 +742,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0-webpack-cli"><span class="toc-number">2.</span> <span class="toc-text">添加 webpack-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-node%E6%96%B9%E5%BC%8F%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">webpack node方式启动项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-htmlWebpackPlugin-%E6%8F%92%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">安装 htmlWebpackPlugin 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">样式处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E6%8A%BD%E7%A6%BB%EF%BC%9Amini-css-extract-plugin"><span class="toc-number">5.1.</span> <span class="toc-text">样式抽离：mini-css-extract-plugin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E6%A0%B7%E5%BC%8F%E6%B7%BB%E5%8A%A0%E5%90%8E%E7%BC%80%EF%BC%9Aautoprefixer-postcss-loader"><span class="toc-number">5.2.</span> <span class="toc-text">给样式添加后缀：autoprefixer, postcss-loader</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#es%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E9%99%8D%E7%BA%A7%E5%A4%84%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">es高级语法降级处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86js%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%A0%A1%E9%AA%8C"><span class="toc-number">7.</span> <span class="toc-text">处理js语法及校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">8.</span> <span class="toc-text">引入全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">图片处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E6%96%87%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-number">10.</span> <span class="toc-text">打包文件分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B5%E5%BA%94%E7%94%A8%E6%89%93%E5%8C%85"><span class="toc-number">11.</span> <span class="toc-text">多页应用打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-source-map"><span class="toc-number">12.</span> <span class="toc-text">配置 source-map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%AE%9E%E6%97%B6%E6%89%93%E5%8C%85"><span class="toc-number">13.</span> <span class="toc-text">webpack 实时打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%B0%8F%E6%8F%92%E4%BB%B6"><span class="toc-number">14.</span> <span class="toc-text">webpack 小插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">15.</span> <span class="toc-text">webpack  跨域配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resolve-%E8%A7%A3%E6%9E%90"><span class="toc-number">16.</span> <span class="toc-text">resolve 解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%86-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">17.</span> <span class="toc-text">注入环境变量区分 开发环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%A1%B9"><span class="toc-number"></span> <span class="toc-text">优化项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#noParse-%E4%B8%8D%E8%A7%A3%E6%9E%90%E6%9F%90%E4%BA%9B%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">noParse  不解析某些包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E9%99%A4%EF%BC%8C%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">排除，忽略某些文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">动态链接库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%89%93%E5%8C%85-%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">多线程打包 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E8%87%AA%E5%B8%A6%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">webpack 自带的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E7%A6%BB%E5%85%AC%E5%85%B1%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">抽离公共代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">7.</span> <span class="toc-text">webpack懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">8.</span> <span class="toc-text">webpack热更新</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">初始化项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0-webpack-cli"><span class="toc-number">2.</span> <span class="toc-text">添加 webpack-cli</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-node%E6%96%B9%E5%BC%8F%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">webpack node方式启动项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-htmlWebpackPlugin-%E6%8F%92%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">安装 htmlWebpackPlugin 插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">样式处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E6%8A%BD%E7%A6%BB%EF%BC%9Amini-css-extract-plugin"><span class="toc-number">5.1.</span> <span class="toc-text">样式抽离：mini-css-extract-plugin</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%99%E6%A0%B7%E5%BC%8F%E6%B7%BB%E5%8A%A0%E5%90%8E%E7%BC%80%EF%BC%9Aautoprefixer-postcss-loader"><span class="toc-number">5.2.</span> <span class="toc-text">给样式添加后缀：autoprefixer, postcss-loader</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#es%E9%AB%98%E7%BA%A7%E8%AF%AD%E6%B3%95%E9%99%8D%E7%BA%A7%E5%A4%84%E7%90%86"><span class="toc-number">6.</span> <span class="toc-text">es高级语法降级处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E7%90%86js%E8%AF%AD%E6%B3%95%E5%8F%8A%E6%A0%A1%E9%AA%8C"><span class="toc-number">7.</span> <span class="toc-text">处理js语法及校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">8.</span> <span class="toc-text">引入全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%A4%84%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">图片处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E6%96%87%E4%BB%B6%E5%88%86%E7%B1%BB"><span class="toc-number">10.</span> <span class="toc-text">打包文件分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E9%A1%B5%E5%BA%94%E7%94%A8%E6%89%93%E5%8C%85"><span class="toc-number">11.</span> <span class="toc-text">多页应用打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-source-map"><span class="toc-number">12.</span> <span class="toc-text">配置 source-map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%AE%9E%E6%97%B6%E6%89%93%E5%8C%85"><span class="toc-number">13.</span> <span class="toc-text">webpack 实时打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E5%B0%8F%E6%8F%92%E4%BB%B6"><span class="toc-number">14.</span> <span class="toc-text">webpack 小插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E8%B7%A8%E5%9F%9F%E9%85%8D%E7%BD%AE"><span class="toc-number">15.</span> <span class="toc-text">webpack  跨域配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resolve-%E8%A7%A3%E6%9E%90"><span class="toc-number">16.</span> <span class="toc-text">resolve 解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E5%8C%BA%E5%88%86-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-number">17.</span> <span class="toc-text">注入环境变量区分 开发环境</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%E9%A1%B9"><span class="toc-number"></span> <span class="toc-text">优化项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#noParse-%E4%B8%8D%E8%A7%A3%E6%9E%90%E6%9F%90%E4%BA%9B%E5%8C%85"><span class="toc-number">1.</span> <span class="toc-text">noParse  不解析某些包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E9%99%A4%EF%BC%8C%E5%BF%BD%E7%95%A5%E6%9F%90%E4%BA%9B%E6%96%87%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">排除，忽略某些文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">动态链接库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%89%93%E5%8C%85-%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">多线程打包 进程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-%E8%87%AA%E5%B8%A6%E7%9A%84%E4%BC%98%E5%8C%96"><span class="toc-number">5.</span> <span class="toc-text">webpack 自带的优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E7%A6%BB%E5%85%AC%E5%85%B1%E4%BB%A3%E7%A0%81"><span class="toc-number">6.</span> <span class="toc-text">抽离公共代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E6%87%92%E5%8A%A0%E8%BD%BD"><span class="toc-number">7.</span> <span class="toc-text">webpack懒加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack%E7%83%AD%E6%9B%B4%E6%96%B0"><span class="toc-number">8.</span> <span class="toc-text">webpack热更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E5%8E%8B%E7%BC%A9%E6%96%B9%E6%A1%88"><span class="toc-number">9.</span> <span class="toc-text">图片压缩方案</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -896,11 +904,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -908,23 +916,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -940,31 +940,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -977,6 +965,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,11 +988,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1012,11 +1004,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1028,7 +1032,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1036,7 +1040,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,15 +1056,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1072,35 +1108,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1109,6 +1117,26 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1124,23 +1152,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -18,8 +18,9 @@
 <meta property="og:description" content="1、VueUse ​    VueUse 是 Anthony Fu  大佬的一个开源项目，它为Vue的开发者提供了大量用于 Vue2 和Vue3 的基本 Composition API 实用工具函数。 它有几十个用于常见开发人员用例的解决方案，如跟踪ref更改，检测元素可见性，简化常见Vue模式，键盘&#x2F;鼠标输入等。 这是真正节省开发时间的好方法，因为我们不必自己亲手添加所有这些标准功能，拿来主义，">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/v2-1d23d0fcb5c423d69da86237d6201af7_r.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png">
 <meta property="article:published_time" content="2022-09-23T00:23:10.000Z">
-<meta property="article:modified_time" content="2023-04-06T09:06:05.127Z">
+<meta property="article:modified_time" content="2023-07-13T02:23:00.784Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -288,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.4k字</span>
+      <span class="post-count">3.7k字</span>
     </span>
   </span>
 
@@ -297,7 +298,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">14分</span>
+      <span class="post-count">16分</span>
     </span>
   </span>
 </div>
@@ -627,6 +628,19 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bable.config.js</span></span><br><span class="line"><span class="keyword">const</span> plugins = [];</span><br><span class="line"><span class="keyword">const</span> isProduction = process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&quot;production&quot;</span>;</span><br><span class="line"><span class="keyword">if</span> (isProduction) &#123;</span><br><span class="line">  plugins.<span class="title function_">push</span>([<span class="string">&quot;transform-remove-console&quot;</span>, &#123; <span class="attr">exclude</span>: [<span class="string">&quot;error&quot;</span>, <span class="string">&quot;warn&quot;</span>] &#125;]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">presets</span>: [<span class="string">&quot;@vue/cli-plugin-babel/preset&quot;</span>],</span><br><span class="line">  <span class="attr">plugins</span>: plugins,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
+
+<h3 id="FullCalendar"><a href="#FullCalendar" class="headerlink" title="FullCalendar"></a><a target="_blank" rel="noopener" href="https://fullcalendar.io/docs">FullCalendar</a></h3><blockquote>
+<p>最早是jQuery插件，后来支持vue2|3.是非常使用的日程管理插件。下面是vue2中使用的简单案例</p>
+</blockquote>
+<p>安装依赖</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;@fullcalendar/core&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.1.8&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@fullcalendar/daygrid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.1.8&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@fullcalendar/interaction&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.1.8&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@fullcalendar/timegrid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.1.8&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@fullcalendar/vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^6.1.8&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;Demo App&lt;/h1&gt;</span><br><span class="line">    &lt;div class=&quot;box1&quot;&gt;</span><br><span class="line">        &lt;FullCalendar :options=&#x27;calendarOptions&#x27; /&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import FullCalendar from &#x27;@fullcalendar/vue&#x27;</span><br><span class="line">import dayGridPlugin from &#x27;@fullcalendar/daygrid&#x27;</span><br><span class="line">import timegridPlugin from &#x27;@fullcalendar/timegrid&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    FullCalendar // make the &lt;FullCalendar&gt; tag available</span><br><span class="line">  &#125;,</span><br><span class="line">  data: function() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      calendarOptions: &#123;</span><br><span class="line">        plugins: [dayGridPlugin, timegridPlugin],</span><br><span class="line">        initialView: &#x27;dayGridMonth&#x27;,</span><br><span class="line">        weekends: true,</span><br><span class="line">        headerToolbar: &#123;</span><br><span class="line">          left: &#x27;prev,next,today&#x27;,</span><br><span class="line">          center: &#x27;title&#x27;,</span><br><span class="line">          right: &#x27;dayGridDay,dayGridWeek,dayGridMonth&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        buttonText: &#123;</span><br><span class="line">          today: &#x27;今天&#x27;,</span><br><span class="line">          dayGridMonth: &#x27;月&#x27;,</span><br><span class="line">          dayGridWeek: &#x27;周&#x27;,</span><br><span class="line">          dayGridDay: &#x27;日&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        locale:&#x27;zh-cn&#x27;,// 切换语言，当前为中文</span><br><span class="line">        firstDay: 1, // 设置一周中显示的第一天是哪天，周日是0，周一是1，类推  new Date().getDay()当前天</span><br><span class="line">        eventMouseover: function (&#123;event, jsEvent, view&#125;) &#123; //鼠标移上事件</span><br><span class="line">            console.log(event);</span><br><span class="line">        &#125;,</span><br><span class="line">        eventClick: function (&#123;event, jsEvent, view&#125;) &#123; //单击日程</span><br><span class="line">            console.log(&quot;=====&quot;,event)</span><br><span class="line">            </span><br><span class="line">        &#125;,</span><br><span class="line">        events: [</span><br><span class="line">          &#123; title: &#x27;Meeting&#x27;, start: new Date() &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>效果</p>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png" alt="image-20230713102224150"></p>
+
     
 
     
@@ -744,11 +758,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/10/18/computer/%E7%94%B5%E8%84%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/23/programming/vue/mixin/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          mixin 实战
         
       </div>
     </a>
@@ -782,7 +796,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81VueUse"><span class="toc-number">1.</span> <span class="toc-text">1、VueUse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81vue-print-nb"><span class="toc-number">2.</span> <span class="toc-text">2、vue-print-nb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81qrcode"><span class="toc-number">3.</span> <span class="toc-text">3、qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mitt"><span class="toc-number">4.</span> <span class="toc-text">mitt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-countTo"><span class="toc-number">5.</span> <span class="toc-text">vue-countTo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-persist"><span class="toc-number">6.</span> <span class="toc-text">vuex-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify"><span class="toc-number">7.</span> <span class="toc-text">Vuetify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NUXTJS"><span class="toc-number">8.</span> <span class="toc-text">NUXTJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress"><span class="toc-number">9.</span> <span class="toc-text">vuepress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-mate"><span class="toc-number">10.</span> <span class="toc-text">vue-mate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-charts-js"><span class="toc-number">11.</span> <span class="toc-text">vue-charts .js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-grid-layout"><span class="toc-number">12.</span> <span class="toc-text">vue grid layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-draggable"><span class="toc-number">13.</span> <span class="toc-text">vue draggable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vee-validate"><span class="toc-number">14.</span> <span class="toc-text">vee validate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Toastification"><span class="toc-number">15.</span> <span class="toc-text">vue Toastification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Tour"><span class="toc-number">16.</span> <span class="toc-text">vue Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trois-%E8%AF%AD%E6%B3%95%E4%B8%BAthree-vue3%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">Trois (语法为three) vue3库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-presistedstate"><span class="toc-number">18.</span> <span class="toc-text">vue-presistedstate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">19.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eventemitter3"><span class="toc-number">20.</span> <span class="toc-text">eventemitter3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amfe-flexible"><span class="toc-number">21.</span> <span class="toc-text">amfe-flexible</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#postcss-pxtorem"><span class="toc-number">22.</span> <span class="toc-text">postcss-pxtorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSAP%EF%BC%88GreenSock%EF%BC%89"><span class="toc-number">23.</span> <span class="toc-text">GSAP（GreenSock）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESLint"><span class="toc-number">24.</span> <span class="toc-text">ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Requirejs-%E4%B8%8E-%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8E%A8%E6%BC%94"><span class="toc-number">25.</span> <span class="toc-text">Requirejs 与 模块化推演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loadsh-js"><span class="toc-number">26.</span> <span class="toc-text">Loadsh.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">27.</span> <span class="toc-text">静态类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">28.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel-plugin-transform-remove-console"><span class="toc-number">29.</span> <span class="toc-text">babel-plugin-transform-remove-console</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81VueUse"><span class="toc-number">1.</span> <span class="toc-text">1、VueUse</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81vue-print-nb"><span class="toc-number">2.</span> <span class="toc-text">2、vue-print-nb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81qrcode"><span class="toc-number">3.</span> <span class="toc-text">3、qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mitt"><span class="toc-number">4.</span> <span class="toc-text">mitt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-countTo"><span class="toc-number">5.</span> <span class="toc-text">vue-countTo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuex-persist"><span class="toc-number">6.</span> <span class="toc-text">vuex-persist</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vuetify"><span class="toc-number">7.</span> <span class="toc-text">Vuetify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#NUXTJS"><span class="toc-number">8.</span> <span class="toc-text">NUXTJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vuepress"><span class="toc-number">9.</span> <span class="toc-text">vuepress</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-mate"><span class="toc-number">10.</span> <span class="toc-text">vue-mate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-charts-js"><span class="toc-number">11.</span> <span class="toc-text">vue-charts .js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-grid-layout"><span class="toc-number">12.</span> <span class="toc-text">vue grid layout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-draggable"><span class="toc-number">13.</span> <span class="toc-text">vue draggable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vee-validate"><span class="toc-number">14.</span> <span class="toc-text">vee validate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Toastification"><span class="toc-number">15.</span> <span class="toc-text">vue Toastification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-Tour"><span class="toc-number">16.</span> <span class="toc-text">vue Tour</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trois-%E8%AF%AD%E6%B3%95%E4%B8%BAthree-vue3%E5%BA%93"><span class="toc-number">17.</span> <span class="toc-text">Trois (语法为three) vue3库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-presistedstate"><span class="toc-number">18.</span> <span class="toc-text">vue-presistedstate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#axios"><span class="toc-number">19.</span> <span class="toc-text">axios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#eventemitter3"><span class="toc-number">20.</span> <span class="toc-text">eventemitter3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amfe-flexible"><span class="toc-number">21.</span> <span class="toc-text">amfe-flexible</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#postcss-pxtorem"><span class="toc-number">22.</span> <span class="toc-text">postcss-pxtorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GSAP%EF%BC%88GreenSock%EF%BC%89"><span class="toc-number">23.</span> <span class="toc-text">GSAP（GreenSock）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ESLint"><span class="toc-number">24.</span> <span class="toc-text">ESLint</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Requirejs-%E4%B8%8E-%E6%A8%A1%E5%9D%97%E5%8C%96%E6%8E%A8%E6%BC%94"><span class="toc-number">25.</span> <span class="toc-text">Requirejs 与 模块化推演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Loadsh-js"><span class="toc-number">26.</span> <span class="toc-text">Loadsh.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5"><span class="toc-number">27.</span> <span class="toc-text">静态类型检查</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">28.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#babel-plugin-transform-remove-console"><span class="toc-number">29.</span> <span class="toc-text">babel-plugin-transform-remove-console</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FullCalendar"><span class="toc-number">30.</span> <span class="toc-text">FullCalendar</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -944,11 +958,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -956,23 +970,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -988,31 +994,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1025,6 +1019,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,11 +1042,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1060,11 +1058,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1076,7 +1086,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1084,7 +1094,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1092,15 +1110,39 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1120,35 +1162,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1157,6 +1171,26 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1172,23 +1206,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
