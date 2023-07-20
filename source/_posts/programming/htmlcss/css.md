@@ -733,3 +733,20 @@ clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
 ### [用于理解css3D](https://garden.bradwoods.io/notes/css/3d)
 
 > 一个网站，这个网页提供互动演示，帮助理解 CSS 里面与 3D 有关的各项属性。
+
+
+
+### 去除表单自动填充的白色背景
+
+```css
+// 去除填充的白色背景
+input:-webkit-autofill {
+    box-shadow:0 0 0 1000px transparent inset !important;
+}
+input:-internal-autofill-previewed,
+input:-internal-autofill-selected {
+    -webkit-text-fill-color: #fff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+```
+

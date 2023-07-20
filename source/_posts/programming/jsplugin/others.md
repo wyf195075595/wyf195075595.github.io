@@ -1143,3 +1143,15 @@ console.log('还原对象:', toObj)
 ### 入门级物联网“玩具”Arduino
 
 > Arduino作为一个控制单元，能够连接各种各样的传感器来实现感知和数据采集，并通过控制LED灯、马达、舵机等机电元件来提供动力输出或实现控制。
+
+
+
+### [xm-select](https://maplemei.gitee.io/xm-select/#/)
+
+> 始于 [layui](https://layui.com/) 的一个多选解决方案。
+> 前身 [formSelects](https://github.com/hnzzmsf/layui-formSelects/), 由于渲染速度慢, 代码冗余, 被放弃了
+> [xm-select](https://gitee.com/maplemei/xm-select)使用了新的开发方式, 利用preact进行渲染, 大幅度提高渲染速度, 并且可以灵活拓展。 laiui风格使用起来非常nice
+
+### [LeaferJS](https://www.leaferjs.com/)
+
+> 一个国产的 Canvas 2D 图形渲染引擎，追求极致性能。

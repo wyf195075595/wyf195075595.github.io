@@ -290,23 +290,23 @@ server: {
   }
 ```
 
-### 将 svg 注册成全局组件
+### vite中将 svg 注册成全局组件
 
 vite 通过 使用 vite-plugin-svg-icons 插件使用 svg 图片
 
-```
+```js
 yarn add vite-plugin-svg-icons -D
 ```
 
 在main.js 中
 
-```
+```js
 import 'virtual:svg-icons-register'
 ```
 
 配置 vite.config.js
 
-```
+```js
 
 //import path,{ resolve } from 'path'
 import path from 'path'
@@ -381,6 +381,139 @@ export default {
 ```
 <m-svg-icon class="w-1.5 h-1.5" name="hamburger"></m-svg-icon>
 ```
+
+### vue-cli 中将 svg 注册成全局组件
+
+编写组件
+
+src/components/SvgIcon/index.vue
+
+```vue
+<template>
+  <div v-if="isExternal" :style="styleExternalIcon" class="svg-external-icon svg-icon" v-on="$listeners" />
+  <svg v-else :class="svgClass" aria-hidden="true" v-on="$listeners">
+    <use :xlink:href="iconName" />
+  </svg>
+</template>
+
+<script>
+import { isExternal } from '@/utils/validate'
+
+export default {
+  name: 'SvgIcon',
+  props: {
+    iconClass: {
+      type: String,
+      required: true
+    },
+    className: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    // 判断是否svg结尾
+    isExternal() {
+      return isExternal(this.iconClass)
+    },
+    iconName() {
+      return `#icon-${this.iconClass}`
+    },
+    svgClass() {
+      if (this.className) {
+        return 'svg-icon ' + this.className
+      } else {
+        return 'svg-icon'
+      }
+    },
+    styleExternalIcon() {
+      return {
+        mask: `url(${this.iconClass}) no-repeat 50% 50%`,
+        '-webkit-mask': `url(${this.iconClass}) no-repeat 50% 50%`
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+.svg-icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.svg-external-icon {
+  background-color: currentColor;
+  mask-size: cover!important;
+  display: inline-block;
+}
+</style>
+
+```
+
+svg icon资源
+
+在 assets/icons 文件夹下，新建 svg 储存svg资源，新建index.js注册组件
+
+```js
+import Vue from 'vue'
+import SvgIcon from '@/components/SvgIcon'// svg component
+
+// register globally
+Vue.component('svg-icon', SvgIcon)
+
+const req = require.context('./svg', false, /\.svg$/)
+const requireAll = requireContext => requireContext.keys().map(requireContext)
+requireAll(req)
+
+```
+
+引用
+
+main.js
+
+```js
+import './assets/icons' // icon
+```
+
+处理svg打包配置,vue.config.js
+
+```shell
+yarn add svg-sprite-loader -D
+```
+
+```js
+chainWebpack(config) {
+
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(resolve('src/assets/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(resolve('src/assets/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+ }
+```
+
+使用
+
+```
+<svg-icon icon-class="sys-config" class-name="disabled" />
+```
+
+
 
 ### 全局指令注册
 

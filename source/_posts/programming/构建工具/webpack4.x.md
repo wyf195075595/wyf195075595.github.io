@@ -1155,3 +1155,42 @@ if(module.hot) {
 }
 ```
 
+
+
+### 图片压缩方案
+
+> [image-minimizer-webpack-plugin](https://github.com/webpack-contrib/image-minimizer-webpack-plugin/)
+
+vue-cli 项目中 vue.config.js
+
+```json
+const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new ImageMinimizerPlugin({
+        minimizerOptions: {
+          plugins: [
+            ["gifsicle", { interlaced: true }],
+            ["jpegtran", { progressive: true }],
+            ["optipng", { optimizationLevel: 5 }],
+            [
+              "svgo",
+              {
+                plugins: [
+                  {
+                    removeViewBox: false
+                  }
+                ]
+              }
+            ]
+          ]
+        }
+      })
+    ]
+  }
+};
+
+```
+

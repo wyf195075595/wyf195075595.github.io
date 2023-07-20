@@ -820,3 +820,22 @@ delete from,myview1 where empno = 7369;
 > 多对多设计：
 >
 > 三张表，关系表两个外键。
+
+> 
+
+###  [Err] 1055 
+
+> [Err] 1055 - Expression #1 of ORDER BY clause is not in GROUP BY clause and contains nonaggregated column 'information_schema.PROFILING.SEQ' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+
+```sql
+SELECT @@sql_mode;
+```
+
+![image-20230621092745108](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230621092745108.png)
+
+修改
+
+```sql
+SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+```
+

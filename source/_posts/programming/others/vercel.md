@@ -15,6 +15,8 @@ categories: other
 
 ![image-20230421090353337](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230421090353337.png)
 
+<!--more-->
+
 #### 入口文件
 
 > 入口文件一定要是index.js,如果改写其他如 app.js,main.js 等等 vercel 均无法识别，这是一个大坑.

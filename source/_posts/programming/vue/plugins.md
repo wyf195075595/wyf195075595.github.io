@@ -589,3 +589,80 @@ module.exports = {
 
 ```
 
+
+
+### [FullCalendar](https://fullcalendar.io/docs)
+
+> 最早是jQuery插件，后来支持vue2|3.是非常使用的日程管理插件。下面是vue2中使用的简单案例
+
+安装依赖
+
+```json
+"@fullcalendar/core": "^6.1.8",
+"@fullcalendar/daygrid": "^6.1.8",
+"@fullcalendar/interaction": "^6.1.8",
+"@fullcalendar/timegrid": "^6.1.8",
+"@fullcalendar/vue": "^6.1.8",
+```
+
+使用
+
+```vue
+<template>
+  <div>
+    <h1>Demo App</h1>
+    <div class="box1">
+        <FullCalendar :options='calendarOptions' />
+    </div>
+  </div>
+</template>
+
+<script>
+import FullCalendar from '@fullcalendar/vue'
+import dayGridPlugin from '@fullcalendar/daygrid'
+import timegridPlugin from '@fullcalendar/timegrid'
+
+export default {
+  components: {
+    FullCalendar // make the <FullCalendar> tag available
+  },
+  data: function() {
+    return {
+      calendarOptions: {
+        plugins: [dayGridPlugin, timegridPlugin],
+        initialView: 'dayGridMonth',
+        weekends: true,
+        headerToolbar: {
+          left: 'prev,next,today',
+          center: 'title',
+          right: 'dayGridDay,dayGridWeek,dayGridMonth'
+        },
+        buttonText: {
+          today: '今天',
+          dayGridMonth: '月',
+          dayGridWeek: '周',
+          dayGridDay: '日'
+        },
+        locale:'zh-cn',// 切换语言，当前为中文
+        firstDay: 1, // 设置一周中显示的第一天是哪天，周日是0，周一是1，类推  new Date().getDay()当前天
+        eventMouseover: function ({event, jsEvent, view}) { //鼠标移上事件
+            console.log(event);
+        },
+        eventClick: function ({event, jsEvent, view}) { //单击日程
+            console.log("=====",event)
+            
+        },
+        events: [
+          { title: 'Meeting', start: new Date() }
+        ]
+      }
+    }
+  }
+}
+</script>
+
+```
+
+效果
+
+![image-20230713102224150](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png)

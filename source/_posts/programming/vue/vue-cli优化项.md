@@ -23,7 +23,7 @@ categories: vue
 
 <!--more-->
 
-依赖插件 style-resources-loader
+依赖插件 style-resources-loader, vue-cli-plugin-style-resources-loader
 
 ```js
 pluginOptions: {
@@ -474,4 +474,8 @@ module.exports = {
 ```
 
 
+
+### webpack-chain 语法
+
+> [参考链接](https://blog.51cto.com/feng/5289791)
 
