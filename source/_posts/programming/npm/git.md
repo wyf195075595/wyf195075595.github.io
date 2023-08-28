@@ -282,7 +282,7 @@ IdentityFile ~/.ssh/github_id
 
 ## 遇到的错误
 
-#### hexo deploy 提交代码 报错
+### hexo deploy 提交代码 报错
 
 >  fatal: unable to access 'https://github.com/jgraph/drawio-desktop.git/': OpenSSL SSL_read: Connection was reset, errno 10054
 >
@@ -298,7 +298,7 @@ IdentityFile ~/.ssh/github_id
 >
 > 
 
-#### 本地仓库ssh提交失败
+### 本地仓库ssh提交失败
 
 > 报错：
 >
@@ -340,7 +340,7 @@ IdentityFile ~/.ssh/github_id
 
 	
 
-#### SSH连接时出现Host key verification failed
+### SSH连接时出现Host key verification failed
 
 > 用OpenSSH的人都知ssh会把你每个你访问过计算机的公钥(public key)都记录在~/.ssh/known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告，避免你受到DNS Hijack之类的攻击。
 >
@@ -361,3 +361,19 @@ IdentityFile ~/.ssh/github_id
 
 删除~/.ssh/known_hosts文件
 
+### Failed to connect to github.com port 443 : Timed out
+
+**问题分析：** git 所设端口与系统代理不一致，需重新设置。
+
+解决：
+
+1. **打开 设置>网络与Internet>代理** 找到代理地址 如： **127.0.0.1:7890**
+
+2. **修改git的网络设置**
+
+	```shell
+	git config --global http.proxy http://127.0.0.1:7890 
+	git config --global https.proxy http://127.0.0.1:7890
+	```
+
+	

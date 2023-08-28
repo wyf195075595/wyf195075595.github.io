@@ -1,6 +1,6 @@
 ---
 title:  mixin 实战
-date: 2022-09-23 08:23:10
+date: 2023-07-20 08:23:10
 tags: vue
 categories: vue
 ---
@@ -221,8 +221,6 @@ Vue.use(dict, {
 
 3、在页面使用
 
-> dicts 在组件 dict 中 通过 $options 获取，然后在 created 函数中 初始化 对应的字典，然后在 mixin 中 暴露 dict 变量，存放字典数据
-
 ```vue
 <template>
   <div class="home">
@@ -255,4 +253,6 @@ export default {
 }
 </script>
 ```
+
+> dicts 在组件 dict 中 通过 $options 获取，然后在 created 函数中 初始化 对应的字典，然后在 mixin 中 暴露 dict 变量，存放字典数据
 

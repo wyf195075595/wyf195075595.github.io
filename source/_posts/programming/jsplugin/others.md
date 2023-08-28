@@ -1155,3 +1155,84 @@ console.log('还原对象:', toObj)
 ### [LeaferJS](https://www.leaferjs.com/)
 
 > 一个国产的 Canvas 2D 图形渲染引擎，追求极致性能。
+
+### 图形库各维度对比
+
+#### [fabric.js](https://github.com/Rookie-Birds/Fabric-Tutorial_zh-CN/blob/master/part-8.md)
+
+> Fabric.js 是一个基于 HTML5 canvas 的开源 JavaScript 库，用于创建交互式的图形设计和编辑应用程序。它提供了一个易于使用的 API，使用户能够轻松地创建并操作多种图形对象，包括文本、图像、路径、形状和组等。Fabric.js 还支持图形转换、滤镜、动画和事件处理等功能，使得用户可以创建出更加生动、丰富的视觉效果。Fabric.js 适用于各种应用场景，例如在线图形编辑器、游戏开发、数据可视化等。
+
+![fabric-demo.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f224b07df53143d4a0c97386741f9158~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+
+#### konva.js
+
+> Konva.js是一个HTML5 Canvas库，用于创建交互式的Canvas应用程序。它提供了一个强大的API，使得开发者可以轻松地在Canvas上添加图形、文本、形状、图像、动画等元素，并且可以与这些元素进行交互。Konva.js的特点包括：
+>
+> 1. 可以创建复杂的动画效果，如移动、旋转、缩放等。
+> 2. 支持事件监听，例如鼠标点击、拖拽、滑动等。
+> 3. 支持多种图形，包括矩形、圆形、多边形、线条等。
+> 4. 可以实现图形的分组、层级管理等。
+> 5. 支持图片缓存，可以在Canvas中快速的绘制图片。
+> 6. 具有高度的性能和优化，可以在大型项目中使用。
+
+![konva-demo.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae1bcce1d126428ea9f25d542caa4bcd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+
+#### leaflet.js
+
+> leaflet.js是一个用于创建交互式地图的开源JavaScript库。它提供了易于使用的API，可以轻松地在网页上添加地图、图层、标记、组件和交互元素，并支持各种地图提供商和数据源。它也可以适应不同的设备和分辨率，支持移动设备和触摸交互。它在Web开发中广泛应用于可视化、地理信息系统、位置服务、游戏等领域。
+
+![leaflet-demo.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/017690f085d74827bfa38e460b9b90de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+
+#### pixi.js
+
+> Pixi.js是一个基于WebGL和Canvas的2D渲染引擎，它提供了一种简单、快速的方式来创建交互式图形、动画和游戏。Pixi.js的设计目标是提高Web应用程序的渲染性能，它可以在不同的设备上实现流畅的动画效果，而且非常易于使用。 Pixi.js支持多种渲染器，包括WebGL、Canvas和SVG，可以根据不同的场景选择最适合的渲染器。它还提供了很多实用的功能，例如精灵、文本、遮罩、滤镜、动画等，可以帮助开发者轻松创建各种效果。 Pixi.js的API简单易用，文档详细，社区活跃，拥有大量的插件和扩展，可以满足各种需求。Pixi.js除了适用于游戏开发，还可以用于数据可视化、UI设计、广告制作等领域。
+
+![pixi-demo.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/105d8f8b3abc4627975fbea90a4a4e34~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+
+#### 总结
+
+|                                 | ** fabric.js**                                               | **konva.js**                                                 | **leaflet.js**                                               | **pixi.js**                                                  |
+| ------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **简介**                        | Fabric.js是一个开源的JavaScript库，用于创建交互式的Canvas应用程序。 | Konva.js是一个HTML5 Canvas库，用于创建交互式的Canvas应用程序。 | Leaflet.js是一个开源的JavaScript库，用于创建交互式地图。     | Pixi.js是一个快速、轻量级的2D渲染引擎，可用于创建游戏、动画和交互式应用程序。 |
+| **github地址**                  | [ github.com/fabricjs/fa…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Ffabricjs%2Ffabric.js) | [github.com/konvajs/kon…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fkonvajs%2Fkonva) | [github.com/Leaflet/Lea…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2FLeaflet%2FLeaflet) | [github.com/pixijs/pixi…](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fpixijs%2Fpixijs) |
+| **Star数量**（统计于2023.5.23） | 24.9k                                                        | 9.3k                                                         | 37.6k                                                        | 40k                                                          |
+| **更新频率**                    | 约3次/周                                                     | 约1次/周                                                     | 约3次/周                                                     | 约3次/周                                                     |
+| **Fork数量**                    | 3.3k                                                         | 809                                                          | 5.6k                                                         | 4.8k                                                         |
+| **issue情况**                   | 253 open, 5425 closed, open率4.5%                            | 74 open, 1172 closed, open率5.9%                             | 362 open, 4663 closed, open率7.2%                            | 134 open, 5038 closed,open率2.6%                             |
+| **官方文档**                    | [英文文档](https://link.juejin.cn/?target=http%3A%2F%2Ffabricjs.com%2Fdocs%2Ffabric.Polygon.html) | [英文文档](https://link.juejin.cn/?target=https%3A%2F%2Fkonvajs.org%2Fapi%2FKonva.Animation.html)、[中文文档](https://link.juejin.cn/?target=http%3A%2F%2Fkonvajs-doc.bluehymn.com%2Fdocs%2Fselect_and_transform%2FTransform_Events.html) | [英文文档](https://link.juejin.cn/?target=https%3A%2F%2Fleafletjs.com%2Fexamples%2Fextending%2Fextending-1-classes.html)、[中文文档](https://link.juejin.cn/?target=https%3A%2F%2Fleafletjs.cn%2Freference-1.7.1.html) | [英文文档](https://link.juejin.cn/?target=https%3A%2F%2Fpixijs.io%2Fguides%2Fbasics%2Fgetting-started.html)、[中文文档](https://link.juejin.cn/?target=https%3A%2F%2Fpixijs.huashengweilai.com%2Fguide%2Fstart%2F1.introduction.html) |
+| **博客分享**                    | 较多                                                         | 一般                                                         | 较少                                                         | 一般                                                         |
+| **Fork数量**                    | 3.3k                                                         | 809                                                          | 5.6k                                                         | 4.8k                                                         |
+| **参考案例**                    | ① [vue-fabric-editor](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fnihaojob%2Fvue-fabric-editor) ② [react-design-editor](https://link.juejin.cn/?target=https%3A%2F%2Fgithub.com%2Fsalgum1114%2Freact-design-editor) ③ [新版蓝湖](https://link.juejin.cn/?target=https%3A%2F%2Flanhuapp.com%2F) | [polotno-studio](https://link.juejin.cn/?target=https%3A%2F%2Fstudio.polotno.com%2F) | 暂无                                                         | 暂无                                                         |
+| **编辑能力**                    | **编辑能力强**，支持文本、图片、形状等多种图形元素的编辑，可以进行拖拽、缩放、旋转、变换等操作，还支持多种样式和效果。 | **编辑能力强**，支持多种图形元素的编辑，可以进行拖拽、缩放、旋转、变换等操作，但在样式和效果方面略显不足 | **编辑能力一般，** 可以创建交互式地图，具有丰富的地图操作功能，如缩放、平移、标注等，但专注于地图操作和显示，而不是图形编辑。 | **编辑能力较好，** 可以创建高性能的2D图形，具有丰富的渲染功能，可以进行高级的图形设计和编辑，但缺少拖拽、缩放等基础编辑功能。 |
+| **性能及适用场景**              | **性能一般**，适用于开发小型应用。                           | **性能较好**，可以处理大量图形元素，适合开发复杂的应用。     | **性能一般**，对于大规模数据的渲染和处理能力较弱。           | **性能优异**，适用于大规模的用户界面和游戏开发，例如创建复杂的用户界面、2D游戏等。 |
+| **学习及开发成本**              | 常用功能封装齐全，可参考案例较多，**上手和使用成本一般；** 基于es5开发。可能会影响开发效率。 | 可直接参考的案例较少，暴露的api较少，**学习成本较高；** 对ts的支持比较高，架构设计更灵活，开发成本相对较低。 | **学习成本一般**；具有简单易用的API，开发成本较低。          | 需要开发者具备一定的图形设计能力，**学习成本较高**。         |
+
+
+
+> **社区活跃度**：这四个库均创建于2013年-2015年，基本有十年左右的发展历史，github上的star数量都比较高，其中，pixi和leaflet的社区最为活跃；
+>
+> **技术资料丰富度**：konva和pixi的官方文档更为详细，能有助于帮我们学习如何快速上手、并能快速定位问题或者提前避“坑”，而fabric的官方文档是备受吐槽的；
+>
+> **编辑能力**：fabric和konva已经封装好了较多基础编辑功能，特别是fabric有不少开源案例直接给我们提供参考，适合用来开发需要快速实现功能的简单应用；
+>
+> **性能**：由于pixi是基于webgl的，其他三个库都是基于canvas, 所以pixi的性能最优，在处理大量图形方面有很大的优势；
+>
+> **适用场景**：这四个库有不同的适用场景，技术选型时应根据业务需求确定，例如，需求的复杂度、规模、性能要求等。
+>
+> [参考文章](https://juejin.cn/post/7243725952789217317?searchId=20230802103316608BF44C06EF117B48D1)
+
+### [Anime.js](https://animejs.com/)
+
+> 一个轻量级 JavaScript 动画库，具有简单但强大的 API。
+
+### [background-removal-js](https://github.com/imgly/background-removal-js)
+
+> 一个去除图片背景的 JS 库。
+
+### [auto-animate](https://github.com/formkit/auto-animate)
+
+> 一个网页动画库，可以为网页应用添加平滑的过渡，支持各种主流框架。
+
+### [Simple Statistics](http://simplestatistics.org/)
+
+> 一个统计学的 JS 库，提供基本的统计函数。

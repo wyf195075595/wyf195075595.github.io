@@ -256,7 +256,17 @@ div {
 }
 ```
 
-在媒体查询中使用，精简代码，减少冗余
+### var() 函数
+
+```css
+// --color 是变量，default 是 默认值，当--color 值无效是使用 
+var(--color, default)
+
+```
+
+
+
+#### 在媒体查询中使用，精简代码，减少冗余
 
 ```css
 .box {
@@ -272,7 +282,7 @@ div {
 }
 ```
 
-方便在 js 中使用
+#### 方便在 js 中使用
 
 ```js
 // 设置变量
@@ -283,7 +293,35 @@ doucment.getElementById('box').style.getPropertyValue('--color').trim()    //pin
 document.getElementById('box').style.removeProperty('--color')
 ```
 
+#### js 与 css 变量交互
 
+```vue
+<template>
+    <p 
+        class="notice-item" 
+        ref="noticeItem" 
+        :key="noticeList.id"
+        :style="{ animationDuration: duration, '--width': $refs.noticeItem?.scrollWidth}"
+    >
+    {{ noticeList.text }}
+    </p>
+</template>
+<style>
+	@keyframes scrollText {
+      0% {
+        /* 播放完成循环播放 */
+        transform: translateX(calc((var(--pwidth) + 100) * 1px));
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+</style>
+```
+
+> 如果说 css变量需要带单位，则写法需要变化  margin-top: calc(var(--gap) * 1px);
+>
+> [参考阮一峰老师博客](https://www.ruanyifeng.com/blog/2017/05/css-variables.html)
 
 ### css specificity 权重
 
@@ -749,4 +787,6 @@ input:-internal-autofill-selected {
     transition: background-color 5000s ease-in-out 0s !important;
 }
 ```
+
+
 

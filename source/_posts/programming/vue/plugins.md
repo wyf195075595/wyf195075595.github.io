@@ -666,3 +666,29 @@ export default {
 效果
 
 ![image-20230713102224150](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png)
+
+### [vue-treeselect](https://vue-treeselect.js.org/)
+
+> 若依框架在使用的 vue 下拉插件，支持下拉树，多选，搜索，懒加载等功能
+
+[Equal UI](https://equal-ui.github.io/Equal/)
+
+> 基于 Tailwind CSS 的一套 Vue 3 组件库。
+
+[AI Code Translator](https://aicodeconvert.com/)
+
+> 该网站可以将一种语言的程序，转换成另一种语言。用户也可以描述想要什么程序，它来生成代码。
+
+### [PrettyPolly](https://www.prettypolly.app/app)
+
+> 学习外语时，最好有一个对话环境，可以练习口语，这个 AI 应用就解决了这个问题。
+>
+> 它目前提供26种语言（包括中文、日文和韩文），你在网页上选择一种，就可以与 AI 进行口语练习了。感觉以后国内的外语培训产业，都要被 AI 取代了。
+
+### [JavaScript 框架的历史](https://programmingsoup.com/history-of-javascript-frameworks)
+
+> 一本英文小册子，介绍 JavaScript 的发展历史，从最早的 Prototype.js、Dojo、Mootools、YUI 一直到最新的微前端框架、Islands 框架。
+
+### [NixOS 与 Flakes 新手指南](https://nixos-and-flakes.thiscute.world/zh/)
+
+> 中文的开源书籍，帮助新人快速上手使用 NixOS。
