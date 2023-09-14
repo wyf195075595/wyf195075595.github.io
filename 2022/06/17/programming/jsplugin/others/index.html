@@ -19,8 +19,12 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20220905163024223.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20220908093453317.png">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f224b07df53143d4a0c97386741f9158~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
+<meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae1bcce1d126428ea9f25d542caa4bcd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
+<meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/017690f085d74827bfa38e460b9b90de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
+<meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/105d8f8b3abc4627975fbea90a4a4e34~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2023-07-17T00:46:50.775Z">
+<meta property="article:modified_time" content="2023-09-06T06:55:38.243Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
@@ -289,7 +293,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">8.1k字</span>
+      <span class="post-count">9.8k字</span>
     </span>
   </span>
 
@@ -298,7 +302,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">35分</span>
+      <span class="post-count">41分</span>
     </span>
   </span>
 </div>
@@ -500,7 +504,7 @@
 <p>● 连接部署服务器，将zip包发送过去。</p>
 <p>● 远程调用服务器端的脚本完成解压和文件替换的工作。</p>
 <p>使用archiver模块来制作zip包，接着使用node-ssh包（它的底层是更为通用的SSH2模块，这个模块是一个Promise封装，使用起来更加方便）来建立与服务器的连接，并将压缩包发送至服务器，最后使用node-ssh提供的远程命令调用API来启用放置在服务器上的发布脚本deploy.js，从而完成剩余的工作</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * @Description: </span></span><br><span class="line"><span class="comment"> * @Author:  </span></span><br><span class="line"><span class="comment"> * @Date: 2022-09-06 15:09:59</span></span><br><span class="line"><span class="comment"> * @LastEditTime: 2022-09-07 09:51:22</span></span><br><span class="line"><span class="comment"> * @LastEditors:  </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> archiver = <span class="built_in">require</span>(<span class="string">&#x27;archiver&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="title class_">NodeSSH</span>&#125; = <span class="built_in">require</span>(<span class="string">&#x27;node-ssh&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> ssh = <span class="keyword">new</span> <span class="title class_">NodeSSH</span>()</span><br><span class="line"><span class="keyword">const</span> srcPath = path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line"><span class="comment">// const configs = require(&#x27;./config&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始压缩dist目录&#x27;</span>)</span><br><span class="line"><span class="title function_">startZip</span>()</span><br><span class="line"><span class="comment">// 开始压缩 dist 目录为 public.zip</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startZip</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> archive = <span class="title function_">archiver</span>(<span class="string">&#x27;zip&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">zlib</span>: &#123;<span class="attr">level</span>: <span class="number">5</span>&#125;</span><br><span class="line">    &#125;).<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> output = fs.<span class="title function_">createWriteStream</span>(__dirname + <span class="string">&#x27;/public.zip&#x27;</span>)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;close&#x27;</span>, <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="comment">// 压缩结束时要先触发close时间，然后开始上传</span></span><br><span class="line">        <span class="keyword">if</span>(err) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;压缩zip文件异常&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已生成zip包&#x27;</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始上传 public.zip 至远程机器&#x27;</span>)</span><br><span class="line">        <span class="title function_">uploadFile</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    archive.<span class="title function_">pipe</span>(output) <span class="comment">// </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将srcPath 路径对应的内容添加到zip包的 /public 路径中</span></span><br><span class="line">    archive.<span class="title function_">directory</span>(srcPath, <span class="string">&#x27;/public&#x27;</span>)</span><br><span class="line">    archive.<span class="title function_">finalize</span>()</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将dist 目录上传至正式环境</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">uploadFile</span>(<span class="params"></span>) &#123;</span><br><span class="line">    ssh.<span class="title function_">connect</span>(&#123;</span><br><span class="line">        <span class="attr">host</span>: <span class="string">&#x27;192.168.1.12&#x27;</span>,</span><br><span class="line">        <span class="attr">username</span>: <span class="string">&#x27;jysp&#x27;</span>,</span><br><span class="line">        <span class="attr">password</span>: <span class="string">&#x27;jydw&#x27;</span>,</span><br><span class="line">        <span class="attr">port</span>: <span class="number">22222</span> <span class="comment">// SSH 默认的连接端口为22</span></span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 将网址的发布包上传至configs中配置的远程服务器的指定地址</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;上传的文件：&#x27;</span>, __dirname + <span class="string">&#x27;/public.zip&#x27;</span>);</span><br><span class="line">        ssh.<span class="title function_">putFile</span>(__dirname + <span class="string">&#x27;/public.zip&#x27;</span>, <span class="string">&#x27;/home/jysp/workspace/public.zip&#x27;</span>)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">status</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;上传文件成功&#x27;</span>)</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始执行远端脚本&#x27;</span>)</span><br><span class="line">            <span class="title function_">startRemoteShell</span>()</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span> &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件传输异常1&#x27;</span>, err)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        , <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件传输异常1&#x27;</span>, err)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ssh连接失败：&#x27;</span>, err)</span><br><span class="line">        process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行远端部署脚本</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startRemoteShell</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 在服务器上  cwd 配置的路径下执行 deploy.js 脚本来更新网站文件</span></span><br><span class="line">    ssh.<span class="title function_">execCommand</span>(<span class="string">&#x27;node deploy.js&#x27;</span>, &#123;<span class="attr">cwd</span>: <span class="string">&#x27;/home/jysp/workspace&#x27;</span>&#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">result</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;远程STDOUT输出：&#x27;</span>,  result.<span class="property">stdout</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;远程STDERR输出：&#x27;</span>,  result.<span class="property">stderr</span>)</span><br><span class="line">        <span class="keyword">if</span>(!result.<span class="property">stderr</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;发布成功&#x27;</span>)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// upload.js</span></span><br><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> archiver = <span class="built_in">require</span>(<span class="string">&#x27;archiver&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="title class_">NodeSSH</span>&#125; = <span class="built_in">require</span>(<span class="string">&#x27;node-ssh&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> ssh = <span class="keyword">new</span> <span class="title class_">NodeSSH</span>()</span><br><span class="line"><span class="keyword">const</span> srcPath = path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;./dist&#x27;</span>)</span><br><span class="line"><span class="comment">// const configs = require(&#x27;./config&#x27;)</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始压缩dist目录&#x27;</span>)</span><br><span class="line"><span class="title function_">startZip</span>()</span><br><span class="line"><span class="comment">// 开始压缩 dist 目录为 public.zip</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startZip</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> archive = <span class="title function_">archiver</span>(<span class="string">&#x27;zip&#x27;</span>, &#123;</span><br><span class="line">        <span class="attr">zlib</span>: &#123;<span class="attr">level</span>: <span class="number">5</span>&#125;</span><br><span class="line">    &#125;).<span class="title function_">on</span>(<span class="string">&#x27;error&#x27;</span>, <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> err</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">var</span> output = fs.<span class="title function_">createWriteStream</span>(__dirname + <span class="string">&#x27;/public.zip&#x27;</span>)</span><br><span class="line">    .<span class="title function_">on</span>(<span class="string">&#x27;close&#x27;</span>, <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">        <span class="comment">// 压缩结束时要先触发close时间，然后开始上传</span></span><br><span class="line">        <span class="keyword">if</span>(err) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;压缩zip文件异常&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;已生成zip包&#x27;</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始上传 public.zip 至远程机器&#x27;</span>)</span><br><span class="line">        <span class="title function_">uploadFile</span>()</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    archive.<span class="title function_">pipe</span>(output) <span class="comment">// </span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 将srcPath 路径对应的内容添加到zip包的 /public 路径中</span></span><br><span class="line">    archive.<span class="title function_">directory</span>(srcPath, <span class="string">&#x27;/public&#x27;</span>)</span><br><span class="line">    archive.<span class="title function_">finalize</span>()</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将dist 目录上传至正式环境</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">uploadFile</span>(<span class="params"></span>) &#123;</span><br><span class="line">    ssh.<span class="title function_">connect</span>(&#123;</span><br><span class="line">        <span class="attr">host</span>: <span class="string">&#x27;192.168.1.12&#x27;</span>,</span><br><span class="line">        <span class="attr">username</span>: <span class="string">&#x27;jysp&#x27;</span>,</span><br><span class="line">        <span class="attr">password</span>: <span class="string">&#x27;jydw&#x27;</span>,</span><br><span class="line">        <span class="attr">port</span>: <span class="number">22222</span> <span class="comment">// SSH 默认的连接端口为22</span></span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 将网址的发布包上传至configs中配置的远程服务器的指定地址</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;上传的文件：&#x27;</span>, __dirname + <span class="string">&#x27;/public.zip&#x27;</span>);</span><br><span class="line">        ssh.<span class="title function_">putFile</span>(__dirname + <span class="string">&#x27;/public.zip&#x27;</span>, <span class="string">&#x27;/home/jysp/workspace/public.zip&#x27;</span>)</span><br><span class="line">        .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">status</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;上传文件成功&#x27;</span>)</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;开始执行远端脚本&#x27;</span>)</span><br><span class="line">            <span class="title function_">startRemoteShell</span>()</span><br><span class="line">        &#125;)</span><br><span class="line">        .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span> &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件传输异常1&#x27;</span>, err)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">        , <span class="keyword">function</span>(<span class="params">err</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件传输异常1&#x27;</span>, err)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    .<span class="title function_">catch</span>(<span class="function"><span class="params">err</span>=&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;ssh连接失败：&#x27;</span>, err)</span><br><span class="line">        process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行远端部署脚本</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">startRemoteShell</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 在服务器上  cwd 配置的路径下执行 deploy.js 脚本来更新网站文件</span></span><br><span class="line">    ssh.<span class="title function_">execCommand</span>(<span class="string">&#x27;node deploy.js&#x27;</span>, &#123;<span class="attr">cwd</span>: <span class="string">&#x27;/home/jysp/workspace&#x27;</span>&#125;)</span><br><span class="line">    .<span class="title function_">then</span>(<span class="keyword">function</span>(<span class="params">result</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;远程STDOUT输出：&#x27;</span>,  result.<span class="property">stdout</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;远程STDERR输出：&#x27;</span>,  result.<span class="property">stderr</span>)</span><br><span class="line">        <span class="keyword">if</span>(!result.<span class="property">stderr</span>) &#123;</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;发布成功&#x27;</span>)</span><br><span class="line">            process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>编写发布的脚本</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// deploy.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> shell = <span class="built_in">require</span>(<span class="string">&#x27;shelljs&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> rootPath = __dirname</span><br><span class="line"></span><br><span class="line">shell.<span class="title function_">cd</span>(<span class="string">`<span class="subst">$&#123;rootPath&#125;</span>/usrl/server/tinyserver`</span>)</span><br><span class="line"><span class="comment">// 移出public目录</span></span><br><span class="line">shell.<span class="title function_">rm</span>(<span class="string">&#x27;-rf&#x27;</span>, <span class="string">&#x27;public&#x27;</span>)</span><br><span class="line">shell.<span class="title function_">cd</span>(<span class="string">`<span class="subst">$&#123;rootPath&#125;</span>/usrl/server`</span>)</span><br><span class="line">shell.<span class="title function_">exec</span>(<span class="string">&#x27;unzip public.zip&#x27;</span>, <span class="keyword">function</span>(<span class="params">err, stdout</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(err) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;unzip error&#x27;</span>, err)</span><br><span class="line">        process.<span class="title function_">exit</span>(<span class="number">0</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;unzip success&#x27;</span>)</span><br><span class="line">        shell.<span class="title function_">mv</span>(<span class="string">&#x27;public&#x27;</span>, <span class="string">&#x27;./tinyserver&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// deploy.sh 脚本</span></span><br><span class="line">cd /usrl/server/tinyserver</span><br><span class="line">rm -rf public</span><br><span class="line">cd /usrl/server</span><br><span class="line">unzip public.<span class="property">zip</span></span><br><span class="line">mv public ./tinyserver</span><br></pre></td></tr></table></figure>
@@ -563,6 +567,152 @@
 </blockquote>
 <h3 id="LeaferJS"><a href="#LeaferJS" class="headerlink" title="LeaferJS"></a><a target="_blank" rel="noopener" href="https://www.leaferjs.com/">LeaferJS</a></h3><blockquote>
 <p>一个国产的 Canvas 2D 图形渲染引擎，追求极致性能。</p>
+</blockquote>
+<h3 id="图形库各维度对比"><a href="#图形库各维度对比" class="headerlink" title="图形库各维度对比"></a>图形库各维度对比</h3><h4 id="fabric-js"><a href="#fabric-js" class="headerlink" title="fabric.js"></a><a target="_blank" rel="noopener" href="https://github.com/Rookie-Birds/Fabric-Tutorial_zh-CN/blob/master/part-8.md">fabric.js</a></h4><blockquote>
+<p>Fabric.js 是一个基于 HTML5 canvas 的开源 JavaScript 库，用于创建交互式的图形设计和编辑应用程序。它提供了一个易于使用的 API，使用户能够轻松地创建并操作多种图形对象，包括文本、图像、路径、形状和组等。Fabric.js 还支持图形转换、滤镜、动画和事件处理等功能，使得用户可以创建出更加生动、丰富的视觉效果。Fabric.js 适用于各种应用场景，例如在线图形编辑器、游戏开发、数据可视化等。</p>
+</blockquote>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f224b07df53143d4a0c97386741f9158~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="fabric-demo.png"></p>
+<h4 id="konva-js"><a href="#konva-js" class="headerlink" title="konva.js"></a>konva.js</h4><blockquote>
+<p>Konva.js是一个HTML5 Canvas库，用于创建交互式的Canvas应用程序。它提供了一个强大的API，使得开发者可以轻松地在Canvas上添加图形、文本、形状、图像、动画等元素，并且可以与这些元素进行交互。Konva.js的特点包括：</p>
+<ol>
+<li>可以创建复杂的动画效果，如移动、旋转、缩放等。</li>
+<li>支持事件监听，例如鼠标点击、拖拽、滑动等。</li>
+<li>支持多种图形，包括矩形、圆形、多边形、线条等。</li>
+<li>可以实现图形的分组、层级管理等。</li>
+<li>支持图片缓存，可以在Canvas中快速的绘制图片。</li>
+<li>具有高度的性能和优化，可以在大型项目中使用。</li>
+</ol>
+</blockquote>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae1bcce1d126428ea9f25d542caa4bcd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="konva-demo.png"></p>
+<h4 id="leaflet-js"><a href="#leaflet-js" class="headerlink" title="leaflet.js"></a>leaflet.js</h4><blockquote>
+<p>leaflet.js是一个用于创建交互式地图的开源JavaScript库。它提供了易于使用的API，可以轻松地在网页上添加地图、图层、标记、组件和交互元素，并支持各种地图提供商和数据源。它也可以适应不同的设备和分辨率，支持移动设备和触摸交互。它在Web开发中广泛应用于可视化、地理信息系统、位置服务、游戏等领域。</p>
+</blockquote>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/017690f085d74827bfa38e460b9b90de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="leaflet-demo.png"></p>
+<h4 id="pixi-js"><a href="#pixi-js" class="headerlink" title="pixi.js"></a>pixi.js</h4><blockquote>
+<p>Pixi.js是一个基于WebGL和Canvas的2D渲染引擎，它提供了一种简单、快速的方式来创建交互式图形、动画和游戏。Pixi.js的设计目标是提高Web应用程序的渲染性能，它可以在不同的设备上实现流畅的动画效果，而且非常易于使用。 Pixi.js支持多种渲染器，包括WebGL、Canvas和SVG，可以根据不同的场景选择最适合的渲染器。它还提供了很多实用的功能，例如精灵、文本、遮罩、滤镜、动画等，可以帮助开发者轻松创建各种效果。 Pixi.js的API简单易用，文档详细，社区活跃，拥有大量的插件和扩展，可以满足各种需求。Pixi.js除了适用于游戏开发，还可以用于数据可视化、UI设计、广告制作等领域。</p>
+</blockquote>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/105d8f8b3abc4627975fbea90a4a4e34~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="pixi-demo.png"></p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><table>
+<thead>
+<tr>
+<th></th>
+<th>** fabric.js**</th>
+<th><strong>konva.js</strong></th>
+<th><strong>leaflet.js</strong></th>
+<th><strong>pixi.js</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>简介</strong></td>
+<td>Fabric.js是一个开源的JavaScript库，用于创建交互式的Canvas应用程序。</td>
+<td>Konva.js是一个HTML5 Canvas库，用于创建交互式的Canvas应用程序。</td>
+<td>Leaflet.js是一个开源的JavaScript库，用于创建交互式地图。</td>
+<td>Pixi.js是一个快速、轻量级的2D渲染引擎，可用于创建游戏、动画和交互式应用程序。</td>
+</tr>
+<tr>
+<td><strong>github地址</strong></td>
+<td><a href="https://link.juejin.cn/?target=https://github.com/fabricjs/fabric.js"> github.com/fabricjs/fa…</a></td>
+<td><a href="https://link.juejin.cn/?target=https://github.com/konvajs/konva">github.com/konvajs/kon…</a></td>
+<td><a href="https://link.juejin.cn/?target=https://github.com/Leaflet/Leaflet">github.com/Leaflet/Lea…</a></td>
+<td><a href="https://link.juejin.cn/?target=https://github.com/pixijs/pixijs">github.com/pixijs/pixi…</a></td>
+</tr>
+<tr>
+<td><strong>Star数量</strong>（统计于2023.5.23）</td>
+<td>24.9k</td>
+<td>9.3k</td>
+<td>37.6k</td>
+<td>40k</td>
+</tr>
+<tr>
+<td><strong>更新频率</strong></td>
+<td>约3次/周</td>
+<td>约1次/周</td>
+<td>约3次/周</td>
+<td>约3次/周</td>
+</tr>
+<tr>
+<td><strong>Fork数量</strong></td>
+<td>3.3k</td>
+<td>809</td>
+<td>5.6k</td>
+<td>4.8k</td>
+</tr>
+<tr>
+<td><strong>issue情况</strong></td>
+<td>253 open, 5425 closed, open率4.5%</td>
+<td>74 open, 1172 closed, open率5.9%</td>
+<td>362 open, 4663 closed, open率7.2%</td>
+<td>134 open, 5038 closed,open率2.6%</td>
+</tr>
+<tr>
+<td><strong>官方文档</strong></td>
+<td><a href="https://link.juejin.cn/?target=http://fabricjs.com/docs/fabric.Polygon.html">英文文档</a></td>
+<td><a href="https://link.juejin.cn/?target=https://konvajs.org/api/Konva.Animation.html">英文文档</a>、<a href="https://link.juejin.cn/?target=http://konvajs-doc.bluehymn.com/docs/select_and_transform/Transform_Events.html">中文文档</a></td>
+<td><a href="https://link.juejin.cn/?target=https://leafletjs.com/examples/extending/extending-1-classes.html">英文文档</a>、<a href="https://link.juejin.cn/?target=https://leafletjs.cn/reference-1.7.1.html">中文文档</a></td>
+<td><a href="https://link.juejin.cn/?target=https://pixijs.io/guides/basics/getting-started.html">英文文档</a>、<a href="https://link.juejin.cn/?target=https://pixijs.huashengweilai.com/guide/start/1.introduction.html">中文文档</a></td>
+</tr>
+<tr>
+<td><strong>博客分享</strong></td>
+<td>较多</td>
+<td>一般</td>
+<td>较少</td>
+<td>一般</td>
+</tr>
+<tr>
+<td><strong>Fork数量</strong></td>
+<td>3.3k</td>
+<td>809</td>
+<td>5.6k</td>
+<td>4.8k</td>
+</tr>
+<tr>
+<td><strong>参考案例</strong></td>
+<td>① <a href="https://link.juejin.cn/?target=https://github.com/nihaojob/vue-fabric-editor">vue-fabric-editor</a> ② <a href="https://link.juejin.cn/?target=https://github.com/salgum1114/react-design-editor">react-design-editor</a> ③ <a href="https://link.juejin.cn/?target=https://lanhuapp.com/">新版蓝湖</a></td>
+<td><a href="https://link.juejin.cn/?target=https://studio.polotno.com/">polotno-studio</a></td>
+<td>暂无</td>
+<td>暂无</td>
+</tr>
+<tr>
+<td><strong>编辑能力</strong></td>
+<td><strong>编辑能力强</strong>，支持文本、图片、形状等多种图形元素的编辑，可以进行拖拽、缩放、旋转、变换等操作，还支持多种样式和效果。</td>
+<td><strong>编辑能力强</strong>，支持多种图形元素的编辑，可以进行拖拽、缩放、旋转、变换等操作，但在样式和效果方面略显不足</td>
+<td><strong>编辑能力一般，</strong> 可以创建交互式地图，具有丰富的地图操作功能，如缩放、平移、标注等，但专注于地图操作和显示，而不是图形编辑。</td>
+<td><strong>编辑能力较好，</strong> 可以创建高性能的2D图形，具有丰富的渲染功能，可以进行高级的图形设计和编辑，但缺少拖拽、缩放等基础编辑功能。</td>
+</tr>
+<tr>
+<td><strong>性能及适用场景</strong></td>
+<td><strong>性能一般</strong>，适用于开发小型应用。</td>
+<td><strong>性能较好</strong>，可以处理大量图形元素，适合开发复杂的应用。</td>
+<td><strong>性能一般</strong>，对于大规模数据的渲染和处理能力较弱。</td>
+<td><strong>性能优异</strong>，适用于大规模的用户界面和游戏开发，例如创建复杂的用户界面、2D游戏等。</td>
+</tr>
+<tr>
+<td><strong>学习及开发成本</strong></td>
+<td>常用功能封装齐全，可参考案例较多，<strong>上手和使用成本一般；</strong> 基于es5开发。可能会影响开发效率。</td>
+<td>可直接参考的案例较少，暴露的api较少，<strong>学习成本较高；</strong> 对ts的支持比较高，架构设计更灵活，开发成本相对较低。</td>
+<td><strong>学习成本一般</strong>；具有简单易用的API，开发成本较低。</td>
+<td>需要开发者具备一定的图形设计能力，<strong>学习成本较高</strong>。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>社区活跃度</strong>：这四个库均创建于2013年-2015年，基本有十年左右的发展历史，github上的star数量都比较高，其中，pixi和leaflet的社区最为活跃；</p>
+<p><strong>技术资料丰富度</strong>：konva和pixi的官方文档更为详细，能有助于帮我们学习如何快速上手、并能快速定位问题或者提前避“坑”，而fabric的官方文档是备受吐槽的；</p>
+<p><strong>编辑能力</strong>：fabric和konva已经封装好了较多基础编辑功能，特别是fabric有不少开源案例直接给我们提供参考，适合用来开发需要快速实现功能的简单应用；</p>
+<p><strong>性能</strong>：由于pixi是基于webgl的，其他三个库都是基于canvas, 所以pixi的性能最优，在处理大量图形方面有很大的优势；</p>
+<p><strong>适用场景</strong>：这四个库有不同的适用场景，技术选型时应根据业务需求确定，例如，需求的复杂度、规模、性能要求等。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7243725952789217317?searchId=20230802103316608BF44C06EF117B48D1">参考文章</a></p>
+</blockquote>
+<h3 id="Anime-js"><a href="#Anime-js" class="headerlink" title="Anime.js"></a><a target="_blank" rel="noopener" href="https://animejs.com/">Anime.js</a></h3><blockquote>
+<p>一个轻量级 JavaScript 动画库，具有简单但强大的 API。</p>
+</blockquote>
+<h3 id="background-removal-js"><a href="#background-removal-js" class="headerlink" title="background-removal-js"></a><a target="_blank" rel="noopener" href="https://github.com/imgly/background-removal-js">background-removal-js</a></h3><blockquote>
+<p>一个去除图片背景的 JS 库。</p>
+</blockquote>
+<h3 id="auto-animate"><a href="#auto-animate" class="headerlink" title="auto-animate"></a><a target="_blank" rel="noopener" href="https://github.com/formkit/auto-animate">auto-animate</a></h3><blockquote>
+<p>一个网页动画库，可以为网页应用添加平滑的过渡，支持各种主流框架。</p>
+</blockquote>
+<h3 id="Simple-Statistics"><a href="#Simple-Statistics" class="headerlink" title="Simple Statistics"></a><a target="_blank" rel="noopener" href="http://simplestatistics.org/">Simple Statistics</a></h3><blockquote>
+<p>一个统计学的 JS 库，提供基本的统计函数。</p>
 </blockquote>
 
     
@@ -682,18 +832,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/jsplugin/rollup.js/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/jsplugin/momentjs/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          rollup
+          momentjs时间处理类库
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/jsplugin/uuid/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UUID</div>
+    <a href="/2022/06/17/programming/jsplugin/openlayers/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OpenLayers</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -720,7 +870,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">2.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">3.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">4.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">5.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">6.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">7.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">8.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">9.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">10.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">11.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">12.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">13.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">14.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">15.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">16.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">17.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">18.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">19.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">20.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">21.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">22.</span> <span class="toc-text">Inquirer.js与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">23.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">24.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">25.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">26.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">27.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">28.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">29.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">30.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">31.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">32.</span> <span class="toc-text">LeaferJS</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">2.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">3.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">4.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">5.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">6.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">7.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">8.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">9.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">10.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">11.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">12.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">13.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">14.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">15.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">16.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">17.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">18.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">19.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">20.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">21.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">22.</span> <span class="toc-text">Inquirer.js与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">23.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">24.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">25.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">26.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">27.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">28.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">29.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">30.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">31.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">32.</span> <span class="toc-text">LeaferJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%90%84%E7%BB%B4%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="toc-number">33.</span> <span class="toc-text">图形库各维度对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fabric-js"><span class="toc-number">33.1.</span> <span class="toc-text">fabric.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#konva-js"><span class="toc-number">33.2.</span> <span class="toc-text">konva.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leaflet-js"><span class="toc-number">33.3.</span> <span class="toc-text">leaflet.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pixi-js"><span class="toc-number">33.4.</span> <span class="toc-text">pixi.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">33.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anime-js"><span class="toc-number">34.</span> <span class="toc-text">Anime.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-removal-js"><span class="toc-number">35.</span> <span class="toc-text">background-removal-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-animate"><span class="toc-number">36.</span> <span class="toc-text">auto-animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Statistics"><span class="toc-number">37.</span> <span class="toc-text">Simple Statistics</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -878,15 +1028,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,15 +1044,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -942,10 +1084,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
@@ -954,7 +1092,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -962,7 +1108,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -970,23 +1124,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1002,15 +1140,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1018,11 +1164,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1030,11 +1180,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1042,7 +1188,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1058,26 +1228,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -1086,31 +1236,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1127,6 +1257,30 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
