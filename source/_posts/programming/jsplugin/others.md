@@ -843,13 +843,7 @@ imquirer.prompt(questions).then(abswer=> {
 使用archiver模块来制作zip包，接着使用node-ssh包（它的底层是更为通用的SSH2模块，这个模块是一个Promise封装，使用起来更加方便）来建立与服务器的连接，并将压缩包发送至服务器，最后使用node-ssh提供的远程命令调用API来启用放置在服务器上的发布脚本deploy.js，从而完成剩余的工作
 
 ```js
-/*
- * @Description: 
- * @Author:  
- * @Date: 2022-09-06 15:09:59
- * @LastEditTime: 2022-09-07 09:51:22
- * @LastEditors:  
- */
+// upload.js
 const path = require('path')
 const archiver = require('archiver')
 const fs = require('fs')

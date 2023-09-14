@@ -2,7 +2,7 @@
 title:  vite 打包优化项
 date: 2022-06-17 08:23:10
 tags: vite
-categories: vue
+categories: vite
 ---
 
 
@@ -134,5 +134,92 @@ import viteCompression from 'vite-plugin-compression'
     algorithm: 'gzip',
     ext: '.gz',
   })],
+```
+
+
+
+### 完整的配置参考
+
+```js
+import { fileURLToPath, URL } from 'node:url'
+
+import { defineConfig, loadEnv } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import postCssPxToRem from 'postcss-pxtorem'
+import { visualizer } from 'rollup-plugin-visualizer'
+import viteCompression from 'vite-plugin-compression';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import path from 'path'
+
+// https://vitejs.dev/config/
+export default defineConfig(({ mode }) => {
+  const { VITE_VERSION = "1.1.0" } = loadEnv(mode, __dirname)
+  const manualChunks = [
+    { name: "element-plus", test: /[\\/]node_modules[\\/]element-plus[\\/]/ },
+    { name: "axios", test: /[\\/]node_modules[\\/]axios[\\/]/ },
+    { name: "dayjs", test: /[\\/]node_modules[\\/]dayjs[\\/]/ },
+  ]
+  return {
+    plugins: [
+      createSvgIconsPlugin({
+        // 要缓存的图标文件夹
+        iconDirs: [path.resolve(__dirname, 'src/assets/icons/svg')],
+        // 执行 icon name 的格式
+        symbolId: 'icon-[name]',
+      }),
+      vue(),
+      visualizer(),
+      viteCompression({
+        verbose: true, // 是否在控制台输出压缩结果
+        disable: false, // 是否禁用
+        threshold: 1024, // 
+        algorithm: "gzip", // 压缩算法,可选 [ 'gzip' , 'brotliCompress' ,'deflate' , 'deflateRaw']
+        ext: ".gz", // 文件后缀
+        deleteOriginFile: false, // 是否删除源文件
+      })
+    ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    },
+    css: {
+      devSourcemap: true,
+      postcss: {
+        plugins: [
+          postCssPxToRem({
+            propList: ["*"],
+            replace: true,
+            rootValue: 16,
+            unitPrecision: 5,
+          })
+        ]
+      }
+    },
+    build: {
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
+        }
+      },
+      rollupOptions: {
+        output: {
+          chunkFileNames: `static/js/[name]-[hash]-${VITE_VERSION}.js`,
+          entryFileNames: `static/js/[name]-[hash]-${VITE_VERSION}.js`,
+          assetFileNames: `static/[ext]/[name]-[hash]-${VITE_VERSION}.[ext]`,
+          manualChunks(id) {
+            const flag = manualChunks.some(v => v.test.test(id));
+            if (flag) {
+              return id.toString().split('node_modules/')[1].split('/')[0].toString();
+            }
+          }
+        }
+      }
+    }
+  }
+})
+
 ```
 

@@ -488,3 +488,136 @@ module.exports = {
 
 > [参考链接](https://blog.51cto.com/feng/5289791)
 
+### 完整示例参考
+
+```js
+/*
+ * @Description: 打包配置
+ * @Author:  wyf
+ * @Date: 2023-07-03 08:48:44
+ * @LastEditTime: 2023-08-29 11:01:04
+ * @LastEditors:  
+ */
+const { defineConfig } = require('@vue/cli-service');
+const { type } = require('os');
+// 是否为生产环境
+const isProduction = process.env.NODE_ENV === "production";
+// 时间戳
+const timestamp = new Date().getTime();
+const path = require('path');
+// const { config } = require('process');
+// console.log("process.config", config);
+module.exports = defineConfig({
+  transpileDependencies: true,
+  publicPath: isProduction ? "/" : "/",
+  outputDir: "dist",
+  productionSourceMap: false,
+  devServer: {
+    proxy: {
+      '/api': {
+        // target: "http://192.18.1.12:8080/", // 我们要代理的真实接口地址
+        target: "http://60.173.195.163:18000/",
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: { "^/api": "" },
+      }
+    }
+  },
+  configureWebpack: (config) => {
+    config.performance = {
+      hints: "warning",
+      // 入口起点的最大体积
+      maxEntrypointSize: 1024*1024*1,
+      // 生成文件的最大体积
+      maxAssetSize: 1024*1024*1,
+      // 只给出 js 文件的性能提示
+      assetFilter: function (assetFilename) {
+        return assetFilename.endsWith(".js");
+      },
+    }
+  },
+  chainWebpack: (config) => {
+    config.plugins.delete('preload') // TODO: need test
+    config.plugins.delete('prefetch') // TODO: need test
+
+    if(isProduction){
+      // 去除console.log输出
+      config.optimization
+      .minimizer('terser')
+      .tap(args => {
+        Object.assign(args[0].terserOptions.compress, { 
+          // 生产模式去除console.log
+          pure_funcs: ['console.log']
+        })
+        return args
+      })
+    }
+    // set svg-sprite-loader
+    config.module
+      .rule('svg')
+      .exclude.add(path.resolve('src/assets/icons'))
+      .end()
+    config.module
+      .rule('icons')
+      .test(/\.svg$/)
+      .include.add(path.resolve('src/assets/icons'))
+      .end()
+      .use('svg-sprite-loader')
+      .loader('svg-sprite-loader')
+      .options({
+        symbolId: 'icon-[name]'
+      })
+      .end()
+
+    config.optimization.splitChunks({
+      chunks: "all", // 表示选择哪些 chunks 进行分割，可选值有：async，initial和all
+      maxInitialRequests: 10, // 
+      minSize: 30000, // 依赖包超过30KB将被单独打包
+      automaticNameDelimiter: "-",// 抽取出来的文件的自动生成名字的分割符，默认为 ~；
+      cacheGroups: {
+        vendor: { // vendors用于提取所有node_modules中符合条件的模块
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            const packageNames = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            );
+            if(packageNames) {
+              return `chunk.${packageNames[1].replace("@", "")}`;
+            }
+          },
+          priority: 10 // 当一个模块同时符合多个cacheGroups时，则根据其中的priority配置项确定优先级
+        }
+      }
+    });
+
+    config.output
+      .filename(
+        `js/[name]_[hash]_${process.env.VUE_APP_VERSION}_${timestamp}.js`
+      )
+      .chunkFilename(
+        `js/[name]_[hash]_${process.env.VUE_APP_VERSION}_${timestamp}.js`
+      );
+    
+    // 系统名称
+    config.plugin('html').tap(args => {
+        args[0].title = "智慧营业厅管理平台"
+        return args
+    })
+  },
+  css: {
+    sourceMap: isProduction ? false : true,
+    extract: {
+      filename: `css/[name]_[hash]_${process.env.VUE_APP_VERSION}_${timestamp}.css`,
+      chunkFilename: `css/[name]_[hash]_${process.env.VUE_APP_VERSION}_${timestamp}.css`,
+    },
+  },
+  pluginOptions: {
+    "style-resources-loader": {
+      preProcessor: "less",
+      patterns: [path.resolve(__dirname, "./src/styles/variable.less")],
+    },
+  },
+})
+
+```
+

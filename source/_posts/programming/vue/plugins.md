@@ -692,3 +692,49 @@ export default {
 ### [NixOS 与 Flakes 新手指南](https://nixos-and-flakes.thiscute.world/zh/)
 
 > 中文的开源书籍，帮助新人快速上手使用 NixOS。
+
+### [element-ui-verify](https://aweiu.com/documents/element-ui-verify/)
+
+> 提升 element-ui 原生表达验证体验
+
+```vue
+<template>
+  <el-form label-width="100px" :model="model">
+    <el-form-item label="年龄" prop="age" verify int :gt="0">
+      <el-input v-model="model.age"></el-input>
+    </el-form-item>
+  </el-form>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        model: {
+          age: '',
+        },
+      }
+    },
+  }
+</script>
+```
+
+### [normalize.css](http://necolas.github.io/normalize.css/)
+
+> **现代的、支持 HTML5 的 CSS 重置替代方案**
+
+```js
+npm i normalize.css
+
+// main.js
+import 'normalize.css/normalize.css'
+```
+
+
+
+### [vue-amap](https://github.com/ElemeFE/vue-amap)
+
+> [基于 Vue 2.x 与高德的地图组件](https://elemefe.github.io/vue-amap/#/?id=vue-amap-基于-vue-2x-与高德的地图组件)
+
+### [vue放大镜插件](https://mater1996.github.io/vue-photo-zoom-pro/demo/image.html)
+
+> [VuePhotoZoomPro](https://mater1996.github.io/vue-photo-zoom-pro/)
