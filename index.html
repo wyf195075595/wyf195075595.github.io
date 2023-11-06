@@ -258,6 +258,654 @@
             
 
   
+    <article id="post-programming/linux/ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/11/01/programming/linux/ubuntu/" target="_blank">虚拟机安装Ubuntu ssh 连接</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/11/01/programming/linux/ubuntu/" class="archive-article-date">
+        <time datetime="2023-11-01T02:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-01</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>Ubuntu 与 conteos 最大区别就是 Ubuntu 安装后自带操作界面。很流畅，虽然conteos 也能安装界面但是不好用，卡的一批。然后就是包管理工具，编辑 等一些命令不一样</p>
+</blockquote>
+<p>下载好 Ubuntu ISO镜像后，在虚拟机上安装好。登录后发现 连接工具 无法访问 Ubuntu</p>
+<p>​    ubuntu18.04中只默认安装了openssh-client,所以如果想用ssh远程登录ubuntu，需要下载安装openssh-server，并启动ssh服务</p>
+<h3 id="安装-openssh-server"><a href="#安装-openssh-server" class="headerlink" title="安装 openssh-server"></a>安装 openssh-server</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<h4 id="编辑配置文件-sshd-config"><a href="#编辑配置文件-sshd-config" class="headerlink" title="编辑配置文件 sshd_config"></a>编辑配置文件 sshd_config</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+
+<p>找到：PermitRootLogin prohibit-password 禁用</p>
+<p>添加：PermitRootLogin yes</p>
+<p>配置重启</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service ssh restart</span><br></pre></td></tr></table></figure>
+
+<h4 id="防火墙管理"><a href="#防火墙管理" class="headerlink" title="防火墙管理"></a>防火墙管理</h4><p>安装 ufw 系统自带的防火墙管理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br></pre></td></tr></table></figure>
+
+<p>常用命令</p>
+<ul>
+<li>启用/关闭</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable(开启)/disable(关闭)</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>打开或关闭某个端口打开或关闭某个端口</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　//允许所有的外部IP访问本机的25/tcp (smtp)端口</span><br><span class="line">sudo ufw allow 22/tcp //允许所有的外部IP访问本机的22/tcp (ssh)端口</span><br><span class="line">sudo ufw allow 53 //允许外部访问53端口(tcp/udp)</span><br><span class="line">sudo ufw allow from 192.168.1.100 //允许此IP访问所有的本机端口</span><br><span class="line">sudo ufw allow proto tcp from 192.168.0.1 to 192.168.0.2 port 22 //允许192.168.0.1访问192.168.0.2的22/tcp（ssh）端口</span><br><span class="line">sudo ufw deny smtp //禁止外部访问smtp服务</span><br><span class="line">sudo ufw delete allow smtp //删除上面建立的某条规则</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>查看防火墙状态</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>一般用户，只需如下设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
+
+<p>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
+<h3 id="vi-常用命令"><a href="#vi-常用命令" class="headerlink" title="vi 常用命令"></a>vi 常用命令</h3><blockquote>
+<p>进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
+</blockquote>
+<h4 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h4><blockquote>
+<p>ESC 可从插入模式回到命令模式</p>
+</blockquote>
+<ol>
+<li>i    光标当前位置插入</li>
+<li>a   光标位置后面追加</li>
+<li>o   换行追加，插入新的一行</li>
+</ol>
+<h4 id="保存退出"><a href="#保存退出" class="headerlink" title="保存退出"></a>保存退出</h4><p>在命令模式下输入 : 开头</p>
+<ul>
+<li>「w」：在冒号输入字母「w」就可以将文件保存起来。</li>
+<li>「 E」 离开vi</li>
+<li>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。</li>
+<li>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。</li>
+</ul>
+<h4 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h4><blockquote>
+<p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
+</blockquote>
+<ul>
+<li>按「ctrl」+「b」：屏幕往“后”移动一页。</li>
+<li>按「ctrl」+「f」：屏幕往“前”移动一页。</li>
+<li>按「ctrl」+「u」：屏幕往“后”移动半页。</li>
+<li>按「ctrl」+「d」：屏幕往“前”移动半页。</li>
+<li>按数字「0」：移到文章的开头。</li>
+<li>按「G」：移动到文章的最后。</li>
+<li>按「$」：移动到光标所在行的“行尾”。</li>
+<li>按「^」：移动到光标所在行的“行首”</li>
+<li>按「w」：光标跳到下个字的开头</li>
+<li>按「e」：光标跳到下个字的字尾</li>
+<li>按「b」：光标回到上个字的开头</li>
+<li>按「#l」：光标移到该行的第#个位置，如：5l,56l</li>
+</ul>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
+<li>「x」：每按一次，删除光标所在位置的“后面”一个字符。</li>
+<li>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。</li>
+<li>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。</li>
+<li>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。</li>
+<li>「dd」：删除光标所在行。</li>
+<li>「#dd」：从光标所在行开始删除#行</li>
+</ul>
+<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><ul>
+<li>「yw」：将光标所在之处到字尾的字符复制到缓冲区中。</li>
+<li>「#yw」：复制#个字到缓冲区</li>
+<li>「yy」：复制光标所在行到缓冲区。</li>
+<li>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。</li>
+<li>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
+</ul>
+<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><ul>
+<li>「r」：替换光标所在处的字符。</li>
+<li>「R」：替换光标所到之处的字符，直到按下「ESC」键为止</li>
+</ul>
+<h4 id="恢复-撤消-还原上一次操作"><a href="#恢复-撤消-还原上一次操作" class="headerlink" title="恢复/撤消/还原上一次操作"></a>恢复/撤消/还原上一次操作</h4><p>「u」：如果误执行一个命令，可以马上按下「u」，撤消上一个操作。按多次“u”可以执行多次撤消。</p>
+<h4 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h4><ul>
+<li>「cw」：更改光标所在处的字到字尾处</li>
+<li>「c#w」：例如，「c3w」表示更改3个字</li>
+</ul>
+<h4 id="跳至指定的行"><a href="#跳至指定的行" class="headerlink" title="跳至指定的行"></a>跳至指定的行</h4><ul>
+<li>「ctrl」+「g」列出光标所在行的行号。</li>
+<li>「#G」：例如，「15G」，表示移动光标至文章的第15行行首。</li>
+</ul>
+<h4 id="列出行号"><a href="#列出行号" class="headerlink" title="列出行号"></a>列出行号</h4><p>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。</p>
+<h4 id="跳到文件中的某一行"><a href="#跳到文件中的某一行" class="headerlink" title="跳到文件中的某一行"></a>跳到文件中的某一行</h4><p>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。</p>
+<h4 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h4><ul>
+<li>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。</li>
+<li>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。</li>
+</ul>
+<h4 id="vi命令列表"><a href="#vi命令列表" class="headerlink" title="vi命令列表"></a>vi命令列表</h4><ul>
+<li>h    左移光标一个字符</li>
+<li>l    右移光标一个字符</li>
+<li>k    光标上移一行</li>
+<li>j    光标下移一行</li>
+<li>^    光标移动至行首</li>
+<li>0    数字“0”，光标移至文章的开头</li>
+<li>G    光标移至文章的最后</li>
+<li>$    光标移动至行尾</li>
+<li>Ctrl+f    向前翻屏</li>
+<li>Ctrl+b    向后翻屏</li>
+<li>Ctrl+d    向前翻半屏</li>
+<li>Ctrl+u    向后翻半屏</li>
+<li>wq filename    储存正在编辑的文件为filename，并退出vi</li>
+</ul>
+<h3 id="安装-ffmpeg"><a href="#安装-ffmpeg" class="headerlink" title="安装 ffmpeg"></a>安装 ffmpeg</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-ffmpeg-on-ubuntu-18-04/">参考链接</a></p>
+</blockquote>
+<p>ubuntu 18.04 版本 安装 4.x版本 ffmpeg</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf/ffmpeg-4</span><br><span class="line"></span><br><span class="line">sudo apt install ffmpeg</span><br><span class="line"></span><br><span class="line">// 下载到多少，突然报网络问题断联，补全下载</span><br><span class="line">sudo apt install ffmpeg --prefix</span><br></pre></td></tr></table></figure>
+
+<p>如果安装ppa 失败，那么要安装这个</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install software-properties-common</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><blockquote>
+<p>默认安装的 nodejs 是8版本，连npm都不带，不大行。</p>
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/">查询nodejs版本</a>,下载 linux-x64.tar.gz 后缀文件</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>安装后解压，放到 /usr/local/nodejs-xxx 目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nodejs-xxx </span><br></pre></td></tr></table></figure>
+
+<h3 id="安装-PM2"><a href="#安装-PM2" class="headerlink" title="安装 PM2"></a>安装 PM2</h3><blockquote>
+<p>PM2是node进程管理工具，可以利用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2 -g</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="设置全局变量"><a href="#设置全局变量" class="headerlink" title="设置全局变量"></a>设置全局变量</h3><ol>
+<li><p>临时设置</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
+<li><p>当前用户全局</p>
+<p> 打开 ~/.bashrc,添加下面配置</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
+<li><p>所有用户的全局配置</p>
+<p> 修改 /etc/profile</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
+<li><p>配置修改生效</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source profile</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">ubuntu</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/11/01/programming/linux/ubuntu/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/c/base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/10/31/programming/c/base/" target="_blank">c基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/10/31/programming/c/base/" class="archive-article-date">
+        <time datetime="2023-10-31T06:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>在vscode 中运行c++</p>
+</blockquote>
+<h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/Winda_shi/article/details/129463163">环境搭建</a></h2>
+    
+    <a class="article-more-a" href="/2023/10/31/programming/c/base/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/c//" class="article-tag-list-link color2">c</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/10/31/programming/c/base/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/音视频/基础知识" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/10/31/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" target="_blank">音视频基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/10/31/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="archive-article-date">
+        <time datetime="2023-10-31T01:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-31</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>需要了解下Linux和c语言基础，主要用到的工具 ffmpeg</p>
+</blockquote>
+<h3 id="安装-ffmpeg"><a href="#安装-ffmpeg" class="headerlink" title="安装  ffmpeg"></a>安装  ffmpeg</h3><p>mac 环境下推荐 brew 方式， 其他环境推荐使用源码方式下载安装</p>
+<ol>
+<li><p><a target="_blank" rel="noopener" href="http://ffmpeg.org/download.html">下载 ffmpeg</a></p>
+<p> 可以选择 git 下载，慢的话用 http方式下载快照版本</p>
+</li>
+<li><p>编译 ffmpeg</p>
+<p> 如果出现操作权限不够，可以同过在命令前面加 sudo 提高权限</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 指定安装目录 /usr/local/ffmpeg，设置debug模式3</span><br><span class="line">./configure -prefix=/usr/local/ffmpeg -enable-debug=3</span><br><span class="line">// 指定 4核模式</span><br><span class="line">make -j 4</span><br><span class="line">// 安装</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2023/10/31/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/10/31/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/java/geoserver" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/10/09/programming/java/geoserver/" target="_blank">GeoServer</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/10/09/programming/java/geoserver/" class="archive-article-date">
+        <time datetime="2023-10-09T03:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>GeoServer 是一个优秀得开源的GIS服务器，它相较于商用的GIS软件 ArcGIS Server\SuperMap iServer 等服务器软件，它能实现大多数场景下项目对GIS的功能要求，而且有活跃的社区支持，在实际生产中也越来越受到开发者的青睐。</p>
+</blockquote>
+<h3 id="GeoServer的诞生历史"><a href="#GeoServer的诞生历史" class="headerlink" title="GeoServer的诞生历史"></a><strong>GeoServer的诞生历史</strong></h3><blockquote>
+<p>GeoServer于2001年由总部位于纽约的非盈利技术孵化器open planning project (TOPP),启动TOPP正在创建一套工具，以实现开放民主，并帮助政府更加透明。第一个是GeoServer，这是因为人们认识到，共享空间数据的能力将(成为) 大大增强公民参与政府和城市规划的一套工具。</p>
+<p>GeoServer的创始人设想了一个类似于万维网的地理空间网。通过万维网，人们可以搜索和下载文本。通过地理空间网，人们可以搜索和下载空问数据。数据提供者将能够直接将他们的数据发布到这个网站上，用户可以直接访问它，而不是现在存在的间接和繁琐的数据共享方法。</p>
+<p>GeoServer的相关人员创建了<strong>GeoTools</strong>项目，这是一个开源的GIS Java工具包。通过GeoTools，增加了对shapefile、Oracle数据库、ArcSDE集成等的支持</p>
+<p>其他项目变得相互关联。Refractions Research创建了一个免费开放的空间数据库<strong>PostGIS</strong>，使GeoServer能够连接到一个免费的数据库。另外，MetaCarta最初创建了<strong>OpenLayers</strong>.一个基于开源浏览器的地图查看工具。这些工具一起增强了GeoServer的功能。</p>
+<p><strong>这使得使用开源技术路线构建GIS工作流成为可能，数据可以从PostGIS流入GeoServer、再应用OpenLayers将GeoServer发布的地图服务在前端进行展现和互操作。</strong></p>
+</blockquote>
+<h3 id="WebGIS开发环境搭建"><a href="#WebGIS开发环境搭建" class="headerlink" title="WebGIS开发环境搭建"></a>WebGIS开发环境搭建</h3><p><a target="_blank" rel="noopener" href="https://pan.baidu.com/s/19pQDJzOeI_-7VtA-JVtwHQ">下载</a>完成后可参考b站视频<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vk4y127P8/?spm_id_from=333.337.search-card.all.click&vd_source=727712d64f5d5487bf0a89c7b9de461d">教程</a></p>
+<h3 id="安装-GeoServer"><a href="#安装-GeoServer" class="headerlink" title="安装 GeoServer"></a>安装 GeoServer</h3><p><a target="_blank" rel="noopener" href="https://geoserver.org/download/">下载地址</a>: 选择stable 稳定的版本。此软件不需要安装，解压后进入 bin 目录，找到 startup.bat/sh。 windows,linux，ios都行，执行对应脚本即可。</p>
+<blockquote>
+<p>提示：选择jdk11+版本环境，低版本不支持</p>
+</blockquote>
+<p>启动</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://ip:8080/geoserver">http://ip:8080/geoserver</a></p>
+<p>找到对应ip然后访问</p>
+<p>系统默认账户密码</p>
+<p>admin    geoserver</p>
+</blockquote>
+<h3 id="发布-shapefile"><a href="#发布-shapefile" class="headerlink" title="发布 shapefile"></a>发布 shapefile</h3><ol>
+<li><p>准备shapefile文件数据</p>
+<p> <a target="_blank" rel="noopener" href="https://docs.geoserver.org/stable/en/user/_downloads/30e405b790e068c43354367cb08e71bc/nyc_roads.zip">测试数据链接</a></p>
+</li>
+<li><p>创建工作区</p>
+</li>
+<li><p>创建数据存储</p>
+</li>
+<li><p>发布图层</p>
+</li>
+<li><p>图层预览，客户端调用</p>
+</li>
+</ol>
+<h3 id="发布GeoTIFF-影像文件"><a href="#发布GeoTIFF-影像文件" class="headerlink" title="发布GeoTIFF 影像文件"></a>发布GeoTIFF 影像文件</h3><blockquote>
+<p><strong>TIFF</strong>(Tag Image File Format) 图像文件是图形图像处理中常用的格式之一,其图像格式很复杂,但由于它对图像信息的存放灵活多变,可以支持很多色彩系统,而且独立于操作系统<br>因此得到了广泛应用。在各种地理信息系统、摄影测量与遥感等应用中,要求图像具有地理编码信息,例如图像所在的坐标系、比例尺、图像上点的坐标、经纬度、长度单位及角度单位等等。对于存储和读取这些信息,纯TIFF 格式的图像文件是很难做到的,而GeOTIFF 作为TIFF 的一种扩展,在TIFF 的基础上定义了一些GeoTag (地理标签),来对各种坐标系统、椭球基准、投影信息等进行定义和存储,使图像数据和地理数据存储在同一图像文件中,这样就为广大用户制作和使用带有地理信息的图像提供了方便的途径。</p>
+</blockquote>
+<p>发布步骤和上面基本一致，只是在创建数据存储时选择 TIFF 格式文件</p>
+<h3 id="使用-postgreSQL-创建-postgis-数据库"><a href="#使用-postgreSQL-创建-postgis-数据库" class="headerlink" title="使用 postgreSQL 创建 postgis 数据库"></a>使用 postgreSQL 创建 postgis 数据库</h3><blockquote>
+<p>储存空间数据的数据库</p>
+</blockquote>
+<ol>
+<li><p>安装 postgreSQL 数据库管理系统</p>
+</li>
+<li><p>安装 postgis 数据库</p>
+</li>
+<li><p>使用postgreSQL 创建 postgis 数据库</p>
+<p> postgreSQL  创建数据库后执行下面语句创建一个 postgis 数据库</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CREATE EXTENSION postgis;</span><br><span class="line">CREATE EXTENSION postgis_topology;</span><br><span class="line">CREATE EXTENSION postgis_sfcgal;</span><br><span class="line">CREATE EXTENSION fuzzystrmatch;</span><br><span class="line">CREATE EXTENSION address_standardizer;</span><br><span class="line">CREATE EXTENSION address_standardizer_data_us;</span><br><span class="line">CREATE EXTENSION postgis_tiger_geocoder;</span><br></pre></td></tr></table></figure>
+
+<p> <a target="_blank" rel="noopener" href="https://docs.geoserver.org/stable/en/user/_downloads/bbd4b941ceb36074c9d19feab3f57609/nyc_buildings.zip">测试数据</a>，下载后是一个sql文件。导入数据库</p>
+</li>
+<li><p>GeoServer 访问 postgreSQL 数据库</p>
+</li>
+</ol>
+<h3 id="使用-openlayer-访问wms服务"><a href="#使用-openlayer-访问wms服务" class="headerlink" title="使用 openlayer  访问wms服务"></a>使用 openlayer  访问wms服务</h3><p>下边的参数配置可以去图层预览页面，openlayer 预览页面可以查看请求信息找到下面的参数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> ol.<span class="property">layer</span>.<span class="title class_">Tile</span>(&#123;</span><br><span class="line">    <span class="attr">source</span>: <span class="keyword">new</span> ol.<span class="property">source</span>.<span class="title class_">TileWMS</span>(&#123;</span><br><span class="line">        <span class="attr">ratio</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&#x27;http://192.168.94.128:8080/geoserver/test/wms&#x27;</span>,</span><br><span class="line">        <span class="attr">params</span>: &#123;</span><br><span class="line">            <span class="string">&#x27;FORMAT&#x27;</span>: <span class="string">&#x27;image/png8&#x27;</span>,</span><br><span class="line">            <span class="string">&#x27;VERSION&#x27;</span>: <span class="string">&#x27;1.1.1&#x27;</span>,</span><br><span class="line">            <span class="string">&quot;LAYERS&quot;</span>: <span class="string">&#x27;test:nyc_roads&#x27;</span>,</span><br><span class="line">            <span class="string">&quot;exceptions&quot;</span>: <span class="string">&#x27;application/vnd.ogc.se_inimage&#x27;</span>,</span><br><span class="line">            <span class="string">&quot;SRS&quot;</span>: <span class="string">&quot;EPSG:2908&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>重要的一点，要配置好正确的坐标系，不然显示不出来</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">view</span>: <span class="keyword">new</span> ol.<span class="title class_">View</span>(&#123;</span><br><span class="line">    <span class="attr">center</span>: [<span class="number">984018.1663741902</span> , <span class="number">207673.09513056703</span>], <span class="comment">//地图初始中心点</span></span><br><span class="line">    <span class="attr">zoom</span>: <span class="number">7</span>,  <span class="comment">//地图初始显示级别</span></span><br><span class="line">    <span class="attr">projection</span>: <span class="keyword">new</span> ol.<span class="property">proj</span>.<span class="title class_">Projection</span>(&#123;</span><br><span class="line">        <span class="attr">code</span>: <span class="string">&#x27;EPSG:2908&#x27;</span>,</span><br><span class="line">        <span class="attr">units</span>: <span class="string">&#x27;m&#x27;</span>,</span><br><span class="line">        <span class="attr">global</span>: <span class="literal">false</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;),</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="使用geoserver生产wmts瓦片"><a href="#使用geoserver生产wmts瓦片" class="headerlink" title="使用geoserver生产wmts瓦片"></a>使用geoserver生产wmts瓦片</h3><ol>
+<li><p>发布一个wms服务</p>
+</li>
+<li><p>在wms服务器基础上，生产wmts瓦片</p>
+<p> 瓦片缓存地址可以在geoserver目录下的 web.xml 文件中修改</p>
+ <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>GEOSERVER_DATA_DIR<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>C:\eclipse\workspace\geoserver_trunk\cite\confCiteWFSPostGIS<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> 瓦片生成可以在选择 切图策略，在 gridsets 中设置。添加策略需要在图层中的 瓦片策略中添加</p>
+</li>
+<li><p>发布wmts 服务</p>
+</li>
+</ol>
+<h3 id="瓦片的迁移使用"><a href="#瓦片的迁移使用" class="headerlink" title="瓦片的迁移使用"></a>瓦片的迁移使用</h3><ol>
+<li>在目标GIS服务器上发布wms服务，不生产瓦片。(或者发布空服务，只是为了构建bbox )</li>
+<li>在其他GeoServer服务器上创建wms服务，生产wmts瓦片。</li>
+<li>将所有其他GeoServer服务器上生产的wmts瓦片复制到目标GeoServer服务器对应服务瓦片目录下。</li>
+</ol>
+<h3 id="geoserver进行属性和几何要素的增删改查"><a href="#geoserver进行属性和几何要素的增删改查" class="headerlink" title="geoserver进行属性和几何要素的增删改查"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381601300">geoserver进行属性和几何要素的增删改查</a></h3><blockquote>
+<p>通过操作，影响图层数据</p>
+</blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">WebGIS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/WebGIS//" class="article-tag-list-link color2">WebGIS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/10/09/programming/java/geoserver/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/vue/反编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -894,440 +1542,9 @@
 
 
   
-    <article id="post-programming/java/kettle" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/05/10/programming/java/kettle/" target="_blank">kettle基础</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/05/10/programming/java/kettle/" class="archive-article-date">
-        <time datetime="2023-05-10T13:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-10</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p><strong>ETL</strong>(Extract-Transform-Load 的缩写，即<strong>数据抽取、转换、装载的过程)<strong>，对于企业或行业应用来说，我们经常会遇到各种</strong>数据的处理，转换，迁移</strong>，所以了解并掌握一种 ETL 工具的使用，必不可少。“<br>市面上常用的 ETL 工具有很多，比如 <strong>Sqoop，Daax，Kettle，Talend 等</strong>，作为一个大数据工程师，我们最好要掌握其中的两到三种，这里我们要学习的 ETL 工具是 Kettle!“</p>
-<p>**Kettle (新名字PDI，但大家都叫老名字)**是一款国外开源的 ETL 工具，纯java 编写，可以在Window、Linux、Unix 上运行，绿色无需安装，数据抽取高效稳定。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2023/05/10/programming/java/kettle/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">kettle基础</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/05/10/programming/java/kettle/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/linux基础命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/05/04/programming/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" target="_blank">linux命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/05/04/programming/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2023-05-04T02:57:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-04</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>linux 由 unix 演化而来</p>
-<p>基于Linux 开源的内核，不同厂商开发出了不同名称的系统: 如 Redhat,CentOSE, Ubuntu,Suse,红旗等。</p>
-</blockquote>
-<p><strong>虚拟机的网络连接形式</strong></p>
-<ul>
-<li><p>桥连接</p>
-<p>  Linux 可以和其他的通信，但是可能造成IP冲突</p>
-</li>
-<li><p>NAT</p>
-<p>  网络地址转换方式，linux 可以访问外网，不会造成IP冲突</p>
-</li>
-<li><p>主机模式</p>
-<p>  你的Linux是一个独立的主机，不能访问外网</p>
-</li>
-</ul>
-<p><strong>Vmtools</strong></p>
-<blockquote>
-<p>此工具可以让 centOS 与主机共享文件，剪切板</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2023/05/04/programming/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/05/04/programming/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/shell" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/04/23/programming/linux/shell/" target="_blank">shell 脚本</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/04/23/programming/linux/shell/" class="archive-article-date">
-        <time datetime="2023-04-23T07:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>shell 脚本开头的两个字符叫做 shebang “#!”。在unix系统中，程序会分析 shebang 后面内容，作为解析器的指令。相当于告诉系统用那种解析器去解读脚本。yarn 就是python 开发的</p>
-</blockquote>
-<ul>
-<li>以 #!/bin/sh 开头的文件，程序在执行的时候会调用 /bin/sh，也就是bash解释器</li>
-<li>以 #!/usr/bin/python 开头的文件，代表指定python解释器去执行</li>
-<li>以 #!/usr/bin/env 解释器名称，是一种在不同平台上都能正确找到解释器的办法</li>
-</ul>
-    
-    <a class="article-more-a" href="/2023/04/23/programming/linux/shell/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/04/23/programming/linux/shell/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/others/vercel" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/04/21/programming/others/vercel/" target="_blank">vercel 部署koa项目</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/04/21/programming/others/vercel/" class="archive-article-date">
-        <time datetime="2023-04-21T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>vercel 不仅能够部署静态网站，还能部署node项目。这次就部署koa项目作为尝试。</p>
-</blockquote>
-<h3 id="项目目录"><a href="#项目目录" class="headerlink" title="项目目录"></a>项目目录</h3><blockquote>
-<p>新建koa项目，目录如下</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230421090353337.png" alt="image-20230421090353337"></p>
-    
-    <a class="article-more-a" href="/2023/04/21/programming/others/vercel/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vercel</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/04/21/programming/others/vercel/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
     </nav>
   
 
@@ -1458,11 +1675,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1474,11 +1691,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1494,71 +1723,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,11 +1755,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,11 +1771,51 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,7 +1823,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1610,7 +1839,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1619,30 +1848,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1658,7 +1863,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1666,7 +1895,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1675,22 +1912,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1710,7 +1931,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -10,15 +10,15 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="配置别名12345resolve: &amp;#123;    alias: &amp;#123;        &amp;#x27;@&#x2F;&amp;#x27;: &#96;$&amp;#123;pathSrc&amp;#125;&#x2F;&#96;,    &amp;#125;,&amp;#125;,  代码分割">
+  <meta name="description" content="配置别名1234567891011resolve: &amp;#123;   &#x2F;&#x2F; https:&#x2F;&#x2F;cn.vitejs.dev&#x2F;config&#x2F;#resolve-alias   alias: &amp;#123;     &#x2F;&#x2F; 设置路径     &amp;#x27;~&amp;#x27;: path.resolve(__dirname, &amp;#x27;.&#x2F;&amp;#x27;),     &#x2F;&#x2F; 设置别名     &amp;#x27;@&amp;#x27;:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vite 打包优化项">
 <meta property="og:url" content="https://wyf195075595.github.io/2022/06/17/programming/vue/vite%E4%BC%98%E5%8C%96%E9%A1%B9/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="配置别名12345resolve: &amp;#123;    alias: &amp;#123;        &amp;#x27;@&#x2F;&amp;#x27;: &#96;$&amp;#123;pathSrc&amp;#125;&#x2F;&#96;,    &amp;#125;,&amp;#125;,  代码分割">
+<meta property="og:description" content="配置别名1234567891011resolve: &amp;#123;   &#x2F;&#x2F; https:&#x2F;&#x2F;cn.vitejs.dev&#x2F;config&#x2F;#resolve-alias   alias: &amp;#123;     &#x2F;&#x2F; 设置路径     &amp;#x27;~&amp;#x27;: path.resolve(__dirname, &amp;#x27;.&#x2F;&amp;#x27;),     &#x2F;&#x2F; 设置别名     &amp;#x27;@&amp;#x27;:">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2023-09-05T01:44:21.038Z">
+<meta property="article:modified_time" content="2023-10-26T02:17:14.757Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vite">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">768字</span>
+      <span class="post-count">1.5k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -306,7 +306,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolve<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    alias<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        &#x27;@/&#x27;<span class="punctuation">:</span> `$<span class="punctuation">&#123;</span>pathSrc<span class="punctuation">&#125;</span>/`<span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+    <h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">resolve<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">   <span class="comment">// https://cn.vitejs.dev/config/#resolve-alias</span></span><br><span class="line">   alias<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">     <span class="comment">// 设置路径</span></span><br><span class="line">     &#x27;~&#x27;<span class="punctuation">:</span> path.resolve(__dirname<span class="punctuation">,</span> &#x27;./&#x27;)<span class="punctuation">,</span></span><br><span class="line">     <span class="comment">// 设置别名</span></span><br><span class="line">     &#x27;@&#x27;<span class="punctuation">:</span> path.resolve(__dirname<span class="punctuation">,</span> &#x27;./src&#x27;)</span><br><span class="line">   <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="comment">// https://cn.vitejs.dev/config/#resolve-extensions</span></span><br><span class="line">   extensions<span class="punctuation">:</span> <span class="punctuation">[</span>&#x27;.mjs&#x27;<span class="punctuation">,</span> &#x27;.js&#x27;<span class="punctuation">,</span> &#x27;.ts&#x27;<span class="punctuation">,</span> &#x27;.jsx&#x27;<span class="punctuation">,</span> &#x27;.tsx&#x27;<span class="punctuation">,</span> &#x27;.json&#x27;<span class="punctuation">,</span> &#x27;.vue&#x27;<span class="punctuation">]</span></span><br><span class="line"> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="代码分割"><a href="#代码分割" class="headerlink" title="代码分割"></a>代码分割</h3><span id="more"></span>
 
@@ -328,8 +328,35 @@
 
 <h3 id="gzip静态资源压缩"><a href="#gzip静态资源压缩" class="headerlink" title="gzip静态资源压缩"></a>gzip静态资源压缩</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import viteCompression from &#x27;vite-plugin-compression&#x27;</span><br><span class="line"><span class="comment">//在plugins配置数组里添加gzip插件</span></span><br><span class="line"> plugins<span class="punctuation">:</span> <span class="punctuation">[</span>viteCompression(<span class="punctuation">&#123;</span></span><br><span class="line">    verbose<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">    disable<span class="punctuation">:</span> <span class="keyword">false</span><span class="punctuation">,</span></span><br><span class="line">    threshold<span class="punctuation">:</span> <span class="number">10240</span><span class="punctuation">,</span></span><br><span class="line">    algorithm<span class="punctuation">:</span> &#x27;gzip&#x27;<span class="punctuation">,</span></span><br><span class="line">    ext<span class="punctuation">:</span> &#x27;.gz&#x27;<span class="punctuation">,</span></span><br><span class="line">  <span class="punctuation">&#125;</span>)<span class="punctuation">]</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 
+<h3 id="全局样式注入"><a href="#全局样式注入" class="headerlink" title="全局样式注入"></a>全局样式注入</h3><p>全局注入的样式最好是全局变量，非全局变量样式最好在main.js中引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">css</span>: &#123;</span><br><span class="line">    <span class="attr">preprocessorOptions</span>: &#123;</span><br><span class="line">      <span class="attr">scss</span>: &#123;</span><br><span class="line">          <span class="comment">// additionalData: &#x27;@use &quot;@/assets/styles/commom.scss&quot; as *;&#x27;</span></span><br><span class="line">          <span class="attr">additionalData</span>: <span class="string">&#x27;@import &quot;@/assets/styles/commom.scss&quot;;&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">less</span>: &#123;</span><br><span class="line">          <span class="comment">// 加上 reference 可避免样式重复注入问题，</span></span><br><span class="line">          <span class="attr">additionalData</span>: <span class="string">&#x27;@import (reference) &quot;@/assets/styles/commom.less&quot;;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
 
 
+
+<h3 id="注册svg组件"><a href="#注册svg组件" class="headerlink" title="注册svg组件"></a>注册svg组件</h3><ol>
+<li><p>安装依赖</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add vite-plugin-svg-icons -D</span><br></pre></td></tr></table></figure></li>
+<li><p>修改vite配置项</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createSvgIconsPlugin &#125; <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-svg-icons&#x27;</span>;</span><br><span class="line">...</span><br><span class="line"><span class="attr">plugins</span>: [</span><br><span class="line">	...,</span><br><span class="line">	<span class="title function_">createSvgIconsPlugin</span>(&#123;</span><br><span class="line">      <span class="attr">iconDirs</span>: [path.<span class="title function_">resolve</span>(process.<span class="title function_">cwd</span>(), <span class="string">&#x27;src/assets/icons/svg&#x27;</span>)],</span><br><span class="line">      <span class="attr">symbolId</span>: <span class="string">&#x27;icon-[name]&#x27;</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">]</span><br></pre></td></tr></table></figure></li>
+<li><p>引入注册</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// svg图标, 第一行不能少</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;virtual:svg-icons-register&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SvgIcon</span> <span class="keyword">from</span> <span class="string">&#x27;./components/SvgIcon&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册svg-icon组件</span></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;svg-icon&#x27;</span>, <span class="title class_">SvgIcon</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>SvgIcon 组件代码</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;svg :class=&quot;svgClass&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">  &lt;use :xlink:href=&quot;iconName&quot; :fill=&quot;color&quot; /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; computed &#125; from &#x27;vue&#x27;</span><br><span class="line">const props = defineProps(&#123;</span><br><span class="line">  iconClass: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    required: true</span><br><span class="line">  &#125;,</span><br><span class="line">  className: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  color: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line">const iconName = computed(() =&gt; `#icon-$&#123;props.iconClass&#125;`)</span><br><span class="line">const svgClass = computed(() =&gt; &#123;</span><br><span class="line">    if (props.className) &#123;</span><br><span class="line">        return `svg-icon $&#123;props.className&#125;`</span><br><span class="line">    &#125;</span><br><span class="line">    return &#x27;svg-icon&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scope lang=&quot;scss&quot;&gt;</span><br><span class="line">.sub-el-icon,</span><br><span class="line">.nav-icon &#123;</span><br><span class="line">display: inline-block;</span><br><span class="line">font-size: 15px;</span><br><span class="line">margin-right: 12px;</span><br><span class="line">position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.svg-icon &#123;</span><br><span class="line">width: 1em;</span><br><span class="line">height: 1em;</span><br><span class="line">position: relative;</span><br><span class="line">fill: currentColor;</span><br><span class="line">vertical-align: -2px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>使用</p>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg-icon icon-class=&quot;bug&quot;&gt;&lt;/svg-icon&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="字典通用解决方案"><a href="#字典通用解决方案" class="headerlink" title="字典通用解决方案"></a>字典通用解决方案</h3><ol>
+<li><p>useDict 函数</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取字典数据</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">useDict</span>(<span class="params">...args</span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> res = <span class="title function_">ref</span>(&#123;&#125;);</span><br><span class="line">  <span class="keyword">return</span> (<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    args.<span class="title function_">forEach</span>(<span class="function">(<span class="params">dictType, index</span>) =&gt;</span> &#123;</span><br><span class="line">      res.<span class="property">value</span>[dictType] = [];</span><br><span class="line">      <span class="keyword">const</span> dicts = <span class="title function_">useDictStore</span>().<span class="title function_">getDict</span>(dictType);</span><br><span class="line">      <span class="keyword">if</span> (dicts) &#123;</span><br><span class="line">        res.<span class="property">value</span>[dictType] = dicts;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">getDicts</span>(dictType).<span class="title function_">then</span>(<span class="function"><span class="params">resp</span> =&gt;</span> &#123;</span><br><span class="line">          res.<span class="property">value</span>[dictType] = resp.<span class="property">data</span>.<span class="title function_">map</span>(<span class="function"><span class="params">p</span> =&gt;</span> (&#123; <span class="attr">label</span>: p.<span class="property">dictLabel</span>, <span class="attr">value</span>: p.<span class="property">dictValue</span>, <span class="attr">elTagType</span>: p.<span class="property">listClass</span>, <span class="attr">elTagClass</span>: p.<span class="property">cssClass</span> &#125;))</span><br><span class="line">          <span class="title function_">useDictStore</span>().<span class="title function_">setDict</span>(dictType, res.<span class="property">value</span>[dictType]);</span><br><span class="line">        &#125;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="keyword">return</span> <span class="title function_">toRefs</span>(res.<span class="property">value</span>);</span><br><span class="line">  &#125;)()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>pinia useDictStore 模块</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> useDictStore = <span class="title function_">defineStore</span>(</span><br><span class="line">  <span class="string">&#x27;dict&#x27;</span>,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">state</span>: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">      <span class="attr">dict</span>: <span class="keyword">new</span> <span class="title class_">Array</span>()</span><br><span class="line">    &#125;),</span><br><span class="line">    <span class="attr">actions</span>: &#123;</span><br><span class="line">      <span class="comment">// 获取字典</span></span><br><span class="line">      <span class="title function_">getDict</span>(<span class="params">_key</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_key == <span class="literal">null</span> &amp;&amp; _key == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">dict</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">dict</span>[i].<span class="property">key</span> == _key) &#123;</span><br><span class="line">              <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="property">dict</span>[i].<span class="property">value</span>;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 设置字典</span></span><br><span class="line">      <span class="title function_">setDict</span>(<span class="params">_key, value</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (_key !== <span class="literal">null</span> &amp;&amp; _key !== <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">dict</span>.<span class="title function_">push</span>(&#123;</span><br><span class="line">            <span class="attr">key</span>: _key,</span><br><span class="line">            <span class="attr">value</span>: value</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 删除字典</span></span><br><span class="line">      <span class="title function_">removeDict</span>(<span class="params">_key</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> bln = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="variable language_">this</span>.<span class="property">dict</span>.<span class="property">length</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">dict</span>[i].<span class="property">key</span> == _key) &#123;</span><br><span class="line">              <span class="variable language_">this</span>.<span class="property">dict</span>.<span class="title function_">splice</span>(i, <span class="number">1</span>);</span><br><span class="line">              <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">          bln = <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> bln;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 清空字典</span></span><br><span class="line">      <span class="title function_">cleanDict</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">dict</span> = <span class="keyword">new</span> <span class="title class_">Array</span>();</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="comment">// 初始字典</span></span><br><span class="line">      <span class="title function_">initDict</span>(<span class="params"></span>) &#123;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> useDictStore</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>全局注册 useDict 函数</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useDict &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/dict&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 全局方法挂载</span></span><br><span class="line">app.<span class="property">config</span>.<span class="property">globalProperties</span>.<span class="property">useDict</span> = useDict</span><br></pre></td></tr></table></figure></li>
+<li><p>使用</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; proxy &#125; = <span class="title function_">getCurrentInstance</span>();</span><br><span class="line"><span class="keyword">const</span> &#123; sys_normal_disable &#125; = proxy.<span class="title function_">useDict</span>(<span class="string">&quot;sys_normal_disable&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 <h3 id="完整的配置参考"><a href="#完整的配置参考" class="headerlink" title="完整的配置参考"></a>完整的配置参考</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; fileURLToPath, <span class="variable constant_">URL</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;node:url&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; defineConfig, loadEnv &#125; <span class="keyword">from</span> <span class="string">&#x27;vite&#x27;</span></span><br><span class="line"><span class="keyword">import</span> vue <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> postCssPxToRem <span class="keyword">from</span> <span class="string">&#x27;postcss-pxtorem&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; visualizer &#125; <span class="keyword">from</span> <span class="string">&#x27;rollup-plugin-visualizer&#x27;</span></span><br><span class="line"><span class="keyword">import</span> viteCompression <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-compression&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; createSvgIconsPlugin &#125; <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-svg-icons&#x27;</span></span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">&#x27;path&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// https://vitejs.dev/config/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(<span class="function">(<span class="params">&#123; mode &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> &#123; <span class="variable constant_">VITE_VERSION</span> = <span class="string">&quot;1.1.0&quot;</span> &#125; = <span class="title function_">loadEnv</span>(mode, __dirname)</span><br><span class="line">  <span class="keyword">const</span> manualChunks = [</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;element-plus&quot;</span>, <span class="attr">test</span>: <span class="regexp">/[\\/]node_modules[\\/]element-plus[\\/]/</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;axios&quot;</span>, <span class="attr">test</span>: <span class="regexp">/[\\/]node_modules[\\/]axios[\\/]/</span> &#125;,</span><br><span class="line">    &#123; <span class="attr">name</span>: <span class="string">&quot;dayjs&quot;</span>, <span class="attr">test</span>: <span class="regexp">/[\\/]node_modules[\\/]dayjs[\\/]/</span> &#125;,</span><br><span class="line">  ]</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">      <span class="title function_">createSvgIconsPlugin</span>(&#123;</span><br><span class="line">        <span class="comment">// 要缓存的图标文件夹</span></span><br><span class="line">        <span class="attr">iconDirs</span>: [path.<span class="title function_">resolve</span>(__dirname, <span class="string">&#x27;src/assets/icons/svg&#x27;</span>)],</span><br><span class="line">        <span class="comment">// 执行 icon name 的格式</span></span><br><span class="line">        <span class="attr">symbolId</span>: <span class="string">&#x27;icon-[name]&#x27;</span>,</span><br><span class="line">      &#125;),</span><br><span class="line">      <span class="title function_">vue</span>(),</span><br><span class="line">      <span class="title function_">visualizer</span>(),</span><br><span class="line">      <span class="title function_">viteCompression</span>(&#123;</span><br><span class="line">        <span class="attr">verbose</span>: <span class="literal">true</span>, <span class="comment">// 是否在控制台输出压缩结果</span></span><br><span class="line">        <span class="attr">disable</span>: <span class="literal">false</span>, <span class="comment">// 是否禁用</span></span><br><span class="line">        <span class="attr">threshold</span>: <span class="number">1024</span>, <span class="comment">// </span></span><br><span class="line">        <span class="attr">algorithm</span>: <span class="string">&quot;gzip&quot;</span>, <span class="comment">// 压缩算法,可选 [ &#x27;gzip&#x27; , &#x27;brotliCompress&#x27; ,&#x27;deflate&#x27; , &#x27;deflateRaw&#x27;]</span></span><br><span class="line">        <span class="attr">ext</span>: <span class="string">&quot;.gz&quot;</span>, <span class="comment">// 文件后缀</span></span><br><span class="line">        <span class="attr">deleteOriginFile</span>: <span class="literal">false</span>, <span class="comment">// 是否删除源文件</span></span><br><span class="line">      &#125;)</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">resolve</span>: &#123;</span><br><span class="line">      <span class="attr">alias</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;@&#x27;</span>: <span class="title function_">fileURLToPath</span>(<span class="keyword">new</span> <span class="title function_">URL</span>(<span class="string">&#x27;./src&#x27;</span>, <span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">url</span>))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">css</span>: &#123;</span><br><span class="line">      <span class="attr">devSourcemap</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">postcss</span>: &#123;</span><br><span class="line">        <span class="attr">plugins</span>: [</span><br><span class="line">          <span class="title function_">postCssPxToRem</span>(&#123;</span><br><span class="line">            <span class="attr">propList</span>: [<span class="string">&quot;*&quot;</span>],</span><br><span class="line">            <span class="attr">replace</span>: <span class="literal">true</span>,</span><br><span class="line">            <span class="attr">rootValue</span>: <span class="number">16</span>,</span><br><span class="line">            <span class="attr">unitPrecision</span>: <span class="number">5</span>,</span><br><span class="line">          &#125;)</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">build</span>: &#123;</span><br><span class="line">      <span class="attr">minify</span>: <span class="string">&quot;terser&quot;</span>,</span><br><span class="line">      <span class="attr">terserOptions</span>: &#123;</span><br><span class="line">        <span class="attr">compress</span>: &#123;</span><br><span class="line">          <span class="attr">drop_console</span>: <span class="literal">true</span>,</span><br><span class="line">          <span class="attr">drop_debugger</span>: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">        <span class="attr">output</span>: &#123;</span><br><span class="line">          <span class="attr">chunkFileNames</span>: <span class="string">`static/js/[name]-[hash]-<span class="subst">$&#123;VITE_VERSION&#125;</span>.js`</span>,</span><br><span class="line">          <span class="attr">entryFileNames</span>: <span class="string">`static/js/[name]-[hash]-<span class="subst">$&#123;VITE_VERSION&#125;</span>.js`</span>,</span><br><span class="line">          <span class="attr">assetFileNames</span>: <span class="string">`static/[ext]/[name]-[hash]-<span class="subst">$&#123;VITE_VERSION&#125;</span>.[ext]`</span>,</span><br><span class="line">          <span class="title function_">manualChunks</span>(<span class="params">id</span>) &#123;</span><br><span class="line">            <span class="keyword">const</span> flag = manualChunks.<span class="title function_">some</span>(<span class="function"><span class="params">v</span> =&gt;</span> v.<span class="property">test</span>.<span class="title function_">test</span>(id));</span><br><span class="line">            <span class="keyword">if</span> (flag) &#123;</span><br><span class="line">              <span class="keyword">return</span> id.<span class="title function_">toString</span>().<span class="title function_">split</span>(<span class="string">&#x27;node_modules/&#x27;</span>)[<span class="number">1</span>].<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">0</span>].<span class="title function_">toString</span>();</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
@@ -460,8 +487,8 @@
     </a>
   
   
-    <a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue 3.0 基础知识</div>
+    <a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">插件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -488,7 +515,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">6.</span> <span class="toc-text">完整的配置参考</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">全局样式注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Csvg%E7%BB%84%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">注册svg组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%80%9A%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">8.</span> <span class="toc-text">字典通用解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">9.</span> <span class="toc-text">完整的配置参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -646,11 +673,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -662,11 +689,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -682,71 +721,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -766,11 +753,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,11 +769,51 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,7 +821,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,7 +837,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -807,30 +846,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,7 +861,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -854,7 +893,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -863,22 +910,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,7 +929,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -18,8 +18,9 @@
 <meta property="og:description" content="Linux下载和安装yasm、FFmpeg、流媒体服务SRS4.0 FFmpeg下载  方案前端：  jsmpeg.js (连接wbesocket，绘制视频图像)  服务端（node）：  express（静态服务，接口处理） body-parser（处理接口接收数据） node-rtsp-stream-jsmpeg （下发FFmpeg指令，创建websocke服务端） child_proces">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230409153038364.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png">
 <meta property="article:published_time" content="2023-03-27T10:53:10.000Z">
-<meta property="article:modified_time" content="2023-04-18T04:00:52.387Z">
+<meta property="article:modified_time" content="2023-11-02T02:39:32.677Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="rtsp">
 <meta name="twitter:card" content="summary">
@@ -288,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.1k字</span>
+      <span class="post-count">2.5k字</span>
     </span>
   </span>
 
@@ -297,7 +298,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">9分</span>
+      <span class="post-count">11分</span>
     </span>
   </span>
 </div>
@@ -349,7 +350,17 @@
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43248279/article/details/124734505">参考地址</a></p>
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://qiteecom/xia-chu/ZIMediaKit">ZIMediaKit源地址</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// rtsp推流(文件推流)</span><br><span class="line">ffmpeg -re -i test.mp4 -rtsp transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test</span><br><span class="line">// rtsp推流(文件循环推流)</span><br><span class="line">ffmpeg -re -stream_loop -1 -i test.mp4 -rtsp_transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test</span><br><span class="line">// rtmp推流(文件推流)</span><br><span class="line">Ffmpeg -re -i test.mp4 -vcodec h264_nvenc -acodec aac -f flv rtmp://127.0.0.1:1935/live/test</span><br><span class="line">// rtmp推流(文件循环推流)</span><br><span class="line">ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec h264 -acodec aac -f flv rtmp://127.0.0.1:1935/live/test</span><br><span class="line"></span><br><span class="line">// 推流笔记本摄像头</span><br><span class="line">ffmpeg -i /dev/video0 -vcodec libx264 -acodec copy -preset:v ultrafast -tune:v zerolatency -f flv rtmp://192.168.94.128:1935/live/test</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ZIMediaKit支持多种流媒体协议的转换，协议转换后的播放地址</span></span><br><span class="line">// rtsp播放</span><br><span class="line">rtsp://127.0.0.1:554/live/test</span><br><span class="line"></span><br><span class="line">//rtmp播放</span><br><span class="line">rtmp://127.0.0.1:1935/live/test</span><br><span class="line">	</span><br><span class="line">// hls播放</span><br><span class="line">http://127.0.0.1:80/live/test/hls.m3u8</span><br><span class="line"></span><br><span class="line">// http-flv播放</span><br><span class="line">http://127.0.0.1:80/live/test.live.flv</span><br><span class="line"></span><br><span class="line">// http-ts播放</span><br><span class="line">http://127.0.0.1:80/live/test.live.ts</span><br></pre></td></tr></table></figure>
+<p>ffmpeg 推送到 zlmediakit 服务上，需要先启动 zlmediakit </p>
+<p>进入安装目录指定文件夹，找到 MediaServer 执行文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/xxx/ZLMediaKit/release/linux/Debug/</span><br><span class="line">./MediaServer</span><br></pre></td></tr></table></figure>
+
+<p>ffmpeg 推流操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// rtsp推流(文件推流)</span><br><span class="line">ffmpeg -re -i test.mp4 -rtsp transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test</span><br><span class="line">// rtsp推流(文件循环推流)</span><br><span class="line">ffmpeg -re -stream_loop -1 -i test.mp4 -rtsp_transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test</span><br><span class="line">// rtmp推流(文件推流)</span><br><span class="line">Ffmpeg -re -i test.mp4 -vcodec h264_nvenc -acodec aac -f flv rtmp://127.0.0.1:1935/live/test</span><br><span class="line">// rtmp推流(文件循环推流)</span><br><span class="line">ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec h264 -acodec aac -f flv rtmp://127.0.0.1:1935/live/test</span><br><span class="line"></span><br><span class="line">// 推流笔记本摄像头</span><br><span class="line">ffmpeg -i /dev/video0 -vcodec libx264 -acodec copy -preset:v ultrafast -tune:v zerolatency -f flv rtmp://192.168.94.128:1935/live/test</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>ZIMediaKit 转发地址</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># <span class="title class_">ZIMediaKit</span>支持多种流媒体协议的转换，协议转换后的播放地址</span><br><span class="line"><span class="comment">// rtsp播放</span></span><br><span class="line"><span class="attr">rtsp</span>:<span class="comment">//127.0.0.1:554/live/test</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//rtmp播放</span></span><br><span class="line"><span class="attr">rtmp</span>:<span class="comment">//127.0.0.1:1935/live/test</span></span><br><span class="line">	</span><br><span class="line"><span class="comment">// hls播放</span></span><br><span class="line"><span class="attr">http</span>:<span class="comment">//127.0.0.1:80/live/test/hls.m3u8</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// http-flv播放</span></span><br><span class="line"><span class="attr">http</span>:<span class="comment">//127.0.0.1:80/live/test.live.flv</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// http-ts播放</span></span><br><span class="line"><span class="attr">http</span>:<span class="comment">//127.0.0.1:80/live/test.live.ts</span></span><br></pre></td></tr></table></figure>
+
+
 
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37429313/article/details/116201062">ffplay ffmpeg快速检验摄像头</a></p>
@@ -427,7 +438,7 @@
 <li><p><a target="_blank" rel="noopener" href="https://gitee.com/sscboshi/AKStreamUI">https://gitee.com/sscboshi/AKStreamUI</a></p>
 </li>
 </ul>
-<h3 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h3><blockquote>
+<h3 id="Nginx-流媒体服务器"><a href="#Nginx-流媒体服务器" class="headerlink" title="Nginx 流媒体服务器"></a>Nginx 流媒体服务器</h3><blockquote>
 <p>安装 Nginx,nginx-http-flv-module插件</p>
 </blockquote>
 <p>配置文件</p>
@@ -444,6 +455,33 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://192.168.94.128/test?app=live&amp;stream=wei</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230409153038364.png" alt="image-20230409153038364"></p>
+<h3 id="rtsp-拉流方案2"><a href="#rtsp-拉流方案2" class="headerlink" title="rtsp 拉流方案2"></a>rtsp 拉流方案2</h3><blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/Neveryu/rtsp2web">rtsp2web</a> + <a target="_blank" rel="noopener" href="https://github.com/phoboslab/jsmpeg">jsmpeg</a> 播放rtsp 流视频</p>
+</blockquote>
+<ol>
+<li><p>rtsp2web 是 node服务 依赖 ffmpeg</p>
+<p> 需要在服务器运行 rtsp2web ,有🕳</p>
+<ul>
+<li><p>这个服务在 conteos 运行不了，需要找作者付费。在Ubuntu Linux就可以</p>
+</li>
+<li><p>版本建议 v3.1.1，新版本Ubuntu也不行</p>
+</li>
+<li><p>视频有水印，可以去掉<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png">https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png</a></p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// setInterval((function()&#123;</span><br><span class="line">//    r.checkFree(),</span><br><span class="line">//    cs&amp;&amp;(ls.includes(decodeURIComponent(ut.exports.decode(&quot;eCUzRHctdHctNSUzQXklM0Q4MCUzQWZvbnRjb2xvciUzRHdoaXRlJTNBZm9udHNpemUlM0QzMiUzQXRleHQlM0RjbGVhciUyMHdpdGglMjBxcSUyMDQyMTM1NDUzMiUzQWJveCUzRDElM0Fib3hjb2xvciUzRGJsYWNr&quot;)))</span><br><span class="line">//    ||(r.destroyAllChannel(),global.process.stderr.write(&quot;***wm代码异常***，请联系作者！&quot;)))&#125;)</span><br><span class="line">//    ,1e3*fs);</span><br></pre></td></tr></table></figure>
+
+<p>  <img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png" alt="image-20231102103414179"></p>
+</li>
+<li><p>代码</p>
+<p>  nodejs</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="title class_">RTSP2</span>web = <span class="built_in">require</span>(<span class="string">&#x27;rtsp2web&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> port=<span class="number">28999</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> videoSzie = <span class="string">&#x27;1920*1080&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">RTSP2</span>web(&#123;</span><br><span class="line">	port</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>  前端</p>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://jsmpeg.com/jsmpeg.min.js&quot;</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>播放rtsp<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 600px; height: 600px;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"> </span></span><br><span class="line"><span class="language-javascript">    <span class="comment">// var rtsp = &#x27;rtsp://ip:554/live/test&#x27; </span></span></span><br><span class="line"><span class="language-javascript">    <span class="variable language_">window</span>.<span class="property">onload</span> = <span class="function">() =&gt;</span> &#123; </span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">new</span> <span class="title class_">JSMpeg</span>.<span class="title class_">Player</span>(<span class="string">&quot;ws://ip:28999/rtsp?url=&quot;</span>+<span class="title function_">btoa</span>(rtsp), &#123; </span></span><br><span class="line"><span class="language-javascript">        <span class="attr">canvas</span>: <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;canvas&quot;</span>),</span></span><br><span class="line"><span class="language-javascript">        <span class="attr">autoplay</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">    &#125;)&#125; </span></span><br><span class="line"><span class="language-javascript"> </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
 
     
 
@@ -600,7 +638,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zlmediakit%E6%90%AD%E5%BB%BA%E5%92%8C%E9%85%8D%E5%90%88ffmpeg%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">zlmediakit搭建和配合ffmpeg使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg-%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">ffmpeg 基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffplay"><span class="toc-number">4.</span> <span class="toc-text">ffplay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AKStream"><span class="toc-number">5.</span> <span class="toc-text">AKStream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx"><span class="toc-number">6.</span> <span class="toc-text">Nginx</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E6%A1%88"><span class="toc-number">1.</span> <span class="toc-text">方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zlmediakit%E6%90%AD%E5%BB%BA%E5%92%8C%E9%85%8D%E5%90%88ffmpeg%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">zlmediakit搭建和配合ffmpeg使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg-%E5%9F%BA%E7%A1%80"><span class="toc-number">3.</span> <span class="toc-text">ffmpeg 基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffplay"><span class="toc-number">4.</span> <span class="toc-text">ffplay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AKStream"><span class="toc-number">5.</span> <span class="toc-text">AKStream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx-%E6%B5%81%E5%AA%92%E4%BD%93%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">6.</span> <span class="toc-text">Nginx 流媒体服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rtsp-%E6%8B%89%E6%B5%81%E6%96%B9%E6%A1%882"><span class="toc-number">7.</span> <span class="toc-text">rtsp 拉流方案2</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -758,11 +796,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -774,11 +812,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,71 +844,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,11 +876,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -890,11 +892,51 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -902,7 +944,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,7 +960,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -919,30 +969,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,7 +984,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -966,7 +1016,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,22 +1033,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1010,7 +1052,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
