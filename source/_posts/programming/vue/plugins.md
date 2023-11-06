@@ -138,7 +138,7 @@ mybus.off('自定义事件名称');
 
 ### vue-countTo
 
-> 实现数字滚动效果的无依赖轻量级插件
+> 实现数字滚动效果的无依赖轻量级插件，vue3-count-to 是 vue3版本
 
 ```js
 安装
@@ -738,3 +738,46 @@ import 'normalize.css/normalize.css'
 ### [vue放大镜插件](https://mater1996.github.io/vue-photo-zoom-pro/demo/image.html)
 
 > [VuePhotoZoomPro](https://mater1996.github.io/vue-photo-zoom-pro/)
+
+### [pc表单/表格组件](https://vxetable.cn/#/table/start/theme)
+
+> 功能十分强大，一个基于 [vue](https://www.npmjs.com/package/vue) 的 PC 端表单/表格组件，支持增删改查、虚拟列表、虚拟树、懒加载、快捷菜单、数据校验、打印导出、表单渲染、数据分页、弹窗、自定义模板、渲染器、JSON 配置式...
+
+### [面板拆分组件](https://antoniandre.github.io/splitpanes/)
+
+> codepen 中那种 可调整的大小面板的功能[示例](https://codepen.io/antoniandre/pen/XybPKP)
+
+### [bytemd](https://github.com/bytedance/bytemd)
+
+> 支持[Svelte](https://github.com/bytedance/bytemd#svelte)，react,vue,[Vanilla JS](https://github.com/bytedance/bytemd#vanilla-js) 的 markdown 编辑器
+
+![image-20231103095727302](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231103095727302.png)
+
+### [tinymce](https://github.com/tinymce/tinymce)
+
+> 富文本编辑器。安装命令：pnpm add tinymce @tinymce/tinymce-vue
+>
+> 安装成功后，在框架 /public 目录下创建 tinymce 文件夹，并将 /node_modules/tinymce 目录下的 langs 和 skins 文件夹复制到 /public/tinymce 目录下。
+
+![富文本](https://camo.githubusercontent.com/703496cf0c2806ff6aba376c72b0a50e016329d68ccc4b92d0bbbbdf51347fd0/68747470733a2f2f7777772e74696e792e636c6f75642f73746f726167652f6769746875622d726561646d652d696d616765732f74696e796d63652d656469746f722d36782e706e67)
+
+```shell
+安装命令：
+pnpm add bytemd @bytemd/vue-next @bytemd/plugin-gfm
+```
+
+### [过渡动画](https://animate.style/)
+
+> 过渡动画 样式
+
+```
+pnpm add animate.css
+```
+
+### [vue-esign](https://github.com/JaimeCheng/vue-esign)
+
+> 电子签名
+
+### [CodeMirrorr](https://github.com/codemirror/CodeMirror)
+
+> json 编辑器，Json-Editor is base on [CodeMirrorr](https://github.com/codemirror/CodeMirror). Lint base on [json-lint](https://github.com/codemirror/CodeMirror/blob/master/addon/lint/json-lint.js).

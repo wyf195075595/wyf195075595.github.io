@@ -74,3 +74,20 @@ public class AddPreflightCacheControlWebFilter implements WebFilter {
 
 [参考文章](https://httptoolkit.com/blog/cache-your-cors/)
 
+
+
+### onclick 事件中传递对象参数
+
+```js
+var user = {id:1, name:'zs', age:20};
+
+var ele = '<a οnclick="edit(' + JSON.stringify(user).replace(/"/g, '&quot;') + ');">修改</a>';
+
+或者
+
+var ele = '<a οnclick="edit(\'' + JSON.stringify(user).replace(/"/g, '&quot;') + '\');">修改</a>';
+
+前者取到的是json对象，后者取到的是json字符串。
+```
+
+> 如果不行把 onclick 用单引号

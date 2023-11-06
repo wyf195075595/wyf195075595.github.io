@@ -611,3 +611,6 @@ Router 默认是模糊匹配, Switch 只能匹配其中第一个
 >
 > [参考文章](https://juejin.cn/post/6986261889412136991#heading-0)
 
+### [ScratchCard](https://github.com/1587315093/scratch-card)
+
+> 一个刮刮卡的 React 组件。

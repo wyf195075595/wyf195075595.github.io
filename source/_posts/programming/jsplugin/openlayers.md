@@ -1048,7 +1048,7 @@ OpenLayers 5加载地图的原理与方法：
           image: image
         })
       ],
-      'L  ineString': [
+      'LineString': [
         new ol.style.Style({
           stroke: new ol.style.Stroke({
             //线的边界样式
@@ -1085,7 +1085,7 @@ OpenLayers 5加载地图的原理与方法：
           })
         })
       ],
-      '  Polygon': [
+      'Polygon': [
         new ol.style.Style({
           stroke: new ol.style.Stroke({
             //区的边界样式
@@ -1099,7 +1099,7 @@ OpenLayers 5加载地图的原理与方法：
           })
         })
       ],
-      'Geom  etryCollection': [
+      'GeometryCollection': [
         new ol.style.Style({
           stroke: new ol.style.Stroke({
             //集合要素的边界样式
@@ -1244,16 +1244,17 @@ var map = new ol.Map({
         center: [0, 0],
         zoom: 2
       })
-    }); 百度瓦片请求地址
+    }); 
 })
 
+// 百度瓦片请求地址
 
 ol.source.TileImage 参数：
 ● tileUrlFunction：设置瓦片地图的URL，先设置百度地图瓦片地图请求地址为
 "http://online3.map.bdimg.com/onlinelabel/? qt=tile&x=" + x + "&y=" + y + "&z=" + z +"&styles=pl&udt=20151021&scaler=1&p=1"
 其瓦片级数与行列号（即x、y、z）需要通过tileUrlFunction动态设置。
 ● projection：地图投影坐标系，百度地图采用EPSG:3857投影坐标系。
-● tilegrid：瓦片网格，实例化ol.tilegrid.TileGrid类，设置瓦片地图的原点origin为[0,0]、瓦片级数对应的分辨率数组resolutions。    
+● tilegrid：瓦片网格，实例化ol.tilegrid.TileGrid类，设置瓦片地图的原点origin为[0,0]、瓦片级数对应的分辨率数组resolutions。
 
 
 4、加载高德地图
@@ -1279,7 +1280,7 @@ var map = new ol.Map({
 });
 
 5、加载谷歌地图
-	基于ol.source. XYZ接口加载谷歌地图
+	基于ol.source.XYZ接口加载谷歌地图
 
   //实例化map对象并加载地图
     var map = new ol.Map({
@@ -3218,154 +3219,310 @@ OGC规范支持HTTP GET/POST、SOAP、REST、KVP等通信协议，支持XML、GM
 
 ## 拓展
 
+### ol-hashed
+
+> 由于我们会经常重新加载页面，如果地图在重新加载时保持在我们离开它的位置就好了.ol-hashed 解决这个问题
+
 ```js
-ol-hashed
-	由于我们会经常重新加载页面，如果地图在重新加载时保持在我们离开它的位置就好了.ol-hashed 解决这个问题
-    import sync from 'ol-hashed';
-    const map = new Map({})
-    
-    
-    sync(map);
+import sync from 'ol-hashed';
+const map = new Map({})
 
 
-拖放：
-	将一个 geijson 文件拖入地图，然后渲染
-    
-    import DragAndDrop from 'ol/interaction/DragAndDrop';
-    // 创建一个空地图
-    const map = new Map({
-        target: '',
-        layer: [],
-        view: {}
-    })
-    
-    // 创建一个没有初始数据的矢量源。此源将存储用户拖放到地图上的要素。
-    const source = new VectorSource();
-    const layer = new VectorLayer({
-      source: source,
-    });
-    map.addLayer(layer);
+sync(map);
+```
 
-	// 创建一个拖放交互，将其配置为与我们的矢量源一起使用，并将其添加到地图中
-    map.addInteraction(
-      new DragAndDrop({
-        source: source,
-        formatConstructors: [GeoJSON],
-      })
-    );
+### 拖放
+
+> 将一个 geijson 文件拖入地图，然后渲染
+
+```js
+import DragAndDrop from 'ol/interaction/DragAndDrop';
+// 创建一个空地图
+const map = new Map({
+    target: '',
+    layer: [],
+    view: {}
+})
+
+// 创建一个没有初始数据的矢量源。此源将存储用户拖放到地图上的要素。
+const source = new VectorSource();
+const layer = new VectorLayer({
+  source: source,
+});
+map.addLayer(layer);
+
+// 创建一个拖放交互，将其配置为与我们的矢量源一起使用，并将其添加到地图中
+map.addInteraction(
+  new DragAndDrop({
+    source: source,
+    formatConstructors: [GeoJSON],
+  })
+);
 
 修改特征：
-	import Modify from 'ol/interaction/Modify';
-	
-	map.addInteraction(
-      new Modify({
-        // 此数据源为上面托进来的数据源
-        source: source,
-      })
-    );
-    【删除顶点】：使用 Alt+Click
+import Modify from 'ol/interaction/Modify';
+
+map.addInteraction(
+  new Modify({
+    // 此数据源为上面托进来的数据源
+    source: source,
+  })
+);
+【删除顶点】：使用 Alt+Click
 
 
 绘制新特征（点，线，折线，圆等几何图形）：
-	import Draw from 'ol/interaction/Draw';
-	// 创建一个绘制交互
-	let draw = new Draw({
-        type: 'Polygon',
-        source: source,
-      })
-	map.addInteraction(draw);
-	// 切换绘制类型时，需移出上一个绘制类型
-	map.removeInteraction(draw); //移除绘制的图形
+import Draw from 'ol/interaction/Draw';
+// 创建一个绘制交互
+let draw = new Draw({
+    type: 'Polygon',
+    source: source,
+  })
+map.addInteraction(draw);
+// 切换绘制类型时，需移出上一个绘制类型
+map.removeInteraction(draw); //移除绘制的图形
 
 
 捕捉，吸附：
 	您可能已经注意到，很容易绘制与现有特征不匹配的特征。此外，在修改特征时，我们可以破坏拓扑——在之前相邻的多边形之间添加一个空隙。Snap交互可用于在绘制和编辑要素时帮助保留拓扑。
-    import Snap from 'ol/interaction/Snap';
-	map.addInteraction(
-      new Snap({
-        source: source,
-      })
-    );
+import Snap from 'ol/interaction/Snap';
+map.addInteraction(
+  new Snap({
+    source: source,
+  })
+);
 
 	随着绘制、修改和捕捉交互全部处于活动状态，我们可以在保持拓扑结构的同时编辑数据
 
     
 下载、清除数据源：
-	
-	清除：source.clear();
-	下载: 
-		const format = new GeoJSON({featureProjection: 'EPSG:3857'});
-        const download = document.getElementById('download');
-	// 数据源变化，就设置a 标签href. 有数据时就可以点击导出了
-        source.on('change', function () {
-          const features = source.getFeatures();
-          const json = format.writeFeatures(features);
-          download.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
-        });
-	  // download 为一个a 标签，<a id="download" download="features.json">Download</a>
+
+清除：source.clear();
+下载: 
+    const format = new GeoJSON({featureProjection: 'EPSG:3857'});
+    const download = document.getElementById('download');
+// 数据源变化，就设置a 标签href. 有数据时就可以点击导出了
+    source.on('change', function () {
+      const features = source.getFeatures();
+      const json = format.writeFeatures(features);
+      download.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(json);
+    });
+  // download 为一个a 标签，<a id="download" download="features.json">Download</a>
 
 
 给图层添加样式：
-	import {Style, Fill, Stroke} from 'ol/style';
-	// 静态设置
-	const layer = new VectorLayer({
-      source: source,
-      style: new Style({
-        fill: new Fill({
-          color: 'red'
-        }),
-        stroke: new Stroke({
-          color: 'white'
-        })
-      })
-    });
-	// 动态设置
-	const layer = new VectorLayer({
-      source: source,
-      style: function(feature, resolution) {
-        const name = feature.get('name').toUpperCase();
-        return name < "N" ? style1 : style2; // assuming these are created elsewhere
-      }
-    });
+import {Style, Fill, Stroke} from 'ol/style';
+// 静态设置
+const layer = new VectorLayer({
+  source: source,
+  style: new Style({
+    fill: new Fill({
+      color: 'red'
+    }),
+    stroke: new Stroke({
+      color: 'white'
+    })
+  })
+});
+// 动态设置
+const layer = new VectorLayer({
+  source: source,
+  style: function(feature, resolution) {
+    const name = feature.get('name').toUpperCase();
+    return name < "N" ? style1 : style2; // assuming these are created elsewhere
+  }
+});
 
-	// eg: 根据图形面积，设置颜色
-	需要引入 colormap 包
-    import colormap from 'colormap';
-    import {getArea} from 'ol/sphere';
-	
-	// 计算几何图形面积
-	const min = 1e8; // 最小面积
-    const max = 2e13; // 最大面积
-    const steps = 50;
-    const ramp = colormap({
-      colormap: 'blackbody',
-      nshades: steps,
-    });
+// eg: 根据图形面积，设置颜色
+需要引入 colormap 包
+import colormap from 'colormap';
+import {getArea} from 'ol/sphere';
 
-    function clamp(value, low, high) {
-      return Math.max(low, Math.min(value, high));
+// 计算几何图形面积
+const min = 1e8; // 最小面积
+const max = 2e13; // 最大面积
+const steps = 50;
+const ramp = colormap({
+  colormap: 'blackbody',
+  nshades: steps,
+});
+
+function clamp(value, low, high) {
+  return Math.max(low, Math.min(value, high));
+}
+
+function getColor(feature) {
+  const area = getArea(feature.getGeometry());
+  const f = Math.pow(clamp((area - min) / (max - min), 0, 1), 1 / 2);
+  const index = Math.round(f * (steps - 1));
+  return ramp[index];
+}
+
+// 根据几何面积，创建具有填充颜色的样式
+const layer = new VectorLayer({
+  source: source,
+  style: function (feature) {
+    return new Style({
+      fill: new Fill({
+        color: getColor(feature),
+      }),
+      stroke: new Stroke({
+        color: 'rgba(255,255,255,0.8)',
+      }),
+    });
+  },
+});
+```
+
+> ### [demo示例](https://codepen.io/wyf195075595/pen/ExGJZzv)
+
+### 自定义控件
+
+> ol组件拓展
+
+#### loading 组件
+
+> 自定义一个地图loading面板，请求加载时，地图不可操作，相当于加一个透明蒙版
+
+```js
+ol.control.LoadingControl = function(opt_options){
+    const _options = opt_options || {}
+    
+    const _root = document.createElement('div')
+    _root.className = 'ol-layer-data-loading'
+    _root.style = {
+        'width':'100%',
+        'height':'100%',
+        'background-color':'rgba(255,255,255,0.5)'
     }
-
-    function getColor(feature) {
-      const area = getArea(feature.getGeometry());
-      const f = Math.pow(clamp((area - min) / (max - min), 0, 1), 1 / 2);
-      const index = Math.round(f * (steps - 1));
-      return ramp[index];
+    
+    const _box = document.createElement('span')
+    _box.className = 'ol-layer-spin-dot-spin'
+    
+    for(let i = 0 ; i < 4; i++){
+        const _i = document.createElement('i')
+        _i.className = 'ol-layer-spin-dot-item dot'+i
+        _box.appendChild(_i)
     }
+    _root.appendChild(_box)
+    
+    ol.control.Control.call(this,{
+        element:_root,
+        target:_options.target
+    })
+}
 
-	// 根据几何面积，创建具有填充颜色的样式
-	const layer = new VectorLayer({
-      source: source,
-      style: function (feature) {
-        return new Style({
-          fill: new Fill({
-            color: getColor(feature),
-          }),
-          stroke: new Stroke({
-            color: 'rgba(255,255,255,0.8)',
-          }),
-        });
-      },
-    });
+//继承ol.control.Control
+ol.inherits(ol.control.LoadingControl,ol.control.Control)
+
+//暴露出去的方法
+ol.control.LoadingControl.prototype.show = function(){
+    this.element.style.display = 'block'
+}
+
+//暴露出去的方法
+ol.control.LoadingControl.prototype.hidden = function(){
+    this.element.style.display = 'none'
+}
+
+```
+
+蒙版样式
+
+```css
+.ol-layer-data-loading{
+    width:100%;
+    height:100%;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-size:14px;
+    font-variant: tabular-nums;
+    line-height:1.5;
+    list-style:none;
+    font-feature-settings:'tnum';
+    position:absolute;
+    top: 0;
+    left: 0;
+    display:none;
+    color:#6996ff;
+    text-align:center;
+    vertical-align:middle;
+    transition:transform 0.3s cubic-bezier(0.78,0.14,0.15,0.86);
+    background-color:rgba(255,255,255,0.5)
+}
+.ol-layer-spin-dot-spin{
+    position:relative;
+    top:50%;
+    font-size:32px;
+    transform:rotate(45deg);
+    animation:antRotate 1.2s infinite linear;
+    display:inline-block;
+    width:1em;
+    height:1em;
+}
+
+.ol-layer-spin-dot-item{
+    position:absolute;
+    display:block;
+    width:9px;
+    height:9px;
+    background-color:#6996ff;
+    border-radius:100%;
+    transform:scale(0.75);
+    transform-origin: 50% 50%;
+    animation:antSpinMove 1s infinite linear alternate;
+    -webkit-animation:antSpinMove 1s infinite linear alternate;
+}
+.ol-layer-spin-dot-item > .dot0{
+    top:0;
+    left:0;
+    opacity:1;
+}
+
+.ol-layer-spin-dot-item > .dot1{
+    top:0;
+    right:0;
+    opacity:0.6;
+}
+
+.ol-layer-spin-dot-item > .dot2{
+    bottom:0;
+    right:0;
+    opacity:0.3;
+}
+
+.ol-layer-spin-dot-item > .dot3{
+    bottom:0;
+    left:0;
+    opacity:0.1;
+}
+```
+
+引用控件
+
+> 注册控件时添加id， 通过map对象获取注册的控件。
+>
+> 然后就可以调用控件方法了
+
+```js
+// 自定义 loading 控件
+let loadControl = new ol.control.LoadingControl()
+loadControl.set('id','loading') //标识控件，后续方便查找
+map.addControl(loadControl);
+// 根据id查找添加到地图上的控件
+function getControlById(id,map){
+    let _controlArray = map.getControls().getArray()
+    let filter = _controlArray.filter(a=>{
+        return a.get('id') == id
+    }) 
+
+    return filter.length > 0 ? filter[0]:undefined
+}
+
+let _load = getControlById('loading',map)
+
+_load.show() // 显示控件
+_load.hidden() //隐藏控件
 ```
 

@@ -1450,7 +1450,9 @@ rpm -qi 软件包名：查询软件包信息
 
 #### yum 包管理
 
-> Yum 是一个 shell 前端软件包管理器。基于 RPM 包管理，能够从指定的服务器自动下载 RPM 包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包。
+> **Yum** 是一个 shell 前端软件包管理器。基于 RPM 包管理，能够从指定的服务器自动下载 RPM 包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包。
+>
+> **apt** 是 ubuntu linux 版本用的包管理命令， mac 包管理使用 **brew**
 
 ```shell
 # 查看yum仓库中所有可以安装的rpm包
@@ -1536,3 +1538,16 @@ export NODE_PATH=/home/jysp/workspace/node-v16.17.0/lib/node_modules
 ```
 
 配置完成需要注销重新登录
+
+
+
+#### 安装jdk11版本及以上版本
+
+> 此时解压后的文件夹中没有jre 文件夹
+
+进入解压后的jdk目录执行
+
+```shell
+./bin/jlink --module-path jmods --add-modules java.desktop --output jre
+```
+

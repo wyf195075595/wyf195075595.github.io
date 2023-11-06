@@ -166,3 +166,41 @@ $ pm2 generate         // Generate a sample json configuration file
 ```
 
 > pm2文档地址：http://pm2.keymetrics.io/docs/usage/quick-start/
+
+```
+$ npm install pm2 -g     # 命令行安装 pm2 
+$ pm2 start app.js -i 4  # 后台运行pm2，启动4个app.js 
+                         # 也可以把'max' 参数传递给 start
+                         # 正确的进程数目依赖于Cpu的核心数目
+$ pm2 start app.js --name my-api # 命名进程
+$ pm2 list               # 显示所有进程状态
+$ pm2 monit              # 监视所有进程
+$ pm2 logs               # 显示所有进程日志
+$ pm2 stop all           # 停止所有进程
+$ pm2 restart all        # 重启所有进程
+$ pm2 reload all         # 0 秒停机重载进程 (用于 NETWORKED 进程)
+$ pm2 stop 0             # 停止指定的进程
+$ pm2 restart 0          # 重启指定的进程
+$ pm2 startup            # 产生 init 脚本 保持进程活着
+$ pm2 web                # 运行健壮的 computer API endpoint (http://localhost:9615)
+$ pm2 delete 0           # 杀死指定的进程
+$ pm2 delete all         # 杀死全部进程
+
+```
+
+### pm2 参数说明
+
+参数说明： 
+–watch：监听应用目录的变化，一旦发生变化，自动重启。如果要精确监听、不见听的目录，最好通过配置文件。
+
+-i –instances：启用多少个实例，可用于负载均衡。如果-i 0或者-i max，则根据当前机器核数确定实例数目。
+
+–ignore-watch：排除监听的目录/文件，可以是特定的文件名，也可以是正则。比如–ignore-watch=”test node_modules “some scripts”“
+
+-n –name：应用的名称。查看应用信息的时候可以用到。
+
+-o –output ：标准输出日志文件的路径。
+
+-e –error ：错误输出日志文件的路径。
+
+–interpreter ：the interpreter pm2 should use for executing app (bash, python…)。比如你用的coffee script来编写应用。 

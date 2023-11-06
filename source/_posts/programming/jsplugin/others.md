@@ -1230,3 +1230,23 @@ console.log('还原对象:', toObj)
 ### [Simple Statistics](http://simplestatistics.org/)
 
 > 一个统计学的 JS 库，提供基本的统计函数。
+
+### [jTopo]([www.jtopo.com/](https://link.zhihu.com/?target=http%3A//www.jtopo.com/))
+
+> 简介：jTopo（Javascript Topology library）是一款完全基于 HTML5 Canvas 的关系、拓扑图形化界面开发工具包。
+>
+> 背景：个人开发者、国产
+
+### [和风天气插件](https://widget.qweather.com/)
+
+> 和风天气插件产品，免费、跨终端。适配你的网站、APP、公众号…,
+>
+> 插件完全免费，并且没有流量限制
+
+### [mark.js](https://markjs.io/)
+
+> 针对每个用例的搜索词突出显示。可以与纯JavaScript一起使用，也可以作为jQuery插件使用。
+>
+> 它可用于动态标记搜索词或自定义正则表达式，并为您提供内置选项，如音调符号支持、单独的单词搜索、自定义同义词、iframe 支持、自定义过滤器、准确性定义、自定义元素、自定义类名等。
+>
+> [示例](https://jsfiddle.net/julmot/hdyLpy37/)

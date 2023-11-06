@@ -60,6 +60,17 @@ categories: js
 
 [ZIMediaKit源地址](https://qiteecom/xia-chu/ZIMediaKit)
 
+ffmpeg 推送到 zlmediakit 服务上，需要先启动 zlmediakit 
+
+进入安装目录指定文件夹，找到 MediaServer 执行文件
+
+```shell
+cd /home/xxx/ZLMediaKit/release/linux/Debug/
+./MediaServer
+```
+
+ffmpeg 推流操作
+
 ```shell
 // rtsp推流(文件推流)
 ffmpeg -re -i test.mp4 -rtsp transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test
@@ -74,6 +85,11 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec h264 -acodec aac -f flv rtmp://12
 ffmpeg -i /dev/video0 -vcodec libx264 -acodec copy -preset:v ultrafast -tune:v zerolatency -f flv rtmp://192.168.94.128:1935/live/test
 
 
+```
+
+ZIMediaKit 转发地址
+
+```js
 # ZIMediaKit支持多种流媒体协议的转换，协议转换后的播放地址
 // rtsp播放
 rtsp://127.0.0.1:554/live/test
@@ -90,6 +106,8 @@ http://127.0.0.1:80/live/test.live.flv
 // http-ts播放
 http://127.0.0.1:80/live/test.live.ts
 ```
+
+
 
 > [ffplay ffmpeg快速检验摄像头](https://blog.csdn.net/qq_37429313/article/details/116201062)
 >
@@ -266,7 +284,7 @@ export LD_LIBRARY_PATH=/usr/local/lib/
 
 
 
-### Nginx
+### Nginx 流媒体服务器
 
 > 安装 Nginx,nginx-http-flv-module插件
 
@@ -357,4 +375,78 @@ http://192.168.94.128/test?app=live&stream=wei
 ```
 
 ![image-20230409153038364](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230409153038364.png)
+
+
+
+### rtsp 拉流方案2
+
+> [rtsp2web](https://github.com/Neveryu/rtsp2web) + [jsmpeg](https://github.com/phoboslab/jsmpeg) 播放rtsp 流视频
+
+1. rtsp2web 是 node服务 依赖 ffmpeg
+
+	需要在服务器运行 rtsp2web ,有🕳
+
+	- 这个服务在 conteos 运行不了，需要找作者付费。在Ubuntu Linux就可以
+
+	- 版本建议 v3.1.1，新版本Ubuntu也不行
+
+	- 视频有水印，可以去掉https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png
+
+		```
+		// setInterval((function(){
+		//    r.checkFree(),
+		//    cs&&(ls.includes(decodeURIComponent(ut.exports.decode("eCUzRHctdHctNSUzQXklM0Q4MCUzQWZvbnRjb2xvciUzRHdoaXRlJTNBZm9udHNpemUlM0QzMiUzQXRleHQlM0RjbGVhciUyMHdpdGglMjBxcSUyMDQyMTM1NDUzMiUzQWJveCUzRDElM0Fib3hjb2xvciUzRGJsYWNr")))
+		//    ||(r.destroyAllChannel(),global.process.stderr.write("***wm代码异常***，请联系作者！")))})
+		//    ,1e3*fs);
+		```
+
+		![image-20231102103414179](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231102103414179.png)
+
+	- 代码
+
+		nodejs
+
+		```js
+		// index.js
+		
+		let RTSP2web = require('rtsp2web');
+		
+		let port=28999;
+		
+		let videoSzie = '1920*1080'
+		
+		new RTSP2web({
+			port
+		})
+		```
+
+		前端
+
+		```html
+		<!DOCTYPE html>
+		<html lang="en">
+		<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover">
+		<script src="https://jsmpeg.com/jsmpeg.min.js" charset="utf-8"></script>
+		<title>播放rtsp</title>
+		</head>
+		<body>
+		<canvas id="canvas" style="width: 600px; height: 600px;"></canvas>
+		</body>
+		<script> 
+		    // var rtsp = 'rtsp://ip:554/live/test' 
+		    window.onload = () => { 
+		    new JSMpeg.Player("ws://ip:28999/rtsp?url="+btoa(rtsp), { 
+		        canvas: document.getElementById("canvas"),
+		        autoplay: true
+		    })} 
+		 </script>
+		</html>
+		```
+
+		
+
+
 
