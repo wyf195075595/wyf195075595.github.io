@@ -691,3 +691,69 @@ export function downloadFile(configs = {}, fileName) {
 
 1. 小文件下载： file-saver
 2. 大文件下载： streamsave
+
+
+
+### post 下载
+
+```js
+import { saveAs } from 'file-saver'
+/**
+* 参数处理
+* @param {*} params  参数
+*/
+export function tansParams(params) {
+  let result = ''
+  for (const propName of Object.keys(params)) {
+    const value = params[propName];
+    var part = encodeURIComponent(propName) + "=";
+    if (value !== null && value !== "" && typeof (value) !== "undefined") {
+      if (typeof value === 'object') {
+        for (const key of Object.keys(value)) {
+          if (value[key] !== null && value[key] !== "" && typeof (value[key]) !== 'undefined') {
+            let params = propName + '[' + key + ']';
+            var subPart = encodeURIComponent(params) + "=";
+            result += subPart + encodeURIComponent(value[key]) + "&";
+          }
+        }
+      } else {
+        result += part + encodeURIComponent(value) + "&";
+      }
+    }
+  }
+  return result
+}
+
+// 验证是否为blob格式
+export function blobValidate(data) {
+  return data.type !== 'application/json'
+}
+
+// 通用下载方法
+download(url, params, filename, config) {
+    return this.request({
+        url,
+        data:params, 
+        method: 'post',
+        transformRequest: [(params) => { return tansParams(params) }],
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        responseType: 'blob',
+        ...config
+    }).then(async (data) => {
+        const isBlob = blobValidate(data);
+        if (isBlob) {
+            const blob = new Blob([data])
+            saveAs(blob, filename)
+        } else {
+            const resText = await data.text();
+            const rspObj = JSON.parse(resText);
+            const errMsg = errorCode[rspObj.code] || rspObj.msg || errorCode['default']
+            Vue.prototype.$message.error(errMsg);
+        }
+    }).catch((r) => {
+        console.error(r)
+        Vue.prototype.$message.error('下载文件出现错误，请联系管理员！')
+    })
+}
+```
+

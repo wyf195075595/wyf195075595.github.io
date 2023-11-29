@@ -11,6 +11,8 @@ categories: linux
 
 ​	ubuntu18.04中只默认安装了openssh-client,所以如果想用ssh远程登录ubuntu，需要下载安装openssh-server，并启动ssh服务
 
+<!--more-->
+
 ### 安装 openssh-server
 
 ```shell
@@ -262,5 +264,119 @@ npm i pm2 -g
 	source profile
 	```
 
+
+### mkcert.exe
+
+> 自己给自己签发一个ssl证书,可用于本地生成 ssl 证书
+>
+> [ubuntu 上使用](https://blog.csdn.net/weixin_44692055/article/details/131489771)
+
+1. [下载](https://dl.filippo.io/mkcert/latest?for=linux/amd64)
+
+2. 将下载二进制文件移动至系统路径
+
+	```shell
+	mv mkcert-v1.4.3-linux-amd64 /usr/bin/mkcert
+	```
+
+3. 设置执行权限
+
+	```shell
+	chmod +x /usr/bin/mkcert
+	```
+
+4. 验证 Mkcert 版本
+
+	```shell
+	mkcert --version
+	```
+
+5. 生成本地 CA 证书
+
+	```shell
+	mkcert -install
 	
+	# 查看证书路径
+	mkcert -CAROOT
+	
+	```
+
+6. 为本地托管的网站生成证书和密钥文件
+
+	生成的文件在执行命令目录下
+
+	```shell
+	mkcert localhost
+	```
+
+7. 在nginx 中使用证书
+
+	```nginx
+	server {
+	   listen       443 ssl;
+	   server_name  localhost;
+	
+	   ssl_certificate    /home/ubuntu/.local/share/mkcert/localhost.pem;
+	   ssl_certificate_key /home/ubuntu/.local/share/mkcert/localhost-key.pem;
+	
+	   ssl_session_cache    shared:SSL:1m;
+	   ssl_session_timeout  5m;
+	
+	   ssl_ciphers  HIGH:!aNULL:!MD5;
+	   ssl_prefer_server_ciphers  on;
+	
+	   location / {
+	       root   html;
+	       index  index.html index.htm;
+	   }
+	}
+	```
+
+8. 重启 nginx 访问地址
+
+
+
+### **安装软件失败**
+
+> Could not get lock /var/lib/dpkg/lock-frontend - open (11: Resource temporarily unavailable
+>
+> [参考](https://blog.csdn.net/weixin_41712499/article/details/130681042)
+
+这个错误通常意味着有另一个进程正在使用apt命令或dpkg命令，因此无法获得对dpkg锁的访问权限。以下是解决步骤：
+
+1. 确认是否有其他apt或dpkg进程正在运行。可以使用以下命令：
+
+	```
+	ps aux | grep -i apt
+	ps aux | grep -i dpkg
+	12
+	```
+
+	如果有其他进程正在运行，请等待它完成并退出。或者杀掉进程
+
+2. 如果没有其他进程正在运行，则需要清理锁定文件。可以使用以下命令：
+
+	```
+	sudo rm /var/lib/dpkg/lock-frontend
+	sudo rm /var/lib/dpkg/lock
+	
+	```
+
+	这将删除apt和dpkg使用的所有锁定文件。
+
+3. 然后，强制重新配置dpkg数据库：
+
+	```
+	sudo dpkg --configure -a
+	
+	```
+
+4. 最后，更新软件包列表：
+
+	```
+	sudo apt update
+	```
+	
+
+然后应该就可以安装或更新软件包了。
 

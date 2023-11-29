@@ -946,7 +946,7 @@ rm softlink_file 或 unlink softlink_file
 
 ### 配置文件实例
 
-```js
+```nginx
 
 user  root;
 worker_processes  4;
@@ -1065,7 +1065,9 @@ http {
 
 ```
 
-```
+代理
+
+```nginx
 #user  nobody;
 worker_processes  1;
 
@@ -1135,4 +1137,99 @@ http {
     }
 }
 ```
+
+### 本地配置 https
+
+1. 本地环境生成 ssl 证书使用工具 mkcert. 生成（本地环境 Ubuntu 18.04）
+
+	安装使用 mkcert 参考 Ubuntu 标签文章
+
+2. 配置 ssl
+
+	这里使用 nginx 默认的ssl 配置
+
+	```nginx
+	server {
+	   listen       443 ssl;
+	   server_name  localhost;
+	
+	   ssl_certificate    /home/ubuntu/.local/share/mkcert/localhost.pem;
+	   ssl_certificate_key /home/ubuntu/.local/share/mkcert/localhost-key.pem;
+	
+	   ssl_session_cache    shared:SSL:1m;
+	   ssl_session_timeout  5m;
+	
+	   ssl_ciphers  HIGH:!aNULL:!MD5;
+	   ssl_prefer_server_ciphers  on;
+	
+	
+	  # location / {
+	  #     root   html;
+	  #     index  index.html index.htm;
+	  # }
+	}
+	
+	```
+
+3. 给指定开放端口配置 ssl
+
+	主要是 nginx 反向代理静态页面用
+
+	```nginx
+	server {
+	 listen 8080 ssl;
+	 server_name localhost;
+	 ssl_certificate    /home/ubuntu/.local/share/mkcert/localhost.pem;
+	 ssl_certificate_key /home/ubuntu/.local/share/mkcert/localhost-key.pem;
+	
+	 ssl_session_cache    shared:SSL:1m;
+	 ssl_session_timeout  5m;
+	
+	 ssl_ciphers  HIGH:!aNULL:!MD5;
+	 location / {
+	   root  /home/ubuntu/project/webrtc-test/;
+	   index index.html index.htm;
+	 }
+	}
+	```
+
+4. 给 ws 服务 配置 ssl
+
+	在 443 端口服务中配置
+
+	```nginx
+	location /socket/ {
+	 proxy_pass  http://localhost:3000;
+	 proxy_http_version 1.1;
+	 proxy_set_header Upgrade $http_upgrade;
+	 proxy_set_header Connection "upgrade";
+	 proxy_set_header X-real-ip $remote_addr;
+	 proxy_set_header X-Forwarded-For $remote_addr;
+	 proxy_set_header Host $host;
+	 proxy_set_header X-Forwarded-Proto $scheme;
+	}
+	```
+
+	此处 ws 后端服务部署在localhost:3000，前端地址：url: 'wss://localhost/socket/'
+
+	> 地址 多少一个 / 都会报错，连接不了
+
+	
+
+5. 给后端接口配置 ssl 
+
+	在443端口服务中配置
+
+	```nginx
+	location /api/ {
+	 rewrite ^/api/(.*)$ /$1 break;
+	 proxy_pass  http://localhost:3000;
+	 proxy_set_header  Host $host;
+	 proxy_set_header  X-Real-IP  $remote_addr;
+	 proxy_set_header  X-Forwarded-F $proxy_add_x_forwarded_for;
+	 client_max_body_size  100m;
+	}
+	```
+
+	
 

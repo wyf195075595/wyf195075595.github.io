@@ -788,5 +788,7 @@ input:-internal-autofill-selected {
 }
 ```
 
+### 文本高度自适应
 
+**form-sizing** 属性，一个带有 `form-sizing` 属性的实验性 CSS 规则即将推出，它允许您根据用户输入的文本量自动增加 textarea 的高度。
 

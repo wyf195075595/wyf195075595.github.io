@@ -81,6 +81,10 @@ build: {
 
 ### 配置 px 转 rem 自适应
 
+> npm i postcss-pxtorem@5.1.1 -D
+>
+> [参考链接](https://juejin.cn/post/7114211754413916167#heading-4)
+
 vite.config.js
 
 ```json
@@ -88,10 +92,18 @@ css: {
     postcss: {
       plugins: [
         postCssPxToRem({
-          propList: ["*"],
+          propList: ["*"],//匹配CSS中的属性，* 代表启用所有属性  不启用边框，可以写['*'，'!border*']
           replace: true,
-          rootValue: 16,
-          unitPrecision: 5,
+          rootValue: 16,// 换算的基数 根元素字体大小
+          unitPrecision: 5,//转换成rem后保留的小数点位数
+          minPixelValue: 12,//小于12px的样式不被替换成rem
+          //忽略一些文件，不进行转换
+          exclude: (file) => {
+            if (file.indexOf('src\\views\\fontend\\') !== -1) {
+                return false;
+            }
+            return true
+          }
         })
       ]
     }

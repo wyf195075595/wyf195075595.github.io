@@ -187,9 +187,9 @@ eg: 找出每个部门最高薪资，要求显示薪资大于2900的数据
 
 ```sql
 // 找出每个部门最大薪资、
-select max(sal) ,deptno from emp by deptno;
+select max(sal) ,deptno from emp group by deptno;
 // 找出薪资大于 2900 【效率低】
-select max(sal) ,deptno from emp by deptno having max(sal) > 2900;
+select max(sal) ,deptno from emp group by deptno having max(sal) > 2900;
 
 // 最佳方案
 select  max(sal) ,deptno from emp where sal > 2900 by deptno;
@@ -199,7 +199,7 @@ select  max(sal) ,deptno from emp where sal > 2900 by deptno;
 
 ```sql
 // 要求平均薪资大于2000
-select  max(sal) ,deptno from emp where sal > avg(sal) by deptno; // 错误，where 后面不能用分组
+select  max(sal) ,deptno from emp where sal > avg(sal) group by deptno; // 错误，where 后面不能用分组
 
 此时只能用 having
 ```

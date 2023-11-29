@@ -1,5 +1,5 @@
 ---
-title: h5播放rtsp格式视频
+	title: h5播放rtsp格式视频
 date: 2023-03-27 18:53:10
 tags: rtsp
 categories: js
@@ -77,7 +77,7 @@ ffmpeg -re -i test.mp4 -rtsp transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/
 // rtsp推流(文件循环推流)
 ffmpeg -re -stream_loop -1 -i test.mp4 -rtsp_transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test
 // rtmp推流(文件推流)
-Ffmpeg -re -i test.mp4 -vcodec h264_nvenc -acodec aac -f flv rtmp://127.0.0.1:1935/live/test
+ffmpeg -re -i test.mp4 -vcodec h264_nvenc -acodec aac -f flv rtmp://127.0.0.1:1935/live/test
 // rtmp推流(文件循环推流)
 ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec h264 -acodec aac -f flv rtmp://127.0.0.1:1935/live/test
 
@@ -448,5 +448,6 @@ http://192.168.94.128/test?app=live&stream=wei
 
 		
 
+### nginx + nginx-rtmp-module
 
-
+> 详情见 音视频 笔记

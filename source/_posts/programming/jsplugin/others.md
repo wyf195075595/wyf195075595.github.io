@@ -1250,3 +1250,13 @@ console.log('还原对象:', toObj)
 > 它可用于动态标记搜索词或自定义正则表达式，并为您提供内置选项，如音调符号支持、单独的单词搜索、自定义同义词、iframe 支持、自定义过滤器、准确性定义、自定义元素、自定义类名等。
 >
 > [示例](https://jsfiddle.net/julmot/hdyLpy37/)
+
+### [Pictode](https://github.com/JessYan0913/pictode)
+
+> 一个开源的网页绘图编辑器。可以通过npm包方式引入项目
+
+[recorder](https://github.com/xiangyuecn/Recorder)
+
+> Recorder用于html5录音
+>
+> 支持在大部分已实现`getUserMedia`的移动端、PC端浏览器麦克风录音、实时处理，主要包括：Chrome、Firefox、Safari、iOS 14.3+、Android WebView、腾讯Android X5内核(QQ、微信、小程序WebView)、uni-app(App、H5)、大部分2021年后更新的Android手机自带浏览器

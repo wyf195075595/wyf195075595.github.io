@@ -4414,6 +4414,87 @@ console.log(
 
 > 服务器端，它从 Node.js 16 开始支持。
 
+### 实现取消请求
+
+> 以axios 为示例，应用场景：在一个chat-gpt 演示项目中，一个停止回答的功能。暂停回答时取消请求 如果请求中 会返回reject。如果请求完成，则没有效果。暂停回答效果
+
+```js
+// 对话接口获取回复消息
+export function docGoodsChat(data) {
+  // 创建一个 CancelToken 对象,这个对象只能执行一次不能共用。每次新请求都生成一个
+  return request({
+    cancelToken:new axios.CancelToken(function(c){
+      window.lastCancel = c
+    }),
+    url: "/chatGoodsApi/information_extraction/",
+    method: "post",
+    headers: {
+      'content-type': "application/json"
+    },
+    data: JSON.stringify(data)
+  });
+}
+```
+
+取消请求
+
+```js
+window.lastCancel()
+```
+
+### 树型数据组装
+
+```js
+/**
+ *
+ * @param data 待组装的数据
+ * @param idName id参数的名称
+ * @param pIdName pid参数的名称
+ * @param rootId 树根数据的pid值
+ * @returns {Array}
+ */
+
+function initTree(data, idName, pIdName, rootId) {
+    var root = [];
+    //查找root数据
+    data.forEach(function (d) {
+        if(rootId) {
+            if(d.parentId == rootId) {
+                root.push(d);
+            }
+        } else {
+            root.push(d);
+        }
+        d.children = [];
+        //记录有没有么
+        d.hasParent = false;
+        d.hasDeal = false;
+    });
+    formatChildren(root, data, idName, pIdName);
+    return root.filter(function (node) {
+        return !node.hasParent;
+    });
+
+    function formatChildren(parentData, allData, idName, pIdName) {
+        parentData.forEach(function (pData) {
+            if (!pData.hasDeal) {
+                allData.forEach(function (data) {
+                    if (data[pIdName] == pData[idName]) {
+                        pData.children.push(data);
+                        data.hasParent = true;
+                        formatChildren([data], allData, idName, pIdName);
+                    }
+                });
+            }
+            pData.hasDeal = true;
+        });
+    }
+}
+
+```
+
+
+
 ## 属性
 
 ### document.referrer
@@ -4438,6 +4519,16 @@ console.log(
 - 跨域
 
 > 在 [`iframe`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/iframe) 中，`Document.referrer` 会初始化为父窗口 [`Window.location`](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location) 的 [`href`](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLAnchorElement/href)。
+
+### meta http-equiv
+
+、在 html 的 header 标签中加上
+
+```html
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+```
+
+是告诉浏览器，把本站的所有 **http** 连接升级为 **https** 连接。
 
 ## js拓展
 

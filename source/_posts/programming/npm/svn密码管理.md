@@ -46,3 +46,19 @@ categories: svn
 	下次操作时即可输入新的账户。
 
 	切换账户直接重命名回来就可了
+
+
+
+### 找回账户密码
+
+> 前提，本机已经登陆过账户密码。只是后边忘了。
+>
+> [参考文章](https://blog.csdn.net/linmengmeng_1314/article/details/88352543)
+
+1. 找账户
+
+	找到 svn 默认密码存储位置：C:\Users\19507\AppData\Roaming\Subversion\auth\svn.simple，此文件夹下存储所有svn记录，记事本打开可以看见用户名和加密密码
+
+2. 查看密码
+
+	[下载 Download.exe](http://www.leapbeyond.com/ric/TSvnPD/) ， 双击运行就可以展示出所有用户名和密码信息
