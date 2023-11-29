@@ -258,6 +258,141 @@
             
 
   
+    <article id="post-programming/音视频/webrtc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/11/08/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/webrtc/" target="_blank">webrtc 基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/11/08/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/webrtc/" class="archive-article-date">
+        <time datetime="2023-11-08T06:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>WebRTC是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点的（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。它包括的这些标准使用户在无需安装任何插件或者第三方的软件的情况下，创建点对点（Peer-to-Peer）的数据分享和电话会议成为可能。</p>
+</blockquote>
+<h2 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h2><h3 id="媒体协商（sdp）"><a href="#媒体协商（sdp）" class="headerlink" title="媒体协商（sdp）"></a><strong>媒体协商（sdp）</strong></h3><p>​    彼此了解对方支持的媒体格式，这是两个不同网络环境浏览器要实现语音视频通话的首要解决问题</p>
+<h3 id="网络协商（candidate）"><a href="#网络协商（candidate）" class="headerlink" title="网络协商（candidate）"></a><strong>网络协商（candidate）</strong></h3><p>​    了解对方的网络情况</p>
+<ol>
+<li><p>获取外网IP地址映射</p>
+</li>
+<li><p>通信服务器交换网络信息</p>
+</li>
+</ol>
+<p>实际情况是：我们电脑和电脑之间或大或小都是在某个局域网里面，需要NAT(网络地址转换)</p>
+<h4 id="STUN"><a href="#STUN" class="headerlink" title="STUN"></a><strong>STUN</strong></h4><p>​    外网映射通信（内网穿透）</p>
+<p>STUN是一种网络协议，它允许NAT后的客户端找出自己的公网地址，查出自己位于哪种类型的NAT为某一个本端口绑定的Internel（外网）端端口，外网就可以通过UDP通信。</p>
+<h4 id="TURN"><a href="#TURN" class="headerlink" title="TURN"></a><strong>TURN</strong></h4><p>​    中继服务通信</p>
+<p>如果上述外网映射通信不通的话，这时候需要公网作为一个中继，对来网的数据转发，这个转发的协议被定义为TURN</p>
+<p>服务网络（200kbps单向通信一对一带宽为良好的通信）</p>
+<h3 id="信令服务器"><a href="#信令服务器" class="headerlink" title="信令服务器"></a>信令服务器</h3><blockquote>
+<p>两个不同网络环境下的应用程序可以通过信令服务器交换信息，如websocket ,信令服务器一般都是部署到公网，它要求能被两端的应用程序访问到</p>
+</blockquote>
+<h2 id="Linux-安装-coturn"><a href="#Linux-安装-coturn" class="headerlink" title="Linux 安装 coturn"></a>Linux 安装 coturn</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lepaitianshi/article/details/123778506">参考链接</a></p>
+</blockquote>
+<ol>
+<li><p>下载源码</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/coturn/coturn.git</span><br></pre></td></tr></table></figure></li>
+<li><p>下载相关库文件(安装依赖)</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install libssl-dev libevent-dev</span><br></pre></td></tr></table></figure></li>
+<li><p>进入源码目录，编译</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/coturn</span><br></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make -j 4 </span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+<li><p>配置环境变量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export coturn_home=/usr/local/coturn</span><br><span class="line">export PATH=$PATH:$coturn_home/bin</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nohup turnserver -L 0.0.0.0 -a -u lqf:123456 -v -f -r &gt; /usr/local/coturn/logs &amp;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webrtc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/音视频//" class="article-tag-list-link color4">音视频</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/11/08/programming/%E9%9F%B3%E8%A7%86%E9%A2%91/webrtc/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/linux/ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -292,163 +427,9 @@
 </blockquote>
 <p>下载好 Ubuntu ISO镜像后，在虚拟机上安装好。登录后发现 连接工具 无法访问 Ubuntu</p>
 <p>​    ubuntu18.04中只默认安装了openssh-client,所以如果想用ssh远程登录ubuntu，需要下载安装openssh-server，并启动ssh服务</p>
-<h3 id="安装-openssh-server"><a href="#安装-openssh-server" class="headerlink" title="安装 openssh-server"></a>安装 openssh-server</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
-
-<h4 id="编辑配置文件-sshd-config"><a href="#编辑配置文件-sshd-config" class="headerlink" title="编辑配置文件 sshd_config"></a>编辑配置文件 sshd_config</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
-
-<p>找到：PermitRootLogin prohibit-password 禁用</p>
-<p>添加：PermitRootLogin yes</p>
-<p>配置重启</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service ssh restart</span><br></pre></td></tr></table></figure>
-
-<h4 id="防火墙管理"><a href="#防火墙管理" class="headerlink" title="防火墙管理"></a>防火墙管理</h4><p>安装 ufw 系统自带的防火墙管理</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br></pre></td></tr></table></figure>
-
-<p>常用命令</p>
-<ul>
-<li>启用/关闭</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw enable(开启)/disable(关闭)</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>打开或关闭某个端口打开或关闭某个端口</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow smtp　//允许所有的外部IP访问本机的25/tcp (smtp)端口</span><br><span class="line">sudo ufw allow 22/tcp //允许所有的外部IP访问本机的22/tcp (ssh)端口</span><br><span class="line">sudo ufw allow 53 //允许外部访问53端口(tcp/udp)</span><br><span class="line">sudo ufw allow from 192.168.1.100 //允许此IP访问所有的本机端口</span><br><span class="line">sudo ufw allow proto tcp from 192.168.0.1 to 192.168.0.2 port 22 //允许192.168.0.1访问192.168.0.2的22/tcp（ssh）端口</span><br><span class="line">sudo ufw deny smtp //禁止外部访问smtp服务</span><br><span class="line">sudo ufw delete allow smtp //删除上面建立的某条规则</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>查看防火墙状态</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw status</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>一般用户，只需如下设置：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ufw</span><br><span class="line">sudo ufw enable</span><br><span class="line">sudo ufw default deny</span><br></pre></td></tr></table></figure>
-
-<p>以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。</p>
-<h3 id="vi-常用命令"><a href="#vi-常用命令" class="headerlink" title="vi 常用命令"></a>vi 常用命令</h3><blockquote>
-<p>进入vi之后，是处于「命令行模式（command mode）」，您要切换到「插入模式（Insert mode）」才能够输入文字。初次使用vi的人都会想先用上下左右键移动光标，结果电脑一直哔哔叫，把自己气个半死，所以进入vi后，先不要乱动，转换到「插入模式（Insert mode）」再说吧！</p>
-</blockquote>
-<h4 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h4><blockquote>
-<p>ESC 可从插入模式回到命令模式</p>
-</blockquote>
-<ol>
-<li>i    光标当前位置插入</li>
-<li>a   光标位置后面追加</li>
-<li>o   换行追加，插入新的一行</li>
-</ol>
-<h4 id="保存退出"><a href="#保存退出" class="headerlink" title="保存退出"></a>保存退出</h4><p>在命令模式下输入 : 开头</p>
-<ul>
-<li>「w」：在冒号输入字母「w」就可以将文件保存起来。</li>
-<li>「 E」 离开vi</li>
-<li>「q」：按「q」就是退出，如果无法离开vi，可以在「q」后跟一个「!」强制离开vi。</li>
-<li>「qw」：一般建议离开时，搭配「w」一起使用，这样在退出的时候还可以保存文件。</li>
-</ul>
-<h4 id="移动光标"><a href="#移动光标" class="headerlink" title="移动光标"></a>移动光标</h4><blockquote>
-<p>vi可以直接用键盘上的光标来上下左右移动，但正规的vi是用小写英文字母「h」、「j」、「k」、「l」，分别控制光标左、下、上、右移一格。</p>
-</blockquote>
-<ul>
-<li>按「ctrl」+「b」：屏幕往“后”移动一页。</li>
-<li>按「ctrl」+「f」：屏幕往“前”移动一页。</li>
-<li>按「ctrl」+「u」：屏幕往“后”移动半页。</li>
-<li>按「ctrl」+「d」：屏幕往“前”移动半页。</li>
-<li>按数字「0」：移到文章的开头。</li>
-<li>按「G」：移动到文章的最后。</li>
-<li>按「$」：移动到光标所在行的“行尾”。</li>
-<li>按「^」：移动到光标所在行的“行首”</li>
-<li>按「w」：光标跳到下个字的开头</li>
-<li>按「e」：光标跳到下个字的字尾</li>
-<li>按「b」：光标回到上个字的开头</li>
-<li>按「#l」：光标移到该行的第#个位置，如：5l,56l</li>
-</ul>
-<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><ul>
-<li>「x」：每按一次，删除光标所在位置的“后面”一个字符。</li>
-<li>「#x」：例如，「6x」表示删除光标所在位置的“后面”6个字符。</li>
-<li>「X」：大写的X，每按一次，删除光标所在位置的“前面”一个字符。</li>
-<li>「#X」：例如，「20X」表示删除光标所在位置的“前面”20个字符。</li>
-<li>「dd」：删除光标所在行。</li>
-<li>「#dd」：从光标所在行开始删除#行</li>
-</ul>
-<h4 id="复制"><a href="#复制" class="headerlink" title="复制"></a>复制</h4><ul>
-<li>「yw」：将光标所在之处到字尾的字符复制到缓冲区中。</li>
-<li>「#yw」：复制#个字到缓冲区</li>
-<li>「yy」：复制光标所在行到缓冲区。</li>
-<li>「#yy」：例如，「6yy」表示拷贝从光标所在的该行“往下数”6行文字。</li>
-<li>「p」：将缓冲区内的字符贴到光标所在位置。注意：所有与“y”有关的复制命令都必须与“p”配合才能完成复制与粘贴功能。</li>
-</ul>
-<h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><ul>
-<li>「r」：替换光标所在处的字符。</li>
-<li>「R」：替换光标所到之处的字符，直到按下「ESC」键为止</li>
-</ul>
-<h4 id="恢复-撤消-还原上一次操作"><a href="#恢复-撤消-还原上一次操作" class="headerlink" title="恢复/撤消/还原上一次操作"></a>恢复/撤消/还原上一次操作</h4><p>「u」：如果误执行一个命令，可以马上按下「u」，撤消上一个操作。按多次“u”可以执行多次撤消。</p>
-<h4 id="更改"><a href="#更改" class="headerlink" title="更改"></a>更改</h4><ul>
-<li>「cw」：更改光标所在处的字到字尾处</li>
-<li>「c#w」：例如，「c3w」表示更改3个字</li>
-</ul>
-<h4 id="跳至指定的行"><a href="#跳至指定的行" class="headerlink" title="跳至指定的行"></a>跳至指定的行</h4><ul>
-<li>「ctrl」+「g」列出光标所在行的行号。</li>
-<li>「#G」：例如，「15G」，表示移动光标至文章的第15行行首。</li>
-</ul>
-<h4 id="列出行号"><a href="#列出行号" class="headerlink" title="列出行号"></a>列出行号</h4><p>「set nu」：输入「set nu」后，会在文件中的每一行前面列出行号。</p>
-<h4 id="跳到文件中的某一行"><a href="#跳到文件中的某一行" class="headerlink" title="跳到文件中的某一行"></a>跳到文件中的某一行</h4><p>「#」：「#」号表示一个数字，在冒号后输入一个数字，再按回车键就会跳到该行了，如输入数字15，再回车，就会跳到文章的第15行。</p>
-<h4 id="查找字符"><a href="#查找字符" class="headerlink" title="查找字符"></a>查找字符</h4><ul>
-<li>「/关键字」：先按「/」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往后寻找到您要的关键字为止。</li>
-<li>「?关键字」：先按「?」键，再输入您想寻找的字符，如果第一次找的关键字不是您想要的，可以一直按「n」会往前寻找到您要的关键字为止。</li>
-</ul>
-<h4 id="vi命令列表"><a href="#vi命令列表" class="headerlink" title="vi命令列表"></a>vi命令列表</h4><ul>
-<li>h    左移光标一个字符</li>
-<li>l    右移光标一个字符</li>
-<li>k    光标上移一行</li>
-<li>j    光标下移一行</li>
-<li>^    光标移动至行首</li>
-<li>0    数字“0”，光标移至文章的开头</li>
-<li>G    光标移至文章的最后</li>
-<li>$    光标移动至行尾</li>
-<li>Ctrl+f    向前翻屏</li>
-<li>Ctrl+b    向后翻屏</li>
-<li>Ctrl+d    向前翻半屏</li>
-<li>Ctrl+u    向后翻半屏</li>
-<li>wq filename    储存正在编辑的文件为filename，并退出vi</li>
-</ul>
-<h3 id="安装-ffmpeg"><a href="#安装-ffmpeg" class="headerlink" title="安装 ffmpeg"></a>安装 ffmpeg</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://www.myfreax.com/how-to-install-ffmpeg-on-ubuntu-18-04/">参考链接</a></p>
-</blockquote>
-<p>ubuntu 18.04 版本 安装 4.x版本 ffmpeg</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:jonathonf/ffmpeg-4</span><br><span class="line"></span><br><span class="line">sudo apt install ffmpeg</span><br><span class="line"></span><br><span class="line">// 下载到多少，突然报网络问题断联，补全下载</span><br><span class="line">sudo apt install ffmpeg --prefix</span><br></pre></td></tr></table></figure>
-
-<p>如果安装ppa 失败，那么要安装这个</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install software-properties-common</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h3><blockquote>
-<p>默认安装的 nodejs 是8版本，连npm都不带，不大行。</p>
-<p><a target="_blank" rel="noopener" href="https://nodejs.org/dist/">查询nodejs版本</a>,下载 linux-x64.tar.gz 后缀文件</p>
-</blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>安装后解压，放到 /usr/local/nodejs-xxx 目录</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nodejs-xxx </span><br></pre></td></tr></table></figure>
-
-<h3 id="安装-PM2"><a href="#安装-PM2" class="headerlink" title="安装 PM2"></a>安装 PM2</h3><blockquote>
-<p>PM2是node进程管理工具，可以利用它来简化很多node应用管理的繁琐任务，如性能监控、自动重启、负载均衡等，而且使用非常简单。</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2 -g</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="设置全局变量"><a href="#设置全局变量" class="headerlink" title="设置全局变量"></a>设置全局变量</h3><ol>
-<li><p>临时设置</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
-<li><p>当前用户全局</p>
-<p> 打开 ~/.bashrc,添加下面配置</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
-<li><p>所有用户的全局配置</p>
-<p> 修改 /etc/profile</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/home/yan/share/usr/local/arm/3.4.1/bin:$PATH</span><br></pre></td></tr></table></figure></li>
-<li><p>配置修改生效</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source profile</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-
+    
+    <a class="article-more-a" href="/2023/11/01/programming/linux/ubuntu/#more">more >></a>
+    
     
 
     
@@ -1436,112 +1417,6 @@
 
 
   
-    <article id="post-programming/others/freeOnlineDB" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2023/05/29/programming/others/freeOnlineDB/" target="_blank">免费的在线数据库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2023/05/29/programming/others/freeOnlineDB/" class="archive-article-date">
-        <time datetime="2023-05-29T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-29</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>收集一些白嫖的平台资源</p>
-</blockquote>
-<h2 id="1-db4free"><a href="#1-db4free" class="headerlink" title="1.db4free"></a>1.db4free</h2><p><a href="https://link.zhihu.com/?target=https://db4free.net/">db4free.net - 免费的 MySQL 数据库db4free.net/</a></p>
-<blockquote>
-<p>mysql数据库，基本最新版本，服务器在国外，可能比较慢但是是稳定的。</p>
-<p>无需注册账号，不定时清空超过200MB的资料库。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2023/05/29/programming/others/freeOnlineDB/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">db</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/other//" class="article-tag-list-link color1">other</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2023/05/29/programming/others/freeOnlineDB/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
@@ -1675,11 +1550,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1691,11 +1566,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1707,11 +1582,47 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1719,7 +1630,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1731,19 +1650,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1759,47 +1678,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1807,19 +1686,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1831,7 +1702,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1839,15 +1710,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1863,15 +1730,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1883,15 +1750,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1899,23 +1762,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1931,7 +1790,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1943,11 +1806,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

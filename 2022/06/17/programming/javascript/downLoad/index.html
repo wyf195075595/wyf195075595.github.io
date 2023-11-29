@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1035/format/webp">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-12-31T06:11:36.260Z">
+<meta property="article:modified_time" content="2023-11-17T08:23:50.144Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -288,7 +288,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4.7k字</span>
+      <span class="post-count">5k字</span>
     </span>
   </span>
 
@@ -297,7 +297,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">20分</span>
+      <span class="post-count">22分</span>
     </span>
   </span>
 </div>
@@ -553,6 +553,8 @@ xhr.onload = function () &#123;
 <li>小文件下载： file-saver</li>
 <li>大文件下载： streamsave</li>
 </ol>
+<h3 id="post-下载"><a href="#post-下载" class="headerlink" title="post 下载"></a>post 下载</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; saveAs &#125; <span class="keyword">from</span> <span class="string">&#x27;file-saver&#x27;</span></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 参数处理</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> &#123;<span class="type">*</span>&#125; params  参数</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">tansParams</span>(<span class="params">params</span>) &#123;</span><br><span class="line">  <span class="keyword">let</span> result = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> propName <span class="keyword">of</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(params)) &#123;</span><br><span class="line">    <span class="keyword">const</span> value = params[propName];</span><br><span class="line">    <span class="keyword">var</span> part = <span class="built_in">encodeURIComponent</span>(propName) + <span class="string">&quot;=&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (value !== <span class="literal">null</span> &amp;&amp; value !== <span class="string">&quot;&quot;</span> &amp;&amp; <span class="keyword">typeof</span> (value) !== <span class="string">&quot;undefined&quot;</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="keyword">typeof</span> value === <span class="string">&#x27;object&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">of</span> <span class="title class_">Object</span>.<span class="title function_">keys</span>(value)) &#123;</span><br><span class="line">          <span class="keyword">if</span> (value[key] !== <span class="literal">null</span> &amp;&amp; value[key] !== <span class="string">&quot;&quot;</span> &amp;&amp; <span class="keyword">typeof</span> (value[key]) !== <span class="string">&#x27;undefined&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> params = propName + <span class="string">&#x27;[&#x27;</span> + key + <span class="string">&#x27;]&#x27;</span>;</span><br><span class="line">            <span class="keyword">var</span> subPart = <span class="built_in">encodeURIComponent</span>(params) + <span class="string">&quot;=&quot;</span>;</span><br><span class="line">            result += subPart + <span class="built_in">encodeURIComponent</span>(value[key]) + <span class="string">&quot;&amp;&quot;</span>;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        result += part + <span class="built_in">encodeURIComponent</span>(value) + <span class="string">&quot;&amp;&quot;</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证是否为blob格式</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">blobValidate</span>(<span class="params">data</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> data.<span class="property">type</span> !== <span class="string">&#x27;application/json&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通用下载方法</span></span><br><span class="line"><span class="title function_">download</span>(<span class="params">url, params, filename, config</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">request</span>(&#123;</span><br><span class="line">        url,</span><br><span class="line">        <span class="attr">data</span>:params, </span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">        <span class="attr">transformRequest</span>: [<span class="function">(<span class="params">params</span>) =&gt;</span> &#123; <span class="keyword">return</span> <span class="title function_">tansParams</span>(params) &#125;],</span><br><span class="line">        <span class="attr">headers</span>: &#123; <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span> &#125;,</span><br><span class="line">        <span class="attr">responseType</span>: <span class="string">&#x27;blob&#x27;</span>,</span><br><span class="line">        ...config</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="keyword">async</span> (data) =&gt; &#123;</span><br><span class="line">        <span class="keyword">const</span> isBlob = <span class="title function_">blobValidate</span>(data);</span><br><span class="line">        <span class="keyword">if</span> (isBlob) &#123;</span><br><span class="line">            <span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([data])</span><br><span class="line">            <span class="title function_">saveAs</span>(blob, filename)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">const</span> resText = <span class="keyword">await</span> data.<span class="title function_">text</span>();</span><br><span class="line">            <span class="keyword">const</span> rspObj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(resText);</span><br><span class="line">            <span class="keyword">const</span> errMsg = errorCode[rspObj.<span class="property">code</span>] || rspObj.<span class="property">msg</span> || errorCode[<span class="string">&#x27;default&#x27;</span>]</span><br><span class="line">            <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$message</span>.<span class="title function_">error</span>(errMsg);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function">(<span class="params">r</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(r)</span><br><span class="line">        <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$message</span>.<span class="title function_">error</span>(<span class="string">&#x27;下载文件出现错误，请联系管理员！&#x27;</span>)</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     
 
@@ -671,18 +673,18 @@ xhr.onload = function () &#123;
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/for_await/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/javascript/date/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          在循环中使用await
+          Date日期对象
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/jsConsole/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">jsConsole</div>
+    <a href="/2022/06/17/programming/javascript/for_await/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在循环中使用await</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -709,7 +711,7 @@ xhr.onload = function () &#123;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">文件下载方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#open%E6%88%96location-href"><span class="toc-number">2.</span> <span class="toc-text">open或location.href</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#a%E6%A0%87%E7%AD%BE%E7%9A%84download"><span class="toc-number">3.</span> <span class="toc-text">a标签的download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8Blob%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">利用Blob对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-3"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-3"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8base64"><span class="toc-number">5.</span> <span class="toc-text">利用base64</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-4"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-4"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">6.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8html2canvas%E5%92%8Cjspdf%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="toc-number">7.</span> <span class="toc-text">使用html2canvas和jspdf插件实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97"><span class="toc-number">7.1.</span> <span class="toc-text">1,下载插件模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">7.2.</span> <span class="toc-text">2,定义功能实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">7.3.</span> <span class="toc-text">3, 全局引入实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9C%A8%E7%9B%B8%E5%85%B3%E8%A6%81%E5%AF%BC%E5%87%BA%E7%9A%84%E9%A1%B5%E9%9D%A2%E4%B8%AD%EF%BC%8C%E7%82%B9%E5%87%BB%E6%97%B6%E8%B0%83%E7%94%A8%E7%BB%91%E5%AE%9A%E5%9C%A8Vue%E5%8E%9F%E5%9E%8B%E4%B8%8A%E7%9A%84getPdf%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BC%A0%E5%85%A5id%E5%8D%B3%E5%8F%AF"><span class="toc-number">7.4.</span> <span class="toc-text">4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%90%8E%E5%8F%B0%E8%BF%94%E5%9B%9E%E6%96%87%E4%BB%B6%E6%B5%81%EF%BC%8C%E5%88%A9%E7%94%A8HTML5%E4%B8%ADa%E6%A0%87%E7%AD%BE%E7%9A%84download%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0%E4%B8%8B%E8%BD%BD"><span class="toc-number">8.</span> <span class="toc-text">方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%EF%BC%8C%E8%8E%B7%E5%8F%96%E5%88%B0%E5%90%8E%E5%8F%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%96%87%E4%BB%B6%E6%B5%81%E5%8F%8A%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">8.1.</span> <span class="toc-text">1,发送请求，获取到后台返回的文件流及文件信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B0%81%E8%A3%85%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95-%E8%A7%A3%E6%9E%90%E6%96%87%E4%BB%B6%E6%B5%81%EF%BC%8C%E5%88%9B%E5%BB%BAa%E6%A0%87%E7%AD%BE%E5%B9%B6%E8%AE%BE%E7%BD%AE%E4%B8%8B%E8%BD%BD%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E3%80%82"><span class="toc-number">8.2.</span> <span class="toc-text">2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%BC%8C%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD%E6%8C%89%E9%92%AE%EF%BC%8C%E8%B0%83%E7%94%A8%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="toc-number">8.3.</span> <span class="toc-text">3，点击下载按钮，调用下载方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%97%B6%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">8.4.</span> <span class="toc-text">下载时获取文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-axios-%E5%B0%81%E8%A3%85%E5%BE%97%E4%B8%8B%E8%BD%BD"><span class="toc-number">8.4.1.</span> <span class="toc-text">使用 axios 封装得下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%8C%85%EF%BC%9A"><span class="toc-number">8.4.2.</span> <span class="toc-text">支持下载的常用的两个包：</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E6%96%B9%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">文件下载方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#open%E6%88%96location-href"><span class="toc-number">2.</span> <span class="toc-text">open或location.href</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-1"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-1"><span class="toc-number">2.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#a%E6%A0%87%E7%AD%BE%E7%9A%84download"><span class="toc-number">3.</span> <span class="toc-text">a标签的download</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-2"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-2"><span class="toc-number">3.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8Blob%E5%AF%B9%E8%B1%A1"><span class="toc-number">4.</span> <span class="toc-text">利用Blob对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-3"><span class="toc-number">4.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-3"><span class="toc-number">4.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%A9%E7%94%A8base64"><span class="toc-number">5.</span> <span class="toc-text">利用base64</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9-4"><span class="toc-number">5.0.0.1.</span> <span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9-4"><span class="toc-number">5.0.0.2.</span> <span class="toc-text">缺点</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">6.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8html2canvas%E5%92%8Cjspdf%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0"><span class="toc-number">7.</span> <span class="toc-text">使用html2canvas和jspdf插件实现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%E6%A8%A1%E5%9D%97"><span class="toc-number">7.1.</span> <span class="toc-text">1,下载插件模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%9A%E4%B9%89%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">7.2.</span> <span class="toc-text">2,定义功能实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E5%B1%80%E5%BC%95%E5%85%A5%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-number">7.3.</span> <span class="toc-text">3, 全局引入实现方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%9C%A8%E7%9B%B8%E5%85%B3%E8%A6%81%E5%AF%BC%E5%87%BA%E7%9A%84%E9%A1%B5%E9%9D%A2%E4%B8%AD%EF%BC%8C%E7%82%B9%E5%87%BB%E6%97%B6%E8%B0%83%E7%94%A8%E7%BB%91%E5%AE%9A%E5%9C%A8Vue%E5%8E%9F%E5%9E%8B%E4%B8%8A%E7%9A%84getPdf%E6%96%B9%E6%B3%95%EF%BC%8C%E4%BC%A0%E5%85%A5id%E5%8D%B3%E5%8F%AF"><span class="toc-number">7.4.</span> <span class="toc-text">4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E8%AF%BB%E5%8F%96%E5%90%8E%E5%8F%B0%E8%BF%94%E5%9B%9E%E6%96%87%E4%BB%B6%E6%B5%81%EF%BC%8C%E5%88%A9%E7%94%A8HTML5%E4%B8%ADa%E6%A0%87%E7%AD%BE%E7%9A%84download%E5%B1%9E%E6%80%A7%E5%AE%9E%E7%8E%B0%E4%B8%8B%E8%BD%BD"><span class="toc-number">8.</span> <span class="toc-text">方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%91%E9%80%81%E8%AF%B7%E6%B1%82%EF%BC%8C%E8%8E%B7%E5%8F%96%E5%88%B0%E5%90%8E%E5%8F%B0%E8%BF%94%E5%9B%9E%E7%9A%84%E6%96%87%E4%BB%B6%E6%B5%81%E5%8F%8A%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF"><span class="toc-number">8.1.</span> <span class="toc-text">1,发送请求，获取到后台返回的文件流及文件信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B0%81%E8%A3%85%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95-%E8%A7%A3%E6%9E%90%E6%96%87%E4%BB%B6%E6%B5%81%EF%BC%8C%E5%88%9B%E5%BB%BAa%E6%A0%87%E7%AD%BE%E5%B9%B6%E8%AE%BE%E7%BD%AE%E4%B8%8B%E8%BD%BD%E7%9B%B8%E5%85%B3%E5%B1%9E%E6%80%A7%E3%80%82"><span class="toc-number">8.2.</span> <span class="toc-text">2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%EF%BC%8C%E7%82%B9%E5%87%BB%E4%B8%8B%E8%BD%BD%E6%8C%89%E9%92%AE%EF%BC%8C%E8%B0%83%E7%94%A8%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95"><span class="toc-number">8.3.</span> <span class="toc-text">3，点击下载按钮，调用下载方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%97%B6%E8%8E%B7%E5%8F%96%E6%96%87%E4%BB%B6%E5%90%8D"><span class="toc-number">8.4.</span> <span class="toc-text">下载时获取文件名</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-axios-%E5%B0%81%E8%A3%85%E5%BE%97%E4%B8%8B%E8%BD%BD"><span class="toc-number">8.4.1.</span> <span class="toc-text">使用 axios 封装得下载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%8C%85%EF%BC%9A"><span class="toc-number">8.4.2.</span> <span class="toc-text">支持下载的常用的两个包：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#post-%E4%B8%8B%E8%BD%BD"><span class="toc-number">8.4.3.</span> <span class="toc-text">post 下载</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -867,11 +869,11 @@ xhr.onload = function () &#123;
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,11 +885,11 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,11 +901,47 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -911,7 +949,15 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,19 +969,19 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -951,47 +997,7 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -999,19 +1005,11 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1023,7 +1021,7 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,15 +1029,11 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1055,15 +1049,15 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1075,15 +1069,11 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1091,23 +1081,19 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,7 +1109,11 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1135,11 +1125,23 @@ xhr.onload = function () &#123;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

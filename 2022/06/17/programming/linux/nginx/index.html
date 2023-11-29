@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy82MTUyNTk1LWFkODZhZjk2OWJiMjg0YTYucG5n">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/ruanlink.png">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2023-01-06T05:43:03.116Z">
+<meta property="article:modified_time" content="2023-11-15T06:51:35.374Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="nginx">
 <meta name="twitter:card" content="summary">
@@ -289,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">9.9k字</span>
+      <span class="post-count">10.2k字</span>
     </span>
   </span>
 
@@ -298,7 +298,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">39分</span>
+      <span class="post-count">41分</span>
     </span>
   </span>
 </div>
@@ -367,10 +367,36 @@
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/ruanlink.png"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">软链接又叫符号链接，</span><br><span class="line">这个文件包含了另一个文件的路径名。</span><br><span class="line">可以是任意文件或目录，</span><br><span class="line">可以链接不同文件系统的文件。</span><br><span class="line"></span><br><span class="line">链接文件甚至可以链接不存在的文件，</span><br><span class="line">这就产生一般称之为 ”断链” 的现象，</span><br><span class="line">链接文件甚至可以循环链接自己。</span><br><span class="line">类似于编程语言中的递归。</span><br><span class="line"></span><br><span class="line">软链接文件只是其源文件的一个标记，</span><br><span class="line">当删除了源文件后，</span><br><span class="line">链接文件不能独立存在，</span><br><span class="line">虽然仍保留文件名，</span><br><span class="line">但却不能查看软链接文件的内容了。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">用ln -s 命令可以生成一个软连接，如下:</span><br><span class="line">ln -s source_file softlink_file</span><br><span class="line">ln -s /usr/local/nginx/sbin/nginx /usr/local/bin</span><br><span class="line">给nignx 设置软连接</span><br><span class="line"></span><br><span class="line">在对符号文件进行读或写操作的时候，</span><br><span class="line">系统会自动把该操作转换为对源文件的操作，</span><br><span class="line">但删除链接文件时，系统仅仅删除链接文件，</span><br><span class="line">而不删除源文件本身。</span><br><span class="line"></span><br><span class="line">删除硬/软链接用 </span><br><span class="line">rm softlink_file 或 unlink softlink_file</span><br></pre></td></tr></table></figure>
 
-<h3 id="配置文件实例"><a href="#配置文件实例" class="headerlink" title="配置文件实例"></a>配置文件实例</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">user  root;</span><br><span class="line">worker_processes  <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.<span class="property">log</span>;</span><br><span class="line">#error_log  logs/error.<span class="property">log</span>  notice;</span><br><span class="line">#error_log  logs/error.<span class="property">log</span>  info;</span><br><span class="line"></span><br><span class="line">#pid        logs/nginx.<span class="property">pid</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.<span class="property">types</span>;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    log_format  main  <span class="string">&#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    access_log  logs/access.<span class="property">log</span>  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  <span class="number">0</span>;</span><br><span class="line">    keepalive_timeout  <span class="number">65</span>;</span><br><span class="line">    gzip  on;</span><br><span class="line"></span><br><span class="line">    upstream bdxxWeb &#123;</span><br><span class="line">        #server <span class="number">22.56</span><span class="number">.142</span><span class="number">.70</span>:<span class="number">8002</span> ;</span><br><span class="line">        server <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>:<span class="number">8001</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    upstream bdxxAPI &#123;</span><br><span class="line">       #server <span class="number">22.56</span><span class="number">.142</span><span class="number">.70</span>:<span class="number">9002</span> ;</span><br><span class="line">       server <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>:<span class="number">9002</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen    <span class="number">8002</span>;</span><br><span class="line">        #server_name  <span class="number">22.56</span><span class="number">.131</span><span class="number">.205</span>;</span><br><span class="line">        server_name  <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>;</span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        access_log  logs/bdxxWeb.<span class="property">access</span>.<span class="property">log</span>  main;</span><br><span class="line">        location / &#123;</span><br><span class="line">            #proxy_pass <span class="attr">http</span>:<span class="comment">//bdxxWeb;</span></span><br><span class="line">            root  /home/jysp/workspace/html/;</span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        location /api/ &#123;</span><br><span class="line">            proxy_pass <span class="attr">http</span>:<span class="comment">//bdxxAPI/;</span></span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">            proxy_set_header <span class="title class_">Host</span> $host;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Real</span>-ip $remote_addr;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Forwarded</span>-<span class="title class_">For</span> $proxy_add_x_forwarded_for;</span><br><span class="line">            client_max_body_size    1000m;</span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen   <span class="number">9003</span>;</span><br><span class="line">        server_name  <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>;</span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        access_log  logs/bdxxAPI.<span class="property">access</span>.<span class="property">log</span>  main;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass <span class="attr">http</span>:<span class="comment">//bdxxAPI;</span></span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">            proxy_set_header <span class="title class_">Host</span> $host;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Real</span>-ip $remote_addr;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Forwarded</span>-<span class="title class_">For</span> $proxy_add_x_forwarded_for;</span><br><span class="line">            client_max_body_size    1000m;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen    <span class="number">18003</span>;</span><br><span class="line">        #server_name  <span class="number">22.56</span><span class="number">.131</span><span class="number">.205</span>;</span><br><span class="line">        server_name  <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>;</span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        access_log  logs/bdxxWeb.<span class="property">access</span>.<span class="property">log</span>  main;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass <span class="attr">http</span>:<span class="comment">//bdxxWeb;                        </span></span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        location /api/ &#123;</span><br><span class="line">            proxy_pass <span class="attr">http</span>:<span class="comment">//bdxxAPI/;</span></span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">            proxy_set_header <span class="title class_">Host</span> $host;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Real</span>-ip $remote_addr;</span><br><span class="line">            proxy_set_header X-<span class="title class_">Forwarded</span>-<span class="title class_">For</span> $proxy_add_x_forwarded_for;</span><br><span class="line">            client_max_body_size    1000m;       </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen    <span class="number">18002</span>;</span><br><span class="line">        server_name  <span class="number">192.168</span><span class="number">.1</span><span class="number">.12</span>;</span><br><span class="line">        #charset koi8-r;</span><br><span class="line">        access_log  logs/webnew.<span class="property">access</span>.<span class="property">log</span>  main;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root  /home/jysp/workspace/newweb/;</span><br><span class="line">            index  index.<span class="property">html</span> index.<span class="property">htm</span>;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="配置文件实例"><a href="#配置文件实例" class="headerlink" title="配置文件实例"></a>配置文件实例</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attribute">user</span>  root;</span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#pid        logs/nginx.pid;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">log_format</span>  main  <span class="string">&#x27;<span class="variable">$remote_addr</span> - <span class="variable">$remote_user</span> [<span class="variable">$time_local</span>] &quot;<span class="variable">$request</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;<span class="variable">$status</span> <span class="variable">$body_bytes_sent</span> &quot;<span class="variable">$http_referer</span>&quot; &#x27;</span></span><br><span class="line">                      <span class="string">&#x27;&quot;<span class="variable">$http_user_agent</span>&quot; &quot;<span class="variable">$http_x_forwarded_for</span>&quot;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span>  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line">    <span class="attribute">gzip</span>  <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line">    <span class="section">upstream</span> bdxxWeb &#123;</span><br><span class="line">        <span class="comment">#server 22.56.142.70:8002 ;</span></span><br><span class="line">        <span class="attribute">server</span> <span class="number">192.168.1.12:8001</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">upstream</span> bdxxAPI &#123;</span><br><span class="line">       <span class="comment">#server 22.56.142.70:9002 ;</span></span><br><span class="line">       <span class="attribute">server</span> <span class="number">192.168.1.12:9002</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>    <span class="number">8002</span>;</span><br><span class="line">        <span class="comment">#server_name  22.56.131.205;</span></span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.1.12</span>;</span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line">        <span class="attribute">access_log</span>  logs/bdxxWeb.access.log  main;</span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="comment">#proxy_pass http://bdxxWeb;</span></span><br><span class="line">            <span class="attribute">root</span>  /home/jysp/workspace/html/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="section">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://bdxxAPI/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-ip <span class="variable">$remote_addr</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            <span class="attribute">client_max_body_size</span>    <span class="number">1000m</span>;</span><br><span class="line">        &#125; </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>   <span class="number">9003</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.1.12</span>;</span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line">        <span class="attribute">access_log</span>  logs/bdxxAPI.access.log  main;</span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://bdxxAPI;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-ip <span class="variable">$remote_addr</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            <span class="attribute">client_max_body_size</span>    <span class="number">1000m</span>;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>    <span class="number">18003</span>;</span><br><span class="line">        <span class="comment">#server_name  22.56.131.205;</span></span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.1.12</span>;</span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line">        <span class="attribute">access_log</span>  logs/bdxxWeb.access.log  main;</span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://bdxxWeb;                        </span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="section">location</span> /api/ &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span> http://bdxxAPI/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Real-ip <span class="variable">$remote_addr</span>;</span><br><span class="line">            <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">            <span class="attribute">client_max_body_size</span>    <span class="number">1000m</span>;       </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>    <span class="number">18002</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">192.168.1.12</span>;</span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line">        <span class="attribute">access_log</span>  logs/webnew.access.log  main;</span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>  /home/jysp/workspace/newweb/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">            </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">#user  nobody;</span><br><span class="line">worker_processes  1;</span><br><span class="line"></span><br><span class="line">#error_log  logs/error.log;</span><br><span class="line">#error_log  logs/error.log  notice;</span><br><span class="line">#error_log  logs/error.log  info;</span><br><span class="line"></span><br><span class="line">pid        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;</span><br><span class="line">    default_type  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    #log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">    #                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">    #                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen 80;</span><br><span class="line">        location / &#123;</span><br><span class="line">            proxy_pass    http://106.54.247.250:8001;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server &#123;</span><br><span class="line">        listen       8001;</span><br><span class="line">        server_name  106.54.247.250;</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">            root   /projects/koatest/public/;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /prod-api/ &#123;</span><br><span class="line">            #所有对后端的请求加一个/prod-api/前缀方便区分，真正访问的时候移除替换这个前缀</span><br><span class="line">            rewrite ^/prod-api/(.*)$ /api/$1 break;</span><br><span class="line">            #将真正的请求代理到serverA,即真实的服务器地址，ajax的url为/prod-api/user/1的请求将会访问http://ihrm-java.itheima.net/api/user/1</span><br><span class="line">            proxy_pass http://ihrm-java.itheima.net;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #404页面</span><br><span class="line">        error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        #错误页面</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代理</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#user  nobody;</span></span><br><span class="line"><span class="attribute">worker_processes</span>  <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#error_log  logs/error.log;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="comment">#error_log  logs/error.log  info;</span></span><br><span class="line"></span><br><span class="line"><span class="attribute">pid</span>        logs/nginx.pid;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">events</span> &#123;</span><br><span class="line">    <span class="attribute">worker_connections</span>  <span class="number">1024</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="section">http</span> &#123;</span><br><span class="line">    <span class="attribute">include</span>       mime.types;</span><br><span class="line">    <span class="attribute">default_type</span>  application/octet-stream;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span></span><br><span class="line">    <span class="comment">#                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#access_log  logs/access.log  main;</span></span><br><span class="line"></span><br><span class="line">    <span class="attribute">sendfile</span>        <span class="literal">on</span>;</span><br><span class="line">    <span class="comment">#tcp_nopush     on;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#keepalive_timeout  0;</span></span><br><span class="line">    <span class="attribute">keepalive_timeout</span>  <span class="number">65</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#gzip  on;</span></span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">proxy_pass</span>    http://106.54.247.250:8001;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">server</span> &#123;</span><br><span class="line">        <span class="attribute">listen</span>       <span class="number">8001</span>;</span><br><span class="line">        <span class="attribute">server_name</span>  <span class="number">106.54.247.250</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#charset koi8-r;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#access_log  logs/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> / &#123;</span><br><span class="line">            <span class="attribute">root</span>   /projects/koatest/public/;</span><br><span class="line">            <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="section">location</span> /prod-api/ &#123;</span><br><span class="line">            <span class="comment">#所有对后端的请求加一个/prod-api/前缀方便区分，真正访问的时候移除替换这个前缀</span></span><br><span class="line">            <span class="attribute">rewrite</span><span class="regexp"> ^/prod-api/(.*)$</span> /api/<span class="variable">$1</span> <span class="literal">break</span>;</span><br><span class="line">            <span class="comment">#将真正的请求代理到serverA,即真实的服务器地址，ajax的url为/prod-api/user/1的请求将会访问http://ihrm-java.itheima.net/api/user/1</span></span><br><span class="line">            <span class="attribute">proxy_pass</span> http://ihrm-java.itheima.net;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#404页面</span></span><br><span class="line">        <span class="attribute">error_page</span>  <span class="number">404</span>              /<span class="number">404</span>.html;</span><br><span class="line"></span><br><span class="line">        <span class="comment">#错误页面</span></span><br><span class="line">        <span class="attribute">error_page</span>   <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span>  /50x.html;</span><br><span class="line">        <span class="section">location</span> = /50x.html &#123;</span><br><span class="line">            <span class="attribute">root</span>   html;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h3 id="本地配置-https"><a href="#本地配置-https" class="headerlink" title="本地配置 https"></a>本地配置 https</h3><ol>
+<li><p>本地环境生成 ssl 证书使用工具 mkcert. 生成（本地环境 Ubuntu 18.04）</p>
+<p> 安装使用 mkcert 参考 Ubuntu 标签文章</p>
+</li>
+<li><p>配置 ssl</p>
+<p> 这里使用 nginx 默认的ssl 配置</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line">   <span class="attribute">listen</span>       <span class="number">443</span> ssl;</span><br><span class="line">   <span class="attribute">server_name</span>  localhost;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">ssl_certificate</span>    /home/ubuntu/.local/share/mkcert/localhost.pem;</span><br><span class="line">   <span class="attribute">ssl_certificate_key</span> /home/ubuntu/.local/share/mkcert/localhost-key.pem;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">ssl_session_cache</span>    shared:SSL:<span class="number">1m</span>;</span><br><span class="line">   <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;</span><br><span class="line"></span><br><span class="line">   <span class="attribute">ssl_ciphers</span>  HIGH:!aNULL:!MD5;</span><br><span class="line">   <span class="attribute">ssl_prefer_server_ciphers</span>  <span class="literal">on</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="comment"># location / &#123;</span></span><br><span class="line">  <span class="comment">#     root   html;</span></span><br><span class="line">  <span class="comment">#     index  index.html index.htm;</span></span><br><span class="line">  <span class="comment"># &#125;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>给指定开放端口配置 ssl</p>
+<p> 主要是 nginx 反向代理静态页面用</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">server</span> &#123;</span><br><span class="line"> <span class="attribute">listen</span> <span class="number">8080</span> ssl;</span><br><span class="line"> <span class="attribute">server_name</span> localhost;</span><br><span class="line"> <span class="attribute">ssl_certificate</span>    /home/ubuntu/.local/share/mkcert/localhost.pem;</span><br><span class="line"> <span class="attribute">ssl_certificate_key</span> /home/ubuntu/.local/share/mkcert/localhost-key.pem;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">ssl_session_cache</span>    shared:SSL:<span class="number">1m</span>;</span><br><span class="line"> <span class="attribute">ssl_session_timeout</span>  <span class="number">5m</span>;</span><br><span class="line"></span><br><span class="line"> <span class="attribute">ssl_ciphers</span>  HIGH:!aNULL:!MD5;</span><br><span class="line"> <span class="section">location</span> / &#123;</span><br><span class="line">   <span class="attribute">root</span>  /home/ubuntu/project/webrtc-test/;</span><br><span class="line">   <span class="attribute">index</span> index.html index.htm;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>给 ws 服务 配置 ssl</p>
+<p> 在 443 端口服务中配置</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /socket/ &#123;</span><br><span class="line"> <span class="attribute">proxy_pass</span>  http://localhost:3000;</span><br><span class="line"> <span class="attribute">proxy_http_version</span> <span class="number">1</span>.<span class="number">1</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> X-real-ip <span class="variable">$remote_addr</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$remote_addr</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 此处 ws 后端服务部署在localhost:3000，前端地址：url: ‘wss://localhost/socket/‘</p>
+<blockquote>
+<p>地址 多少一个 / 都会报错，连接不了</p>
+</blockquote>
+</li>
+<li><p>给后端接口配置 ssl </p>
+<p> 在443端口服务中配置</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /api/ &#123;</span><br><span class="line"> <span class="attribute">rewrite</span><span class="regexp"> ^/api/(.*)$</span> /<span class="variable">$1</span> <span class="literal">break</span>;</span><br><span class="line"> <span class="attribute">proxy_pass</span>  http://localhost:3000;</span><br><span class="line"> <span class="attribute">proxy_set_header</span>  Host <span class="variable">$host</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span>  X-Real-IP  <span class="variable">$remote_addr</span>;</span><br><span class="line"> <span class="attribute">proxy_set_header</span>  X-Forwarded-F <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line"> <span class="attribute">client_max_body_size</span>  <span class="number">100m</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
 
     
 
@@ -489,18 +515,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          添加markdown编辑器
+          Markdown基础语法
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">pm2 进程管理</div>
+    <a href="/2022/06/17/programming/mongodb/mongodb/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mongodb 基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -527,7 +553,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%8F%8D-%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">1、反&#x2F;正向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">2.</span> <span class="toc-text">2、负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB"><span class="toc-number">3.</span> <span class="toc-text">3、动静分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">4、nginx配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnginx"><span class="toc-number">4.1.</span> <span class="toc-text">卸载nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-nginx-%E5%8D%B4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE"><span class="toc-number">4.2.</span> <span class="toc-text">安装 nginx  却无法访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AE%B2%E8%A7%A3"><span class="toc-number">4.3.</span> <span class="toc-text">nginx配置文件讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">软链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.5.</span> <span class="toc-text">配置文件实例</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%8F%8D-%E6%AD%A3%E5%90%91%E4%BB%A3%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">1、反&#x2F;正向代理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1"><span class="toc-number">2.</span> <span class="toc-text">2、负载均衡</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%8A%A8%E9%9D%99%E5%88%86%E7%A6%BB"><span class="toc-number">3.</span> <span class="toc-text">3、动静分离</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">4、nginx配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B8%E8%BD%BDnginx"><span class="toc-number">4.1.</span> <span class="toc-text">卸载nginx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-nginx-%E5%8D%B4%E6%97%A0%E6%B3%95%E8%AE%BF%E9%97%AE"><span class="toc-number">4.2.</span> <span class="toc-text">安装 nginx  却无法访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AE%B2%E8%A7%A3"><span class="toc-number">4.3.</span> <span class="toc-text">nginx配置文件讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E9%93%BE%E6%8E%A5"><span class="toc-number">4.4.</span> <span class="toc-text">软链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BE%8B"><span class="toc-number">4.5.</span> <span class="toc-text">配置文件实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E9%85%8D%E7%BD%AE-https"><span class="toc-number">4.6.</span> <span class="toc-text">本地配置 https</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -685,11 +711,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,11 +727,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -717,11 +743,47 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -729,7 +791,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,19 +811,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -769,47 +839,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,19 +847,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -841,7 +863,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -849,15 +871,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -873,15 +891,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,15 +911,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,23 +923,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -941,7 +951,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -953,11 +967,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

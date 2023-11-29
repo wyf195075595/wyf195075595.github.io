@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/jsplugin/uuid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/jsplugin/rollup.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/uuid/" target="_blank">UUID</a>
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/rollup.js/" target="_blank">rollup</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/jsplugin/uuid/" class="archive-article-date">
+<a href="/2022/06/17/programming/jsplugin/rollup.js/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,21 +287,23 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写，是一种软件建构的标准，亦为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A/1223731">开放软件基金会</a>组织在分布式计算环境领域的一部分。其目的，是让<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。如此一来，每个人都可以创建不与其它人冲突的UUID。在这样的情况下，就不需考虑<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>创建时的名称重复问题。最广泛应用的UUID，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF%E5%85%AC%E5%8F%B8/732128">微软公司</a>的全局唯一标识符（GUID），而其他重要的应用，则有Linux ext2/ext3文件系统、LUKS加密分区、GNOME、KDE、Mac OS X等等。另外我们也可以在e2fsprogs包中的UUID库找到实现。</p>
+    <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>打包工具的作用是，将多个 JavaScript 脚本合并成一个脚本，供浏览器使用。</p>
+<p>浏览器需要脚本打包，主要原因有三个。</p>
+<blockquote>
+<p>（1）早期的浏览器不支持模块，大型网页项目只能先合并成单一脚本再执行。</p>
+<p>（2）Node.js 的模块机制与浏览器不兼容，必须通过打包工具进行兼容处理。</p>
+<p>（3）浏览器加载一个大脚本，要比加载多个小脚本，性能更好。</p>
 </blockquote>
-<p><strong>1. Install</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uuid</span><br></pre></td></tr></table></figure>
-
-<p><strong>2. Create a UUID</strong> (ES6 module syntax)</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; v4 as uuidv4 &#125; from &#x27;uuid&#x27;;</span><br><span class="line">uuidv4(); // ⇨ &#x27;9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>… or using CommonJS syntax:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; v4: uuidv4 &#125; = require(&#x27;uuid&#x27;);</span><br><span class="line">uuidv4(); // ⇨ &#x27;1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="API-Summary"><a href="#API-Summary" class="headerlink" title="API Summary"></a>API Summary</h2>
+<p>目前，最常用的打包工具是 Webpack。它的功能强大，但是难学难用，一直被人诟病。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202205/bg2022050310.webp" alt="img"></p>
+<p>rollup.js 的开发本意，是打造一款简单易用的 ES 模块打包工具，不必配置，直接使用。这一点，它确实做到了。</p>
+<p>后来经过不断发展，它也可以打包 CommonJS 模块。但是，这时需要经过复杂配置，实际上并没有比 Webpack 简单多少。</p>
+<p>因此建议，<strong>只把 rollup.js 用于打包 ES 模块</strong>，这样才能充分发挥它的优势。下面你会看到，那是多么简单的一件事。</p>
+<p>如果你的项目使用 CommonJS 模块，不推荐使用 rollup.js，优势不大。</p>
+<p>如果你还不了解 ES 模块与 CommonJS 模块之间的差异，详见 <a target="_blank" rel="noopener" href="https://wangdoc.com/es6/module-loader.html#es6-%E6%A8%A1%E5%9D%97%E4%B8%8E-commonjs-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82">ES6 教程</a>。</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>本文采用全局安装 rollup.js。</p>
     
-    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/rollup.js/#more">more >></a>
     
     
 
@@ -339,110 +341,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/jsplugin/openlayers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/openlayers/" target="_blank">OpenLayers</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/jsplugin/openlayers/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>OpenLayers 5的体系架构可见，可把整个地图看成一个容器（Map），核心为地图图层（Layer）、对应图层的数据源（Source）与矢量图层样式（Style）、与地图表现相关的地图视图（View）.</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/openLayers.png"></p>
-<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、数据组织</span><br><span class="line"></span><br><span class="line">    从表现形态来看，空间数据的矢量数据由点、线、面三类要素构成.</span><br><span class="line">    </span><br><span class="line">    矢量数据的抽象主要由ol.<span class="property">geom</span>.<span class="property">Geometry</span>基类下的几何对象子类实现</span><br><span class="line"></span><br><span class="line">	几何对象子类，即</span><br><span class="line">    -<span class="title class_">Point</span>与<span class="title class_">MultiPoint</span>（点与多点）</span><br><span class="line">	-<span class="title class_">LineString</span>与<span class="title class_">MultiLineString</span>（线与多线）</span><br><span class="line">    -<span class="title class_">Polygon</span>与<span class="title class_">MultiPolygon</span>（区与多区）</span><br><span class="line">    -<span class="title class_">LinearRing</span>（线性环）</span><br><span class="line">	-<span class="title class_">Circle</span>（圆），均继承于<span class="title class_">SimpleGeometry</span>子类</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/openlayers/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/openlayers/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/rollup.js/">展开全文 >></a>
     </p>
     
 
@@ -578,6 +477,117 @@
 
 
   
+    <article id="post-programming/jsplugin/uuid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/uuid/" target="_blank">UUID</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/uuid/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写，是一种软件建构的标准，亦为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A/1223731">开放软件基金会</a>组织在分布式计算环境领域的一部分。其目的，是让<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。如此一来，每个人都可以创建不与其它人冲突的UUID。在这样的情况下，就不需考虑<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>创建时的名称重复问题。最广泛应用的UUID，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF%E5%85%AC%E5%8F%B8/732128">微软公司</a>的全局唯一标识符（GUID），而其他重要的应用，则有Linux ext2/ext3文件系统、LUKS加密分区、GNOME、KDE、Mac OS X等等。另外我们也可以在e2fsprogs包中的UUID库找到实现。</p>
+</blockquote>
+<p><strong>1. Install</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uuid</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. Create a UUID</strong> (ES6 module syntax)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; v4 as uuidv4 &#125; from &#x27;uuid&#x27;;</span><br><span class="line">uuidv4(); // ⇨ &#x27;9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>… or using CommonJS syntax:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; v4: uuidv4 &#125; = require(&#x27;uuid&#x27;);</span><br><span class="line">uuidv4(); // ⇨ &#x27;1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="API-Summary"><a href="#API-Summary" class="headerlink" title="API Summary"></a>API Summary</h2>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/jsplugin/treejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -652,307 +662,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/jsplugin/treejs/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/qiankun/子应用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/" target="_blank">乾坤 子应用</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">xxx_sub_xxx</span><br><span class="line">&gt;node_modules</span><br><span class="line">&gt;core</span><br><span class="line">	-app-store.<span class="property">js</span></span><br><span class="line">	-life-cycle.<span class="property">js</span></span><br><span class="line">&gt;router</span><br><span class="line">	-index.<span class="property">js</span></span><br><span class="line">&gt;service</span><br><span class="line">&gt;store</span><br><span class="line">&gt;util</span><br><span class="line">&gt;views</span><br><span class="line">	-index.<span class="property">vue</span></span><br><span class="line">-<span class="title class_">App</span>.<span class="property">vue</span></span><br><span class="line">-main.<span class="property">js</span></span><br><span class="line">-package.<span class="property">json</span></span><br><span class="line">-vue.<span class="property">config</span>.<span class="property">js</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="文件内容"><a href="#文件内容" class="headerlink" title="文件内容"></a>文件内容</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">乾坤</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/qiankun//" class="article-tag-list-link color3">qiankun</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">markdown 编辑器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/react/plugin/" target="_blank">react 插件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/react/plugin/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react-loadable"><a href="#react-loadable" class="headerlink" title="react-loadable"></a>react-loadable</h3><p>React 项目打包时，如果不进行异步组件的处理，那么所有页面所需要的 js 都在同一文件中（bundle.js），整个js文件很大，从而导致首屏加载时间过长。</p>
-<hr>
-<p>所有，可以对组件进行异步加载处理，通常可以使用 <code>React-loadable</code>。</p>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/react/plugin/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/plugin/">展开全文 >></a>
     </p>
     
 
@@ -1081,7 +790,7 @@
 
 
   
-    <article id="post-programming/react/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/vue/vitevue3项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1089,7 +798,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/" target="_blank">react 拓展</a>
+	  <a class="article-title" href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" target="_blank">vite + vue3 + tailwindcss</a>
   
     </h1>
   
@@ -1097,7 +806,7 @@
 
   
   
-<a href="/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+<a href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1110,11 +819,51 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="react移动端框架"><a href="#react移动端框架" class="headerlink" title="react移动端框架"></a>react移动端框架</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">React</span> 移动端框架</span><br><span class="line"></span><br><span class="line"><span class="number">1.</span> <span class="title class_">Material</span>-<span class="variable constant_">UI</span></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> <span class="title class_">Semantic</span>-<span class="variable constant_">UI</span>-<span class="title class_">React</span></span><br><span class="line"></span><br><span class="line"><span class="number">3.</span> <span class="title class_">Ant</span> <span class="title class_">Design</span> <span class="title class_">Mobile</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span> <span class="title class_">Onsen</span> <span class="variable constant_">UI</span></span><br><span class="line"></span><br><span class="line"><span class="number">5.</span> react <span class="title class_">Native</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">React</span> 小程序</span><br><span class="line"><span class="number">1</span>、<span class="title class_">Taro</span> </span><br></pre></td></tr></table></figure>
+    <p>中前台项目 开发</p>
+<p>项目架构</p>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20221208154045915.png" alt="image-20221208154045915"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="开发使用到的技术及开发插件"><a href="#开发使用到的技术及开发插件" class="headerlink" title="开发使用到的技术及开发插件"></a>开发使用到的技术及开发插件</h2><h3 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h3><blockquote>
+<p>以速度运行制胜 webpack. 兼容 rollup 几乎所有插件，生态已经支持企业项目开发</p>
+</blockquote>
+<p>创建项目：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init vite@latest</span><br></pre></td></tr></table></figure>
 
-<p>小程序</p>
-<p><a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/community/develop/article/doc/000eaadb944de06374485c3ed51813">https://developers.weixin.qq.com/community/develop/article/doc/000eaadb944de06374485c3ed51813</a></p>
+<p>没有安装vite@latest会提示勾选安装</p>
+<h3 id="vue3"><a href="#vue3" class="headerlink" title="vue3"></a>vue3</h3><blockquote>
+<p>vue 最新版，搭配 vite 使用更佳</p>
+</blockquote>
+<h3 id="tailwindcss"><a href="#tailwindcss" class="headerlink" title="tailwindcss"></a>tailwindcss</h3><blockquote>
+<p>前端 css 四种模式</p>
+<ol>
+<li>行内样式，自由度极高但复用性极差</li>
+<li>通用组件库，风格固定，自定义性差</li>
+<li>原子样式， tailwindcss 众多类名，每个类名都对应一个 css 样式，类似于boostrap</li>
+<li>经典模式， class 类名方式，但是媒体查询需要重写</li>
+</ol>
+</blockquote>
+<p>安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add tailwindcss postcss@8.4.8 autoprefixer@10.4.2 -D</span><br></pre></td></tr></table></figure>
 
+<p>报错缺少依赖 sass</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add sass -D</span><br></pre></td></tr></table></figure>
+
+<p>生成配置文件 tailwind.config.js</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx tailwindcss init -p</span><br></pre></td></tr></table></figure>
+
+<p>配置文件 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// purge: [], purge在3.0 更改为 content</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="attr">purge</span>: [<span class="string">&#x27;./index.html&#x27;</span>, <span class="string">&#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;</span>],</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 最新</span></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="comment">// purge: [], purge在3.0 更改为 content tailwind 应用范围</span></span><br><span class="line">  <span class="attr">content</span>: [</span><br><span class="line">    <span class="string">&#x27;./index.html&#x27;</span>, </span><br><span class="line">    <span class="string">&#x27;./src/**/*.&#123;vue,js,ts,jsx,tsx&#125;&#x27;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="attr">theme</span>: &#123;</span><br><span class="line">    <span class="attr">extend</span>: &#123;</span><br><span class="line">      <span class="attr">height</span>: &#123;</span><br><span class="line">        <span class="attr">header</span>: <span class="string">&#x27;72px&#x27;</span>,</span><br><span class="line">        <span class="attr">main</span>: <span class="string">&#x27;calc(100vh - 72px)&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">fontSize</span>: &#123;</span><br><span class="line">        <span class="attr">xs</span>: [<span class="string">&#x27;0.25rem&#x27;</span>, <span class="string">&#x27;0.35rem&#x27;</span>],</span><br><span class="line">        <span class="attr">sm</span>: [<span class="string">&#x27;0.35rem&#x27;</span>, <span class="string">&#x27;0.45rem&#x27;</span>],</span><br><span class="line">        <span class="attr">base</span>: [<span class="string">&#x27;0.42rem&#x27;</span>, <span class="string">&#x27;0.52rem&#x27;</span>],</span><br><span class="line">        <span class="attr">lg</span>: [<span class="string">&#x27;0.55rem&#x27;</span>, <span class="string">&#x27;0.65rem&#x27;</span>],</span><br><span class="line">        <span class="attr">xl</span>: [<span class="string">&#x27;0.65rem&#x27;</span>, <span class="string">&#x27;0.75rem&#x27;</span>]</span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">boxShadow</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;l-white&#x27;</span>: <span class="string">&#x27;-10px 0 10px white&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;l-zinc&#x27;</span>: <span class="string">&#x27;-10px 0 10px #18181b&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">colors</span>: &#123;</span><br><span class="line">        <span class="attr">main</span>: <span class="string">&#x27;#f44c58&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;hover-main&#x27;</span>: <span class="string">&#x27;#f32836&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-100&#x27;</span>: <span class="string">&#x27;#F2F9EC&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-200&#x27;</span>: <span class="string">&#x27;#E4F2DB&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;success-300&#x27;</span>: <span class="string">&#x27;#7EC050&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-100&#x27;</span>: <span class="string">&#x27;#FCF6ED&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-200&#x27;</span>: <span class="string">&#x27;#F8ECDA&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;warn-300&#x27;</span>: <span class="string">&#x27;#DCA550&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-100&#x27;</span>: <span class="string">&#x27;#ED7456&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-200&#x27;</span>: <span class="string">&#x27;#f3471c&#x27;</span>,</span><br><span class="line">        <span class="string">&#x27;error-300&#x27;</span>: <span class="string">&#x27;#ffffff&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">backdropBlur</span>: &#123;</span><br><span class="line">        <span class="string">&#x27;4xl&#x27;</span>: <span class="string">&#x27;240px&#x27;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">variants</span>: &#123;</span><br><span class="line">        <span class="attr">scrollbar</span>: [<span class="string">&#x27;dark&#x27;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">plugins</span>: [],</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>在src下新建styles文件夹， 增加 index.scss</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ./your-css-folder/styles.css */</span></span><br><span class="line"><span class="keyword">@tailwind</span> base;</span><br><span class="line"><span class="keyword">@tailwind</span> components;</span><br><span class="line"><span class="keyword">@tailwind</span> utilities;</span><br></pre></td></tr></table></figure>
+
+<p>然后在mian.js中引用这个index.scss.tailwind CSS就引入成功了,</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;@/styles/index.scss&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>tailwind CSS 依赖scss,可能需要手动安装</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add sass@<span class="number">1.54</span><span class="number">.4</span> -D</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/#more">more >></a>
+    
     
 
     
@@ -1130,7 +879,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vite</a>
         		</li>
       		
 		</ul>
@@ -1142,7 +891,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -1151,7 +900,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
     </p>
     
 
@@ -1181,7 +930,7 @@
 
 
   
-    <article id="post-programming/react/基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/vue/v-model变化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1189,7 +938,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/" target="_blank">react 基础知识</a>
+	  <a class="article-title" href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" target="_blank">插件</a>
   
     </h1>
   
@@ -1197,7 +946,7 @@
 
   
   
-<a href="/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+<a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1210,9 +959,228 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h1 id="react项目创建"><a href="#react项目创建" class="headerlink" title="react项目创建"></a>react项目创建</h1><h2 id="1、创建项目"><a href="#1、创建项目" class="headerlink" title="1、创建项目"></a>1、创建项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app my-app</span><br><span class="line">cd my-app</span><br><span class="line">npm start</span><br></pre></td></tr></table></figure>
+    <h2 id="一、Vue2-中-v-model-的使用"><a href="#一、Vue2-中-v-model-的使用" class="headerlink" title="一、Vue2 中 v-model 的使用"></a>一、Vue2 中 v-model 的使用</h2><p>v-model 是<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E8%AF%AD%E6%B3%95%E7%B3%96&spm=1001.2101.3001.7020">语法糖</a>，本质还是父子组件间的通信。父子组件通信时有两种方式：</p>
+<ol>
+<li>父给子传值：通过 props</li>
+<li>子给父传值：通过 Events up，使用 $emit 触发事件。</li>
+</ol>
     
-    <a class="article-more-a" href="/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue/v-model//" class="article-tag-list-link color3">v-model</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/vite优化项" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/vue/vite%E4%BC%98%E5%8C%96%E9%A1%B9/" target="_blank">vite 打包优化项</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/vue/vite%E4%BC%98%E5%8C%96%E9%A1%B9/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="配置别名"><a href="#配置别名" class="headerlink" title="配置别名"></a>配置别名</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">resolve<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">   <span class="comment">// https://cn.vitejs.dev/config/#resolve-alias</span></span><br><span class="line">   alias<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">     <span class="comment">// 设置路径</span></span><br><span class="line">     &#x27;~&#x27;<span class="punctuation">:</span> path.resolve(__dirname<span class="punctuation">,</span> &#x27;./&#x27;)<span class="punctuation">,</span></span><br><span class="line">     <span class="comment">// 设置别名</span></span><br><span class="line">     &#x27;@&#x27;<span class="punctuation">:</span> path.resolve(__dirname<span class="punctuation">,</span> &#x27;./src&#x27;)</span><br><span class="line">   <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">   <span class="comment">// https://cn.vitejs.dev/config/#resolve-extensions</span></span><br><span class="line">   extensions<span class="punctuation">:</span> <span class="punctuation">[</span>&#x27;.mjs&#x27;<span class="punctuation">,</span> &#x27;.js&#x27;<span class="punctuation">,</span> &#x27;.ts&#x27;<span class="punctuation">,</span> &#x27;.jsx&#x27;<span class="punctuation">,</span> &#x27;.tsx&#x27;<span class="punctuation">,</span> &#x27;.json&#x27;<span class="punctuation">,</span> &#x27;.vue&#x27;<span class="punctuation">]</span></span><br><span class="line"> <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="代码分割"><a href="#代码分割" class="headerlink" title="代码分割"></a>代码分割</h3>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/vue/vite%E4%BC%98%E5%8C%96%E9%A1%B9/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">vite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vite//" class="article-tag-list-link color5">vite</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/vue/vite%E4%BC%98%E5%8C%96%E9%A1%B9/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/基础语法2.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" target="_blank">vue 2.0 基础知识</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p><img src="http://cn.vuejs.org/images/mvvm.png?_=5619070" alt="这里写图片描述"></p>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p>v-once：执行一次性地插值，当数据改变时，插值处的内容不会更新</p>
+<p>v-html：双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html</p>
+<p>v-text:更新元素的 <code>textContent</code>。如果要更新部分的 <code>textContent</code>，需要使用 <code>&#123;&#123; Mustache &#125;&#125;</code> 插值</p>
+<p>v-pre:跳过这个元素和它的子元素的编译过程。可以用来显示原始 Mustache 标签。跳过大量没有指令的节点会加快编译</p>
+<p>v-cloak:这个指令保持在元素上直到关联实例结束编译。和 CSS 规则如 <code>[v-cloak] &#123; display: none &#125;</code> 一起用时，这个指令可以隐藏未编译的 Mustache 标签直到实例准备完毕</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[v-cloak]</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>​    计算属性是一个属性不需要函数调用方式进行使用，简写的默认为get方法，一般计算属性没有set方法，只读属性。</p>
+<p>计算属性会进行缓存，多次使用计算属性之后调用一次</p>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/#more">more >></a>
     
     
 
@@ -1241,7 +1209,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
         		</li>
       		
 		</ul>
@@ -1250,7 +1218,106 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/%E5%9F%BA%E7%A1%80/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/vue/基础语法3.0" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" target="_blank">vue 3.0 基础知识</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="js组合式api"><a href="#js组合式api" class="headerlink" title="js组合式api"></a>js组合式api</h3>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/">展开全文 >></a>
     </p>
     
 
@@ -1413,11 +1480,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1429,11 +1496,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1445,11 +1512,47 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1457,7 +1560,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1469,19 +1580,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1497,47 +1608,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1545,19 +1616,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1569,7 +1632,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1577,15 +1640,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1601,15 +1660,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1621,15 +1680,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1637,23 +1692,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1669,7 +1720,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1681,11 +1736,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
