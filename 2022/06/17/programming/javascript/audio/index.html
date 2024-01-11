@@ -18,7 +18,7 @@
 <meta property="og:description" content="HTML的和标签可以让我们在网页中轻松包含音频和视频。这两个元素有着重要的API和并不简单的用户界面。可以通过play()和pause()方法控制媒体播放。可以设置volume和playbackRate属性控制音量和播放速度。而设置currentTime属性可以跳到媒体中特定的时间点。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-25T08:20:32.280Z">
+<meta property="article:modified_time" content="2023-12-01T04:02:34.568Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">661字</span>
+      <span class="post-count">1k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">4分</span>
     </span>
   </span>
 </div>
@@ -312,6 +312,16 @@
 <span id="more"></span>
 
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Audio</span> 构造函数 创建 audio 元素</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> soundeffect = <span class="keyword">new</span> <span class="title class_">Audio</span>(<span class="string">&#x27;soundeffect.mp3&#x27;</span>);</span><br><span class="line"><span class="comment">// 用户点击时播放</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function">()=&gt;</span>&#123;</span><br><span class="line">    soundeffect.<span class="title function_">cloneNode</span>().<span class="title function_">play</span>();</span><br><span class="line">&#125;)</span><br><span class="line">	注意这里使用了<span class="title function_">cloneNode</span>()。如果用户快速单击鼠标，我们希望同时播放多个重叠的音效。为此，就需要有多个<span class="title class_">Audio</span>元素。因为这些<span class="title class_">Audio</span>元素并未添加到文档中，所以它们播放结束后就会被当作垃圾清理掉。</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="number">2</span>、除了使用<span class="title class_">Audio</span>元素播放录制的声音，浏览器也可以通过<span class="title class_">WebAudio</span> <span class="variable constant_">API</span>生成和播放合成音效。使用<span class="title class_">WebAudio</span> <span class="variable constant_">API</span>就像是使用带接续柱的老式电子合成器。对于<span class="title class_">WebAudio</span>，要创建一组<span class="title class_">AudioNode</span>对象，表示波形的来源、变换和目标，然后再将这些节点连接为一个网络以产生声音。这个<span class="variable constant_">API</span>并不很复杂，但要全面解释还需要理解电子音乐和信号处理的概念，这些都超出了本书的范畴。</span><br><span class="line"></span><br><span class="line"><span class="attr">eg</span>: 一秒钟的短和弦</span><br><span class="line"><span class="comment">// 首先创建一个 audioContext 对象， Safari 热然要求使用</span></span><br><span class="line"><span class="comment">// webkitAudioContext 而不是 AudioContext</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> audioContext = <span class="keyword">new</span> (<span class="variable language_">this</span>.<span class="property">AudioContext</span> || <span class="variable language_">this</span>.<span class="property">webkitAudioContext</span>)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义基准声音要为三个正弦波的组合</span></span><br><span class="line"><span class="keyword">let</span> notes = [<span class="number">293.7</span>, <span class="number">370.0</span>, <span class="number">440.0</span>]; <span class="comment">// D三大和弦：D、F# 和 A</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 为每个想要播放的音符创建振荡器节点</span></span><br><span class="line"><span class="keyword">let</span> oscillators = notes.<span class="title function_">map</span>(<span class="function"><span class="params">note</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> o = audioContext.<span class="title function_">createOscillator</span>();</span><br><span class="line">    o.<span class="property">frequency</span>.<span class="property">value</span> = note;</span><br><span class="line">    <span class="keyword">return</span> o ;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过随时间控制音量来构造声音</span></span><br><span class="line"><span class="comment">// 从时间0开始快速升为最大音量</span></span><br><span class="line"><span class="comment">// 然后从时间0.1开始缓慢降为0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> volumeControl = audioContext.<span class="title function_">createGain</span>();</span><br><span class="line">volumeControl.<span class="property">gain</span>.<span class="title function_">setTargetAtTime</span>(<span class="number">1</span>, <span class="number">0.0</span>, <span class="number">0.02</span>);</span><br><span class="line">volumeControl.<span class="property">gain</span>.<span class="title function_">setTargetAtTime</span>(<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 我们想把这个声音发送给默认目标</span></span><br><span class="line"><span class="comment">// 用户的扬声器</span></span><br><span class="line"><span class="keyword">let</span> speakers = audioContext.<span class="property">destination</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把每个源音字符都连接到音量控制</span></span><br><span class="line">oscillators.<span class="title function_">forEach</span>(<span class="function"><span class="params">o</span> =&gt;</span> o.<span class="title function_">connect</span>(volumeControl));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 再把音量控制的输出连接到扬声器</span></span><br><span class="line">volumeControl.<span class="title function_">connect</span>(speakers);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 现在开始播放声音，让他们持续1.25s</span></span><br><span class="line"><span class="keyword">let</span> startTime = audioContext.<span class="property">currentTime</span>;</span><br><span class="line"><span class="keyword">let</span> stopTime = startTime + <span class="number">1.25</span>;</span><br><span class="line">oscillators.<span class="title function_">forEach</span>(<span class="function"><span class="params">o</span> =&gt;</span> &#123;</span><br><span class="line">    o.<span class="title function_">start</span>(startTime);</span><br><span class="line">    o.<span class="title function_">stop</span>(stopTime)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 如果想创建一系列声音，可以使用事件处理程序</span></span><br><span class="line">oscillators[<span class="number">0</span>].<span class="title function_">addEventListener</span>(<span class="string">&#x27;ended&#x27;</span>, <span class="function">()=&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 在音符停止播放时会调用这个事件处理程序</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="实现语音输入"><a href="#实现语音输入" class="headerlink" title="实现语音输入"></a>实现语音输入</h3><p>要将 Blob 对象转换为音频文件，您可以使用 Web API 中的 URL.createObjectURL() 方法来创建 Blob URL，然后将其赋值给音频元素的 src 属性，最后将音频文件下载到本地。</p>
+<p>获取音频可以使用 <a target="_blank" rel="noopener" href="https://unpkg.com/browse/mic-recorder-to-mp3@2.2.2/">mic-recorder-to-mp3</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取 Blob 对象</span></span><br><span class="line"><span class="keyword">const</span> blob = <span class="keyword">new</span> <span class="title class_">Blob</span>([data], &#123; <span class="attr">type</span>: <span class="string">&#x27;audio/wav&#x27;</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建 Blob URL</span></span><br><span class="line"><span class="keyword">const</span> url = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(blob);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建音频元素</span></span><br><span class="line"><span class="keyword">const</span> audio = <span class="keyword">new</span> <span class="title class_">Audio</span>(url);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 播放音频</span></span><br><span class="line">audio.<span class="title function_">play</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下载音频文件到本地</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">a.<span class="property">href</span> = url;</span><br><span class="line">a.<span class="property">download</span> = <span class="string">&#x27;audio.wav&#x27;</span>;</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(a);</span><br><span class="line">a.<span class="title function_">click</span>();</span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 释放 Blob URL</span></span><br><span class="line"><span class="variable constant_">URL</span>.<span class="title function_">revokeObjectURL</span>(url);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>请注意，在使用完 Blob URL 后，应该调用 URL.revokeObjectURL() 方法来释放资源，避免内存泄漏。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://codepen.io/wyf195075595/pen/xxMyXKQ?editors=1111">代码</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">navigator.mediaDevices.getUserMedia(&#123; audio: true &#125;).then(</span><br><span class="line">  () =&gt; &#123;</span><br><span class="line">    console.log(&quot;准备好了&quot;);</span><br><span class="line">  &#125;,</span><br><span class="line">  () =&gt; &#123;</span><br><span class="line">    console.log(&quot;准备失败&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">);</span><br><span class="line">class App extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    let recordStart = null;</span><br><span class="line">    const Mp3Recorder = new MicRecorder(&#123;</span><br><span class="line">      bitRate: 128</span><br><span class="line">    &#125;);</span><br><span class="line">    const start = () =&gt; &#123;</span><br><span class="line">      Mp3Recorder.start().then(() =&gt; &#123;</span><br><span class="line">        recordStart = Date.now();</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    const end = () =&gt; &#123;</span><br><span class="line">      Mp3Recorder.stop()</span><br><span class="line">        .getMp3()</span><br><span class="line">        .then(([buffer, blob]) =&gt; &#123;</span><br><span class="line">          let voice = document.getElementById(&quot;voice&quot;);</span><br><span class="line">          // 获取 Blob 对象</span><br><span class="line">          const blob1 = new Blob([blob], &#123; type: &quot;audio/wav&quot; &#125;);</span><br><span class="line">          // 创建 Blob URL</span><br><span class="line">          const url = URL.createObjectURL(blob1);</span><br><span class="line">          voice.src = url;</span><br><span class="line">          </span><br><span class="line">        &#125;)</span><br><span class="line">        .then(() =&gt; &#123;</span><br><span class="line">          console.log(&quot;失败&quot;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;h1&gt;hello world&lt;/h1&gt;</span><br><span class="line">        &lt;audio id=&quot;voice&quot; controls src=&quot;&quot; /&gt;</span><br><span class="line">        &lt;button onMouseDown=&#123;start&#125; onMouseUp=&#123;end&#125;&gt;</span><br><span class="line">          按住</span><br><span class="line">        &lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ReactDOM.render(&lt;App /&gt;, document.getElementById(&quot;app&quot;));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     
@@ -431,18 +441,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/Promise/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/htmlcss/%E6%8B%93%E5%B1%95/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          如何理解Promise
+          HTMLCSS拓展
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/date/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Date日期对象</div>
+    <a href="/2022/06/17/programming/javascript/Promise/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如何理解Promise</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -469,7 +479,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%AF%AD%E9%9F%B3%E8%BE%93%E5%85%A5"><span class="toc-number">1.</span> <span class="toc-text">实现语音输入</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -508,7 +518,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2024 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -631,15 +641,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -647,7 +661,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -655,7 +669,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,11 +685,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -687,15 +705,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -703,11 +713,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,7 +733,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -735,14 +757,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -759,11 +773,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,14 +794,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -799,6 +813,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
@@ -807,19 +829,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -831,39 +841,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -871,7 +849,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,14 +901,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
@@ -899,7 +909,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">

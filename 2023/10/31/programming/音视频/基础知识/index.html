@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231107163943349.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231107170847041.png">
 <meta property="article:published_time" content="2023-10-31T01:23:10.000Z">
-<meta property="article:modified_time" content="2023-11-07T09:11:03.141Z">
+<meta property="article:modified_time" content="2023-12-05T01:32:13.781Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="音视频">
 <meta name="twitter:card" content="summary">
@@ -563,7 +563,7 @@
 <li>下载 <a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">nginx 源码</a></li>
 <li>下载<a target="_blank" rel="noopener" href="https://github.com/arut/nginx-rtmp-module.git">nginx-rtmp-module</a></li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/arut/nginx-rtmp-module/archive/v1.2.1.zip</span><br><span class="line">unzip v1.2.1.zip</span><br><span class="line"></span><br><span class="line">wget http://nginx.org/download/nginx-1.19.3.tar.gz</span><br><span class="line">tar -zxvf nginx-1.19.3.tar.gz</span><br><span class="line">cd nginx-1.19.3/</span><br><span class="line"></span><br><span class="line">// 指定安装目录 -prefix=/usr/local/nginx，--add-module添加rtsp模块</span><br><span class="line">./configure --add-module=../nginx-rtmp-module-1.2.1/</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/arut/nginx-rtmp-module/archive/v1.2.1.zip</span><br><span class="line">unzip v1.2.1.zip</span><br><span class="line"></span><br><span class="line">wget http://nginx.org/download/nginx-1.19.3.tar.gz</span><br><span class="line">tar -zxvf nginx-1.19.3.tar.gz</span><br><span class="line">cd nginx-1.19.3/</span><br><span class="line"></span><br><span class="line">// 指定安装目录 -prefix=/usr/local/nginx，--add-module添加rtmp模块</span><br><span class="line">./configure --add-module=../nginx-rtmp-module-1.2.1/</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
 
 <h4 id="安装踩坑总结"><a href="#安装踩坑总结" class="headerlink" title="安装踩坑总结"></a>安装踩坑总结</h4><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/always-chen/articles/11320975.html">./configure 报错</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">./configure: error: C compiler cc is not found</span><br><span class="line"> </span><br><span class="line">解决办法 apt install g++</span><br><span class="line"> </span><br><span class="line">./configure: error: the HTTP rewrite module requires the PCRE library.</span><br><span class="line"> </span><br><span class="line">解决办法 apt install libpcre3 libpcre3-dev</span><br><span class="line"> </span><br><span class="line">./configure: error: SSL modules require the OpenSSL library.</span><br><span class="line"> </span><br><span class="line">解决办法 apt install openssl libssl-dev</span><br><span class="line"> </span><br><span class="line">./configure: error: the HTTP gzip module requires the zlib library.</span><br><span class="line"> </span><br><span class="line">解决办法 下载zlib-1.2.8.tar.gz 解压，./configure  &amp;&amp; make &amp;&amp; make install安装</span><br><span class="line"> </span><br><span class="line">./configure: error: the HTTP XSLT module requires the libxml2/libxslt</span><br><span class="line"> </span><br><span class="line">解决办法 apt-get install libxml2 libxml2-dev libxslt-dev</span><br></pre></td></tr></table></figure>
@@ -796,7 +796,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022-2023 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2024 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -919,15 +919,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,7 +939,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -943,7 +947,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -959,11 +963,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,15 +983,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -991,11 +991,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,7 +1011,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1023,14 +1035,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
@@ -1047,11 +1051,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1060,14 +1072,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1087,6 +1091,14 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
@@ -1095,19 +1107,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1119,39 +1119,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1159,7 +1127,47 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1171,14 +1179,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
@@ -1187,7 +1187,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
