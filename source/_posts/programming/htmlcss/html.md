@@ -274,38 +274,38 @@ initial 属性值
 ```html
 <style>
 	search-box:not(:defined) {
-            display: flex;
-            width: 200px;
-            height: 40px;
-            background: white;
-            align-items: center;
-            border-radius: 5px;
-            border: 1px solid #333;
-            box-sizing: border-box;
-            cursor: pointer;
-            user-select: none;
-        }
-        search-box input{
-            border: none;
-            outline: none;
-            width: 70%;
-        }
-        search-box span:last-child {
-            font-size: 2em;
-        }
-        search-box .icon {
-            width: 15%;
-            text-align: center;
-        }
-        inline-cicle {
-            display: inline-block;
-            width: 1em;
-            height: 1rem;
-            border-radius: 50%;
-            background: white;
-            border: 1px solid black;
-            vertical-align: bottom;
-        }
+        display: flex;
+        width: 200px;
+        height: 40px;
+        background: white;
+        align-items: center;
+        border-radius: 5px;
+        border: 1px solid #333;
+        box-sizing: border-box;
+        cursor: pointer;
+        user-select: none;
+    }
+    search-box input{
+        border: none;
+        outline: none;
+        width: 70%;
+    }
+    search-box span:last-child {
+        font-size: 2em;
+    }
+    search-box .icon {
+        width: 15%;
+        text-align: center;
+    }
+    inline-cicle {
+        display: inline-block;
+        width: 1em;
+        height: 1rem;
+        border-radius: 50%;
+        background: white;
+        border: 1px solid black;
+        vertical-align: bottom;
+    }
 </style>
 
 <search-box>
@@ -333,142 +333,142 @@ initial 属性值
 
     
 class SearchBox extends HTMLElement {
-            constructor() {
-                super();// 调用超类的构造器
-                // 创建一个影子 DOM 树并将其附加到这个元素
-                // 设置为 this.shadowRoot 的值
-                this.attachShadow({mode:'open'});
-                
-                // 克隆模板，定义自定义组件的后代及样式
-                // 然后吧内容追加到影子根节点
-                this.shadowRoot.append(SearchBox.template.content.cloneNode(true));
-                
-                // 取得对影子DOM中重要元素的引用
-                this.input = this.shadowRoot.querySelector('input');
-                let leftSlot = this.shadowRoot.querySelector('slot[name="left"]');
-                let rightSlot = this.shadowRoot.querySelector('slot[name="right"]');
-                
-                // 当内部输入字段获得失去焦点时，设置或移除
-                // focused 属性，以便样式表在整个组件显示或隐藏人造的焦点环。注意，blur，focus
-                // 现在变量X的值就是0。事件会冒泡，就像起源自<search-box>一样
-                console.log('onfocus：',leftSlot);
+        constructor() {
+            super();// 调用超类的构造器
+            // 创建一个影子 DOM 树并将其附加到这个元素
+            // 设置为 this.shadowRoot 的值
+            this.attachShadow({mode:'open'});
 
-                this.input.onfocus = ()=> {
-                    this.setAttribute('focused', '')
-                };
-                this.input.onblur = ()=>{
-                    this.removeAttribute('focused')
-                };
-                
-                // 如果点击了放大镜，则触发search， 输入时 change 事件也触发这个事件
-                // change事件不会影响到影子DOM外边
-                leftSlot.onclick = this.input.onchange = (event) =>{
-                    event.stopPropagation();// 阻止单击事件冒泡
-                    if(this.disabled) return ;// 禁用则啥也不做
-                    this.dispatchEvent(new CustomEvent('search', {
-                        detail: this.input.value
-                    }))
-                    
-                }
-                
-                // 单击X，则触发 clear 事件. 处理程序没有调用 preventDefault(), 则清除输入
-                rightSlot.onclick = (event) => {
-                    event.stopPropagation();// 不让事件向上冒泡
-                    if(this.disabled) return;// 如果禁用啥也不做
-                    let e = new CustomEvent('clear', {cancelable: true});
-                    this.dispatchEvent(e);
-                    console.log('这是啥？', e);
-                    if(!e.defaultPrevented) {// 如果事件没有被取消
-                        this.input.value = '';
-                    }
-                }
-            
-            }        
-            // 在有些属性被设置或改变时，我们需要设置内部<input >
-            // 元素对应的值，这个生命周期方法与下面代码的静态属性
-            // observedAttrubutes 相互配合，实现回调
-            attributeChangedCallback(name, oldValue, newValue) {
-                if(name === 'disabled') {
-                    this.input.disabled = (newValue !== null)
-                } else if(name === 'placeholder') {
-                    this.input.placeholder = newValue
-                } else if(name === 'value') {
-                    this.input.value = newValue
+            // 克隆模板，定义自定义组件的后代及样式
+            // 然后吧内容追加到影子根节点
+            this.shadowRoot.append(SearchBox.template.content.cloneNode(true));
+
+            // 取得对影子DOM中重要元素的引用
+            this.input = this.shadowRoot.querySelector('input');
+            let leftSlot = this.shadowRoot.querySelector('slot[name="left"]');
+            let rightSlot = this.shadowRoot.querySelector('slot[name="right"]');
+
+            // 当内部输入字段获得失去焦点时，设置或移除
+            // focused 属性，以便样式表在整个组件显示或隐藏人造的焦点环。注意，blur，focus
+            // 现在变量X的值就是0。事件会冒泡，就像起源自<search-box>一样
+            console.log('onfocus：',leftSlot);
+
+            this.input.onfocus = ()=> {
+                this.setAttribute('focused', '')
+            };
+            this.input.onblur = ()=>{
+                this.removeAttribute('focused')
+            };
+
+            // 如果点击了放大镜，则触发search， 输入时 change 事件也触发这个事件
+            // change事件不会影响到影子DOM外边
+            leftSlot.onclick = this.input.onchange = (event) =>{
+                event.stopPropagation();// 阻止单击事件冒泡
+                if(this.disabled) return ;// 禁用则啥也不做
+                this.dispatchEvent(new CustomEvent('search', {
+                    detail: this.input.value
+                }))
+
+            }
+
+            // 单击X，则触发 clear 事件. 处理程序没有调用 preventDefault(), 则清除输入
+            rightSlot.onclick = (event) => {
+                event.stopPropagation();// 不让事件向上冒泡
+                if(this.disabled) return;// 如果禁用啥也不做
+                let e = new CustomEvent('clear', {cancelable: true});
+                this.dispatchEvent(e);
+                console.log('这是啥？', e);
+                if(!e.defaultPrevented) {// 如果事件没有被取消
+                    this.input.value = '';
                 }
             }
-            
-            // 最后，为我们支持的HTML属性定义相应的获取方法和设置方法
-            // 获取方法简单的返回属性的值。当某个地方设置修改了值时， 自动调用上边的  attributeChangedCallback
-            get placeholder() { return this.getAttribute('placeholder')}
-            get size() { return this.getAttribute('size')}
-            get size() { return this.getAttribute('value')}
-            get disabled() { return this.getAttribute('disabled')}
-            get hidden() { return this.getAttribute('hidden')}
-            
-            set placeholder(val) { return this.setAttribute('placeholder', val)}
-            set size(val) { return this.setAttribute('size', val)}
-            set size(text) { return this.setAttribute('size', text)}
-            set disabled(val) {
-                if(val) {
-                    this.setAttribute('disabled', val)
-                } else {
-                    this.removeAttribute('disabled')
-                }
-            }
-            set hidden(val) { 
-                if(val) {
-                    this.setAttribute('hidden', '')
-                } else {
-                    this.removeAttribute('hidden')
-                }
+
+        }        
+        // 在有些属性被设置或改变时，我们需要设置内部<input >
+        // 元素对应的值，这个生命周期方法与下面代码的静态属性
+        // observedAttrubutes 相互配合，实现回调
+        attributeChangedCallback(name, oldValue, newValue) {
+            if(name === 'disabled') {
+                this.input.disabled = (newValue !== null)
+            } else if(name === 'placeholder') {
+                this.input.placeholder = newValue
+            } else if(name === 'value') {
+                this.input.value = newValue
             }
         }
-            
-        // 这个静态属性对 attributeChangedCallback 方法是必须的，只有在这个数组中列出的属性名才会触发对该方法的调用
-        SearchBox.observedAttributes = ['disabled', 'placeholder', 'size', 'value'];
-        
-        // 创建一个 template 元素，用于保存样式和元素树
-        // 可以在每个 SearchBox 元素的实例中使用它门
-        SearchBox.template = document.createElement('template');
-        
-        // 通过解析HTML字符串模板初始化，通过克隆这个模板中的节点，不需要再次解析HTML
-        
-        SearchBox.template.innerHTML = `
-            <style>
-                /*
-                *这里的:host选择符引用的是阳光DOM中做的<search-box>元素，这些样式是默认的，
-                *<search-box>的使用者可以通过阳光DOM中的样式来覆盖这些样式
-                */
-                :host {
-                    display: inline-block;
-                    border: solid black 1px;
-                    border-radius: 5px;
-                    padding: 4px 6px;
-                }
-                :host([hidden]) {
-                    display: none;
-                }
 
-                :host([focused]) {
-                    box-shadow: 0 0 2px 2px #6AE;
-                }
+        // 最后，为我们支持的HTML属性定义相应的获取方法和设置方法
+        // 获取方法简单的返回属性的值。当某个地方设置修改了值时， 自动调用上边的  attributeChangedCallback
+        get placeholder() { return this.getAttribute('placeholder')}
+        get size() { return this.getAttribute('size')}
+        get size() { return this.getAttribute('value')}
+        get disabled() { return this.getAttribute('disabled')}
+        get hidden() { return this.getAttribute('hidden')}
 
-                input {
-                    border-width: 0;outline: none; font: inherit; background: inherit;
-                }
-                slot {
-                    cursor: default; user-select:none;
-                }
-            </style>
-            <div>
-                <slot name="left" >\u{1f50d}</slot>
-                <input type="text" placeholder="搜索...">
-                <slot name="right" >\u{2573}</slot>
-            </div>
-            
-        `;
-        // 最后，我们调用 customElements.define()将SearchBox元素，注册为<search-box>标签的实现。自定义元素的标签中必须包含一个连字符
-        customElements.define('search-box', SearchBox);
+        set placeholder(val) { return this.setAttribute('placeholder', val)}
+        set size(val) { return this.setAttribute('size', val)}
+        set size(text) { return this.setAttribute('size', text)}
+        set disabled(val) {
+            if(val) {
+                this.setAttribute('disabled', val)
+            } else {
+                this.removeAttribute('disabled')
+            }
+        }
+        set hidden(val) { 
+            if(val) {
+                this.setAttribute('hidden', '')
+            } else {
+                this.removeAttribute('hidden')
+            }
+        }
+    }
+
+    // 这个静态属性对 attributeChangedCallback 方法是必须的，只有在这个数组中列出的属性名才会触发对该方法的调用
+    SearchBox.observedAttributes = ['disabled', 'placeholder', 'size', 'value'];
+
+    // 创建一个 template 元素，用于保存样式和元素树
+    // 可以在每个 SearchBox 元素的实例中使用它门
+    SearchBox.template = document.createElement('template');
+
+    // 通过解析HTML字符串模板初始化，通过克隆这个模板中的节点，不需要再次解析HTML
+
+    SearchBox.template.innerHTML = `
+        <style>
+            /*
+            *这里的:host选择符引用的是阳光DOM中做的<search-box>元素，这些样式是默认的，
+            *<search-box>的使用者可以通过阳光DOM中的样式来覆盖这些样式
+            */
+            :host {
+                display: inline-block;
+                border: solid black 1px;
+                border-radius: 5px;
+                padding: 4px 6px;
+            }
+            :host([hidden]) {
+                display: none;
+            }
+
+            :host([focused]) {
+                box-shadow: 0 0 2px 2px #6AE;
+            }
+
+            input {
+                border-width: 0;outline: none; font: inherit; background: inherit;
+            }
+            slot {
+                cursor: default; user-select:none;
+            }
+        </style>
+        <div>
+            <slot name="left" >\u{1f50d}</slot>
+            <input type="text" placeholder="搜索...">
+            <slot name="right" >\u{2573}</slot>
+        </div>
+
+    `;
+    // 最后，我们调用 customElements.define()将SearchBox元素，注册为<search-box>标签的实现。自定义元素的标签中必须包含一个连字符
+    customElements.define('search-box', SearchBox);
 ```
 
 ## http-equiv（http响应头）

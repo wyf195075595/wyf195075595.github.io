@@ -285,6 +285,10 @@ export default store
 
 > 优秀的vue拖拽组件
 
+### [vue-draggable-plus](https://github.com/Alfred-Skyblue/vue-draggable-plus)
+
+> Vue2 & Vue3 的拖拽组件。
+
 ### vee validate
 
 > 数据类型验证
@@ -799,3 +803,19 @@ pnpm add animate.css
 ### [CodeMirrorr](https://github.com/codemirror/CodeMirror)
 
 > json 编辑器，Json-Editor is base on [CodeMirrorr](https://github.com/codemirror/CodeMirror). Lint base on [json-lint](https://github.com/codemirror/CodeMirror/blob/master/addon/lint/json-lint.js).
+
+### [vue-tree](https://github.com/wsfe/vue-tree?tab=readme-ov-file)
+
+> 一款高性能 vue 虚拟树控件，支持搜索，定位，拖拽等。该控件是在公司业务的基础上不断打磨出来的，提供了十分丰富强大的 API，几乎能够满足你对树控件的所有需求。该控件同时支持 vue2 以及 vue3。
+>
+> element-plus 树未作优化，加载大量数据时会卡死
+
+### [简洁的微信 Markdown 编辑器](https://github.com/doocs/md?utm_source=gold_browser_extension)
+
+> 支持 Markdown 语法、色盘取色、多图上传、一键下载文档、自定义 CSS 样式、一键重置等特性
+
+### [生成element表单](https://jakhuang.github.io/form-generator/#/)
+
+> Element UI表单设计及代码生成器，可将生成的代码直接运行在基于Element的vue项目中；也可导出JSON表单，使用配套的解析器将JSON解析成真实的表单。
+>
+> 这是一个单独的项目，生成表单json后可通过**JSON解析器**解析成新的表单

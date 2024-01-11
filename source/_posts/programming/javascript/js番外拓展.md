@@ -2632,7 +2632,45 @@ npm ci (6.0 版本以上)
 
 - 不像 npm install, npm ci 不会修改你的 package-lock.json 但是它确实期望你的项目中有一个 - package-lock.json 文件 - 如果你没有这个文件， npm ci 将不起作用，此时必须使用 npm install
 
+### [浏览器控制台调试js玩法](https://alan.norbauer.com/articles/browser-debugging-tricks)
 
+1. 查找页面所有粗体元素
+
+	```js
+	const isBold = (e) => {
+	  let w = window.getComputedStyle(e).fontWeight;
+	  return w === "bold" || w === "700";
+	};
+	Array.from(document.querySelectorAll("*")).filter(isBold);
+	```
+
+2. 获取控制台选中的元素引用
+
+	控制台中的 `$0` 是对元素检查器中当前选定元素的自动引用。
+
+3. 您可以检查当前所选元素的事件侦听器
+
+	```js
+	getEventListeners($0)
+	```
+
+4. 调试所选元素的事件
+
+	```
+	调试所选元素的所有事件： monitorEvents($0)
+	调试所选元素的特定事件：monitorEvents($0, ["control", "key"])
+	```
+
+5. 检查页面悬浮无法选中元素
+
+	```js
+	// 5s 后js暂停
+	setTimeout(function() { debugger; }, 5000);
+	// 方式2, 控制台快捷键随时暂停 JS 执行
+	ctrl + \
+	```
+
+	
 
 ### 禁止浏览器debugger 行为
 
@@ -4491,6 +4529,37 @@ function initTree(data, idName, pIdName, rootId) {
     }
 }
 
+```
+
+### 限制非同源iframe嵌入
+
+配置完成后，nginx将在所有响应头中添加`X-Frame-Options: SAMEORIGIN`，这将限制网页的嵌入方式为来自同一源的内嵌网页。
+
+如果设置为 `DENY`，不光在别人的网站 frame 嵌入时会无法加载，在同域名页面中同样会无法加载。另一方面，如果设置为 `SAMEORIGIN`，那么页面就可以在同域名页面的 frame 中嵌套。
+
+```nginx
+server {
+    # 其他配置项...
+    
+    add_header X-Frame-Options SAMEORIGIN;
+    
+    # 其他配置项...
+}
+```
+
+frame-ancestors, 此属性是上述请求头的代替属性，支持此属性的浏览器可能不支持上述属性，当该指令设置为 `'none'` 时，其作用类似于 [`X-Frame-Options`](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/X-Frame-Options)`: DENY`
+
+```
+Content-Security-Policy: frame-ancestors 'none';
+```
+
+语法：source可以是
+
+- `mail.example.com:443`: 匹配所有对于 mail.example.com 在 443 端口的访问意图。
+- `https://store.example.com`: 匹配所有使用 https:访问 store.example.com 的意图。
+
+```
+Content-Security-Policy: frame-ancestors <source> <source>;
 ```
 
 

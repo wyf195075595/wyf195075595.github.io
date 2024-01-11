@@ -24,3 +24,11 @@ categories: js
    > - decodeURIComponent()定义和用法：decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。
    >
    > - decodeURI()定义和用法：decodeURI() 函数可对 encodeURI() 函数编码过的URI 进行解码。
+
+3、btoa(),atob()
+
+> `btoa()` 方法可以将一个*二进制字符串*（例如，将字符串中的每一个字节都视为一个二进制数据字节）编码为 [Base64](https://developer.mozilla.org/zh-CN/docs/Glossary/Base64) 编码的 ASCII 字符串。。atob()方法进行解码
+
+4、unescape(),escape()
+
+> 对字符串进行编解码。

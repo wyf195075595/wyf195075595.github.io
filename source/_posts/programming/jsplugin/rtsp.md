@@ -39,6 +39,8 @@ categories: js
 > [zlmediakit](https://github.com/ZLMediaKit/ZLMediaKit) 是一个基于C++11的高性能运营级流媒体服务框架，可以推送各种视频，音频流。
 >
 > ffmpeg 推流视频，zlmediakit 流媒体服务器经行转发，转发后的地址有多种视频格式
+>
+> [官网文档](https://docs.zlmediakit.com/zh/)
 
 - zlmediakit linux 环境搭建：
 	[这篇文章](https://zhuanlan.zhihu.com/p/366774975)写得已经非常详细了，就不再拾人牙慧了
@@ -73,7 +75,7 @@ ffmpeg 推流操作
 
 ```shell
 // rtsp推流(文件推流)
-ffmpeg -re -i test.mp4 -rtsp transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test
+ffmpeg -re -i test.mp4 -rtsp_transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test
 // rtsp推流(文件循环推流)
 ffmpeg -re -stream_loop -1 -i test.mp4 -rtsp_transport tcp -c copy -f rtsp rtsp://127.0.0.1:554/live/test
 // rtmp推流(文件推流)
@@ -84,10 +86,13 @@ ffmpeg -re -stream_loop -1 -i test.mp4 -vcodec h264 -acodec aac -f flv rtmp://12
 // 推流笔记本摄像头
 ffmpeg -i /dev/video0 -vcodec libx264 -acodec copy -preset:v ultrafast -tune:v zerolatency -f flv rtmp://192.168.94.128:1935/live/test
 
+//推流h265
+ffmpeg -re -i test.mp4 -rtsp_transport tcp -c copy -c:v libx265  -f rtsp rtsp://127.0.0.1/live/test
+
 
 ```
 
-ZIMediaKit 转发地址
+ZIMediaKit 转发地址[播放规则](https://github.com/zlmediakit/ZLMediaKit/wiki/%E6%92%AD%E6%94%BEurl%E8%A7%84%E5%88%99)
 
 ```js
 # ZIMediaKit支持多种流媒体协议的转换，协议转换后的播放地址
@@ -105,6 +110,8 @@ http://127.0.0.1:80/live/test.live.flv
 
 // http-ts播放
 http://127.0.0.1:80/live/test.live.ts
+//websocket 直播
+ws://127.0.0.1：80/live/test.live.flv
 ```
 
 

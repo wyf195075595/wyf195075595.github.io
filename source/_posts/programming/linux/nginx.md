@@ -40,6 +40,8 @@ categories: linux
 
 ## 4、nginx配置文件
 
+> [参考文档](https://tengine.taobao.org/nginx_docs/cn/docs/)
+
 ```js
 #全局配置  用于进行nginx全局信息的配置
 
@@ -1140,6 +1142,8 @@ http {
 
 ### 本地配置 https
 
+> Certbot 生成证书需要公网ip服务器+域名
+
 1. 本地环境生成 ssl 证书使用工具 mkcert. 生成（本地环境 Ubuntu 18.04）
 
 	安装使用 mkcert 参考 Ubuntu 标签文章
@@ -1232,4 +1236,47 @@ http {
 	```
 
 	
+
+### 负载均衡配置
+
+> 多台服务器部署后台服务，通过负载均衡分担压力。失败的服务不会影响转发到好的服务
+
+```nginx
+upstream xuanchen_server {
+    least_conn;
+    server 192.168.1.244:8080 max_fails=3 fail_timeout=5s;
+    server 192.168.1.244:8081 max_fails=3 fail_timeout=5s;
+    server 192.168.1.244:8082 max_fails=3 fail_timeout=5s;
+
+}
+upstream xuanchen_socket {
+    least_conn;
+    server 192.168.1.244:9201 max_fails=3 fail_timeout=5s;
+    server 192.168.1.244:9202 max_fails=3 fail_timeout=5s;
+}
+
+server {
+    listen       18009;      
+    server_name  192.168.1.244;
+    location / {
+        root   /home/zkrd/workspace/xuanchen/;
+        index  index.html index.htm;
+    }
+    location /proxy/ {
+      proxy_pass  http://xuanchen_server/;
+      proxy_set_header Host $host;
+    }
+    location /socket/ {
+       proxy_pass  http://xuanchen_socket/;
+       proxy_http_version 1.1;
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection "upgrade";
+       proxy_set_header X-real-ip $remote_addr;
+       proxy_set_header X-Forwarded-For $remote_addr;
+       proxy_set_header Host $host;
+       proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+}
+```
 

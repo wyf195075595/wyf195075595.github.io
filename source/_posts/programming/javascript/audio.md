@@ -71,3 +71,90 @@ oscillators[0].addEventListener('ended', ()=> {
 })
 ```
 
+### 实现语音输入
+
+要将 Blob 对象转换为音频文件，您可以使用 Web API 中的 URL.createObjectURL() 方法来创建 Blob URL，然后将其赋值给音频元素的 src 属性，最后将音频文件下载到本地。
+
+获取音频可以使用 [mic-recorder-to-mp3](https://unpkg.com/browse/mic-recorder-to-mp3@2.2.2/)
+
+```js
+// 获取 Blob 对象
+const blob = new Blob([data], { type: 'audio/wav' });
+
+// 创建 Blob URL
+const url = URL.createObjectURL(blob);
+
+// 创建音频元素
+const audio = new Audio(url);
+
+// 播放音频
+audio.play();
+
+// 下载音频文件到本地
+const a = document.createElement('a');
+a.href = url;
+a.download = 'audio.wav';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+
+// 释放 Blob URL
+URL.revokeObjectURL(url);
+```
+
+> 请注意，在使用完 Blob URL 后，应该调用 URL.revokeObjectURL() 方法来释放资源，避免内存泄漏。
+
+[代码](https://codepen.io/wyf195075595/pen/xxMyXKQ?editors=1111)
+
+```react
+navigator.mediaDevices.getUserMedia({ audio: true }).then(
+  () => {
+    console.log("准备好了");
+  },
+  () => {
+    console.log("准备失败");
+  }
+);
+class App extends React.Component {
+  render() {
+    let recordStart = null;
+    const Mp3Recorder = new MicRecorder({
+      bitRate: 128
+    });
+    const start = () => {
+      Mp3Recorder.start().then(() => {
+        recordStart = Date.now();
+      });
+    };
+    const end = () => {
+      Mp3Recorder.stop()
+        .getMp3()
+        .then(([buffer, blob]) => {
+          let voice = document.getElementById("voice");
+          // 获取 Blob 对象
+          const blob1 = new Blob([blob], { type: "audio/wav" });
+          // 创建 Blob URL
+          const url = URL.createObjectURL(blob1);
+          voice.src = url;
+          
+        })
+        .then(() => {
+          console.log("失败");
+        });
+    };
+    return (
+      <div>
+        <h1>hello world</h1>
+        <audio id="voice" controls src="" />
+        <button onMouseDown={start} onMouseUp={end}>
+          按住
+        </button>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById("app"));
+
+```
+

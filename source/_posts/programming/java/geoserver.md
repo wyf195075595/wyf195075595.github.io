@@ -25,6 +25,8 @@ categories: WebGIS
 
 [下载](https://pan.baidu.com/s/19pQDJzOeI_-7VtA-JVtwHQ)完成后可参考b站视频[教程](https://www.bilibili.com/video/BV1vk4y127P8/?spm_id_from=333.337.search-card.all.click&vd_source=727712d64f5d5487bf0a89c7b9de461d)
 
+<!--more-->
+
 ### 安装 GeoServer
 
 [下载地址](https://geoserver.org/download/): 选择stable 稳定的版本。此软件不需要安装，解压后进入 bin 目录，找到 startup.bat/sh。 windows,linux，ios都行，执行对应脚本即可。

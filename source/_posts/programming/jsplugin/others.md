@@ -1260,3 +1260,89 @@ console.log('还原对象:', toObj)
 > Recorder用于html5录音
 >
 > 支持在大部分已实现`getUserMedia`的移动端、PC端浏览器麦克风录音、实时处理，主要包括：Chrome、Firefox、Safari、iOS 14.3+、Android WebView、腾讯Android X5内核(QQ、微信、小程序WebView)、uni-app(App、H5)、大部分2021年后更新的Android手机自带浏览器
+
+### [EasyPlayer](https://github.com/tsingsee/EasyPlayer.js/tree/master)
+
+> ## About
+>
+> EasyPlayer.js H5播放器，是一款免费的能够同时支持HTTP、RTMP、HTTP-FLV、HLS（m3u8）直播与点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、asm、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器。
+>
+> [在线演示](https://www.tsingsee.com/easyplayer/)
+
+[h265web.js](https://github.com/numberwolf/h265web.js/wiki/%E3%80%90%E8%AF%B4%E6%98%8E%E3%80%91%E5%88%9B%E5%BB%BA%E6%92%AD%E6%94%BE%E5%99%A8)
+
+> HEVC/H.265 网页直播/点播播放器 支持硬解！ 支持H.265的HttpFLV/HLS/MP4/TS/FLV/M3U8/Websocket播放
+>
+> [在线演示](http://v.yuveye.com/h265web/)
+
+### [TinyLD](https://github.com/komodojp/tinyld)
+
+> 一个 JS 库，用来判断一段文字是什么语言（汉语、英语、日语等等）。
+
+### [VineJS](https://github.com/vinejs/vine)
+
+> 一个 Node.js 的表单验证库，只用于后端，支持大量验证规则，验证速度快。
+
+### antv-x6
+
+> 流程图编辑器，流程图绘制
+>
+> [示例1](https://wforguo.github.io/daily-code/vue2-app/#/X6) [示例代码](https://github.com/wforguo/daily-code/tree/master/vue-app/vue2-app) [示例文档](https://forguo.cn/f2e/%E5%8F%AF%E8%A7%86%E5%8C%96/Antv-X6%E5%9B%BE%E7%BC%96%E8%BE%91%E5%99%A8%E7%9A%84%E5%BA%94%E7%94%A8%E2%80%94%E2%80%94%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%AE%9E%E7%8E%B0.html#%E9%A1%B9%E7%9B%AE%E6%95%88%E6%9E%9C%E5%B1%95%E7%A4%BA)
+>
+> [示例2](https://tian-jing-ruo-feng.github.io/logic-flow/) [示例代码](https://github.com/tian-jing-ruo-feng/logic-flow)
+
+### 导出pdf
+
+[打印的5中姿势](https://juejin.cn/post/7262656196855038008?searchId=202312201409479A9BB809BBF1D3632BDA#heading-9)
+
+1. html2canvas + jsPDF 生成pdf
+
+	有点不清晰，无论怎么调整 scale 和 dpr 都有点，但是还是能接受
+
+2. jsPDF手写内容生成pdf
+
+	第一个问题就是要下载字体（不支持中文），第二个排版要计算，贼麻烦，但是清晰度是最高的
+
+3. css 媒体查询
+
+	```css
+	@media print {
+	  .mnav.c-font-normal.c-color-t {
+	    color: green !important; 
+	  }
+	}
+	```
+
+	配合 window.print(), 超链接颜色可能会发生变化
+
+4. iframe 打开
+
+	```js
+	 function printElement(e) {
+	    var ifr = document.createElement('iframe');
+	    ifr.style = 'height: 0px; width: 0px; position: absolute'
+	    document.body.appendChild(ifr);
+	    ifr.contentDocument.body.appendChild(e.cloneNode(true))
+	    ifr.contentWindow.print();
+	
+	    ifr.parentElement.removeChild(ifr);
+	}
+	var style = document.createElement('style')
+	style.innerText = '* { color: red; }'
+	var img = document.createElement('img')
+	img.height = 300; 
+	img.width = 300;
+	img.src = 'https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png'
+	var div = document.createElement('div')
+	div.innerText = "这是百度网站"
+	div.appendChild(style)
+	div.appendChild(img)
+	printElement(div)
+	
+	```
+
+	
+
+## [localforage](https://github.com/localForage/localForage)
+
+> 本地存储的最佳方案，localForage 是一个快速而简单的 JavaScript 存储库。localForage 通过将异步存储（IndexedDB 或 WebSQL）与简单的类似 `localStorage` 的 API 结合使用来改善 Web 应用的脱机体验。
