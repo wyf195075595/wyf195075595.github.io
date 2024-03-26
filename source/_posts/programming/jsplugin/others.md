@@ -3,7 +3,9 @@ title: 插件集合
 date: 2022-06-17 08:23:10
 tags: 插件
 categories: js
+
 ---
+
 ### js读取excel文件
 
 ```js
@@ -47,15 +49,133 @@ const datas={};
     });
 ```
 
-### fecs
+
 
 <!--more-->
 
+### xlsx
+
+支持预览，读取，导出等excel操作
+
+[api文档](https://docs.sheetjs.com/docs/)
+
+[参考文档](https://www.cnblogs.com/fdxjava/p/17040470.html)
+
+xlsx 导出 el-table 中的数据为 excel
+
 ```js
+// 表格数据写入excel，并导出为Excel文件
+exportToExcel(data, name = "表格数据") {
+  // 为啥用 require 应为低版本 import 得到的为null
+  const XLSX = require("xlsx");
+  // 使用 this.$nextTick 是在dom元素都渲染完成之后再执行
+  this.$nextTick(function() {
+    // 设置导出的内容是否只做解析，不进行格式转换     false：要解析， true:不解析
+    const xlsxParam = { raw: true };
+    // tableId 为 el-table 的 id
+    const wb = XLSX.utils.table_to_book(
+      document.getElementById(data.tableId),
+      xlsxParam
+    );
+    // 导出excel文件名
+    let fileName = name + new Date().getTime() + ".xlsx";
+    const wbout = XLSX.write(wb, {
+      bookType: "xlsx",
+      bookSST: true,
+      type: "array"
+    });
+    try {
+      // 下载保存文件，此处也可以使用a标签下载
+      FileSaver.saveAs(
+        new Blob([wbout], { type: "application/octet-stream" }),
+        fileName
+      );
+    } catch (e) {
+      console.warn(e, wbout);
+    }
+    return wbout;
+  });
+}
+```
+
+### [html-docx-js](http://evidenceprime.github.io/html-docx-js/)
+
+​	将富文本内容导出为word文件
+
+```js
+import htmlDocx from 'html-docx-js/dist/html-docx';
+import saveAs from 'file-saver';
+export default {
+  methods: {
+    exportClick() {
+      var content = ` <h1>This is an about page</h1>
+      <h2>This is an about page</h2>`
+      var page = '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body>' + content + '</body></html>'
+      var converted = htmlDocx.asBlob(page);
+      // 用 FielSaver.js里的保存方法 进行输出
+      saveAs(converted, 'test.docx');
+    }
+  }
+}
+```
+
+注意 脚本中 with(obj||{}){ } 语法会报错 With statements cannot be used with the "esm" output format due to strict mode
+
+要将 with 语法 替换 掉
+
+原来
+
+with的作用，可以使 obj 中的属性在with作用域中直接使用
+
+```js
+module.exports = function(obj){
+    var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+    with(obj||{}){
+    __p+='------=mhtDocumentPart\nContent-Type: '+
+    ((__t=( contentType ))==null?'':__t)+
+    '\nContent-Transfer-Encoding: '+
+    ((__t=( contentEncoding ))==null?'':__t)+
+    '\nContent-Location: '+
+    ((__t=( contentLocation ))==null?'':__t)+
+    '\n\n'+
+    ((__t=( encodedContent ))==null?'':__t)+
+    '\n';
+    }
+    return __p;
+};
+```
+
+新的
+
+```js
+module.exports = function(obj){
+    var __t,__p='',__j=Array.prototype.join,print=function(){__p+=__j.call(arguments,'');};
+    if(obj){
+    __p+='------=mhtDocumentPart\nContent-Type: '+
+    ((__t=( obj.contentType ))==null?'':__t)+
+    '\nContent-Transfer-Encoding: '+
+    ((__t=( obj.contentEncoding ))==null?'':__t)+
+    '\nContent-Location: '+
+    ((__t=( obj.contentLocation ))==null?'':__t)+
+    '\n\n'+
+    ((__t=( obj.encodedContent ))==null?'':__t)+
+    '\n';
+    }
+    return __p;
+};
+```
+
+### [vue-html2pdf](https://github.com/kempsteven/vue-html2pdf)
+
+pdf导出的方案.[vue3版本分支](https://github.com/raiblaze/vue3-html2pdf)，
+
+
+
+### [fecs](http://fecs.baidu.com/)
+
 代码检查 / 格式化，从未如此简单
 
-http://fecs.baidu.com/
-```
+
 
 ### Pinia
 
@@ -1343,6 +1463,176 @@ console.log('还原对象:', toObj)
 
 	
 
-## [localforage](https://github.com/localForage/localForage)
+### [localforage](https://github.com/localForage/localForage)
 
 > 本地存储的最佳方案，localForage 是一个快速而简单的 JavaScript 存储库。localForage 通过将异步存储（IndexedDB 或 WebSQL）与简单的类似 `localStorage` 的 API 结合使用来改善 Web 应用的脱机体验。
+
+### [VisActor](https://visactor.io/)
+
+> 一个字节出品的前端数据可视化解决方案，分成图表库 [VChart](https://visactor.io/vchart) 和表格库 [VTable](https://visactor.io/vtable)。
+>
+> vchart 有播放动画，可以绘制动态数据随时间增长的动画
+
+### [heatmap.js](http://www.patrick-wied.at/static/heatmapjs/)
+
+> Heatmap.js V2.0 是目前网络上最先进的热图可视化库。新的2.0版本 Heatmap.js 更快，拥有更强的渲染模块，使用更方便，因此您可以快速掌握和扩展自定义功能。
+>
+> [参考文章](https://blog.csdn.net/cungudafa/article/details/102869566)
+
+### [Echo UI](https://echoui.dev/zh/)
+
+> 一款专为 Web Audio API 设计的 UI 库，适合用来搭建基于 Web 的音频应用。
+>
+> Light 指示灯
+>
+> Oscilloscope 示波器
+>
+> Spectrogram 频谱图
+>
+> VU Meter 音量表
+>
+> Waveform 波形图
+>
+> ...
+
+### [Animotion](https://cssanimotion.pages.dev/)
+
+> 一个网页 CSS 动画生成器，可视化设定动画，自动生成代码。
+
+### [Inpaint-web](https://github.com/lxfater/inpaint-web)
+
+> 要加载30M大小的包，开源的图片修复和超分辨率工具, 纯浏览器端实现。
+
+[KaTeX](https://katex.org/)
+
+>  LaTeX 数学渲染,在web页面展示复杂数学公式，使用 [LateX](https://baike.baidu.com/item/LaTeX/1212106) 语法。
+>
+>  配合这个[手写公式识别为LateX语法](https://webdemo.myscript.com/) 六的一批
+
+### [音视频处理](https://hughfenghen.github.io/WebAV/guide)
+
+> WebAV 项目包含三个模块，使用 TypeDoc 生成 API 文档
+>
+> - @webav/av-cliper
+> 	- 提供音视频数据处理的基础 API
+> 	- 包括：音视频解码、合成、拼接、裁剪等功能等等
+> - @webav/av-recorder
+> 	- 录制 `MediaStream`，输出 MP4 视频
+> 	- 在浏览器中，可以中 canvas、video、摄像头、麦克风、分享屏幕等 API 获取 `MediaStream` 对象
+> - @webav/av-canvas
+> 	- 用户或代码可操作的“画布”，能添加、控制各种素材，支持输出 `MediaStream`
+> 	- 素材包括：摄像头、麦克风、屏幕、音视频文件、图片、文字
+> 	- 输出 `MediaStream` 意味着能将“画布”内容推流至服务器或录制为本地视频
+>
+> `@webav/av-cliper` 的 API 相对多一些，建议先阅读[基础概念](https://hughfenghen.github.io/WebAV/_api/av-cliper/#md:basic-concepts-基础概念)，有助于快速理解 DEMO 源码与其他 API
+
+### [nginx代管理器](https://nginxproxymanager.com/guide/)
+
+> 这个项目是一个预构建的 docker 映像，使您能够**轻松地转发**到在家中或其他地方运行的**网站**，包括**免费 SSL**，而**无需对 Nginx 或 Letsencrypt 了解太多**。
+
+### [mermaid.js](https://github.com/mermaid-js/mermaid?tab=readme-ov-file)
+
+> Mermaid 是一个基于 Javascript 的图表绘制工具，通过解析类 Markdown 的文本语法来实现图表的创建和动态修改。Mermaid **诞生的主要目的是让文档的更新能够及时跟上开发进度。**
+>
+> 可以快速实现 流程图、序列图、类图、状态图、实体关系图、用户旅程图、甘特图、饼图、象限图、需求图、git图、C4图、思维导图、时间线、桑基图、方框图...。但是**可自定义性差**
+>
+> [在线演示](https://mermaid.live/edit#pako:eNp1Uk1vwjAM_SuRuYBUUPqxlkYT0kavO-02skNoDFSkSdWmAob470tbOrFJ88nPfn7xU3yF3EgEBltl8uN8i1ZwTVzkRrWlbkg4QGnyFYfM5G2J2nL4ZPdGU4kcXfuk_ecNB-Jaq2kHZ0OL647XqzMch4ZQjq9w16k9lssphxdyKiQSo5EUmtgDkrKQUiGH2SO1dgp1sT-MEqjl362Cf7bqTW037q3s1an-9jOC7C60HvlkPl-RbEDrHkhhcSsaHAe62p3e2Ityi5NdoRSbyFh6ja3NEdkkDMN7Pnc-7YFF1XmYAQ9KrEtRSPcn167GwdkvnXPmUinqIweub44nWmveLzoHthOqQQ_aqlsmK8S-FuVPtRL6wxiHbd0OENgVzsCScOGnEaVRHCSUpnTpwQVYkNIFpX6UJEHq-0EShDcPvnoBuojDOArT5VNMl0ka-W4CZWFN_TbcUH9Kt28H1K5A)
+
+html中使用
+
+```shell
+yarn add mermaid
+```
+
+```html
+<pre class="mermaid">
+
+  flowchart LR
+    A[班组长] -->|开始| B(班主任)
+    B --> C(教导主任)
+    B --> D(教务处)
+    D --> F(校长)
+    C --> F
+ </pre>
+
+<script>
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+mermaid.initialize({ startOnLoad: true });
+</script>
+```
+
+### [`whatsapp-web.js`](https://github.com/pedroslopez/whatsapp-web.js?utm_source=gold_browser_extension)
+
+> `whatsapp-web.js` 主要用于编写自动化脚本，用于自动化处理 **WhatsApp** Web 客户端的各种操作，例如自动回复、消息监控、群组管理等。这个库提供了一种灵活的方式来与 WhatsApp Web 进行交互，并且可以根据需要进行定制和扩展。
+>
+> 有点类似于socket.io ,两个库都涉及到在 Node.js 环境中的通信，但它们的使用场景和目的完全不同。`whatsapp-web.js` 用于控制 **WhatsApp** Web 客户端，而 `Socket.IO` 用于实现实时通信功能
+
+### [image-coversion](https://github.com/WangYuLue/image-conversion)
+
+> 图片压缩插件，使用场景，上传高质量图片前进行压缩。减少图片大小。详情查看文档。
+>
+> 依赖原生 fetch、promise ,不支持IE11
+
+```js
+// 指定压缩图片到200kb
+async function view() {
+  const file = document.getElementById('demo').files[0];
+  console.log(file);
+  const res = await imageConversion.compressAccurately(file,200)
+  console.log(res);
+}
+```
+
+### [mammoth](https://github.com/mwilliamson/mammoth.js)
+
+> 一个将 docx转html 的插件。
+
+[canvas 弹幕库](https://fly-barrage.netlify.app/guide/quick-start.html)
+
+> **功能完善**
+>
+> 支持滚动弹幕、顶部弹幕、底部弹幕、高级弹幕
+>
+> **文字、图片混搭**
+>
+> 弹幕内容支持混入图片
+>
+> **自定义渲染**
+>
+> 提供自定义渲染接口，高度定制化弹幕渲染
+>
+> **不局限于特定框架**
+>
+> 原生 Html、Vue、React 均可使用，不局限上层应用所使用的框架
+
+### [koodo](https://github.com/koodo-reader/koodo-reader?tab=readme-ov-file)
+
+> Koodo Reader 是一个开源免费的电子书阅读器，支持多达15种主流电子书格式， 内置笔记、高亮、翻译功能，助力高效书籍阅读和学习。支持 Windows、macOS、Linux 和网页版
+
+### [vconsole](https://github.com/Tencent/vConsole)
+
+> 
+>
+> 一个轻量、可拓展、针对手机网页的前端开发者调试面板。
+>
+> vConsole 是框架无关的，可以在 Vue、React 或其他任何框架中使用。
+>
+> 现在 vConsole 是微信小程序的官方调试工具。
+>
+> [其他拓展](https://juejin.cn/post/7134219358301077517?searchId=20240222174257D00581DF83F659312EE4&utm_source=gold_browser_extension#heading-3)
+
+### [pear-rec](https://027xiguapi.github.io/pear-rec/)
+
+> 本插件提供了录屏、录音、录像、预览图片、预览视频功能。
+
+### [blossom](https://gitee.com/blossom-editor/blossom?utm_source=gold_browser_extension)
+
+> 个支持私有部署的云端存储双链笔记软件，你可以将你所有的笔记，图片，个人计划安排保存在自己的服务器中，并在任意设备之间实时同步。同时还是一个个人博客。
+
+![home](https://gitee.com/blossom-editor/blossom/raw/dev/doc/imgs/device.png)
+
+### [whistle](https://juejin.cn/post/7330151205770412095?searchId=20240321152558EDA551202F6D8B7D2C7F)
+
+> 好多人认为whistle是抓包工具，殊不知抓包只是whistle能力的冰山一角。除了抓包外，它还能修改请求与响应、真机调试h5移动端、解决跨域、域名映射等等等。总而言之，使用whistle能够提升我们的开发效率，改善开发体验。
+>
+> whistle一出手就是抓包工具的极限，那年它双手插兜不知道什么是对手（doge）。

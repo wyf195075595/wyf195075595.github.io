@@ -215,6 +215,15 @@ usermod -g wudang zwj
 usermod -d 目录名 用户名
 ```
 
+ocker 需要用户具有 sudo 权限，为了避免每次命令都输入`sudo`，可以把用户加入 Docker 用户组（[官方文档](https://docs.docker.com/install/linux/linux-postinstall/#manage-docker-as-a-non-root-user)）。
+
+> ```bash
+> // 创建docker 组
+> sudo groupadd docker
+> // 将当前用户添加到docker组
+> sudo usermod -aG docker $USER
+> ```
+
 #### 用户和组的相关文件
 
 - /etc/passwd

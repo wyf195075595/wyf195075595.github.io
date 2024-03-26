@@ -1,6 +1,7 @@
 ---
 title: 虚拟机安装Ubuntu ssh 连接
 date: 2023-11-01 10:23:10
+updated: 2024-01-11 11:54:10
 tags: ubuntu
 categories: linux
 ---
@@ -264,8 +265,41 @@ npm i pm2 -g
 	source profile
 	```
 
+### 生成自签证书
 
-### mkcert.exe
+[openssl 生成自签证书](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04)
+
+```shell
+sudo openssl req \
+  -x509 \
+  -nodes \
+  -days 365 \
+  -newkey rsa:2048 \
+  -keyout example.key \
+  -out example.crt
+```
+
+- `req`：处理证书签署请求。
+- `-x509`：生成自签名证书。
+- `-nodes`：跳过为证书设置密码的阶段，这样 Nginx 才可以直接打开证书。
+- `-days 365`：证书有效期为一年。
+- `-newkey rsa:2048`：生成一个新的私钥，采用的算法是2048位的 RSA。
+- `-keyout`：新生成的私钥文件为当前目录下的`example.key`。
+- `-out`：新生成的证书文件为当前目录下的`example.crt`。
+
+执行后，命令行会跳出一堆问题要你回答，比如你在哪个国家、你的 Email 等等。
+
+![img](https://www.ruanyifeng.com/blogimg/asset/2018/bg2018022702.png)
+
+其中最重要的一个问题是 Common Name，正常情况下应该填入一个域名，这里可以填 127.0.0.2。
+
+> ```bash
+> Common Name (e.g. server FQDN or YOUR name) []:127.0.0.2
+> ```
+
+回答完问题，当前目录应该会多出两个文件：`example.key`和`example.crt`。
+
+### mkcert.exe生成证书
 
 > 自己给自己签发一个ssl证书,可用于本地生成 ssl 证书
 >

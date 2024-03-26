@@ -127,6 +127,8 @@ ws://127.0.0.1：80/live/test.live.flv
 > 简单来说可以将浏览器不支持的流转换为支持的流供页面展示.
 >
 > 除了视频文件，还能处理 摄像头，声卡，网络直播，电脑桌面进行数据采集
+>
+> [FFmpeg 视频处理入门教程](https://www.ruanyifeng.com/blog/2020/01/ffmpeg.html)
 
 ```shell
 # -i 表示输入	a.mov

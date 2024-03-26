@@ -4,7 +4,7 @@ date: 2022-06-17 08:23:10
 tags: js
 categories: js
 ---
-# 文件下载方式
+## 文件下载方式
 
 1. get方式下载
 
@@ -147,435 +147,6 @@ categories: js
 
   
 
-  
-
-  # 前端下载文件的6种方法的对比
-
-  # 前言
-
-  在前端站点上下载文件，这是一个极其普遍的需求，很早前就已经有各种解决方法了，为什么还写这么老的文章，只是最近在带一个新人，他似乎很多都一知半解，也遇到了我们必经问题之“不能下载txt、png等文件”的典型问题，我就给他总结下下载的几个方式。**顺便分享出来，也许，真有人需要。**
-
-  # form表单提交
-
-  这是以前常使用的传统方式，毕竟那个年代，没那么多好用的新特性呀。
-
-  道理也很简单，为一个下载按钮添加click事件，点击时动态生成一个表单，利用表单提交的功能来实现文件的下载（实际上表单的提交就是发送一个请求）
-
-  来看下如何生成一个表单，生成怎么样的一个表单：
-
-  ```js
-  /**
-   * 下载文件
-   * @param {String} path - 请求的地址
-   * @param {String} fileName - 文件名
-   */
-  function downloadFile (downloadUrl, fileName) {
-      // 创建表单
-  	const formObj = document.createElement('form');
-      formObj.action = downloadUrl;
-      formObj.method = 'get';
-      formObj.style.display = 'none';
-      // 创建input，主要是起传参作用
-      const formItem = document.createElement('input');
-      formItem.value = fileName; // 传参的值
-      formItem.name = 'fileName'; // 传参的字段名
-      // 插入到网页中
-      formObj.appendChild(formItem);
-      document.body.appendChild(formObj);
-      formObj.submit(); // 发送请求
-      document.body.removeChild(formObj); // 发送完清除掉
-  }
-  ```
-
-  #### 优点
-
-  - 传统方式，兼容性好，不会出现URL长度限制问题
-
-  #### 缺点
-
-  - 无法知道下载的进度
-  - 无法直接下载浏览器可直接预览的文件类型（如txt/png等）
-
-  # open或location.href
-
-  最简单最直接的方式，实际上跟a标签访问下载链接一样
-
-  ```js
-  window.open('downloadFile.zip');
-  
-  location.href = 'downloadFile.zip';
-  ```
-
-  当然地址也可以是接口api的地址，而不单纯是个链接地址。
-
-  #### 优点
-
-  - 简单方便直接
-
-  #### 缺点
-
-  - 会出现URL长度限制问题
-  - 需要注意url编码问题
-  - 浏览器可直接浏览的文件类型是不提供下载的，如txt、png、jpg、gif等
-  - 不能添加header，也就不能进行鉴权
-  - 无法知道下载的进度
-
-  # a标签的download
-
-  我们知道，a标签可以访问下载文件的地址，浏览器帮助进行下载。但是对于浏览器支持直接浏览的txt、png、jpg、gif等文件，是不提供直接下载（可右击从菜单里另存为）的。
-
-  为了解决这个直接浏览不下载的问题，可以利用download属性。
-
-  download属性是HTML5新增的属性，兼容性可以了解下 can i use download
-
-  总体兼容性算是很好了，基本可以区分为IE和其他浏览。但是需要注意一些信息：
-
-  - Edge 13在尝试下载data url链接时会崩溃。
-  - Chrome 65及以上版本只支持同源下载链接。
-  - Firefox只支持同源下载链接。
-
-  基于上面描述，如果你尝试下载跨域链接，那么其实download的效果就会没了，跟不设置download表现一致。即浏览器能预览的还是会预览，而不是下载。
-
-  简单用法：
-
-  ```
-  <a href="example.jpg" download>点击下载</a>
-  ```
-
-  可以带上属性值，指定下载的文件名，即重命名下载文件。不设置的话默认是文件原本名。
-
-  ```
-  <a href="example.jpg" download="test">点击下载</a>
-  ```
-
-  如上，会下载了一个名叫test的图片
-
-  **监测是否支持download**
-
-  要知道浏览器是否支持download属性，简单的一句代码即可区分
-
-  ```
-  const isSupport = 'download' in document.createElement('a');
-  ```
-
-  对于在跨域下不能下载可浏览的文件，其实可以跟后端协商好，在后端层做多一层转发，最终返回给前端的文件链接跟下载页同域就好了。
-
-  #### 优点
-
-  - 能解决不能直接下载浏览器可浏览的文件
-
-  #### 缺点
-
-  - 得已知下载文件地址
-  - 不能下载跨域下的浏览器可浏览的文件
-  - 有兼容性问题，特别是IE
-  - 不能进行鉴权
-
-  # 利用Blob对象
-
-  该方法较上面的直接使用a标签download这种方法的优势在于，它除了能利用已知文件地址路径进行下载外，还能通过发送ajax请求api获取文件流进行下载。毕竟有些时候，后端不会直接提供一个下载地址给你直接访问，而是要调取api。
-
-  利用Blob对象可以将文件流转化成Blob二进制对象。该对象兼容性良好，需要注意的是
-
-  - IE10以下不支持。
-  - 在Safari浏览器上不能访问Blob Url或Object URL，如下文中通过URL.createObjectURL生成的链接
-
-  第二点是致命的，这就导致这里以下的方案并不合适用于Safari浏览器。希望日后Safari能修复该问题（当前我所测试版本为13.0.4 ）。
-
-  进行下载的思路很简单：发请求获取二进制数据，转化为Blob对象，利用URL.createObjectUrl生成url地址，赋值在a标签的href属性上，结合download进行下载。
-
-  ```js
-  /**
-   * 下载文件
-   * @param {String} path - 下载地址/下载请求地址。
-   * @param {String} name - 下载文件的名字/重命名（考虑到兼容性问题，最好加上后缀名）
-   */
-  downloadFile (path, name) {
-      const xhr = new XMLHttpRequest();
-      xhr.open('get', path);
-      xhr.responseType = 'blob';
-      xhr.send();
-      xhr.onload = function () {
-          if (this.status === 200 || this.status === 304) {
-              // const blob = new Blob([this.response], { type: xhr.getResponseHeader('Content-Type') });
-              // const url = URL.createObjectURL(blob);
-              const url = URL.createObjectURL(this.response);
-              const a = document.createElement('a');
-              a.style.display = 'none';
-              a.href = url;
-              a.download = name;
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-              URL.revokeObjectURL(url);
-          }
-      };
-  }
-  ```
-
-  该方法不能缺少a标签的download属性的设置。因为发请求时已设置返回数据类型为Blob类型（xhr.responseType = 'blob'），所以target.response就是一个Blob对象，打印出来会看到两个属性size和type。虽然type属性已指定了文件的类型，但是为了稳妥起见，还是在download属性值里指定后缀名，如Firefox不指定下载下来的文件就会不识别类型。
-
-  大家可能会注意到，上述代码有两处注释，其实除了上述的写法外，还有另一个写法，改动一丢丢。如果发送请求时不设置xhr.responseType = 'blob'，默认ajax请求会返回DOMString类型的数据，即字符串。这时就需要两处注释的代码了，对返回的文本转化为Blob对象，然后创建blob url，此时需要注释掉原本的const url = URL.createObjectURL(target.response)。
-
-  #### 优点
-
-  - 能解决不能直接下载浏览器可浏览的文件
-  - 可设置header，也就可添加鉴权信息
-
-  #### 缺点
-
-  - 兼容性问题，IE10以下不可用；Safari浏览器不可用
-
-  # 利用base64
-
-  这里的用法跟上面用Blob大同小异，基本上思路是一样的，唯一不同的是，上面是利用Blob对象生成Blob URL，而这里则是生成Data URL，所谓Data URL，就是base64编码后的url形式。
-
-  ```js
-  /**
-   * 下载文件
-   * @param {String} path - 下载地址/下载请求地址。
-   * @param {String} name - 下载文件的名字（考虑到兼容性问题，最好加上后缀名）
-   */
-  downloadFile (path, name) {
-      const xhr = new XMLHttpRequest();
-      xhr.open('get', path);
-      xhr.responseType = 'blob';
-      xhr.send();
-      xhr.onload = function () {
-          if (this.status === 200 || this.status === 304) {
-              const fileReader = new FileReader();
-              fileReader.readAsDataURL(this.response);
-              fileReader.onload = function () {
-                  const a = document.createElement('a');
-                  a.style.display = 'none';
-                  a.href = this.result;
-                  a.download = name;
-                  document.body.appendChild(a);
-                  a.click();
-                  document.body.removeChild(a);
-              };
-          }
-      };
-  }
-  ```
-
-  这里额外提供个方法，该方法作用是，当你知道文件的全名（含后缀名），想要重命名，但是得后缀名一样，来获取后缀名。
-
-  ```js
-  function findType (name) {
-      const index = name.lastIndexOf('.');
-      return name.substring(index + 1);
-  }
-  ```
-
-  #### 优点
-
-  - 较用Blob URL，这个可在Safari上使用 **（这个结论待验证）**
-  - 能解决不能直接下载浏览器可浏览的文件
-  - 可设置header，也就可添加鉴权信息
-
-  #### 缺点
-
-  - 兼容性问题，IE10以下不可用
-
-  # 其他
-
-  要能够进行下载文件，后端接口要返回文件流。 简单记录下我成功的例子里，后端返回的header情况：
-
-  ```js
-  Access-Control-Allow-Credentials: true
-  Access-Control-Allow-Origin: *
-  Connection: keep-alive
-  Content-Disposition: attachment; filename=_____20200103161450.png; filename*=UTF-8''%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200103161450.png
-  Content-Length: 10673
-  Content-Type: application/octet-stream
-  ```
-  
-  # 使用html2canvas和jspdf插件实现
-  
-  该方式是通过`html2canvas`将HTML页面转换成图片，然后再通过`jspdf`将图片的base64生成为pdf文件。实现步骤如下：
-  
-  ## 1,下载插件模块
-  
-  
-  
-  ```undefined
-  npm install html2canvas jspdf --save
-  ```
-  
-  ## 2,定义功能实现方法
-  
-  在项目工具方法存放文件夹utils中创建`htmlToPdf.js`文件，代码如下：
-  
-  
-  
-  ```javascript
-  // 导出页面为PDF格式
-  import html2Canvas from 'html2canvas'
-  import JsPDF from 'jspdf'
-  export default{
-    install (Vue, options) {
-      Vue.prototype.getPdf = function () {
-        var title = this.htmlTitle
-        html2Canvas(document.querySelector('#pdfDom'), {
-          allowTaint: true
-        }).then(function (canvas) {
-          let contentWidth = canvas.width
-          let contentHeight = canvas.height
-          let pageHeight = contentWidth / 592.28 * 841.89
-          let leftHeight = contentHeight
-          let position = 0
-          let imgWidth = 595.28
-          let imgHeight = 592.28 / contentWidth * contentHeight
-          let pageData = canvas.toDataURL('image/jpeg', 1.0)
-          let PDF = new JsPDF('', 'pt', 'a4')
-          if (leftHeight < pageHeight) {
-            PDF.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight)
-          } else {
-            while (leftHeight > 0) {
-              PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
-              leftHeight -= pageHeight
-              position -= 841.89
-              if (leftHeight > 0) {
-                PDF.addPage()
-              }
-            }
-          }
-          PDF.save(title + '.pdf')
-        }
-        )
-      }
-    }
-  }
-  ```
-  
-  ## 3, 全局引入实现方法
-  
-  在项目主文件`main.js`中引入定义好的实现方法，并注册。
-  
-  
-  
-  ```jsx
-  import htmlToPdf from '@/components/utils/htmlToPdf'
-  // 使用Vue.use()方法就会调用工具方法中的install方法
-  Vue.use(htmlToPdf)
-  ```
-  
-  ## 4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可
-  
-  
-  
-  ```jsx
-  //html
-   <div id="pdfDom">
-     <!-- 要下载的HTML页面,页面是由后台返回 -->
-    <div v-html="pageData"></div>
-  </div>
-  <el-button type="primary" size="small" @click="getPdf('#pdfDom')">点击下载</el-button>
-  
-  //js
-  export default {
-    data () {
-        return {
-        htmlTitle: '页面导出PDF文件名'
-        }
-    }
-   }
-  ```
-  
-  # 方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载
-  
-  > 该方法需要先请求后台，后台会返回一个文件流，然后解析文件流，再通过HTML5中`<a>`标签的`download`属性实现下载功能。步骤如下：
-  
-  ## 1,发送请求，获取到后台返回的文件流及文件信息
-  
-  - 前端发送请求获取下载文件信息：
-  
-  
-  
-  ```javascript
-  // 引入下载方法
-  import {download} from 'utils'
-  export default{
-    methods: {
-      async downloadFile () {
-        let res = await axios.get(
-          url: 'xxxx/xxxx',
-          method: 'GET',
-          // 设置返回数据类型，这里一定要设置，否则下载下来的pdf会是空白,也可以是`arraybuffer`
-          responseType: 'blob',
-          params: {
-            id: 'xxxxxx'
-          }
-        )
-        // 获取在response headers中返回的下载文件类型
-        let type = JSON.parse(res.headers)['content-type']
-        
-        /*获取在response headers中返回的下载文件名
-          因为返回文件名是通过encodeURIComponent()函数进行了编码，因此需要通过decodeURIComponent()函数解码
-        */
-        let fileName = decodeURIComponent(JSON.parse(res.headers)['file-name'])
-        // 调用封装好的下载函数
-        download(res, type, fileName)
-      }
-    }
-  }
-  ```
-  
-  - 后台返回的文件流格式：
-  
-  	![img](https:////upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png?imageMogr2/auto-orient/strip|imageView2/2/w/1035/format/webp)
-  
-  	文件流.png
-  
-  ## 2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。
-  
-  
-  
-  ```javascript
-  // utils.js
-  export const download = (res, type, filename) => {
-    // 创建blob对象，解析流数据
-    const blob = new Blob([res], {
-      // 如何后端没返回下载文件类型，则需要手动设置：type: 'application/pdf;chartset=UTF-8' 表示下载文档为pdf，如果是word则设置为msword，excel为excel
-      type: type
-    })
-    const a = document.createElement('a')
-    // 兼容webkix浏览器，处理webkit浏览器中href自动添加blob前缀，默认在浏览器打开而不是下载
-    const URL = window.URL || window.webkitURL
-    // 根据解析后的blob对象创建URL 对象
-    const herf = URL.createObjectURL(blob)
-    // 下载链接
-    a.href = herf
-    // 下载文件名,如果后端没有返回，可以自己写a.download = '文件.pdf'
-    a.download = filename
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
-    // 在内存中移除URL 对象
-    window.URL.revokeObjectURL(herf)
-  }
-  ```
-  
-  ## 3，点击下载按钮，调用下载方法
-  
-  
-  
-  ```xml
-   <div id="pdfDom">
-      <!-- 要下载的页面 -->
-      <div v-html="pageData"></div>
-  </div>
-  <el-button type="primary" size="small" @click="downloadFile">点击下载</el-button>
-  ```
-  
-  
-  
-  作者：桃花谷主V
-  链接：https://www.jianshu.com/p/56680ce1cc97
-  来源：简书
-  著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-  
   ## 下载时获取文件名
 
 ```js
@@ -757,3 +328,440 @@ download(url, params, filename, config) {
 }
 ```
 
+
+
+
+
+
+
+
+
+
+
+## 前端下载文件的6种方法的对比
+
+**前言**
+
+在前端站点上下载文件，这是一个极其普遍的需求，很早前就已经有各种解决方法了，为什么还写这么老的文章，只是最近在带一个新人，他似乎很多都一知半解，也遇到了我们必经问题之“不能下载txt、png等文件”的典型问题，我就给他总结下下载的几个方式。**顺便分享出来，也许，真有人需要。**
+
+### form表单提交
+
+这是以前常使用的传统方式，毕竟那个年代，没那么多好用的新特性呀。
+
+道理也很简单，为一个下载按钮添加click事件，点击时动态生成一个表单，利用表单提交的功能来实现文件的下载（实际上表单的提交就是发送一个请求）
+
+来看下如何生成一个表单，生成怎么样的一个表单：
+
+```js
+/**
+ * 下载文件
+ * @param {String} path - 请求的地址
+ * @param {String} fileName - 文件名
+ */
+function downloadFile (downloadUrl, fileName) {
+    // 创建表单
+	const formObj = document.createElement('form');
+    formObj.action = downloadUrl;
+    formObj.method = 'get';
+    formObj.style.display = 'none';
+    // 创建input，主要是起传参作用
+    const formItem = document.createElement('input');
+    formItem.value = fileName; // 传参的值
+    formItem.name = 'fileName'; // 传参的字段名
+    // 插入到网页中
+    formObj.appendChild(formItem);
+    document.body.appendChild(formObj);
+    formObj.submit(); // 发送请求
+    document.body.removeChild(formObj); // 发送完清除掉
+}
+```
+
+优点
+
+- 传统方式，兼容性好，不会出现URL长度限制问题
+
+缺点
+
+- 无法知道下载的进度
+- 无法直接下载浏览器可直接预览的文件类型（如txt/png等）
+
+### open或location.href
+
+最简单最直接的方式，实际上跟a标签访问下载链接一样
+
+```js
+window.open('downloadFile.zip');
+
+location.href = 'downloadFile.zip';
+```
+
+当然地址也可以是接口api的地址，而不单纯是个链接地址。
+
+#### 优点
+
+- 简单方便直接
+
+#### 缺点
+
+- 会出现URL长度限制问题
+- 需要注意url编码问题
+- 浏览器可直接浏览的文件类型是不提供下载的，如txt、png、jpg、gif等
+- 不能添加header，也就不能进行鉴权
+- 无法知道下载的进度
+
+### a标签的download
+
+我们知道，a标签可以访问下载文件的地址，浏览器帮助进行下载。但是对于浏览器支持直接浏览的txt、png、jpg、gif等文件，是不提供直接下载（可右击从菜单里另存为）的。
+
+为了解决这个直接浏览不下载的问题，可以利用download属性。
+
+download属性是HTML5新增的属性，兼容性可以了解下 can i use download
+
+总体兼容性算是很好了，基本可以区分为IE和其他浏览。但是需要注意一些信息：
+
+- Edge 13在尝试下载data url链接时会崩溃。
+- Chrome 65及以上版本只支持同源下载链接。
+- Firefox只支持同源下载链接。
+
+基于上面描述，如果你尝试下载跨域链接，那么其实download的效果就会没了，跟不设置download表现一致。即浏览器能预览的还是会预览，而不是下载。
+
+简单用法：
+
+```
+<a href="example.jpg" download>点击下载</a>
+```
+
+可以带上属性值，指定下载的文件名，即重命名下载文件。不设置的话默认是文件原本名。
+
+```
+<a href="example.jpg" download="test">点击下载</a>
+```
+
+如上，会下载了一个名叫test的图片
+
+**监测是否支持download**
+
+要知道浏览器是否支持download属性，简单的一句代码即可区分
+
+```
+const isSupport = 'download' in document.createElement('a');
+```
+
+对于在跨域下不能下载可浏览的文件，其实可以跟后端协商好，在后端层做多一层转发，最终返回给前端的文件链接跟下载页同域就好了。
+
+**优点**
+
+- 能解决不能直接下载浏览器可浏览的文件
+
+**缺点**
+
+- 得已知下载文件地址
+- 不能下载跨域下的浏览器可浏览的文件
+- 有兼容性问题，特别是IE
+- 不能进行鉴权
+
+### 利用Blob对象
+
+该方法较上面的直接使用a标签download这种方法的优势在于，它除了能利用已知文件地址路径进行下载外，还能通过发送ajax请求api获取文件流进行下载。毕竟有些时候，后端不会直接提供一个下载地址给你直接访问，而是要调取api。
+
+利用Blob对象可以将文件流转化成Blob二进制对象。该对象兼容性良好，需要注意的是
+
+- IE10以下不支持。
+- 在Safari浏览器上不能访问Blob Url或Object URL，如下文中通过URL.createObjectURL生成的链接
+
+第二点是致命的，这就导致这里以下的方案并不合适用于Safari浏览器。希望日后Safari能修复该问题（当前我所测试版本为13.0.4 ）。
+
+进行下载的思路很简单：发请求获取二进制数据，转化为Blob对象，利用URL.createObjectUrl生成url地址，赋值在a标签的href属性上，结合download进行下载。
+
+```js
+/**
+ * 下载文件
+ * @param {String} path - 下载地址/下载请求地址。
+ * @param {String} name - 下载文件的名字/重命名（考虑到兼容性问题，最好加上后缀名）
+ */
+downloadFile (path, name) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', path);
+    xhr.responseType = 'blob';
+    xhr.send();
+    xhr.onload = function () {
+        if (this.status === 200 || this.status === 304) {
+            // const blob = new Blob([this.response], { type: xhr.getResponseHeader('Content-Type') });
+            // const url = URL.createObjectURL(blob);
+            const url = URL.createObjectURL(this.response);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = name;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    };
+}
+```
+
+该方法不能缺少a标签的download属性的设置。因为发请求时已设置返回数据类型为Blob类型（xhr.responseType = 'blob'），所以target.response就是一个Blob对象，打印出来会看到两个属性size和type。虽然type属性已指定了文件的类型，但是为了稳妥起见，还是在download属性值里指定后缀名，如Firefox不指定下载下来的文件就会不识别类型。
+
+大家可能会注意到，上述代码有两处注释，其实除了上述的写法外，还有另一个写法，改动一丢丢。如果发送请求时不设置xhr.responseType = 'blob'，默认ajax请求会返回DOMString类型的数据，即字符串。这时就需要两处注释的代码了，对返回的文本转化为Blob对象，然后创建blob url，此时需要注释掉原本的const url = URL.createObjectURL(target.response)。
+
+**优点**
+
+- 能解决不能直接下载浏览器可浏览的文件
+- 可设置header，也就可添加鉴权信息
+
+**缺点**
+
+- 兼容性问题，IE10以下不可用；Safari浏览器不可用
+
+### 利用base64
+
+这里的用法跟上面用Blob大同小异，基本上思路是一样的，唯一不同的是，上面是利用Blob对象生成Blob URL，而这里则是生成Data URL，所谓Data URL，就是base64编码后的url形式。
+
+```js
+/**
+ * 下载文件
+ * @param {String} path - 下载地址/下载请求地址。
+ * @param {String} name - 下载文件的名字（考虑到兼容性问题，最好加上后缀名）
+ */
+downloadFile (path, name) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', path);
+    xhr.responseType = 'blob';
+    xhr.send();
+    xhr.onload = function () {
+        if (this.status === 200 || this.status === 304) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(this.response);
+            fileReader.onload = function () {
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = this.result;
+                a.download = name;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        }
+    };
+}
+```
+
+这里额外提供个方法，该方法作用是，当你知道文件的全名（含后缀名），想要重命名，但是得后缀名一样，来获取后缀名。
+
+```js
+function findType (name) {
+    const index = name.lastIndexOf('.');
+    return name.substring(index + 1);
+}
+```
+
+**优点**
+
+- 较用Blob URL，这个可在Safari上使用 **（这个结论待验证）**
+- 能解决不能直接下载浏览器可浏览的文件
+- 可设置header，也就可添加鉴权信息
+
+**缺点**
+
+- 兼容性问题，IE10以下不可用
+
+
+
+### 其他
+
+要能够进行下载文件，后端接口要返回文件流。 简单记录下我成功的例子里，后端返回的header情况：
+
+```js
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Origin: *
+Connection: keep-alive
+Content-Disposition: attachment; filename=_____20200103161450.png; filename*=UTF-8''%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200103161450.png
+Content-Length: 10673
+Content-Type: application/octet-stream
+```
+
+## PDF下载
+
+### 使用html2canvas和 jspdf 插件实现
+
+该方式是通过`html2canvas`将HTML页面转换成图片，然后再通过`jspdf`将图片的base64生成为pdf文件。实现步骤如下：
+
+1,下载插件模块
+
+
+
+```undefined
+npm install html2canvas jspdf --save
+```
+
+2,定义功能实现方法
+
+在项目工具方法存放文件夹utils中创建`htmlToPdf.js`文件，代码如下：
+
+
+
+```javascript
+// 导出页面为PDF格式
+import html2Canvas from 'html2canvas'
+import JsPDF from 'jspdf'
+export default{
+  install (Vue, options) {
+    Vue.prototype.getPdf = function () {
+      var title = this.htmlTitle
+      html2Canvas(document.querySelector('#pdfDom'), {
+        allowTaint: true
+      }).then(function (canvas) {
+        let contentWidth = canvas.width
+        let contentHeight = canvas.height
+        let pageHeight = contentWidth / 592.28 * 841.89
+        let leftHeight = contentHeight
+        let position = 0
+        let imgWidth = 595.28
+        let imgHeight = 592.28 / contentWidth * contentHeight
+        let pageData = canvas.toDataURL('image/jpeg', 1.0)
+        let PDF = new JsPDF('', 'pt', 'a4')
+        if (leftHeight < pageHeight) {
+          PDF.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight)
+        } else {
+          while (leftHeight > 0) {
+            PDF.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+            leftHeight -= pageHeight
+            position -= 841.89
+            if (leftHeight > 0) {
+              PDF.addPage()
+            }
+          }
+        }
+        PDF.save(title + '.pdf')
+      }
+      )
+    }
+  }
+}
+```
+
+3, 全局引入实现方法
+
+在项目主文件`main.js`中引入定义好的实现方法，并注册。
+
+
+
+```jsx
+import htmlToPdf from '@/components/utils/htmlToPdf'
+// 使用Vue.use()方法就会调用工具方法中的install方法
+Vue.use(htmlToPdf)
+```
+
+4, 在相关要导出的页面中，点击时调用绑定在Vue原型上的getPdf方法，传入id即可
+
+
+
+```jsx
+//html
+ <div id="pdfDom">
+   <!-- 要下载的HTML页面,页面是由后台返回 -->
+  <div v-html="pageData"></div>
+</div>
+<el-button type="primary" size="small" @click="getPdf('#pdfDom')">点击下载</el-button>
+
+//js
+export default {
+  data () {
+      return {
+      htmlTitle: '页面导出PDF文件名'
+      }
+  }
+ }
+```
+
+### 方式二：读取后台返回文件流，利用HTML5中a标签的download属性实现下载
+
+> 该方法需要先请求后台，后台会返回一个文件流，然后解析文件流，再通过HTML5中`<a>`标签的`download`属性实现下载功能。步骤如下：
+
+1,发送请求，获取到后台返回的文件流及文件信息
+
+- 前端发送请求获取下载文件信息：
+
+
+
+```javascript
+// 引入下载方法
+import {download} from 'utils'
+export default{
+  methods: {
+    async downloadFile () {
+      let res = await axios.get(
+        url: 'xxxx/xxxx',
+        method: 'GET',
+        // 设置返回数据类型，这里一定要设置，否则下载下来的pdf会是空白,也可以是`arraybuffer`
+        responseType: 'blob',
+        params: {
+          id: 'xxxxxx'
+        }
+      )
+      // 获取在response headers中返回的下载文件类型
+      let type = JSON.parse(res.headers)['content-type']
+      
+      /*获取在response headers中返回的下载文件名
+        因为返回文件名是通过encodeURIComponent()函数进行了编码，因此需要通过decodeURIComponent()函数解码
+      */
+      let fileName = decodeURIComponent(JSON.parse(res.headers)['file-name'])
+      // 调用封装好的下载函数
+      download(res, type, fileName)
+    }
+  }
+}
+```
+
+- 后台返回的文件流格式：
+
+	![img](https:////upload-images.jianshu.io/upload_images/4921980-a44fa0f4b6c88c3f.png?imageMogr2/auto-orient/strip|imageView2/2/w/1035/format/webp)
+
+	文件流.png
+
+2, 封装下载方法 - 解析文件流，创建a标签并设置下载相关属性。
+
+
+
+```javascript
+// utils.js
+export const download = (res, type, filename) => {
+  // 创建blob对象，解析流数据
+  const blob = new Blob([res], {
+    // 如何后端没返回下载文件类型，则需要手动设置：type: 'application/pdf;chartset=UTF-8' 表示下载文档为pdf，如果是word则设置为msword，excel为excel
+    type: type
+  })
+  const a = document.createElement('a')
+  // 兼容webkix浏览器，处理webkit浏览器中href自动添加blob前缀，默认在浏览器打开而不是下载
+  const URL = window.URL || window.webkitURL
+  // 根据解析后的blob对象创建URL 对象
+  const herf = URL.createObjectURL(blob)
+  // 下载链接
+  a.href = herf
+  // 下载文件名,如果后端没有返回，可以自己写a.download = '文件.pdf'
+  a.download = filename
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  // 在内存中移除URL 对象
+  window.URL.revokeObjectURL(herf)
+}
+```
+
+3，点击下载按钮，调用下载方法
+
+
+
+```xml
+ <div id="pdfDom">
+    <!-- 要下载的页面 -->
+    <div v-html="pageData"></div>
+</div>
+<el-button type="primary" size="small" @click="downloadFile">点击下载</el-button>
+```
+
+
+
+[参考文章](https://www.zhangxinxu.com/wordpress/2023/06/js-canvas-jspdf-export-pdf/)

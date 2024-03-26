@@ -463,3 +463,13 @@ export default defineConfig(({ mode }) => {
 
 ```
 
+### 代码风格配置
+
+> 可以在脚手架初始化项目是添加 eslint 和 prettier, 也可以为已有项目添加，参考如下
+>
+> [注意]新版本eslit和prettier配置文件后缀都必须是.cjs
+
+[Vite+vue3+js+eslint+prettierc](https://segmentfault.com/a/1190000041954694)
+
+[Vite+vue3+ts+eslint+prettierc](https://juejin.cn/post/7142815651294511135?searchId=202403141408434480E7D6A2BC567E973B)
+

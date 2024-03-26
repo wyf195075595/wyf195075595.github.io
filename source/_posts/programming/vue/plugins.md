@@ -671,19 +671,21 @@ export default {
 
 ![image-20230713102224150](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png)
 
-> 在自适应方案 autofit.js 下出现 内容宽高错位现象，解决方案，resize 时js 重新设置内容宽高,外部拖拽事件上下偏移注意 autofit dh 参数 为930
+> 在自适应方案 autofit.js 下出现 内容宽高错位现象，解决方案，resize 时js 重新设置内容宽高,外部拖拽事件上下偏移注意 autofit dh 参数 为930.
+>
+> 建议使用 pxtorem 做适配
 >
 > ```js
 > let calendarBox = ref(null);
 > const resetHeight = ()=> {
->     if(!calendarBox.value) return
->     const tbody = document.querySelector(".fc-scrollgrid tbody");
->     let height = tbody.clientHeight - 2;
->     let width = tbody.clientWidth;
->     document.querySelector('.fc-scrollgrid-sync-table').style.height = height + 'px'
->     document.querySelector('.fc-scrollgrid-sync-table').style.width = width + 'px'
->     document.querySelector('.fc-col-header').style.width = width + 'px'
->     fullCalendar.value.getApi().setOption('height', calendarBox.value.clientHeight);
+>  if(!calendarBox.value) return
+>  const tbody = document.querySelector(".fc-scrollgrid tbody");
+>  let height = tbody.clientHeight - 2;
+>  let width = tbody.clientWidth;
+>  document.querySelector('.fc-scrollgrid-sync-table').style.height = height + 'px'
+>  document.querySelector('.fc-scrollgrid-sync-table').style.width = width + 'px'
+>  document.querySelector('.fc-col-header').style.width = width + 'px'
+>  fullCalendar.value.getApi().setOption('height', calendarBox.value.clientHeight);
 > }
 > ```
 >

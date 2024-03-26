@@ -194,7 +194,7 @@ categories: webpack
 		dist
 		dist-ssr
 		*.local
-		```
+	```
 	
 	***css 单位转换问题***
 	
@@ -243,4 +243,6 @@ categories: webpack
 > https://juejin.cn/post/7095689037889372191
 >
 > https://www.cnblogs.com/Yellow-ice/p/15127392.html
+>
+> [vue-cli+vue2参考](https://juejin.cn/post/7068573328914513928)
 
