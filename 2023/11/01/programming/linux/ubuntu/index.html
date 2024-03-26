@@ -17,11 +17,13 @@
 <meta property="og:site_name" content="myBlog">
 <meta property="og:description" content="Ubuntu 与 conteos 最大区别就是 Ubuntu 安装后自带操作界面。很流畅，虽然conteos 也能安装界面但是不好用，卡的一批。然后就是包管理工具，编辑 等一些命令不一样  下载好 Ubuntu ISO镜像后，在虚拟机上安装好。登录后发现 连接工具 无法访问 Ubuntu ​    ubuntu18.04中只默认安装了openssh-client,所以如果想用ssh远程登录ubu">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.ruanyifeng.com/blogimg/asset/2018/bg2018022702.png">
 <meta property="article:published_time" content="2023-11-01T02:23:10.000Z">
-<meta property="article:modified_time" content="2023-11-14T08:58:42.058Z">
+<meta property="article:modified_time" content="2024-01-11T03:54:10.000Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="ubuntu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.ruanyifeng.com/blogimg/asset/2018/bg2018022702.png">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
   
@@ -286,7 +288,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">2.2k字</span>
+      <span class="post-count">2.5k字</span>
     </span>
   </span>
 
@@ -295,7 +297,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">8分</span>
+      <span class="post-count">9分</span>
     </span>
   </span>
 </div>
@@ -467,7 +469,26 @@
 <li><p>配置修改生效</p>
  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source profile</span><br></pre></td></tr></table></figure></li>
 </ol>
-<h3 id="mkcert-exe"><a href="#mkcert-exe" class="headerlink" title="mkcert.exe"></a>mkcert.exe</h3><blockquote>
+<h3 id="生成自签证书"><a href="#生成自签证书" class="headerlink" title="生成自签证书"></a>生成自签证书</h3><p><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04">openssl 生成自签证书</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sudo openssl req \</span><br><span class="line">  -x509 \</span><br><span class="line">  -nodes \</span><br><span class="line">  -days 365 \</span><br><span class="line">  -newkey rsa:2048 \</span><br><span class="line">  -keyout example.key \</span><br><span class="line">  -out example.crt</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>req</code>：处理证书签署请求。</li>
+<li><code>-x509</code>：生成自签名证书。</li>
+<li><code>-nodes</code>：跳过为证书设置密码的阶段，这样 Nginx 才可以直接打开证书。</li>
+<li><code>-days 365</code>：证书有效期为一年。</li>
+<li><code>-newkey rsa:2048</code>：生成一个新的私钥，采用的算法是2048位的 RSA。</li>
+<li><code>-keyout</code>：新生成的私钥文件为当前目录下的<code>example.key</code>。</li>
+<li><code>-out</code>：新生成的证书文件为当前目录下的<code>example.crt</code>。</li>
+</ul>
+<p>执行后，命令行会跳出一堆问题要你回答，比如你在哪个国家、你的 Email 等等。</p>
+<p><img src="https://www.ruanyifeng.com/blogimg/asset/2018/bg2018022702.png" alt="img"></p>
+<p>其中最重要的一个问题是 Common Name，正常情况下应该填入一个域名，这里可以填 127.0.0.2。</p>
+<blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Common Name (e.g. server FQDN or YOUR name) []:127.0.0.2</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>回答完问题，当前目录应该会多出两个文件：<code>example.key</code>和<code>example.crt</code>。</p>
+<h3 id="mkcert-exe生成证书"><a href="#mkcert-exe生成证书" class="headerlink" title="mkcert.exe生成证书"></a>mkcert.exe生成证书</h3><blockquote>
 <p>自己给自己签发一个ssl证书,可用于本地生成 ssl 证书</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44692055/article/details/131489771">ubuntu 上使用</a></p>
 </blockquote>
@@ -669,7 +690,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-openssh-server"><span class="toc-number">1.</span> <span class="toc-text">安装 openssh-server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-sshd-config"><span class="toc-number">1.1.</span> <span class="toc-text">编辑配置文件 sshd_config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">防火墙管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">vi 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA"><span class="toc-number">2.2.</span> <span class="toc-text">保存退出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-number">2.3.</span> <span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">2.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6"><span class="toc-number">2.5.</span> <span class="toc-text">复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.6.</span> <span class="toc-text">替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D-%E6%92%A4%E6%B6%88-%E8%BF%98%E5%8E%9F%E4%B8%8A%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">2.7.</span> <span class="toc-text">恢复&#x2F;撤消&#x2F;还原上一次操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9"><span class="toc-number">2.8.</span> <span class="toc-text">更改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%87%B3%E6%8C%87%E5%AE%9A%E7%9A%84%E8%A1%8C"><span class="toc-number">2.9.</span> <span class="toc-text">跳至指定的行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E8%A1%8C%E5%8F%B7"><span class="toc-number">2.10.</span> <span class="toc-text">列出行号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E5%88%B0%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E8%A1%8C"><span class="toc-number">2.11.</span> <span class="toc-text">跳到文件中的某一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6"><span class="toc-number">2.12.</span> <span class="toc-text">查找字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vi%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"><span class="toc-number">2.13.</span> <span class="toc-text">vi命令列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ffmpeg"><span class="toc-number">3.</span> <span class="toc-text">安装 ffmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85nodejs"><span class="toc-number">4.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PM2"><span class="toc-number">5.</span> <span class="toc-text">安装 PM2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">设置全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkcert-exe"><span class="toc-number">7.</span> <span class="toc-text">mkcert.exe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%A4%B1%E8%B4%A5"><span class="toc-number">8.</span> <span class="toc-text">安装软件失败</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-openssh-server"><span class="toc-number">1.</span> <span class="toc-text">安装 openssh-server</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-sshd-config"><span class="toc-number">1.1.</span> <span class="toc-text">编辑配置文件 sshd_config</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%98%B2%E7%81%AB%E5%A2%99%E7%AE%A1%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">防火墙管理</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vi-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">vi 常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%9D%E5%AD%98%E9%80%80%E5%87%BA"><span class="toc-number">2.2.</span> <span class="toc-text">保存退出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%85%89%E6%A0%87"><span class="toc-number">2.3.</span> <span class="toc-text">移动光标</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%A0%E9%99%A4"><span class="toc-number">2.4.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6"><span class="toc-number">2.5.</span> <span class="toc-text">复制</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.6.</span> <span class="toc-text">替换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D-%E6%92%A4%E6%B6%88-%E8%BF%98%E5%8E%9F%E4%B8%8A%E4%B8%80%E6%AC%A1%E6%93%8D%E4%BD%9C"><span class="toc-number">2.7.</span> <span class="toc-text">恢复&#x2F;撤消&#x2F;还原上一次操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9"><span class="toc-number">2.8.</span> <span class="toc-text">更改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E8%87%B3%E6%8C%87%E5%AE%9A%E7%9A%84%E8%A1%8C"><span class="toc-number">2.9.</span> <span class="toc-text">跳至指定的行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%97%E5%87%BA%E8%A1%8C%E5%8F%B7"><span class="toc-number">2.10.</span> <span class="toc-text">列出行号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B7%B3%E5%88%B0%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%9F%90%E4%B8%80%E8%A1%8C"><span class="toc-number">2.11.</span> <span class="toc-text">跳到文件中的某一行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E5%AD%97%E7%AC%A6"><span class="toc-number">2.12.</span> <span class="toc-text">查找字符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#vi%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"><span class="toc-number">2.13.</span> <span class="toc-text">vi命令列表</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-ffmpeg"><span class="toc-number">3.</span> <span class="toc-text">安装 ffmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85nodejs"><span class="toc-number">4.</span> <span class="toc-text">安装nodejs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-PM2"><span class="toc-number">5.</span> <span class="toc-text">安装 PM2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">设置全局变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E8%AF%81%E4%B9%A6"><span class="toc-number">7.</span> <span class="toc-text">生成自签证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mkcert-exe%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6"><span class="toc-number">8.</span> <span class="toc-text">mkcert.exe生成证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%A4%B1%E8%B4%A5"><span class="toc-number">9.</span> <span class="toc-text">安装软件失败</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -839,11 +860,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -851,15 +868,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,7 +884,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -879,15 +916,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -899,7 +932,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,19 +948,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -927,11 +960,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -947,23 +984,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -975,7 +1000,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -983,11 +1008,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1003,15 +1028,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1019,7 +1040,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1031,11 +1052,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1043,7 +1064,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1059,7 +1080,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1071,23 +1104,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1099,7 +1124,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

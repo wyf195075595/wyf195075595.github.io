@@ -23,8 +23,9 @@
 <meta property="og:image" content="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae1bcce1d126428ea9f25d542caa4bcd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
 <meta property="og:image" content="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/017690f085d74827bfa38e460b9b90de~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
 <meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/105d8f8b3abc4627975fbea90a4a4e34~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp">
+<meta property="og:image" content="https://gitee.com/blossom-editor/blossom/raw/dev/doc/imgs/device.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-01-08T07:02:56.633Z">
+<meta property="article:modified_time" content="2024-03-21T07:35:31.870Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
@@ -293,7 +294,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">10.6k字</span>
+      <span class="post-count">12.6k字</span>
     </span>
   </span>
 
@@ -302,7 +303,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">44分</span>
+      <span class="post-count">53分</span>
     </span>
   </span>
 </div>
@@ -315,10 +316,30 @@
     
     <h3 id="js读取excel文件"><a href="#js读取excel文件" class="headerlink" title="js读取excel文件"></a>js读取excel文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、js读取excel文件 xlsx.<span class="property">js</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> datas=&#123;&#125;;</span><br><span class="line">    $(<span class="string">&#x27;#doc-form-file&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> fileNames = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        $.<span class="title function_">each</span>(<span class="variable language_">this</span>.<span class="property">files</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            fileNames += <span class="string">&#x27;&lt;span class=&quot;am-badge&quot;&gt;&#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;&lt;/span&gt; &#x27;</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">&#x27;#file-list&#x27;</span>).<span class="title function_">html</span>(fileNames);</span><br><span class="line">        <span class="comment">//获取json，同时进行json数据校验</span></span><br><span class="line">        <span class="keyword">var</span> files=e.<span class="property">target</span>.<span class="property">files</span>;</span><br><span class="line">        <span class="keyword">var</span> file=files[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> fileNames=file.<span class="property">name</span>;</span><br><span class="line">        <span class="comment">//判断上传的文件是不是excel格式文件</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(fileNames)</span><br><span class="line">        <span class="keyword">var</span> postfix = fileNames.<span class="title function_">substr</span>(fileNames.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;.&quot;</span>)).<span class="title function_">toUpperCase</span>();<span class="comment">//得到的是后缀名,且转换为大写</span></span><br><span class="line">        <span class="keyword">var</span> type=[<span class="string">&quot;.XLSX&quot;</span>,<span class="string">&quot;.XLS&quot;</span>];</span><br><span class="line">        <span class="keyword">if</span>(!type.<span class="title function_">includes</span>(postfix))&#123;</span><br><span class="line">            <span class="title function_">toast</span>(<span class="string">&#x27;文件格式不是excel&#x27;</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//进行数据校验</span></span><br><span class="line">            <span class="comment">//console.log(XLSX);</span></span><br><span class="line">            <span class="comment">//读取文件</span></span><br><span class="line">            <span class="keyword">var</span> reader=<span class="keyword">new</span> <span class="title class_">FileReader</span>();</span><br><span class="line">            reader.<span class="property">onload</span>=<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> data=e.<span class="property">target</span>.<span class="property">result</span>;</span><br><span class="line">                <span class="keyword">var</span> workbook=<span class="variable constant_">XLSX</span>.<span class="title function_">read</span>(data,&#123;</span><br><span class="line">                    <span class="attr">type</span>:<span class="string">&#x27;binary&#x27;</span></span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">var</span> sheetNames = workbook.<span class="property">SheetNames</span>;</span><br><span class="line">                <span class="keyword">var</span> worksheet = workbook.<span class="property">Sheets</span>[sheetNames[<span class="number">0</span>]];</span><br><span class="line">                <span class="keyword">var</span>  supplement=<span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">sheet_to_json</span>(worksheet)</span><br><span class="line">                datas.<span class="property">object</span>=supplement</span><br><span class="line">            &#125;;</span><br><span class="line">            reader.<span class="title function_">readAsBinaryString</span>(file);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
 
-<h3 id="fecs"><a href="#fecs" class="headerlink" title="fecs"></a>fecs</h3><span id="more"></span>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">代码检查 / 格式化，从未如此简单</span><br><span class="line"></span><br><span class="line"><span class="attr">http</span>:<span class="comment">//fecs.baidu.com/</span></span><br></pre></td></tr></table></figure>
 
+<span id="more"></span>
+
+<h3 id="xlsx"><a href="#xlsx" class="headerlink" title="xlsx"></a>xlsx</h3><p>支持预览，读取，导出等excel操作</p>
+<p><a target="_blank" rel="noopener" href="https://docs.sheetjs.com/docs/">api文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fdxjava/p/17040470.html">参考文档</a></p>
+<p>xlsx 导出 el-table 中的数据为 excel</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 表格数据写入excel，并导出为Excel文件</span></span><br><span class="line"><span class="title function_">exportToExcel</span>(<span class="params">data, name = <span class="string">&quot;表格数据&quot;</span></span>) &#123;</span><br><span class="line">  <span class="comment">// 为啥用 require 应为低版本 import 得到的为null</span></span><br><span class="line">  <span class="keyword">const</span> <span class="variable constant_">XLSX</span> = <span class="built_in">require</span>(<span class="string">&quot;xlsx&quot;</span>);</span><br><span class="line">  <span class="comment">// 使用 this.$nextTick 是在dom元素都渲染完成之后再执行</span></span><br><span class="line">  <span class="variable language_">this</span>.$nextTick(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="comment">// 设置导出的内容是否只做解析，不进行格式转换     false：要解析， true:不解析</span></span><br><span class="line">    <span class="keyword">const</span> xlsxParam = &#123; <span class="attr">raw</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">    <span class="comment">// tableId 为 el-table 的 id</span></span><br><span class="line">    <span class="keyword">const</span> wb = <span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">table_to_book</span>(</span><br><span class="line">      <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(data.<span class="property">tableId</span>),</span><br><span class="line">      xlsxParam</span><br><span class="line">    );</span><br><span class="line">    <span class="comment">// 导出excel文件名</span></span><br><span class="line">    <span class="keyword">let</span> fileName = name + <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getTime</span>() + <span class="string">&quot;.xlsx&quot;</span>;</span><br><span class="line">    <span class="keyword">const</span> wbout = <span class="variable constant_">XLSX</span>.<span class="title function_">write</span>(wb, &#123;</span><br><span class="line">      <span class="attr">bookType</span>: <span class="string">&quot;xlsx&quot;</span>,</span><br><span class="line">      <span class="attr">bookSST</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;array&quot;</span></span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="comment">// 下载保存文件，此处也可以使用a标签下载</span></span><br><span class="line">      <span class="title class_">FileSaver</span>.<span class="title function_">saveAs</span>(</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Blob</span>([wbout], &#123; <span class="attr">type</span>: <span class="string">&quot;application/octet-stream&quot;</span> &#125;),</span><br><span class="line">        fileName</span><br><span class="line">      );</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">warn</span>(e, wbout);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> wbout;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="html-docx-js"><a href="#html-docx-js" class="headerlink" title="html-docx-js"></a><a target="_blank" rel="noopener" href="http://evidenceprime.github.io/html-docx-js/">html-docx-js</a></h3><p>​    将富文本内容导出为word文件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> htmlDocx <span class="keyword">from</span> <span class="string">&#x27;html-docx-js/dist/html-docx&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> saveAs <span class="keyword">from</span> <span class="string">&#x27;file-saver&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">exportClick</span>(<span class="params"></span>) &#123;</span><br><span class="line">      <span class="keyword">var</span> content = <span class="string">` &lt;h1&gt;This is an about page&lt;/h1&gt;</span></span><br><span class="line"><span class="string">      &lt;h2&gt;This is an about page&lt;/h2&gt;`</span></span><br><span class="line">      <span class="keyword">var</span> page = <span class="string">&#x27;&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;/head&gt;&lt;body&gt;&#x27;</span> + content + <span class="string">&#x27;&lt;/body&gt;&lt;/html&gt;&#x27;</span></span><br><span class="line">      <span class="keyword">var</span> converted = htmlDocx.<span class="title function_">asBlob</span>(page);</span><br><span class="line">      <span class="comment">// 用 FielSaver.js里的保存方法 进行输出</span></span><br><span class="line">      <span class="title function_">saveAs</span>(converted, <span class="string">&#x27;test.docx&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意 脚本中 with(obj||{}){ } 语法会报错 With statements cannot be used with the “esm” output format due to strict mode</p>
+<p>要将 with 语法 替换 掉</p>
+<p>原来</p>
+<p>with的作用，可以使 obj 中的属性在with作用域中直接使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> __t,__p=<span class="string">&#x27;&#x27;</span>,__j=<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">join</span>,print=<span class="keyword">function</span>(<span class="params"></span>)&#123;__p+=__j.<span class="title function_">call</span>(<span class="variable language_">arguments</span>,<span class="string">&#x27;&#x27;</span>);&#125;;</span><br><span class="line">    <span class="title function_">with</span>(<span class="params">obj||&#123;&#125;</span>)&#123;</span><br><span class="line">    __p+=<span class="string">&#x27;------=mhtDocumentPart\nContent-Type: &#x27;</span>+</span><br><span class="line">    ((__t=( contentType ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\nContent-Transfer-Encoding: &#x27;</span>+</span><br><span class="line">    ((__t=( contentEncoding ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\nContent-Location: &#x27;</span>+</span><br><span class="line">    ((__t=( contentLocation ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\n\n&#x27;</span>+</span><br><span class="line">    ((__t=( encodedContent ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> __p;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>新的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="keyword">function</span>(<span class="params">obj</span>)&#123;</span><br><span class="line">    <span class="keyword">var</span> __t,__p=<span class="string">&#x27;&#x27;</span>,__j=<span class="title class_">Array</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">join</span>,print=<span class="keyword">function</span>(<span class="params"></span>)&#123;__p+=__j.<span class="title function_">call</span>(<span class="variable language_">arguments</span>,<span class="string">&#x27;&#x27;</span>);&#125;;</span><br><span class="line">    <span class="keyword">if</span>(obj)&#123;</span><br><span class="line">    __p+=<span class="string">&#x27;------=mhtDocumentPart\nContent-Type: &#x27;</span>+</span><br><span class="line">    ((__t=( obj.<span class="property">contentType</span> ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\nContent-Transfer-Encoding: &#x27;</span>+</span><br><span class="line">    ((__t=( obj.<span class="property">contentEncoding</span> ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\nContent-Location: &#x27;</span>+</span><br><span class="line">    ((__t=( obj.<span class="property">contentLocation</span> ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\n\n&#x27;</span>+</span><br><span class="line">    ((__t=( obj.<span class="property">encodedContent</span> ))==<span class="literal">null</span>?<span class="string">&#x27;&#x27;</span>:__t)+</span><br><span class="line">    <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> __p;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-html2pdf"><a href="#vue-html2pdf" class="headerlink" title="vue-html2pdf"></a><a target="_blank" rel="noopener" href="https://github.com/kempsteven/vue-html2pdf">vue-html2pdf</a></h3><p>pdf导出的方案.<a target="_blank" rel="noopener" href="https://github.com/raiblaze/vue3-html2pdf">vue3版本分支</a>，</p>
+<h3 id="fecs"><a href="#fecs" class="headerlink" title="fecs"></a><a target="_blank" rel="noopener" href="http://fecs.baidu.com/">fecs</a></h3><p>代码检查 / 格式化，从未如此简单</p>
 <h3 id="Pinia"><a href="#Pinia" class="headerlink" title="Pinia"></a>Pinia</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pinia 是 Vue.js 的轻量级状态管理库，最近很受欢迎。它使用 Vue 3 中的新反应系统来构建一个直观且完全类型化的状态管理库。</span><br><span class="line"></span><br><span class="line">Pinia体积约1KB,轻量级，简单的项目应用项目性能有优化</span><br></pre></td></tr></table></figure>
 
 
@@ -773,8 +794,115 @@
 
 </li>
 </ol>
-<h2 id="localforage"><a href="#localforage" class="headerlink" title="localforage"></a><a target="_blank" rel="noopener" href="https://github.com/localForage/localForage">localforage</a></h2><blockquote>
+<h3 id="localforage"><a href="#localforage" class="headerlink" title="localforage"></a><a target="_blank" rel="noopener" href="https://github.com/localForage/localForage">localforage</a></h3><blockquote>
 <p>本地存储的最佳方案，localForage 是一个快速而简单的 JavaScript 存储库。localForage 通过将异步存储（IndexedDB 或 WebSQL）与简单的类似 <code>localStorage</code> 的 API 结合使用来改善 Web 应用的脱机体验。</p>
+</blockquote>
+<h3 id="VisActor"><a href="#VisActor" class="headerlink" title="VisActor"></a><a target="_blank" rel="noopener" href="https://visactor.io/">VisActor</a></h3><blockquote>
+<p>一个字节出品的前端数据可视化解决方案，分成图表库 <a target="_blank" rel="noopener" href="https://visactor.io/vchart">VChart</a> 和表格库 <a target="_blank" rel="noopener" href="https://visactor.io/vtable">VTable</a>。</p>
+<p>vchart 有播放动画，可以绘制动态数据随时间增长的动画</p>
+</blockquote>
+<h3 id="heatmap-js"><a href="#heatmap-js" class="headerlink" title="heatmap.js"></a><a target="_blank" rel="noopener" href="http://www.patrick-wied.at/static/heatmapjs/">heatmap.js</a></h3><blockquote>
+<p>Heatmap.js V2.0 是目前网络上最先进的热图可视化库。新的2.0版本 Heatmap.js 更快，拥有更强的渲染模块，使用更方便，因此您可以快速掌握和扩展自定义功能。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cungudafa/article/details/102869566">参考文章</a></p>
+</blockquote>
+<h3 id="Echo-UI"><a href="#Echo-UI" class="headerlink" title="Echo UI"></a><a target="_blank" rel="noopener" href="https://echoui.dev/zh/">Echo UI</a></h3><blockquote>
+<p>一款专为 Web Audio API 设计的 UI 库，适合用来搭建基于 Web 的音频应用。</p>
+<p>Light 指示灯</p>
+<p>Oscilloscope 示波器</p>
+<p>Spectrogram 频谱图</p>
+<p>VU Meter 音量表</p>
+<p>Waveform 波形图</p>
+<p>…</p>
+</blockquote>
+<h3 id="Animotion"><a href="#Animotion" class="headerlink" title="Animotion"></a><a target="_blank" rel="noopener" href="https://cssanimotion.pages.dev/">Animotion</a></h3><blockquote>
+<p>一个网页 CSS 动画生成器，可视化设定动画，自动生成代码。</p>
+</blockquote>
+<h3 id="Inpaint-web"><a href="#Inpaint-web" class="headerlink" title="Inpaint-web"></a><a target="_blank" rel="noopener" href="https://github.com/lxfater/inpaint-web">Inpaint-web</a></h3><blockquote>
+<p>要加载30M大小的包，开源的图片修复和超分辨率工具, 纯浏览器端实现。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://katex.org/">KaTeX</a></p>
+<blockquote>
+<p> LaTeX 数学渲染,在web页面展示复杂数学公式，使用 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/LaTeX/1212106">LateX</a> 语法。</p>
+<p> 配合这个<a target="_blank" rel="noopener" href="https://webdemo.myscript.com/">手写公式识别为LateX语法</a> 六的一批</p>
+</blockquote>
+<h3 id="音视频处理"><a href="#音视频处理" class="headerlink" title="音视频处理"></a><a target="_blank" rel="noopener" href="https://hughfenghen.github.io/WebAV/guide">音视频处理</a></h3><blockquote>
+<p>WebAV 项目包含三个模块，使用 TypeDoc 生成 API 文档</p>
+<ul>
+<li>@webav/av-cliper<ul>
+<li>提供音视频数据处理的基础 API</li>
+<li>包括：音视频解码、合成、拼接、裁剪等功能等等</li>
+</ul>
+</li>
+<li>@webav/av-recorder<ul>
+<li>录制 <code>MediaStream</code>，输出 MP4 视频</li>
+<li>在浏览器中，可以中 canvas、video、摄像头、麦克风、分享屏幕等 API 获取 <code>MediaStream</code> 对象</li>
+</ul>
+</li>
+<li>@webav/av-canvas<ul>
+<li>用户或代码可操作的“画布”，能添加、控制各种素材，支持输出 <code>MediaStream</code></li>
+<li>素材包括：摄像头、麦克风、屏幕、音视频文件、图片、文字</li>
+<li>输出 <code>MediaStream</code> 意味着能将“画布”内容推流至服务器或录制为本地视频</li>
+</ul>
+</li>
+</ul>
+<p><code>@webav/av-cliper</code> 的 API 相对多一些，建议先阅读<a target="_blank" rel="noopener" href="https://hughfenghen.github.io/WebAV/_api/av-cliper/#md:basic-concepts-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">基础概念</a>，有助于快速理解 DEMO 源码与其他 API</p>
+</blockquote>
+<h3 id="nginx代管理器"><a href="#nginx代管理器" class="headerlink" title="nginx代管理器"></a><a target="_blank" rel="noopener" href="https://nginxproxymanager.com/guide/">nginx代管理器</a></h3><blockquote>
+<p>这个项目是一个预构建的 docker 映像，使您能够<strong>轻松地转发</strong>到在家中或其他地方运行的<strong>网站</strong>，包括<strong>免费 SSL</strong>，而<strong>无需对 Nginx 或 Letsencrypt 了解太多</strong>。</p>
+</blockquote>
+<h3 id="mermaid-js"><a href="#mermaid-js" class="headerlink" title="mermaid.js"></a><a target="_blank" rel="noopener" href="https://github.com/mermaid-js/mermaid?tab=readme-ov-file">mermaid.js</a></h3><blockquote>
+<p>Mermaid 是一个基于 Javascript 的图表绘制工具，通过解析类 Markdown 的文本语法来实现图表的创建和动态修改。Mermaid <strong>诞生的主要目的是让文档的更新能够及时跟上开发进度。</strong></p>
+<p>可以快速实现 流程图、序列图、类图、状态图、实体关系图、用户旅程图、甘特图、饼图、象限图、需求图、git图、C4图、思维导图、时间线、桑基图、方框图…。但是<strong>可自定义性差</strong></p>
+<p><a target="_blank" rel="noopener" href="https://mermaid.live/edit#pako:eNp1Uk1vwjAM_SuRuYBUUPqxlkYT0kavO-02skNoDFSkSdWmAob470tbOrFJ88nPfn7xU3yF3EgEBltl8uN8i1ZwTVzkRrWlbkg4QGnyFYfM5G2J2nL4ZPdGU4kcXfuk_ecNB-Jaq2kHZ0OL647XqzMch4ZQjq9w16k9lssphxdyKiQSo5EUmtgDkrKQUiGH2SO1dgp1sT-MEqjl362Cf7bqTW037q3s1an-9jOC7C60HvlkPl-RbEDrHkhhcSsaHAe62p3e2Ityi5NdoRSbyFh6ja3NEdkkDMN7Pnc-7YFF1XmYAQ9KrEtRSPcn167GwdkvnXPmUinqIweub44nWmveLzoHthOqQQ_aqlsmK8S-FuVPtRL6wxiHbd0OENgVzsCScOGnEaVRHCSUpnTpwQVYkNIFpX6UJEHq-0EShDcPvnoBuojDOArT5VNMl0ka-W4CZWFN_TbcUH9Kt28H1K5A">在线演示</a></p>
+</blockquote>
+<p>html中使用</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add mermaid</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">&quot;mermaid&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  flowchart LR</span><br><span class="line">    A[班组长] --&gt;|开始| B(班主任)</span><br><span class="line">    B --&gt; C(教导主任)</span><br><span class="line">    B --&gt; D(教务处)</span><br><span class="line">    D --&gt; F(校长)</span><br><span class="line">    C --&gt; F</span><br><span class="line"> <span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">import</span> mermaid <span class="keyword">from</span> <span class="string">&#x27;https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs&#x27;</span>;</span></span><br><span class="line"><span class="language-javascript">mermaid.<span class="title function_">initialize</span>(&#123; <span class="attr">startOnLoad</span>: <span class="literal">true</span> &#125;);</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="whatsapp-web-js"><a href="#whatsapp-web-js" class="headerlink" title="whatsapp-web.js"></a><a target="_blank" rel="noopener" href="https://github.com/pedroslopez/whatsapp-web.js?utm_source=gold_browser_extension"><code>whatsapp-web.js</code></a></h3><blockquote>
+<p><code>whatsapp-web.js</code> 主要用于编写自动化脚本，用于自动化处理 <strong>WhatsApp</strong> Web 客户端的各种操作，例如自动回复、消息监控、群组管理等。这个库提供了一种灵活的方式来与 WhatsApp Web 进行交互，并且可以根据需要进行定制和扩展。</p>
+<p>有点类似于socket.io ,两个库都涉及到在 Node.js 环境中的通信，但它们的使用场景和目的完全不同。<code>whatsapp-web.js</code> 用于控制 <strong>WhatsApp</strong> Web 客户端，而 <code>Socket.IO</code> 用于实现实时通信功能</p>
+</blockquote>
+<h3 id="image-coversion"><a href="#image-coversion" class="headerlink" title="image-coversion"></a><a target="_blank" rel="noopener" href="https://github.com/WangYuLue/image-conversion">image-coversion</a></h3><blockquote>
+<p>图片压缩插件，使用场景，上传高质量图片前进行压缩。减少图片大小。详情查看文档。</p>
+<p>依赖原生 fetch、promise ,不支持IE11</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 指定压缩图片到200kb</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">view</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> file = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;demo&#x27;</span>).<span class="property">files</span>[<span class="number">0</span>];</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(file);</span><br><span class="line">  <span class="keyword">const</span> res = <span class="keyword">await</span> imageConversion.<span class="title function_">compressAccurately</span>(file,<span class="number">200</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(res);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="mammoth"><a href="#mammoth" class="headerlink" title="mammoth"></a><a target="_blank" rel="noopener" href="https://github.com/mwilliamson/mammoth.js">mammoth</a></h3><blockquote>
+<p>一个将 docx转html 的插件。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://fly-barrage.netlify.app/guide/quick-start.html">canvas 弹幕库</a></p>
+<blockquote>
+<p><strong>功能完善</strong></p>
+<p>支持滚动弹幕、顶部弹幕、底部弹幕、高级弹幕</p>
+<p><strong>文字、图片混搭</strong></p>
+<p>弹幕内容支持混入图片</p>
+<p><strong>自定义渲染</strong></p>
+<p>提供自定义渲染接口，高度定制化弹幕渲染</p>
+<p><strong>不局限于特定框架</strong></p>
+<p>原生 Html、Vue、React 均可使用，不局限上层应用所使用的框架</p>
+</blockquote>
+<h3 id="koodo"><a href="#koodo" class="headerlink" title="koodo"></a><a target="_blank" rel="noopener" href="https://github.com/koodo-reader/koodo-reader?tab=readme-ov-file">koodo</a></h3><blockquote>
+<p>Koodo Reader 是一个开源免费的电子书阅读器，支持多达15种主流电子书格式， 内置笔记、高亮、翻译功能，助力高效书籍阅读和学习。支持 Windows、macOS、Linux 和网页版</p>
+</blockquote>
+<h3 id="vconsole"><a href="#vconsole" class="headerlink" title="vconsole"></a><a target="_blank" rel="noopener" href="https://github.com/Tencent/vConsole">vconsole</a></h3><blockquote>
+<p>一个轻量、可拓展、针对手机网页的前端开发者调试面板。</p>
+<p>vConsole 是框架无关的，可以在 Vue、React 或其他任何框架中使用。</p>
+<p>现在 vConsole 是微信小程序的官方调试工具。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7134219358301077517?searchId=20240222174257D00581DF83F659312EE4&utm_source=gold_browser_extension#heading-3">其他拓展</a></p>
+</blockquote>
+<h3 id="pear-rec"><a href="#pear-rec" class="headerlink" title="pear-rec"></a><a target="_blank" rel="noopener" href="https://027xiguapi.github.io/pear-rec/">pear-rec</a></h3><blockquote>
+<p>本插件提供了录屏、录音、录像、预览图片、预览视频功能。</p>
+</blockquote>
+<h3 id="blossom"><a href="#blossom" class="headerlink" title="blossom"></a><a target="_blank" rel="noopener" href="https://gitee.com/blossom-editor/blossom?utm_source=gold_browser_extension">blossom</a></h3><blockquote>
+<p>个支持私有部署的云端存储双链笔记软件，你可以将你所有的笔记，图片，个人计划安排保存在自己的服务器中，并在任意设备之间实时同步。同时还是一个个人博客。</p>
+</blockquote>
+<p><img src="https://gitee.com/blossom-editor/blossom/raw/dev/doc/imgs/device.png" alt="home"></p>
+<h3 id="whistle"><a href="#whistle" class="headerlink" title="whistle"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7330151205770412095?searchId=20240321152558EDA551202F6D8B7D2C7F">whistle</a></h3><blockquote>
+<p>好多人认为whistle是抓包工具，殊不知抓包只是whistle能力的冰山一角。除了抓包外，它还能修改请求与响应、真机调试h5移动端、解决跨域、域名映射等等等。总而言之，使用whistle能够提升我们的开发效率，改善开发体验。</p>
+<p>whistle一出手就是抓包工具的极限，那年它双手插兜不知道什么是对手（doge）。</p>
 </blockquote>
 
     
@@ -932,7 +1060,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">2.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">3.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">4.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">5.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">5.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">6.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">7.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">8.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">9.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">10.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">11.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">12.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">13.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">14.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">15.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">16.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">17.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">18.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">19.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">20.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">21.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">22.</span> <span class="toc-text">Inquirer.js与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">23.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">24.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">25.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">26.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">27.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">28.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">29.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">30.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">31.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">32.</span> <span class="toc-text">LeaferJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%90%84%E7%BB%B4%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="toc-number">33.</span> <span class="toc-text">图形库各维度对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fabric-js"><span class="toc-number">33.1.</span> <span class="toc-text">fabric.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#konva-js"><span class="toc-number">33.2.</span> <span class="toc-text">konva.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leaflet-js"><span class="toc-number">33.3.</span> <span class="toc-text">leaflet.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pixi-js"><span class="toc-number">33.4.</span> <span class="toc-text">pixi.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">33.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anime-js"><span class="toc-number">34.</span> <span class="toc-text">Anime.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-removal-js"><span class="toc-number">35.</span> <span class="toc-text">background-removal-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-animate"><span class="toc-number">36.</span> <span class="toc-text">auto-animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Statistics"><span class="toc-number">37.</span> <span class="toc-text">Simple Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jTopo"><span class="toc-number">38.</span> <span class="toc-text">jTopo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E9%A3%8E%E5%A4%A9%E6%B0%94%E6%8F%92%E4%BB%B6"><span class="toc-number">39.</span> <span class="toc-text">和风天气插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mark-js"><span class="toc-number">40.</span> <span class="toc-text">mark.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pictode"><span class="toc-number">41.</span> <span class="toc-text">Pictode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EasyPlayer"><span class="toc-number">42.</span> <span class="toc-text">EasyPlayer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number"></span> <span class="toc-text">About</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyLD"><span class="toc-number">1.</span> <span class="toc-text">TinyLD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VineJS"><span class="toc-number">2.</span> <span class="toc-text">VineJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antv-x6"><span class="toc-number">3.</span> <span class="toc-text">antv-x6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BApdf"><span class="toc-number">4.</span> <span class="toc-text">导出pdf</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localforage"><span class="toc-number"></span> <span class="toc-text">localforage</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlsx"><span class="toc-number">2.</span> <span class="toc-text">xlsx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html-docx-js"><span class="toc-number">3.</span> <span class="toc-text">html-docx-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-html2pdf"><span class="toc-number">4.</span> <span class="toc-text">vue-html2pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">5.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">6.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">7.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">8.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">8.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">9.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">10.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">11.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">12.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">13.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">14.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">15.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">16.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">17.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">18.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">19.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">20.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">21.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">22.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">23.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">24.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">25.</span> <span class="toc-text">Inquirer.js与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">26.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">27.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">28.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">29.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">30.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">31.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">32.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">33.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">34.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">35.</span> <span class="toc-text">LeaferJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%90%84%E7%BB%B4%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="toc-number">36.</span> <span class="toc-text">图形库各维度对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fabric-js"><span class="toc-number">36.1.</span> <span class="toc-text">fabric.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#konva-js"><span class="toc-number">36.2.</span> <span class="toc-text">konva.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leaflet-js"><span class="toc-number">36.3.</span> <span class="toc-text">leaflet.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pixi-js"><span class="toc-number">36.4.</span> <span class="toc-text">pixi.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">36.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anime-js"><span class="toc-number">37.</span> <span class="toc-text">Anime.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-removal-js"><span class="toc-number">38.</span> <span class="toc-text">background-removal-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-animate"><span class="toc-number">39.</span> <span class="toc-text">auto-animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Statistics"><span class="toc-number">40.</span> <span class="toc-text">Simple Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jTopo"><span class="toc-number">41.</span> <span class="toc-text">jTopo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E9%A3%8E%E5%A4%A9%E6%B0%94%E6%8F%92%E4%BB%B6"><span class="toc-number">42.</span> <span class="toc-text">和风天气插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mark-js"><span class="toc-number">43.</span> <span class="toc-text">mark.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pictode"><span class="toc-number">44.</span> <span class="toc-text">Pictode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EasyPlayer"><span class="toc-number">45.</span> <span class="toc-text">EasyPlayer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number"></span> <span class="toc-text">About</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyLD"><span class="toc-number">1.</span> <span class="toc-text">TinyLD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VineJS"><span class="toc-number">2.</span> <span class="toc-text">VineJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antv-x6"><span class="toc-number">3.</span> <span class="toc-text">antv-x6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BApdf"><span class="toc-number">4.</span> <span class="toc-text">导出pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localforage"><span class="toc-number">5.</span> <span class="toc-text">localforage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisActor"><span class="toc-number">6.</span> <span class="toc-text">VisActor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#heatmap-js"><span class="toc-number">7.</span> <span class="toc-text">heatmap.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Echo-UI"><span class="toc-number">8.</span> <span class="toc-text">Echo UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animotion"><span class="toc-number">9.</span> <span class="toc-text">Animotion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inpaint-web"><span class="toc-number">10.</span> <span class="toc-text">Inpaint-web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">音视频处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E4%BB%A3%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">12.</span> <span class="toc-text">nginx代管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mermaid-js"><span class="toc-number">13.</span> <span class="toc-text">mermaid.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whatsapp-web-js"><span class="toc-number">14.</span> <span class="toc-text">whatsapp-web.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#image-coversion"><span class="toc-number">15.</span> <span class="toc-text">image-coversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mammoth"><span class="toc-number">16.</span> <span class="toc-text">mammoth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koodo"><span class="toc-number">17.</span> <span class="toc-text">koodo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vconsole"><span class="toc-number">18.</span> <span class="toc-text">vconsole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pear-rec"><span class="toc-number">19.</span> <span class="toc-text">pear-rec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blossom"><span class="toc-number">20.</span> <span class="toc-text">blossom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whistle"><span class="toc-number">21.</span> <span class="toc-text">whistle</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1102,11 +1230,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,15 +1238,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,7 +1254,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,15 +1286,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1162,7 +1302,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1170,19 +1318,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1190,11 +1330,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1210,23 +1354,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1238,7 +1370,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1246,11 +1378,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1266,15 +1398,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1282,7 +1410,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1294,11 +1422,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1306,7 +1434,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1322,7 +1450,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1334,23 +1474,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1362,7 +1494,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

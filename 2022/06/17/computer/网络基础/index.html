@@ -22,10 +22,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/dns.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/osi.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/iso-tcp.png">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052913.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/ipType.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E5%9F%9F%E5%90%8D.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-25T08:16:41.938Z">
+<meta property="article:modified_time" content="2024-03-20T02:13:43.332Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="科普">
 <meta name="twitter:card" content="summary">
@@ -294,7 +295,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">4.1k字</span>
+      <span class="post-count">5.6k字</span>
     </span>
   </span>
 
@@ -303,7 +304,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">15分</span>
+      <span class="post-count">20分</span>
     </span>
   </span>
 </div>
@@ -367,11 +368,82 @@
 <p>网络接口层：Ethernet(以太网协议)</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/iso-tcp.png"></p>
-<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">◆全网唯一性，标识每个设备的位置和身份</span><br><span class="line">◆<span class="title class_">IPv4</span>地址</span><br><span class="line">	*用<span class="number">32</span>位二进制数表示</span><br><span class="line">		<span class="number">11000000</span> <span class="number">10101000</span> <span class="number">00001010</span> <span class="number">01111010</span></span><br><span class="line">		<span class="number">192</span>		<span class="number">168</span>		<span class="number">10</span>		<span class="number">123</span></span><br><span class="line">		</span><br><span class="line"><span class="variable constant_">IP</span>地址的构成</span><br><span class="line">	◆网络号 + 主机号</span><br><span class="line">		-主机号全为<span class="number">0</span>，代表本网络的网络地址号</span><br><span class="line">		-主机号全为<span class="number">1</span>，代表本网段的广播地址</span><br><span class="line">	网络号	   主机号</span><br><span class="line"></span><br><span class="line">	<span class="variable constant_">IP</span>地址分为 <span class="variable constant_">ABCDE</span>类，不同类型的ip网络号主机号位数不一致</span><br><span class="line">    常用地址类型<span class="variable constant_">ABC</span></span><br><span class="line">    </span><br><span class="line">    A类地址范围：<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">127.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">0.</span>X.<span class="property">Y</span>.<span class="property">Z</span>, <span class="number">10.</span>X.<span class="property">Y</span>.<span class="property">Z</span>, <span class="number">127.</span>X.<span class="property">Y</span>.<span class="property">Z</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">7</span> - <span class="number">3</span> = <span class="number">125</span> 网络（<span class="number">8</span>位网络号，开头为<span class="number">0</span>，三个特殊用途）</span><br><span class="line">    A网可容纳 <span class="number">2</span>^<span class="number">24</span> -<span class="number">2</span> = <span class="number">16777214</span>台主机（主机号不能全<span class="number">1</span>/全<span class="number">0</span>）</span><br><span class="line"></span><br><span class="line">    B类地址范围：<span class="number">128.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">191.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">172.31</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">14</span> - <span class="number">16</span> = <span class="number">16368</span> 网络</span><br><span class="line">    B网可容纳 <span class="number">2</span>^<span class="number">16</span> -<span class="number">2</span> = <span class="number">65534</span>台主机</span><br><span class="line">    </span><br><span class="line">    C类地址范围：<span class="number">192.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">233.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">192.168</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">21</span> - <span class="number">255</span> = <span class="number">2096896</span> 网络</span><br><span class="line">    c网可容纳 <span class="number">2</span>^<span class="number">8</span> -<span class="number">2</span> = <span class="number">254</span>台主机</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>物理层</p>
+<p>  <strong>它就是把电脑连接起来的物理手段。它主要规定了网络的一些电气特性，作用是负责传送0和1的电信号。</strong></p>
+</li>
+<li><p>链路层</p>
+<p>  单纯的0和1没有任何意义，必须规定解读方式：多少个电信号算一组？每个信号位有何意义？</p>
+<p>  <strong>这就是”链接层”的功能，它在”实体层”的上方，确定了0和1的分组方式。</strong></p>
+<ul>
+<li><strong>以太网协议</strong> 规定，一组电信号构成一个数据包，叫做”帧”（Frame）。每一帧分成两个部分：标头（Head）和数据（Data）。</li>
+</ul>
+</li>
+<li><p>网络层</p>
+<p>  单纯的MAC地址通信效率底，不适用于大范围互联网中使用。<strong>这就导致了”网络层”的诞生。它的作用是引进一套新的地址，使得我们能够区分不同的计算机是否属于同一个子网络。这套地址就叫做”网络地址”，简称”网址”</strong></p>
+<ul>
+<li><strong>IP协议</strong> 根据IP协议发送的数据，就叫做IP数据包。在 以太网协议 数据包头部新增了ip数据包</li>
+<li><strong>ARP协议</strong> 获取同一个子网络内的主机MAC地址</li>
+</ul>
+</li>
+<li><p>传输层</p>
+<p>  有了MAC地址和IP地址，我们已经可以在互联网上任意两台主机上建立通信。但是pc机上程序之间的通信呢？</p>
+<p>  “端口”是0到65535之间的一个整数，正好16个二进制位。0到1023的端口被系统占用，用户只能选用大于1023的端口。不管是浏览网页还是在线聊天，应用程序会随机选用一个端口，然后与服务器的相应端口联系。</p>
+<p>  <strong>“传输层”的功能，就是建立”端口到端口”的通信。相比之下，”网络层”的功能是建立”主机到主机”的通信。只要确定主机和端口，我们就能实现程序之间的交流。</strong>因此，Unix系统就把主机+端口，叫做”套接字”（socket）。有了它，就可以进行网络应用程序开发了。</p>
+<ul>
+<li><strong>UDP协议</strong> 把整个UDP数据包放入IP数据包的”数据”部分，无法知道接收方是否收到信息，可靠性较差</li>
+<li><strong>TCP协议</strong> 加强了可靠性，能够确保数据不会遗失。它的缺点是过程复杂、实现困难、消耗较多的资源。</li>
+</ul>
+</li>
+<li><p>应用层</p>
+<p>  <strong>“应用层”的作用，就是规定应用程序的数据格式。</strong></p>
+<p>  举例来说，TCP协议可以为各种各样的程序传递数据，比如Email、WWW、FTP等等。那么，必须有不同协议规定电子邮件、网页、FTP数据的格式，这些应用程序协议就构成了”应用层”。</p>
+<p>  它的数据就放在<strong>TCP数据包的”数据”部分</strong>。此时的以太网数据包：</p>
+<p>  <img src="http://www.ruanyifeng.com/blogimg/asset/201205/bg2012052913.png" alt="img"></p>
+</li>
+</ul>
+<h3 id="IP地址"><a href="#IP地址" class="headerlink" title="IP地址"></a>IP地址</h3><blockquote>
+<p>IP协议的作用主要有两个，一个是为每一台计算机分配IP地址，另一个是确定哪些地址在同一个子网络。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">◆全网唯一性，标识每个设备的位置和身份</span><br><span class="line">◆<span class="title class_">IPv4</span>地址</span><br><span class="line">	*用<span class="number">32</span>位二进制数表示</span><br><span class="line">		<span class="number">11000000</span> <span class="number">10101000</span> <span class="number">00001010</span> <span class="number">01111010</span></span><br><span class="line">		<span class="number">192</span>		<span class="number">168</span>		<span class="number">10</span>		<span class="number">123</span></span><br><span class="line">		</span><br><span class="line"><span class="variable constant_">IP</span>地址的构成</span><br><span class="line">	◆网络号 + 主机号</span><br><span class="line">		-主机号全为<span class="number">0</span>，代表本网络的网络地址号</span><br><span class="line">		-主机号全为<span class="number">1</span>，代表本网段的广播地址</span><br><span class="line">	网络号	   主机号</span><br><span class="line"></span><br><span class="line">	<span class="variable constant_">IP</span>地址分为 <span class="variable constant_">ABCDE</span>类，不同类型的ip网络号主机号位数不一致</span><br><span class="line">    常用地址类型<span class="variable constant_">ABC</span></span><br><span class="line">    </span><br><span class="line">    A类地址范围：<span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">127.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">0.</span>X.<span class="property">Y</span>.<span class="property">Z</span>, <span class="number">10.</span>X.<span class="property">Y</span>.<span class="property">Z</span>, <span class="number">127.</span>X.<span class="property">Y</span>.<span class="property">Z</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">7</span> - <span class="number">3</span> = <span class="number">125</span> 网络（<span class="number">8</span>位网络号，开头为<span class="number">0</span>，三个特殊用途）</span><br><span class="line">    A网可容纳 <span class="number">2</span>^<span class="number">24</span> -<span class="number">2</span> = <span class="number">16777214</span>台主机（主机号不能全<span class="number">1</span>/全<span class="number">0</span>）</span><br><span class="line"></span><br><span class="line">    B类地址范围：<span class="number">128.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">191.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">172.16</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">172.31</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">14</span> - <span class="number">16</span> = <span class="number">16368</span> 网络</span><br><span class="line">    B网可容纳 <span class="number">2</span>^<span class="number">16</span> -<span class="number">2</span> = <span class="number">65534</span>台主机</span><br><span class="line">    </span><br><span class="line">    C类地址范围：<span class="number">192.0</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">233.255</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">    特殊用途：<span class="number">192.168</span><span class="number">.0</span><span class="number">.0</span>~<span class="number">192.168</span><span class="number">.255</span><span class="number">.255</span></span><br><span class="line">	可分配 <span class="number">2</span>^<span class="number">21</span> - <span class="number">255</span> = <span class="number">2096896</span> 网络</span><br><span class="line">    c网可容纳 <span class="number">2</span>^<span class="number">8</span> -<span class="number">2</span> = <span class="number">254</span>台主机</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/ipType.png"></p>
+<p>A类最大网络号127 为 本地回环测试地址</p>
+<h3 id="子网掩码"><a href="#子网掩码" class="headerlink" title="子网掩码"></a>子网掩码</h3><blockquote>
+<p>子网掩码不能单独存在，它必须结合IP地址一起使用。子网掩码只有一个作用，就是将某个IP地址划分成网络地址（网络号）和主机地址两部分。</p>
+<p>说的通俗的话，就是用来分割子网和区分那些ip是同一个网段的，那些不是同一网段的。</p>
+</blockquote>
+<p>相同网段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip地址：192.168.1.1  子网掩码：255.255.255.0</span><br><span class="line">ip地址：192.168.1.2 子网掩码：255.255.255.0</span><br></pre></td></tr></table></figure>
+
+<p>不相同网段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ip地址：192.168.1.1 子网掩码：255.255.255.0</span><br><span class="line"></span><br><span class="line">ip地址：192.168.1.2 子网掩码：255.255.0.0</span><br></pre></td></tr></table></figure>
+
+<p>根据<strong>ip</strong>地址与<strong>子网掩码</strong>计算<strong>网络号</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ip地址			二进制表示</span><br><span class="line">192.168.1.1       11000000 10101000 00000001 00000001</span><br><span class="line"></span><br><span class="line">子网掩码</span><br><span class="line">255.255.255.0     11111111.11111111.11111111.00000000</span><br><span class="line"></span><br><span class="line">两者相“与(and)&quot;运算【同是1返回1，其他返回0】</span><br><span class="line">                  11000000 10101000 00000001 00000000</span><br><span class="line">转换成网络号就是：  192.168.1.0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ip地址</span><br><span class="line">192.168.2.1     11000000 10101000 00000010 00000001</span><br><span class="line">子网掩码</span><br><span class="line">255.255.255.0   11111111.11111111.11111111.00000000</span><br><span class="line">计算             11000000 10101000 00000010 00000000</span><br><span class="line">转换成网络号就是：192.168.2.0</span><br><span class="line"></span><br><span class="line">网络号相同则属于同一网段，反之则不是同一网段</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="子网划分"><a href="#子网划分" class="headerlink" title="子网划分"></a>子网划分</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">◆把一个较大的网络划分成几个较小的子网</span><br><span class="line">◆从主机号分出若干位作为子网号</span><br><span class="line">◆<span class="variable constant_">IP</span>地址由两级变成三级</span><br><span class="line"></span><br><span class="line">	两级 <span class="variable constant_">IP</span> 地址 ： 网络号 主机号</span><br><span class="line">    三级 <span class="variable constant_">IP</span> 地址 ： 网络号 子网号 主机号</span><br><span class="line">    </span><br><span class="line">    <span class="attr">rg</span>:</span><br><span class="line">	C类地址</span><br><span class="line">	<span class="number">11000000</span> <span class="number">10101000</span> <span class="number">0001010</span> <span class="number">01111010</span></span><br><span class="line">						    子网号 主机号</span><br><span class="line">							<span class="number">01</span>   <span class="number">111010</span></span><br><span class="line">	划分后怎么确定<span class="variable constant_">IP</span>地址的网络号？</span><br><span class="line">    </span><br><span class="line">    子网掩码（<span class="number">32</span>位）： 前面全是网络号（<span class="number">1</span>表示） 后面全是主机号（<span class="number">0</span>表示）</span><br><span class="line">    <span class="comment">// 子网掩码的网络号 = 原网络号 + 子网号</span></span><br><span class="line">    上面<span class="variable constant_">IP</span>地址的子网掩码</span><br><span class="line">    <span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11111111</span> <span class="number">11000000</span></span><br><span class="line">	<span class="comment">//十进制</span></span><br><span class="line">	<span class="number">255.255</span><span class="number">.255</span><span class="number">.192</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
+<p>大部分的情况下，我们网络中只要不超过254台主机的的话，子网掩码都可以设置成255.255.255.0。那么超过了254台主机的话怎么办呢?</p>
+<p>C类地址为例：</p>
+<p>假设网络中有<strong>600</strong>个点位，我们现在也不想把它划分vlan(实际项目中大部分是会划分vlan的)，假设只想用一个大网段把这600个点位分配ip地址，如何设置ip地址，如何确定子网掩码?</p>
+<p>分析：首先我们知道600个点位，可以使用3个254个ip地址段来分配。</p>
+<p>可以使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ip段一：192.168.0.1——192.168.0.254</span><br><span class="line"></span><br><span class="line">ip段二：192.168.1.1——192.168.1.254</span><br><span class="line"></span><br><span class="line">ip段三：192.168.2.1——192.168.2.254</span><br></pre></td></tr></table></figure>
+
+<p>每个网段有254个ip地址，完全够600个点位用的。</p>
+<p>那么问题来了，如果要<strong>使这三个ip段在同一个网段内</strong>，那么这个大网段<strong>共同的子网掩码是多少</strong>呢?</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">十进制ip		二进制</span><br><span class="line">192.168.0.1	11000000 10101000 00000000 00000001</span><br><span class="line">192.168.1.1	11000000 10101000 00000001 00000001</span><br><span class="line">192.168.2.1	11000000 10101000 00000010 00000001</span><br></pre></td></tr></table></figure>
+
+<p>可以看出二进制中3个ip前22位是相同的。可以将他们表示成：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ip段一：192.168.0.1/22</span><br><span class="line"></span><br><span class="line">ip段二：192.168.1.1/22</span><br><span class="line"></span><br><span class="line">ip段三：192.168.2.1/22</span><br></pre></td></tr></table></figure>
+
+<p>也就是说他们共同的子网掩码二进制前面22个都是1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">二进制	11111111 11111111 11111100 00000000</span><br><span class="line">十进制 255.255.252.0</span><br></pre></td></tr></table></figure>
+
+<p>他们共同的子网掩码就是<strong>255.255.252.0</strong></p>
 <h3 id="域名"><a href="#域名" class="headerlink" title="域名"></a>域名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">因为<span class="variable constant_">IP</span>不方便人们记忆，所以出现的域名</span><br><span class="line">但实际使用时，电脑会将域名转换为<span class="variable constant_">IP</span>在进行访问，由此出现了<span class="variable constant_">DNS</span>域名服务器</span><br><span class="line">▪采用层次结构，从左到右，域的范围变大</span><br><span class="line"></span><br><span class="line">电脑没有设置<span class="variable constant_">DNS</span>域名服务器，上网只能使用<span class="variable constant_">IP</span>地址访问</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E5%9F%9F%E5%90%8D.png"></p>
@@ -495,18 +567,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/computer/%E8%99%9A%E6%8B%9F%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          什么是信息
+          VMware Workstation15虚拟机
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">echarts 基础使用</div>
+    <a href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">echarts 优化与实践</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -533,7 +605,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Internet%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">1、Internet服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81-www-%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1、 www(网页服务)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81TCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2、TCP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3、UDP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81HTTP-HTTPS"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4、HTTP&#x2F;HTTPS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81DNS%EF%BC%9ADomain-Name-Server%EF%BC%88%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2、DNS：Domain Name Server（域名服务器）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81IP-%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">1.3.</span> <span class="toc-text">3、IP&#x2F;端口号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.</span> <span class="toc-text">4、流媒体协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91"><span class="toc-number">1.5.</span> <span class="toc-text">互联网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-number">1.5.1.</span> <span class="toc-text">互联网的传输介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%85%B3%E9%94%AE%E8%AE%BE%E5%A4%87"><span class="toc-number">1.5.2.</span> <span class="toc-text">互联网的关键设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.3.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.5.4.</span> <span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">1.5.5.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">1.5.6.</span> <span class="toc-text">域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">什么是操作系统？</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">网络基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Internet%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.</span> <span class="toc-text">1、Internet服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E3%80%81-www-%E7%BD%91%E9%A1%B5%E6%9C%8D%E5%8A%A1"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1、 www(网页服务)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E3%80%81TCP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2、TCP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E3%80%81UDP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.1.3.</span> <span class="toc-text">1.3、UDP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4%E3%80%81HTTP-HTTPS"><span class="toc-number">1.1.4.</span> <span class="toc-text">1.4、HTTP&#x2F;HTTPS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81DNS%EF%BC%9ADomain-Name-Server%EF%BC%88%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2、DNS：Domain Name Server（域名服务器）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81IP-%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">1.3.</span> <span class="toc-text">3、IP&#x2F;端口号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E6%B5%81%E5%AA%92%E4%BD%93%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.4.</span> <span class="toc-text">4、流媒体协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91"><span class="toc-number">1.5.</span> <span class="toc-text">互联网</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E4%BC%A0%E8%BE%93%E4%BB%8B%E8%B4%A8"><span class="toc-number">1.5.1.</span> <span class="toc-text">互联网的传输介质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%92%E8%81%94%E7%BD%91%E7%9A%84%E5%85%B3%E9%94%AE%E8%AE%BE%E5%A4%87"><span class="toc-number">1.5.2.</span> <span class="toc-text">互联网的关键设备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.5.3.</span> <span class="toc-text">TCP&#x2F;IP协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IP%E5%9C%B0%E5%9D%80"><span class="toc-number">1.5.4.</span> <span class="toc-text">IP地址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E6%8E%A9%E7%A0%81"><span class="toc-number">1.5.5.</span> <span class="toc-text">子网掩码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%90%E7%BD%91%E5%88%92%E5%88%86"><span class="toc-number">1.5.6.</span> <span class="toc-text">子网划分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D"><span class="toc-number">1.5.7.</span> <span class="toc-text">域名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">什么是操作系统？</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -703,11 +775,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -715,15 +783,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -731,7 +799,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,15 +831,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -763,7 +847,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -771,19 +863,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -791,11 +875,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -811,23 +899,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -839,7 +915,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -847,11 +923,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -867,15 +943,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -883,7 +955,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -895,11 +967,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,7 +979,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -923,7 +995,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -935,23 +1019,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -963,7 +1039,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

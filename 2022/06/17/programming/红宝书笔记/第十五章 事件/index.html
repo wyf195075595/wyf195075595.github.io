@@ -10,16 +10,16 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。  事件流1234567891、事件冒泡事件定义从最为具体的元素开始触发，">
+  <meta name="description" content="JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。  事件流1、事件冒泡事件定义从最为具体的元素开始触发，然后传播至没那么具">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第十五章 事件">
 <meta property="og:url" content="https://wyf195075595.github.io/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0%20%E4%BA%8B%E4%BB%B6/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。  事件流1234567891、事件冒泡事件定义从最为具体的元素开始触发，">
+<meta property="og:description" content="JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。  事件流1、事件冒泡事件定义从最为具体的元素开始触发，然后传播至没那么具">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/things.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-25T08:18:26.695Z">
+<meta property="article:modified_time" content="2024-02-29T01:21:15.101Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="红宝书笔记">
 <meta name="twitter:card" content="summary">
@@ -288,7 +288,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.9k字</span>
+      <span class="post-count">4.3k字</span>
     </span>
   </span>
 
@@ -297,7 +297,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">15分</span>
+      <span class="post-count">17分</span>
     </span>
   </span>
 </div>
@@ -311,12 +311,295 @@
     <blockquote>
 <p>JavaScript 与 HTML 的交互是通过事件实现的，事件代表文档或浏览器窗口中某个有意义的时刻。 可以使用仅在事件发生时执行的监听器（也叫处理程序）订阅事件。在传统软件工程领域，这个模型叫 “观察者模式”，其能够做到页面行为（在 JavaScript 中定义）与页面展示（在 HTML 和 CSS 中定义）的 分离。</p>
 </blockquote>
-<h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、事件冒泡</span><br><span class="line">事件定义从最为具体的元素开始触发，然后传播至没那么具体的元素</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、事件捕获</span><br><span class="line">最不具体的元素节点应该最先受到事件，而最具体的元素因该最后收到事件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="title class_">DOM2</span> <span class="title class_">Events</span> 规范规定事件流分为 <span class="number">3</span> 个阶段：事件捕获、到达目标和事件冒泡。事件捕获最先发生， 为提前拦截事件提供了可能。然后，实际的目标元素接收到事件。最后一个阶段是冒泡，最迟要在这个 阶段响应事件。仍以前面那个简单的 <span class="variable constant_">HTML</span> 为例，点击&lt;div&gt;元素会以如图 <span class="number">17</span>-<span class="number">3</span> 所示的顺序触发事件。</span><br></pre></td></tr></table></figure>
-
+<h3 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h3><p>1、事件冒泡<br>事件定义从最为具体的元素开始触发，然后传播至没那么具体的元素</p>
+<p>2、事件捕获<br>最不具体的元素节点应该最先受到事件，而最具体的元素因该最后收到事件</p>
 <span id="more"></span>
 
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/things.png"></p>
-<h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">DOM0</span></span><br><span class="line"></span><br><span class="line">元素.<span class="property">on</span> + 事件名 = 处理函数</span><br><span class="line">元素.<span class="property">on</span> + 事件名 = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">DOM2</span></span><br><span class="line"></span><br><span class="line">-addEventListener</span><br><span class="line">-removeEventListener</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">IE</span></span><br><span class="line"></span><br><span class="line">-attachEvent</span><br><span class="line">-detachEvent</span><br><span class="line"></span><br><span class="line">兼容写法</span><br><span class="line"><span class="keyword">var</span> <span class="title class_">EventUtil</span> = &#123; </span><br><span class="line">    <span class="attr">addHandler</span>: <span class="keyword">function</span>(<span class="params">element, type, handler</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (element.<span class="property">addEventListener</span>) &#123; </span><br><span class="line">            element.<span class="title function_">addEventListener</span>(type, handler, <span class="literal">false</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">attachEvent</span>) &#123; </span><br><span class="line">            element.<span class="title function_">attachEvent</span>(<span class="string">&quot;on&quot;</span> + type, handler); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            element[<span class="string">&quot;on&quot;</span> + type] = handler; &#125; </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">removeHandler</span>: <span class="keyword">function</span>(<span class="params">element, type, handler</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (element.<span class="property">removeEventListener</span>) &#123; </span><br><span class="line">            element.<span class="title function_">removeEventListener</span>(type, handler, <span class="literal">false</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">detachEvent</span>) &#123; </span><br><span class="line">            element.<span class="title function_">detachEvent</span>(<span class="string">&quot;on&quot;</span> + type, handler); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            element[<span class="string">&quot;on&quot;</span> + type] = <span class="literal">null</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">getEvent</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> event ? event : <span class="variable language_">window</span>.<span class="property">event</span>; &#125;</span><br><span class="line">    ,</span><br><span class="line">    <span class="attr">getTarget</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> event.<span class="property">target</span> || event.<span class="property">srcElement</span>; </span><br><span class="line">    &#125;,</span><br><span class="line">	<span class="attr">stopPropagation</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (event.<span class="property">stopPropagation</span>) &#123; </span><br><span class="line">            event.<span class="title function_">stopPropagation</span>(); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            event.<span class="property">cancelBubble</span> = <span class="literal">true</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">preventDefault</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (event.<span class="property">preventDefault</span>) &#123; </span><br><span class="line">            event.<span class="title function_">preventDefault</span>(); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            event.<span class="property">returnValue</span> = <span class="literal">false</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">DOM</span>事件对象</span><br><span class="line"></span><br><span class="line">bubbles 		布尔值 	只读 表示事件是否冒泡 </span><br><span class="line">cancelable 		布尔值 	只读 表示是否可以取消事件的默认行为 </span><br><span class="line">currentTarget 	元素 		只读 当前事件处理程序所在的元素 </span><br><span class="line">defaultPrevented 	布尔值 	只读 <span class="literal">true</span> 表示已经调用 </span><br><span class="line"><span class="title function_">preventDefault</span>()	方法		（<span class="title class_">DOM3</span> <span class="title class_">Events</span> 中新增）阻止默认行为</span><br><span class="line">detail 				整数 		只读 事件相关的其他信息</span><br><span class="line">eventPhase 			整数 		只读 表示调用事件处理程序的阶段：<span class="number">1</span> 代表捕获阶段，<span class="number">2</span> 代表 到达目标，<span class="number">3</span> 代表冒泡阶								段 </span><br><span class="line"><span class="title function_">preventDefault</span>() 	函数 		只读 用于取消事件的默认行为。只有 cancelable 为 <span class="literal">true</span> 才 可以调用这个方法 <span class="title function_">stopImmediatePropagation</span>() 	函数 	只读 用于取消所有后续事件捕获或事件冒泡，并阻止调用任 何后续事件处理程序（<span class="title class_">DOM3</span> <span class="title class_">Events</span> 中新增） </span><br><span class="line"><span class="title function_">stopPropagation</span>()	 函数 只读 用于取消所有后续事件捕获或事件冒泡。只有 bubbles 为 <span class="literal">true</span> 才可以调用这个方法 </span><br><span class="line">target 	元素 	只读 事件目标 </span><br><span class="line">trusted 布尔值 只读 <span class="literal">true</span> 表示事件是由浏览器生成的。<span class="literal">false</span> 表示事件是开 发者通过 <span class="title class_">JavaScript</span> 	创建的（<span class="title class_">DOM3</span> <span class="title class_">Events</span> 中新增） </span><br><span class="line">type 	字符串 只读 被触发的事件类型 </span><br><span class="line"><span class="title class_">View</span> 	<span class="title class_">AbstractView</span> 	只读 与事件相关的抽象视图。等于事件所发生的 <span class="variable language_">window</span> 对象</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="variable constant_">IE</span> <span class="variable constant_">DOM</span>事件对象</span><br><span class="line">	<span class="variable constant_">IE</span>中的 event 对象 储存在<span class="variable language_">window</span> 上</span><br><span class="line">cancelBubble 布尔值 读/写 默认为 <span class="literal">false</span>，设置为 <span class="literal">true</span> 可以取消冒泡（与 <span class="variable constant_">DOM</span> 的 <span class="title function_">stopPropagation</span>()方法相同）</span><br><span class="line">returnValue 布尔值 读/写 默认为 <span class="literal">true</span>，设置为 <span class="literal">false</span> 可以取消事件默认行为 （与 <span class="variable constant_">DOM</span> 的 <span class="title function_">preventDefault</span>()方法相同） </span><br><span class="line">srcElement 元素 只读 事件目标（与 <span class="variable constant_">DOM</span> 的 target 属性相同） type 字符串 只读 触发的事件类型</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">事件类型</span><br><span class="line"></span><br><span class="line"> 用户界面事件（<span class="title class_">UIEvent</span>）：涉及与 <span class="variable constant_">BOM</span> 交互的通用浏览器事件。 </span><br><span class="line">    -load：在 <span class="variable language_">window</span> 上当页面加载完成后触发，在窗套（&lt;frameset&gt;）上当所有窗格（&lt;frame&gt;） 都加载完成后触发，在&lt;img&gt;元素上当图片加载完成后触发，在&lt;object&gt;元素上当相应对象加 载完成后触发。</span><br><span class="line">	</span><br><span class="line">    注意 根据 <span class="title class_">DOM2</span> <span class="title class_">Events</span>，load 事件应该在 <span class="variable language_">document</span> 而非 <span class="variable language_">window</span> 上触发。可是为了 向后兼容，所有浏览器都在 <span class="variable language_">window</span> 上实现了 load 事件。</span><br><span class="line">    </span><br><span class="line">    -unload：在 <span class="variable language_">window</span> 上当页面完全卸载后触发，在窗套上当所有窗格都卸载完成后触发，在 &lt;object&gt;元素上当相应对象卸载完成后触发。</span><br><span class="line"></span><br><span class="line">	两种形式监听</span><br><span class="line">    <span class="number">1</span>、<span class="variable language_">window</span>.<span class="title function_">addEventlistener</span>(<span class="string">&#x27;load&#x27;</span>,<span class="function">()=&gt;</span>&#123;&#125;)</span><br><span class="line">    <span class="number">2</span>、&lt;body onunload=<span class="string">&quot;console.log(&#x27;Unloaded!&#x27;)&quot;</span>&gt;&lt;/body&gt;</span><br><span class="line">	因为 unload 事件是在页面卸载完成后触发 的，所以不能使用页面加载后才有的对象。此时要访问 <span class="variable constant_">DOM</span> 或修改页面外观都会导致错误。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    -abort：在&lt;object&gt;元素上当相应对象加载完成前被用户提前终止下载时触发。</span><br><span class="line">	</span><br><span class="line">    -error：在 <span class="variable language_">window</span> 上当 <span class="title class_">JavaScript</span> 报错时触发，在&lt;img&gt;元素上当无法加载指定图片时触发， 在&lt;object&gt;元素上当无法加载相应对象时触发，在窗套上当一个或多个窗格无法完成加载时 触发。</span><br><span class="line"></span><br><span class="line">	-select：在文本框（&lt;input&gt;或 textarea）上当用户选择了一个或多个字符时触发。 </span><br><span class="line">    </span><br><span class="line">    -resize：在 <span class="variable language_">window</span> 或窗格上当窗口或窗格被缩放时触发。 </span><br><span class="line">    </span><br><span class="line">    -scroll：当用户滚动包含滚动条的元素时在元素上触发。&lt;body&gt;元素包含已加载页面的滚动条。</span><br><span class="line">	混杂模式 检测body，标准模式下,除早期<span class="title class_">Safari</span>其他浏览器都在html元素上 </span><br><span class="line">	<span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;scroll&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">compatMode</span> == <span class="string">&quot;CSS1Compat&quot;</span>) &#123; </span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollTop</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollTop</span>); </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 焦点事件（<span class="title class_">FocusEvent</span>）：在元素获得和失去焦点时触发。 </span><br><span class="line">	-blur：当元素失去焦点时触发。这个事件不冒泡，所有浏览器都支持。</span><br><span class="line">    -focus：当元素获得焦点时触发。这个事件不冒泡，所有浏览器都支持。 </span><br><span class="line">    -focusin：当元素获得焦点时触发。这个事件是 focus 的冒泡版。 </span><br><span class="line">    -focusout：当元素失去焦点时触发。这个事件是 blur 的通用版。</span><br><span class="line"></span><br><span class="line">    当焦点从页面中的一个元素移到另一个元素上时，会依次发生如下事件。 </span><br><span class="line">    (<span class="number">1</span>) focuscout 在失去焦点的元素上触发。 </span><br><span class="line">    (<span class="number">2</span>) focusin 在获得焦点的元素上触发。 </span><br><span class="line">    (<span class="number">3</span>) blur 在失去焦点的元素上触发。 </span><br><span class="line">    (<span class="number">4</span>) focus 在获得焦点的元素上触发。 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> 鼠标事件（<span class="title class_">MouseEvent</span>）：使用鼠标在页面上执行某些操作时触发。 </span><br><span class="line">	- click：在用户单击鼠标主键（通常是左键）或按键盘回车键时触发。</span><br><span class="line">    </span><br><span class="line">    - dblclick：在用户双击鼠标主键（通常是左键）时触发。</span><br><span class="line">    </span><br><span class="line">    - mousedown：在用户按下任意鼠标键时触发。这个事件不能通过键盘触发。</span><br><span class="line"></span><br><span class="line">	- mouseenter：在用户把鼠标光标从元素外部移到元素内部时触发。这个事件不冒泡，也不会在 光标经过后代元素时触发。<span class="title class_">DOM3</span> <span class="title class_">Events</span> 中新增的事件。 </span><br><span class="line">    - mouseleave：在用户把鼠标光标从元素内部移到元素外部时触发。这个事件不冒泡，也不会在 光标经过后代元素时触发。</span><br><span class="line">    - mousemove：在鼠标光标在元素上移动时反复触发。这个事件不能通过键盘触发。 </span><br><span class="line">    - mouseout：在用户把鼠标光标从一个元素移到另一个元素上时触发。移到的元素可以是原始元 素的外部元素，也可以是原始元素的子元素。这个事件不能通过键盘触发。 </span><br><span class="line">    - mouseover：在用户把鼠标光标从元素外部移到元素内部时触发。这个事件不能通过键盘触发。 </span><br><span class="line">    - mouseup：在用户释放鼠标键时触发。这个事件不能通过键盘触发。</span><br><span class="line"></span><br><span class="line">	这 <span class="number">4</span> 个事件永远会按照如下顺序触发： </span><br><span class="line">    (<span class="number">1</span>) mousedown </span><br><span class="line">    (<span class="number">2</span>) mouseup </span><br><span class="line">    (<span class="number">3</span>) click </span><br><span class="line">    (<span class="number">4</span>) mousedown </span><br><span class="line">    (<span class="number">5</span>) mouseup </span><br><span class="line">    (<span class="number">6</span>) click </span><br><span class="line">    (<span class="number">7</span>) dblclick</span><br><span class="line">    </span><br><span class="line">    鼠标事件坐标</span><br><span class="line">        -客户端坐标 相对于浏览器窗口坐标</span><br><span class="line">        -页面坐标	浏览器中页面坐标，页面没有滚动调时与客户端坐标一致</span><br><span class="line">        -屏幕坐标	相对于电脑屏幕的坐标</span><br><span class="line"></span><br><span class="line">    修饰键</span><br><span class="line">        <span class="variable constant_">DOM</span>规定了<span class="number">4</span>个修饰键：shiftKey、ctrlKey、altKey 和 metaKey。通过event.<span class="property">metaKey</span>访问</span><br><span class="line"></span><br><span class="line">    相关元素</span><br><span class="line">         <span class="attr">relativeTarget</span>:这个属性只有在<span class="title function_">mouseover</span>(移除相关元素到目标元素)、<span class="title function_">mouseout</span>(移出目标元素到相关元素)事件发生时才包含。其他事件中为<span class="literal">null</span></span><br><span class="line"></span><br><span class="line">    鼠标按键</span><br><span class="line">        <span class="variable constant_">DOM</span> 为这个 button 属性定义了 <span class="number">3</span> 个值：</span><br><span class="line">        <span class="number">0</span> 表示鼠标主键、</span><br><span class="line">        <span class="number">1</span> 表示鼠标中键（通常 也是滚轮键）、</span><br><span class="line">        <span class="number">2</span> 表示鼠标副键。</span><br><span class="line">        按照惯例，鼠标主键通常是左边的按键，副键通常是右边的按键。</span><br><span class="line">   </span><br><span class="line">额外信息</span><br><span class="line">   	<span class="title class_">DOM2</span> <span class="title class_">Events</span> 规范在 event 对象上提供了 detail 属性，以给出关于事件的更多信息。对鼠标事 件来说，detail 包含一个数值，表示在给定位置上发生了多少次单击。</span><br><span class="line">   	</span><br><span class="line"> 滚轮事件（<span class="title class_">WheelEvent</span>）：使用鼠标滚轮（或类似设备）时触发。</span><br><span class="line">	</span><br><span class="line">	和（在所有现代浏览器中）<span class="variable language_">window</span>。mousewheel 事件的 event 对象包含 鼠标事件的所有标准信息，此外还有一个名为 wheelDelta 的新属性。当鼠标滚轮向前滚动时， wheelDelta 每次都是+<span class="number">120</span>；而当鼠标滚轮向后滚动时，wheelDelta 每次都是–<span class="number">120</span></span><br><span class="line"></span><br><span class="line"> 输入事件（<span class="title class_">InputEvent</span>）：向文档中输入文本时触发。 </span><br><span class="line"></span><br><span class="line">     keydown，用户按下键盘上某个键时触发，而且持续按住会重复触发。 </span><br><span class="line">     keypress，用户按下键盘上某个键并产生字符时触发，而且持续按住会重复触发。<span class="title class_">Esc</span> 键也会 触发这个事件。<span class="title class_">DOM3</span> <span class="title class_">Events</span> 废弃了 keypress 事件，而推荐 textInput 事件。 </span><br><span class="line">     keyup，用户释放键盘上某个键时触发。</span><br><span class="line">	</span><br><span class="line">    textInput事件:</span><br><span class="line">		在字符被输入到可编辑区域时触发，只有新字符插入时才会触发。其event对象上提供data属性，包含要插入的字符</span><br><span class="line">    键码：keyCode  </span><br><span class="line">    字符编码：charCode (只有发生keypress事件时才会被设置值) </span><br><span class="line">	<span class="title class_">DOM3</span>变化：</span><br><span class="line">    	新增 <span class="attr">key</span>: 用于代替keyCode. </span><br><span class="line">        	<span class="attr">char</span>: 按下字符键时返回与key类似，非字符键为<span class="literal">null</span></span><br><span class="line"></span><br><span class="line"> 键盘事件（<span class="title class_">KeyboardEvent</span>）：使用键盘在页面上执行某些操作时触发。 </span><br><span class="line"></span><br><span class="line"> 合成事件（<span class="title class_">CompositionEvent</span>）：在使用某种 <span class="variable constant_">IME</span>（<span class="title class_">Input</span> <span class="title class_">Method</span> <span class="title class_">Editor</span>，输入法编辑器）输入 字符时触发。</span><br><span class="line"></span><br><span class="line">	用于处理 <span class="variable constant_">IME</span> 输入时的复杂出入序列</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="title class_">HTML5</span> 事件</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>、contextmenu事件</span><br><span class="line">	上下文菜单事件</span><br><span class="line"></span><br><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&quot;contextmenu&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    event.<span class="title function_">preventDefault</span>(); </span><br><span class="line">    <span class="keyword">let</span> menu = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myMenu&quot;</span>); </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">left</span> = event.<span class="property">clientX</span> + <span class="string">&quot;px&quot;</span>; </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">top</span> = event.<span class="property">clientY</span> + <span class="string">&quot;px&quot;</span>; </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">visibility</span> = <span class="string">&quot;visible&quot;</span>; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myMenu&quot;</span>).<span class="property">style</span>.<span class="property">visibility</span> = <span class="string">&quot;hidden&quot;</span>; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、beforeunload 事件</span><br><span class="line">	用于提供阻止用户离开页面的机会，事件不能被取消</span><br><span class="line">	<span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;beforeunload&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="keyword">let</span> message = <span class="string">&quot;I&#x27;m really going to miss you if you go.&quot;</span>; </span><br><span class="line">        event.<span class="property">returnValue</span> = message; </span><br><span class="line">        <span class="keyword">return</span> message; </span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="title class_">DOMContentLoaded</span> 事件</span><br><span class="line">	load事件会在页面完全加载后触发，会花费较长时间。而此事件会在<span class="variable constant_">DOM</span>树构建完成后立即触发，不需要等待 img,js,css等资源加载完成。此期间 可用于下载资源同时指定事件处理程序，更快完成页面交互。</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Content loaded&quot;</span>); &#125;);</span><br><span class="line">	可以使用 <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;&#125;,<span class="number">0</span>) 代替</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">模拟事件</span><br><span class="line">	<span class="variable language_">document</span>.<span class="title function_">createEvent</span>() 接收一个参数</span><br><span class="line">     <span class="string">&quot;UIEvents&quot;</span>（<span class="title class_">DOM3</span> 中是<span class="string">&quot;UIEvent&quot;</span>）：通用用户界面事件（鼠标事件和键盘事件都继承自这 个事件）。 </span><br><span class="line">     <span class="string">&quot;MouseEvents&quot;</span>（<span class="title class_">DOM3</span> 中是<span class="string">&quot;MouseEvent&quot;</span>）：通用鼠标事件。 </span><br><span class="line">     <span class="string">&quot;HTMLEvents&quot;</span>（<span class="title class_">DOM3</span> 中没有）：通用 <span class="variable constant_">HTML</span> 事件（<span class="variable constant_">HTML</span> 事件已经分散到了其他事件大类中）。</span><br><span class="line">	</span><br><span class="line">    <span class="attr">eg</span>:模拟单击事件</span><br><span class="line">    </span><br><span class="line">        <span class="title function_">initMouseEvent</span>()方法接收 <span class="number">15</span> 个参数，分别对应鼠标事件会暴露的属性。这些参数列举如下。</span><br><span class="line">         type（字符串）：要触发的事件类型，如<span class="string">&quot;click&quot;</span>。 </span><br><span class="line">         bubbles（布尔值）：表示事件是否冒泡。为精确模拟鼠标事件，应该设置为 <span class="literal">true</span>。</span><br><span class="line">         cancelable（布尔值）：表示事件是否可以取消。为精确模拟鼠标事件，应该设置为 <span class="literal">true</span>。 </span><br><span class="line">         view（<span class="title class_">AbstractView</span>）：与事件关联的视图。基本上始终是 <span class="variable language_">document</span>.<span class="property">defaultView</span>。 </span><br><span class="line">         detail（整数）：关于事件的额外信息。只被事件处理程序使用，通常为 <span class="number">0</span>。 </span><br><span class="line">         screenX（整数）：事件相对于屏幕的 x 坐标。 </span><br><span class="line">         screenY（整数）：事件相对于屏幕的 y 坐标。 </span><br><span class="line">         clientX（整数）：事件相对于视口的 x 坐标。 </span><br><span class="line">         clientY（整数）：事件相对于视口的 y 坐标。 </span><br><span class="line">         ctrlkey（布尔值）：表示是否按下了 <span class="title class_">Ctrl</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">         altkey（布尔值）：表示是否按下了 <span class="title class_">Alt</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">         shiftkey（布尔值）：表示是否按下了 <span class="title class_">Shift</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">         metakey（布尔值）：表示是否按下了 <span class="title class_">Meta</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">         button（整数）：表示按下了哪个按钮。默认为 <span class="number">0</span>。 </span><br><span class="line">         relatedTarget（对象）：与事件相关的对象。只在模拟 mouseover 和 mouseout 时使用。</span><br><span class="line"></span><br><span class="line">        <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myBtn&quot;</span>); </span><br><span class="line">        <span class="comment">// 创建 event 对象 </span></span><br><span class="line">        <span class="keyword">let</span> event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;MouseEvents&quot;</span>); </span><br><span class="line">        <span class="comment">// 初始化 event 对象 </span></span><br><span class="line">        event.<span class="title function_">initMouseEvent</span>(<span class="string">&quot;click&quot;</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="variable language_">document</span>.<span class="property">defaultView</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">0</span>, <span class="literal">null</span>); </span><br><span class="line">        <span class="comment">// 触发事件 </span></span><br><span class="line">        btn.<span class="title function_">dispatchEvent</span>(event);</span><br><span class="line"></span><br><span class="line">	模拟键盘事件</span><br><span class="line">    	<span class="title function_">initKeyboardEvent</span>()方法。这个方法接收以下参数。</span><br><span class="line">         type（字符串）：要触发的事件类型，如<span class="string">&quot;keydown&quot;</span>。 </span><br><span class="line">         bubbles（布尔值）：表示事件是否冒泡。为精确模拟键盘事件，应该设置为 <span class="literal">true</span>。 </span><br><span class="line">         cancelable（布尔值）：表示事件是否可以取消。为精确模拟键盘事件，应该设置为 <span class="literal">true</span>。</span><br><span class="line">         view（<span class="title class_">AbstractView</span>）：与事件关联的视图。基本上始终是 <span class="variable language_">document</span>.<span class="property">defaultView</span>。 </span><br><span class="line">         key（字符串）：按下按键的字符串代码。</span><br><span class="line">         location（整数）：按下按键的位置。<span class="number">0</span> 表示默认键，<span class="number">1</span> 表示左边，<span class="number">2</span> 表示右边，<span class="number">3</span> 表示数字键盘， <span class="number">4</span> 表示移动设备（虚拟键盘），<span class="number">5</span> 表示游戏手柄。 </span><br><span class="line">         modifiers（字符串）：空格分隔的修饰键列表，如<span class="string">&quot;Shift&quot;</span>。 </span><br><span class="line">         repeat（整数）：连续按了这个键多少次。</span><br><span class="line"></span><br><span class="line">	<span class="comment">//注意，DOM3 Events 废弃了 keypress 事件，因此只能通过上述方式模拟 keydown 和 keyup 事件：</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">let</span> textbox = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myTextbox&quot;</span>), event; </span><br><span class="line">        <span class="comment">// 按照 DOM3 的方式创建 event 对象 </span></span><br><span class="line">		<span class="comment">//因为其他浏览器可能返回非标准的 KeyboardEvent 对象</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">hasFeature</span>(<span class="string">&quot;KeyboardEvents&quot;</span>, <span class="string">&quot;3.0&quot;</span>)) &#123; </span><br><span class="line">            event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;KeyboardEvent&quot;</span>); </span><br><span class="line">            <span class="comment">// 初始化 event 对象 </span></span><br><span class="line">            event.<span class="title function_">initKeyboardEvent</span>(<span class="string">&quot;keydown&quot;</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="variable language_">document</span>.<span class="property">defaultView</span>, <span class="string">&quot;a&quot;</span>, <span class="number">0</span>, <span class="string">&quot;Shift&quot;</span>, <span class="number">0</span>); </span><br><span class="line">        &#125; </span><br><span class="line">        <span class="comment">// 触发事件 </span></span><br><span class="line">        textbox.<span class="title function_">dispatchEvent</span>(event);</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	模拟其他事件（<span class="variable constant_">HTML</span>事件在浏览器中很少使用，因为它们用处有限。）</span><br><span class="line">    	<span class="keyword">let</span> event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;HTMLEvents&quot;</span>); </span><br><span class="line">        event.<span class="title function_">initEvent</span>(<span class="string">&quot;focus&quot;</span>, <span class="literal">true</span>, <span class="literal">false</span>); </span><br><span class="line">        target.<span class="title function_">dispatchEvent</span>(event);</span><br><span class="line"></span><br><span class="line">自定义事件</span><br><span class="line">    <span class="title function_">createEvent</span>(<span class="string">&quot;CustomEvent&quot;</span>)</span><br><span class="line">	<span class="title function_">initCustomEvent</span>()方法，该方法接收以下 <span class="number">4</span> 个参数。 </span><br><span class="line">         type（字符串）：要触发的事件类型，如<span class="string">&quot;myevent&quot;</span>。 </span><br><span class="line">         bubbles（布尔值）：表示事件是否冒泡。 </span><br><span class="line">         cancelable（布尔值）：表示事件是否可以取消。 </span><br><span class="line">         detail（对象）：任意值。作为 event 对象的 detail 属性。</span><br><span class="line">        </span><br><span class="line">     <span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>), event; </span><br><span class="line">    div.<span class="title function_">addEventListener</span>(<span class="string">&quot;myevent&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;DIV: &quot;</span> + event.<span class="property">detail</span>); </span><br><span class="line">    &#125;); </span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;myevent&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;DOCUMENT: &quot;</span> + event.<span class="property">detail</span>); </span><br><span class="line">    &#125;); </span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">hasFeature</span>(<span class="string">&quot;CustomEvents&quot;</span>, <span class="string">&quot;3.0&quot;</span>)) &#123; </span><br><span class="line">        event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;CustomEvent&quot;</span>); </span><br><span class="line">        event.<span class="title function_">initCustomEvent</span>(<span class="string">&quot;myevent&quot;</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">        div.<span class="title function_">dispatchEvent</span>(event); </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="attr">eg2</span>:</span><br><span class="line">		</span><br><span class="line">	<span class="comment">// 派发一个自定义事件，通知UI自己正忙</span></span><br><span class="line">	<span class="variable language_">document</span>.<span class="title function_">dispatchEvebt</span>(<span class="keyword">new</span> <span class="title class_">CustomEvent</span>(<span class="string">&#x27;busy&#x27;</span>, &#123;<span class="attr">detail</span>: <span class="literal">true</span>&#125;));</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// 执行网络操作</span></span><br><span class="line">	<span class="title function_">fetch</span>(url)</span><br><span class="line">		.<span class="title function_">then</span>(handleNetworkResponse)</span><br><span class="line">		.<span class="title function_">catch</span>(handleNetworkError)</span><br><span class="line">		.<span class="title function_">finally</span>(<span class="function">()=&gt;</span> &#123;</span><br><span class="line">        	<span class="comment">// 通知UI自己现在已经不忙了</span></span><br><span class="line">        	<span class="variable language_">document</span>.<span class="title function_">dispatchEvent</span>(<span class="keyword">new</span> <span class="title class_">CustomEvent</span>(<span class="string">&#x27;busy&#x27;</span>, &#123;<span class="attr">deatil</span>: <span class="literal">false</span>&#125;));</span><br><span class="line">    &#125;)</span><br><span class="line">	<span class="comment">// 在代码其他地方为 busy 事件注册一个处理程序</span></span><br><span class="line">	<span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;busy&#x27;</span>, <span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(e.<span class="property">deatil</span>) &#123;</span><br><span class="line">            <span class="title function_">showSpianner</span>();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="title function_">hideSpinner</span>();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h3><ul>
+<li><p>DOM0</p>
+<ul>
+<li>元素.on + 事件名 = 处理函数</li>
+<li>元素.on + 事件名 = null</li>
+</ul>
+</li>
+<li><p>DOM2</p>
+<ul>
+<li>-addEventListener</li>
+<li>-removeEventListener</li>
+</ul>
+</li>
+<li><p>IE</p>
+<ul>
+<li>-attachEvent</li>
+<li>-detachEvent</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 兼容写法</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">EventUtil</span> = &#123; </span><br><span class="line">    <span class="attr">addHandler</span>: <span class="keyword">function</span>(<span class="params">element, type, handler</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (element.<span class="property">addEventListener</span>) &#123; </span><br><span class="line">            element.<span class="title function_">addEventListener</span>(type, handler, <span class="literal">false</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">attachEvent</span>) &#123; </span><br><span class="line">            element.<span class="title function_">attachEvent</span>(<span class="string">&quot;on&quot;</span> + type, handler); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            element[<span class="string">&quot;on&quot;</span> + type] = handler; &#125; </span><br><span class="line">    &#125;, </span><br><span class="line">    <span class="attr">removeHandler</span>: <span class="keyword">function</span>(<span class="params">element, type, handler</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (element.<span class="property">removeEventListener</span>) &#123; </span><br><span class="line">            element.<span class="title function_">removeEventListener</span>(type, handler, <span class="literal">false</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.<span class="property">detachEvent</span>) &#123; </span><br><span class="line">            element.<span class="title function_">detachEvent</span>(<span class="string">&quot;on&quot;</span> + type, handler); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            element[<span class="string">&quot;on&quot;</span> + type] = <span class="literal">null</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">getEvent</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> event ? event : <span class="variable language_">window</span>.<span class="property">event</span>; &#125;</span><br><span class="line">    ,</span><br><span class="line">    <span class="attr">getTarget</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">return</span> event.<span class="property">target</span> || event.<span class="property">srcElement</span>; </span><br><span class="line">    &#125;,</span><br><span class="line">	<span class="attr">stopPropagation</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (event.<span class="property">stopPropagation</span>) &#123; </span><br><span class="line">            event.<span class="title function_">stopPropagation</span>(); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            event.<span class="property">cancelBubble</span> = <span class="literal">true</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">preventDefault</span>: <span class="keyword">function</span>(<span class="params">event</span>) &#123; </span><br><span class="line">        <span class="keyword">if</span> (event.<span class="property">preventDefault</span>) &#123; </span><br><span class="line">            event.<span class="title function_">preventDefault</span>(); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            event.<span class="property">returnValue</span> = <span class="literal">false</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="DOM事件对象"><a href="#DOM事件对象" class="headerlink" title="DOM事件对象"></a>DOM事件对象</h3><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bubbles</td>
+<td>布尔值</td>
+<td>只读 表示事件是否冒泡</td>
+</tr>
+<tr>
+<td>cancelable</td>
+<td>布尔值</td>
+<td>只读 表示是否可以取消事件的默认行为</td>
+</tr>
+<tr>
+<td>currentTarget</td>
+<td>元素</td>
+<td>只读 当前事件处理程序所在的元素</td>
+</tr>
+<tr>
+<td>defaultPrevented</td>
+<td>布尔值</td>
+<td>只读 true 表示已经调用</td>
+</tr>
+<tr>
+<td>preventDefault()</td>
+<td>方法</td>
+<td>（DOM3 Events 中新增）阻止默认行为</td>
+</tr>
+<tr>
+<td>detail</td>
+<td>整数</td>
+<td>只读 事件相关的其他信息</td>
+</tr>
+<tr>
+<td>eventPhase</td>
+<td>整数</td>
+<td>只读 表示调用事件处理程序的阶段：1 代表捕获阶段，2 代表 到达目标，3 代表冒泡阶段</td>
+</tr>
+<tr>
+<td>preventDefault()</td>
+<td>函数</td>
+<td>只读 用于取消事件的默认行为。只有 cancelable 为 true 才 可以调用这个方法</td>
+</tr>
+<tr>
+<td>stopImmediatePropagation()</td>
+<td>函数</td>
+<td>只读 用于取消所有后续事件捕获或事件冒泡，并阻止调用任 何后续事件处理程序（DOM3 Events 中新增）</td>
+</tr>
+<tr>
+<td>stopPropagation()</td>
+<td>函数</td>
+<td>只读 用于取消所有后续事件捕获或事件冒泡。只有 bubbles 为 true 才可以调用这个方法</td>
+</tr>
+<tr>
+<td>target</td>
+<td>元素</td>
+<td>只读 事件目标</td>
+</tr>
+<tr>
+<td>trusted</td>
+<td>布尔值</td>
+<td>只读 true表示事件是由浏览器生成的。false 表示事件是开 发者通过 JavaScript     创建的（DOM3 Events 中新增）</td>
+</tr>
+<tr>
+<td>type</td>
+<td>字符串</td>
+<td>只读 被触发的事件类型</td>
+</tr>
+<tr>
+<td>View</td>
+<td>AbstractView</td>
+<td>只读 与事件相关的抽象视图。等于事件所发生的 window 对象</td>
+</tr>
+</tbody></table>
+<h4 id="IE-DOM事件对象"><a href="#IE-DOM事件对象" class="headerlink" title="IE DOM事件对象"></a>IE DOM事件对象</h4><p>​    IE中的 event 对象 储存在window 上</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cancelBubble</td>
+<td>布尔值</td>
+<td>读/写 默认为 false，设置为 true 可以取消冒泡（与 DOM 的 stopPropagation()方法相同）</td>
+</tr>
+<tr>
+<td>returnValue</td>
+<td>布尔值</td>
+<td>读/写 默认为 true，设置为 false 可以取消事件默认行为 （与 DOM 的 preventDefault()方法相同）</td>
+</tr>
+<tr>
+<td>srcElement</td>
+<td>元素</td>
+<td>只读 事件目标（与 DOM 的 target 属性相同） type 字符串 只读 触发的事件类型</td>
+</tr>
+</tbody></table>
+<h3 id="事件类型"><a href="#事件类型" class="headerlink" title="事件类型"></a>事件类型</h3><h4 id="-用户界面事件（UIEvent）"><a href="#-用户界面事件（UIEvent）" class="headerlink" title=" 用户界面事件（UIEvent）"></a> 用户界面事件（UIEvent）</h4><p>涉及与 BOM 交互的通用浏览器事件。 </p>
+<h5 id="load"><a href="#load" class="headerlink" title="load"></a><strong>load</strong></h5><p>在 window 上当页面加载完成后触发，在窗套（&lt;frameset&gt;）上当所有窗格（&lt;frame&gt;） 都加载完成后触发，在&lt;img&gt;元素上当图片加载完成后触发，在&lt;object&gt;元素上当相应对象加 载完成后触发。</p>
+<blockquote>
+<p>注意 根据 DOM2 Events，load 事件应该在 document 而非 window 上触发。可是为了 向后兼容，所有浏览器都在 window 上实现了 load 事件。</p>
+</blockquote>
+<h5 id="unload"><a href="#unload" class="headerlink" title="unload"></a><strong>unload</strong></h5><p>在 window 上当页面完全卸载后触发，在窗套上当所有窗格都卸载完成后触发，在\ <object>元素上当相应对象卸载完成后触发。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">两种形式监听</span><br><span class="line"><span class="number">1</span>、<span class="variable language_">window</span>.<span class="title function_">addEventlistener</span>(<span class="string">&#x27;load&#x27;</span>,<span class="function">()=&gt;</span>&#123;&#125;)</span><br><span class="line"><span class="number">2</span>、&lt;body onunload=<span class="string">&quot;console.log(&#x27;Unloaded!&#x27;)&quot;</span>&gt;&lt;/body&gt;</span><br><span class="line">因为 unload 事件是在页面卸载完成后触发 的，所以不能使用页面加载后才有的对象。此时要访问 <span class="variable constant_">DOM</span> 或修改页面外观都会导致错误。</span><br></pre></td></tr></table></figure>
+
+<h5 id="abort"><a href="#abort" class="headerlink" title="abort"></a><strong>abort</strong></h5><p>在&lt;object&gt;元素上当相应对象加载完成前被用户提前终止下载时触发。</p>
+<h5 id="error"><a href="#error" class="headerlink" title="error"></a><strong>error</strong></h5><p>在 window 上当 JavaScript 报错时触发，在&lt;img&gt;元素上当无法加载指定图片时触发， 在&lt;object&gt;元素上当无法加载相应对象时触发，在窗套上当一个或多个窗格无法完成加载时 触发。</p>
+<h5 id="select"><a href="#select" class="headerlink" title="select"></a><strong>select</strong></h5><p>在文本框（&lt;input&gt;或 textarea）上当用户选择了一个或多个字符时触发。 </p>
+<h5 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h5><p>在 window 或窗格上当窗口或窗格被缩放时触发。 </p>
+<h5 id="scroll"><a href="#scroll" class="headerlink" title="scroll"></a>scroll</h5><p>当用户滚动包含滚动条的元素时在元素上触发。&lt;body&gt;元素包含已加载页面的滚动条。<br>混杂模式 检测body，标准模式下,除早期Safari其他浏览器都在html元素上 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;scroll&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">compatMode</span> == <span class="string">&quot;CSS1Compat&quot;</span>) &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">documentElement</span>.<span class="property">scrollTop</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">document</span>.<span class="property">body</span>.<span class="property">scrollTop</span>); </span><br><span class="line">    &#125; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="-焦点事件（FocusEvent）"><a href="#-焦点事件（FocusEvent）" class="headerlink" title=" 焦点事件（FocusEvent）"></a> 焦点事件（FocusEvent）</h4><p>在元素获得和失去焦点时触发。 </p>
+<ul>
+<li><p>​    blur：当元素失去焦点时触发。这个事件不冒泡，所有浏览器都支持。<br>  ​    </p>
+</li>
+<li><p>focus：当元素获得焦点时触发。这个事件不冒泡，所有浏览器都支持。 </p>
+</li>
+<li><p>focusin：当元素获得焦点时触发。这个事件是 focus 的冒泡版。 </p>
+</li>
+<li><p>focusout：当元素失去焦点时触发。这个事件是 blur 的通用版。</p>
+<p>  当焦点从页面中的一个元素移到另一个元素上时，会依次发生如下事件。<br>  (1) focuscout 在失去焦点的元素上触发。<br>  (2) focusin 在获得焦点的元素上触发。<br>  (3) blur 在失去焦点的元素上触发。<br>  (4) focus 在获得焦点的元素上触发。 </p>
+</li>
+</ul>
+<h4 id="-鼠标事件（MouseEvent）"><a href="#-鼠标事件（MouseEvent）" class="headerlink" title=" 鼠标事件（MouseEvent）"></a> 鼠标事件（MouseEvent）</h4><p>使用鼠标在页面上执行某些操作时触发。 </p>
+<pre><code>- click：在用户单击鼠标主键（通常是左键）或按键盘回车键时触发。
+- dblclick：在用户双击鼠标主键（通常是左键）时触发。
+</code></pre>
+<ul>
+<li><p>mousedown：在用户按下任意鼠标键时触发。这个事件不能通过键盘触发。</p>
+</li>
+<li><p>mouseenter：在用户把鼠标光标从元素外部移到元素内部时触发。这个事件不冒泡，也不会在 光标经过后代元素时触发。DOM3 Events 中新增的事件。 </p>
+</li>
+<li><p>mouseleave：在用户把鼠标光标从元素内部移到元素外部时触发。这个事件不冒泡，也不会在 光标经过后代元素时触发。</p>
+</li>
+<li><p>mousemove：在鼠标光标在元素上移动时反复触发。这个事件不能通过键盘触发。 </p>
+</li>
+<li><p>mouseout：在用户把鼠标光标从一个元素移到另一个元素上时触发。移到的元素可以是原始元 素的外部元素，也可以是原始元素的子元素。这个事件不能通过键盘触发。 </p>
+</li>
+<li><p>mouseover：在用户把鼠标光标从元素外部移到元素内部时触发。这个事件不能通过键盘触发。 </p>
+</li>
+<li><p>mouseup：在用户释放鼠标键时触发。这个事件不能通过键盘触发。    </p>
+</li>
+</ul>
+<blockquote>
+<p>这 4 个事件永远会按照如下顺序触发：<br>(1) mousedown<br>(2) mouseup<br>(3) click<br>(4) mousedown<br>(5) mouseup<br>(6) click<br>(7) dblclick</p>
+</blockquote>
+<h5 id="鼠标事件坐标"><a href="#鼠标事件坐标" class="headerlink" title="鼠标事件坐标"></a>鼠标事件坐标</h5><p>​    -客户端坐标 相对于浏览器窗口坐标<br>​    -页面坐标    浏览器中页面坐标，页面没有滚动调时与客户端坐标一致<br>​    -屏幕坐标    相对于电脑屏幕的坐标</p>
+<h5 id="修饰键"><a href="#修饰键" class="headerlink" title="修饰键"></a>修饰键</h5><p>​    DOM规定了4个修饰键：shiftKey、ctrlKey、altKey 和 metaKey。通过event.metaKey访问</p>
+<h5 id="相关元素"><a href="#相关元素" class="headerlink" title="相关元素"></a>相关元素</h5><p>​     relativeTarget:这个属性只有在mouseover(移除相关元素到目标元素)、mouseout(移出目标元素到相关元素)事件发生时才包含。其他事件中为null</p>
+<h5 id="鼠标按键"><a href="#鼠标按键" class="headerlink" title="鼠标按键"></a>鼠标按键</h5><p>​    DOM 为这个 button 属性定义了 3 个值：<br>​    0 表示鼠标主键、<br>​    1 表示鼠标中键（通常 也是滚轮键）、<br>​    2 表示鼠标副键。<br>​    按照惯例，鼠标主键通常是左边的按键，副键通常是右边的按键。</p>
+<h5 id="额外信息"><a href="#额外信息" class="headerlink" title="额外信息"></a>额外信息</h5><pre><code>   DOM2 Events 规范在 event 对象上提供了 detail 属性，以给出关于事件的更多信息。对鼠标事 件来说，detail 包含一个数值，表示在给定位置上发生了多少次单击。
+   
+</code></pre>
+<h4 id="-滚轮事件（WheelEvent）"><a href="#-滚轮事件（WheelEvent）" class="headerlink" title=" 滚轮事件（WheelEvent）"></a> 滚轮事件（WheelEvent）</h4><p>使用鼠标滚轮（或类似设备）时触发。</p>
+<blockquote>
+<p>和（在所有现代浏览器中）window。mousewheel 事件的 event 对象包含 鼠标事件的所有标准信息，此外还有一个名为 wheelDelta 的新属性。当鼠标滚轮向前滚动时， wheelDelta 每次都是+120；而当鼠标滚轮向后滚动时，wheelDelta 每次都是–120</p>
+</blockquote>
+<h4 id="-输入事件（InputEvent）"><a href="#-输入事件（InputEvent）" class="headerlink" title=" 输入事件（InputEvent）"></a> 输入事件（InputEvent）</h4><p>向文档中输入文本时触发。 </p>
+<ul>
+<li><p> keydown</p>
+<p>  用户按下键盘上某个键时触发，而且持续按住会重复触发。 </p>
+</li>
+<li><p> keypress</p>
+<p>  用户按下键盘上某个键并产生字符时触发，而且持续按住会重复触发。Esc 键也会 触发这个事件。DOM3 Events 废弃了 keypress 事件，而推荐 textInput 事件。 </p>
+</li>
+<li><p> keyup</p>
+<p>  用户释放键盘上某个键时触发。</p>
+</li>
+<li><p>textInput事件:</p>
+<pre><code>  在字符被输入到可编辑区域时触发，只有新字符插入时才会触发。其event对象上提供data属性，包含要插入的字符
+</code></pre>
+</li>
+<li><p>键码：keyCode<br>  字符编码：charCode (只有发生keypress事件时才会被设置值)<br>  DOM3变化：</p>
+<pre><code>  新增 key: 用于代替keyCode. 
+      char: 按下字符键时返回与key类似，非字符键为null
+</code></pre>
+</li>
+</ul>
+<h4 id="-键盘事件（KeyboardEvent）"><a href="#-键盘事件（KeyboardEvent）" class="headerlink" title=" 键盘事件（KeyboardEvent）"></a> 键盘事件（KeyboardEvent）</h4><p>使用键盘在页面上执行某些操作时触发。 </p>
+<h4 id="-合成事件（CompositionEvent）"><a href="#-合成事件（CompositionEvent）" class="headerlink" title=" 合成事件（CompositionEvent）"></a> 合成事件（CompositionEvent）</h4><p>在使用某种 IME（Input Method Editor，输入法编辑器）输入 字符时触发。</p>
+<p>用于处理 IME 输入时的复杂出入序列</p>
+<p>​    </p>
+<h4 id="HTML5-事件"><a href="#HTML5-事件" class="headerlink" title="HTML5 事件"></a>HTML5 事件</h4><h5 id="1、contextmenu事件"><a href="#1、contextmenu事件" class="headerlink" title="1、contextmenu事件"></a>1、contextmenu事件</h5><p>​    上下文菜单事件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&quot;contextmenu&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    event.<span class="title function_">preventDefault</span>(); </span><br><span class="line">    <span class="keyword">let</span> menu = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myMenu&quot;</span>); </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">left</span> = event.<span class="property">clientX</span> + <span class="string">&quot;px&quot;</span>; </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">top</span> = event.<span class="property">clientY</span> + <span class="string">&quot;px&quot;</span>; </span><br><span class="line">    menu.<span class="property">style</span>.<span class="property">visibility</span> = <span class="string">&quot;visible&quot;</span>; </span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;click&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myMenu&quot;</span>).<span class="property">style</span>.<span class="property">visibility</span> = <span class="string">&quot;hidden&quot;</span>; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="2、beforeunload-事件"><a href="#2、beforeunload-事件" class="headerlink" title="2、beforeunload 事件"></a>2、beforeunload 事件</h5><p>​    用于提供阻止用户离开页面的机会，事件不能被取消<br>​    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;beforeunload&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="keyword">let</span> message = <span class="string">&quot;I&#x27;m really going to miss you if you go.&quot;</span>; </span><br><span class="line">    event.<span class="property">returnValue</span> = message; </span><br><span class="line">    <span class="keyword">return</span> message; </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="3、DOMContentLoaded-事件"><a href="#3、DOMContentLoaded-事件" class="headerlink" title="3、DOMContentLoaded 事件"></a>3、DOMContentLoaded 事件</h5><p>​    load事件会在页面完全加载后触发，会花费较长时间。而此事件会在DOM树构建完成后立即触发，不需要等待 img,js,css等资源加载完成。此期间 可用于下载资源同时指定事件处理程序，更快完成页面交互。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Content loaded&quot;</span>); </span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 可以使用 setTimeout(()=&gt;&#123;&#125;,0) 代替</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="4、模拟事件"><a href="#4、模拟事件" class="headerlink" title="4、模拟事件"></a>4、模拟事件</h5><p>​    document.createEvent() 接收一个参数<br>​     “UIEvents”（DOM3 中是”UIEvent”）：通用用户界面事件（鼠标事件和键盘事件都继承自这 个事件）。<br>​     “MouseEvents”（DOM3 中是”MouseEvent”）：通用鼠标事件。<br>​     “HTMLEvents”（DOM3 中没有）：通用 HTML 事件（HTML 事件已经分散到了其他事件大类中）。<br>​    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eg</span>:模拟单击事件</span><br><span class="line"></span><br><span class="line">    <span class="title function_">initMouseEvent</span>()方法接收 <span class="number">15</span> 个参数，分别对应鼠标事件会暴露的属性。这些参数列举如下。</span><br><span class="line">     type（字符串）：要触发的事件类型，如<span class="string">&quot;click&quot;</span>。 </span><br><span class="line">     bubbles（布尔值）：表示事件是否冒泡。为精确模拟鼠标事件，应该设置为 <span class="literal">true</span>。</span><br><span class="line">     cancelable（布尔值）：表示事件是否可以取消。为精确模拟鼠标事件，应该设置为 <span class="literal">true</span>。 </span><br><span class="line">     view（<span class="title class_">AbstractView</span>）：与事件关联的视图。基本上始终是 <span class="variable language_">document</span>.<span class="property">defaultView</span>。 </span><br><span class="line">     detail（整数）：关于事件的额外信息。只被事件处理程序使用，通常为 <span class="number">0</span>。 </span><br><span class="line">     screenX（整数）：事件相对于屏幕的 x 坐标。 </span><br><span class="line">     screenY（整数）：事件相对于屏幕的 y 坐标。 </span><br><span class="line">     clientX（整数）：事件相对于视口的 x 坐标。 </span><br><span class="line">     clientY（整数）：事件相对于视口的 y 坐标。 </span><br><span class="line">     ctrlkey（布尔值）：表示是否按下了 <span class="title class_">Ctrl</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">     altkey（布尔值）：表示是否按下了 <span class="title class_">Alt</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">     shiftkey（布尔值）：表示是否按下了 <span class="title class_">Shift</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">     metakey（布尔值）：表示是否按下了 <span class="title class_">Meta</span> 键。默认为 <span class="literal">false</span>。 </span><br><span class="line">     button（整数）：表示按下了哪个按钮。默认为 <span class="number">0</span>。 </span><br><span class="line">     relatedTarget（对象）：与事件相关的对象。只在模拟 mouseover 和 mouseout 时使用。</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myBtn&quot;</span>); </span><br><span class="line">    <span class="comment">// 创建 event 对象 </span></span><br><span class="line">    <span class="keyword">let</span> event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;MouseEvents&quot;</span>); </span><br><span class="line">    <span class="comment">// 初始化 event 对象 </span></span><br><span class="line">    event.<span class="title function_">initMouseEvent</span>(<span class="string">&quot;click&quot;</span>, <span class="literal">true</span>, <span class="literal">true</span>, <span class="variable language_">document</span>.<span class="property">defaultView</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="literal">false</span>, <span class="number">0</span>, <span class="literal">null</span>); </span><br><span class="line">    <span class="comment">// 触发事件 </span></span><br><span class="line">    btn.<span class="title function_">dispatchEvent</span>(event);</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>模拟键盘事件</strong><br>    initKeyboardEvent()方法。这个方法接收以下参数。<br>     type（字符串）：要触发的事件类型，如”keydown”。<br>     bubbles（布尔值）：表示事件是否冒泡。为精确模拟键盘事件，应该设置为 true。<br>     cancelable（布尔值）：表示事件是否可以取消。为精确模拟键盘事件，应该设置为 true。<br>     view（AbstractView）：与事件关联的视图。基本上始终是 document.defaultView。<br>     key（字符串）：按下按键的字符串代码。<br>     location（整数）：按下按键的位置。0 表示默认键，1 表示左边，2 表示右边，3 表示数字键盘， 4 表示移动设备（虚拟键盘），5 表示游戏手柄。<br>     modifiers（字符串）：空格分隔的修饰键列表，如”Shift”。<br>     repeat（整数）：连续按了这个键多少次。</p>
+<p>//注意，DOM3 Events 废弃了 keypress 事件，因此只能通过上述方式模拟 keydown 和 keyup 事件：</p>
+<pre><code>let textbox = document.getElementById(&quot;myTextbox&quot;), event; 
+// 按照 DOM3 的方式创建 event 对象 
+//因为其他浏览器可能返回非标准的 KeyboardEvent 对象
+if (document.implementation.hasFeature(&quot;KeyboardEvents&quot;, &quot;3.0&quot;)) &#123; 
+    event = document.createEvent(&quot;KeyboardEvent&quot;); 
+    // 初始化 event 对象 
+    event.initKeyboardEvent(&quot;keydown&quot;, true, true, document.defaultView, &quot;a&quot;, 0, &quot;Shift&quot;, 0); 
+&#125; 
+// 触发事件 
+textbox.dispatchEvent(event);    
+</code></pre>
+<p><strong>模拟其他事件</strong>（HTML事件在浏览器中很少使用，因为它们用处有限。）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;HTMLEvents&quot;</span>); </span><br><span class="line">   event.<span class="title function_">initEvent</span>(<span class="string">&quot;focus&quot;</span>, <span class="literal">true</span>, <span class="literal">false</span>); </span><br><span class="line">   target.<span class="title function_">dispatchEvent</span>(event);</span><br></pre></td></tr></table></figure>
+
+<h5 id="5、自定义事件"><a href="#5、自定义事件" class="headerlink" title="5、自定义事件"></a>5、自定义事件</h5><p>​    createEvent(“CustomEvent”)<br>​    initCustomEvent()方法，该方法接收以下 4 个参数。<br>​         type（字符串）：要触发的事件类型，如”myevent”。<br>​         bubbles（布尔值）：表示事件是否冒泡。<br>​         cancelable（布尔值）：表示事件是否可以取消。<br>​         detail（对象）：任意值。作为 event 对象的 detail 属性。<br>​        </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">let</span> div = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;myDiv&quot;</span>), event; </span><br><span class="line">div.<span class="title function_">addEventListener</span>(<span class="string">&quot;myevent&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;DIV: &quot;</span> + event.<span class="property">detail</span>); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&quot;myevent&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123; </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;DOCUMENT: &quot;</span> + event.<span class="property">detail</span>); </span><br><span class="line">&#125;); </span><br><span class="line"><span class="keyword">if</span> (<span class="variable language_">document</span>.<span class="property">implementation</span>.<span class="title function_">hasFeature</span>(<span class="string">&quot;CustomEvents&quot;</span>, <span class="string">&quot;3.0&quot;</span>)) &#123; </span><br><span class="line">    event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&quot;CustomEvent&quot;</span>); </span><br><span class="line">    event.<span class="title function_">initCustomEvent</span>(<span class="string">&quot;myevent&quot;</span>, <span class="literal">true</span>, <span class="literal">false</span>, <span class="string">&quot;Hello world!&quot;</span>); </span><br><span class="line">    div.<span class="title function_">dispatchEvent</span>(event); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">eg2</span>:</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 派发一个自定义事件，通知UI自己正忙</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">dispatchEvebt</span>(<span class="keyword">new</span> <span class="title class_">CustomEvent</span>(<span class="string">&#x27;busy&#x27;</span>, &#123;<span class="attr">detail</span>: <span class="literal">true</span>&#125;));</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行网络操作</span></span><br><span class="line"><span class="title function_">fetch</span>(url)</span><br><span class="line">	.<span class="title function_">then</span>(handleNetworkResponse)</span><br><span class="line">	.<span class="title function_">catch</span>(handleNetworkError)</span><br><span class="line">	.<span class="title function_">finally</span>(<span class="function">()=&gt;</span> &#123;</span><br><span class="line">    	<span class="comment">// 通知UI自己现在已经不忙了</span></span><br><span class="line">    	<span class="variable language_">document</span>.<span class="title function_">dispatchEvent</span>(<span class="keyword">new</span> <span class="title class_">CustomEvent</span>(<span class="string">&#x27;busy&#x27;</span>, &#123;<span class="attr">deatil</span>: <span class="literal">false</span>&#125;));</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// 在代码其他地方为 busy 事件注册一个处理程序</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;busy&#x27;</span>, <span class="function">(<span class="params">e</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.<span class="property">deatil</span>) &#123;</span><br><span class="line">        <span class="title function_">showSpianner</span>();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">hideSpinner</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>document.createEvent() 已经被废弃，使用 CustomEvent() 代替。CustomEvent <em>此接口从父接口 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Event"><code>Event</code></a> 继承方法。</em></p>
+<p>document.createEvent -&gt; document.CustomEvent() </p>
+<p>效果等同于 new Event()</p>
+</blockquote>
+<h5 id="Javascript自定义事件new-Event-与new-CustomEvent"><a href="#Javascript自定义事件new-Event-与new-CustomEvent" class="headerlink" title="Javascript自定义事件new Event()与new CustomEvent()"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ygunoil/p/14823298.html">Javascript自定义事件new Event()与new CustomEvent()</a></h5><p>1.CustomEvent构造函数（事件是由程序创建的，可以有任意自定义功能的事件，此特性在 Web Worker 中可用）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">CustomEvent</span>(typeArg,customEventInit);</span><br></pre></td></tr></table></figure>
+
+<p>　　</p>
+<p>typeArg:一个表示event名字的字符串<br>customEventInit：（可选）一个字典类型参数，有如下字段：</p>
+<ul>
+<li>detail:可选的默认值是 null 的任意类型数据，是一个与 event 相关的值（向事件对象添加更多数据）</li>
+<li>bubbles:一个布尔值，表示该事件能否冒泡。注意：测试chrome默认为不冒泡。</li>
+<li>cancelable:一个布尔值，表示该事件是否可以取消。</li>
+</ul>
+<p><em>CustomerEventInit 字典参数同样接受来自于 Event 类构造函数的 eventInit 字典参数bubbles和cancelable</em></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add an appropriate event listener</span></span><br><span class="line">obj.<span class="title function_">addEventListener</span>(<span class="string">&quot;cat&quot;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123; <span class="title function_">process</span>(e.<span class="property">detail</span>) &#125;);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// create and dispatch the event</span></span><br><span class="line"><span class="keyword">var</span> event = <span class="keyword">new</span> <span class="title class_">CustomEvent</span>(<span class="string">&quot;cat&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">detail</span>: &#123;</span><br><span class="line">            <span class="attr">hazcheeseburger</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">obj.<span class="title function_">dispatchEvent</span>(event);</span><br></pre></td></tr></table></figure>
+
+<p>　　</p>
+<p>2.Event()构造函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="title class_">Event</span>(typeArg[, eventInit]);</span><br></pre></td></tr></table></figure>
+
+<p>typeArg：是DOMString 类型，表示所创建事件的名称。<br>eventInit：（可选）是 EventInit 类型的字典，接受以下字段:</p>
+<ul>
+<li>“bubbles”，可选，Boolean类型，默认值为 false，表示该事件是否冒泡。</li>
+<li>“cancelable”，可选，Boolean类型，默认值为 false， 表示该事件能否被取消。</li>
+<li>“composed”，可选，Boolean类型，默认值为 false，指示事件是否会在影子DOM根节点之外触发侦听器。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create a look event that bubbles up and cannot be canceled</span></span><br><span class="line"><span class="keyword">var</span> evt = <span class="keyword">new</span> <span class="title class_">Event</span>(<span class="string">&quot;look&quot;</span>, &#123;<span class="string">&quot;bubbles&quot;</span>:<span class="literal">true</span>, <span class="string">&quot;cancelable&quot;</span>:<span class="literal">false</span>&#125;);</span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">dispatchEvent</span>(evt);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// event can be dispatched from any element, not only the document</span></span><br><span class="line">myDiv.<span class="title function_">dispatchEvent</span>(evt);</span><br></pre></td></tr></table></figure>
+
+<p>　　</p>
+<p>3.createEvent（被废弃掉了)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Create the event.(被废弃掉了)</span></span><br><span class="line"><span class="keyword">var</span> event = <span class="variable language_">document</span>.<span class="title function_">createEvent</span>(<span class="string">&#x27;Event&#x27;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Create a click event that bubbles up and</span></span><br><span class="line"><span class="comment">// cannot be canceled</span></span><br><span class="line">event.<span class="title function_">initEvent</span>(<span class="string">&#x27;click&#x27;</span>, <span class="literal">true</span>, <span class="literal">false</span>);</span><br><span class="line"> </span><br><span class="line"><span class="comment">// Listen for the event.</span></span><br><span class="line">elem.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">  <span class="comment">// e.target matches elem</span></span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br><span class="line">elem.<span class="title function_">dispatchEvent</span>(event);</span><br></pre></td></tr></table></figure>
 
 
     
@@ -436,18 +719,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0%20%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%A3%80%E6%B5%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          第十三章 客户端检测
+          第十二章 BOM
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0%20BOM/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第十二章 BOM</div>
+    <a href="/2022/06/17/programming/%E7%BA%A2%E5%AE%9D%E4%B9%A6%E7%AC%94%E8%AE%B0/%E7%AC%AC%E5%8D%81%E5%85%AB%E7%AB%A0%20canvas%E4%B8%8E%E5%8A%A8%E7%94%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第十八章 canvas与动画</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -474,7 +757,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">事件处理程序</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">事件流</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">事件处理程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DOM%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.</span> <span class="toc-text">DOM事件对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IE-DOM%E4%BA%8B%E4%BB%B6%E5%AF%B9%E8%B1%A1"><span class="toc-number">3.1.</span> <span class="toc-text">IE DOM事件对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">事件类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%E4%BA%8B%E4%BB%B6%EF%BC%88UIEvent%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text"> 用户界面事件（UIEvent）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#load"><span class="toc-number">4.1.1.</span> <span class="toc-text">load</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#unload"><span class="toc-number">4.1.2.</span> <span class="toc-text">unload</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#abort"><span class="toc-number">4.1.3.</span> <span class="toc-text">abort</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#error"><span class="toc-number">4.1.4.</span> <span class="toc-text">error</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#select"><span class="toc-number">4.1.5.</span> <span class="toc-text">select</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#resize"><span class="toc-number">4.1.6.</span> <span class="toc-text">resize</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#scroll"><span class="toc-number">4.1.7.</span> <span class="toc-text">scroll</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E7%84%A6%E7%82%B9%E4%BA%8B%E4%BB%B6%EF%BC%88FocusEvent%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text"> 焦点事件（FocusEvent）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%EF%BC%88MouseEvent%EF%BC%89"><span class="toc-number">4.3.</span> <span class="toc-text"> 鼠标事件（MouseEvent）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E4%BA%8B%E4%BB%B6%E5%9D%90%E6%A0%87"><span class="toc-number">4.3.1.</span> <span class="toc-text">鼠标事件坐标</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E9%A5%B0%E9%94%AE"><span class="toc-number">4.3.2.</span> <span class="toc-text">修饰键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%85%83%E7%B4%A0"><span class="toc-number">4.3.3.</span> <span class="toc-text">相关元素</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%BC%A0%E6%A0%87%E6%8C%89%E9%94%AE"><span class="toc-number">4.3.4.</span> <span class="toc-text">鼠标按键</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96%E4%BF%A1%E6%81%AF"><span class="toc-number">4.3.5.</span> <span class="toc-text">额外信息</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E6%BB%9A%E8%BD%AE%E4%BA%8B%E4%BB%B6%EF%BC%88WheelEvent%EF%BC%89"><span class="toc-number">4.4.</span> <span class="toc-text"> 滚轮事件（WheelEvent）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E8%BE%93%E5%85%A5%E4%BA%8B%E4%BB%B6%EF%BC%88InputEvent%EF%BC%89"><span class="toc-number">4.5.</span> <span class="toc-text"> 输入事件（InputEvent）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E9%94%AE%E7%9B%98%E4%BA%8B%E4%BB%B6%EF%BC%88KeyboardEvent%EF%BC%89"><span class="toc-number">4.6.</span> <span class="toc-text"> 键盘事件（KeyboardEvent）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%81%B1-%E5%90%88%E6%88%90%E4%BA%8B%E4%BB%B6%EF%BC%88CompositionEvent%EF%BC%89"><span class="toc-number">4.7.</span> <span class="toc-text"> 合成事件（CompositionEvent）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#HTML5-%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.</span> <span class="toc-text">HTML5 事件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81contextmenu%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.1.</span> <span class="toc-text">1、contextmenu事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81beforeunload-%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.2.</span> <span class="toc-text">2、beforeunload 事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81DOMContentLoaded-%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.3.</span> <span class="toc-text">3、DOMContentLoaded 事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E6%A8%A1%E6%8B%9F%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.4.</span> <span class="toc-text">4、模拟事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6"><span class="toc-number">4.8.5.</span> <span class="toc-text">5、自定义事件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Javascript%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BA%8B%E4%BB%B6new-Event-%E4%B8%8Enew-CustomEvent"><span class="toc-number">4.8.6.</span> <span class="toc-text">Javascript自定义事件new Event()与new CustomEvent()</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -644,11 +927,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -656,15 +935,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -672,7 +951,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -684,15 +983,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -704,7 +999,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -712,19 +1015,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,11 +1027,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -752,23 +1051,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -780,7 +1067,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,11 +1075,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,15 +1095,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -824,7 +1107,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -836,11 +1119,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,7 +1131,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,7 +1147,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -876,23 +1171,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,7 +1191,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

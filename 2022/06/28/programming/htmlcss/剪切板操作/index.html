@@ -18,7 +18,7 @@
 <meta property="og:description" content="浏览器允许 JavaScript 脚本读写剪贴板，自动复制或粘贴内容。主要是用来操作文本、图片  有三种方式可操作剪切板 Document.execCommand() 【此API已从W3C标准中删除】 Clipboard API （推荐） 事件监听 copy、paste、cut">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-28T07:40:10.000Z">
-<meta property="article:modified_time" content="2022-07-11T02:01:50.110Z">
+<meta property="article:modified_time" content="2024-03-26T06:13:23.028Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="前端小站，前端，博客，笔记">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.4k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -324,6 +324,9 @@
 
 <p>操作示例：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素</span></span><br><span class="line"><span class="keyword">let</span> myInput = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#my-input&#x27;</span>),</span><br><span class="line">    myTextarea = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;#my-textarea&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    layui.<span class="title function_">use</span>([<span class="string">&#x27;form&#x27;</span>], <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> &#123;form,<span class="attr">jquery</span>: $&#125; = layui;</span><br><span class="line">        form.<span class="title function_">render</span>()</span><br><span class="line">        </span><br><span class="line">        	<span class="comment">// 复制</span></span><br><span class="line">            $(<span class="string">&#x27;#copy&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">                <span class="comment">// 让 文本域 文本选中</span></span><br><span class="line">                myTextarea.<span class="title function_">select</span>();</span><br><span class="line">                <span class="comment">// 执行复制，会触发 copy 事件监听</span></span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&#x27;copy&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">        </span><br><span class="line">        	<span class="comment">// 剪切 ，会触发 cut 事件监听</span></span><br><span class="line">            $(<span class="string">&#x27;#cut&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">                myTextarea.<span class="title function_">select</span>();</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&#x27;cut&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">        </span><br><span class="line">            <span class="comment">// 粘贴 chrome不生效，需要用户授权 https 等未知条件限制【未查清楚】</span></span><br><span class="line">            $(<span class="string">&#x27;#paste&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">                myInput.<span class="title function_">focus</span>()</span><br><span class="line">                <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&#x27;paste&#x27;</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">    </span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>封装将内容复制到剪切板</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">copyToClipboard</span> = str =&gt; &#123;</span><br><span class="line">  <span class="keyword">const</span> el = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;textarea&#x27;</span>);  <span class="comment">// 创建一个 &lt;textarea&gt; 元素</span></span><br><span class="line">  el.<span class="property">value</span> = str;                                 <span class="comment">// 设置它的值为你想复制的字符串</span></span><br><span class="line">  el.<span class="title function_">setAttribute</span>(<span class="string">&#x27;readonly&#x27;</span>, <span class="string">&#x27;&#x27;</span>);                <span class="comment">// 设置为只读以防止干扰</span></span><br><span class="line">  el.<span class="property">style</span>.<span class="property">position</span> = <span class="string">&#x27;absolute&#x27;</span>;                 </span><br><span class="line">  el.<span class="property">style</span>.<span class="property">left</span> = <span class="string">&#x27;-9999px&#x27;</span>;                      <span class="comment">// 移出屏幕外以使其不可见</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(el);                  <span class="comment">// 插入 &lt;textarea&gt; 元素到 HTML 文档中</span></span><br><span class="line">  <span class="keyword">const</span> selected =            </span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getSelection</span>().<span class="property">rangeCount</span> &gt; <span class="number">0</span>        <span class="comment">// 检查是否之前曾选中过内容</span></span><br><span class="line">      ? <span class="variable language_">document</span>.<span class="title function_">getSelection</span>().<span class="title function_">getRangeAt</span>(<span class="number">0</span>)     <span class="comment">// 如果找到，则保存选中</span></span><br><span class="line">      : <span class="literal">false</span>;                                    <span class="comment">// 标记为  false 以表示不存在之前选中的内容</span></span><br><span class="line">  el.<span class="title function_">select</span>();                                    <span class="comment">// 选中 &lt;textarea&gt; 的内容</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="title function_">execCommand</span>(<span class="string">&#x27;copy&#x27;</span>);                   <span class="comment">// 复制 - 仅当作为用户操作的响应结果时才可以工作(比如，点击事件)</span></span><br><span class="line">  <span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">removeChild</span>(el);                  <span class="comment">// 移除 &lt;textarea&gt; 元素</span></span><br><span class="line">  <span class="keyword">if</span> (selected) &#123;                                 <span class="comment">// 如果在复制前已存在选中的内容</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getSelection</span>().<span class="title function_">removeAllRanges</span>();    <span class="comment">// 取消 HTML 文档中所有的选中部分</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">getSelection</span>().<span class="title function_">addRange</span>(selected);   <span class="comment">// 恢复原来的选中</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 
@@ -673,11 +676,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -685,15 +684,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -701,7 +700,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,15 +732,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,7 +748,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,19 +764,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,11 +776,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -781,23 +800,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,7 +816,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -817,11 +824,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,15 +844,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -853,7 +856,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -865,11 +868,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,7 +880,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -893,7 +896,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -905,23 +920,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -933,7 +940,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">

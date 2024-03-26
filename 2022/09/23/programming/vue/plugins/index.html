@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231103095727302.png">
 <meta property="og:image" content="https://camo.githubusercontent.com/703496cf0c2806ff6aba376c72b0a50e016329d68ccc4b92d0bbbbdf51347fd0/68747470733a2f2f7777772e74696e792e636c6f75642f73746f726167652f6769746875622d726561646d652d696d616765732f74696e796d63652d656469746f722d36782e706e67">
 <meta property="article:published_time" content="2022-09-23T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-01-03T08:38:13.473Z">
+<meta property="article:modified_time" content="2024-01-26T01:48:23.788Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -646,8 +646,9 @@
 <p>效果</p>
 <p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230713102224150.png" alt="image-20230713102224150"></p>
 <blockquote>
-<p>在自适应方案 autofit.js 下出现 内容宽高错位现象，解决方案，resize 时js 重新设置内容宽高,外部拖拽事件上下偏移注意 autofit dh 参数 为930</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> calendarBox = <span class="title function_">ref</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resetHeight</span> = (<span class="params"></span>)=&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span>(!calendarBox.<span class="property">value</span>) <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">const</span> tbody = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.fc-scrollgrid tbody&quot;</span>);</span><br><span class="line">    <span class="keyword">let</span> height = tbody.<span class="property">clientHeight</span> - <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">let</span> width = tbody.<span class="property">clientWidth</span>;</span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-scrollgrid-sync-table&#x27;</span>).<span class="property">style</span>.<span class="property">height</span> = height + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-scrollgrid-sync-table&#x27;</span>).<span class="property">style</span>.<span class="property">width</span> = width + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">    <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-col-header&#x27;</span>).<span class="property">style</span>.<span class="property">width</span> = width + <span class="string">&#x27;px&#x27;</span></span><br><span class="line">    fullCalendar.<span class="property">value</span>.<span class="title function_">getApi</span>().<span class="title function_">setOption</span>(<span class="string">&#x27;height&#x27;</span>, calendarBox.<span class="property">value</span>.<span class="property">clientHeight</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在自适应方案 autofit.js 下出现 内容宽高错位现象，解决方案，resize 时js 重新设置内容宽高,外部拖拽事件上下偏移注意 autofit dh 参数 为930.</p>
+<p>建议使用 pxtorem 做适配</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> calendarBox = <span class="title function_">ref</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="keyword">const</span> <span class="title function_">resetHeight</span> = (<span class="params"></span>)=&gt; &#123;</span><br><span class="line"> <span class="keyword">if</span>(!calendarBox.<span class="property">value</span>) <span class="keyword">return</span></span><br><span class="line"> <span class="keyword">const</span> tbody = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&quot;.fc-scrollgrid tbody&quot;</span>);</span><br><span class="line"> <span class="keyword">let</span> height = tbody.<span class="property">clientHeight</span> - <span class="number">2</span>;</span><br><span class="line"> <span class="keyword">let</span> width = tbody.<span class="property">clientWidth</span>;</span><br><span class="line"> <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-scrollgrid-sync-table&#x27;</span>).<span class="property">style</span>.<span class="property">height</span> = height + <span class="string">&#x27;px&#x27;</span></span><br><span class="line"> <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-scrollgrid-sync-table&#x27;</span>).<span class="property">style</span>.<span class="property">width</span> = width + <span class="string">&#x27;px&#x27;</span></span><br><span class="line"> <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;.fc-col-header&#x27;</span>).<span class="property">style</span>.<span class="property">width</span> = width + <span class="string">&#x27;px&#x27;</span></span><br><span class="line"> fullCalendar.<span class="property">value</span>.<span class="title function_">getApi</span>().<span class="title function_">setOption</span>(<span class="string">&#x27;height&#x27;</span>, calendarBox.<span class="property">value</span>.<span class="property">clientHeight</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 </blockquote>
@@ -1055,11 +1056,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1067,15 +1064,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1083,7 +1080,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1095,15 +1112,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1115,7 +1128,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1123,19 +1144,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1143,11 +1156,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1163,23 +1180,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1191,7 +1196,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1199,11 +1204,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1219,15 +1224,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1235,7 +1236,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1247,11 +1248,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1259,7 +1260,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1275,7 +1276,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1287,23 +1300,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1315,7 +1320,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
