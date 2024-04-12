@@ -18,7 +18,7 @@
 <meta property="og:description" content="js&#x2F;jquery获取其他窗口的元素1、获取 iframe 中的元素12345&#x2F;&#x2F;获取iframe页面中的documentlet doc &#x3D; window.frames[&amp;#x27;Iframe name 属性&amp;#x27;].document;let doc &#x3D; document.getElementById(&amp;#x27;Iframe 的id&amp;#x27;).contentDocument;&#x2F;&#x2F;然后">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-01-10T06:01:53.991Z">
+<meta property="article:modified_time" content="2024-04-09T08:37:00.046Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">734字</span>
+      <span class="post-count">765字</span>
     </span>
   </span>
 
@@ -326,6 +326,7 @@ window.onhashchange() &#123;
 // 子页面
     parent.location.href = target + &#39;#&#39; + hash
 </code></pre>
+<p>​<br>​<br>​    </p>
 <h4 id="3、window-name"><a href="#3、window-name" class="headerlink" title="3、window.name"></a>3、window.name</h4><blockquote>
 <p>浏览器窗口有window.name属性。这个属性的最大特点是，无论是否同源，只要在同一个窗口里，前一个网页设置了这个属性，后一个网页可以读取它。</p>
 </blockquote>
@@ -350,6 +351,20 @@ window.onhashchange() &#123;
 
 <p>message事件的事件对象event，提供以下三个属性。</p>
 <p>-event.source：发送消息的窗口<br>-event.origin: 消息发向的网址<br>-event.data: 消息内容</p>
+<h3 id="页面间的通信机制"><a href="#页面间的通信机制" class="headerlink" title="页面间的通信机制"></a>页面间的通信机制</h3><p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7353849549540655123">参考连接</a></p>
+<ul>
+<li>父子窗口通信<ol>
+<li>postMessage</li>
+</ol>
+</li>
+<li>浏览器 tab 页面通信<ol>
+<li>localStorage</li>
+<li>WebSocket</li>
+<li>BroadcastChannel</li>
+<li>SharedWorker</li>
+</ol>
+</li>
+</ul>
 
     
 
@@ -468,18 +483,18 @@ window.onhashchange() &#123;
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/jsConsole/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/javascript/for_await/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          jsConsole
+          在循环中使用await
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">js编码解码</div>
+    <a href="/2022/06/17/programming/javascript/jsConsole/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">jsConsole</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -506,7 +521,7 @@ window.onhashchange() &#123;
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js-jquery%E8%8E%B7%E5%8F%96%E5%85%B6%E4%BB%96%E7%AA%97%E5%8F%A3%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.</span> <span class="toc-text">js&#x2F;jquery获取其他窗口的元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%8E%B7%E5%8F%96-iframe-%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、获取 iframe 中的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%8E%B7%E5%8F%96%E7%88%B6%E7%BA%A7%E7%AA%97%E5%8F%A3%E5%85%83%E7%B4%A0"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、获取父级窗口元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%A5%97"><span class="toc-number">1.0.3.</span> <span class="toc-text">页面嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81-%E5%9C%A8window%E5%AF%B9%E8%B1%A1%E4%B8%8A%E5%85%B1%E4%BA%AB%E7%88%B6%E7%BA%A7%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1、 在window对象上共享父级对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E7%89%87%E6%AE%B5%E8%AF%86%E5%88%AB%E7%AC%A6"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">2、片段识别符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81window-name"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3、window.name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81window-postMessage"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">4、window.postMessage</span></a></li></ol></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#js-jquery%E8%8E%B7%E5%8F%96%E5%85%B6%E4%BB%96%E7%AA%97%E5%8F%A3%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.</span> <span class="toc-text">js&#x2F;jquery获取其他窗口的元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%8E%B7%E5%8F%96-iframe-%E4%B8%AD%E7%9A%84%E5%85%83%E7%B4%A0"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、获取 iframe 中的元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E8%8E%B7%E5%8F%96%E7%88%B6%E7%BA%A7%E7%AA%97%E5%8F%A3%E5%85%83%E7%B4%A0"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、获取父级窗口元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%B5%8C%E5%A5%97"><span class="toc-number">1.0.3.</span> <span class="toc-text">页面嵌套</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81-%E5%9C%A8window%E5%AF%B9%E8%B1%A1%E4%B8%8A%E5%85%B1%E4%BA%AB%E7%88%B6%E7%BA%A7%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.0.3.1.</span> <span class="toc-text">1、 在window对象上共享父级对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E7%89%87%E6%AE%B5%E8%AF%86%E5%88%AB%E7%AC%A6"><span class="toc-number">1.0.3.2.</span> <span class="toc-text">2、片段识别符</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81window-name"><span class="toc-number">1.0.3.3.</span> <span class="toc-text">3、window.name</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81window-postMessage"><span class="toc-number">1.0.3.4.</span> <span class="toc-text">4、window.postMessage</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1%E6%9C%BA%E5%88%B6"><span class="toc-number">1.0.4.</span> <span class="toc-text">页面间的通信机制</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -668,11 +683,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,15 +695,23 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,10 +723,6 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -712,15 +731,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,11 +743,15 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -748,35 +767,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,11 +779,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,19 +799,15 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -828,7 +819,35 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,11 +859,7 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +867,7 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,7 +875,7 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -880,11 +887,27 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,7 +919,7 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,11 +927,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -920,27 +943,11 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">反编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +955,15 @@ window.onhashchange() &#123;
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1030,6 +1045,16 @@ window.onhashchange() &#123;
                   <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66cb601b-0a79-4587-89d9-bf05763ce080%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%259B%25BE%25E7%2589%2587_20230708201104.jpg?table=collection&id=0013cede-6c39-4368-9eca-ab6bb172b35e&width=400">
                 
                 衔蝉
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://pozhan-js.github.io/" target="_blank" 
+                class="search-title" title="专注技术，分享生活，欢迎来到我的博客">
+                
+                  <img src="https://pozhan-js.github.io/logo.jpg">
+                
+                哈希米
               </a>
             </li>
           

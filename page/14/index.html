@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/javascript/upload" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/jsplugin/gojs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/upload/" target="_blank">多文件上传</a>
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/gojs/" target="_blank">gojs</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/upload/" class="archive-article-date">
+<a href="/2022/06/17/programming/jsplugin/gojs/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,816 +287,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="upload函数"><a href="#upload函数" class="headerlink" title="upload函数"></a>upload函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 绑定上传按钮事件</span></span><br><span class="line">$(<span class="string">&#x27;#upload_btn&#x27;</span>).<span class="title function_">off</span>(<span class="string">&#x27;click&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;click&#x27;</span>,<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">	$(<span class="string">&#x27;.file&#x27;</span>).<span class="title function_">trigger</span>(<span class="string">&#x27;click&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//文件选择监听</span></span><br><span class="line">$(<span class="string">&#x27;.file&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;change&#x27;</span>,<span class="keyword">function</span>(<span class="params">e</span>)&#123;</span><br><span class="line">    <span class="keyword">let</span> files = e.<span class="property">target</span>.<span class="property">files</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文件&#x27;</span>,e.<span class="property">target</span>,files);</span><br><span class="line">    <span class="keyword">if</span>(!files.<span class="property">length</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">let</span> formData = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; files.<span class="property">length</span>; i++) &#123;</span><br><span class="line">       formData.<span class="title function_">append</span>(<span class="string">&#x27;file&#x27;</span>,files[i],files[i].<span class="property">name</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(formData.<span class="title function_">getAll</span>(<span class="string">&#x27;upFile&#x27;</span>));</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">        <span class="attr">url</span>:api.<span class="property">uploadMoreFiles</span>,</span><br><span class="line">        <span class="attr">type</span>:<span class="string">&quot;post&quot;</span>,</span><br><span class="line">        <span class="attr">data</span>:formData,</span><br><span class="line">        <span class="comment">// 设置 processData 选项为 false，防止自动转换数据格式</span></span><br><span class="line">        <span class="attr">processData</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="comment">// contentType 设置为 false 避免 JQuery 对其操作</span></span><br><span class="line">        <span class="attr">contentType</span>: <span class="literal">false</span>,</span><br><span class="line">        <span class="attr">timeout</span>: -<span class="number">1</span>,</span><br><span class="line">        <span class="attr">cache</span>: <span class="literal">false</span>, <span class="comment">//上传文件无需缓存</span></span><br><span class="line">        <span class="attr">success</span>:<span class="keyword">function</span>(<span class="params">data</span>)&#123;</span><br><span class="line">        	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;上传&#x27;</span>,data)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">error</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            <span class="title function_">showTips</span>(<span class="string">&#x27;失败&#x27;</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="attr">complete</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;</span><br><span class="line">            $(<span class="string">&quot;.file&quot;</span>).<span class="title function_">val</span>(<span class="literal">null</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;over&#x27;</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">同时限制上传.<span class="property">xls</span>、.<span class="property">xlsx</span>文件</span><br><span class="line"></span><br><span class="line">&lt;input </span><br><span class="line">    <span class="keyword">class</span>=<span class="string">&quot;note-image-input form-control&quot;</span> </span><br><span class="line">    type=<span class="string">&quot;file&quot;</span> </span><br><span class="line">    name=<span class="string">&quot;files&quot;</span> </span><br><span class="line">    accept=<span class="string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel &quot;</span> </span><br><span class="line">    multiple=<span class="string">&quot;multiple&quot;</span></span><br><span class="line">&gt;</span><br><span class="line">        </span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+    <p>仅仅是一个前端插件</p>
+<p>官网:<a target="_blank" rel="noopener" href="https://gojs.net/latest/index.html">https://gojs.net/latest/index.html</a></p>
+<p>下载之后并不是所有的js文件都用的到，我们需要了解到只有三个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">go.js				 正常必须要导入的文件</span></span><br><span class="line"><span class="string">go-debug.js  会展示报错消息 类似于debug模式 线上肯定不会使用</span></span><br><span class="line"><span class="string">Figures.js	 扩展图表(go.js自带的图表比较少，如果出现图标显示不出来的情况)</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"># 总结:使用的时候导入go.<span class="property">js</span>和<span class="title class_">Figures</span>.<span class="property">js</span>就不会有任何问题了</span><br></pre></td></tr></table></figure>
 
-<h3 id="后缀"><a href="#后缀" class="headerlink" title="后缀"></a>后缀</h3>
+<h2 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h2><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/gojsBaseTest.png"></p>
     
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/upload/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/upload/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/" target="_blank">对象</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Object-Origin-Program"><a href="#Object-Origin-Program" class="headerlink" title="Object Origin Program"></a>Object Origin Program</h1><h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(&#123;&#125;,&#123;</span><br><span class="line">    <span class="attr">a</span>:&#123;</span><br><span class="line">        <span class="attr">configurable</span>:<span class="literal">true</span>,<span class="comment">//是否可以通过 delete 删除并重新定义，是否修改它的访问属性</span></span><br><span class="line">        <span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="comment">//是否可枚举</span></span><br><span class="line">        <span class="attr">writable</span>:<span class="literal">true</span>,<span class="comment">//是否可写</span></span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,<span class="comment">//实际值</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">b</span>:&#123;</span><br><span class="line">    	<span class="attr">configurable</span>:<span class="literal">true</span>,</span><br><span class="line">        <span class="attr">enumerable</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attr">writable</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;66&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line">一、定义对象的属性方法</span><br><span class="line"><span class="number">1</span>、defineProperty</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj,<span class="string">&#x27;a&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">configurable</span>:<span class="literal">true</span>,<span class="comment">//是否可以通过 delete 删除并重新定义，是否修改它的访问属性</span></span><br><span class="line">    <span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="comment">//是否可枚举</span></span><br><span class="line">    <span class="attr">writable</span>:<span class="literal">true</span>,<span class="comment">//是否可写</span></span><br><span class="line">    <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,<span class="comment">//实际值</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">2</span>、defineProperties</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperties</span>(obj,&#123;</span><br><span class="line">    <span class="attr">a</span>:&#123;</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">b</span>:&#123;</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;66&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//[注意]：省略不写的属性描述符默都是false</span></span><br><span class="line"></span><br><span class="line">二、获取对象的属性的特性</span><br><span class="line"><span class="number">1</span>、getOwnPropertyDescriptor</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(obj,<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//   value:&#x27;xxx&#x27;,</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="number">2</span>、getOwnPropertyDescriptors</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(obj);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//    a:&#123;</span></span><br><span class="line"><span class="comment">//        value:&#x27;xxx&#x27;,</span></span><br><span class="line"><span class="comment">//    &#125;,</span></span><br><span class="line"><span class="comment">//    b:&#123;</span></span><br><span class="line"><span class="comment">//        value:&#x27;66&#x27;</span></span><br><span class="line"><span class="comment">//	  &#125;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//[注意]:Symbol类型的键名属性获取不了</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="title class_">Object</span>.<span class="property">getOwnPropertySymbols</span> </span><br><span class="line"><span class="comment">//与getOwnPropertySymbols一样，针对Symbol类型属性</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">Object</span>.<span class="property">getOwnPropertyNames</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(obj);<span class="comment">//不管对象属性是否可枚举都能获取到</span></span><br><span class="line"></span><br><span class="line">三、对象属性是否可枚举</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">propertyIsEnumerable</span>(obj); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">四、对象是否拥有某属性</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">hasOwnProperty</span>(obj);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/标签模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" target="_blank">标签模板</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建标签模板 防止用户恶意输入</span></span><br><span class="line"><span class="comment">//string：除变量外的其他字符串数组，argus：变量数组，前者总比后者长度大1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">SaferHTMLx</span>(<span class="params">string,...argus</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(string,argus);<span class="comment">//[&quot;&lt;p&gt;&quot;, &quot; has &quot;, &quot; sent you a message.&lt;/p&gt;&quot;] , </span></span><br><span class="line">    <span class="comment">// [&quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;, &quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;]</span></span><br><span class="line">    <span class="keyword">let</span> s = string[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; string.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> arg = <span class="title class_">String</span>(argus[i-<span class="number">1</span>]);</span><br><span class="line"> 	  <span class="comment">//对变量参数进行处理</span></span><br><span class="line">      s += arg.<span class="title function_">replace</span>(<span class="regexp">/&amp;/g</span>, <span class="string">&quot;&amp;amp;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&lt;/g</span>, <span class="string">&quot;&amp;lt;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&gt;/g</span>, <span class="string">&quot;&amp;gt;&quot;</span>);</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&quot;/g</span>, <span class="string">&quot;&amp;qout;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&quot;&amp;#27;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&quot;&amp;#x2F;&quot;</span>);</span><br><span class="line">      s += string[i]         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> senderx = <span class="string">&#x27;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//使用标签模板 </span></span><br><span class="line"><span class="keyword">let</span> messagex = <span class="title class_">SaferHTMLx</span><span class="string">`&lt;p&gt;<span class="subst">$&#123;senderx&#125;</span> has <span class="subst">$&#123;senderx&#125;</span>sent you a message.&lt;/p&gt;`</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(messagex);<span class="comment">//&lt;p&gt;&amp;lt;script&amp;gt;alert(&quot;abc&quot;)&amp;lt;/script&amp;gt; has sent you a message.&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/在线预览文件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6/" target="_blank">在线预览</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="实现在线预览Word-Excel-PowerPoint格式的文档"><a href="#实现在线预览Word-Excel-PowerPoint格式的文档" class="headerlink" title="实现在线预览Word,Excel,PowerPoint格式的文档"></a>实现在线预览Word,Excel,PowerPoint格式的文档</h1><h2 id="使用微软的预览接口来实现该功能"><a href="#使用微软的预览接口来实现该功能" class="headerlink" title="使用微软的预览接口来实现该功能"></a>使用微软的预览接口来实现该功能</h2><blockquote>
-<p><img src="D:\Typora\workSpace\resource\20190603164626720.png"></p>
-<p>输入文档地址（可访问资源），点击创建URL按钮就可以生成一个新的链接：<a target="_blank" rel="noopener" href="https://view.officeapps.live.com/op/view.aspx?src=http://mczaiyun.top/ht/123.xlsx">https://view.officeapps.live.com/op/view.aspx?src=http://mczaiyun.top/ht/123.xlsx</a></p>
-<p>也就是说在使用的过程中可以通过‘<a target="_blank" rel="noopener" href="https://view.officeapps.live.com/op/view.aspx?src=%E2%80%99">https://view.officeapps.live.com/op/view.aspx?src=’</a> + url的方式打开</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a标签跳转新页面方式打开</span></span><br><span class="line">&lt;a target=<span class="string">&#x27;_black&#x27;</span>  href=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://mczaiyun.top/ht/123.xlsx&#x27;</span>&gt;预览文件&lt;/a&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//当前页面iframe嵌入方式打开</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&#x27;https://view.officeapps.live.com/op/view.aspx?src=http://mczaiyun.top/ht/123.xlsx&#x27;</span> /&gt;</span></span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88%E6%96%87%E4%BB%B6/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/" target="_blank">正则表达式</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="匹配模式符"><a href="#匹配模式符" class="headerlink" title="匹配模式符"></a>匹配模式符</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-i	忽略大小写</span><br><span class="line">-g	全局模式</span><br><span class="line">-m	多行模式</span><br><span class="line">-y	粘附模式,查找从 lastIndex开始及之后的字符串</span><br><span class="line">-u	Unicode匹配</span><br><span class="line">-s	doAll模式，匹配任何字符（包括 \n,\r）</span><br><span class="line"></span><br><span class="line">2、字符转译 </span><br><span class="line">为区别字符和语法 ( [ &#123; \ ^ $ | ) ] &#125; ? * + 等符号 作为匹配字符串时前面要加 \ (如\.)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="使用技巧"><a href="#使用技巧" class="headerlink" title="使用技巧"></a>使用技巧</h2><h3 id="匹配两个字符（串）中甲的内容"><a href="#匹配两个字符（串）中甲的内容" class="headerlink" title="匹配两个字符（串）中甲的内容"></a>匹配两个字符（串）中甲的内容</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" target="_blank">网络通信</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/获取地理位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/" target="_blank">获取地理位置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>百度地图方法</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--引入百度 API，&quot;ak=&quot; 后面一串码是密钥，最好自己申请--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;https://api.map.baidu.com/api?v=2.0&amp;ak=7a6QKaIilZftIMmKGAFLG7QT1GLfIncg&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;getLocation()&quot;</span> <span class="attr">value</span>=<span class="string">&quot;确认&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;position&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">var</span> x = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;position&#x27;</span>);</span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">function</span> <span class="title function_">getLocation</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 创建百度地理位置实例，代替 navigator.geolocation</span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> geolocation = <span class="keyword">new</span> <span class="title class_">BMap</span>.<span class="title class_">Geolocation</span>();</span></span><br><span class="line"><span class="language-javascript">        geolocation.<span class="title function_">getCurrentPosition</span>(<span class="keyword">function</span>(<span class="params">e</span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">if</span>(<span class="variable language_">this</span>.<span class="title function_">getStatus</span>() == <span class="variable constant_">BMAP_STATUS_SUCCESS</span>)&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// 百度 geolocation 的经纬度属性不同，此处是 point.lat 而不是 coords.latitude</span></span></span><br><span class="line"><span class="language-javascript">                x.<span class="property">innerHTML</span> = <span class="string">&#x27;纬度：&#x27;</span> + e.<span class="property">point</span>.<span class="property">lat</span> + <span class="string">&#x27;&lt;br/&gt;经度：&#x27;</span> + e.<span class="property">point</span>.<span class="property">lng</span>;</span></span><br><span class="line"><span class="language-javascript">            &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="language-javascript">                x.<span class="property">innerHTML</span> = <span class="string">&#x27;failed&#x27;</span> + <span class="variable language_">this</span>.<span class="title function_">getStatus</span>();</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;);</span></span><br><span class="line"><span class="language-javascript">    &#125;</span></span><br><span class="line"><span class="language-javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">markdown 编辑器</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/react/plugin" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/react/plugin/" target="_blank">react 插件</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/react/plugin/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="react-loadable"><a href="#react-loadable" class="headerlink" title="react-loadable"></a>react-loadable</h3><p>React 项目打包时，如果不进行异步组件的处理，那么所有页面所需要的 js 都在同一文件中（bundle.js），整个js文件很大，从而导致首屏加载时间过长。</p>
-<hr>
-<p>所有，可以对组件进行异步加载处理，通常可以使用 <code>React-loadable</code>。</p>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/react/plugin/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/gojs/#more">more >></a>
     
     
 
@@ -1125,7 +323,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -1134,7 +332,871 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/react/plugin/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/gojs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/momentjs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/momentjs/" target="_blank">momentjs时间处理类库</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/momentjs/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install moment --save   # npm</span><br><span class="line">yarn add moment             # <span class="title class_">Yarn</span></span><br><span class="line"><span class="title class_">Install</span>-<span class="title class_">Package</span> <span class="title class_">Moment</span>.<span class="property">js</span>   # <span class="title class_">NuGet</span></span><br><span class="line">spm install moment --save   # spm</span><br><span class="line">meteor add <span class="attr">momentjs</span>:moment  # meteor</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、日期格式化"><a href="#2、日期格式化" class="headerlink" title="2、日期格式化"></a>2、日期格式化</h3><table>
+<thead>
+<tr>
+<th>格式代码</th>
+<th>说明</th>
+<th>返回值例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>M</td>
+<td>数字表示的月份，没有前导零</td>
+<td>1到12</td>
+</tr>
+<tr>
+<td>MM</td>
+<td>数字表示的月份，有前导零</td>
+<td>01到12</td>
+</tr>
+<tr>
+<td>MMM</td>
+<td>三个字母缩写表示的月份</td>
+<td>Jan到Dec</td>
+</tr>
+<tr>
+<td>MMMM</td>
+<td>月份，完整的文本格式</td>
+<td>January到December</td>
+</tr>
+<tr>
+<td>Q</td>
+<td>季度</td>
+<td>1到4</td>
+</tr>
+<tr>
+<td>D</td>
+<td>月份中的第几天，没有前导零</td>
+<td>1到31</td>
+</tr>
+<tr>
+<td>DD</td>
+<td>月份中的第几天，有前导零</td>
+<td>01到31</td>
+</tr>
+<tr>
+<td>d</td>
+<td>星期中的第几天，数字表示</td>
+<td>0到6，0表示周日，6表示周六</td>
+</tr>
+<tr>
+<td>ddd</td>
+<td>三个字母表示星期中的第几天</td>
+<td>Sun到Sat</td>
+</tr>
+<tr>
+<td>dddd</td>
+<td>星期几，完整的星期文本</td>
+<td>从Sunday到Saturday</td>
+</tr>
+<tr>
+<td>w</td>
+<td>年份中的第几周</td>
+<td>如42：表示第42周</td>
+</tr>
+<tr>
+<td>YYYY</td>
+<td>四位数字完整表示的年份</td>
+<td>如：2014 或 2000</td>
+</tr>
+<tr>
+<td>YY</td>
+<td>两位数字表示的年份</td>
+<td>如：14 或 98</td>
+</tr>
+<tr>
+<td>A</td>
+<td>大写的AM PM</td>
+<td>AM PM</td>
+</tr>
+<tr>
+<td>a</td>
+<td>小写的am pm</td>
+<td>am pm</td>
+</tr>
+<tr>
+<td>HH</td>
+<td>小时，24小时制，有前导零</td>
+<td>00到23</td>
+</tr>
+<tr>
+<td>H</td>
+<td>小时，24小时制，无前导零</td>
+<td>0到23</td>
+</tr>
+<tr>
+<td>hh</td>
+<td>小时，12小时制，有前导零</td>
+<td>00到12</td>
+</tr>
+<tr>
+<td>h</td>
+<td>小时，12小时制，无前导零</td>
+<td>0到12</td>
+</tr>
+<tr>
+<td>m</td>
+<td>没有前导零的分钟数</td>
+<td>0到59</td>
+</tr>
+<tr>
+<td>mm</td>
+<td>有前导零的分钟数</td>
+<td>00到59</td>
+</tr>
+<tr>
+<td>s</td>
+<td>没有前导零的秒数</td>
+<td>1到59</td>
+</tr>
+<tr>
+<td>ss</td>
+<td>有前导零的描述</td>
+<td>01到59</td>
+</tr>
+<tr>
+<td>X</td>
+<td>Unix时间戳</td>
+<td>1411572969</td>
+</tr>
+</tbody></table>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/momentjs/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/momentjs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/rollup.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/rollup.js/" target="_blank">rollup</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/rollup.js/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>打包工具的作用是，将多个 JavaScript 脚本合并成一个脚本，供浏览器使用。</p>
+<p>浏览器需要脚本打包，主要原因有三个。</p>
+<blockquote>
+<p>（1）早期的浏览器不支持模块，大型网页项目只能先合并成单一脚本再执行。</p>
+<p>（2）Node.js 的模块机制与浏览器不兼容，必须通过打包工具进行兼容处理。</p>
+<p>（3）浏览器加载一个大脚本，要比加载多个小脚本，性能更好。</p>
+</blockquote>
+<p>目前，最常用的打包工具是 Webpack。它的功能强大，但是难学难用，一直被人诟病。</p>
+<p><img src="https://cdn.beekka.com/blogimg/asset/202205/bg2022050310.webp" alt="img"></p>
+<p>rollup.js 的开发本意，是打造一款简单易用的 ES 模块打包工具，不必配置，直接使用。这一点，它确实做到了。</p>
+<p>后来经过不断发展，它也可以打包 CommonJS 模块。但是，这时需要经过复杂配置，实际上并没有比 Webpack 简单多少。</p>
+<p>因此建议，<strong>只把 rollup.js 用于打包 ES 模块</strong>，这样才能充分发挥它的优势。下面你会看到，那是多么简单的一件事。</p>
+<p>如果你的项目使用 CommonJS 模块，不推荐使用 rollup.js，优势不大。</p>
+<p>如果你还不了解 ES 模块与 CommonJS 模块之间的差异，详见 <a target="_blank" rel="noopener" href="https://wangdoc.com/es6/module-loader.html#es6-%E6%A8%A1%E5%9D%97%E4%B8%8E-commonjs-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%B7%AE%E5%BC%82">ES6 教程</a>。</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><p>本文采用全局安装 rollup.js。</p>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/rollup.js/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/rollup.js/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/others" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/others/" target="_blank">插件集合</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/others/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="js读取excel文件"><a href="#js读取excel文件" class="headerlink" title="js读取excel文件"></a>js读取excel文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、js读取excel文件 xlsx.<span class="property">js</span></span><br><span class="line">	</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> datas=&#123;&#125;;</span><br><span class="line">    $(<span class="string">&#x27;#doc-form-file&#x27;</span>).<span class="title function_">on</span>(<span class="string">&#x27;change&#x27;</span>, <span class="keyword">function</span>(<span class="params">e</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> fileNames = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">        $.<span class="title function_">each</span>(<span class="variable language_">this</span>.<span class="property">files</span>, <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">            fileNames += <span class="string">&#x27;&lt;span class=&quot;am-badge&quot;&gt;&#x27;</span> + <span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;&lt;/span&gt; &#x27;</span>;</span><br><span class="line">        &#125;);</span><br><span class="line">        $(<span class="string">&#x27;#file-list&#x27;</span>).<span class="title function_">html</span>(fileNames);</span><br><span class="line">        <span class="comment">//获取json，同时进行json数据校验</span></span><br><span class="line">        <span class="keyword">var</span> files=e.<span class="property">target</span>.<span class="property">files</span>;</span><br><span class="line">        <span class="keyword">var</span> file=files[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">var</span> fileNames=file.<span class="property">name</span>;</span><br><span class="line">        <span class="comment">//判断上传的文件是不是excel格式文件</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(fileNames)</span><br><span class="line">        <span class="keyword">var</span> postfix = fileNames.<span class="title function_">substr</span>(fileNames.<span class="title function_">lastIndexOf</span>(<span class="string">&quot;.&quot;</span>)).<span class="title function_">toUpperCase</span>();<span class="comment">//得到的是后缀名,且转换为大写</span></span><br><span class="line">        <span class="keyword">var</span> type=[<span class="string">&quot;.XLSX&quot;</span>,<span class="string">&quot;.XLS&quot;</span>];</span><br><span class="line">        <span class="keyword">if</span>(!type.<span class="title function_">includes</span>(postfix))&#123;</span><br><span class="line">            <span class="title function_">toast</span>(<span class="string">&#x27;文件格式不是excel&#x27;</span>)</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//进行数据校验</span></span><br><span class="line">            <span class="comment">//console.log(XLSX);</span></span><br><span class="line">            <span class="comment">//读取文件</span></span><br><span class="line">            <span class="keyword">var</span> reader=<span class="keyword">new</span> <span class="title class_">FileReader</span>();</span><br><span class="line">            reader.<span class="property">onload</span>=<span class="keyword">function</span> (<span class="params">e</span>) &#123;</span><br><span class="line">                <span class="keyword">var</span> data=e.<span class="property">target</span>.<span class="property">result</span>;</span><br><span class="line">                <span class="keyword">var</span> workbook=<span class="variable constant_">XLSX</span>.<span class="title function_">read</span>(data,&#123;</span><br><span class="line">                    <span class="attr">type</span>:<span class="string">&#x27;binary&#x27;</span></span><br><span class="line">                &#125;)</span><br><span class="line">                <span class="keyword">var</span> sheetNames = workbook.<span class="property">SheetNames</span>;</span><br><span class="line">                <span class="keyword">var</span> worksheet = workbook.<span class="property">Sheets</span>[sheetNames[<span class="number">0</span>]];</span><br><span class="line">                <span class="keyword">var</span>  supplement=<span class="variable constant_">XLSX</span>.<span class="property">utils</span>.<span class="title function_">sheet_to_json</span>(worksheet)</span><br><span class="line">                datas.<span class="property">object</span>=supplement</span><br><span class="line">            &#125;;</span><br><span class="line">            reader.<span class="title function_">readAsBinaryString</span>(file);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/others/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/others/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/openlayers" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/openlayers/" target="_blank">OpenLayers</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/openlayers/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>OpenLayers 5的体系架构可见，可把整个地图看成一个容器（Map），核心为地图图层（Layer）、对应图层的数据源（Source）与矢量图层样式（Style）、与地图表现相关的地图视图（View）.</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/openLayers.png"></p>
+<h2 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、数据组织</span><br><span class="line"></span><br><span class="line">    从表现形态来看，空间数据的矢量数据由点、线、面三类要素构成.</span><br><span class="line">    </span><br><span class="line">    矢量数据的抽象主要由ol.<span class="property">geom</span>.<span class="property">Geometry</span>基类下的几何对象子类实现</span><br><span class="line"></span><br><span class="line">	几何对象子类，即</span><br><span class="line">    -<span class="title class_">Point</span>与<span class="title class_">MultiPoint</span>（点与多点）</span><br><span class="line">	-<span class="title class_">LineString</span>与<span class="title class_">MultiLineString</span>（线与多线）</span><br><span class="line">    -<span class="title class_">Polygon</span>与<span class="title class_">MultiPolygon</span>（区与多区）</span><br><span class="line">    -<span class="title class_">LinearRing</span>（线性环）</span><br><span class="line">	-<span class="title class_">Circle</span>（圆），均继承于<span class="title class_">SimpleGeometry</span>子类</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/openlayers/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/openlayers/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/treejs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/treejs/" target="_blank">three.js开发指南 笔记</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/treejs/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、准备</span><br><span class="line">-<span class="title class_">Three</span>.<span class="property">js</span>自身也提供了在线场景编辑器，访问地址为<span class="attr">http</span>:<span class="comment">//threejs.org/editor。使用该编辑器，可以用图形化方法创建Three.js场景。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-<span class="title class_">Three</span>.<span class="property">js</span> 开发指南示例代码</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//github.com/josdirksen/learning-threejs</span></span><br><span class="line"></span><br><span class="line">-禁用<span class="title class_">Firefox</span>和<span class="title class_">Chrome</span>的安全性检测</span><br><span class="line">	如果你使用的是<span class="title class_">Chrome</span>浏览器，有种方式可以禁用安全性设置，这样就可以在没有<span class="title class_">Web</span>服务器的情况下查看示例。需要注意的是，应尽量避免用下面的方法访问真正的网站，因为这样做会使浏览器向各种恶意代码敞开大门。用下面的命令可以启动<span class="title class_">Chrome</span>浏览器同时禁用所有安全特性。</span><br><span class="line">    对于<span class="title class_">Windows</span>操作系统：chrome.<span class="property">exe</span> --disable-web-security</span><br><span class="line">    对于<span class="title class_">Linux</span>操作系统：gogle-chrome --disable-web-security</span><br><span class="line">    对于<span class="title class_">Mac</span> <span class="variable constant_">OS</span>操作系统：open -a <span class="string">&quot;Google Chrome&quot;</span> --args --disable-web-security</span><br><span class="line">通过这种方式启动<span class="title class_">Chrome</span>浏览器就可以直接运行本地文件系统中的示例。</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example - Baseic skeleton<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/three.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/TrackballControls.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 主要用于检测动画运行时的帧数。在动画运行时，该库可以在一个图片中显示画面每秒传输帧数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/Stats.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 实时调整动画参数 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/dat.gui.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/util.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;webgl-output&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// </span></span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">var</span> camera, renderer, scene;</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">init</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 初始化状态栏</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> stats = <span class="title function_">initStats</span>()</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建一个场景，该场景将包含所有元素，例如对象、相机和灯光。</span></span></span><br><span class="line"><span class="language-javascript">            scene = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Scene</span>();</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建一个摄像头，它定义了我们要看的地方</span></span></span><br><span class="line"><span class="language-javascript">            camera = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">PerspectiveCamera</span>(<span class="number">45</span>, <span class="variable language_">window</span>.<span class="property">innerWidth</span> / <span class="variable language_">window</span>.<span class="property">innerHeight</span>, <span class="number">0.1</span>, <span class="number">1000</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建渲染并设置大小</span></span></span><br><span class="line"><span class="language-javascript">            renderer = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">WebGLRenderer</span>();</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将场景的背景颜色设置为接近黑色</span></span></span><br><span class="line"><span class="language-javascript">            renderer.<span class="title function_">setClearColor</span>(<span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Color</span>(<span class="number">0x000000</span>));</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 设置场景的大小</span></span></span><br><span class="line"><span class="language-javascript">            renderer.<span class="title function_">setSize</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span>);</span></span><br><span class="line"><span class="language-javascript">            renderer.<span class="property">shadowMap</span>.<span class="property">enabled</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建了坐标轴（axes）对象并设置轴线的粗细值为20</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> axes = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">AxesHelper</span>(<span class="number">20</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//  在屏幕上显示轴</span></span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(axes);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建平面 宽60 高20</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> planeGeometry = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">PlaneGeometry</span>(<span class="number">60</span>, <span class="number">20</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建材质对象来设置平面的外观</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> planeMaterial = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">MeshLambertMaterial</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="number">0xffffff</span></span></span><br><span class="line"><span class="language-javascript">            &#125;)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将大小和外观组合进Mesh对象并赋值给平面变量</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> plane = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Mesh</span>(planeGeometry, planeMaterial);</span></span><br><span class="line"><span class="language-javascript">            plane.<span class="property">receiveShadow</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 旋转并定位平面</span></span></span><br><span class="line"><span class="language-javascript">            plane.<span class="property">rotation</span>.<span class="property">x</span> = -<span class="number">0.5</span> * <span class="title class_">Math</span>.<span class="property">PI</span>;</span></span><br><span class="line"><span class="language-javascript">            plane.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">15</span>, <span class="number">0</span>, <span class="number">0</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将平面添加到场景中</span></span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(plane);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建一个立方体</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> cubeGeometry = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">BoxGeometry</span>(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 为立方体添加材质</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> cubeMaterial = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">MeshLambertMaterial</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="number">0xFF0000</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> cube = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Mesh</span>(cubeGeometry, cubeMaterial);</span></span><br><span class="line"><span class="language-javascript">            cube.<span class="property">castShadow</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 定位立方体</span></span></span><br><span class="line"><span class="language-javascript">            cube.<span class="property">position</span>.<span class="title function_">set</span>(-<span class="number">4</span>, <span class="number">3</span>, <span class="number">0</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将立方体添加到场景中</span></span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(cube);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 创建一个球体</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> sphereGeometry = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">SphereGeometry</span>(<span class="number">4</span>, <span class="number">20</span>, <span class="number">20</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> sphereMaterial = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">MeshLambertMaterial</span>(&#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="attr">color</span>: <span class="number">0x7777ff</span>,</span></span><br><span class="line"><span class="language-javascript">            &#125;);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> sphere = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Mesh</span>(sphereGeometry, sphereMaterial);</span></span><br><span class="line"><span class="language-javascript">            sphere.<span class="property">castShadow</span> = <span class="literal">true</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 定位球体</span></span></span><br><span class="line"><span class="language-javascript">            sphere.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">20</span>, <span class="number">4</span>, <span class="number">2</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将球体添加到场景中</span></span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(sphere);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将相机定位并指向场景中心</span></span></span><br><span class="line"><span class="language-javascript">            camera.<span class="property">position</span>.<span class="title function_">set</span>(-<span class="number">30</span>, <span class="number">40</span>, <span class="number">30</span>);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 摄像机将决定哪些东西会被渲染到场景中。在这段代码中，我们使用x、y、z的位置属性来设置摄像机的位置。</span></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 为了确保所要渲染的物体能够被摄像机拍摄到，我们使用lookAt方法指向场景的中心，默认状态下摄像机是指向（0，0，0）位置的</span></span></span><br><span class="line"><span class="language-javascript">            camera.<span class="title function_">lookAt</span>(scene.<span class="property">position</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 为阴影添加聚光灯</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> spotLight = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">SpotLight</span>(<span class="number">0xffffff</span>);</span></span><br><span class="line"><span class="language-javascript">            spotLight.<span class="property">position</span>.<span class="title function_">set</span>(-<span class="number">40</span>, <span class="number">40</span>, -<span class="number">15</span>);</span></span><br><span class="line"><span class="language-javascript">            spotLight.<span class="property">castShadow</span> = <span class="literal">true</span>;</span></span><br><span class="line"><span class="language-javascript">            spotLight.<span class="property">shadow</span>.<span class="property">mapSize</span> = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Vector2</span>(<span class="number">1024</span>, <span class="number">1024</span>);</span></span><br><span class="line"><span class="language-javascript">            spotLight.<span class="property">shadow</span>.<span class="property">camera</span>.<span class="property">far</span> = <span class="number">130</span>;</span></span><br><span class="line"><span class="language-javascript">            spotLight.<span class="property">shadow</span>.<span class="property">camera</span>.<span class="property">near</span> = <span class="number">40</span>;</span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(spotLight);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 添加微妙的环境照明</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> ambientLight = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">AmbientLight</span>(<span class="number">0x353535</span>);</span></span><br><span class="line"><span class="language-javascript">            scene.<span class="title function_">add</span>(ambientLight);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 将渲染器的输出添加到html元素</span></span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;webgl-output&quot;</span>).<span class="title function_">appendChild</span>(renderer.<span class="property">domElement</span>);</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 渲染场景</span></span></span><br><span class="line"><span class="language-javascript">            renderer.<span class="title function_">render</span>(scene, camera);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">//初始化控制器</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> trackballControls = <span class="title function_">initTrackballControls</span>(camera, renderer)</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> clock = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Clock</span>()</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 定义属性，默认值</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> controls = <span class="keyword">new</span> <span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">rotationSpeed</span> = <span class="number">0.02</span> <span class="comment">// 立方体旋转速度</span></span></span><br><span class="line"><span class="language-javascript">                <span class="variable language_">this</span>.<span class="property">bouncingSpeed</span> = <span class="number">0.02</span> <span class="comment">// 球体弹跳速度</span></span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;controls:&#x27;</span>, controls, dat);</span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 需要将这个JavaScript对象传递给data.GUI对象，并设置这两个属性的取值范围</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> gui = <span class="keyword">new</span> dat.<span class="title function_">GUI</span>()</span></span><br><span class="line"><span class="language-javascript">            gui.<span class="title function_">add</span>(controls, <span class="string">&#x27;rotationSpeed&#x27;</span>, <span class="number">0</span>, <span class="number">0.5</span>)</span></span><br><span class="line"><span class="language-javascript">            gui.<span class="title function_">add</span>(controls, <span class="string">&#x27;bouncingSpeed&#x27;</span>, <span class="number">0</span>, <span class="number">0.5</span>)</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">            <span class="title function_">renderScene</span>()</span></span><br><span class="line"><span class="language-javascript">            </span></span><br><span class="line"><span class="language-javascript">            <span class="comment">// 动画</span></span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">var</span> step = <span class="number">0</span>;</span></span><br><span class="line"><span class="language-javascript">            <span class="keyword">function</span> <span class="title function_">renderScene</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">                stats.<span class="title function_">update</span>()</span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// TrackballControl.js库也需要在render函数渲染完一帧后更新</span></span></span><br><span class="line"><span class="language-javascript">                trackballControls.<span class="title function_">update</span>(clock.<span class="title function_">getDelta</span>())</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">                cube.<span class="property">rotation</span>.<span class="property">x</span> += controls.<span class="property">rotationSpeed</span></span></span><br><span class="line"><span class="language-javascript">                cube.<span class="property">rotation</span>.<span class="property">y</span> += controls.<span class="property">rotationSpeed</span></span></span><br><span class="line"><span class="language-javascript">                cube.<span class="property">rotation</span>.<span class="property">z</span> += controls.<span class="property">rotationSpeed</span></span></span><br><span class="line"><span class="language-javascript">                <span class="comment">// cos 函数返回一个数值的余弦值</span></span></span><br><span class="line"><span class="language-javascript">                step += controls.<span class="property">bouncingSpeed</span></span></span><br><span class="line"><span class="language-javascript">                sphere.<span class="property">position</span>.<span class="property">x</span> = <span class="number">20</span> + <span class="number">10</span>*(<span class="title class_">Math</span>.<span class="title function_">cos</span>(step))</span></span><br><span class="line"><span class="language-javascript">                sphere.<span class="property">position</span>.<span class="property">y</span> = <span class="number">2</span> + <span class="number">10</span>*<span class="title class_">Math</span>.<span class="title function_">abs</span>(<span class="title class_">Math</span>.<span class="title function_">sin</span>(step))</span></span><br><span class="line"><span class="language-javascript">                </span></span><br><span class="line"><span class="language-javascript">                <span class="title function_">requestAnimationFrame</span>(renderScene)</span></span><br><span class="line"><span class="language-javascript">                renderer.<span class="title function_">render</span>(scene, camera);</span></span><br><span class="line"><span class="language-javascript">            &#125;</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">        <span class="variable language_">window</span>.<span class="title function_">addEventListener</span>(<span class="string">&#x27;resize&#x27;</span>, onResize, <span class="literal">false</span>)</span></span><br><span class="line"><span class="language-javascript">        <span class="keyword">function</span> <span class="title function_">onResize</span>(<span class="params"></span>) &#123;</span></span><br><span class="line"><span class="language-javascript">            camera.<span class="property">aspect</span> = <span class="variable language_">window</span>.<span class="property">innerWidth</span> / <span class="variable language_">window</span>.<span class="property">innerHeight</span></span></span><br><span class="line"><span class="language-javascript">            camera.<span class="title function_">updateProjectionMatrix</span>()</span></span><br><span class="line"><span class="language-javascript">            renderer.<span class="title function_">setSize</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span>)</span></span><br><span class="line"><span class="language-javascript">        &#125;</span></span><br><span class="line"><span class="language-javascript">        <span class="comment">// 初始化</span></span></span><br><span class="line"><span class="language-javascript">        <span class="title function_">init</span>()</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">       </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line">-threejs</span><br><span class="line"></span><br><span class="line">-控制器库TrackballControls.js。</span><br><span class="line">	-有了它便可以利用鼠标任意移动摄像机，以便从不同角度观察场景</span><br><span class="line"></span><br><span class="line">在代码中，首先定义了场景（scene）、摄像机（camera）和渲染器（renderer）对象。</span><br><span class="line">	1、场景是一个容器，主要用于保存、跟踪所要渲染的物体和使用的光源。如果没有THREE.Scene对象，那么Three.js就无法渲染任何物体，在第2章还会对THREE.Scene进行详细介绍。示例中所要渲染的方块和球体稍后将会添加到场景对象中。</span><br><span class="line">	</span><br><span class="line">	2、还定义了摄像机对象，摄像机决定了能够在场景看到什么。</span><br><span class="line">		你还会进一步了解摄像机对象能够接受的参数。</span><br><span class="line">    3、我们定义了渲染器对象</span><br><span class="line">		该对象会基于摄像机的角度来计算场景对象在浏览器中会渲染成什么样子。最后WebGLRenderer将会使用电脑显卡来渲染场景。</span><br><span class="line"></span><br><span class="line">-dat.GUI</span><br><span class="line"></span><br><span class="line">	在创建类似三维场景和动画时，我们需要尝试很多次才能够确定最合适的速度和颜色。如果有一个GUI（可视化图形界面）允许我们在运行期间修改这些属性，那么事情就会变得很简单。幸运的是，这样的GUI是存在的</span><br></pre></td></tr></table></figure>
+
+<h2 id="three-js基础知识"><a href="#three-js基础知识" class="headerlink" title="three.js基础知识"></a>three.js基础知识</h2>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/treejs/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/treejs/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/uuid" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/uuid/" target="_blank">UUID</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/uuid/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>UUID 是 通用唯一识别码（Universally Unique Identifier）的缩写，是一种软件建构的标准，亦为<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BC%80%E6%94%BE%E8%BD%AF%E4%BB%B6%E5%9F%BA%E9%87%91%E4%BC%9A/1223731">开放软件基金会</a>组织在分布式计算环境领域的一部分。其目的，是让<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/4905336">分布式系统</a>中的所有元素，都能有唯一的辨识信息，而不需要通过中央控制端来做辨识信息的指定。如此一来，每个人都可以创建不与其它人冲突的UUID。在这样的情况下，就不需考虑<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%BA%93/103728">数据库</a>创建时的名称重复问题。最广泛应用的UUID，是<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BE%AE%E8%BD%AF%E5%85%AC%E5%8F%B8/732128">微软公司</a>的全局唯一标识符（GUID），而其他重要的应用，则有Linux ext2/ext3文件系统、LUKS加密分区、GNOME、KDE、Mac OS X等等。另外我们也可以在e2fsprogs包中的UUID库找到实现。</p>
+</blockquote>
+<p><strong>1. Install</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uuid</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. Create a UUID</strong> (ES6 module syntax)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import &#123; v4 as uuidv4 &#125; from &#x27;uuid&#x27;;</span><br><span class="line">uuidv4(); // ⇨ &#x27;9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>… or using CommonJS syntax:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">const &#123; v4: uuidv4 &#125; = require(&#x27;uuid&#x27;);</span><br><span class="line">uuidv4(); // ⇨ &#x27;1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="API-Summary"><a href="#API-Summary" class="headerlink" title="API Summary"></a>API Summary</h2>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/uuid/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/vsCode" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/vsCode/" target="_blank">常用快捷键</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/vsCode/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="编辑器与窗口管理"><a href="#编辑器与窗口管理" class="headerlink" title="编辑器与窗口管理"></a>编辑器与窗口管理</h4><p>Ctrl+Shift+P: 打开命令面板。</p>
+<p>Ctrl+Shift+N: 新建窗口。</p>
+<p>Ctrl+Shift+W: 关闭窗口。</p>
+<p>切分窗口：Ctrl+1/Ctrl+3/Ctrl+3</p>
+<p>Ctrl+H：最小化窗口</p>
+<p>Ctrl+B：显示/隐藏侧边栏</p>
+<p>Ctrl+”+/-“：放大/缩小界面</p>
+<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/vsCode/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/vsCode/">展开全文 >></a>
     </p>
     
 
@@ -1236,6 +1298,105 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/qiankun/%E5%AD%90%E5%BA%94%E7%94%A8/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/react/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">markdown 编辑器</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/react//" class="article-tag-list-link color1">react</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/react/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
     </p>
     
 
@@ -1402,11 +1563,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1414,15 +1575,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,10 +1603,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -1446,15 +1611,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1462,11 +1623,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,35 +1647,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1518,11 +1659,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1538,19 +1679,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,7 +1699,35 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1574,11 +1739,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1586,15 +1747,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,7 +1755,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,11 +1767,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1630,7 +1799,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1638,11 +1807,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1654,27 +1823,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">反编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1682,7 +1835,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1764,6 +1925,16 @@
                   <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66cb601b-0a79-4587-89d9-bf05763ce080%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%259B%25BE%25E7%2589%2587_20230708201104.jpg?table=collection&id=0013cede-6c39-4368-9eca-ab6bb172b35e&width=400">
                 
                 衔蝉
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://pozhan-js.github.io/" target="_blank" 
+                class="search-title" title="专注技术，分享生活，欢迎来到我的博客">
+                
+                  <img src="https://pozhan-js.github.io/logo.jpg">
+                
+                哈希米
               </a>
             </li>
           

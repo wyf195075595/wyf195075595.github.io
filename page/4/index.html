@@ -258,6 +258,141 @@
             
 
   
+    <article id="post-programming/java/maven" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2023/02/14/programming/java/maven/" target="_blank">maven基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2023/02/14/programming/java/maven/" class="archive-article-date">
+        <time datetime="2023-02-14T03:20:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="项目管理器，可以帮我们做什么？"><a href="#项目管理器，可以帮我们做什么？" class="headerlink" title="项目管理器，可以帮我们做什么？"></a>项目管理器，可以帮我们做什么？</h3><blockquote>
+<ul>
+<li>管理jar 文件</li>
+<li>自动下载jar和他的文档源码</li>
+<li>管理jar直接的依赖，a.jar 依赖b.jar 他会自动下载b.jar</li>
+<li>帮你管理jar的版本</li>
+<li>帮你编译程序： java-&gt; class</li>
+<li>帮你测试代码</li>
+<li>帮你打包，形成jar/war 文件</li>
+<li>帮你部署项目</li>
+</ul>
+</blockquote>
+<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><ol>
+<li><p>POM</p>
+<p> 把一个项目当作模型使用。控制maven构建项目的过程</p>
+</li>
+<li><p>约定的目录结构</p>
+<p> maven项目的目录和文件和位置都是规范的</p>
+</li>
+<li><p>依赖仓库</p>
+<p> 管理项目可以使用的jar</p>
+</li>
+<li><p>仓库管理</p>
+<p> 资源存放的位置</p>
+</li>
+<li><p>生命周期</p>
+</li>
+<li><p>插件和木比爱哦</p>
+</li>
+<li><p>继承</p>
+</li>
+<li><p>聚合</p>
+</li>
+</ol>
+<h3 id="修改本机资源存放目录位置"><a href="#修改本机资源存放目录位置" class="headerlink" title="修改本机资源存放目录位置"></a>修改本机资源存放目录位置</h3><p>修改maven的配置文件，maven的安装目录/conf/settings.xml</p>
+<p>为啥要改？因为默认放在C盘</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;D://maven//localSpace&lt;/localRepository&gt;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2023/02/14/programming/java/maven/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">maven基础</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/java//" class="article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2023/02/14/programming/java/maven/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/java/myBatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1163,6 +1298,30 @@
 <blockquote>
 <p>如果不行把 onclick 用单引号</p>
 </blockquote>
+<h3 id="文本域实现-ctrl-enter-换行，enter-发送"><a href="#文本域实现-ctrl-enter-换行，enter-发送" class="headerlink" title="文本域实现 ctrl+enter 换行，enter 发送"></a>文本域实现 ctrl+enter 换行，enter 发送</h3><p>处理事件的时候对按 shift 键做特殊处理，换行时，还要考虑光标在输入的文本段落中时处理</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-input</span><br><span class="line">    type=&quot;textarea&quot;</span><br><span class="line">    :rows=&quot;5&quot;</span><br><span class="line">    placeholder=&quot;请输入问题&quot;</span><br><span class="line">    v-model=&quot;inputMsg&quot;</span><br><span class="line">    @keydown.enter.native.prevent=&quot;handleKeyDown&quot;</span><br><span class="line">&gt;&lt;/el-input&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">// 处理键盘事件</span><br><span class="line">handleKeyDown(event) &#123;</span><br><span class="line">  console.log(event);</span><br><span class="line">  if (!event.shiftKey) &#123;</span><br><span class="line">    // 发送文本</span><br><span class="line">  &#125; else if (event.shiftKey) &#123;</span><br><span class="line">    this.insertLineBreak(event.target);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">// 插入换行字符</span><br><span class="line">insertLineBreak(textarea) &#123;</span><br><span class="line">  var startPos = textarea.selectionStart;</span><br><span class="line">  var endPos = textarea.selectionEnd;</span><br><span class="line">  var text = textarea.value;</span><br><span class="line">  textarea.value =</span><br><span class="line">    text.substring(0, startPos) +</span><br><span class="line">    &quot;\n&quot; +</span><br><span class="line">    text.substring(endPos, text.length);</span><br><span class="line">  textarea.selectionStart = textarea.selectionEnd = startPos + 1;</span><br><span class="line">&#125;,</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>优化方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入换行字符</span></span><br><span class="line"><span class="title function_">insertLineBreak</span>(<span class="params">textarea</span>) &#123;</span><br><span class="line">  <span class="keyword">var</span> startPos = textarea.<span class="property">selectionStart</span>;</span><br><span class="line">  <span class="keyword">var</span> endPos = textarea.<span class="property">selectionEnd</span>;</span><br><span class="line">  textarea.<span class="title function_">setRangeText</span>(<span class="string">&quot;\n&quot;</span>, startPos, endPos, <span class="string">&quot;end&quot;</span>);</span><br><span class="line">&#125;,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="marked-highlight-js-实现代码高亮"><a href="#marked-highlight-js-实现代码高亮" class="headerlink" title="marked + highlight.js 实现代码高亮"></a>marked + highlight.js 实现代码高亮</h3><p>在仿gpt对话项目中使用到，对话接口返回如下数据</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">200</span>,</span><br><span class="line">    <span class="attr">msg</span>:</span><br><span class="line">      <span class="string">&#x27;以下是一个简单的Python脚本，用于获取当前月份的最后一天：\n\n```python\nfrom datetime import datetime, timedelta\n\n# 获取当前日期\ncurrent_date = datetime.now()\n\n# 计算当前月份的最后一天\n# 首先获取下一个月的第一天，然后减去一天即为当前月的最后一天\nnext_month_date = current_date.replace(day=28) + timedelta(days=4)  # 这样可以确保跳过当前月的天数，到达下个月的某一天\nlast_day_of_current_month = next_month_date - timedelta(days=1)\n\n# 打印结果\nprint(&quot;当前月份的最后一天是:&quot;, last_day_of_current_month.strftime(&quot;%Y-%m-%d&quot;))\n```\n\n这个脚本使用了Python的`datetime`模块来处理日期和时间。首先，它获取当前日期，然后通过一些简单的日期计算来确定当前月份的最后一天。这里使用了一个小技巧，即将当前日期的日设置为28，然后加上4天（这样可以确保跳过当前月的天数），接着再减去一天，就得到了当前月的最后一天。\n最后，脚本使用`strftime`方法将日期格式化为`&quot;年-月-日&quot;`的格式，并打印出来。&#x27;</span>,</span><br><span class="line">    <span class="attr">history</span>: [],</span><br><span class="line">    <span class="attr">data</span>: <span class="string">&quot;xxx&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>将数据中代码块部分渲染成html代码块形式</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```python\nfrom datetime import datetime, timedelta\n\n# 获取当前日期\ncurrent_date = datetime.now()\n\n# 计算当前月份的最后一天\n# 首先获取下一个月的第一天，然后减去一天即为当前月的最后一天\nnext_month_date = current_date.replace(day=28) + timedelta(days=4)  # 这样可以确保跳过当前月的天数，到达下个月的某一天\nlast_day_of_current_month = next_month_date - timedelta(days=1)\n\n# 打印结果\nprint(&quot;当前月份的最后一天是:&quot;, last_day_of_current_month.strftime(&quot;%Y-%m-%d&quot;))\n```</span><br></pre></td></tr></table></figure>
+
+<p>marked 用于将 上边 markdown 语法字符串转化为 html。在使用 highlight.js 使代码部分高亮</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> rendererMD = <span class="keyword">new</span> marked.<span class="title class_">Renderer</span>();</span><br><span class="line">marked.<span class="title function_">setOptions</span>(&#123;</span><br><span class="line">  <span class="attr">renderer</span>: rendererMD,</span><br><span class="line">  <span class="attr">highlight</span>: <span class="keyword">function</span>(<span class="params">code</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> hljs.<span class="title function_">highlightAuto</span>(code).<span class="property">value</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">pedantic</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">gfm</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">tables</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">breaks</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">sanitize</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">smartLists</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">smartypants</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">xhtml</span>: <span class="literal">false</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// 将字符串设置到DOM innerHTML 中，后边一句替换是使代码块有背景颜色样式</span></span><br><span class="line"><span class="keyword">let</span> htmlDomStr = <span class="title function_">marked</span>(<span class="variable language_">this</span>.<span class="property">msg</span>).<span class="title function_">replace</span>(<span class="regexp">/&lt;pre&gt;/g</span>, <span class="string">&quot;&lt;pre class=&#x27;hljs&#x27;&gt;&quot;</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>依赖样式引入</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 代码背景主题</span></span><br><span class="line"><span class="comment">// import &quot;highlight.js/styles/paraiso-light.css&quot;;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;highlight.js/styles/a11y-dark.css&quot;</span>;</span><br><span class="line"><span class="comment">// import &quot;highlight.js/styles/ascetic.css&quot;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> marked <span class="keyword">from</span> <span class="string">&quot;marked&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> hljs <span class="keyword">from</span> <span class="string">&quot;highlight.js&quot;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>版本问题，不同版本兼容不同，这里用的是</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;highlight.js&quot;</span><span class="punctuation">:</span> <span class="string">&quot;9.18.1&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;marked&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.8.0&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://highlightjs.org/examples">highlight.js 样式选择</a></p>
 
     
 
@@ -1297,147 +1456,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/10/26/programming/htmlcss/css3/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/htmlcss/css2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/10/20/programming/htmlcss/css2/" target="_blank">CSS 2.1</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/10/20/programming/htmlcss/css2/" class="archive-article-date">
-        <time datetime="2022-10-20T10:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-20</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>本章内容来自于《css的世界》-张鑫旭，类似于读书笔记吧。主要介绍css2.1的语法。本书主要用于进阶学习，不适用于初学者，书中也默认忽略一些基础的知识.</p>
-<p>CSS2.1中的CSS属性的设计初衷是展示图文</p>
-<h3 id="css-的世界"><a href="#css-的世界" class="headerlink" title="css 的世界"></a>css 的世界</h3><blockquote>
-<p>已操作系统划分世界，不同的操作系统就是平行世界。每种浏览器就是一个王国。</p>
-<p>在CSS世界中，HTML是魔法石，选择器就是选择法器，CSS属性就是魔法师，CSS各种属性值就是魔法师的魔法技能，浏览器就是他们所在的“王国”，“王国”会不断更新法律法规（版本升级），决定是否允许使用新的魔法石（HTML5新标签新属性），是否允许新的魔法师入“国籍”（CSS3新属性），或者允许魔法师使用某些新技能（CSS新的属性值），以及是否舍弃某些魔法技能（如display:run-in）；操作系统就是他们所在的世界，不同的操作系统代表不同的平行世界，所以，CSS世界有这么几个比较大的平行世界，即Windows世界、OS X世界以及移动端的iOS世界和Android世界。不同世界的浏览器王国的命运不一样，例如，在OS X世界中，IE王国是不存在的，而Safari王国却异常强大，但在Windows世界中，Safari王国却异常落寞。以上这一切就构成了完整的CSS世界的“世界观”。</p>
-</blockquote>
-<h3 id="专业术语"><a href="#专业术语" class="headerlink" title="专业术语"></a>专业术语</h3><ol>
-<li><p>属性</p>
-</li>
-<li><p>值</p>
-</li>
-<li><p>关键字</p>
-</li>
-<li><p>变量</p>
-</li>
-<li><p>长度单位</p>
-<p> 时间单位（如s、ms），还有角度单位（如deg、rad等）</p>
-<p> 相对长度单位：如em,rem(相对字体),vh,vw,vmin,vmax(相对视区)</p>
-<p> 绝对长度单位：px</p>
-</li>
-<li><p>功能符</p>
-<p> 值以函数的形式指定（就是被括号括起来的那种），主要用来表示颜色（rgba和hsla）、背景图片地址（url）、元素属性值、计算（calc）和过渡效果等，如rgba(0,0,0, .5)、url(‘css-world.png’)、attr(‘href’)和scale(-1)。</p>
-</li>
-<li><p>属性值</p>
-</li>
-<li><p>声明</p>
-<p> 属性名加上属性值就是声明</p>
-</li>
-<li><p>声明块</p>
-<p> 就是选择器 {} 区域</p>
-</li>
-<li><p>规则或规则集</p>
-<p>选择器后面的声明块就是一个规则集</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span> &#123;</span><br><span class="line">    ... 规则集</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>选择器</p>
-</li>
-<li><p>关系选择器</p>
-<p>常见的符号有空格、&gt;、～，还有+等，这些都是非常常用的选择器。</p>
-</li>
-<li><p>@规则</p>
-<p>@规则指的是以@字符开始的一些规则，像@media、@font-face、@page或者@support，诸如此类</p>
-</li>
-</ol>
-    
-    <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/htmlcss//" class="article-tag-list-link color3">htmlcss</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/10/20/programming/htmlcss/css2/">展开全文 >></a>
     </p>
     
 
@@ -1604,11 +1622,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1616,15 +1634,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1636,10 +1662,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
@@ -1648,15 +1670,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1664,11 +1682,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1684,35 +1706,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1720,11 +1718,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1740,19 +1738,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1764,7 +1758,35 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1776,11 +1798,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1788,15 +1806,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1804,7 +1814,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1816,11 +1826,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1832,7 +1858,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1840,11 +1866,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1856,27 +1882,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">反编译</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1884,7 +1894,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1966,6 +1984,16 @@
                   <img src="https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F66cb601b-0a79-4587-89d9-bf05763ce080%2F%25E5%25BE%25AE%25E4%25BF%25A1%25E5%259B%25BE%25E7%2589%2587_20230708201104.jpg?table=collection&id=0013cede-6c39-4368-9eca-ab6bb172b35e&width=400">
                 
                 衔蝉
+              </a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://pozhan-js.github.io/" target="_blank" 
+                class="search-title" title="专注技术，分享生活，欢迎来到我的博客">
+                
+                  <img src="https://pozhan-js.github.io/logo.jpg">
+                
+                哈希米
               </a>
             </li>
           
