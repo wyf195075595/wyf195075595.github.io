@@ -4566,6 +4566,18 @@ Content-Security-Policy: frame-ancestors <source> <source>;
 
 浏览器性能查看，如何使用。[参考连接](https://blog.csdn.net/zemprogram/article/details/104557947)
 
+### [Web 文件系统（OPFS 及工具）](https://hughfenghen.github.io/posts/2024/03/14/web-storage-and-opfs/)
+
+> 文件系统是往往是构建大型软件的基石之一，很长一段时间 Web 平台因缺失成熟的文件系统成为构建大型软件的阻碍，如今 [OPFS (opens new window)](https://developer.mozilla.org/zh-CN/docs/Web/API/File_System_API/Origin_private_file_system)可弥补这一缺憾。
+
+- 它是一个文件系统，提供了底层的文件操作 API，**不限于特定的存储场景**
+- 它可对 Web 同源的文件自由进行读写操作，**无需用户手动授权**
+- 它对文件的访问是经过**高度性能优化**的
+
+*OPFS 在 Chrome 86 后可用，主流浏览器均已支持*
+
+**安全上下文:** 此项功能仅在一些[支持的浏览器](https://developer.mozilla.org/zh-CN/docs/Web/API/File_System_API/Origin_private_file_system#浏览器兼容性)的[安全上下文](https://developer.mozilla.org/zh-CN/docs/Web/Security/Secure_Contexts)（HTTPS）中可用。
+
 ## 属性
 
 ### document.referrer

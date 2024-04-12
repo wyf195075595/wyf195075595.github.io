@@ -69,10 +69,11 @@ parent.$("#4thEditTable").load(window.parent.location.href+" #4thEditTable");
     }
     // 子页面
         parent.location.href = target + '#' + hash
-    
-    
-    
-    
+
+
+​    
+​    
+​    
 
 #### 3、window.name
 
@@ -146,3 +147,16 @@ message事件的事件对象event，提供以下三个属性。
 -event.origin: 消息发向的网址
 -event.data: 消息内容
 
+
+
+### 页面间的通信机制
+
+[参考连接](https://juejin.cn/post/7353849549540655123)
+
+- 父子窗口通信
+	1. postMessage
+- 浏览器 tab 页面通信
+	1. localStorage
+	2. WebSocket
+	3. BroadcastChannel
+	4. SharedWorker

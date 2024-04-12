@@ -1636,3 +1636,56 @@ async function view() {
 > 好多人认为whistle是抓包工具，殊不知抓包只是whistle能力的冰山一角。除了抓包外，它还能修改请求与响应、真机调试h5移动端、解决跨域、域名映射等等等。总而言之，使用whistle能够提升我们的开发效率，改善开发体验。
 >
 > whistle一出手就是抓包工具的极限，那年它双手插兜不知道什么是对手（doge）。
+
+### [Superjson](https://github.com/blitz-js/superjson)
+
+> 一个 JavaScript 模块，用于字符串和 JSON 数据的互相转换，支持多种 JSON 不支持的数据格式。
+>
+> 如：
+
+| JSON        | Superjson |      |
+| ----------- | --------- | ---- |
+| `undefined` | ❌         | ✅    |
+| `bigint`    | ❌         | ✅    |
+| `Date`      | ❌         | ✅    |
+| `RegExp`    | ❌         | ✅    |
+| `Set`       | ❌         | ✅    |
+| `Map`       | ❌         | ✅    |
+| `Error`     | ❌         | ✅    |
+| `URL`       |           |      |
+
+
+
+### [LunarLink](https://github.com/tahitimoon/LunarLink)
+
+> 一个基于 Web 的接口自动化测试平台，可以快速编写和运行接口自动化测试用例。
+
+### [driver.js](https://juejin.cn/post/7262542750405804091?searchId=20240329160649886A99DDEED7CE8D9245)
+
+> driver.js 是一款用原生 js 实现的页面引导库，上手非常简单，体积在 gzip 压缩下仅仅 5kb。
+>
+> [官方文档](https://driverjs.com/)
+
+### [simple-mind-map](https://github.com/wanglin2/mind-map)（思绪思维导图）
+
+> 一个开源的 Web 思维导图，试用 [Demo](https://wanglin2.github.io/mind-map/)。
+>
+> 本项目包含两部分：
+>
+> 1.一个 js 思维导图库，不依赖任何框架，可以使用它来快速完成 Web 思维导图产品的开发。
+>
+> 开发文档：https://wanglin2.github.io/mind-map/#/doc/zh/。
+>
+> 2.一个 Web 思维导图，基于思维导图库、Vue2.x、ElementUI 开发，可以操作电脑本地文件，可以当做一个在线版思维导图应用使用，也可以自部署和二次开发。
+>
+> 在线地址：https://wanglin2.github.io/mind-map/。
+>
+> 此外也提供了客户端可供下载使用，支持`Windows`、`Mac`及`Linux`，下载地址：
+>
+> Github：[releases](https://github.com/wanglin2/mind-map/releases)。百度云盘：[地址](https://pan.baidu.com/s/1huasEbKsGNH2Af68dvWiOg?pwd=3bp3)。
+
+[blog-cells](https://github.com/rameshvarun/blog-cells)
+
+> 这个工具可以在网页插入互动式区块，用来展示和执行 JavaScript 代码，类似于 Jupyter。
+>
+> 
