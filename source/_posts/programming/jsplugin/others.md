@@ -165,11 +165,89 @@ module.exports = function(obj){
 };
 ```
 
+### DocRaptor
+
+> **DocRaptor：** `DocRaptor` 是一个第三方服务，提供了通过 API 将 HTML 或 Markdown 内容转换为 Word 文档的功能。它可以轻松地集成到前端或后端代码中，并且支持更复杂的文档格式和样式。
+
+### **mammoth.js**
+
+>  `mammoth.js` 是一个 JavaScript 库，**用于将 Word 文档转换为 HTML 格式**。虽然它的主要功能是从 Word 文档提取内容，但**它也提供了一些功能用于将 HTML 内容转换为 Word 文档。**
+
+### **[Docxtemplater](https://docxtemplater.com/demo/#/categories)**
+
+>  `Docxtemplater` 是一个用于生成 Word 文档的 JavaScript 库，它通过填充模板来生成 Word 文档。您可以在模板中使用变量和条件语句，并通过 JavaScript 代码来填充模板。虽然它是一个商业库，但提供了强大的功能和灵活的定制选项
+>
+>  [参考连接](https://juejin.cn/post/7205181884589031485)
+>
+>  [解决方案参考链接](https://blog.csdn.net/CRMEB/article/details/133278226)
+>
+>  [在线示例](https://codepen.io/wyf195075595/pen/JjVxmpW)
+
+```js
+import Docxtemplater from "docxtemplater";
+import { saveAs } from "file-saver";
+import JSZipUtils from "jszip-utils";
+import PizZip from "pizzip";
+
+// path 模板文件的路径
+// 填充模板的数据
+// 下载的文件名称
+export function downloadWithTemplate(path, data, fileName) {
+    JSZipUtils.getBinaryContent(path, (error, content) => {
+        if (error) throw error;
+
+        const zip = new PizZip(content);
+        const doc = new Docxtemplater().loadZip(zip);
+        doc.setData({
+            ...data,
+        });
+
+        try {
+            doc.render();
+        } catch (error) {
+            const e = {
+                message: error.message,
+                name: error.name,
+                stack: error.stack,
+                properties: error.properties,
+            };
+            ElMessage.error("文件格式有误!" + e);
+            throw error;
+        }
+        const out = doc.getZip().generate({
+            type: "blob",
+            mimeType:
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        });
+        saveAs(out, fileName);
+    });
+}
+
+```
+
+```js
+downloadWithTemplate("审计底稿1.dotx", {
+	time: '2024.1.22',
+    number: 'xx',
+    sj_content: 'xx',
+    ...
+    
+}, "模板word.docx");
+```
+
+![image-20240424162500232](C:/Users/19507/AppData/Roaming/Typora/typora-user-images/image-20240424162500232.png)
+
 ### [vue-html2pdf](https://github.com/kempsteven/vue-html2pdf)
 
 pdf导出的方案.[vue3版本分支](https://github.com/raiblaze/vue3-html2pdf)，
 
+### [docx.js](https://docx.js.org/)
 
+> docxjs是一款较为强大的docx格式文档处理的js库，基本可以处理我们遇到的所有有关于docx的文档问题。支持内置方式的word**生成、解析、格式渲染**。除此之外，我们还可以通过自定义方式直接通过xml方式渲染word包括但不限于**字体样式、字体大小、段落样式、间距、颜色**等
+>
+> [参考教程文章1](https://www.enjoytoday.cn/2022/09/15/%e5%a6%82%e4%bd%95%e4%bd%bf%e7%94%a8docxjs%ef%bc%9f/)
+>
+> [参考教程文章2](https://blog.csdn.net/baijiafan/article/details/126779192)
 
 ### [fecs](http://fecs.baidu.com/)
 
@@ -183,6 +261,43 @@ pdf导出的方案.[vue3版本分支](https://github.com/raiblaze/vue3-html2pdf)
 Pinia 是 Vue.js 的轻量级状态管理库，最近很受欢迎。它使用 Vue 3 中的新反应系统来构建一个直观且完全类型化的状态管理库。
 
 Pinia体积约1KB,轻量级，简单的项目应用项目性能有优化
+```
+
+### [PizZip](https://github.com/open-xml-templating/pizzip)
+
+> 一个用于使用 Javascript 创建、读取和编辑.zip文件的库，具有可爱而简单的 API。
+
+```js
+var zip = new PizZip();
+// 编辑
+zip.file("Hello.txt", "Hello World\n");
+
+var img = zip.folder("images");
+img.file("smile.gif", imgData, { base64: true });
+
+var content = zip.generate({ type: "blob" });
+
+// see FileSaver.js
+saveAs(content, "example.zip");
+```
+
+
+
+### [zip-a-folder](https://github.com/maugenst/zip-a-folder)
+
+> 创建 zip,tar 文件。将指定目录压缩
+
+```js
+import { zip } from 'zip-a-folder';
+
+class TestMe {
+
+    static async main() {
+        await zip('/path/to/the/folder', '/path/to/archive.zip');
+    }
+}
+
+TestMe.main();
 ```
 
 
@@ -1411,6 +1526,12 @@ console.log('还原对象:', toObj)
 >
 > [示例2](https://tian-jing-ruo-feng.github.io/logic-flow/) [示例代码](https://github.com/tian-jing-ruo-feng/logic-flow)
 
+[logic-flow](https://github.com/didi/LogicFlow)
+
+> 专注于业务自定义的流程图编辑框架，支持实现脑图、ER图、UML、工作流等各种图编辑场景。比x6使用更简单，更强
+>
+> [官方文档](https://site.logic-flow.cn/examples)
+
 ### 导出pdf
 
 [打印的5中姿势](https://juejin.cn/post/7262656196855038008?searchId=202312201409479A9BB809BBF1D3632BDA#heading-9)
@@ -1466,6 +1587,8 @@ console.log('还原对象:', toObj)
 ### [localforage](https://github.com/localForage/localForage)
 
 > 本地存储的最佳方案，localForage 是一个快速而简单的 JavaScript 存储库。localForage 通过将异步存储（IndexedDB 或 WebSQL）与简单的类似 `localStorage` 的 API 结合使用来改善 Web 应用的脱机体验。
+>
+> [中文文档](https://localforage.docschina.org/#api-driver)
 
 ### [VisActor](https://visactor.io/)
 
@@ -1560,6 +1683,45 @@ yarn add mermaid
 mermaid.initialize({ startOnLoad: true });
 </script>
 ```
+
+### [jsmind](https://github.com/hizzgdev/jsmind)
+
+> jsMind 是一个显示/编辑思维导图的纯 javascript 类库。
+
+```html
+<html>
+    <head>
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="//cdn.jsdelivr.net/npm/jsmind@0.8.3/style/jsmind.css"
+        />
+        <script
+            type="text/javascript"
+            src="//cdn.jsdelivr.net/npm/jsmind@0.8.3/es6/jsmind.js"
+        ></script>
+    </head>
+    <body>
+        <div id="jsmind_container"></div>
+
+        <script type="text/javascript">
+            var mind = {
+                // 3 data formats were supported ...
+                // see documents for more information
+            };
+            var options = {
+                container: 'jsmind_container',
+                theme: 'orange',
+                editable: true,
+            };
+            var jm = new jsMind(options);
+            jm.show(mind);
+        </script>
+    </body>
+</html>
+```
+
+
 
 ### [`whatsapp-web.js`](https://github.com/pedroslopez/whatsapp-web.js?utm_source=gold_browser_extension)
 
@@ -1689,3 +1851,159 @@ async function view() {
 > 这个工具可以在网页插入互动式区块，用来展示和执行 JavaScript 代码，类似于 Jupyter。
 >
 > 
+
+[Hyphen](https://github.com/00000o1/-)
+
+> 一个 Web 组件的基类，你可以在它的基础上定义自己的 Web Component。类似的工具还有 [Cami.js](https://github.com/kennyfrc/cami.js)。
+
+### [stokado](https://github.com/KID-joker/stokado)
+
+> 浏览器存储对象（比如 localStorage、IndexDB）的包装库，提供统一的 API，以及一些便利的功能（比如过期时间）。
+
+### [Newcar](https://github.com/dromara/newcar)
+
+> 一个 JS 语言的前端动画引擎，基于 Skia 的WebAssembly 版本，在 Canvas 画布上生成动画。
+
+### [x-crawl](https://github.com/coder-hxl/x-crawl)
+
+> 一个 AI 辅助的爬虫库，基于 Node.js，抓取网页后，可以用文字描述所要的操作。
+
+### [条码生成 JsBarcode](https://lindell.me/JsBarcode/)
+
+> 易于使用，但功能强大的条形码生成器，适用于网页和Node.js
+
+### [音频可视化](https://wavesurfer.xyz/)
+
+> 音波线条展示音频
+
+```js
+<script type="module">
+import WaveSurfer from 'https://cdn.jsdelivr.net/npm/wavesurfer.js@7/dist/wavesurfer.esm.js'
+
+const wavesurfer = WaveSurfer.create({
+  container: '#waveform',
+  waveColor: '#4F4A85',
+  progressColor: '#383351',
+  url: '/audio.mp3',
+})
+
+wavesurfer.on('interaction', () => {
+  wavesurfer.play()
+})
+</script>
+```
+
+### [howlerjs](https://howlerjs.com/)
+
+> howler.js 使在所有平台上使用 JavaScript 中的音频变得简单可靠。api支持几乎所有浏览器，支持所有浏览器音频格式，0依赖，完全控制
+
+### [打字机效果](https://www.typeitjs.com/docs/vanilla/quick-start/)
+
+> 快速简单的实现打字机效果
+
+```js
+<html>
+  <head></head>
+  <body>
+    <!-- A root element for TypeIt to target. -->
+    <span id="myElement"></span>
+
+    <!-- The script itself, loaded AFTER your root element. -->
+    <script src="https://unpkg.com/typeit@@{TYPEIT_VERSION}/dist/index.umd.js"></script>
+    <script>
+      new TypeIt("#myElement", {
+        strings: "This is what will be typed!",
+      }).go();
+    </script>
+  </body>
+</html>
+```
+
+[敏感词过滤库](https://github.com/ZhelinCheng/mint-filter)
+
+> 基于Aho–Corasick算法，更轻巧的JavaScript敏感词过滤库，更好的容错性，适用Node及浏览器环境
+
+```js
+// CommonJS导入
+const { Mint } = require('mint-filter')
+// TypeScript / ES Module引用
+import Mint from 'mint-filter'
+const mint = new Mint(['敏感词数组'])
+
+// 基本使用
+mint.filter('需要验证的文本')
+```
+
+[pinyin-pro](https://pinyin-pro.cn/use/pinyin.html)
+
+> 一个识别准确、性能优异的汉字拼音转换库.About
+>
+> 中文转拼音、拼音音调、拼音声母、拼音韵母、多音字拼音、姓氏拼音、拼音匹配
+
+[自由画板](https://songlh.top/paint-board/)
+
+> 只支持iframe嵌套，不能直接集成到项目里面
+
+> 
+
+### [SimpleMindMap](https://wanglin2.github.io/mind-map/#/doc/zh/introduction)
+
+> `simple-mind-map`【中文名：思绪思维导图】是一个简单&强大的Web思维导图库，不依赖任何特定框架。可以帮助你快速开发思维导图产品。
+>
+> 如果你只是想使用思维导图，你也完全可以把本项目的demo作为一个普通的在线思维导图工具使用。[在线示例](https://wanglin2.github.io/mind-map/#/)
+
+> 
+
+### [页面引导](https://github.com/usablica/intro.js?tab=readme-ov-file)
+
+> 介绍页面亮点功能
+
+![](https://raw.githubusercontent.com/usablica/intro.js/gh-pages/img/introjs-demo.png)
+
+### [中国区域数据]([china-area-data](https://github.com/airyland/china-area-data))
+
+> 中国各地区及地区编码数据
+
+### [rrweb](https://github.com/rrweb-io/rrweb/blob/master/guide.zh_CN.md)
+
+> 录制，回放 操作过程. 不是视频录制回放。而是复制网页及操作过程回放，回放会触发浏览器接口调用。就是录制全部用户在网页里的所有点击操作，出问题随时回放排查
+>
+> [rrweb](https://codepen.io/ansike/pen/qBXQQxm)
+>
+> 相似的工具 [TimeCat](https://timecatjs.com/docs/quick-start) [参考文章](https://zhuanlan.zhihu.com/p/670386173)
+>
+> 
+
+### [dom purify](https://github.com/cure53/DOMPurify)
+
+> 将用户输入的html转化为可信任的html.DOMPurify 将去除所有包含危险 HTML 的内容，从而防止 XSS 攻击和其他肮脏的东西。
+
+注意，默认情况下，我们允许 HTML、SVG 和 MathML。如果您只需要 HTML，这可能是一个非常常见的用例，您也可以轻松设置它：
+
+```js
+const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
+```
+
+
+
+### [editorAnnotate](https://gitee.com/doc_wei01/editorAnnotate/tree/master/)
+
+> skyeyeAnnotate是一款**基于jQuery**封装的**HTML文章批注插件**，帮助开发者轻松实现**类似word的文本批注**。我们需要在一个或多个网页中添加批注信息的时候这个插件可以简化我们许多工作。使用者可以随意选择文本进行批注以及批注回复，支持批注历史查看等功能。支持客户合同批注、试卷批阅等多种场景。
+
+### [ElysiaJS](https://elysiajs.com/)
+
+> JS 语言的 Web 框架，专门为 Bun 运行环境开发。 与nodejs 一样作为 js引擎开发的后端语言
+
+### [IMaker 创客](https://github.com/slince-zero/IMaker)
+
+> 一款开源的封面设计工具，基于 JS 的 Web 应用，有[试用 Demo](https://img-maker.vercel.app/)。
+
+### [VideoSubtitleGenerator](https://github.com/buxuku/VideoSubtitleGenerator)
+
+> 一个命令行工具，通过语音识别，批量为本地的视频文件生成字幕，并支持翻译。
+
+### [vmr](https://github.com/gvcgo/version-manager)
+
+> 一个跨平台的通用版本管理器，目前支持40多种编程语言和工具。另有一个类似工具 [vfox](https://github.com/version-fox/vfox)。
+>
+> 就像 nodejs 版本管理器 nvm, 这个管理器支持多种编程语言包管理器，如 java,js,python,php...

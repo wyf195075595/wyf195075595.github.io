@@ -144,3 +144,38 @@ module.exports = {
 
 
 > *在CSS样式中可直接书写750PX,既表明 整屏的宽度,若是设计图不是750的,可在vue.config.js中 rootValue属性,修改成设计图宽度便可,详见vue.config.js注释说明**css*
+
+
+
+postcss-pxtorem 缺陷
+
+内联样式，行内样式 px单位不会自动转换，需要手动处理
+
+```js
+function px2rem(px){
+  if(/%/ig.test(px)){ // 有百分号%，特殊处理，表述pc是一个有百分号的数，比如：90%
+    return px
+  }else{
+    return (parseFloat(px) / 37.5) + 'rem'
+  }
+}
+```
+
+```vue
+<Dialog
+    v-model="isShow"
+    :title="dialogTitle"
+    width="35%"
+    :height="px2rem('300px')"
+    @close="closeDialog(addFormRef)"
+/>
+<el-form
+    label-position="left"
+    :label-width="px2rem(120)"
+    :model="addForm"
+    ref="addFormRef"
+    class="dialog-form"
+>
+```
+
+

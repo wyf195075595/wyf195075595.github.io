@@ -5,7 +5,7 @@ tags: vue
 categories: vue
 ---
 
-> 一个简单的mixin 使用示例，用于管理 项目中的 字典，下拉数据
+> 一个简单的mixin 使用示例，用于管理 项目中的 字典，下拉数据. 下边代码仅为参考，主要思路就是 通过mixin 加载 字典存储到 store ，将 store 中字典 共享到data中
 
 ### 通用字典
 

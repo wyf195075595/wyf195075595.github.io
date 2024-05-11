@@ -105,6 +105,12 @@ configureWebpack: (config) => {
 
 vue.config.js
 
+安装压缩插件，注意：不用安装太高版本，不用安装太高版本，不用安装太高版本，最新版本安装后打包回出错，我这是选择5.0.2。可能跟你项目的webpack版本有关吧
+
+```css
+npm install --save-dev compression-webpack-plugin@5.0.2
+```
+
 ```js
 const CompressionWebpackPlugin = require('compression-webpack-plugin')
 chainWebpack(config) {

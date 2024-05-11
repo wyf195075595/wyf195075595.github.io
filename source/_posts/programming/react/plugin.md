@@ -614,3 +614,18 @@ Router 默认是模糊匹配, Switch 只能匹配其中第一个
 ### [ScratchCard](https://github.com/1587315093/scratch-card)
 
 > 一个刮刮卡的 React 组件。
+
+### [react-hot-toast](https://github.com/timolins/react-hot-toast)
+
+> [官网](https://react-hot-toast.com/),一个提示组件。样式很好看
+
+### [react-tooltip](https://github.com/ReactTooltip/react-tooltip)
+
+> [官网](https://react-tooltip.com/docs/getting-started),react 内容提示组件。一般不会单独使用，优先考虑UI库中的组件
+
+### [Graphin](https://graphin.antv.vision/)
+
+> Graphin 取名意为 Graph Insight（图的分析洞察），是一个基于 G6 封装的 React 组件库，专注在**关系可视分析领域**，简单高效，开箱即用。
+>
+> [g6测试demo](https://codepen.io/wyf195075595/pen/VwOwYxr?editors=1010)
+

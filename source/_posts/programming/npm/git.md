@@ -282,6 +282,8 @@ IdentityFile ~/.ssh/github_id
 
 ## [搭建一个最简单的服务器](https://www.ruanyifeng.com/blog/2022/10/git-server.html)
 
+[参考文章](https://www.gibbard.me/using_git_offline/)
+
 熟悉 Git 的同学可能知道，Git 默认支持两种传输协议：SSH 和 HTTP/HTTPS。
 
 服务器一般都自带 SSH，这意味着，**我们可以什么都不安装，只通过 SSH 就把仓库推到远程服务器。**

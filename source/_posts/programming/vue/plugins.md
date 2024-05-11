@@ -821,3 +821,96 @@ pnpm add animate.css
 > Element UI表单设计及代码生成器，可将生成的代码直接运行在基于Element的vue项目中；也可导出JSON表单，使用配套的解析器将JSON解析成真实的表单。
 >
 > 这是一个单独的项目，生成表单json后可通过**JSON解析器**解析成新的表单
+
+### [vue-flow](https://github.com/bcakmakoglu/vue-flow)
+
+> **一个高度可定制的 Vue 3 流程图组件**
+>
+> Vue Flow 使用了 Vue 3 独有的功能，因此对 Vue 2 没有支持，以后也不会有任何支持，对不起。
+
+### [机器人拼图验证](https://github.com/javaLuo/vue-puzzle-vcode?tab=readme-ov-file)
+
+> 我知道有第 3 方的很好用,比如 GEETEST 的拼图验证，但要引入 SDK 跟后台配合，还有接口交互。
+> 太麻烦了，纯前端校验
+>
+> 支持vue2/3版本
+
+### [弹幕交互](https://github.com/hellodigua/vue-danmaku/tree/master)
+
+> 支持vue2/3版本
+
+![](https://camo.githubusercontent.com/4dfee4ab6ff2e18882943ef0d5845ff7df599faed57fbdc997911b02caf97f6f/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f68656c6c6f64696775612f63646e2f696d672f7675652d64616e6d616b752e77656270)
+
+### [vue-types](https://dwightjack.github.io/vue-types/)
+
+> 简化了 props 参数声明，灵感源自 react
+
+```js
+import VueTypes from 'vue-types'
+
+export default {
+  props: {
+    id: VueTypes.number.def(10),
+    name: VueTypes.string.isRequired,
+    age: VueTypes.integer,
+    nationality: VueTypes.string,
+  },
+  methods: {
+    // ...
+  },
+}
+```
+
+### [vue-json-pretty](https://github.com/leezng/vue-json-pretty)
+
+> 页面展示json对象，[在线演示](https://leezng.github.io/vue-json-pretty/)
+
+### [瀑布流组件](https://github.com/heikaimu/vue-waterfall-plugin)
+
+> vue 瀑布流插件，支持 PC 和移动端，支持 animate 的所有动画效果，支持图片懒加载.
+>
+> 有vue2/3版本
+
+[pptlist](https://github.com/pipipi-pikachu/PPTist/blob/master/README_zh.md)
+
+> 一个基于 Vue3.x + TypeScript 的在线演示文稿（幻灯片）应用，还原了大部分 Office PowerPoint 常用功能，支持 文字、图片、形状、线条、图表、表格、视频、音频、公式 几种最常用的元素类型，每一种元素都拥有高度可编辑能力，同时支持丰富的快捷键和右键菜单，力求还原桌面应用级体验。支持导出本地 PPTX 文件，支持移动端基础编辑和预览。您可以在此基础上搭建自己的在线幻灯片应用。
+>
+> 
+
+### [vue-tippy](https://github.com/KABBOUCHI/vue-tippy)
+
+> vue提示组件，支持vue组件，指令，h 函数 三种使用方式
+
+### [Vue I18n](https://kazupon.github.io/vue-i18n/zh/started.html#html)
+
+> vue 国际化组件,支持vue2/3
+
+```js
+// 准备翻译的语言环境信息
+const messages = {
+  en: {
+    message: {
+      hello: 'hello world'
+    }
+  },
+  ja: {
+    message: {
+      hello: 'こんにちは、世界'
+    }
+  }
+}
+
+// 通过选项创建 VueI18n 实例
+const i18n = new VueI18n({
+  locale: 'ja', // 设置地区
+  messages, // 设置地区信息
+})
+
+
+// 通过 `i18n` 选项创建 Vue 实例
+new Vue({ i18n }).$mount('#app')
+```
+
+### [VContextmenu](https://cybernika.net/v-contextmenu/)
+
+> 通用的鼠标右键浮窗菜单

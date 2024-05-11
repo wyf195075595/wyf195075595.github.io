@@ -271,6 +271,8 @@ css: {
 
 ### 字典通用解决方案
 
+若依参考方案
+
 1. useDict 函数
 
 	```js
@@ -376,7 +378,134 @@ css: {
 	const { sys_normal_disable } = proxy.useDict("sys_normal_disable");
 	```
 
-	
+
+自定义方案
+
+**dict.js 定义 pinia 全局状态管理**
+
+```js
+import { defineStore } from "pinia";
+export default defineStore('dictStore', {
+    state: () => {
+        return {
+            dicts: {
+                criticality: [
+                    { value: "1", label: "严重" },
+                    { value: "2", label: "中等" },
+                    { value: "3", label: "轻微" },
+                ]
+            },
+            labels: {
+                criticality: {
+                    1: "严重",
+                    2: "中等",
+                    3: "轻微",
+                }
+            }
+        }
+    },
+    getters: {
+        dict(state) {
+            return state.dicts;
+        },
+        label(state) {
+            return state.labels;
+        }
+    },
+    actions: {
+        setDict( dictName, dict) {
+            if(!this.dicts[dictName]) {
+                this.dicts[dictName] = [];
+                this.labels[dictName] = {};
+            }
+            this.dicts[dictName] = dict.dict;
+            this.labels[dictName] = dict.label;
+        },
+        delDict( dictName) {
+            if(this.dicts[dictName]) {
+                delete this.dicts[dictName];
+                delete this.labels[dictName];
+            }
+        }
+    },
+    // 开启缓存
+    persist: {
+        enabled: true
+    }
+})
+```
+
+**common.sj 中定义注册字典方法**
+
+如果后端除了标准字典接口之外还有非标准接口可以使用options参数，可自定义 字典label,字典value（字典id使用 value,也可以再加一个字典id），参数取值支持 dataStr (如接口取值 res.rows 传 "rows", res.data.data 传 "data.data", 默认 取值res.data)，request 非标准的字典接口（axios封装后的接口），params (非标准字典接口的参数)
+
+```js
+// 加载的字典名称（与接口请求字典类型保持一至），字典store对象，非标准字典加载配置
+export const loadDict = async (dictName, store, options = {}) => {
+  let { request = null, ...others } = options;
+  options = Object.assign({
+      labelName: "dictLabel",
+      valueName: "dictValue",
+      datastr: "",
+      params: null
+  }, others)
+  try {
+      if(store.dict[dictName]?.length) return
+      let dict = [],label = {};
+      let rs = null, list = [];
+      if(request) {
+          rs = await request(options.params);
+      } else {
+          rs = await getDictByType(dictName);
+      }
+      list = rs.data;
+      if (options.dataStr) {
+          list = options.dataStr.split('.').reduce((rs,key) => {
+              return rs[key];
+          }, rs)
+      }
+      dict = list.map(item => {
+          label[item[options.valueName]] = item[options.labelName];
+          return {
+              label: item[options.labelName],
+              value: String(item[options.valueName]),
+              id: String(item[options.valueName]),
+          }
+      })
+      store.setDict(dictName, {dict, label});
+  } catch (error) {
+      console.warn(`字典${ dictName }加载失败`, error);
+  }
+}
+```
+
+**使用**
+
+```js
+import { loadDict } from '@/utils/common';
+import { useRouter } from 'vue-router';
+const store = usedictStore();
+const initDict = async () => {
+	//加载标准字典
+    loadDict("fault_solution", store);
+
+    // 加载非标准字典
+    loadDict("gates", store, {
+        labelName: "type",
+        valueName: "logicGateID",
+        request: getFaultGatesList,
+        dataStr: "rows"
+    });
+}
+
+// 保证字典加载完成后请求列表
+onMounted(async ()=> {
+    await initDict();
+    getList();
+})
+```
+
+
 
 ### 完整的配置参考
 
