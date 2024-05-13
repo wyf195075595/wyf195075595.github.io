@@ -366,12 +366,114 @@
 
 
   
-    <article id="post-programming/javascript/Untitled" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/高性能网站建设指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/" target="_blank">高性能网站建设指南</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/" class="archive-article-date">
+        <time datetime="2024-05-11T03:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-11</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
   <div class="article-entry" itemprop="articleBody">
     
-    
+    <blockquote>
+<p>​    性能黄金法则(Performance Golden Rule)揭示了<strong>只有10%<del>20%的最终用户响应时间花在接收所请求的HTML文档上剩下的80%</del>90%时间花在为HTML文档所引用的所有组件(图片、脚本、样式表Flash 等)进行的HTTP 请求上。</strong>因此，改善响应时间的最简单途径就是减少组件的数量，并由此减少 HTTP 请求的数量</p>
+</blockquote>
+<h2 id="减少http请求"><a href="#减少http请求" class="headerlink" title="减少http请求"></a>减少http请求</h2><ol>
+<li><p>图片地图</p>
+<p> 将一张图片做几张图片用，减少图片使用</p>
+</li>
+</ol>
+<pre><code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">align</span>=<span class="string">&quot;center&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;./img/qqline.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span> <span class="attr">usemap</span>=<span class="string">&quot;#mymap1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">map</span> <span class="attr">name</span>=<span class="string">&quot;mymap1&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">&quot;rect&quot;</span> <span class="attr">coords</span>=<span class="string">&quot;47,36,209,275&quot;</span> <span class="attr">href</span>=<span class="string">&quot;a.html&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">&quot;rect&quot;</span> <span class="attr">coords</span>=<span class="string">&quot;271,36,433,275&quot;</span> <span class="attr">href</span>=<span class="string">&quot;b.html&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">area</span> <span class="attr">shape</span>=<span class="string">&quot;rect&quot;</span> <span class="attr">coords</span>=<span class="string">&quot;487,36,668,275&quot;</span> <span class="attr">href</span>=<span class="string">&quot;c.html&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">map</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+<ol start="2">
+<li><p>css Sprites</p>
+<p> 雪碧图(图片精灵)，将一张多素材图片通过定位【background-position】方式，展示其中某一部分来模拟多张图片的效果。减少图片请求</p>
+<p> <a target="_blank" rel="noopener" href="https://code-nav.top/spritesmith">雪碧图在线生成工具</a></p>
+</li>
+<li><p>内联图片</p>
+<p> ​    通过使用 dataLURL 模式 在web页面包含图片且无需额外http请求.Data URL协议中，图片被转换成<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=base64&spm=1001.2101.3001.7020">base64</a>编码的字符串形式，并存储在URL中，冠以mime-type。</p>
+ <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line"> <span class="attribute">background</span>: <span class="built_in">url</span>(<span class="string">&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;data:image/gif;base64,R0lGODlhAwADAIAAAP///8zMzCH5BAAAAAAALAAAAAADAAMAAAIEBHIJBQA7&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p> ​    使用Data URL方式的Demo在渲染时会比不使用 多消耗53%左右的CPU资源，内存多出4倍左右，耗时平均高出24.6倍 。由此可见，使用Data URl方式还是需要更多的考量，在可接受的范围内适量使用。</p>
+</li>
+<li><p>合并脚本样式表</p>
+<p> 减少 js,css 文件数量</p>
+</li>
+</ol>
+<h2 id="使用内容发布网络"><a href="#使用内容发布网络" class="headerlink" title="使用内容发布网络"></a>使用内容发布网络</h2><p>就是使用 cdn 加速，减少打包体积</p>
+<h2 id="添加-Expries-头"><a href="#添加-Expries-头" class="headerlink" title="添加 Expries 头"></a>添加 Expries 头</h2><p>图片资源浏览器默认会进行缓存，非首次访问时会触发.</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 设置缓存存储的最大周期，超过这个时间缓存被认为过期 (单位秒)。与Expires相反，时间是相对于请求的时间。</span><br><span class="line">Cache-Control: max-age=&lt;seconds&gt;</span><br><span class="line">// 响应标头包含响应应被视为过期的日期/时间。无效的日期（比如 0）代表过去的日期，即该资源已经过期。</span><br><span class="line">Expires: Wed, 21 Oct 2015 07:28:00 GMT</span><br></pre></td></tr></table></figure>
+
+<p>添加长的 Expires 头可以将后续页面浏览的响应时间从 600秒降低到260毫秒这是在900Kbps的DSL 上测试的，减少了57%。页面中的组件越多，响应时间改善得越多。如果你的页面平均超过6个图片、3个脚本和1个样式表，页面的速度提升就会超过这个例子中的57%。</p>
+<h2 id="压缩组件"><a href="#压缩组件" class="headerlink" title="压缩组件"></a>压缩组件</h2><p>可以用于向浏览器发布压缩的 web页面，从HTTP请求中的<strong>Accept-Encoding</strong>头来标识对压缩的 web 页面 。http从 1.1开始 对压缩标识支持</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Content-Encoding:gzip</span><br></pre></td></tr></table></figure>
+
+<p>gzip 是目前最流行最有效的压缩方式，这是GNU项目开发的一种免费的格式</p>
+<p>启用方式参考 <strong>nignx 配置 gzip</strong></p>
+<p><strong>vite vue3项目</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> compressPlugin <span class="keyword">from</span> <span class="string">&#x27;vite-plugin-compression&#x27;</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        ...,</span><br><span class="line">        <span class="title function_">compressPlugin</span>(&#123;</span><br><span class="line">          <span class="attr">threshold</span>: <span class="number">3072</span>, <span class="comment">//3KB 仅压缩文件大小大于此阈值的文件</span></span><br><span class="line">          <span class="attr">deleteOriginFile</span>: <span class="literal">false</span>, <span class="comment">// 是否删除原始文件</span></span><br><span class="line">        &#125;),</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>vue cli 项目</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> compressionWebpackPlugin = <span class="built_in">require</span>(<span class="string">&quot;compression-webpack-plugin&quot;</span>);</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">  <span class="attr">configureWebpack</span>: &#123;</span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">      <span class="comment">// 开启gzip</span></span><br><span class="line">      <span class="keyword">new</span> <span class="title function_">compressionWebpackPlugin</span>(&#123;</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;[path][base].gz&quot;</span>,</span><br><span class="line">        <span class="attr">algorithm</span>: <span class="string">&quot;gzip&quot;</span>,</span><br><span class="line">        <span class="attr">test</span>: <span class="regexp">/.js$|.css$|.html$/</span>,</span><br><span class="line">        <span class="attr">threshold</span>: <span class="number">10240</span>, <span class="comment">// 对超过10k的数据压缩</span></span><br><span class="line">        <span class="attr">minRatio</span>: <span class="number">0.8</span> <span class="comment">// 压缩率小于0.8才会压缩</span></span><br><span class="line">      &#125;),</span><br><span class="line">   ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当浏览器直接访问服务器时，一切都正常。如果浏览器通过代理来发送请求时，就可能出现问题。由于正向代理服务端缓存会根据第一次请求来决定，如果第一次请求URL，浏览器不支持gzip,那么第二次支持gzip浏览器请求URL 服务端会按不支持gzip 处理，反之浏览器不会解压.gz 文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vary: Accept-Encoding, User-Agent</span><br></pre></td></tr></table></figure>
+
+<p>在服务端响应头 新增如上，就能避免问题，添加 user-Agent nginx可以根据浏览器是否支持gzip 判断是否返回 压缩的文件。</p>
+<p>2024了 现在浏览器基本都支持，不需要考虑这个问题</p>
+<h2 id="外联-js-css"><a href="#外联-js-css" class="headerlink" title="外联 js, css"></a>外联 js, css</h2><p>不使用内联 js,css, 将js,css 放置外部文件中</p>
+<h2 id="减少-DNS-查找"><a href="#减少-DNS-查找" class="headerlink" title="减少 DNS 查找"></a>减少 DNS 查找</h2><p>浏览器对级存的 DNS 记录的数也有限制，而不管缓存记录的时间。如果用户在短时间内访问了很多具有不同域名的网站，较早的 DNS 记录将被丢弃，必须重新查找该域名。</p>
+<h2 id="压缩精简代码"><a href="#压缩精简代码" class="headerlink" title="压缩精简代码"></a>压缩精简代码</h2><p>打包压缩</p>
+<h2 id="避免重定向"><a href="#避免重定向" class="headerlink" title="避免重定向"></a>避免重定向</h2><ul>
+<li><p>300Multiple Choices(基于 Content-Type)</p>
+</li>
+<li><p>301 Moved Permancently.</p>
+<p>  客户请求的文档在其他地方，新的URL在 Location 头中给出，浏览器应该自动地访问新的URL。</p>
+</li>
+<li><p>302MovedTemporarily亦称Found)</p>
+<p>  类似于301，但新的URL应该被视为临时性的替代，而不是永久性的。</p>
+</li>
+<li><p>303 See Oier 对302的说明)</p>
+<p>  类似于301/302，不同之处在于，如果原来的请求是POST，Location头指定的重定向目标文档应该通过GET提取（HTTP 1.1新）。</p>
+</li>
+<li><p>304 Not Modified</p>
+<p>  客户端有缓冲的文档并发出了一个条件性的请求（一般是提供If-Modified-Since头表示客户只想比指定日期更新的文档）。服务器告诉客户，原来缓冲的文档还可以继续使用。<br>   如果客户端发送了一个带条件的 GET 请求且该请求已被允许，而文档的内容（自上次访问以来或者根据请求的条件）并没有改变，则服务器应当返回这个状态码。<strong>304响应禁止包含消息体（因此304请求可以借助浏览器缓存来节省资源请求）</strong></p>
+</li>
+<li><p>305 Use Proxy</p>
+</li>
+<li><p>306(不使用)</p>
+</li>
+<li><p>307Temporary Redifeot(对302的说明)</p>
+<p>   如果这不是一个GET或者HEAD请求，那么浏览器禁止自动进行重定向，除非得到用户的确认，因为请求的条件可能因此发生变化。对于307，使用POST请求的话，重定向的请求应该是POST请求。 </p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://kebingzao.com/2018/10/05/http-status-code/">浅谈之-http的状态码以及使用场景</a></p>
+<h2 id="配置或移除eTag"><a href="#配置或移除eTag" class="headerlink" title="配置或移除eTag"></a>配置或移除eTag</h2><p><strong>条件get请求</strong></p>
+<p>当缓存的组件过期了或重新加载页面，浏览器重用它们之前必须要确认它们是否任然有效。这称作一个条件请求。然而浏览器要产生一个get请求。如有效get返回状态304 Not Modified</p>
+<p>向不同服务器</p>
+
     
 
     
@@ -382,11 +484,33 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2024/03/27/programming/javascript/Untitled/">展开全文 >></a>
+      <a class="article-more-a" href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/">展开全文 >></a>
     </p>
     
 
@@ -1195,7 +1319,7 @@
   <div class="article-entry" itemprop="articleBody">
     
     <blockquote>
-<p>一个简单的mixin 使用示例，用于管理 项目中的 字典，下拉数据</p>
+<p>一个简单的mixin 使用示例，用于管理 项目中的 字典，下拉数据. 下边代码仅为参考，主要思路就是 通过mixin 加载 字典存储到 store ，将 store 中字典 共享到data中</p>
 </blockquote>
 <h3 id="通用字典"><a href="#通用字典" class="headerlink" title="通用字典"></a>通用字典</h3>
     
@@ -1412,23 +1536,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1440,7 +1556,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1452,11 +1604,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1484,11 +1636,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1496,51 +1644,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1556,19 +1660,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1584,7 +1720,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1592,11 +1728,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1608,22 +1748,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
@@ -1632,15 +1756,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1656,27 +1796,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1684,7 +1808,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">

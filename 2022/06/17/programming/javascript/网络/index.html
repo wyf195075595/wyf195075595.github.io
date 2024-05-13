@@ -18,7 +18,7 @@
 <meta property="og:description" content="fetch API语法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-25T07:58:06.354Z">
+<meta property="article:modified_time" content="2024-05-11T03:37:16.619Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">6.2k字</span>
+      <span class="post-count">8k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">26分</span>
+      <span class="post-count">34分</span>
     </span>
   </span>
 </div>
@@ -308,7 +308,169 @@
     
     <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><span id="more"></span>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">要发送简单的<span class="variable constant_">HTTP</span>请求，使用<span class="title function_">fetch</span>()只需三步：</span><br><span class="line"><span class="number">1.</span>　调用<span class="title function_">fetch</span>()，传入要获取内容的<span class="variable constant_">URL</span>；</span><br><span class="line"><span class="number">2.</span>　在<span class="variable constant_">HTTP</span>响应开始到达时取得第<span class="number">1</span>步异步返回的响应对象，然后调用这个响应对象（<span class="title class_">Response</span>）的某个方法，读取响应体；</span><br><span class="line"><span class="number">3.</span>　取得第<span class="number">2</span>步异步返回的响应体，按需要处理它</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取文本</span></span><br><span class="line">p.<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span></span><br><span class="line">    res.<span class="title function_">text</span>()</span><br><span class="line">).<span class="title function_">then</span>(<span class="function"><span class="params">text</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文本:&#x27;</span>,text);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 await</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">isServiceBody</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;../resource/001.txt&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> body = <span class="keyword">await</span> res.<span class="title function_">text</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch 配置参数</span><br><span class="line">	-第一个参数用于指定<span class="variable constant_">URL</span>的字符串或<span class="variable constant_">URL</span>对象</span><br><span class="line">	-第二个参数用于提供额外选项，包括请求头部</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">            <span class="comment">//请求体内容 必须是 Blob、BufferSource、FormData、URLSearchParams、ReadableStream 或 String 的 实例</span></span><br><span class="line">            <span class="attr">body</span>:<span class="string">&#x27;Formdata&#x27;</span>,</span><br><span class="line">            <span class="comment">// 控制浏览器缓存交互,要跟踪缓存重定向，redirect属性必须为 &#x27;follow&#x27;</span></span><br><span class="line">            <span class="attr">cache</span>:<span class="string">&#x27;Default&#x27;</span>,<span class="comment">//no-store、reload、no-cache、force-cache、only-if-cached</span></span><br><span class="line">            <span class="comment">// 用于指定cookie</span></span><br><span class="line">            <span class="attr">credentials</span>:<span class="string">&#x27;omit&#x27;</span>,<span class="comment">//不发送， same-origin:同源时才发送；include:无论是否跨源都发送</span></span><br><span class="line">            <span class="comment">// 用于指定请求头 必须是 Headers 对象实例或包含字符串格式键/值对的常规对象</span></span><br><span class="line">            <span class="attr">headers</span>: <span class="keyword">new</span> <span class="title class_">Headers</span>(&#123;<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;),</span><br><span class="line">            <span class="comment">// 强制资源完整</span></span><br><span class="line">            <span class="attr">integrity</span>:<span class="literal">false</span>,</span><br><span class="line">            <span class="comment">//指定允许请求超出页面生命周期（如页面卸载后）</span></span><br><span class="line">            <span class="attr">keeplive</span>:<span class="literal">false</span>,</span><br><span class="line">            <span class="comment">// 指定请求方法 </span></span><br><span class="line">            <span class="attr">method</span>:<span class="string">&#x27;GET&#x27;</span>,<span class="comment">//POST、PUT、PATCH、DELETE、OPTIONS、CONNECT、TARCE</span></span><br><span class="line">            <span class="comment">// 指定请求模式，决定跨源请求响应是否有效</span></span><br><span class="line">            <span class="comment">// 必须是下列字符串值之一 </span></span><br><span class="line">            <span class="comment">//  cors：允许遵守 CORS 协议的跨源请求。响应是“CORS 过滤的响应”，意思是响应中可以访问 的浏览器头部是经过浏览器强制白名单过滤的 </span></span><br><span class="line">            <span class="comment">//  no-cors：允许不需要发送预检请求的跨源请求（HEAD、GET 和只带有满足 CORS 请求头部的 POST）。响应类型是 opaque，意思是不能读取响应内容 </span></span><br><span class="line">            <span class="comment">//  same-origin：任何跨源请求都不允许发送 </span></span><br><span class="line">            <span class="comment">//  navigate：用于支持 HTML 导航，只在文档间导航时使用。基本用不到 在通过构造函数手动创建 Request 实例时，默认为 cors；否则，默认为 no-cors</span></span><br><span class="line">            <span class="attr">mode</span>:<span class="string">&#x27;no-cors&#x27;</span>,</span><br><span class="line">            <span class="comment">//用于指定如何处理重定向响应（状态码为 301、302、303、307 或 308）</span></span><br><span class="line">            <span class="attr">redirect</span>:<span class="string">&#x27;follow&#x27;</span>,<span class="comment">//跟踪重定向请求；error:重定向请求报错；manual:manual：不跟踪重定向请求，而是返回 opaqueredirect 类型的响应，同时仍然暴露期望的重 定向 URL。允许以手动方式跟踪重定向</span></span><br><span class="line">            <span class="comment">// 指定referrer头部内容</span></span><br><span class="line">            <span class="comment">//  no-referrer：以 no-referrer 作为值 </span></span><br><span class="line">            <span class="comment">//  client/about:client：以当前 URL 或 no-referrer（取决于来源策略 referrerPolicy）作 为值 </span></span><br><span class="line">            <span class="comment">//  &lt;URL&gt;：以伪造 URL 作为值。伪造 URL 的源必须与执行脚本的源匹配 </span></span><br><span class="line">            <span class="comment">// 默认为 client/about:client</span></span><br><span class="line">            <span class="attr">referrer</span>:<span class="string">&#x27;client/about:client&#x27;</span>,</span><br><span class="line">            <span class="comment">//用于指定 HTTP 的 Referer 头部</span></span><br><span class="line">            <span class="attr">referrerPolicy</span>:<span class="string">&#x27;no-referrer-when-downgrade&#x27;</span>,<span class="comment">//no-referrer、no-referrer-when-downgrade、origin、same-origin、strict-origin、origin-when-cross-origin、strict-origin-when-cross-origin、unsafe-url</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//用于支持通过 AbortController 中断进行中的 fetch()请求</span></span><br><span class="line">            <span class="attr">signal</span>:<span class="string">&#x27;&#x27;</span>,<span class="comment">//必须是 AbortSignal 的实例</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	-只传递一个 <span class="title class_">Request</span> 对象</span><br><span class="line">    	<span class="comment">//Request.bodyUsed为true(请求体已被读取)情况不能再次使用 </span></span><br><span class="line">        <span class="comment">//clone() 克隆request对象 克隆否则会报错</span></span><br><span class="line">        <span class="comment">//用于创建一个与已知request对象一样的request对象，同时还可以再设置options覆盖同名值</span></span><br><span class="line">    	<span class="keyword">let</span> req = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="string">&#x27;http://127.0.0.1:5000/test/poststh&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">method</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>:&#123;<span class="attr">data</span>:<span class="string">&#x27;数据&#x27;</span>&#125;,</span><br><span class="line">            <span class="attr">headers</span>: <span class="keyword">new</span> <span class="title class_">Headers</span>(&#123;<span class="string">&#x27;Content-type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>&#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="title function_">fetch</span>(req.<span class="title function_">clone</span>())...</span><br><span class="line">    </span><br><span class="line"><span class="title class_">Header</span></span><br><span class="line">	<span class="title class_">Response</span>对象的headers属性是一个<span class="title class_">Headers</span>对象。</span><br><span class="line">    使用它的<span class="title function_">has</span>()方法可以测试某个头部是否存在，</span><br><span class="line">    使用它的<span class="title function_">get</span>()方法可以取得某个头部的值。</span><br><span class="line">    <span class="variable constant_">HTTP</span>头部的名字是不区分大小写的，因此可以给这两个方法传入小写甚至混合大小写形式的头部名。</span><br><span class="line">    <span class="title class_">Headers</span>对象也是一个可迭代对象</span><br><span class="line">    </span><br><span class="line">处理响应对象</span><br><span class="line">	-<span class="title function_">json</span>()</span><br><span class="line">	-<span class="title function_">text</span>()</span><br><span class="line">	-<span class="title function_">arrayBuffer</span>()</span><br><span class="line">		可以基于得到的<span class="title class_">ArrayBuffer</span>创建一个定型数组或一个<span class="title class_">DataView</span>对象，然后再读取二进制数据</span><br><span class="line">	-blob </span><br><span class="line">		可以通过<span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>()或者使用基于事件的<span class="title class_">FileReader</span> <span class="variable constant_">API</span>以字符串或<span class="title class_">ArrayBuffer</span>的形式异步获取它的内容</span><br><span class="line">	-<span class="title function_">fromData</span>()</span><br><span class="line">		如果<span class="title class_">Response</span>响应体是以“multipart/form-data”格式编码的，应该使用这个方法。</span><br><span class="line"></span><br><span class="line"><span class="title class_">Response</span>对象</span><br><span class="line">	它的body属性是一个<span class="title class_">ReadableStream</span>对象。</span><br><span class="line">	如果已经调用了<span class="title function_">text</span>()或<span class="title function_">json</span>()等读取、解析和返回响应体的方法，那么bodyUsed属性会变成<span class="literal">true</span>，表示body流已经读完了。如果bodyUsed属性是<span class="literal">false</span>，那就意味着该流尚未被读取。此时，可以在response.<span class="property">body</span>上调用<span class="title function_">getReader</span>()获取流读取器对象，然后通过这个读取器对象的<span class="title function_">read</span>()方法异步从流中读取文本块。这个<span class="title function_">read</span>()方法返回一个期约，解决为一个带有done和value属性的对象。如果响应体整个都读完了或者流被关闭了，done会变成<span class="literal">true</span>。而value要么是下一个<span class="title class_">Uint8Array</span>块，要么会在没有更多块时变成<span class="literal">undefined</span>。</span><br><span class="line">    </span><br><span class="line">   流式访问<span class="title function_">fetch</span>()请求的响应体</span><br><span class="line">   <span class="attr">eg</span>:</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	*一个流式读取 fetch()</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">streamBody</span>(<span class="params">res, progress, processChunk</span>) &#123;</span><br><span class="line">        <span class="comment">// 期待接收多少字节， 或者如果没有头部就是NaN</span></span><br><span class="line">        <span class="keyword">let</span> expectedBytes = <span class="built_in">parseInt</span>(res.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Content-Length&#x27;</span>));</span><br><span class="line">        <span class="keyword">let</span> bytesRead = <span class="number">0</span>;<span class="comment">// 已经接收了多少字节</span></span><br><span class="line">        <span class="keyword">let</span> reader = res.<span class="property">body</span>.<span class="title function_">getReader</span>();<span class="comment">// 通过这个函数读取字节</span></span><br><span class="line">        <span class="keyword">let</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>(<span class="string">&#x27;utf-8&#x27;</span>);<span class="comment">// 用于将字节转换为文本</span></span><br><span class="line">        <span class="keyword">let</span> body = <span class="string">&#x27;&#x27;</span>;<span class="comment">// 已经读取的文本</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> &#123;done, value&#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();<span class="comment">// 读取一块数据</span></span><br><span class="line">            <span class="keyword">if</span>(value) &#123;</span><br><span class="line">                <span class="keyword">if</span>(processChunk) &#123;<span class="comment">// 如果传了这个回调</span></span><br><span class="line">                    <span class="keyword">let</span> processed = <span class="title function_">processChunk</span>(value);<span class="comment">// 则用回调处理数据</span></span><br><span class="line">                    <span class="keyword">if</span>(processed) &#123;</span><br><span class="line">                        body += processed</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;<span class="comment">// 否则把字节转换为文本</span></span><br><span class="line">                    body += decoder.<span class="title function_">decode</span>(value, &#123;<span class="attr">stream</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(progress) &#123;<span class="comment">// 如果传递了进度回调</span></span><br><span class="line">                    bytesRead += value.<span class="property">length</span>;</span><br><span class="line">                    <span class="comment">// 则调用它报告的进度</span></span><br><span class="line">                    <span class="title function_">progress</span>(bytesRead, bytesRead/expectedBytes);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果这是最后一块</span></span><br><span class="line">            <span class="keyword">if</span>(done) &#123;</span><br><span class="line">                <span class="keyword">break</span>; <span class="comment">//退出循环</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> body;<span class="comment">// 返回累积响应文本</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line"> 中断请求</span><br><span class="line"> 	-<span class="title class_">AbortController</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Fetch API 能够执行 XMLHttpRequest 对象的所有任务，</p>
+<p>Fetch API 则必须是异步。 </p>
+</blockquote>
+<h3 id="简单示例："><a href="#简单示例：" class="headerlink" title="简单示例："></a>简单示例：</h3><p>fetch()只有一个必需的参数 input。多数情况下，这个参数是要获取资源的 URL。这个方法返回 一个期约：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> p = <span class="title function_">fetch</span>(<span class="string">&#x27;../resource/001.txt&#x27;</span>);</span><br><span class="line"><span class="comment">// 获取文本</span></span><br><span class="line">p.<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span></span><br><span class="line">    res.<span class="title function_">text</span>()</span><br><span class="line">).<span class="title function_">then</span>(<span class="function"><span class="params">text</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文本:&#x27;</span>,text);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="响应状态"><a href="#响应状态" class="headerlink" title="响应状态"></a>响应状态</h3><blockquote>
+<p>200 成功  | res.redirected 重定向为 ture 时 状态码 依然是200 不是 301</p>
+<p>状态码在 非 200~299 时，检查对象 res.ok属性 true 则请求成功</p>
+</blockquote>
+<h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fetch(url, options)</span><br></pre></td></tr></table></figure>
+
+<!--more-->
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><ul>
+<li>post提交字符串</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(url, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&quot;Content-type&quot;</span>: <span class="string">&quot;application/x-www-form-urlencoded; charset=UTF-8&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="string">&#x27;foo=bar&amp;lorem=ipsum&#x27;</span>,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> json = <span class="keyword">await</span> response.<span class="title function_">json</span>();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>提交表单数据</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> form = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;form&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/users&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">body</span>: <span class="keyword">new</span> <span class="title class_">FormData</span>(form)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>文件上传</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> input = <span class="variable language_">document</span>.<span class="title function_">querySelector</span>(<span class="string">&#x27;input[type=&quot;file&quot;]&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> data = <span class="keyword">new</span> <span class="title class_">FormData</span>();</span><br><span class="line">data.<span class="title function_">append</span>(<span class="string">&#x27;file&#x27;</span>, input.<span class="property">files</span>[<span class="number">0</span>]);</span><br><span class="line">data.<span class="title function_">append</span>(<span class="string">&#x27;user&#x27;</span>, <span class="string">&#x27;foo&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/avatars&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">body</span>: data</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>直接上传二进制数据</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 Blob 或 arrayBuffer 数据放在body属性里面</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> blob = <span class="keyword">await</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span>   </span><br><span class="line">  canvasElem.<span class="title function_">toBlob</span>(resolve,  <span class="string">&#x27;image/png&#x27;</span>)</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;/article/fetch/post/image&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>:  <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">body</span>: blob</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">options 完整配置</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&quot;GET&quot;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;text/plain;charset=UTF-8&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="literal">undefined</span>,</span><br><span class="line">  <span class="attr">referrer</span>: <span class="string">&quot;about:client&quot;</span>,</span><br><span class="line">  <span class="attr">referrerPolicy</span>: <span class="string">&quot;no-referrer-when-downgrade&quot;</span>,</span><br><span class="line">  <span class="attr">mode</span>: <span class="string">&quot;cors&quot;</span>, </span><br><span class="line">  <span class="attr">credentials</span>: <span class="string">&quot;same-origin&quot;</span>,</span><br><span class="line">  <span class="attr">cache</span>: <span class="string">&quot;default&quot;</span>,</span><br><span class="line">  <span class="attr">redirect</span>: <span class="string">&quot;follow&quot;</span>,</span><br><span class="line">  <span class="attr">integrity</span>: <span class="string">&quot;&quot;</span>,</span><br><span class="line">  <span class="attr">keepalive</span>: <span class="literal">false</span>,</span><br><span class="line">  <span class="attr">signal</span>: <span class="literal">undefined</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Headers-对象"><a href="#Headers-对象" class="headerlink" title="Headers 对象"></a>Headers 对象</h4><p>Headers 对象提供了以下方法，用来操作标头。</p>
+<blockquote>
+<ul>
+<li><code>Headers.get()</code>：根据指定的键名，返回键值。</li>
+<li><code>Headers.has()</code>： 返回一个布尔值，表示是否包含某个标头。</li>
+<li><code>Headers.set()</code>：将指定的键名设置为新的键值，如果该键名不存在则会添加。</li>
+<li><code>Headers.append()</code>：添加标头。</li>
+<li><code>Headers.delete()</code>：删除标头。</li>
+<li><code>Headers.keys()</code>：返回一个遍历器，可以依次遍历所有键名。</li>
+<li><code>Headers.values()</code>：返回一个遍历器，可以依次遍历所有键值。</li>
+<li><code>Headers.entries()</code>：返回一个遍历器，可以依次遍历所有键值对（<code>[key, value]</code>）。</li>
+<li><code>Headers.forEach()</code>：依次遍历标头，每个标头都会执行一次参数函数。</li>
+</ul>
+</blockquote>
+<h4 id="Response-对象"><a href="#Response-对象" class="headerlink" title="Response 对象"></a>Response 对象</h4><p><code>Response</code>对象根据服务器返回的不同类型的数据，提供了不同的读取方法。</p>
+<blockquote>
+<ul>
+<li><code>response.text()</code>：得到文本字符串。</li>
+<li><code>response.json()</code>：得到 JSON 对象。</li>
+<li><code>response.blob()</code>：得到二进制 Blob 对象。</li>
+<li><code>response.formData()</code>：得到 FormData 表单对象。</li>
+<li><code>response.arrayBuffer()</code>：得到二进制 ArrayBuffer 对象。</li>
+</ul>
+</blockquote>
+<p>Stream 对象只能读取一次，读取完就没了。这意味着，上面五个读取方法，只能使用一个，否则会报错。</p>
+<ul>
+<li><h3 id="Response-clone"><a href="#Response-clone" class="headerlink" title="Response.clone()"></a>Response.clone()</h3><p>  创建<code>Response</code>对象的副本，实现多次读取</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> response1 = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;flowers.jpg&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> response2 = response1.<span class="title function_">clone</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myBlob1 = <span class="keyword">await</span> response1.<span class="title function_">blob</span>();</span><br><span class="line"><span class="keyword">const</span> myBlob2 = <span class="keyword">await</span> response2.<span class="title function_">blob</span>();</span><br><span class="line"></span><br><span class="line">image1.<span class="property">src</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(myBlob1);</span><br><span class="line">image2.<span class="property">src</span> = <span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>(myBlob2);</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><h3 id="Response-body-属性"><a href="#Response-body-属性" class="headerlink" title="Response.body 属性"></a>Response.body 属性</h3><p>  <code>Response.body</code>属性是 Response 对象暴露出的底层接口，返回一个 ReadableStream 对象，供用户操作</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 分块读取内容，应用之一就是显示下载的进度</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> response = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;flower.jpg&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> reader = response.<span class="property">body</span>.<span class="title function_">getReader</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过请求头获取文件总大小</span></span><br><span class="line"><span class="keyword">const</span> totals = response.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Content-length&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> hasDone = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123;done, value&#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (done) &#123;</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    hasDone += value.<span class="property">length</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(hasDone / totals)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h4><ul>
+<li><p><code>method</code>：HTTP 请求的方法，<code>POST</code>、<code>DELETE</code>、<code>PUT</code>都在这个属性设置。</p>
+</li>
+<li><p><code>headers</code>：一个对象，用来定制 HTTP 请求的标头。</p>
+</li>
+<li><p><code>body</code>：POST 请求的数据体。</p>
+<blockquote>
+<p>请求体内容 必须是 Blob、BufferSource、FormData、URLSearchParams、ReadableStream 或 String 的 实例</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="cache"><a href="#cache" class="headerlink" title="cache"></a><strong>cache</strong></h5><p><code>cache</code>属性指定如何处理缓存。可能的取值如下：</p>
+<blockquote>
+<ul>
+<li><code>default</code>：默认值，先在缓存里面寻找匹配的请求。</li>
+<li><code>no-store</code>：直接请求远程服务器，并且不更新缓存。</li>
+<li><code>reload</code>：直接请求远程服务器，并且更新缓存。</li>
+<li><code>no-cache</code>：将服务器资源跟本地缓存进行比较，有新的版本才使用服务器资源，否则使用缓存。</li>
+<li><code>force-cache</code>：缓存优先，只有不存在缓存的情况下，才请求远程服务器。</li>
+<li><code>only-if-cached</code>：只检查缓存，如果缓存里面不存在，将返回504错误。</li>
+</ul>
+</blockquote>
+<h5 id="mode"><a href="#mode" class="headerlink" title="mode"></a><strong>mode</strong></h5><p><code>mode</code>属性指定请求的模式。可能的取值如下：</p>
+<blockquote>
+<ul>
+<li><code>cors</code>：默认值，允许跨域请求。</li>
+<li><code>same-origin</code>：只允许同源请求。</li>
+<li><code>no-cors</code>：请求方法只限于 GET、POST 和 HEAD，并且只能使用有限的几个简单标头，不能添加跨域的复杂标头，相当于提交表单所能发出的请求。</li>
+</ul>
+</blockquote>
+<h5 id="credentials"><a href="#credentials" class="headerlink" title="credentials"></a><strong>credentials</strong></h5><p><code>credentials</code>属性指定是否发送 Cookie。可能的取值如下：</p>
+<blockquote>
+<ul>
+<li><code>same-origin</code>：默认值，同源请求时发送 Cookie，跨域请求时不发送。</li>
+<li><code>include</code>：不管同源请求，还是跨域请求，一律发送 Cookie。</li>
+<li><code>omit</code>：一律不发送。</li>
+</ul>
+</blockquote>
+<p>跨域请求发送 Cookie，需要将<code>credentials</code>属性设为<code>include</code>。</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;http://another.com&#x27;</span>, &#123;</span><br><span class="line"><span class="attr">credentials</span>: <span class="string">&quot;include&quot;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="signal"><a href="#signal" class="headerlink" title="signal"></a><strong>signal</strong></h5><p><code>signal</code>属性指定一个 AbortSignal 实例，用于取消<code>fetch()</code>请求，详见下一节。</p>
+<p><strong>keepalive</strong></p>
+<p><code>keepalive</code>属性用于页面卸载时，告诉浏览器在后台保持连接，继续发送数据。</p>
+<p>一个典型的场景就是，用户离开网页时，脚本向服务器提交一些用户行为的统计信息。这时，如果不用<code>keepalive</code>属性，数据可能无法发送，因为浏览器已经把页面卸载了。</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">window</span>.<span class="property">onunload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/analytics&#x27;</span>, &#123;</span><br><span class="line"> <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line"> <span class="attr">body</span>: <span class="string">&quot;statistics&quot;</span>,</span><br><span class="line"> <span class="attr">keepalive</span>: <span class="literal">true</span></span><br><span class="line">&#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="redirect"><a href="#redirect" class="headerlink" title="redirect"></a><strong>redirect</strong></h5><p><code>redirect</code>属性指定 HTTP 跳转的处理方法。可能的取值如下：</p>
+<blockquote>
+<ul>
+<li><code>follow</code>：默认值，<code>fetch()</code>跟随 HTTP 跳转。</li>
+<li><code>error</code>：如果发生跳转，<code>fetch()</code>就报错。</li>
+<li><code>manual</code>：<code>fetch()</code>不跟随 HTTP 跳转，但是<code>response.url</code>属性会指向新的 URL，<code>response.redirected</code>属性会变为<code>true</code>，由开发者自己决定后续如何处理跳转。</li>
+</ul>
+</blockquote>
+<p><strong>integrity</strong></p>
+<p><code>integrity</code>属性指定一个哈希值，用于检查 HTTP 回应传回的数据是否等于这个预先设定的哈希值。</p>
+<p>比如，下载文件时，检查文件的 SHA-256 哈希值是否相符，确保没有被篡改。</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;http://site.com/file&#x27;</span>, &#123;</span><br><span class="line"><span class="attr">integrity</span>: <span class="string">&#x27;sha256-abcdef&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="referrer"><a href="#referrer" class="headerlink" title="referrer"></a><strong>referrer</strong></h5><p><code>referrer</code>属性用于设定<code>fetch()</code>请求的<code>referer</code>标头。</p>
+<p>这个属性可以为任意字符串，也可以设为空字符串（即不发送<code>referer</code>标头）。</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;/page&#x27;</span>, &#123;</span><br><span class="line"><span class="attr">referrer</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="referrerPolicy"><a href="#referrerPolicy" class="headerlink" title="referrerPolicy"></a><strong>referrerPolicy</strong></h5><p><code>referrerPolicy</code>属性用于设定<code>Referer</code>标头的规则。可能的取值如下：</p>
+<blockquote>
+<ul>
+<li><code>no-referrer-when-downgrade</code>：默认值，总是发送<code>Referer</code>标头，除非从 HTTPS 页面请求 HTTP 资源时不发送。</li>
+<li><code>no-referrer</code>：不发送<code>Referer</code>标头。</li>
+<li><code>origin</code>：<code>Referer</code>标头只包含域名，不包含完整的路径。</li>
+<li><code>origin-when-cross-origin</code>：同源请求<code>Referer</code>标头包含完整的路径，跨域请求只包含域名。</li>
+<li><code>same-origin</code>：跨域请求不发送<code>Referer</code>，同源请求发送。</li>
+<li><code>strict-origin</code>：<code>Referer</code>标头只包含域名，HTTPS 页面请求 HTTP 资源时不发送<code>Referer</code>标头。</li>
+<li><code>strict-origin-when-cross-origin</code>：同源请求时<code>Referer</code>标头包含完整路径，跨域请求时只包含域名，HTTPS 页面请求 HTTP 资源时不发送该标头。</li>
+<li><code>unsafe-url</code>：不管什么情况，总是发送<code>Referer</code>标头。</li>
+</ul>
+</blockquote>
+<h4 id="中断请求"><a href="#中断请求" class="headerlink" title="中断请求"></a>中断请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fetch API 支持通过 AbortController/AbortSignal 对中断请求。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> abortController = <span class="keyword">new</span> <span class="title class_">AbortController</span>(); </span><br><span class="line"></span><br><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;../resource/test.pdf&#x27;</span>, &#123; <span class="attr">signal</span>: abortController.<span class="property">signal</span> &#125;) </span><br><span class="line"></span><br><span class="line">.<span class="title function_">catch</span>(<span class="function">() =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;中断请求 aborted!&#x27;</span>)); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 10 毫秒后中断请求 </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> abortController.<span class="title function_">abort</span>(), <span class="number">10</span>); </span><br><span class="line"></span><br><span class="line"><span class="comment">// 已经中断</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>fetch 不能实现上传进度这部分</p>
+</blockquote>
+<h4 id="完整示例"><a href="#完整示例" class="headerlink" title="完整示例"></a>完整示例</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line">要发送简单的<span class="variable constant_">HTTP</span>请求，使用<span class="title function_">fetch</span>()只需三步：</span><br><span class="line"><span class="number">1.</span>　调用<span class="title function_">fetch</span>()，传入要获取内容的<span class="variable constant_">URL</span>；</span><br><span class="line"><span class="number">2.</span>　在<span class="variable constant_">HTTP</span>响应开始到达时取得第<span class="number">1</span>步异步返回的响应对象，然后调用这个响应对象（<span class="title class_">Response</span>）的某个方法，读取响应体；</span><br><span class="line"><span class="number">3.</span>　取得第<span class="number">2</span>步异步返回的响应体，按需要处理它</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取文本</span></span><br><span class="line">p.<span class="title function_">then</span>(<span class="function"><span class="params">res</span>=&gt;</span></span><br><span class="line">    res.<span class="title function_">text</span>()</span><br><span class="line">).<span class="title function_">then</span>(<span class="function"><span class="params">text</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;文本:&#x27;</span>,text);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 await</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">isServiceBody</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = <span class="keyword">await</span> <span class="title function_">fetch</span>(<span class="string">&#x27;../resource/001.txt&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> body = <span class="keyword">await</span> res.<span class="title function_">text</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fetch 配置参数</span><br><span class="line">	-第一个参数用于指定<span class="variable constant_">URL</span>的字符串或<span class="variable constant_">URL</span>对象</span><br><span class="line">	-第二个参数用于提供额外选项，包括请求头部</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">            <span class="comment">//请求体内容 必须是 Blob、BufferSource、FormData、URLSearchParams、ReadableStream 或 String 的 实例</span></span><br><span class="line">            <span class="attr">body</span>:<span class="string">&#x27;Formdata&#x27;</span>,</span><br><span class="line">            <span class="comment">// 控制浏览器缓存交互,要跟踪缓存重定向，redirect属性必须为 &#x27;follow&#x27;</span></span><br><span class="line">            <span class="attr">cache</span>:<span class="string">&#x27;Default&#x27;</span>,<span class="comment">//no-store、reload、no-cache、force-cache、only-if-cached</span></span><br><span class="line">            <span class="comment">// 用于指定cookie</span></span><br><span class="line">            <span class="attr">credentials</span>:<span class="string">&#x27;omit&#x27;</span>,<span class="comment">//不发送， same-origin:同源时才发送；include:无论是否跨源都发送</span></span><br><span class="line">            <span class="comment">// 用于指定请求头 必须是 Headers 对象实例或包含字符串格式键/值对的常规对象</span></span><br><span class="line">            <span class="attr">headers</span>: <span class="keyword">new</span> <span class="title class_">Headers</span>(&#123;<span class="string">&quot;Content-Type&quot;</span>: <span class="string">&quot;application/json&quot;</span>&#125;),</span><br><span class="line">            <span class="comment">// 强制资源完整</span></span><br><span class="line">            <span class="attr">integrity</span>:<span class="literal">false</span>,</span><br><span class="line">            <span class="comment">//指定允许请求超出页面生命周期（如页面卸载后）</span></span><br><span class="line">            <span class="attr">keeplive</span>:<span class="literal">false</span>,</span><br><span class="line">            <span class="comment">// 指定请求方法 </span></span><br><span class="line">            <span class="attr">method</span>:<span class="string">&#x27;GET&#x27;</span>,<span class="comment">//POST、PUT、PATCH、DELETE、OPTIONS、CONNECT、TARCE</span></span><br><span class="line">            <span class="comment">// 指定请求模式，决定跨源请求响应是否有效</span></span><br><span class="line">            <span class="comment">// 必须是下列字符串值之一 </span></span><br><span class="line">            <span class="comment">//  cors：允许遵守 CORS 协议的跨源请求。响应是“CORS 过滤的响应”，意思是响应中可以访问 的浏览器头部是经过浏览器强制白名单过滤的 </span></span><br><span class="line">            <span class="comment">//  no-cors：允许不需要发送预检请求的跨源请求（HEAD、GET 和只带有满足 CORS 请求头部的 POST）。响应类型是 opaque，意思是不能读取响应内容 </span></span><br><span class="line">            <span class="comment">//  same-origin：任何跨源请求都不允许发送 </span></span><br><span class="line">            <span class="comment">//  navigate：用于支持 HTML 导航，只在文档间导航时使用。基本用不到 在通过构造函数手动创建 Request 实例时，默认为 cors；否则，默认为 no-cors</span></span><br><span class="line">            <span class="attr">mode</span>:<span class="string">&#x27;no-cors&#x27;</span>,</span><br><span class="line">            <span class="comment">//用于指定如何处理重定向响应（状态码为 301、302、303、307 或 308）</span></span><br><span class="line">            <span class="attr">redirect</span>:<span class="string">&#x27;follow&#x27;</span>,<span class="comment">//跟踪重定向请求；error:重定向请求报错；manual:manual：不跟踪重定向请求，而是返回 opaqueredirect 类型的响应，同时仍然暴露期望的重 定向 URL。允许以手动方式跟踪重定向</span></span><br><span class="line">            <span class="comment">// 指定referrer头部内容</span></span><br><span class="line">            <span class="comment">//  no-referrer：以 no-referrer 作为值 </span></span><br><span class="line">            <span class="comment">//  client/about:client：以当前 URL 或 no-referrer（取决于来源策略 referrerPolicy）作 为值 </span></span><br><span class="line">            <span class="comment">//  &lt;URL&gt;：以伪造 URL 作为值。伪造 URL 的源必须与执行脚本的源匹配 </span></span><br><span class="line">            <span class="comment">// 默认为 client/about:client</span></span><br><span class="line">            <span class="attr">referrer</span>:<span class="string">&#x27;client/about:client&#x27;</span>,</span><br><span class="line">            <span class="comment">//用于指定 HTTP 的 Referer 头部</span></span><br><span class="line">            <span class="attr">referrerPolicy</span>:<span class="string">&#x27;no-referrer-when-downgrade&#x27;</span>,<span class="comment">//no-referrer、no-referrer-when-downgrade、origin、same-origin、strict-origin、origin-when-cross-origin、strict-origin-when-cross-origin、unsafe-url</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//用于支持通过 AbortController 中断进行中的 fetch()请求</span></span><br><span class="line">            <span class="attr">signal</span>:<span class="string">&#x27;&#x27;</span>,<span class="comment">//必须是 AbortSignal 的实例</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	-只传递一个 <span class="title class_">Request</span> 对象</span><br><span class="line">    	<span class="comment">//Request.bodyUsed为true(请求体已被读取)情况不能再次使用 </span></span><br><span class="line">        <span class="comment">//clone() 克隆request对象 克隆否则会报错</span></span><br><span class="line">        <span class="comment">//用于创建一个与已知request对象一样的request对象，同时还可以再设置options覆盖同名值</span></span><br><span class="line">    	<span class="keyword">let</span> req = <span class="keyword">new</span> <span class="title class_">Request</span>(<span class="string">&#x27;http://127.0.0.1:5000/test/poststh&#x27;</span>,&#123;</span><br><span class="line">            <span class="attr">method</span>:<span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">            <span class="attr">body</span>:&#123;<span class="attr">data</span>:<span class="string">&#x27;数据&#x27;</span>&#125;,</span><br><span class="line">            <span class="attr">headers</span>: <span class="keyword">new</span> <span class="title class_">Headers</span>(&#123;<span class="string">&#x27;Content-type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>&#125;)</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="title function_">fetch</span>(req.<span class="title function_">clone</span>())...</span><br><span class="line">    </span><br><span class="line"><span class="title class_">Header</span></span><br><span class="line">	<span class="title class_">Response</span>对象的headers属性是一个<span class="title class_">Headers</span>对象。</span><br><span class="line">    使用它的<span class="title function_">has</span>()方法可以测试某个头部是否存在，</span><br><span class="line">    使用它的<span class="title function_">get</span>()方法可以取得某个头部的值。</span><br><span class="line">    <span class="variable constant_">HTTP</span>头部的名字是不区分大小写的，因此可以给这两个方法传入小写甚至混合大小写形式的头部名。</span><br><span class="line">    <span class="title class_">Headers</span>对象也是一个可迭代对象</span><br><span class="line">    </span><br><span class="line">处理响应对象</span><br><span class="line">	-<span class="title function_">json</span>()</span><br><span class="line">	-<span class="title function_">text</span>()</span><br><span class="line">	-<span class="title function_">arrayBuffer</span>()</span><br><span class="line">		可以基于得到的<span class="title class_">ArrayBuffer</span>创建一个定型数组或一个<span class="title class_">DataView</span>对象，然后再读取二进制数据</span><br><span class="line">	-blob </span><br><span class="line">		可以通过<span class="variable constant_">URL</span>.<span class="title function_">createObjectURL</span>()或者使用基于事件的<span class="title class_">FileReader</span> <span class="variable constant_">API</span>以字符串或<span class="title class_">ArrayBuffer</span>的形式异步获取它的内容</span><br><span class="line">	-<span class="title function_">fromData</span>()</span><br><span class="line">		如果<span class="title class_">Response</span>响应体是以“multipart/form-data”格式编码的，应该使用这个方法。</span><br><span class="line"></span><br><span class="line"><span class="title class_">Response</span>对象</span><br><span class="line">	它的body属性是一个<span class="title class_">ReadableStream</span>对象。</span><br><span class="line">	如果已经调用了<span class="title function_">text</span>()或<span class="title function_">json</span>()等读取、解析和返回响应体的方法，那么bodyUsed属性会变成<span class="literal">true</span>，表示body流已经读完了。如果bodyUsed属性是<span class="literal">false</span>，那就意味着该流尚未被读取。此时，可以在response.<span class="property">body</span>上调用<span class="title function_">getReader</span>()获取流读取器对象，然后通过这个读取器对象的<span class="title function_">read</span>()方法异步从流中读取文本块。这个<span class="title function_">read</span>()方法返回一个期约，解决为一个带有done和value属性的对象。如果响应体整个都读完了或者流被关闭了，done会变成<span class="literal">true</span>。而value要么是下一个<span class="title class_">Uint8Array</span>块，要么会在没有更多块时变成<span class="literal">undefined</span>。</span><br><span class="line">    </span><br><span class="line">   流式访问<span class="title function_">fetch</span>()请求的响应体</span><br><span class="line">   <span class="attr">eg</span>:</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	*一个流式读取 fetch()</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">streamBody</span>(<span class="params">res, progress, processChunk</span>) &#123;</span><br><span class="line">        <span class="comment">// 期待接收多少字节， 或者如果没有头部就是NaN</span></span><br><span class="line">        <span class="keyword">let</span> expectedBytes = <span class="built_in">parseInt</span>(res.<span class="property">headers</span>.<span class="title function_">get</span>(<span class="string">&#x27;Content-Length&#x27;</span>));</span><br><span class="line">        <span class="keyword">let</span> bytesRead = <span class="number">0</span>;<span class="comment">// 已经接收了多少字节</span></span><br><span class="line">        <span class="keyword">let</span> reader = res.<span class="property">body</span>.<span class="title function_">getReader</span>();<span class="comment">// 通过这个函数读取字节</span></span><br><span class="line">        <span class="keyword">let</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>(<span class="string">&#x27;utf-8&#x27;</span>);<span class="comment">// 用于将字节转换为文本</span></span><br><span class="line">        <span class="keyword">let</span> body = <span class="string">&#x27;&#x27;</span>;<span class="comment">// 已经读取的文本</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">            <span class="keyword">let</span> &#123;done, value&#125; = <span class="keyword">await</span> reader.<span class="title function_">read</span>();<span class="comment">// 读取一块数据</span></span><br><span class="line">            <span class="keyword">if</span>(value) &#123;</span><br><span class="line">                <span class="keyword">if</span>(processChunk) &#123;<span class="comment">// 如果传了这个回调</span></span><br><span class="line">                    <span class="keyword">let</span> processed = <span class="title function_">processChunk</span>(value);<span class="comment">// 则用回调处理数据</span></span><br><span class="line">                    <span class="keyword">if</span>(processed) &#123;</span><br><span class="line">                        body += processed</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;<span class="comment">// 否则把字节转换为文本</span></span><br><span class="line">                    body += decoder.<span class="title function_">decode</span>(value, &#123;<span class="attr">stream</span>: <span class="literal">true</span>&#125;);</span><br><span class="line">                &#125;</span><br><span class="line">                </span><br><span class="line">                <span class="keyword">if</span>(progress) &#123;<span class="comment">// 如果传递了进度回调</span></span><br><span class="line">                    bytesRead += value.<span class="property">length</span>;</span><br><span class="line">                    <span class="comment">// 则调用它报告的进度</span></span><br><span class="line">                    <span class="title function_">progress</span>(bytesRead, bytesRead/expectedBytes);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 如果这是最后一块</span></span><br><span class="line">            <span class="keyword">if</span>(done) &#123;</span><br><span class="line">                <span class="keyword">break</span>; <span class="comment">//退出循环</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> body;<span class="comment">// 返回累积响应文本</span></span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line"> 中断请求</span><br><span class="line"> 	-<span class="title class_">AbortController</span></span><br></pre></td></tr></table></figure>
 
 
 
@@ -442,18 +604,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          正则表达式
+          获取地理位置
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/%E8%8E%B7%E5%8F%96%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">获取地理位置</div>
+    <a href="/2022/06/17/programming/jsplugin/SortableJS/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SortableJS</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -480,7 +642,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch-API"><span class="toc-number">1.</span> <span class="toc-text">fetch API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EventSource"><span class="toc-number">2.</span> <span class="toc-text">EventSource</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebSocket"><span class="toc-number">3.</span> <span class="toc-text">WebSocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%80%85%E7%BA%BF%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">工作者线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax-%E5%8F%91%E9%80%81-delete-put-%E8%AF%B7%E6%B1%82"><span class="toc-number">4.1.</span> <span class="toc-text">ajax 发送 delete, put 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">4.2.</span> <span class="toc-text">参数序列化</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#fetch-API"><span class="toc-number">1.</span> <span class="toc-text">fetch API</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-number">1.1.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E7%A4%BA%E4%BE%8B%EF%BC%9A"><span class="toc-number">1.2.</span> <span class="toc-text">简单示例：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81"><span class="toc-number">1.3.</span> <span class="toc-text">响应状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-number">1.4.</span> <span class="toc-text">语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.5.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="toc-number">1.5.1.</span> <span class="toc-text">参数配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Headers-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.5.2.</span> <span class="toc-text">Headers 对象</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Response-%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.5.3.</span> <span class="toc-text">Response 对象</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-clone"><span class="toc-number">1.6.</span> <span class="toc-text">Response.clone()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Response-body-%E5%B1%9E%E6%80%A7"><span class="toc-number">1.7.</span> <span class="toc-text">Response.body 属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-number">1.7.1.</span> <span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cache"><span class="toc-number">1.7.1.1.</span> <span class="toc-text">cache</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#mode"><span class="toc-number">1.7.1.2.</span> <span class="toc-text">mode</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#credentials"><span class="toc-number">1.7.1.3.</span> <span class="toc-text">credentials</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#signal"><span class="toc-number">1.7.1.4.</span> <span class="toc-text">signal</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#redirect"><span class="toc-number">1.7.1.5.</span> <span class="toc-text">redirect</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#referrer"><span class="toc-number">1.7.1.6.</span> <span class="toc-text">referrer</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#referrerPolicy"><span class="toc-number">1.7.1.7.</span> <span class="toc-text">referrerPolicy</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AD%E6%96%AD%E8%AF%B7%E6%B1%82"><span class="toc-number">1.7.2.</span> <span class="toc-text">中断请求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.7.3.</span> <span class="toc-text">完整示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EventSource"><span class="toc-number">2.</span> <span class="toc-text">EventSource</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebSocket"><span class="toc-number">3.</span> <span class="toc-text">WebSocket</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E8%80%85%E7%BA%BF%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">工作者线程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ajax-%E5%8F%91%E9%80%81-delete-put-%E8%AF%B7%E6%B1%82"><span class="toc-number">4.1.</span> <span class="toc-text">ajax 发送 delete, put 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%BA%8F%E5%88%97%E5%8C%96"><span class="toc-number">4.2.</span> <span class="toc-text">参数序列化</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -650,23 +812,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -678,7 +832,43 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,11 +880,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,11 +912,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -734,51 +920,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -794,19 +936,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,7 +996,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,11 +1004,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,22 +1024,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
@@ -870,15 +1032,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,27 +1072,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -922,7 +1084,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
