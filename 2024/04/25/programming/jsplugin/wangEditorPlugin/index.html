@@ -6,22 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://wyf195075595.github.io">
-  <title>jsConsole | myBlog</title>
+  <title>开发WangEditor插件 | myBlog</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="12345678console.group(&quot;中奖了&quot;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;color: #9E9E9E; font-weight: bold&#96;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;color: #03A9F4; font-weight: bold&#96;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;co">
+  <meta name="description" content="插件开发请阅读官方文档，本次示例为 为 编辑器 拓展 mermaid 流程图。本示例参考官方 公式插件 代码">
 <meta property="og:type" content="article">
-<meta property="og:title" content="jsConsole">
-<meta property="og:url" content="https://wyf195075595.github.io/2022/06/17/programming/javascript/jsConsole/index.html">
+<meta property="og:title" content="开发WangEditor插件">
+<meta property="og:url" content="https://wyf195075595.github.io/2024/04/25/programming/jsplugin/wangEditorPlugin/index.html">
 <meta property="og:site_name" content="myBlog">
-<meta property="og:description" content="12345678console.group(&quot;中奖了&quot;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;color: #9E9E9E; font-weight: bold&#96;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;color: #03A9F4; font-weight: bold&#96;);console.log(&#96;%c 1 2 3 4 5&#96;, &#96;co">
+<meta property="og:description" content="插件开发请阅读官方文档，本次示例为 为 编辑器 拓展 mermaid 流程图。本示例参考官方 公式插件 代码">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2022-06-20T01:51:30.351Z">
+<meta property="og:image" content="https://github.com/wangeditor-team/wangEditor-plugin-formula/blob/main/_img/demo.png?raw=true">
+<meta property="article:published_time" content="2024-04-25T00:23:10.000Z">
+<meta property="article:modified_time" content="2024-07-24T06:41:47.510Z">
 <meta property="article:author" content="王不留行">
-<meta property="article:tag" content="js">
+<meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/wangeditor-team/wangEditor-plugin-formula/blob/main/_img/demo.png?raw=true">
   
     <link rel="alternative" href="/atom.xml" title="myBlog" type="application/atom+xml">
   
@@ -253,14 +255,14 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-programming/javascript/jsConsole" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-programming/jsplugin/wangEditorPlugin" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
   
   
     <h1 class="article-title" itemprop="name">
-      jsConsole
+      开发WangEditor插件
     </h1>
   
 
@@ -272,8 +274,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2022/06/17/programming/javascript/jsConsole/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+<a href="/2024/04/25/programming/jsplugin/wangEditorPlugin/" class="archive-article-date">
+        <time datetime="2024-04-25T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-25</time>
 </a>
 
   
@@ -286,7 +288,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">53字</span>
+      <span class="post-count">2.3k字</span>
     </span>
   </span>
 
@@ -295,7 +297,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">1分</span>
+      <span class="post-count">11分</span>
     </span>
   </span>
 </div>
@@ -306,7 +308,60 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">group</span>(<span class="string">&quot;中奖了&quot;</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #9E9E9E; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #03A9F4; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">`%c 1 2 3 4 5`</span>, <span class="string">`color: #4CAF50; font-weight: bold`</span>);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">groupEnd</span>();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">https</span>:<span class="comment">//segmentfault.com/a/1190000012957199</span></span><br></pre></td></tr></table></figure>
+    <p>插件开发请阅读<a target="_blank" rel="noopener" href="https://www.wangeditor.com/v5/development.html#%E6%B3%A8%E5%86%8C%E6%8F%92%E4%BB%B6%E5%88%B0-wangeditor">官方文档</a>，本次示例为 为 编辑器 拓展 <a target="_blank" rel="noopener" href="https://mermaid.nodejs.cn/intro/">mermaid</a> 流程图。本示例参考官方 <a target="_blank" rel="noopener" href="https://github.com/wangeditor-team/wangEditor-plugin-formula">公式插件</a> 代码</p>
+<p><img src="https://github.com/wangeditor-team/wangEditor-plugin-formula/blob/main/_img/demo.png?raw=true" alt="wangEditor-plugin-formula"></p>
+<span id="more"></span>
+
+<h3 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">-RemaindFlow</span><br><span class="line"></span><br><span class="line">--MyModalMenu.js   #插入流程图弹窗</span><br><span class="line"></span><br><span class="line">--editFlow.js	  #流程图点击浮窗编辑</span><br><span class="line"></span><br><span class="line">--renderElem.js    #通过json数据渲染“流程图”元素到编辑器</span><br><span class="line"></span><br><span class="line">--elemToHtml.js   #生成“流程图”元素的 HTML</span><br><span class="line"></span><br><span class="line">--parseElemHtml.js #解析 HTML 字符串，生成“流程图”元素 json 数据</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--withAttachment.js#重写元素在编辑器中的inline【是否块级元素】 和 void【为空判断】</span><br><span class="line"></span><br><span class="line">--index.js		  #导出整体模块</span><br><span class="line"></span><br><span class="line">--registerCustomElem.js #没有用</span><br></pre></td></tr></table></figure>
+
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;katex&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^0.16.10&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;mermaid&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^10.9.1&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@wangeditor/editor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.1.23&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;@wangeditor/editor-for-vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.1.12&quot;</span><span class="punctuation">,</span></span><br><span class="line"></span><br><span class="line"># 将 json 字符串渲染成 dom</span><br><span class="line">yarn add snabbdom --peer</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><strong>MyModalMenu.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">MyModalMenu</span> &#123;</span><br><span class="line">	<span class="comment">// JS 语法</span></span><br><span class="line"></span><br><span class="line">	<span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">title</span> = <span class="string">&#x27;My menu&#x27;</span>;</span><br><span class="line">		<span class="comment">// this.iconSvg = &#x27;&lt;svg &gt;...&lt;/svg&gt;&#x27;</span></span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">tag</span> = <span class="string">&#x27;button&#x27;</span>;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">showModal</span> = <span class="literal">true</span>;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">modalWidth</span> = <span class="number">300</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 菜单是否需要激活（如选中加粗文本，“加粗”菜单会激活），用不到则返回 false</span></span><br><span class="line">	<span class="title function_">isActive</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 获取菜单执行时的 value ，用不到则返回空 字符串或 false</span></span><br><span class="line">	<span class="title function_">getValue</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 菜单是否需要禁用（如选中 H1 ，“引用”菜单被禁用），用不到则返回 false</span></span><br><span class="line">	<span class="title function_">isDisabled</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 点击菜单时触发的函数</span></span><br><span class="line">	<span class="title function_">exec</span>(<span class="params">editor, value</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="comment">// Modal menu ，这个函数不用写，空着即可</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 弹出框 modal 的定位：1. 返回某一个 SlateNode； 2. 返回 null （根据当前选区自动定位）</span></span><br><span class="line">	<span class="title function_">getModalPositionNode</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">null</span>; <span class="comment">// modal 依据选区定位</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 定义 modal 内部的 DOM Element</span></span><br><span class="line">	<span class="title function_">getModalContentElem</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">		<span class="comment">// JS 语法</span></span><br><span class="line">		<span class="keyword">let</span> content = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>);</span><br><span class="line">		<span class="keyword">let</span> btn = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;button&#x27;</span>);</span><br><span class="line">		btn.<span class="property">innerText</span> = <span class="string">&#x27;确认&#x27;</span>;</span><br><span class="line">		<span class="keyword">let</span> text = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;textarea&#x27;</span>);</span><br><span class="line"></span><br><span class="line">		content.<span class="title function_">appendChild</span>(text);</span><br><span class="line">		content.<span class="title function_">appendChild</span>(btn);</span><br><span class="line">		btn.<span class="property">onclick</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">			<span class="keyword">const</span> node = &#123; <span class="attr">type</span>: <span class="string">&#x27;remaindFlow&#x27;</span>, <span class="attr">code</span>: text.<span class="property">value</span>, <span class="attr">children</span>: [&#123; <span class="attr">text</span>: <span class="string">&#x27;&#x27;</span> &#125;] &#125;;</span><br><span class="line">			editor.<span class="title function_">restoreSelection</span>(); <span class="comment">// 恢复选区</span></span><br><span class="line">			editor.<span class="title function_">insertNode</span>(node);</span><br><span class="line">			<span class="comment">// mermaid.initialize(&#123; startOnLoad: true &#125;);</span></span><br><span class="line">			<span class="comment">// mermaid.init();</span></span><br><span class="line">			editor.<span class="title function_">insertBreak</span>();</span><br><span class="line">			editor.<span class="title function_">move</span>(<span class="number">1</span>);</span><br><span class="line">		&#125;;</span><br><span class="line">		<span class="keyword">return</span> content; <span class="comment">// 返回 DOM Element 类型</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">// PS：也可以把 $content 缓存下来，这样不用每次重复创建、重复绑定事件，优化性能</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>editFlow.js</strong></p>
+<p>还没写好测试，跟<strong>MyModalMenu.js</strong>结构差不多    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; </span><br><span class="line">    <span class="title class_">DomEditor</span>,</span><br><span class="line">    <span class="title class_">SlateTransforms</span>,</span><br><span class="line">    <span class="title class_">SlateRange</span>,</span><br><span class="line">    t,</span><br><span class="line">    genModalTextareaElems,</span><br><span class="line">    genModalButtonElems, </span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&#x27;@wangeditor/editor&#x27;</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EditFlowMenu</span> &#123; </span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">title</span> = <span class="string">&#x27;编辑流程&#x27;</span>;</span><br><span class="line">		<span class="comment">// this.iconSvg = &#x27;&lt;svg &gt;...&lt;/svg&gt;&#x27;</span></span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">tag</span> = <span class="string">&#x27;button&#x27;</span>;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">showModal</span> = <span class="literal">true</span>;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">modalWidth</span> = <span class="number">500</span>;</span><br><span class="line">		<span class="variable language_">this</span>.<span class="property">modalHeight</span> = <span class="number">400</span>;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">buttonId</span> = <span class="title class_">String</span>(<span class="title class_">Date</span>.<span class="title function_">now</span>());</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">target</span> = <span class="literal">null</span>;<span class="comment">// 编辑的目标</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="title function_">getSelectedElem</span>(<span class="params">editor</span>)&#123;</span><br><span class="line">        <span class="keyword">const</span> node = <span class="title class_">DomEditor</span>.<span class="title function_">getSelectedNodeByType</span>(editor, <span class="string">&#x27;remaindFlow&#x27;</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;getSelectedElem&quot;</span>, node);</span><br><span class="line">      <span class="keyword">if</span> (node == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">target</span> = node;</span><br><span class="line">      <span class="keyword">return</span> node</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 获取公式 value</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> editor editor</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="title function_">getValue</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> flowElem = <span class="variable language_">this</span>.<span class="title function_">getSelectedElem</span>(editor)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;getValue:&quot;</span>, flowElem);</span><br><span class="line">      <span class="keyword">if</span> (flowElem) &#123;</span><br><span class="line">        <span class="keyword">return</span> flowElem.<span class="property">code</span> || <span class="string">&#x27;&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="title function_">isActive</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">      <span class="comment">// 无需 active</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="title function_">exec</span>(<span class="params">editor, value</span>) &#123;</span><br><span class="line">      <span class="comment">// 点击菜单时，弹出 modal 之前，不需要执行其他代码</span></span><br><span class="line">      <span class="comment">// 此处空着即可</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="title function_">isDisabled</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; selection &#125; = editor</span><br><span class="line">      <span class="keyword">if</span> (selection == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">      <span class="keyword">if</span> (<span class="title class_">SlateRange</span>.<span class="title function_">isExpanded</span>(selection)) <span class="keyword">return</span> <span class="literal">true</span> <span class="comment">// 选区非折叠，禁用</span></span><br><span class="line">  </span><br><span class="line">      <span class="comment">// 未匹配到 flow node 则禁用</span></span><br><span class="line">      <span class="keyword">const</span> flowElem = <span class="variable language_">this</span>.<span class="title function_">getSelectedElem</span>(editor)</span><br><span class="line">      <span class="keyword">if</span> (flowElem == <span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  </span><br><span class="line">      <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="comment">// modal 定位</span></span><br><span class="line">    <span class="title function_">getModalPositionNode</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="variable language_">this</span>.<span class="title function_">getSelectedElem</span>(editor)</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="title function_">getModalContentElem</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> &#123; textareaId, buttonId &#125; = <span class="variable language_">this</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;getModalContentElem!&quot;</span>);</span><br><span class="line">      <span class="keyword">const</span> [textareaContainerElem, textareaElem] = <span class="title function_">genModalTextareaElems</span>(</span><br><span class="line">        <span class="title function_">t</span>(<span class="string">&#x27;编辑流程&#x27;</span>),</span><br><span class="line">        textareaId,</span><br><span class="line">        <span class="title function_">t</span>(<span class="string">`flowchart LR</span></span><br><span class="line"><span class="string">        A[节点A] --&gt;|开始| B(节点B)</span></span><br><span class="line"><span class="string">        B --&gt; C(节点C)`</span>)</span><br><span class="line">      )</span><br><span class="line">      <span class="keyword">const</span> $textarea = textareaElem</span><br><span class="line">      <span class="keyword">const</span> [buttonContainerElem] = <span class="title function_">genModalButtonElems</span>(buttonId, <span class="title function_">t</span>(<span class="string">&#x27;确认&#x27;</span>))</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">$content</span> == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 第一次渲染</span></span><br><span class="line">        <span class="keyword">const</span> $content = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>($content);</span><br><span class="line">        <span class="comment">// 绑定事件（第一次渲染时绑定，不要重复绑定）</span></span><br><span class="line">        $content.<span class="title function_">addEventListener</span>(<span class="string">&#x27;click&#x27;</span>, <span class="function"><span class="params">e</span> =&gt;</span> &#123;</span><br><span class="line">          e.<span class="title function_">preventDefault</span>();</span><br><span class="line">          <span class="keyword">if</span>( e.<span class="property">target</span>.<span class="property">id</span> === buttonId) &#123;</span><br><span class="line">            <span class="comment">// 点击确定按钮 `#$&#123;buttonId&#125;`</span></span><br><span class="line">            <span class="keyword">const</span> value = <span class="title class_">String</span>($content.<span class="title function_">querySelector</span>(<span class="string">`#<span class="subst">$&#123;textareaId&#125;</span>`</span>).<span class="property">value</span>).<span class="title function_">trim</span>()</span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">updateflow</span>(editor, value)</span><br><span class="line">            editor.<span class="title function_">hidePanelOrModal</span>() <span class="comment">// 隐藏 modal</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">  </span><br><span class="line">        <span class="comment">// 记录属性，重要</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">$content</span> = $content</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">const</span> $content = <span class="variable language_">this</span>.<span class="property">$content</span></span><br><span class="line">      $content.<span class="property">innerHTML</span> = <span class="string">&#x27;&#x27;</span>; <span class="comment">// 先清空内容</span></span><br><span class="line">  </span><br><span class="line">      <span class="comment">// append textarea and button</span></span><br><span class="line">      $content.<span class="title function_">append</span>(textareaContainerElem)</span><br><span class="line">      $content.<span class="title function_">append</span>(buttonContainerElem)</span><br><span class="line">  </span><br><span class="line">      <span class="comment">// 设置 input val</span></span><br><span class="line">      <span class="keyword">const</span> value = <span class="variable language_">this</span>.<span class="title function_">getValue</span>(editor)</span><br><span class="line">      $textarea.<span class="property">value</span> = value</span><br><span class="line">  </span><br><span class="line">      <span class="comment">// focus 一个 input（异步，此时 DOM 尚未渲染）</span></span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        $textarea.<span class="title function_">focus</span>()</span><br><span class="line">      &#125;)</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">return</span> $content</span><br><span class="line">    &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="title function_">updateflow</span>(<span class="params">editor, value</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!value) <span class="keyword">return</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;updateflow:&quot;</span>, <span class="variable language_">this</span>.<span class="property">target</span>);</span><br><span class="line">      <span class="comment">// 还原选区</span></span><br><span class="line">      editor.<span class="title function_">restoreSelection</span>()</span><br><span class="line">  </span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="title function_">isDisabled</span>(editor)) <span class="keyword">return</span></span><br><span class="line">  </span><br><span class="line">      <span class="keyword">const</span> selectedElem = <span class="variable language_">this</span>.<span class="title function_">getSelectedElem</span>(editor)</span><br><span class="line">      <span class="keyword">if</span> (selectedElem == <span class="literal">null</span>) <span class="keyword">return</span></span><br><span class="line">  </span><br><span class="line">      <span class="keyword">const</span> path = <span class="title class_">DomEditor</span>.<span class="title function_">findPath</span>(editor, selectedElem)</span><br><span class="line">      <span class="keyword">const</span> props = &#123; <span class="attr">code</span>: value &#125;</span><br><span class="line">      <span class="title class_">SlateTransforms</span>.<span class="title function_">setNodes</span>(editor, props, &#123; <span class="attr">at</span>: path &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">EditFlowMenu</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>renderElem.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; h &#125; <span class="keyword">from</span> <span class="string">&#x27;snabbdom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DomEditor</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@wangeditor/editor&#x27;</span>;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 渲染“附件”元素到编辑器</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> elem 附件元素，即上文的 myResume</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> children 元素子节点，void 元素可忽略</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> editor 编辑器实例</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> vnode 节点（通过 snabbdom.js 的 h 函数生成）</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">renderFlow</span>(<span class="params">elem, children, editor</span>) &#123;</span><br><span class="line">	<span class="comment">// JS 语法</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;renderFlow:&quot;</span>, elem);</span><br><span class="line">	<span class="comment">// 获取“附件”的数据，参考上文 myResume 数据结构</span></span><br><span class="line">	<span class="keyword">const</span> &#123; code &#125; = elem;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 当前节点是否选中</span></span><br><span class="line">	<span class="keyword">const</span> selected = <span class="title class_">DomEditor</span>.<span class="title function_">isNodeSelected</span>(editor, elem);</span><br><span class="line">	<span class="keyword">const</span> formulaVnode = <span class="title function_">h</span>(</span><br><span class="line">		<span class="string">&#x27;w-e-flow-card&#x27;</span>,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">dataset</span>: &#123; code &#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="literal">null</span></span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 构建容器 vnode</span></span><br><span class="line">	<span class="keyword">const</span> containerVnode = <span class="title function_">h</span>(</span><br><span class="line">		<span class="string">&#x27;pre&#x27;</span>,</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="attr">props</span>: &#123;</span><br><span class="line">				<span class="attr">contentEditable</span>: <span class="literal">false</span>, <span class="comment">// 不可编辑</span></span><br><span class="line">				<span class="attr">className</span>: <span class="string">&#x27;mermaid&#x27;</span></span><br><span class="line">			&#125;,</span><br><span class="line">			<span class="attr">style</span>: &#123;</span><br><span class="line">				<span class="attr">display</span>: <span class="string">&#x27;inline-block&#x27;</span>, <span class="comment">// inline</span></span><br><span class="line">				<span class="attr">marginLeft</span>: <span class="string">&#x27;3px&#x27;</span>,</span><br><span class="line">				<span class="attr">marginRight</span>: <span class="string">&#x27;3px&#x27;</span>,</span><br><span class="line">				<span class="attr">border</span>: selected <span class="comment">// 选中/不选中，样式不一样</span></span><br><span class="line">					? <span class="string">&#x27;2px solid var(--w-e-textarea-selected-border-color)&#x27;</span></span><br><span class="line">					: <span class="string">&#x27;2px solid transparent&#x27;</span>,</span><br><span class="line">				<span class="attr">borderRadius</span>: <span class="string">&#x27;3px&#x27;</span>,</span><br><span class="line">				<span class="attr">padding</span>: <span class="string">&#x27;3px 3px&#x27;</span>,</span><br><span class="line">			&#125;,</span><br><span class="line">		&#125;,</span><br><span class="line">		[code]</span><br><span class="line">	)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> containerVnode</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">type</span>: <span class="string">&#x27;remaindFlow&#x27;</span>, <span class="comment">// 节点 type ，重要！！！</span></span><br><span class="line">	<span class="attr">renderElem</span>: renderFlow,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>elemToHtml.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 生成“附件”元素的 HTML</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> elem 附件元素，即上文的 myResume</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> childrenHtml 子节点的 HTML 代码，void 元素可忽略</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> “附件”元素的 HTML 字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">flowToHtml</span>(<span class="params">elem, childrenHtml</span>) &#123;</span><br><span class="line">	<span class="comment">// JS 语法</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;flowToHtml:&#x27;</span>, elem);</span><br><span class="line">	<span class="comment">// 获取附件元素的数据</span></span><br><span class="line">	<span class="keyword">const</span> &#123; code &#125; = elem;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 生成 HTML 代码</span></span><br><span class="line">	<span class="comment">//</span></span><br><span class="line">	<span class="keyword">return</span> <span class="string">`&lt;span class=&quot;mermaid&quot; data-w-e-type=&quot;remaindFlow&quot; data-w-e-is-void data-w-e-is-inline data-code=&quot;<span class="subst">$&#123;code&#125;</span>&quot; &gt;&lt;/span&gt;`</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">type</span>: <span class="string">&#x27;remaindFlow&#x27;</span>, <span class="comment">// 节点 type ，重要！！！</span></span><br><span class="line">	<span class="attr">elemToHtml</span>: flowToHtml,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p><strong>parseElemHtml.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 解析 HTML 字符串，生成“附件”元素</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> domElem HTML 对应的 DOM Element</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> children 子节点</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> editor editor 实例</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@returns</span> “附件”元素，如上文的 myResume</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">parseFlowHtml</span>(<span class="params">domElem, children, editor</span>) &#123;</span><br><span class="line">	<span class="comment">// JS 语法</span></span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;parseFlowHtml:&quot;</span>, domElem);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 从 DOM element 中获取“附件”的信息</span></span><br><span class="line">	<span class="keyword">const</span> code = domElem.<span class="title function_">getAttribute</span>(<span class="string">&#x27;data-code&#x27;</span>) || <span class="string">&#x27;&#x27;</span>; <span class="comment">//domElem.innerText</span></span><br><span class="line">	<span class="comment">// 生成“附件”元素（按照此前约定的数据结构）</span></span><br><span class="line">	<span class="keyword">const</span> myResume = &#123;</span><br><span class="line">		<span class="attr">type</span>: <span class="string">&#x27;remaindFlow&#x27;</span>,</span><br><span class="line">		code,</span><br><span class="line">		<span class="attr">children</span>: [&#123; <span class="attr">text</span>: <span class="string">&#x27;&#x27;</span> &#125;], <span class="comment">// void node 必须有 children ，其中有一个空字符串，重要！！！</span></span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> myResume;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">selector</span>: <span class="string">&#x27;span[data-w-e-type=&quot;remaindFlow&quot;]&#x27;</span>,</span><br><span class="line">	<span class="attr">parseElemHtml</span>: parseFlowHtml,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>withAttachment.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">DomEditor</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@wangeditor/editor&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">withAttachment</span>(<span class="params">editor</span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> &#123; isInline, isVoid &#125; = editor;</span><br><span class="line">	<span class="keyword">const</span> newEditor = editor;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重写 isInline</span></span><br><span class="line">	newEditor.<span class="property">isInline</span> = <span class="function">(<span class="params">elem</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> type = <span class="title class_">DomEditor</span>.<span class="title function_">getNodeType</span>(elem);</span><br><span class="line">		<span class="keyword">if</span> (type === <span class="string">&#x27;remaindFlow&#x27;</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="title function_">isInline</span>(elem);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重写 isVoid</span></span><br><span class="line">	newEditor.<span class="property">isVoid</span> = <span class="function">(<span class="params">elem</span>) =&gt;</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> type = <span class="title class_">DomEditor</span>.<span class="title function_">getNodeType</span>(elem);</span><br><span class="line">		<span class="keyword">if</span> (type === <span class="string">&#x27;remaindFlow&#x27;</span>) &#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="title function_">isVoid</span>(elem);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> newEditor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withAttachment;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>index.js</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">RemaindFlow</span> <span class="keyword">from</span> <span class="string">&#x27;./MyModalMenu&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> renderElemConf <span class="keyword">from</span> <span class="string">&#x27;./renderElem&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> elemToHtmlConf <span class="keyword">from</span> <span class="string">&#x27;./elemToHtml&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> parseHtmlConf <span class="keyword">from</span> <span class="string">&#x27;./parseElemHtml&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> withAttachment <span class="keyword">from</span> <span class="string">&#x27;./withAttachment&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> editFlowMenu <span class="keyword">from</span> <span class="string">&#x27;./editFlow&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> flowConf = &#123;</span><br><span class="line">	<span class="attr">key</span>: <span class="string">&#x27;remaindFlow&#x27;</span>, <span class="comment">// 定义 menu key ：要保证唯一、不重复（重要）</span></span><br><span class="line">	<span class="title function_">factory</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RemaindFlow</span>(); <span class="comment">// 把 `YourMenuClass` 替换为你菜单的 class</span></span><br><span class="line">	&#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> editFlowMenuConf = &#123;</span><br><span class="line">	<span class="attr">key</span>: <span class="string">&#x27;editRemaindFlow&#x27;</span>, <span class="comment">// 定义 menu key ：要保证唯一、不重复（重要）</span></span><br><span class="line">	<span class="title function_">factory</span>(<span class="params"></span>) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> <span class="title function_">editFlowMenu</span>(); <span class="comment">// 把 `YourMenuClass` 替换为你菜单的 class</span></span><br><span class="line">	&#125;,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">	<span class="attr">menus</span>: [flowConf],</span><br><span class="line">	<span class="attr">editorPlugin</span>: withAttachment,</span><br><span class="line">	<span class="attr">renderElems</span>: [renderElemConf],</span><br><span class="line">	<span class="attr">elemsToHtml</span>: [elemToHtmlConf],</span><br><span class="line">	<span class="attr">parseElemsHtml</span>: [parseHtmlConf],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>registerCustomElem.js</strong></p>
+<p>这个方案失败了，原因是 <strong>mermaid.render</strong> 方法会使用document查找获取元素，但是影子dom中元素无法通过 document访问。导致 流程图，渲染不上去。像 marked 那种方式渲染的才方便封装 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> newText = marked.<span class="title function_">render</span>(text);</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mermaid <span class="keyword">from</span> <span class="string">&quot;mermaid&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WangEditorFlowCard</span> <span class="keyword">extends</span> <span class="title class_ inherited__">HTMLElement</span>&#123;</span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">super</span>()</span><br><span class="line">        <span class="keyword">const</span> shadow = <span class="variable language_">this</span>.<span class="title function_">attachShadow</span>(&#123; <span class="attr">mode</span>: <span class="string">&#x27;open&#x27;</span> &#125;)</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">document</span> = shadow.<span class="property">ownerDocument</span>;</span><br><span class="line">        <span class="keyword">const</span> pre = <span class="variable language_">this</span>.<span class="property">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;pre&#x27;</span>);</span><br><span class="line">        pre.<span class="property">style</span>.<span class="property">display</span> = <span class="string">&#x27;inline-block&#x27;</span></span><br><span class="line">        pre.<span class="property">classList</span>.<span class="title function_">add</span>(<span class="string">&#x27;mermaid&#x27;</span>)</span><br><span class="line">        pre.<span class="property">id</span> = <span class="string">&#x27;mermaid&#x27;</span>;</span><br><span class="line">        shadow.<span class="title function_">appendChild</span>(pre);</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">pre</span> = pre;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 监听的 attr</span></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">get</span> <span class="title function_">observedAttributes</span>() &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;data-code&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">attributeChangedCallback</span>(<span class="params">name, oldValue, newValue</span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;attributeChangedCallback:&quot;</span>, name, oldValue, newValue);</span><br><span class="line">        <span class="keyword">if</span> (name === <span class="string">&#x27;data-code&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">if</span> (oldValue == newValue) <span class="keyword">return</span></span><br><span class="line">            <span class="variable language_">this</span>.<span class="title function_">render</span>(newValue || <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">render</span>(<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> shadowRoot = <span class="variable language_">this</span>.<span class="property">shadowRoot</span>;</span><br><span class="line">        <span class="comment">// 设置 Mermaid 图表代码  </span></span><br><span class="line">        <span class="keyword">const</span> element = shadowRoot.<span class="title function_">getElementById</span>(<span class="string">&#x27;mermaid&#x27;</span>);  </span><br><span class="line">        element.<span class="property">textContent</span> = value;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(element.<span class="title function_">getBoundingClientRect</span>());</span><br><span class="line">        <span class="keyword">if</span> (element) &#123;  </span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;初始化&quot;</span>, mermaid);</span><br><span class="line">            mermaid.<span class="title function_">initialize</span>(&#123; <span class="attr">startOnLoad</span>: <span class="literal">false</span> &#125;);</span><br><span class="line">            mermaid.<span class="title function_">render</span>(element.<span class="property">id</span>, value, element);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable language_">window</span>.<span class="property">customElements</span>.<span class="title function_">get</span>(<span class="string">&#x27;w-e-flow-card&#x27;</span>)) &#123;</span><br><span class="line">    <span class="variable language_">window</span>.<span class="property">customElements</span>.<span class="title function_">define</span>(<span class="string">&#x27;w-e-flow-card&#x27;</span>, <span class="title class_">WangEditorFlowCard</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="引入使用"><a href="#引入使用" class="headerlink" title="引入使用"></a>引入使用</h3><p>在 main.js 中引用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册 wangEditor 插件</span></span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Boot</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@wangeditor/editor&#x27;</span>;</span><br><span class="line"><span class="comment">// import &#x27;@/plugins/RemaindFlow/registerCustomElem.js&#x27;;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> flowModuleConf <span class="keyword">from</span> <span class="string">&#x27;@/plugins/RemaindFlow&#x27;</span>;</span><br><span class="line"><span class="title class_">Boot</span>.<span class="title function_">registerModule</span>(flowModuleConf);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>编辑器配置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> toolbarConfig = &#123;</span><br><span class="line">	<span class="attr">insertKeys</span>: &#123;</span><br><span class="line">        <span class="attr">index</span>: <span class="number">1</span>, <span class="comment">// 插入的位置，基于当前的 toolbarKeys</span></span><br><span class="line">        <span class="attr">keys</span>: [<span class="string">&#x27;remaindFlow&#x27;</span>],</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> editorConfig = &#123;</span><br><span class="line">	<span class="attr">placeholder</span>: <span class="string">&#x27;请输入内容...&#x27;</span>,</span><br><span class="line">	<span class="attr">hoverbarKeys</span>: &#123;</span><br><span class="line">        <span class="attr">formula</span>: &#123;</span><br><span class="line">            <span class="attr">menuKeys</span>: [<span class="string">&#x27;editFormula&#x27;</span>], <span class="comment">// “编辑公式”菜单</span></span><br><span class="line">        &#125;,</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>编辑器更新内容时初始化流程图, </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mermaid <span class="keyword">from</span> <span class="string">&#x27;mermaid&#x27;</span>;</span><br><span class="line"></span><br><span class="line"># @onChange=<span class="string">&quot;handleChanged&quot;</span></span><br><span class="line"><span class="keyword">const</span> <span class="title function_">handleChanged</span> = (<span class="params">editor</span>) =&gt; &#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(editor);</span><br><span class="line">	mermaid.<span class="title function_">initialize</span>(&#123; <span class="attr">startOnLoad</span>: <span class="literal">true</span> &#125;);</span><br><span class="line">	mermaid.<span class="title function_">init</span>();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>为啥不在插件代码中写这部分逻辑呢，formula 插件 </p>
+<p>katex 可以直接渲染这个元素为 公式，所以使用的自定义元素在影子dom中渲染，但 mermaid 不能这么搞，他对影子DOM无效。暂时没想到更优雅的姿势</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">katex.<span class="title function_">render</span>(value, <span class="variable language_">this</span>.<span class="property">span</span>, &#123;</span><br><span class="line">  <span class="attr">throwOnError</span>: <span class="literal">false</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 
     
@@ -322,7 +377,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https://wyf195075595.github.io/2022/06/17/programming/javascript/jsConsole/" title="jsConsole" target="_blank">https://wyf195075595.github.io/2022/06/17/programming/javascript/jsConsole/</a>
+          <a href="https://wyf195075595.github.io/2024/04/25/programming/jsplugin/wangEditorPlugin/" title="开发WangEditor插件" target="_blank">https://wyf195075595.github.io/2024/04/25/programming/jsplugin/wangEditorPlugin/</a>
         </li>
         
         <li>
@@ -344,7 +399,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
         		</li>
       		
 		</ul>
@@ -411,7 +466,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wyf195075595.github.io/2022/06/17/programming/javascript/jsConsole/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://wyf195075595.github.io/2024/04/25/programming/jsplugin/wangEditorPlugin/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -426,18 +481,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/javascript/fullScreen/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          页面元素的全屏
+          高性能网站建设指南
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/javascript/downLoad/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">文件下载方式</div>
+    <a href="/2024/01/24/programming/others/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目中遇到的问题</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -464,7 +519,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-number">2.</span> <span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">引入使用</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -477,7 +532,7 @@
 
 
 
-<div id="SOHUCS" sid="programming/javascript/jsConsole" ></div> 
+<div id="SOHUCS" sid="programming/jsplugin/wangEditorPlugin" ></div> 
 <script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
     window.changyan.api.config({
@@ -622,11 +677,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -634,15 +689,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -650,15 +709,55 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -666,7 +765,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -675,6 +798,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -694,79 +825,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,31 +845,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -814,7 +865,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -822,7 +877,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -830,11 +885,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -846,11 +901,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,14 +941,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -886,11 +949,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,7 +965,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">

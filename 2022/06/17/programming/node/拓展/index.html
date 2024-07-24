@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.4k字</span>
+      <span class="post-count">1.6k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">5分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -362,6 +362,13 @@
 <blockquote>
 <p>该库将 ffmpeg 的复杂命令行用法抽象为一个流畅、易于使用的node.js模块。为了能够使用此模块，请确保您的系统上安装了 ffmpeg（包括所有必要的编码库，如 libmp3lame 或 libx264）。</p>
 </blockquote>
+<h3 id="node-mail"><a href="#node-mail" class="headerlink" title="node mail"></a><a target="_blank" rel="noopener" href="https://www.nodemailer.com/">node mail</a></h3><blockquote>
+<p>Nodemailer 是一个用于Node.js应用程序的模块，可以像蛋糕一样轻松发送电子邮件。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodemailer = <span class="built_in">require</span>(<span class="string">&quot;nodemailer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> transporter = nodemailer.<span class="title function_">createTransport</span>(&#123;</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&quot;smtp.ethereal.email&quot;</span>,</span><br><span class="line">  <span class="attr">port</span>: <span class="number">587</span>,</span><br><span class="line">  <span class="attr">secure</span>: <span class="literal">false</span>, <span class="comment">// Use `true` for port 465, `false` for all other ports</span></span><br><span class="line">  <span class="attr">auth</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;maddison53@ethereal.email&quot;</span>,</span><br><span class="line">    <span class="attr">pass</span>: <span class="string">&quot;jn7jnAPss4f63QBp6D&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// async..await is not allowed in global scope, must use a wrapper</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// send mail with defined transport object</span></span><br><span class="line">  <span class="keyword">const</span> info = <span class="keyword">await</span> transporter.<span class="title function_">sendMail</span>(&#123;</span><br><span class="line">    <span class="attr">from</span>: <span class="string">&#x27;&quot;Maddison Foo Koch 👻&quot; &lt;maddison53@ethereal.email&gt;&#x27;</span>, <span class="comment">// sender address</span></span><br><span class="line">    <span class="attr">to</span>: <span class="string">&quot;bar@example.com, baz@example.com&quot;</span>, <span class="comment">// list of receivers</span></span><br><span class="line">    <span class="attr">subject</span>: <span class="string">&quot;Hello ✔&quot;</span>, <span class="comment">// Subject line</span></span><br><span class="line">    <span class="attr">text</span>: <span class="string">&quot;Hello world?&quot;</span>, <span class="comment">// plain text body</span></span><br><span class="line">    <span class="attr">html</span>: <span class="string">&quot;&lt;b&gt;Hello world?&lt;/b&gt;&quot;</span>, <span class="comment">// html body</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Message sent: %s&quot;</span>, info.<span class="property">messageId</span>);</span><br><span class="line">  <span class="comment">// Message sent: &lt;d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>().<span class="title function_">catch</span>(<span class="variable language_">console</span>.<span class="property">error</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="云函数"><a href="#云函数" class="headerlink" title="云函数"></a>云函数</h2><h3 id="laf云函数"><a href="#laf云函数" class="headerlink" title="laf云函数"></a><a target="_blank" rel="noopener" href="https://laf.dev/">laf云函数</a></h3><blockquote>
 <p><code>laf</code> 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台。</p>
 <p>支持get,post 等常规请求。支持socket长连接。功能很齐全</p>
@@ -490,18 +497,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/python/python-base/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python基础
+          Nodejs 编程基础
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/npm/yarn/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">npm常用命令</div>
+    <a href="/2022/06/17/programming/npm/git/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git 配置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -528,7 +535,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs-%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">Nodejs 主流框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs-%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">nodejs 库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequelize"><span class="toc-number">2.1.</span> <span class="toc-text">Sequelize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS"><span class="toc-number">2.2.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodemailer"><span class="toc-number">2.3.</span> <span class="toc-text">Nodemailer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passport"><span class="toc-number">2.4.</span> <span class="toc-text">passport</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async"><span class="toc-number">2.5.</span> <span class="toc-text">Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Winston"><span class="toc-number">2.6.</span> <span class="toc-text">Winston</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mongoose"><span class="toc-number">2.7.</span> <span class="toc-text">Mongoose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket-IO"><span class="toc-number">2.8.</span> <span class="toc-text">Socket.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lodash"><span class="toc-number">2.9.</span> <span class="toc-text">Lodash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#puppeteer"><span class="toc-number">2.10.</span> <span class="toc-text">puppeteer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multer"><span class="toc-number">2.11.</span> <span class="toc-text">Multer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dotenv"><span class="toc-number">2.12.</span> <span class="toc-text">Dotenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQTT-js"><span class="toc-number">2.13.</span> <span class="toc-text">MQTT.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-fluent-ffmpeg"><span class="toc-number">2.14.</span> <span class="toc-text">node-fluent-ffmpeg</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#laf%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">laf云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aircode"><span class="toc-number">3.1.1.</span> <span class="toc-text">aircode</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs-%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">Nodejs 主流框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs-%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">nodejs 库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequelize"><span class="toc-number">2.1.</span> <span class="toc-text">Sequelize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS"><span class="toc-number">2.2.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodemailer"><span class="toc-number">2.3.</span> <span class="toc-text">Nodemailer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passport"><span class="toc-number">2.4.</span> <span class="toc-text">passport</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async"><span class="toc-number">2.5.</span> <span class="toc-text">Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Winston"><span class="toc-number">2.6.</span> <span class="toc-text">Winston</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mongoose"><span class="toc-number">2.7.</span> <span class="toc-text">Mongoose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket-IO"><span class="toc-number">2.8.</span> <span class="toc-text">Socket.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lodash"><span class="toc-number">2.9.</span> <span class="toc-text">Lodash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#puppeteer"><span class="toc-number">2.10.</span> <span class="toc-text">puppeteer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multer"><span class="toc-number">2.11.</span> <span class="toc-text">Multer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dotenv"><span class="toc-number">2.12.</span> <span class="toc-text">Dotenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQTT-js"><span class="toc-number">2.13.</span> <span class="toc-text">MQTT.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-fluent-ffmpeg"><span class="toc-number">2.14.</span> <span class="toc-text">node-fluent-ffmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-mail"><span class="toc-number">2.15.</span> <span class="toc-text">node mail</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#laf%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">laf云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aircode"><span class="toc-number">3.1.1.</span> <span class="toc-text">aircode</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -686,11 +693,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -698,15 +705,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -714,15 +725,55 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -730,7 +781,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -739,6 +814,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,79 +841,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -842,31 +861,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -878,7 +881,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -886,7 +893,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -894,11 +901,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -910,11 +917,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -934,14 +957,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -950,11 +965,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -962,7 +981,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">

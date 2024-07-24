@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091459773.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20230331091431176.png">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2023-11-17T02:33:08.995Z">
+<meta property="article:modified_time" content="2024-07-15T03:00:04.696Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
@@ -289,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">5.6k字</span>
+      <span class="post-count">6.3k字</span>
     </span>
   </span>
 
@@ -298,7 +298,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">24分</span>
+      <span class="post-count">28分</span>
     </span>
   </span>
 </div>
@@ -352,11 +352,17 @@
 </blockquote>
 <ol>
 <li><code>id</code> 选择器，如 <code>#app</code></li>
-<li><code>class</code>、<code>attribute</code> 与 <code>pseudo-classes</code> 选择器，如 <code>.header</code>、<code>[type=&quot;radio&quot;]</code> 与 <code>:hover</code></li>
+<li><code>class</code>、<code>attribute</code> 与 <code>pseudo-classes</code>（伪类） 选择器，如 <code>.header</code>、<code>[type=&quot;radio&quot;]</code> 与 <code>:hover</code></li>
 <li><code>type</code> 标签选择器和伪元素选择器，如 <code>h1</code>、<code>p</code> 和 <code>::before</code></li>
 </ol>
 <p>其中通配符选择器 <code>*</code>，组合选择器 <code>+ ~ &gt;</code>，否定伪类选择器 <code>:not()</code> 对优先级无影响</p>
 <p>另有内联样式 <code>&lt;div class=&quot;foo&quot; style=&quot;color: red;&quot;&gt;&lt;/div&gt;</code> 及 <code>!important</code>(最高) 具有更高的权重</p>
+<p><strong>权重计算</strong></p>
+<p>（id选择器个数， 类、伪类、属性选择器个数，标签、伪元素选择器个数）</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// (<span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"><span class="selector-id">#table-wrapper</span> <span class="selector-class">.title</span> &gt; <span class="selector-tag">p</span><span class="selector-pseudo">::first-line</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">// (<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line"><span class="selector-id">#table-wrapper</span> <span class="selector-tag">div</span><span class="selector-class">.title</span> <span class="selector-tag">p</span><span class="selector-pseudo">:last-child</span> &#123;&#125;</span><br><span class="line"></span><br><span class="line">// 比较可得出 样式<span class="number">2</span>权重大于样式<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="有哪些-css-属性不能展示动画效果"><a href="#有哪些-css-属性不能展示动画效果" class="headerlink" title="有哪些 css 属性不能展示动画效果"></a>有哪些 css 属性不能展示动画效果</h3><p>display,height </p>
 <p>css 不能在 display:none 和 display:block 之间进行动画</p>
 <p>也不能在 height:0 和 height:auto 之间进行动画</p>
@@ -540,6 +546,21 @@
 <h3 id="去除表单自动填充的白色背景"><a href="#去除表单自动填充的白色背景" class="headerlink" title="去除表单自动填充的白色背景"></a>去除表单自动填充的白色背景</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 去除填充的白色背景</span><br><span class="line"><span class="selector-tag">input</span>:-webkit-autofill &#123;</span><br><span class="line">    <span class="attribute">box-shadow</span>:<span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">1000px</span> transparent inset <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">input</span>:-internal-autofill-previewed,</span><br><span class="line">input:-internal-autofill-selected &#123;</span><br><span class="line">    -webkit-text-fill-<span class="attribute">color</span>: <span class="number">#fff</span> <span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">transition</span>: background-color <span class="number">5000s</span> ease-in-out <span class="number">0s</span> <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="文本高度自适应"><a href="#文本高度自适应" class="headerlink" title="文本高度自适应"></a>文本高度自适应</h3><p><strong>form-sizing</strong> 属性，一个带有 <code>form-sizing</code> 属性的实验性 CSS 规则即将推出，它允许您根据用户输入的文本量自动增加 textarea 的高度。</p>
+<h3 id="锚点定位布局"><a href="#锚点定位布局" class="headerlink" title="锚点定位布局"></a>锚点定位布局</h3><p>加上一点js就能实现可拖拽流程图效果。chrome 125版本特有的</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;index.css&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span> <span class="attr">src</span>=<span class="string">&quot;index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;one draggable&quot;</span>&gt;</span>one<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;two draggable&quot;</span>&gt;</span>two<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;line&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;three draggable&quot;</span>&gt;</span>three<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;line line-two&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">dragElement</span> = (<span class="params">element</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> y = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> xOffset = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">let</span> yOffset = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  element.<span class="property">onmousedown</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    event.<span class="title function_">preventDefault</span>();</span><br><span class="line">    xOffset = event.<span class="property">clientX</span>;</span><br><span class="line">    yOffset = event.<span class="property">clientY</span>;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">onmouseup</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="property">onmouseup</span> = <span class="literal">null</span>;</span><br><span class="line">      <span class="variable language_">document</span>.<span class="property">onmousemove</span> = <span class="literal">null</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="variable language_">document</span>.<span class="property">onmousemove</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">      x = xOffset - event.<span class="property">clientX</span>;</span><br><span class="line">      y = yOffset - event.<span class="property">clientY</span>;</span><br><span class="line">      xOffset = event.<span class="property">clientX</span>;</span><br><span class="line">      yOffset = event.<span class="property">clientY</span>;</span><br><span class="line">      element.<span class="property">style</span>.<span class="property">top</span> = <span class="string">`<span class="subst">$&#123;element.offsetTop - y&#125;</span>px`</span>;</span><br><span class="line">      element.<span class="property">style</span>.<span class="property">left</span> = <span class="string">`<span class="subst">$&#123;element.offsetLeft - x&#125;</span>px`</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">document</span>.<span class="title function_">querySelectorAll</span>(<span class="string">&#x27;.draggable&#x27;</span>).<span class="title function_">forEach</span>(<span class="function"><span class="params">i</span> =&gt;</span> <span class="title function_">dragElement</span>(i));</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">*, *<span class="selector-pseudo">:before</span>, *<span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: inherit;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100</span>dvh;</span><br><span class="line">  <span class="attribute">font-family</span>: system-ui;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">48px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.draggable</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">1rem</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="number">#2d2d2d</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#e9e9e9</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: grab;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">80px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  place-items: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.one</span> &#123;</span><br><span class="line">  anchor-name: --one;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.two</span> &#123;</span><br><span class="line">  anchor-name: --two;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">45vh</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">45vw</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line</span> &#123;</span><br><span class="line">  <span class="attr">--color</span>: red;</span><br><span class="line">  anchor-name: --line;</span><br><span class="line">  <span class="attribute">position</span>-try-options: flip-block, flip-inline, flip-block flip-inline;</span><br><span class="line">  <span class="attribute">top</span>: <span class="built_in">anchor</span>(--one center);</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--one center);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">linear-gradient</span>(<span class="built_in">var</span>(--color), <span class="built_in">var</span>(--color)) no-repeat center/<span class="number">2px</span> <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line</span><span class="selector-pseudo">::before</span>,</span><br><span class="line"><span class="selector-class">.line</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">display</span>: block;</span><br><span class="line">  <span class="attribute">content</span>: <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--color);</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">2px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>-try-options: inherit;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--one center);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--one right);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--line center);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>-try-options: inherit;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--two left);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--line center);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.three</span> &#123;</span><br><span class="line">  anchor-name: --three;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">80vh</span>;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">48px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line-two</span> &#123;</span><br><span class="line">  <span class="attr">--color</span>: blue;</span><br><span class="line">  anchor-name: --line-two;</span><br><span class="line">  <span class="attribute">top</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--three center);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--three center);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line-two</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--two center);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--two right);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--line-two center);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.line-two</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="built_in">anchor</span>(--three center);</span><br><span class="line">  <span class="attribute">right</span>: <span class="built_in">anchor</span>(--three left);</span><br><span class="line">  <span class="attribute">left</span>: <span class="built_in">anchor</span>(--line-two center);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h3 id="Magick"><a href="#Magick" class="headerlink" title="Magick"></a><a target="_blank" rel="noopener" href="https://css.winterveil.net/translations/zh-CN.html?name=&school=&message=&radio=radio2">Magick</a></h3><blockquote>
+<p>magick.css是一个极简的，（大部分）无类的CSS框架， 它的设计目标是易于使用和理解。它包含在一个文件中， 每一个选择都有注释。目标是实现优雅，但神奇的游戏外观， 同时最大化可读性和传达信息的能力；<em>有点类似于巫师的笔记</em>。</p>
+<p>该框架在<strong>所有设备</strong>和屏幕尺寸上保持其美观和功能，并且完全<strong>无需JavaScript</strong>。它的灵感来源于<a target="_blank" rel="noopener" href="https://www.latex-project.org/">LaTeX</a>， 老式的TTRPG规则书，像<a target="_blank" rel="noopener" href="https://concrete.style/">concrete.css</a> 和 <a target="_blank" rel="noopener" href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>这样的CSS框架，以及”设计即可用性” 的极简主义原则。</p>
+<p>magick.css 与 <a target="_blank" rel="noopener" href="https://necolas.github.io/normalize.css/">normalize.css</a> 配合使用效果最佳， <strong>强烈推荐使用！</strong></p>
+</blockquote>
 
     
 
@@ -696,7 +717,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">移动端适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E7%9B%91%E5%90%AC-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-MediaQueryList"><span class="toc-number">3.</span> <span class="toc-text">js 监听 媒体查询 MediaQueryList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">4.</span> <span class="toc-text">网格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E6%94%BB%E5%87%BB"><span class="toc-number">5.</span> <span class="toc-text">css 攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%94%A8-transform-%E5%AF%BC%E8%87%B4%E6%96%87%E6%9C%AC%E6%A8%A1%E7%B3%8A%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">运用 transform 导致文本模糊的现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-variable-%EF%BC%88css%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">css variable （css变量）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">var() 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%8C%E7%B2%BE%E7%AE%80%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%87%8F%E5%B0%91%E5%86%97%E4%BD%99"><span class="toc-number">8.1.</span> <span class="toc-text">在媒体查询中使用，精简代码，减少冗余</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E4%BE%BF%E5%9C%A8-js-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">8.2.</span> <span class="toc-text">方便在 js 中使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-%E4%B8%8E-css-%E5%8F%98%E9%87%8F%E4%BA%A4%E4%BA%92"><span class="toc-number">8.3.</span> <span class="toc-text">js 与 css 变量交互</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-specificity-%E6%9D%83%E9%87%8D"><span class="toc-number">9.</span> <span class="toc-text">css specificity 权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B-css-%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%83%BD%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-number">10.</span> <span class="toc-text">有哪些 css 属性不能展示动画效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position-sticky"><span class="toc-number">11.</span> <span class="toc-text">position: sticky</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%AE%9E%E7%8E%B0%E9%BB%91%E6%9A%97%E6%A8%A1%E5%BC%8F"><span class="toc-number">12.</span> <span class="toc-text">网页实现黑暗模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8A%9E%E6%B3%95"><span class="toc-number">13.</span> <span class="toc-text">隐藏元素的几种办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#01-display-none"><span class="toc-number">13.1.</span> <span class="toc-text">01 display: none</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02-opacity-0"><span class="toc-number">13.2.</span> <span class="toc-text">02 opacity: 0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03-visibility-hidden"><span class="toc-number">13.3.</span> <span class="toc-text">03 visibility: hidden</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04-content-visibility"><span class="toc-number">13.4.</span> <span class="toc-text">04 content-visibility</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E4%BA%8E%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%8D%E5%8F%AF%E8%A7%81%E4%BD%8D%E7%BD%AE"><span class="toc-number">13.5.</span> <span class="toc-text">05 绝对定位于当前页面的不可见位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E8%AE%BE%E7%BD%AE%E4%B8%BA-0"><span class="toc-number">13.6.</span> <span class="toc-text">06 字体大小设置为 0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E4%B8%89%E7%AD%89%E5%88%86%EF%BC%8C%E4%B8%AD%E5%B1%8F%E4%BA%8C%E7%AD%89%E5%88%86%EF%BC%8C%E5%B0%8F%E5%B1%8F1%E7%AD%89%E5%88%86"><span class="toc-number">14.</span> <span class="toc-text">大屏三等分，中屏二等分，小屏1等分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">15.</span> <span class="toc-text">自定义滚动条的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93%E4%BC%98%E5%85%88"><span class="toc-number">16.</span> <span class="toc-text">网站字体设置默认字体优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E9%81%BF%E5%85%8D%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81"><span class="toc-number">17.</span> <span class="toc-text">css 避免命名冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-number">18.</span> <span class="toc-text">css 实现方格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5%EF%BC%8C%E8%B6%85%E5%87%BA%E5%A4%9A%E8%A1%8C%E7%9C%81%E7%95%A5"><span class="toc-number">19.</span> <span class="toc-text">css 实现超出省略，超出多行省略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E9%95%BF%E5%BA%A6%E4%B8%BA%E7%88%B6%E5%AE%B9%E5%99%A8%E4%B8%80%E5%8D%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">20.</span> <span class="toc-text">垂直居中长度为父容器一半的子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">21.</span> <span class="toc-text">BFC 块级格式化上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem%E3%80%81em%E3%80%81vw%E3%80%81vh-%E7%9A%84%E5%80%BC%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">22.</span> <span class="toc-text">rem、em、vw、vh 的值各是什么意思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize-css-%E4%B8%8E-reset-css-%E5%8F%88%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">23.</span> <span class="toc-text">normalize.css 与 reset.css 又何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E7%9A%84%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">24.</span> <span class="toc-text">CSS 的盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%A3%81%E5%89%AA"><span class="toc-number">25.</span> <span class="toc-text">样式裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#has-%E5%B1%9E%E6%80%A7"><span class="toc-number">26.</span> <span class="toc-text">:has 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#initial-letter"><span class="toc-number">27.</span> <span class="toc-text">initial-letter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%86%E5%8F%A3%E7%9A%84%E5%8D%95%E4%BD%8D"><span class="toc-number">28.</span> <span class="toc-text">适配移动端视口的单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E7%90%86%E8%A7%A3css3D"><span class="toc-number">29.</span> <span class="toc-text">用于理解css3D</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E8%A1%A8%E5%8D%95%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E7%9A%84%E7%99%BD%E8%89%B2%E8%83%8C%E6%99%AF"><span class="toc-number">30.</span> <span class="toc-text">去除表单自动填充的白色背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">31.</span> <span class="toc-text">文本高度自适应</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%9C%E8%89%B2"><span class="toc-number">1.</span> <span class="toc-text">颜色</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">移动端适配方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#js-%E7%9B%91%E5%90%AC-%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2-MediaQueryList"><span class="toc-number">3.</span> <span class="toc-text">js 监听 媒体查询 MediaQueryList</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E6%A0%BC%E5%B8%83%E5%B1%80"><span class="toc-number">4.</span> <span class="toc-text">网格布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E6%94%BB%E5%87%BB"><span class="toc-number">5.</span> <span class="toc-text">css 攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%94%A8-transform-%E5%AF%BC%E8%87%B4%E6%96%87%E6%9C%AC%E6%A8%A1%E7%B3%8A%E7%9A%84%E7%8E%B0%E8%B1%A1"><span class="toc-number">6.</span> <span class="toc-text">运用 transform 导致文本模糊的现象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-variable-%EF%BC%88css%E5%8F%98%E9%87%8F%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">css variable （css变量）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-%E5%87%BD%E6%95%B0"><span class="toc-number">8.</span> <span class="toc-text">var() 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9C%A8%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2%E4%B8%AD%E4%BD%BF%E7%94%A8%EF%BC%8C%E7%B2%BE%E7%AE%80%E4%BB%A3%E7%A0%81%EF%BC%8C%E5%87%8F%E5%B0%91%E5%86%97%E4%BD%99"><span class="toc-number">8.1.</span> <span class="toc-text">在媒体查询中使用，精简代码，减少冗余</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E4%BE%BF%E5%9C%A8-js-%E4%B8%AD%E4%BD%BF%E7%94%A8"><span class="toc-number">8.2.</span> <span class="toc-text">方便在 js 中使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#js-%E4%B8%8E-css-%E5%8F%98%E9%87%8F%E4%BA%A4%E4%BA%92"><span class="toc-number">8.3.</span> <span class="toc-text">js 与 css 变量交互</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-specificity-%E6%9D%83%E9%87%8D"><span class="toc-number">9.</span> <span class="toc-text">css specificity 权重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%93%AA%E4%BA%9B-css-%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%83%BD%E5%B1%95%E7%A4%BA%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C"><span class="toc-number">10.</span> <span class="toc-text">有哪些 css 属性不能展示动画效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#position-sticky"><span class="toc-number">11.</span> <span class="toc-text">position: sticky</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E5%AE%9E%E7%8E%B0%E9%BB%91%E6%9A%97%E6%A8%A1%E5%BC%8F"><span class="toc-number">12.</span> <span class="toc-text">网页实现黑暗模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%85%83%E7%B4%A0%E7%9A%84%E5%87%A0%E7%A7%8D%E5%8A%9E%E6%B3%95"><span class="toc-number">13.</span> <span class="toc-text">隐藏元素的几种办法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#01-display-none"><span class="toc-number">13.1.</span> <span class="toc-text">01 display: none</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02-opacity-0"><span class="toc-number">13.2.</span> <span class="toc-text">02 opacity: 0</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03-visibility-hidden"><span class="toc-number">13.3.</span> <span class="toc-text">03 visibility: hidden</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04-content-visibility"><span class="toc-number">13.4.</span> <span class="toc-text">04 content-visibility</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05-%E7%BB%9D%E5%AF%B9%E5%AE%9A%E4%BD%8D%E4%BA%8E%E5%BD%93%E5%89%8D%E9%A1%B5%E9%9D%A2%E7%9A%84%E4%B8%8D%E5%8F%AF%E8%A7%81%E4%BD%8D%E7%BD%AE"><span class="toc-number">13.5.</span> <span class="toc-text">05 绝对定位于当前页面的不可见位置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06-%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F%E8%AE%BE%E7%BD%AE%E4%B8%BA-0"><span class="toc-number">13.6.</span> <span class="toc-text">06 字体大小设置为 0</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%A7%E5%B1%8F%E4%B8%89%E7%AD%89%E5%88%86%EF%BC%8C%E4%B8%AD%E5%B1%8F%E4%BA%8C%E7%AD%89%E5%88%86%EF%BC%8C%E5%B0%8F%E5%B1%8F1%E7%AD%89%E5%88%86"><span class="toc-number">14.</span> <span class="toc-text">大屏三等分，中屏二等分，小屏1等分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%BB%9A%E5%8A%A8%E6%9D%A1%E7%9A%84%E6%A0%B7%E5%BC%8F"><span class="toc-number">15.</span> <span class="toc-text">自定义滚动条的样式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%AB%99%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4%E5%AD%97%E4%BD%93%E4%BC%98%E5%85%88"><span class="toc-number">16.</span> <span class="toc-text">网站字体设置默认字体优先</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E9%81%BF%E5%85%8D%E5%91%BD%E5%90%8D%E5%86%B2%E7%AA%81"><span class="toc-number">17.</span> <span class="toc-text">css 避免命名冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A0%BC%E8%83%8C%E6%99%AF"><span class="toc-number">18.</span> <span class="toc-text">css 实现方格背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#css-%E5%AE%9E%E7%8E%B0%E8%B6%85%E5%87%BA%E7%9C%81%E7%95%A5%EF%BC%8C%E8%B6%85%E5%87%BA%E5%A4%9A%E8%A1%8C%E7%9C%81%E7%95%A5"><span class="toc-number">19.</span> <span class="toc-text">css 实现超出省略，超出多行省略</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E9%95%BF%E5%BA%A6%E4%B8%BA%E7%88%B6%E5%AE%B9%E5%99%A8%E4%B8%80%E5%8D%8A%E7%9A%84%E5%AD%90%E5%85%83%E7%B4%A0"><span class="toc-number">20.</span> <span class="toc-text">垂直居中长度为父容器一半的子元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFC-%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">21.</span> <span class="toc-text">BFC 块级格式化上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rem%E3%80%81em%E3%80%81vw%E3%80%81vh-%E7%9A%84%E5%80%BC%E5%90%84%E6%98%AF%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D"><span class="toc-number">22.</span> <span class="toc-text">rem、em、vw、vh 的值各是什么意思</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#normalize-css-%E4%B8%8E-reset-css-%E5%8F%88%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="toc-number">23.</span> <span class="toc-text">normalize.css 与 reset.css 又何区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSS-%E7%9A%84%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-number">24.</span> <span class="toc-text">CSS 的盒模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E5%BC%8F%E8%A3%81%E5%89%AA"><span class="toc-number">25.</span> <span class="toc-text">样式裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#has-%E5%B1%9E%E6%80%A7"><span class="toc-number">26.</span> <span class="toc-text">:has 属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#initial-letter"><span class="toc-number">27.</span> <span class="toc-text">initial-letter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%82%E9%85%8D%E7%A7%BB%E5%8A%A8%E7%AB%AF%E8%A7%86%E5%8F%A3%E7%9A%84%E5%8D%95%E4%BD%8D"><span class="toc-number">28.</span> <span class="toc-text">适配移动端视口的单位</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E4%BA%8E%E7%90%86%E8%A7%A3css3D"><span class="toc-number">29.</span> <span class="toc-text">用于理解css3D</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E8%A1%A8%E5%8D%95%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E7%9A%84%E7%99%BD%E8%89%B2%E8%83%8C%E6%99%AF"><span class="toc-number">30.</span> <span class="toc-text">去除表单自动填充的白色背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">31.</span> <span class="toc-text">文本高度自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%9A%E7%82%B9%E5%AE%9A%E4%BD%8D%E5%B8%83%E5%B1%80"><span class="toc-number">32.</span> <span class="toc-text">锚点定位布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magick"><span class="toc-number">33.</span> <span class="toc-text">Magick</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -854,11 +875,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -866,15 +887,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -882,15 +907,55 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -898,7 +963,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -907,6 +996,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -926,79 +1023,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1010,31 +1043,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,7 +1063,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1054,7 +1075,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1062,11 +1083,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1078,11 +1099,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,14 +1139,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
@@ -1118,11 +1147,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1130,7 +1163,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
