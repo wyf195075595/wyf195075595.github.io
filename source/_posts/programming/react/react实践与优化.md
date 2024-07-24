@@ -69,7 +69,7 @@ export default function WithoutMemo() {
 import React from 'react';
  
  
-export default function WithoutMemo() {
+export default function WithMemo() {
     const [count, setCount] = useState(1);
     const [val, setValue] = useState('');
  

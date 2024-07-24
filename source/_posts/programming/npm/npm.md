@@ -41,7 +41,9 @@ categories: npm
 	npx clear-npx-cache
 ```
 
+[yarn 设置缓存路径，默认是C盘](https://blog.csdn.net/antma/article/details/124937157)
 
+[npm改变npm缓存路径和改变环境变量](https://blog.csdn.net/songqiu821/article/details/134027650)
 
 ### npm 全局安装 某 依赖包 但是 本地require 却不生效
 

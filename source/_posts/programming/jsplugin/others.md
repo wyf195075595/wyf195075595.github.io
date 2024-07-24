@@ -1488,9 +1488,17 @@ console.log('还原对象:', toObj)
 
 ### [Pictode](https://github.com/JessYan0913/pictode)
 
-> 一个开源的网页绘图编辑器。可以通过npm包方式引入项目
+> 一个开源的网页绘图编辑器,基于konva.js。可以通过npm包方式引入项目
 
-[recorder](https://github.com/xiangyuecn/Recorder)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/bce6230c53464d1fb917a31c5e1f33c2~tplv-k3u1fbpfcp-jj-mark:3024:0:0:0:q75.awebp#?w=1920&h=1054&s=2552077&e=gif&f=629&b=fbfafd)
+
+### [excalidraw](https://github.com/excalidraw/excalidraw)
+
+> 与Pictode类似，但是更强,支持集成到项目中但确是整体引入，不能自定义。github star 75k+
+
+![](https://camo.githubusercontent.com/ddb3b5442d70e4dc28bf57c16f772be3ebe1ac3768ffbacaca3606013bf696a4/68747470733a2f2f657863616c69647261772e6e7963332e63646e2e6469676974616c6f6365616e7370616365732e636f6d2f67697468756225324670726f647563745f73686f77636173652e706e67)
+
+### [recorder](https://github.com/xiangyuecn/Recorder)
 
 > Recorder用于html5录音
 >
@@ -1504,7 +1512,7 @@ console.log('还原对象:', toObj)
 >
 > [在线演示](https://www.tsingsee.com/easyplayer/)
 
-[h265web.js](https://github.com/numberwolf/h265web.js/wiki/%E3%80%90%E8%AF%B4%E6%98%8E%E3%80%91%E5%88%9B%E5%BB%BA%E6%92%AD%E6%94%BE%E5%99%A8)
+### [h265web.js](https://github.com/numberwolf/h265web.js/wiki/%E3%80%90%E8%AF%B4%E6%98%8E%E3%80%91%E5%88%9B%E5%BB%BA%E6%92%AD%E6%94%BE%E5%99%A8)
 
 > HEVC/H.265 网页直播/点播播放器 支持硬解！ 支持H.265的HttpFLV/HLS/MP4/TS/FLV/M3U8/Websocket播放
 >
@@ -1684,6 +1692,46 @@ mermaid.initialize({ startOnLoad: true });
 </script>
 ```
 
+```vue
+<template>
+  <div class="container">
+    <pre class="mermaid">
+      graph LR
+        A[立项] --> B[需求分析]
+        B --> C[设计]
+        C --> D[开发]
+        D --> E[测试]
+        E--> F[发布]
+        F --> G[维护]
+    </pre>
+  </div>
+</template>
+<script>
+import mermaid from "mermaid"; //引用mermaid
+export default {
+  mounted() {
+    mermaid.initialize({ startOnLoad: true });
+    mermaid.init();
+  },
+}
+</script>
+```
+
+手动渲染
+
+```js
+let mermaidDiv = document.getElementById("mermaid")
+// 设置 Mermaid 图表代码  
+mermaid.initialize({ startOnLoad: false });
+// mermaid.init();
+mermaid.render('mermaid', mermaidDiv.textContent, (svgCode) => {
+    console.log("svgCode", svgCode);
+    mermaidDiv.innerHTML = svgCode;
+});
+```
+
+
+
 ### [jsmind](https://github.com/hizzgdev/jsmind)
 
 > jsMind 是一个显示/编辑思维导图的纯 javascript 类库。
@@ -1846,6 +1894,83 @@ async function view() {
 >
 > Github：[releases](https://github.com/wanglin2/mind-map/releases)。百度云盘：[地址](https://pan.baidu.com/s/1huasEbKsGNH2Af68dvWiOg?pwd=3bp3)。
 
+### [markmap](https://markmap.js.org/)
+
+> 可以与markdown语法结合，绘制思维导图
+
+```markdown
+
+# 开源小分队
+ 
+## 节点1
+- 节点1.1
+  - 节点1.1.1
+ 
+## 节点2
+## 节点3
+## 节点4
+
+```
+
+![图片](https://img-blog.csdnimg.cn/img_convert/d254647485f4203fb5d4370902e007ba.gif)
+
+代码中使用
+
+```shell
+pnpm add markmap-lib
+pnpm add markmap-view
+```
+
+
+
+```vue
+<template>
+  <div class="flex-1">
+    <textarea class="w-full h-full border border-gray-400" v-model="value" />
+  </div>
+  <svg class="flex-1" ref="svgRef" />
+</template>
+
+<script lang="ts" setup>
+import { ref, onMounted, onUpdated } from 'vue';
+import { Transformer } from 'markmap-lib';
+import { Markmap } from 'markmap-view/dist/index.esm';
+
+const transformer = new Transformer();
+const initValue = `# 思维导图
+1. 标题1
+ - 子标题1
+ - 子标题2
+3. 标题2
+4. 标题3
+`;
+const mm = ref()
+const value = ref('')
+const svgRef = ref()
+const update = () =>{
+	 const { root } = transformer.transform(value.value);
+      mm.value.setData(root);
+      mm.value.fit();
+}
+
+watch(()=>value.value,(n)=>{
+	// 监听输入变化更新思维导图
+	update()
+})
+onMounted(()=>{
+	// 初始化markmap思维导图
+	mm.value = Markmap.create(svgRef.value);
+	value.value = initValue.value
+	// 更新思维导图渲染
+    update();
+})
+</script>
+```
+
+
+
+
+
 [blog-cells](https://github.com/rameshvarun/blog-cells)
 
 > 这个工具可以在网页插入互动式区块，用来展示和执行 JavaScript 代码，类似于 Jupyter。
@@ -2007,3 +2132,378 @@ const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
 > 一个跨平台的通用版本管理器，目前支持40多种编程语言和工具。另有一个类似工具 [vfox](https://github.com/version-fox/vfox)。
 >
 > 就像 nodejs 版本管理器 nvm, 这个管理器支持多种编程语言包管理器，如 java,js,python,php...
+
+### [web-tracing](https://github.com/M-cheng-web/web-tracing)
+
+> 为前端项目提供【 埋点、行为、性能、异常、请求、资源、路由、曝光、录屏 】监控手段
+
+### [二维码生成](https://jsfiddle.net/lachlan/r8qWV/)
+
+> 不是开箱即用， 可以在项目中集成使用。这是一个demo页面
+
+### [widget-qrcode](https://github.com/mumuy/widget-qrcode)
+
+> 一个网页二维码的 web component 组件，支持自定义二维码风格模板、前景、背景、logo等。
+
+![](https://cdn.beekka.com/blogimg/asset/202405/bg2024052802.webp)
+
+### [autocomplete](https://github.com/algolia/autocomplete)
+
+> Algolia 公司推出的 JS 库，实现搜索关键字的自动补全。
+
+![](https://cdn.beekka.com/blogimg/asset/202306/bg2023060904.webp)
+
+### [JavaScript 语法问题](https://github.com/lydiahallie/javascript-questions/blob/master/zh-CN/README-zh_CN.md)
+
+> 这个仓库收集了100多个 JavaScript 的语法选择题，可以试试你是否真的了解这门语言。
+
+### [在线海报设计](https://github.com/palxiao/poster-design)
+
+> ### 特点
+>
+> - 丝滑的页面操作体验，丰富的交互细节，基础功能完善
+> - 采用服务端生成图片，确保多端出图统一性，支持各种 HTML5 特性
+> - 简易 AI 抠图工具，上传图片一键去除背景
+> - 技术栈：Vue3 、Vite5 、Pinia 、ElementPlus
+> - 图片生成：Puppeteer、Express
+>
+> ### 支持功能
+>
+> - 导入 PSD 文件解析成模板、在线导出图片下载。
+> - 元素拖拽、组合、缩放、层级调整、对齐等操作。
+> - 图片素材插入、替换、裁剪，图片容器等功能。
+> - SVG 素材颜色、透明度编辑，文字花字组合。
+> - 支持图层管理、多画板管理、自适应画布。
+> - 吸附对齐、辅助引导线、标尺功能。
+> - 键盘快捷键、右键菜单快捷操作，复制删除等常用操作。
+> - 风格二维码编辑，支持单色、渐变、自定义 logo 等。
+> - 颜色调色板，原生级取色器颜色吸管（Chrome）。
+
+![](https://camo.githubusercontent.com/07e814b51eb2cc138741b647d8e01e93ba00c000885f21b16e850f421be0db38/68747470733a2f2f78702e70616c78702e636e2f696d616765732f323032332d372d31362d313638393530303131323639342e676966)
+
+### [flowchart](https://github.com/adrai/flowchart.js)
+
+> flowchart.js 是在浏览器和终端中运行的流程图 DSL 和 SVG 渲染. 与 **mermaid.js** 有点类似
+
+```
+st=>start: Start:>http://www.google.com[blank]
+e=>end:>http://www.google.com
+op1=>operation: My Operation
+sub1=>subroutine: My Subroutine
+cond=>condition: linear or polynomial :>http://www.google.com
+io=>inputoutput: catch something...
+para=>parallel: 3 possibilities
+
+st->op1->cond
+cond(true@linear)->io->e
+cond(false@polynomial)->sub1(right)
+sub1(right)->para
+para(path1@an1, top)->cond
+para(path2@an2, right)->op1
+para(path3@an3, bottom)->e
+```
+
+[![img](https://user-images.githubusercontent.com/1086194/137810516-0d7d7307-fc55-466f-b06d-a6ca9f6b8785.png)](https://user-images.githubusercontent.com/1086194/137810516-0d7d7307-fc55-466f-b06d-a6ca9f6b8785.png)
+
+### [QuickJS](https://github.com/sebastianwessel/quickjs)
+
+> 一个 npm 模块，使用 WebAssembly 建立了一个沙箱，让 JS 代码在沙箱中运行。
+
+```js
+import { quickJS } from '@sebastianwessel/quickjs'
+
+// General setup like loading and init of the QuickJS wasm
+// It is a ressource intensive job and should be done only once if possible 
+const { createRuntime } = await quickJS()
+
+// Create a runtime instance each time a js code should be executed
+const { evalCode } = await createRuntime({
+  allowFetch: true, // inject fetch and allow the code to fetch data
+  allowFs: true, // mount a virtual file system and provide node:fs module
+  env: {
+    MY_ENV_VAR: 'env var value'
+  },
+})
+
+
+const result = await evalCode(`
+import { join } as path from 'path'
+
+const fn = async ()=>{
+  console.log(join('src','dist')) // logs "src/dist" on host system
+
+  console.log(env.MY_ENV_VAR) // logs "env var value" on host system
+
+  const url = new URL('https://example.com')
+
+  const f = await fetch(url)
+
+  return f.text()
+}
+  
+export default await fn()
+`)
+
+console.log(result) // { ok: true, data: '<!doctype html>\n<html>\n[....]</html>\n' }
+```
+
+### [color4bg.js](https://github.com/winterx/color4bg.js)
+
+![img](https://cdn.beekka.com/blogimg/asset/202407/bg2024071103.webp)
+
+生成动态、抽象的背景图的工具。 动态效果的背景。可在网站生成js代码再使用	
+
+### [MathLive](https://github.com/arnog/mathlive)
+
+![img](https://cdn.beekka.com/blogimg/asset/202407/bg2024071409.webp)
+
+一个 Web 组件，用于在网页输入数学公式。菜单是英文，没有汉化
+
+### [web端公式输入](https://blog.csdn.net/qq_44278289/article/details/134926322)
+
+这是通过页面嵌入、弹出层等方式实现的类似于富文本编辑器的效果。可集成到wangEditor 编辑器，~~但是有点问题 vue3继承时会出现弹出层位置不合适的现象~~ 【已解决】。此插件公式编辑是借用的 wangEditor 官方公式插件，将代码渲染成 官方插件元素 **formula**
+
+![](https://img-blog.csdnimg.cn/direct/18c6b9a0022447b6aeaa9e5d45275448.gif)
+
+[gitee代码地址](https://gitee.com/guo-xiaxue/mathematical-formula)
+
+vue3 中使用与 vue2 不同，上边代码示例是vue2版本。
+
+**kityformula.js**
+
+将此菜单注册到
+
+```js
+import $ from "jquery";
+// import { formulaIcon } from "../assets/icons/svg-icon.ts";
+
+class MyKityFormulaMenu {
+  constructor() {
+    this.title = "编辑公式";
+    // this.iconSvg = formulaIcon;
+    this.tag = "button";
+    this.showModal = true;
+    this.modalWidth = 900;
+    this.modalHeight = 400;
+  }
+
+  // 菜单是否需要激活（如选中加粗文本，“加粗”菜单会激活），用不到则返回 false
+  isActive(editor) {
+    return false;
+  }
+
+  // 获取菜单执行时的 value ，用不到则返回空 字符串或 false
+  getValue(editor) {
+    return "";
+  }
+
+  // 菜单是否需要禁用（如选中 H1 ，“引用”菜单被禁用），用不到则返回 false
+  isDisabled(editor) {
+    return false;
+  }
+  // 点击菜单时触发的函数
+  exec(editor, value) {
+    // Modal menu ，这个函数不用写，空着即可
+  }
+
+  // 弹出框 modal 的定位：1. 返回某一个 SlateNode； 2. 返回 null （根据当前选区自动定位）
+  getModalPositionNode(editor) {
+    return null; // modal 依据选区定位
+  }
+
+  // 定义 modal 内部的 DOM Element
+  getModalContentElem(editor) {
+    // panel 中需要用到的id
+    const inputIFrameId = "kityformula_" + Math.ceil(Math.random() * 10);
+    const btnOkId = "kityformula-btn" + Math.ceil(Math.random() * 10);
+
+    const $content = $(`
+    <div>
+      <iframe id="${inputIFrameId}" class="iframe" height="400px" width="100%" frameborder="0" scrolling="no" src="/kityformula/index.html"></iframe>
+    </div>`);
+    const $button = $(
+      `<button id="${btnOkId}" class="right" style='margin: 5px 0'>
+        确认插入
+      </button>`
+    );
+    $content.append($button);
+
+    $button.on("click", () => {
+      // 执行插入公式
+      const node = document.getElementById(inputIFrameId);
+      const kfe = node.contentWindow.kfe;
+
+      kfe.execCommand("get.image.data", function (data) {
+        // 获取base64
+        // console.log(data.img);
+      });
+
+      let latex = kfe.execCommand("get.source");
+      latex = latex.replace(/\s/g, ""); // 去掉空格
+
+      const formulaNode = {
+        type: "paragraph",
+        children: [
+          {
+            type: "formula",
+            value: latex,
+            children: [
+              {
+                text: "",
+              },
+            ],
+          },
+        ],
+      };
+      editor.restoreSelection(); // 恢复选区
+      editor.insertNode(formulaNode);
+        editor.insertBreak();
+        editor.move(1);
+      editor.hidePanelOrModal();
+    });
+
+    return $content[0]; // 返回 DOM Element 类型
+
+    // PS：也可以把 $content 缓存下来，这样不用每次重复创建、重复绑定事件，优化性能
+  }
+}
+const menuConf = {
+  key: "kityFormula", // menu key ，唯一。注册之后，需通过 toolbarKeys 配置到工具栏
+  factory() {
+    return new MyKityFormulaMenu();
+  },
+};
+
+export default menuConf;
+
+```
+
+**/kityformula/index.html**
+
+这个地址是 public 中放置的 公式编辑静态页面路由地址，vue2中可以直接使用静态资源路径。vue3版本中需要注册路由，否者路径将重定向到首页
+
+```json
+{
+  path: '/kityformula',
+  name: 'kityformula',
+  component: () => import('@/pages/mathView/index.vue'),
+ }
+```
+
+```vue
+<template>
+  <div class="">
+    <iframe src="/kityformula/index.html" width="100%" height="100%" style="border: none" frameborder="0"></iframe>
+  </div>
+</template>
+
+<script setup>
+import {} from "vue"
+</script>
+
+<style lang="scss" scoped></style>
+
+```
+
+解决弹出层位置问题
+
+设置 toolbarConfig.modalAppendToBody: true, 让弹出层dom在body中。让后监听弹出层事件，动态修改样式
+
+```js
+const handleCreated = (editor) => {
+	window.editor = editor;
+	editorRef.value = editor; // 记录 editor 实例，重要！
+	editor.on('modalOrPanelShow', modalOrPanel => {
+      if (modalOrPanel.type !== 'modal') return
+      const { $elem } = modalOrPanel // modal element
+      const width = $elem.width()
+      const height = $elem.height()
+      // set modal position z-index
+      $elem.css({
+        left: '50%',
+        top: '50%',
+        marginLeft: `-${width / 2}px`,
+        marginTop: `-${height / 2}px`,
+        zIndex: 1000
+      })
+    })
+};
+```
+
+
+
+### [fetch event source](https://github.com/Azure/fetch-event-source#readme)
+
+> 对比 浏览器 原生的 eventSource，更加强大好用
+
+```shell
+npm install @microsoft/fetch-event-source
+```
+
+支持更过参数
+
+```js
+const ctrl = new AbortController();
+fetchEventSource('/api/sse', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+        foo: 'bar'
+    }),
+    signal: ctrl.signal,
+});
+```
+
+更好的错误处理
+
+```js
+class RetriableError extends Error { }
+class FatalError extends Error { }
+
+fetchEventSource('/api/sse', {
+    async onopen(response) {
+        if (response.ok && response.headers.get('content-type') === EventStreamContentType) {
+            return; // everything's good
+        } else if (response.status >= 400 && response.status < 500 && response.status !== 429) {
+            // client-side errors are usually non-retriable:
+            throw new FatalError();
+        } else {
+            throw new RetriableError();
+        }
+    },
+    onmessage(msg) {
+        // if the server emits an error message, throw an exception
+        // so it gets handled by the onerror callback below:
+        if (msg.event === 'FatalError') {
+            throw new FatalError(msg.data);
+        }
+    },
+    onclose() {
+        // if the server closes the connection unexpectedly, retry:
+        throw new RetriableError();
+    },
+    onerror(err) {
+        if (err instanceof FatalError) {
+            throw err; // rethrow to stop the operation
+        } else {
+            // do nothing to automatically retry. You can also
+            // return a specific retry interval here.
+        }
+    }
+});
+```
+
+**eventSource 请求地址 与普通http请求区别**
+
+```json
+'Content-Type': 'text/event-stream',  
+'Cache-Control': 'no-cache',  
+'Connection': 'keep-alive'  
+```
+
+- 响应的 `Content-Type` 必须是 `text/event-stream`。
+- 响应数据必须遵循特定的格式，即以 `data:` 开头，后跟数据内容，最后以两个换行符 `\n\n` 结束。
+- 客户端通过监听 EventSource 对象的事件（如 `message`、`open`、`error`）来处理接收到的数据。
+

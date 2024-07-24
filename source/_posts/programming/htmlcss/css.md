@@ -328,12 +328,26 @@ document.getElementById('box').style.removeProperty('--color')
 > `css specificity` 即 css 中关于选择器的权重，以下三种类型的选择器依次下降
 
 1. `id` 选择器，如 `#app`
-2. `class`、`attribute` 与 `pseudo-classes` 选择器，如 `.header`、`[type="radio"]` 与 `:hover`
+2. `class`、`attribute` 与 `pseudo-classes`（伪类） 选择器，如 `.header`、`[type="radio"]` 与 `:hover`
 3. `type` 标签选择器和伪元素选择器，如 `h1`、`p` 和 `::before`
 
 其中通配符选择器 `*`，组合选择器 `+ ~ >`，否定伪类选择器 `:not()` 对优先级无影响
 
 另有内联样式 `<div class="foo" style="color: red;"></div>` 及 `!important`(最高) 具有更高的权重
+
+**权重计算**
+
+（id选择器个数， 类、伪类、属性选择器个数，标签、伪元素选择器个数）
+
+```css
+// (1, 1, 2)
+#table-wrapper .title > p::first-line {}
+
+// (1, 2, 2)
+#table-wrapper div.title p:last-child {}
+
+// 比较可得出 样式2权重大于样式1
+```
 
 
 
@@ -792,3 +806,179 @@ input:-internal-autofill-selected {
 
 **form-sizing** 属性，一个带有 `form-sizing` 属性的实验性 CSS 规则即将推出，它允许您根据用户输入的文本量自动增加 textarea 的高度。
 
+
+
+### 锚点定位布局
+
+加上一点js就能实现可拖拽流程图效果。chrome 125版本特有的
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="index.css" />
+    <script type="module" src="index.js"></script>
+  </head>
+  <body>
+    <div class="one draggable">one</div>
+    <div class="two draggable">two</div>
+    <div class="line"></div>
+
+    <div class="three draggable">three</div>
+    <div class="line line-two"></div>
+  </body>
+</html>
+```
+
+```js
+const dragElement = (element) => {
+  let x = 0;
+  let y = 0;
+  let xOffset = 0;
+  let yOffset = 0;
+
+  element.onmousedown = (event) => {
+    event.preventDefault();
+    xOffset = event.clientX;
+    yOffset = event.clientY;
+
+    document.onmouseup = () => {
+      document.onmouseup = null;
+      document.onmousemove = null;
+    };
+
+    document.onmousemove = (event) => {
+      x = xOffset - event.clientX;
+      y = yOffset - event.clientY;
+      xOffset = event.clientX;
+      yOffset = event.clientY;
+      element.style.top = `${element.offsetTop - y}px`;
+      element.style.left = `${element.offsetLeft - x}px`;
+    };
+  };
+};
+
+document.querySelectorAll('.draggable').forEach(i => dragElement(i));
+```
+
+
+
+```css
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100dvh;
+  font-family: system-ui;
+  font-size: 18px;
+  margin: 0;
+  padding: 48px;
+}
+
+.draggable {
+  position: absolute;
+  padding: 1rem;
+  border: 2px solid #2d2d2d;
+  background: #e9e9e9;
+  cursor: grab;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.one {
+  anchor-name: --one;
+}
+
+.two {
+  anchor-name: --two;
+  top: 45vh;
+  left: 45vw;
+}
+
+.line {
+  --color: red;
+  anchor-name: --line;
+  position-try-options: flip-block, flip-inline, flip-block flip-inline;
+  top: anchor(--one center);
+  bottom: anchor(--two center);
+  left: anchor(--one center);
+  right: anchor(--two center);
+  position: absolute;
+  z-index: -1;
+  background: linear-gradient(var(--color), var(--color)) no-repeat center/2px 100%;
+}
+
+.line::before,
+.line::after {
+  position: fixed;
+  display: block;
+  content: '';
+  background: var(--color);
+  height: 2px;
+}
+
+.line::before {
+  position-try-options: inherit;
+  bottom: anchor(--one center);
+  left: anchor(--one right);
+  right: anchor(--line center);
+}
+
+.line::after {
+  position-try-options: inherit;
+  bottom: anchor(--two center);
+  right: anchor(--two left);
+  left: anchor(--line center);
+}
+
+
+
+
+.three {
+  anchor-name: --three;
+  top: 80vh;
+  right: 48px;
+}
+
+.line-two {
+  --color: blue;
+  anchor-name: --line-two;
+  top: anchor(--two center);
+  bottom: anchor(--three center);
+  left: anchor(--two center);
+  right: anchor(--three center);
+}
+
+.line-two::before {
+  bottom: anchor(--two center);
+  left: anchor(--two right);
+  right: anchor(--line-two center);
+}
+
+.line-two::after {
+  bottom: anchor(--three center);
+  right: anchor(--three left);
+  left: anchor(--line-two center);
+}
+```
+
+​	
+
+### [Magick](https://css.winterveil.net/translations/zh-CN.html?name=&school=&message=&radio=radio2)
+
+> magick.css是一个极简的，（大部分）无类的CSS框架， 它的设计目标是易于使用和理解。它包含在一个文件中， 每一个选择都有注释。目标是实现优雅，但神奇的游戏外观， 同时最大化可读性和传达信息的能力；*有点类似于巫师的笔记*。
+>
+> 该框架在**所有设备**和屏幕尺寸上保持其美观和功能，并且完全**无需JavaScript**。它的灵感来源于[LaTeX](https://www.latex-project.org/)， 老式的TTRPG规则书，像[concrete.css](https://concrete.style/) 和 [Tufte CSS](https://edwardtufte.github.io/tufte-css/)这样的CSS框架，以及"设计即可用性" 的极简主义原则。
+>
+> magick.css 与 [normalize.css](https://necolas.github.io/normalize.css/) 配合使用效果最佳， **强烈推荐使用！**

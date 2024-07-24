@@ -209,6 +209,44 @@ import hljs from "highlight.js";
 
 [highlight.js 样式选择](https://highlightjs.org/examples)
 
+如果要**使用最新版本marked**，写法稍有不同
+
+```json
+"highlight.js": "^11.9.0",
+"marked": "^12.0.2",
+"marked-highlight": "^2.1.1",
+```
+
+```vue
+<script setup>
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
+import hljs from 'highlight.js';
+import 'highlight.js/styles/a11y-dark.css';
+import { ref } from "vue"
+
+let code = ref("")
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: 'hljs language-',
+    highlight(code, lang, info) {
+      const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+      let rs = hljs.highlight(code, { language }).value
+      let toolBar = `<p class="code-bar"><span>复制</span></p>`
+      return toolBar + `<div class="mycode">${rs}</div>`;
+    }
+  })
+);
+
+code.value = marked.parse('以下是一个简单的**Python脚本**，用于获取当前月份的最后一天：\n\n```python\nfrom datetime import datetime, timedelta\n\n# 获取当前日期\ncurrent_date = datetime.now()\n\n# 计算当前月份的最后一天\n# 首先获取下一个月的第一天，然后减去一天即为当前月的最后一天\nnext_month_date = current_date.replace(day=28) + timedelta(days=4)  # 这样可以确保跳过当前月的天数，到达下个月的某一天\nlast_day_of_current_month = next_month_date - timedelta(days=1)\n\n# 打印结果\nprint("当前月份的最后一天是:", last_day_of_current_month.strftime("%Y-%m-%d"))\n```\n\n这个脚本使用了Python的`datetime`模块来处理日期和时间。首先，它获取当前日期，然后通过一些简单的日期计算来确定当前月份的最后一天。这里使用了一个小技巧，即将当前日期的日设置为28，然后加上4天（这样可以确保跳过当前月的天数），接着再减去一天，就得到了当前月的最后一天。\n最后，脚本使用`strftime`方法将日期格式化为`"年-月-日"`的格式，并打印出来。');
+console.log(code.value)
+</script>
+
+
+```
+
+
+
 
 
 ### [服务器实时消息获取的技术方案](https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html)（英文）
@@ -318,3 +356,455 @@ app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)
 **WebRTC**
 
 略
+
+
+
+### chat-gpt 回答展示代码块切换编辑
+
+展示代码块功能就是上述方式实现的，但是后来需求增加点击代码块右下方编辑按钮切换代码编辑，点击右下方发送按钮实现发送功能。
+
+代码编辑采用的方案是 **"monaco-editor": "0.30.1"**. 
+
+思路：在marked转换 代码块时添加 dom div.code-edit-box，然后通过显示隐藏完成切换功能。
+
+交互：在点击编辑时才初始化代码编辑器，初始化完成后通过定位 zIndex 控制显示哪个
+
+**关键代码**
+
+```js
+case "代码":
+  formatChatMsg.type = "6";
+  try {
+    let rendererMD = new marked.Renderer();
+    marked.setOptions({
+      renderer: rendererMD,
+      highlight: function(code, language) {
+        console.log(code, language);
+        let cd = hljs.highlightAuto(code).value;
+        let codeEdit = `<div class="code-edit-box"></div>`;
+        let footBar = `<div class="code-foot-box">
+              <button class="code-btn-edit">编辑</button>
+              <button class="code-btn-start">发送</button>
+          </div>`;
+        return codeEdit + `<div class="code-box">${cd}</div>` + footBar;
+      },
+      pedantic: false,
+      gfm: true,
+      tables: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false
+    });
+    console.log(data);
+    formatChatMsg.msg = marked(data.msg).replace(
+      /<pre>/g,
+      "<pre class='hljs myCode' >"
+    );
+    console.log(formatChatMsg);
+  } catch (error) {
+    console.warn("格式化代码出错", error);
+    formatChatMsg.msg = data.msg;
+  }
+  break;
+```
+
+```css
+/deep/.myCode {
+  position: relative;
+  overflow: visible;
+  .code-edit-box {
+    width: calc(100% - 25px);
+    height: calc(100% - 10px);
+    position: absolute;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .code-foot-box {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    display: flex;
+    z-index: 99;
+  }
+}
+```
+
+事件委托监听所有代码块按钮点击事件
+
+```js
+// chatContent 为父级元素
+this.$refs.chatContent.addEventListener("click", e => {
+  let tar = e.target;
+  // 只有点击到代码块区域时才能获取到代码块父级dom
+  let parent = tar.closest("code");
+  let codeEditBox = null;
+  if (parent) {
+    codeEditBox = parent.querySelector(".code-edit-box");
+  }
+  // 点击编辑按钮
+  if (tar.className === "code-btn-edit") {
+    // 判断按钮编辑器实例是否初始化，是则进行切换显示层级展示源码和编辑代码
+    if (codeEditBox.monacoEditor) {
+      // 通过编辑器容器的zIndex判断当前展示的内容，编辑器层级默认-1 不显示
+      let index = codeEditBox.style.zIndex == 9 ? -1 : 9;
+      return (codeEditBox.style.zIndex = index);
+    }
+    // 获取源码通过源码dom innerText 属性获取
+    let codeStr = parent.querySelector(".code-box").innerText;
+    // 初始化编辑器
+    this.initCodeEdit(codeStr, codeEditBox, parent.className.split("-")[1]);
+    // 显示代码编辑器
+    codeEditBox.style.zIndex = 9;
+  } else if (tar.className === "code-btn-start") {
+    let codeStr = parent.querySelector(".code-box").innerText;
+    // 通过编辑器实例获取编辑后的代码
+    let editCode = codeEditBox.monacoEditor.getValue();
+    let status = codeEditBox.style.zIndex === 9; // false 非编辑 true 编辑
+    console.log("当前编辑状态：", status);
+    console.log("发送原代码：", codeStr);
+    console.log("发送修改后代码：", editCode);
+  }
+});
+```
+
+初始化编辑器
+
+```js
+initCodeEdit(code, container, language) {
+  // 初始化container的内容，销毁之前生成的编辑器
+  container.innerHTML = "";
+  // 生成编辑器配置
+  let editorOptions = Object.assign(
+    {
+      value: code, // 编辑器的值
+      theme: "vs-dark", // 编辑器主题：vs, hc-black, or vs-dark，更多选择详见官网
+      roundedSelection: true, // 右侧不显示编辑器预览框
+      autoIndent: true, // 自动缩进
+      language: language
+    },
+    {}
+  );
+  // 生成编辑器对象赋值到编辑器容器 monacoEditor 属性中
+  container.monacoEditor = monaco.editor.create(container, editorOptions);
+  // 编辑器内容发生改变时触发
+  // container.monacoEditor.onDidChangeModelContent(() => {
+  //   let codeValue = container.monacoEditor.getValue();
+  //   container.codeValue = codeValue;
+  // });
+}
+```
+
+#### [200 行 JavaScript 的虚拟 DOM](https://lazamar.github.io/virtual-dom/#/completed)
+
+在这篇文章(英文)中，我将用 200 多行 JavaScript 介绍虚拟 DOM 的完整实现。
+
+```js
+// VirtualNode
+//    = { tag : string
+//      , properties : { property: string }
+//      , children : [VirtualNode]
+//      }
+//    | { text : string }
+//
+// Diff
+//    = { replace : VirtualNode }
+//    | { remove : true }
+//    | { create : VirtualNode }
+//    | { modify : { remove :: string[], set :: { property : value }, children :: Diff[] } }
+//    | { noop : true }
+//
+const SMVC = (function () {
+
+function assert(predicate, ...args) {
+  if (!predicate) {
+    console.error(...args);
+    throw new Error("fatal");
+  }
+}
+
+const props = new Set([ "autoplay", "checked", "checked", "contentEditable", "controls",
+  "default", "hidden", "loop", "selected", "spellcheck", "value", "id", "title",
+  "accessKey", "dir", "dropzone", "lang", "src", "alt", "preload", "poster",
+  "kind", "label", "srclang", "sandbox", "srcdoc", "type", "value", "accept",
+  "placeholder", "acceptCharset", "action", "autocomplete", "enctype", "method",
+  "name", "pattern", "htmlFor", "max", "min", "step", "wrap", "useMap", "shape",
+  "coords", "align", "cite", "href", "target", "download", "download",
+  "hreflang", "ping", "start", "headers", "scope", "span" ]);
+
+function setProperty(prop, value, el) {
+  if (props.has(prop)) {
+    el[prop] = value;
+  } else {
+    el.setAttribute(prop, value);
+  }
+}
+
+function listener(event) {
+  const el = event.currentTarget;
+  const handler = el._ui.listeners[event.type];
+  const enqueue = el._ui.enqueue;
+  assert(typeof enqueue == "function", "Invalid enqueue");
+  const msg = handler(event);
+  if (msg !== undefined) {
+    enqueue(msg);
+  }
+}
+
+function setListener(el, event, handle) {
+  assert(typeof handle == "function", "Event listener is not a function for event:", event);
+
+  if (el._ui.listeners[event] === undefined) {
+    el.addEventListener(event, listener);
+  }
+
+  el._ui.listeners[event] = handle;
+}
+
+function eventName(str) {
+  if (str.indexOf("on") == 0) {
+    return str.slice(2).toLowerCase();
+  }
+  return null;
+}
+
+// diff two virtual nodes
+function diffOne(l, r) {
+  assert(r instanceof VirtualNode, "Expected an instance of VirtualNode, found", r);
+  const isText = l.text !== undefined;
+  if (isText) {
+    return l.text !== r.text
+      ? { replace: r }
+      : { noop : true };
+  }
+
+  if (l.tag !== r.tag) {
+    return { replace: r };
+  }
+
+  const remove = [];
+  const set = {};
+
+  for (const prop in l.properties) {
+    if (r.properties[prop] === undefined) {
+      remove.push(prop);
+    }
+  }
+
+  for (const prop in r.properties) {
+    if (r.properties[prop] !== l.properties[prop]) {
+      set[prop] = r.properties[prop];
+    }
+  }
+
+  const children = diffList(l.children, r.children);
+  const noChildrenChange = children.every(e => e.noop);
+  const noPropertyChange =
+        (remove.length === 0) &&
+        (Array.from(Object.keys(set)).length == 0);
+
+  return (noChildrenChange && noPropertyChange)
+    ? { noop : true }
+    : { modify: { remove, set, children } };
+}
+
+function diffList(ls, rs) {
+  assert(rs instanceof Array, "Expected an array, found", rs);
+  const length = Math.max(ls.length, rs.length);
+  return Array.from({ length })
+    .map((_,i) =>
+      (ls[i] === undefined)
+      ? { create: rs[i] }
+      : (rs[i] == undefined)
+      ? { remove: true }
+      : diffOne(ls[i], rs[i])
+    );
+}
+
+function create(enqueue, vnode) {
+  assert(vnode instanceof VirtualNode, "Expected an instance of VirtualNode, found", vnode);
+
+  if (vnode.text !== undefined) {
+    const el = document.createTextNode(vnode.text);
+    return el;
+  }
+
+  const el = document.createElement(vnode.tag);
+  el._ui = { listeners : {}, enqueue };
+
+  for (const prop in vnode.properties) {
+    const event = eventName(prop);
+    const value = vnode.properties[prop];
+    (event === null)
+      ? setProperty(prop, value, el)
+      : setListener(el, event, value);
+  }
+
+  for (const childVNode of vnode.children) {
+    const child = create(enqueue, childVNode);
+    el.appendChild(child);
+  }
+
+  return el;
+}
+
+function modify(el, enqueue, diff) {
+  for (const prop of diff.remove) {
+    const event = eventName(prop);
+    if (event === null) {
+      el.removeAttribute(prop);
+    } else {
+      el._ui.listeners[event] = undefined;
+      el.removeEventListener(event, listener);
+    }
+  }
+
+  for (const prop in diff.set) {
+    const value = diff.set[prop];
+    const event = eventName(prop);
+    (event === null)
+      ? setProperty(prop, value, el)
+      : setListener(el, event, value);
+  }
+
+  assert(diff.children.length >= el.childNodes.length, "unmatched children lengths");
+  apply(el, enqueue, diff.children);
+}
+
+function apply(el, enqueue, childrenDiff) {
+  const children = Array.from(el.childNodes);
+
+  childrenDiff.forEach((diff, i) => {
+    const action = Object.keys(diff)[0];
+    switch (action) {
+      case "remove":
+        children[i].remove();
+        break;
+
+      case "modify":
+        modify(children[i], enqueue, diff.modify);
+        break;
+
+      case "create": {
+        assert(i >= children.length, "adding to the middle of children", i, children.length);
+        const child = create(enqueue, diff.create);
+        el.appendChild(child);
+        break;
+      }
+
+      case "replace": {
+        const child = create(enqueue, diff.replace);
+        children[i].replaceWith(child);
+        break;
+      }
+
+      case "noop":
+        break;
+
+      default:
+        throw new Error("Unexpected diff option: " + Object.keys(diff));
+    }
+  });
+}
+
+class VirtualNode {
+  constructor(any) { Object.assign(this, any) }
+}
+
+// Create an HTML element description (a virtual node)
+function h(tag, properties, children) {
+  assert(typeof tag === "string", "Invalid tag value:", tag);
+  assert(typeof properties === "object", "Expected properties object. Found:", properties);
+  assert(Array.isArray(children), "Expected children array. Found:", children);
+  return new VirtualNode({ tag, properties, children });
+}
+
+// Create a text element description (a virtual text node)
+function text(content) {
+  return new VirtualNode({ text: content });
+}
+
+// Start managing the contents of an HTML element.
+function init(root, initialState, update, view) {
+  let state = initialState; // client application state
+  let nodes = []; // virtual DOM nodes
+  let queue = []; // msg queue
+
+  function enqueue(msg) {
+    queue.push(msg);
+  }
+
+  // draws the current state
+  function draw() {
+    let newNodes = view(state);
+    apply(root, enqueue, diffList(nodes, newNodes));
+    nodes = newNodes;
+  }
+
+  function updateState() {
+    if (queue.length > 0) {
+      let msgs = queue;
+      queue = [];
+
+      msgs.forEach(msg => {
+        try {
+          state = update(state, msg, enqueue);
+        } catch (e) {
+          console.error(e);
+        }
+      });
+
+      draw();
+    }
+
+    window.requestAnimationFrame(updateState);
+  }
+
+  draw();
+  updateState();
+
+  return { enqueue };
+}
+
+return { init, h, text };
+})();
+
+if (typeof define !== 'undefined' && define.amd) { // AMD
+  define([], function () { return SMVC })
+} else if (typeof module !== 'undefined' && module.exports) { // CommonJS
+  module.exports = SMVC
+} else if (typeof window !== 'undefined') { // Script tag
+  window.SMVC = SMVC
+}
+```
+
+
+
+### js判断用户大小写锁定输入
+
+```js
+document.querySelector('input[type=password]').addEventListener('keyup', function (keyboardEvent) {
+    // 获取大小写输入模式
+    const capsLockOn = keyboardEvent.getModifierState('CapsLock');
+    if (capsLockOn) {
+        // Warn the user that their caps lock is on?
+    }
+});
+```
+
+### [js调试命令](https://segmentfault.com/a/1190000012957199)
+
+console 的 不同用法
+
+```js
+console.group("中奖了");
+console.log(`%c 1 2 3 4 5`, `color: #9E9E9E; font-weight: bold`);
+console.log(`%c 1 2 3 4 5`, `color: #03A9F4; font-weight: bold`);
+console.log(`%c 1 2 3 4 5`, `color: #4CAF50; font-weight: bold`);
+console.groupEnd();
+```
+
+
+
+
