@@ -32,6 +32,10 @@ categories: js
 
 > `rect`元素会在屏幕上绘制一个矩形 。其实只要6个基本属性就可以控制它在屏幕上的位置和形状。
 
+```html
+<rect x="60" y="10" rx="10" ry="10" width="30" height="30"/>
+```
+
 x	矩形左上角的x位置
 
 y	矩形左上角的y位置
@@ -50,6 +54,10 @@ ry	圆角的y方位的半径
 
 > `circle`元素会在屏幕上绘制一个圆形。它只有3个属性用来设置圆形。
 
+```html
+<circle cx="25" cy="75" r="20"/>
+```
+
 r	圆的半径
 
 cx	圆心的x位置
@@ -61,6 +69,11 @@ cy	圆心的y位置
 ### 椭圆
 
 > [Ellipse](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/ellipse) 是`circle`元素更通用的形式，你可以分别缩放圆的x半径和y半径（通常数学家称之为长轴半径和短轴半径）。
+
+```html
+<ellipse cx="75" cy="75" rx="20" ry="5"/>
+
+```
 
 rx	椭圆的x半径
 
@@ -76,6 +89,10 @@ cy	椭圆中心的y位置
 
 > [Line](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line) 绘制直线。它取两个点的位置作为属性，指定这条线的起点和终点位置。
 
+```html
+<line x1="10" x2="50" y1="110" y2="150" stroke="black" stroke-width="5"/>
+```
+
 x1	起点的x位置
 
 y1	起点的y位置
@@ -90,17 +107,36 @@ y2	终点的y位置
 
 > [Polyline](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/polyline)是一组连接在一起的直线。因为它可以有很多的点，折线的的所有点位置都放在一个points属性中：
 
+```html
+<polyline points="60, 110 65, 120 70, 115 75, 130 80, 125 85, 140 90, 135 95, 150 100, 145"/>
+
+```
+
 points
 
 点集数列。每个数字用空白符、逗号、终止命令或者换行符分隔开。每个点必须包含2个数字，一个是x坐标，一个是y坐标。所以点列表 (0,0), (1,1) 和(2,2)可以写成这样：“0 0, 1 1, 2 2”。路径绘制完后闭合图形，所以最终的直线将从位置(2,2)连接到位置(0,0)。
 
+### [多边形](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Basic_Shapes#多边形)
 
+[`polygon`](https://developer.mozilla.org/zh-CN/docs/SVG/Element/polygon)和折线很像，它们都是由连接一组点集的直线构成。不同的是，`polygon`的路径在最后一个点处自动回到第一个点。需要注意的是，矩形也是一种多边形，如果需要更多灵活性的话，你也可以用多边形创建一个矩形。
+
+xmlCopy to Clipboard
+
+```html
+<polygon points="50, 160 55, 180 70, 180 60, 190 65, 205 50, 195 35, 205 40, 190 30, 180 45, 180"/>
+```
+
+- [points](https://developer.mozilla.org/zh-CN/docs/Web/SVG/Tutorial/Basic_Shapes#points_2)
+
+	点集数列。每个数字用空白符、逗号、终止命令或者换行符分隔开。每个点必须包含 2 个数字，一个是 x 坐标，一个是 y 坐标。所以点列表 (0,0), (1,1) 和 (2,2) 可以写成这样：“0 0, 1 1, 2 2”。路径绘制完后闭合图形，所以最终的直线将从位置 (2,2) 连接到位置 (0,0)。
 
 ### 路径
 
 > `path`可能是SVG中最常见的形状。你可以用path元素绘制矩形（直角矩形或者圆角矩形）、圆形、椭圆、折线形、多边形，以及一些其他的形状，例如贝塞尔曲线、2次曲线等曲线。
 
-d
+```html
+<path d="M20,230 Q40,205 50,230 T90,230" fill="none" stroke="blue" stroke-width="5"/>
+```
 
 一个点集数列以及其它关于如何绘制路径的信息。
 

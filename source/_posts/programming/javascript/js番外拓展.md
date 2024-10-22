@@ -4623,6 +4623,150 @@ Content-Security-Policy: frame-ancestors <source> <source>;
 
 **安全上下文:** 此项功能仅在一些[支持的浏览器](https://developer.mozilla.org/zh-CN/docs/Web/API/File_System_API/Origin_private_file_system#浏览器兼容性)的[安全上下文](https://developer.mozilla.org/zh-CN/docs/Web/Security/Secure_Contexts)（HTTPS）中可用。
 
+
+
+### set 新函数
+
+方法提案向实例添加了`Set`以下方法：`Set``union``intersection``difference``symmetricDifference``isSubsetOf``isSupersetOf``isDisjointFrom`
+
+1. 并集算法 union
+
+	```js
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const backEndLanguages = new Set(["Python", "Java", "JavaScript"]);
+	
+	const allLanguages = frontEndLanguages.union(backEndLanguages);
+	
+	// => Set {"JavaScript", "HTML", "CSS", "Python", "Java"}
+	```
+
+2. 交集算法 intersection
+
+	```js
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const backEndLanguages = new Set(["Python", "Java", "JavaScript"]);
+	
+	const frontAndBackEnd = frontEndLanguages.intersection(backEndLanguages);
+	
+	// => Set {"JavaScript"} 
+	```
+
+3. 差异算法 difference
+
+	正在使用的集合与另一个集合之间的区别在于，所有元素都存在于第一个集合中，而不存在第二个集合中。
+
+	```js
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const backEndLanguages = new Set(["Python", "Java", "JavaScript"]);
+	
+	const onlyFrontEnd = frontEndLanguages.difference(backEndLanguages);
+	
+	// => Set {"HTML", "CSS"} 
+	
+	const onlyBackEnd = backEndLanguages.difference(frontEndLanguages);
+	
+	// => Set {"Python", "Java"}
+	```
+
+4. 对称差 symmetricDifference
+
+	两个集合之间的对称差是一个集合包含两个集合之一中的所有元素，但不同时包含两者。
+
+	```js
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const backEndLanguages = new Set(["Python", "Java", "JavaScript"]);
+	
+	const onlyFrontEnd = frontEndLanguages.symmetricDifference(backEndLanguages);
+	
+	// => Set {"HTML", "CSS", "Python", "Java"} 
+	
+	const onlyBackEnd = backEndLanguages.symmetricDifference(frontEndLanguages);
+	
+	// => Set {"Python", "Java", "HTML", "CSS"}
+	```
+
+5. 子集 isSubsetOf
+
+	如果第一个集合中的所有元素都出现在第二个集合中，则该集合是另一个集合的子集。
+
+	```javascript
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const declarativeLanguages = new Set(["HTML", "CSS"]);
+	
+	declarativeLanguages.isSubsetOf(frontEndLanguages);
+	
+	// => true
+	
+	frontEndLanguages.isSubsetOf(declarativeLanguages);
+	
+	// => false
+	```
+
+	集合也是其自身的子集。
+
+	```javascript
+	frontEndLanguages.isSubsetOf(frontEndLanguages);
+	
+	// => true
+	```
+
+6. ### 超集 isSupersetOf  
+
+	如果一个集合中的所有元素都出现在第一个集合中，则第二个集合是另一个集合的超集。这与子集的关系相反。
+
+	```javascript
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const declarativeLanguages = new Set(["HTML", "CSS"]);
+	
+	declarativeLanguages.isSupersetOf(frontEndLanguages);
+	
+	// => false
+	
+	frontEndLanguages.isSupersetOf(declarativeLanguages);
+	
+	// => true
+	```
+
+	一个集合也是其自身的超集。
+
+	```javascript
+	frontEndLanguages.isSupersetOf(frontEndLanguages);
+	
+	// => true
+	```
+
+7. ### 不相交 isDisjointFrom
+
+	最后，如果一个集合与另一个集合没有共同的元素，那么它们就是不相交的。
+
+	```javascript
+	const frontEndLanguages = new Set(["JavaScript", "HTML", "CSS"]);
+	
+	const interpretedLanguages = new Set(["JavaScript", "Ruby", "Python"]);
+	
+	const compiledLanguages = new Set(["Java", "C++", "TypeScript"]);
+	
+	interpretedLanguages.isDisjointFrom(compiledLanguages);
+	
+	// => true
+	
+	frontEndLanguages.isDisjointFrom(interpretedLanguages);
+	
+	// => false
+	```
+
+**Safari 17（2023 年 9 月发布）和 Chrome 122（2024 年 2 月）已发布这些方法的实现。**
+
+
+
+
+
 ## 属性
 
 ### document.referrer
@@ -4657,6 +4801,14 @@ Content-Security-Policy: frame-ancestors <source> <source>;
 ```
 
 是告诉浏览器，把本站的所有 **http** 连接升级为 **https** 连接。
+
+
+
+
+
+
+
+
 
 ## js拓展
 

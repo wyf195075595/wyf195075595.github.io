@@ -634,3 +634,135 @@ Router 默认是模糊匹配, Switch 只能匹配其中第一个
 ![img](https://cdn.beekka.com/blogimg/asset/202311/bg2023112707.webp)
 
 一个 React 组件，帮你实现一个网页画板。
+
+### [react-resizable-panels](https://react-resizable-panels.vercel.app/)
+
+分屏可拖拽调整宽高比例
+
+```react
+ <PanelGroup direction="horizontal">
+   <Panel defaultSize={30} minSize={20}>
+     left
+   </Panel>
+   <PanelResizeHandle />
+   <Panel minSize={30}>
+     middle
+   </Panel>
+   <PanelResizeHandle />
+   <Panel defaultSize={30} minSize={20}>
+     right
+   </Panel>
+ </PanelGroup>
+```
+
+### [react-dnd](https://react-dnd.github.io/react-dnd/examples/tutorial)
+
+实现拖拽的库
+
+### [css in js 之 styled-components](https://styled-components.com/)
+
+定义样式得同时生成一个react 组件，还支持变量，继承等特性
+
+```react
+import React, {Component} from 'react';
+import styled from 'styled-components';
+
+export default class List extends Component {
+    const ListWrap = styled.ul`
+        margin: 0;
+        padding: 0;
+    `;
+
+    const Item = styled.li`
+        margin: 10px 0;
+        padding: 5px 15px;
+        border-left: 3px solid #333;
+        font-size: 16px;
+        list-style: none;
+        font-weight: bold;
+    `;
+    
+    render() {
+        return (
+            <ListWrap>
+                <Item>这是一条普通的记录</Item>
+                <Item>这也是一条普通的记录</Item>
+            </ListWrap>
+        )
+    }
+}
+```
+
+
+
+### [ReactMarkdown remark.js](https://remark.js.org/)
+
+markdown 格式处理转成 html，remark-math 插件 支持 KaTeX 公式数学公式
+
+```react
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+const markdown = `
+  This is a math equation: $E = mc^2$.
+`;
+
+function App() {
+  return (
+    <ReactMarkdown
+      children={markdown}
+      remarkPlugins={[remarkMath]}
+      rehypePlugins={[rehypeKatex]}
+    />
+  );
+}
+
+export default App;
+
+```
+
+
+
+### reactUse 
+
+跟 vue-use 一样的，hooks 库
+
+
+
+### [react-helmet](https://github.com/nfl/react-helmet)
+
+这个可重复使用的 React 组件将管理您对文档头的所有更改。动态修改head标签中的内容
+
+```react
+import React from "react";
+import {Helmet} from "react-helmet";
+
+class Application extends React.Component {
+  render () {
+    return (
+        <div className="application">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>My Title</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
+            ...
+        </div>
+    );
+  }
+};
+```
+
+### [react-pdf.org](https://react-pdf.org/)
+
+> Create PDF files using React.
+
+```js
+import React from 'react';
+import ReactPDF from '@react-pdf/renderer';
+
+ReactPDF.render(<MyDocument />, `${__dirname}/example.pdf`);
+```
+

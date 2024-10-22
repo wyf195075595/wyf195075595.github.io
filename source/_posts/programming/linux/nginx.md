@@ -1304,6 +1304,71 @@ server {
     }
 ```
 
+### nginx 代理 eventSource 接口
+
+```nginx
+server {
+        listen       18018;      
+        server_name  192.168.1.244;
+        location / {
+            root   /home/zkrd/workspace/threeOne/;
+            index  index.html index.htm;
+        }
+        location /proxy/ {
+            proxy_pass  http://192.168.1.126:10028/;
+            # 设置连接超时时间，确保SSE连接不会因超时而被关闭  
+            proxy_read_timeout 3600s;  
+  
+            # SSE需要长连接，因此关闭缓冲区，以便数据可以即时发送给客户端 
+            proxy_buffering off;  
+  
+            # 如果你希望Nginx在接收到后端服务器响应后立即发送给客户端，可以设置这个选项  
+            proxy_http_version 1.1;  
+            proxy_set_header Connection "";
+  
+            # 确保来自后端的头部信息被正确传递  
+            proxy_set_header Host $host;  
+            proxy_set_header X-Real-IP $remote_addr;  
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;  
+            proxy_set_header X-Forwarded-Proto $scheme;
+            # 地址重写
+            rewrite ^/proxy/(.*)$ /$1 break;
+        }
+               
+    }
+```
+
+### 代理图片静态资源
+
+```nginx
+# 单独代理图片资源
+server{
+    listen 10095;
+    server_name 192.168.1.126;
+
+    location /dbgpt/ {
+        alias /home/zkrd/resources/dbgpt/;
+        autoindex off;
+    }
+}
+# 项目资源
+server {
+    listen 10094;
+    server_name 192.168.1.126;
+	# 项目部署再 10093端口，由10094 反向代理
+    location / {
+        proxy_pass http://192.168.1.126:10093;
+    }
+    # 将项目 /chat 页面中的 图片 /jpg/xxx.jpg 代理到图片资源
+    location /chat/jpg/ {
+        alias /home/zkrd/resources/dbgpt/jpg/;
+        autoindex on;
+    }
+}
+```
+
+
+
 ### gzip压缩
 
 ```nginx

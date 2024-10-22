@@ -982,3 +982,51 @@ body {
 > 该框架在**所有设备**和屏幕尺寸上保持其美观和功能，并且完全**无需JavaScript**。它的灵感来源于[LaTeX](https://www.latex-project.org/)， 老式的TTRPG规则书，像[concrete.css](https://concrete.style/) 和 [Tufte CSS](https://edwardtufte.github.io/tufte-css/)这样的CSS框架，以及"设计即可用性" 的极简主义原则。
 >
 > magick.css 与 [normalize.css](https://necolas.github.io/normalize.css/) 配合使用效果最佳， **强烈推荐使用！**
+
+### css 垂直居中
+
+这个属性终于出现了
+
+```html
+<div style="align-content: center; height: 100px;">
+  <code>align-content</code> just works!
+</div>
+```
+
+### @layer
+
+> @layer 是CSS级联层（Cascading Layers）的一部分，它允许开发者将样式规则分组到不同的层中。这些层在浏览器解析样式时具有特定的顺序和优先级，从而提供了一种更加灵活和强大的方式来组织和控制样式的应用。
+
+```css
+@layer <layer-name> {  
+  /* 在这里编写你的CSS规则 */  
+}  
+  
+/* 示例 */  
+@layer base {  
+  body {  
+    margin: 0;  
+    padding: 0;  
+    font-family: Arial, sans-serif;  
+  }  
+}  
+  
+@layer theme {  
+  body {  
+    background-color: #f0f0f0;  
+  }  
+}  
+  
+@layer components {  
+  button {  
+    padding: 10px 20px;  
+    border: none;  
+    border-radius: 5px;  
+    background-color: blue;  
+    color: white;  
+  }  
+}
+
+```
+
+### [如何使用 CSS flexbox 制作时间线](https://www.jonashietala.se/blog/2024/08/25/a_simple_timeline_using_css_flexbox/)（英文）

@@ -62,6 +62,63 @@ build: {
   },
 ```
 
+#### 1.Vite代码分割方法1
+
+// vite.config.ts
+
+```javascript
+build: {
+    // rollup 配置
+    rollupOptions: {
+        output: {
+            // key自定义 value[] 插件同步package.json名称 或 src/相对路径下的指定文件 （自己可以看manualChunks ts类型）
+            manualChunks: {
+                // vue vue-router合并打包
+                vue: ['vue', 'vue-router'],
+                echarts: ['echarts'],
+                lodash: ['lodash'],
+                // 两个文件合并成一个helloWorld文件
+                helloWorld: ['src/components/HelloWorld.vue','src/components/HelloWorld1.vue'],
+                ...
+            }
+        }
+    }
+}
+
+```
+
+#### Vite代码分割方法2
+
+// vite.config.ts
+
+```javascript
+build: {
+    // rollup 配置
+    rollupOptions: {
+        output: {
+            manualChunks(id: any): string {
+            	if (id.includes("style.css")) {
+                        // 需要单独分割那些资源 就写判断逻辑就行
+                        return 'src/style.css';
+                }
+                if (id.includes("HelloWorld.vue")) {
+                        // 单独分割hello world.vue文件
+                        return 'src/components/HelloWorld.vue';
+                }
+                // // 最小化拆分包
+                if (id.includes("node_modules")) {
+                        return id
+                                .toString()
+                                .split("node_modules/")[1]
+                                .split("/")[0]
+                                .toString();
+                }
+            }
+        }
+    }
+}
+```
+
 ### 清除代码console和debugger
 
 > terser 配置需要额外安装依赖
@@ -173,6 +230,82 @@ css: {
   },
 ```
 
+### 引入 iconfont 
+
+iconfont 图标文件下载后，放置在 /assets/iconfont 文件夹下
+
+注册icon组件
+
+```vue
+<template>
+  <span
+    class="iconfont"
+    :class="[iconName, iconSize]"
+    :style="{ color: props.color, fontSize }"
+  ></span>
+</template>
+
+<script setup>
+import { computed } from 'vue'
+import { px2rem } from '@/utils/common'
+const props = defineProps({
+  name: {
+    type: String,
+    default: ''
+  },
+  color: {
+    type: String,
+    default: 'var(--color)'
+  },
+  size: {
+    type: String,
+    default: 'default'
+  },
+  fontSize: {
+    type: Number,
+    default: 0
+  }
+})
+const iconName = computed(() => `icon-${props.name}`)
+const iconSize = computed(() => `size-${props.size}`)
+const fontSize = computed(() => `${props.fontSize ? px2rem(props.fontSize) : 'inherit'}`)
+</script>
+
+<style lang="scss" scoped>
+.iconfont {
+  --color: inherit;
+  color: var(--color);
+}
+.size-default {
+  font-size: 16px;
+}
+.size-small {
+  font-size: 12px;
+}
+.size-large {
+  font-size: 24px;
+}
+</style>
+
+```
+
+使用组件
+
+```vue
+<m-icon name="fanhui"></m-icon>
+```
+
+配合 element 组件使用
+
+```vue
+<el-button type="primary" size="large">
+  <template #icon>
+    <m-icon name="fanhui"></m-icon>
+  </template>
+  开始
+</el-button>
+```
+
 
 
 ### 注册svg组件
@@ -263,15 +396,29 @@ css: {
 	
 	```
 
-5. 使用
+5. svg 资源
 
-	```vue
-	<svg-icon icon-class="bug"></svg-icon>
+	path 需添加 fill="currentColor"  让图标自适应颜色
+
+	```svg
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+	<path fill="currentColor" d="M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32"/>
+	</svg>
 	```
+
+	
+
+6. 使用
+
+  ```vue
+  <svg-icon icon-class="bug"></svg-icon>
+  ```
 
 ### 字典通用解决方案
 
 若依参考方案
+
+useDict 直接返回 字典信息，使用时不直接从 store 中取
 
 1. useDict 函数
 
@@ -597,8 +744,138 @@ export default defineConfig(({ mode }) => {
 > 可以在脚手架初始化项目是添加 eslint 和 prettier, 也可以为已有项目添加，参考如下
 >
 > [注意]新版本eslit和prettier配置文件后缀都必须是.cjs
+>
+> **vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 **
 
 [Vite+vue3+js+eslint+prettierc](https://segmentfault.com/a/1190000041954694)
 
 [Vite+vue3+ts+eslint+prettierc](https://juejin.cn/post/7142815651294511135?searchId=202403141408434480E7D6A2BC567E973B)
+
+
+
+### 支持 require 语法
+
+vite 默认不支持 require ，需要引入 "vite-plugin-require-transform"
+
+```json
+plugins: [
+    ...,
+    RequireTransform({
+      fileRegex: /^(?!.*node_modules).*\.(js|vue)$/,
+    }),
+]
+```
+
+配置需忽略 node_modules 文件，不然打包可能导致其他第三方包报错。
+
+
+
+### 环境变量获取
+
+在 vue-cli 中， 使用的是 webpack 打包，使用
+
+```js
+process.env.NODE_ENV === 'production'
+```
+
+判断，但是在vite中，没有 process，而是使用
+
+```js
+import.meta.env.MODE === "production"
+```
+
+
+
+### [全局 api 自动引入](https://github.com/unplugin/unplugin-auto-import)
+
+```shell
+npm i -D unplugin-auto-import
+
+
+// vite.config.ts
+import AutoImport from 'unplugin-auto-import/vite'
+
+export default defineConfig({
+  plugins: [
+    AutoImport({ /* options */ }),
+  ],
+})
+```
+
+使用前
+
+```js
+import { computed, ref } from 'vue'
+
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+```
+
+使用后
+
+```js
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+```
+
+### index.html 模板使用 ejs 语法
+
+```shell
+yarn add vite-plugin-ejs
+```
+
+注入
+
+```js
+import {defineConfig} from "vite";
+import {ViteEjsPlugin} from "vite-plugin-ejs";
+
+export default defineConfig({
+  plugins: [
+    // Without Data
+    ViteEjsPlugin(),
+    
+    // With Data
+    ViteEjsPlugin({
+      domain: "example.com",
+      title: "My vue project!"
+    }),
+    
+    // Or With Vite Config
+    ViteEjsPlugin((viteConfig) => {
+      // viteConfig is the current viteResolved config.
+      return {
+        root: viteConfig.root,
+        domain: "example.com",
+        title: "My vue project!"
+      }
+    }),
+  ],
+});
+```
+
+使用
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= domain %> | <%= title %></title>
+
+    <!-- Run Conditions-->
+    <% if(isDev){ %>
+        <script src="/path/to/development-only-script.js"></script>
+    <% } else { %>
+        <script src="/path/to/production-only-script.js" crossorigin="anonymous"></script>
+    <% } %>
+</head>
+<body>
+<div id="app"></div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
+```
 

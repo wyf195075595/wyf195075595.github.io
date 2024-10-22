@@ -246,4 +246,6 @@ chrome.extension.getBackgroundPage()
 > [参考文章](https://blog.haoji.me/chrome-plugin-develop.html#injected-script)
 >
 > [v2->v3版本变化](https://segmentfault.com/a/1190000044555740#item-2-2)
+>
+> [代码示例](https://github.com/GoogleChrome/chrome-extensions-samples?tab=readme-ov-file)
 

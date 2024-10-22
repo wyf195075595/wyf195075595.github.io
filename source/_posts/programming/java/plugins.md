@@ -21,3 +21,7 @@ categories: java
 > 6. 还有用于不同编程语言的包装器-java / csharp / javascript等
 > 7. 可以快速重新配置词汇以实现最佳准确性
 > 8. 支持说话人识别
+
+[Stirling-Tools](https://github.com/Stirling-Tools/Stirling-PDF)
+
+​	这是一个使用 Docker 的强大的、本地托管的基于 Web 的 PDF 操作工具。它使您能够对 PDF 文件执行各种操作，包括拆分、合并、转换、重新组织、添加图像、旋转、压缩等。这个本地托管的 Web 应用程序已经发展到包含一套全面的功能，可以满足您的所有 PDF 需求。

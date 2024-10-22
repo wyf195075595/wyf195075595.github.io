@@ -914,3 +914,26 @@ new Vue({ i18n }).$mount('#app')
 ### [VContextmenu](https://cybernika.net/v-contextmenu/)
 
 > 通用的鼠标右键浮窗菜单
+
+### [vue-cropper](https://github.com/xyxiao001/vue-cropper?tab=readme-ov-file)
+
+一个优雅的图片裁剪插件
+
+### [动态表单](https://view.form-create.com/)
+
+> 强大的低代码动态表单组件，通过数据驱动表单渲染，适配移动端，支持可视化设计。提高开发者对表单的开发效率。目前在政务系统、OA系统、ERP系统、电商系统、流程管理等系统中已稳定应用。
+>
+> **支持的UI框架**
+>
+> - element-plus
+> - ant-design-vue
+> - naive-ui
+> - arco-design
+> - tdesign
+> - vant
+
+### [TvT.js](https://github.com/hawk86104/icegl-three-vue-tres)
+
+![img](https://cdn.beekka.com/blogimg/asset/202410/bg2024100803.webp)
+
+一个基于 ThreeJS + Vue + TresJS 封装的框架，用 Vue 组件的方式写 3D 可视化项目。

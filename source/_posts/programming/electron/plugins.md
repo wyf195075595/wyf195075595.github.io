@@ -49,7 +49,9 @@ console.log(store.get('foo'));            //输出 {bar: true}
 
 ```
 
-### electron-builder
+### [electron-builder](https://github.com/electron-userland/electron-builder)
+
+
 
 ```js
 完整配置项
@@ -263,3 +265,15 @@ await knex('addresses').whereIn("id", [0,1,2]).del();
 #### [核桃钳/electron-react-quick-start](https://gitee.com/fddi/electron-react-quick-start?_from=gitee_search)
 
 > electron+react 的脚手架项目。提供Electron + React 桌面程序创建，测试，打包的示例，Electron环境下调用DLL的示例。界面使用ant-design。
+
+### [electron-store](https://github.com/sindresorhus/electron-store)
+
+Electron 没有内置方法来保存用户设置和其他数据。此模块会为您处理这些问题，因此您可以专注于构建应用程序。数据保存在 中名为 config.json 的 JSON 文件中[`app.getPath('userData')`](https://electronjs.org/docs/api/app#appgetpathname)。
+
+你可以在主进程和渲染进程中直接使用该模块。如果只在渲染进程中使用，则需要`Store.initRenderer()`在主进程中调用，或者`new Store()`在主进程中创建一个新的 Store 实例 ( )。
+
+### [electron-devtools-installer](https://github.com/MarshallOfSound/electron-devtools-installer)
+
+可以让electron 自动给浏览器安装指定拓展，只需提供拓展程序id ,内置了很多应用id
+
+​	从技术上讲，您可以使用任何您想要的扩展程序。只需找到您要安装的扩展程序的 ChromeStore ID，然后调用`installExtension('YOUR_ID_HERE')`。我们在包内提供了几个扩展程序 ID，因此您可以轻松导入它们进行安装，而无需自己寻找它们。

@@ -169,9 +169,25 @@ module.exports = function(obj){
 
 > **DocRaptor：** `DocRaptor` 是一个第三方服务，提供了通过 API 将 HTML 或 Markdown 内容转换为 Word 文档的功能。它可以轻松地集成到前端或后端代码中，并且支持更复杂的文档格式和样式。
 
-### **mammoth.js**
+### [**mammoth.js**](https://github.com/mwilliamson/mammoth.js?tab=readme-ov-file#document-transforms)
 
 >  `mammoth.js` 是一个 JavaScript 库，**用于将 Word 文档转换为 HTML 格式**。虽然它的主要功能是从 Word 文档提取内容，但**它也提供了一些功能用于将 HTML 内容转换为 Word 文档。**
+
+### pdfjs](https://github.com/mozilla/pdf.js)
+
+> 预览pdf，支持很多功能，搜索，定位，高亮，菜单等,不能使用 npm 安装，手动去官网下载dist包，放置在 public 使用
+>
+> [参考链接](https://blog.csdn.net/IAIPython/article/details/134525898)
+
+核心就是将 iframe 的 src 属性设置为 pdfjs 的地址，然后将 pdf 文件的地址作为参数传递给 pdfjs
+
+```html
+// 例如：http://localhost:8080/pdfjs-4.0.189-dist/web/viewer.html?file=http%3A%2F%2Flocalhost%3A8080%2Fpdf%2Ftest.pdf
+
+<iframe :src="pdfUrl" ref="pdfViewRef" width="100%" height="100%"></iframe>
+```
+
+
 
 ### **[Docxtemplater](https://docxtemplater.com/demo/#/categories)**
 
@@ -241,6 +257,27 @@ downloadWithTemplate("审计底稿1.dotx", {
 
 pdf导出的方案.[vue3版本分支](https://github.com/raiblaze/vue3-html2pdf)，
 
+
+
+### [docx-preview](https://github.com/VolodymyrBaydalka/docxjs)
+
+比 mammoth.js 效果更好，支持跟多复杂样式
+
+```js
+import * as docx from 'docx-preview';
+
+// 预览
+const goPreview = async () => {
+  const { data } = await service({
+    method: 'get',
+    responseType: 'blob'
+  })
+  docx.renderAsync(data, refFile.value)
+}
+```
+
+
+
 ### [docx.js](https://docx.js.org/)
 
 > docxjs是一款较为强大的docx格式文档处理的js库，基本可以处理我们遇到的所有有关于docx的文档问题。支持内置方式的word**生成、解析、格式渲染**。除此之外，我们还可以通过自定义方式直接通过xml方式渲染word包括但不限于**字体样式、字体大小、段落样式、间距、颜色**等
@@ -279,6 +316,29 @@ var content = zip.generate({ type: "blob" });
 
 // see FileSaver.js
 saveAs(content, "example.zip");
+```
+
+###  [jszip 优秀的前端压缩库](https://github.com/Stuk/jszip)
+
+```js
+const zip = new JSZip();
+
+zip.file("Hello.txt", "Hello World\n");
+
+const img = zip.folder("images");
+img.file("smile.gif", imgData, {base64: true});
+
+zip.generateAsync({type:"blob"}).then(function(content) {
+    // see FileSaver.js
+    saveAs(content, "example.zip");
+});
+
+/*
+Results in a zip containing
+Hello.txt
+images/
+    smile.gif
+*/
 ```
 
 
@@ -744,7 +804,11 @@ jsplumb.js分为Community（社区版）和Toolkit（正式版）两个不同的
 
 来实现流程图的自动化布局
 
+### [BPMN.IO](https://bpmn.io/toolkit/bpmn-js/)
 
+> 经典的流程图绘制插件
+>
+> [中文教程][https://github.com/LinDaiDai/bpmn-chinese-document/blob/master/LinDaiDai/%E5%85%A8%E7%BD%91%E6%9C%80%E8%AF%A6bpmn.js%E6%95%99%E6%9D%90-%E5%9F%BA%E7%A1%80%E7%AF%87.md]
 
 ### [easel.js](https://www.createjs.com/getting-started/easeljs)
 
@@ -1006,11 +1070,13 @@ Usage: test [options]
 
 [用commander.js构建自己的脚手架工具](https://www.cnblogs.com/cangqinglang/p/10642891.html)
 
-### Inquirer.js与交互式命令行工具
+### [Inquirer.js](https://github.com/SBoudrias/Inquirer.js?tab=readme-ov-file) 与交互式命令行工具
 
 > 可以制作交互式工具命令，类似于 vue 脚手架创建项目时的操作
 
 eg:
+
+旧版
 
 ```js
 const inquirer = require('inquirer')
@@ -1027,10 +1093,46 @@ const questions = [
         ]
     }
 ];
-imquirer.prompt(questions).then(abswer=> {
+inquirer.prompt(questions).then(abswer=> {
     console.log('您输入的所有答案如下：')
     console.log(answer)
 })
+```
+
+新版
+
+```js
+import { select, Separator } from '@inquirer/prompts';
+// Or
+// import select, { Separator } from '@inquirer/select';
+
+const answer = await select({
+  message: 'Select a package manager',
+  choices: [
+    {
+      name: 'npm',
+      value: 'npm',
+      description: 'npm is the most popular package manager',
+    },
+    {
+      name: 'yarn',
+      value: 'yarn',
+      description: 'yarn is an awesome package manager',
+    },
+    new Separator(),
+    {
+      name: 'jspm',
+      value: 'jspm',
+      disabled: true,
+    },
+    {
+      name: 'pnpm',
+      value: 'pnpm',
+      disabled: '(pnpm is not available)',
+    },
+  ],
+});
+console.log(answer); // npm
 ```
 
 
@@ -1793,10 +1895,6 @@ async function view() {
 }
 ```
 
-### [mammoth](https://github.com/mwilliamson/mammoth.js)
-
-> 一个将 docx转html 的插件。
-
 [canvas 弹幕库](https://fly-barrage.netlify.app/guide/quick-start.html)
 
 > **功能完善**
@@ -2140,6 +2238,12 @@ const clean = DOMPurify.sanitize(dirty, { USE_PROFILES: { html: true } });
 ### [二维码生成](https://jsfiddle.net/lachlan/r8qWV/)
 
 > 不是开箱即用， 可以在项目中集成使用。这是一个demo页面
+
+### [QrIt](https://qrit.chesko.dev/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202408/bg2024081405.webp)
+
+可以更改配色的二维码生成器。
 
 ### [widget-qrcode](https://github.com/mumuy/widget-qrcode)
 
@@ -2507,3 +2611,130 @@ fetchEventSource('/api/sse', {
 - 响应数据必须遵循特定的格式，即以 `data:` 开头，后跟数据内容，最后以两个换行符 `\n\n` 结束。
 - 客户端通过监听 EventSource 对象的事件（如 `message`、`open`、`error`）来处理接收到的数据。
 
+
+
+### [在线协同文档](https://docs.etherpad.org/)
+
+实时编辑，聊天。页面支持多语言。docker 部署。js、ts编写
+
+[在线演示地址](https://etherpad.wikimedia.org/)
+
+
+
+### [selenium](https://www.selenium.dev/zh-cn/documentation/webdriver/actions_api/mouse/)
+
+​	Selenium 通过使用 *WebDriver* 支持市场上所有主流浏览器的自动化。 WebDriver 是一个 API 和协议，它定义了一个语言中立的接口，用于控制 web 浏览器的行为。 每个浏览器都有一个特定的 WebDriver 实现，称为驱动程序。 驱动程序是负责委派给浏览器的组件，并处理与 Selenium 和浏览器之间的通信。
+
+Selenium脚本支持 **Java，Python，CSharp，Ruby，JavaScript，Kotlin**
+
+
+
+### [tagui](http://www.tagui.com.cn/)
+
+​	TagUI 是一款免费、开源、跨平台（Windows & Linux & macOS）的 RPA 工具，可帮助您轻松完成自动化桌面、Web、鼠标和键盘操作。下面请来体验一下
+
+### [hash-wasm](https://github.com/Daninet/hash-wasm)
+
+一个轻量级的哈希函数库，提供了二十几种常见的哈希算法，比如 MD5 和 SHA-1，以及更安全的 BLAKE3。
+
+### [WebUI](https://github.com/webui-dev/webui)
+
+![img](https://cdn.beekka.com/blogimg/asset/202401/bg2024010704.webp)
+
+一个跨平台的桌面应用的打包程序，允许你直接将浏览器作为桌面应用的前端，比 Electron 要轻量化很多，同时又避免使用 WebView。
+
+### [canvas-confetti](https://github.com/catdad/canvas-confetti)
+
+![img](https://cdn.beekka.com/blogimg/asset/202404/bg2024042508.webp)
+
+在网页上抛洒五彩纸屑的 JS 库。
+
+### **fues.js** [fues.js Fuzzy Search 前端模糊搜索](https://github.com/krisk/Fuse)
+
+```js
+
+const Fuse = require('fuse.js');
+const list = [
+    {
+    "title": "Old Man's War",
+    "author": {
+      "firstName": "John",
+      "lastName": "Scalzi"
+    }
+  },
+  ...
+];
+
+const fuseOptions = {
+	// isCaseSensitive: false,
+	// includeScore: false,
+	// shouldSort: true,
+	// includeMatches: false,
+	// findAllMatches: false,
+	// minMatchCharLength: 1,
+	// location: 0,
+	// threshold: 0.6,
+	// distance: 100,
+	// useExtendedSearch: false,
+	// ignoreLocation: false,
+	// ignoreFieldNorm: false,
+	// fieldNormWeight: 1,
+	keys: [
+		"title",
+		"author.firstName"
+	]
+};
+
+const fuse = new Fuse(list, fuseOptions);
+
+// Change the pattern
+const searchPattern = "b"
+
+return fuse.search(searchPattern)
+```
+
+[演示页面](https://www.fusejs.io/demo.html)
+
+### [Text Search Engine](https://github.com/cjinhuo/text-search-engine/blob/master/docs/README_zh.md)
+
+一个 JS 的模糊搜索库，具有中文拼音的模糊搜索等多种功能。
+
+### [k-colors.js](https://github.com/ppzreboot/k-colors.js)
+
+一个从图片提取主要颜色的 JS 库，底层是作者自己实现的 [K-means 算法库](https://github.com/ppzreboot/k-means-pp.js)。
+
+
+
+### [json-schema-library](https://github.com/sagold/json-schema-library)
+
+json格式校验
+
+```js
+import { Draft2019, JsonSchema, JsonError } from "json-schema-library";
+
+const myJsonSchema: JsonSchema = {
+    type: "object",
+    additionalProperties: false
+};
+
+const jsonSchema = new Draft2019(myJsonSchema);
+const errors: JsonError[] = jsonSchema.validate({ name: "my-data" });
+```
+
+### [Zerox OCR](https://github.com/getomni-ai/zerox)
+
+![img](https://cdn.beekka.com/blogimg/asset/202409/bg2024092303.webp)
+
+一个 JS/Python 库，使用 OpenAI 对 PDF 文件进行文字识别
+
+### [MiKaPo](https://github.com/AmyangXYZ/MiKaPo)
+
+![img](https://cdn.beekka.com/blogimg/asset/202409/bg2024092808.webp)
+
+一个纯前端的二次元动作捕捉方案，在网页上，从视频/图片/摄像头提取动作、表情来控制动画角色
+
+### [[faces.js](https://github.com/zengm-games/facesjs)
+
+![img](https://cdn.beekka.com/blogimg/asset/202404/bg2024040701.webp)
+
+一个生成随机卡通头像的 JS 库。
