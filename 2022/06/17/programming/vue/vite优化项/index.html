@@ -18,7 +18,7 @@
 <meta property="og:description" content="配置别名1234567891011resolve: &amp;#123;   &#x2F;&#x2F; https:&#x2F;&#x2F;cn.vitejs.dev&#x2F;config&#x2F;#resolve-alias   alias: &amp;#123;     &#x2F;&#x2F; 设置路径     &amp;#x27;~&amp;#x27;: path.resolve(__dirname, &amp;#x27;.&#x2F;&amp;#x27;),     &#x2F;&#x2F; 设置别名     &amp;#x27;@&amp;#x27;:">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-10-11T02:23:18.669Z">
+<meta property="article:modified_time" content="2024-11-18T06:33:59.553Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vite">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.3k字</span>
+      <span class="post-count">3.8k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">17分</span>
+      <span class="post-count">20分</span>
     </span>
   </span>
 </div>
@@ -324,7 +324,7 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">build<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	minify<span class="punctuation">:</span> &#x27;terser&#x27;<span class="punctuation">,</span></span><br><span class="line">    terserOptions<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="comment">// 清除console和debugger</span></span><br><span class="line">        compress<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            drop_console<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">            drop_debugger<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="配置-px-转-rem-自适应"><a href="#配置-px-转-rem-自适应" class="headerlink" title="配置 px 转 rem 自适应"></a>配置 px 转 rem 自适应</h3><blockquote>
-<p>npm i <a href="mailto:&#x70;&#111;&#115;&#116;&#x63;&#x73;&#x73;&#x2d;&#112;&#x78;&#116;&#111;&#114;&#101;&#109;&#64;&#x35;&#46;&#49;&#x2e;&#x31;">&#x70;&#111;&#115;&#116;&#x63;&#x73;&#x73;&#x2d;&#112;&#x78;&#116;&#111;&#114;&#101;&#109;&#64;&#x35;&#46;&#49;&#x2e;&#x31;</a> -D</p>
+<p>npm i <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#112;&#x78;&#x74;&#x6f;&#114;&#101;&#109;&#x40;&#x35;&#46;&#49;&#46;&#49;">&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#112;&#x78;&#x74;&#x6f;&#114;&#101;&#109;&#x40;&#x35;&#46;&#49;&#46;&#49;</a> -D</p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7114211754413916167#heading-4">参考链接</a></p>
 </blockquote>
 <p>vite.config.js</p>
@@ -351,6 +351,19 @@
 <p>配合 element 组件使用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;el-button type=&quot;primary&quot; size=&quot;large&quot;&gt;</span><br><span class="line">  &lt;template #icon&gt;</span><br><span class="line">    &lt;m-icon name=&quot;fanhui&quot;&gt;&lt;/m-icon&gt;</span><br><span class="line">  &lt;/template&gt;</span><br><span class="line">  开始</span><br><span class="line">&lt;/el-button&gt;</span><br></pre></td></tr></table></figure>
 
+<h3 id="注册指令"><a href="#注册指令" class="headerlink" title="注册指令"></a>注册指令</h3><ul>
+<li><p>directives</p>
+<ul>
+<li><p>modules</p>
+<p>  xxx.js</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>  &#123;</span><br><span class="line">  <span class="comment">// 在绑定元素的 attribute 前</span></span><br><span class="line">  <span class="comment">// 或事件监听器应用前调用</span></span><br><span class="line">  <span class="title function_">created</span>(<span class="params">el, binding, vnode</span>) &#123;</span><br><span class="line">    <span class="comment">// 下面会介绍各个参数的细节</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// 在元素被插入到 DOM 前调用</span></span><br><span class="line">  <span class="title function_">beforeMount</span>(<span class="params">el, binding, vnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都挂载完成后调用</span></span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params">el, binding, vnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件更新前调用</span></span><br><span class="line">  <span class="title function_">beforeUpdate</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 在绑定元素的父组件</span></span><br><span class="line">  <span class="comment">// 及他自己的所有子节点都更新后调用</span></span><br><span class="line">  <span class="title function_">updated</span>(<span class="params">el, binding, vnode, prevVnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载前调用</span></span><br><span class="line">  <span class="title function_">beforeUnmount</span>(<span class="params">el, binding, vnode</span>) &#123;&#125;,</span><br><span class="line">  <span class="comment">// 绑定元素的父组件卸载后调用</span></span><br><span class="line">  <span class="title function_">unmounted</span>(<span class="params">el, binding, vnode</span>) &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>index.js</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">install</span>(<span class="params">app</span>) &#123;</span><br><span class="line">    <span class="keyword">const</span> directives = <span class="keyword">import</span>.<span class="property">meta</span>.<span class="title function_">glob</span>(<span class="string">&#x27;./modules/*.js&#x27;</span>, &#123; <span class="attr">eager</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> [key, value] <span class="keyword">of</span> <span class="title class_">Object</span>.<span class="title function_">entries</span>(directives)) &#123;</span><br><span class="line">      <span class="comment">// 拼接指令注册的 name</span></span><br><span class="line">      <span class="keyword">const</span> name = key.<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>)[<span class="number">2</span>].<span class="title function_">replace</span>(<span class="string">&#x27;.js&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(name, value)</span><br><span class="line">      <span class="comment">// 通过 defineAsyncComponent 异步导入指定路径下的组件</span></span><br><span class="line">      app.<span class="title function_">directive</span>(name, <span class="title function_">defineAsyncComponent</span>(value))</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// main.js 注册</span></span><br><span class="line"><span class="keyword">import</span> derictives <span class="keyword">from</span> <span class="string">&#x27;xxx/derictives&#x27;</span></span><br><span class="line">app.<span class="title function_">use</span>(derictives)</span><br></pre></td></tr></table></figure>
+
 
 
 <h3 id="注册svg组件"><a href="#注册svg组件" class="headerlink" title="注册svg组件"></a>注册svg组件</h3><ol>
@@ -361,10 +374,14 @@
 <li><p>引入注册</p>
  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// svg图标, 第一行不能少</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;virtual:svg-icons-register&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">SvgIcon</span> <span class="keyword">from</span> <span class="string">&#x27;./components/SvgIcon&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册svg-icon组件</span></span><br><span class="line">app.<span class="title function_">component</span>(<span class="string">&#x27;svg-icon&#x27;</span>, <span class="title class_">SvgIcon</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 <li><p>SvgIcon 组件代码</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;svg :class=&quot;svgClass&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">  &lt;use :xlink:href=&quot;iconName&quot; :fill=&quot;color&quot; /&gt;</span><br><span class="line">&lt;/svg&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; computed &#125; from &#x27;vue&#x27;</span><br><span class="line">const props = defineProps(&#123;</span><br><span class="line">  iconClass: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    required: true</span><br><span class="line">  &#125;,</span><br><span class="line">  className: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  color: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line">const iconName = computed(() =&gt; `#icon-$&#123;props.iconClass&#125;`)</span><br><span class="line">const svgClass = computed(() =&gt; &#123;</span><br><span class="line">    if (props.className) &#123;</span><br><span class="line">        return `svg-icon $&#123;props.className&#125;`</span><br><span class="line">    &#125;</span><br><span class="line">    return &#x27;svg-icon&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scope lang=&quot;scss&quot;&gt;</span><br><span class="line">.sub-el-icon,</span><br><span class="line">.nav-icon &#123;</span><br><span class="line">display: inline-block;</span><br><span class="line">font-size: 15px;</span><br><span class="line">margin-right: 12px;</span><br><span class="line">position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.svg-icon &#123;</span><br><span class="line">width: 1em;</span><br><span class="line">height: 1em;</span><br><span class="line">position: relative;</span><br><span class="line">fill: currentColor;</span><br><span class="line">vertical-align: -2px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</li>
+</ol>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;svg :class=&quot;svgClass&quot; aria-hidden=&quot;true&quot;&gt;</span><br><span class="line">    &lt;use :xlink:href=&quot;iconName&quot; :fill=&quot;color&quot; /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; computed &#125; from &#x27;vue&#x27;</span><br><span class="line">const props = defineProps(&#123;</span><br><span class="line">  iconClass: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    required: true</span><br><span class="line">  &#125;,</span><br><span class="line">  className: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  color: &#123;</span><br><span class="line">    type: String,</span><br><span class="line">    default: &#x27;currentColor&#x27;</span><br><span class="line">  &#125;,</span><br><span class="line">  disabled: &#123;</span><br><span class="line">    type: Boolean,</span><br><span class="line">    default: false</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">const iconName = computed(() =&gt; `#icon-$&#123;props.iconClass&#125;`)</span><br><span class="line">const color = computed(() =&gt; &#123;</span><br><span class="line">  if (props.disabled) &#123;</span><br><span class="line">    return &#x27;#ccc&#x27;</span><br><span class="line">  &#125;</span><br><span class="line">  return props.color</span><br><span class="line">&#125;)</span><br><span class="line">const svgClass = computed(() =&gt; &#123;</span><br><span class="line">  if (props.className) &#123;</span><br><span class="line">    return `svg-icon $&#123;props.className&#125;`</span><br><span class="line">  &#125;</span><br><span class="line">  return &#x27;svg-icon&#x27;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scope lang=&quot;scss&quot;&gt;</span><br><span class="line">.sub-el-icon,</span><br><span class="line">.nav-icon &#123;</span><br><span class="line">  display: inline-block;</span><br><span class="line">  font-size: 15px !important;</span><br><span class="line">  margin-right: 2px !important;</span><br><span class="line">  position: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.svg-icon &#123;</span><br><span class="line">  width: 1em;</span><br><span class="line">  height: 1em;</span><br><span class="line">  min-width: 1em;</span><br><span class="line">  position: relative;</span><br><span class="line">  fill: currentColor;</span><br><span class="line">  vertical-align: -2px;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="5">
 <li><p>svg 资源</p>
-<p> path 需添加 fill=”currentColor”  让图标自适应颜色</p>
- <figure class="highlight svg"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 1024 1024&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span> <span class="attr">fill</span>=<span class="string">&quot;currentColor&quot;</span> <span class="attr">d</span>=<span class="string">&quot;M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> path 不需添加 fill=”currentColor”，  让图标自适应颜色，如果添加了fill 那么color参数就不生效了</p>
+ <figure class="highlight svg"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="attr">viewBox</span>=<span class="string">&quot;0 0 1024 1024&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">path</span>  <span class="attr">d</span>=<span class="string">&quot;M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 </li>
 <li><p>使用</p>
@@ -402,7 +419,12 @@
 <h3 id="代码风格配置"><a href="#代码风格配置" class="headerlink" title="代码风格配置"></a>代码风格配置</h3><blockquote>
 <p>可以在脚手架初始化项目是添加 eslint 和 prettier, 也可以为已有项目添加，参考如下</p>
 <p>[注意]新版本eslit和prettier配置文件后缀都必须是.cjs</p>
-<p>**vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 **</p>
+<p>**vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 ** 但是可能还要设置.vscode 文件夹 中的配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;explorer.fileNesting.enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;explorer.fileNesting.patterns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tsconfig.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.*.json, env.d.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vite.config.*&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;package.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll&quot;</span><span class="punctuation">:</span> <span class="string">&quot;explicit&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extensioins</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;recommendations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;Vue.volar&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;dbaeumer.vscode-eslint&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;EditorConfig.EditorConfig&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
 </blockquote>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000041954694">Vite+vue3+js+eslint+prettierc</a></p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7142815651294511135?searchId=202403141408434480E7D6A2BC567E973B">Vite+vue3+ts+eslint+prettierc</a></p>
@@ -414,12 +436,14 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.<span class="property">env</span>.<span class="property">NODE_ENV</span> === <span class="string">&#x27;production&#x27;</span></span><br></pre></td></tr></table></figure>
 
 <p>判断，但是在vite中，没有 process，而是使用</p>
+<p>【注意】vite.config.js 配置文件中还是使用 process.env.NODE_ENV 访问</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>.<span class="property">meta</span>.<span class="property">env</span>.<span class="property">MODE</span> === <span class="string">&quot;production&quot;</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h3 id="全局-api-自动引入"><a href="#全局-api-自动引入" class="headerlink" title="全局 api 自动引入"></a><a target="_blank" rel="noopener" href="https://github.com/unplugin/unplugin-auto-import">全局 api 自动引入</a></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm i -D unplugin-auto-import</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// vite.config.ts</span><br><span class="line">import AutoImport from &#x27;unplugin-auto-import/vite&#x27;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    AutoImport(&#123; /* options */ &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="全局-api-自动引入"><a href="#全局-api-自动引入" class="headerlink" title="全局 api 自动引入"></a><a target="_blank" rel="noopener" href="https://github.com/unplugin/unplugin-auto-import">全局 api 自动引入</a></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">npm i -D unplugin-auto-import</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// vite.config.ts</span><br><span class="line">import AutoImport from &#x27;unplugin-auto-import/vite&#x27;</span><br><span class="line"></span><br><span class="line">export default defineConfig(&#123;</span><br><span class="line">  plugins: [</span><br><span class="line">    AutoImport(&#123; </span><br><span class="line">      imports: [&#x27;vue&#x27;, &#x27;vue-router&#x27;],</span><br><span class="line">      dts: true,</span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
+<p><strong>配置完成后 根目录会新增 auto-imports.d.ts，或一个json 文件，在 eslint.config.js 中配置 忽略即可，不然 eslint 会提示你 引用错误</strong></p>
 <p>使用前</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; computed, ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> count = <span class="title function_">ref</span>(<span class="number">0</span>)</span><br><span class="line"><span class="keyword">const</span> doubled = <span class="title function_">computed</span>(<span class="function">() =&gt;</span> count.<span class="property">value</span> * <span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
@@ -552,18 +576,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          vite + vue3 + tailwindcss
+          插件
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%953.0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue 3.0 基础知识</div>
+    <a href="/2022/06/17/programming/vue/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%952.0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue 2.0 基础知识</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -590,7 +614,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%951"><span class="toc-number">2.1.</span> <span class="toc-text">1.Vite代码分割方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%952"><span class="toc-number">2.2.</span> <span class="toc-text">Vite代码分割方法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">全局样式注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-iconfont"><span class="toc-number">7.</span> <span class="toc-text">引入 iconfont</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Csvg%E7%BB%84%E4%BB%B6"><span class="toc-number">8.</span> <span class="toc-text">注册svg组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%80%9A%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">9.</span> <span class="toc-text">字典通用解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">10.</span> <span class="toc-text">完整的配置参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="toc-number">11.</span> <span class="toc-text">代码风格配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-require-%E8%AF%AD%E6%B3%95"><span class="toc-number">12.</span> <span class="toc-text">支持 require 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">13.</span> <span class="toc-text">环境变量获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80-api-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-number">14.</span> <span class="toc-text">全局 api 自动引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-html-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8-ejs-%E8%AF%AD%E6%B3%95"><span class="toc-number">15.</span> <span class="toc-text">index.html 模板使用 ejs 语法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%951"><span class="toc-number">2.1.</span> <span class="toc-text">1.Vite代码分割方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%952"><span class="toc-number">2.2.</span> <span class="toc-text">Vite代码分割方法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">全局样式注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-iconfont"><span class="toc-number">7.</span> <span class="toc-text">引入 iconfont</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">8.</span> <span class="toc-text">注册指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Csvg%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">注册svg组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%80%9A%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">10.</span> <span class="toc-text">字典通用解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">11.</span> <span class="toc-text">完整的配置参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="toc-number">12.</span> <span class="toc-text">代码风格配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-require-%E8%AF%AD%E6%B3%95"><span class="toc-number">13.</span> <span class="toc-text">支持 require 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">14.</span> <span class="toc-text">环境变量获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80-api-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-number">15.</span> <span class="toc-text">全局 api 自动引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-html-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8-ejs-%E8%AF%AD%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text">index.html 模板使用 ejs 语法</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -748,15 +772,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -768,19 +792,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,11 +800,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -800,19 +816,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,11 +828,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,15 +852,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -852,15 +876,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,7 +888,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -892,11 +924,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -904,19 +932,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -924,67 +940,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -996,7 +964,67 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1004,7 +1032,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1032,11 +1060,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1045,10 +1073,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

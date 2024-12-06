@@ -18,7 +18,7 @@
 <meta property="og:description" content="react.PureComponent 与 React.Component 区别 唯一的区别在于 Rect.Component 没有实现 shouldComponentUpdate() *一个不太常用的生命周期方法*, 而 React.PureComponent 中以浅层对比 prop 和 state 的方式来实现了该函数。   注意 React.PureComponent 中的 shouldCo">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-05T03:19:28.000Z">
-<meta property="article:modified_time" content="2024-06-25T08:13:55.763Z">
+<meta property="article:modified_time" content="2024-11-07T00:58:39.278Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="react">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">976字</span>
+      <span class="post-count">1.5k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">4分</span>
+      <span class="post-count">7分</span>
     </span>
   </span>
 </div>
@@ -339,6 +339,31 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import React, &#123; useState, useCallback, useEffect &#125; from &#x27;react&#x27;;</span><br><span class="line">// 父组件</span><br><span class="line">function Parent() &#123;</span><br><span class="line">    const [count, setCount] = useState(1);</span><br><span class="line">    const [val, setVal] = useState(&#x27;&#x27;);</span><br><span class="line"> </span><br><span class="line">    const callback = useCallback(() =&gt; &#123;</span><br><span class="line">        return count;</span><br><span class="line">    &#125;, [count]);</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">        &lt;h4&gt;&#123;count&#125;&lt;/h4&gt;</span><br><span class="line">        &lt;Child callback=&#123;callback&#125;/&gt;</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button onClick=&#123;() =&gt; setCount(count + 1)&#125;&gt;+&lt;/button&gt;</span><br><span class="line">            &lt;input value=&#123;val&#125; onChange=&#123;event =&gt; setVal(event.target.value)&#125;/&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;;</span><br><span class="line">&#125;</span><br><span class="line">// 子组件</span><br><span class="line">function Child(&#123; callback &#125;) &#123;</span><br><span class="line">    const [count, setCount] = useState(() =&gt; callback());</span><br><span class="line">    useEffect(() =&gt; &#123;</span><br><span class="line">        setCount(callback());</span><br><span class="line">    &#125;, [callback]);</span><br><span class="line">    return &lt;div&gt;</span><br><span class="line">        &#123;count&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>所有依赖本地状态或props来创建函数，需要使用到缓存函数的地方，都是useCallback的应用场景。</p>
+<h3 id="组件条件渲染优化"><a href="#组件条件渲染优化" class="headerlink" title="组件条件渲染优化"></a>组件条件渲染优化</h3><p>从 Solid.js 框架获得灵感，可以创建一个 <code>Show</code> 组件来优化条件渲染的写法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// Show 组件类型定义</span><br><span class="line">interface ShowProps&lt;T&gt; &#123;</span><br><span class="line">  when: T | undefined | null | false;</span><br><span class="line">  fallback?: React.ReactNode;</span><br><span class="line">  children: React.ReactNode | ((item: T) =&gt; React.ReactNode);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>实现方案</strong></p>
+<p>创建一个简单但强大的 <code>Show</code> 组件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function Show(&#123; when, fallback = null, children &#125;) &#123;</span><br><span class="line">  return when ? children : fallback;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用示例</p>
+<p><strong>1. 基础条件渲染</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// ❌ 旧写法</span><br><span class="line">&#123;isLoading &amp;&amp; &lt;Spinner /&gt;&#125;</span><br><span class="line"></span><br><span class="line">// ✅ 新写法</span><br><span class="line">&lt;Show when=&#123;isLoading&#125;&gt;</span><br><span class="line">  &lt;Spinner /&gt;</span><br><span class="line">&lt;/Show&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2. 条件分支渲染</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// ❌ 旧写法</span><br><span class="line">&#123;isAdmin </span><br><span class="line">  ? &lt;AdminPanel /&gt; </span><br><span class="line">  : &lt;UserPanel /&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// ✅ 新写法</span><br><span class="line">&lt;Show </span><br><span class="line">  when=&#123;isAdmin&#125;</span><br><span class="line">  fallback=&#123;&lt;UserPanel /&gt;&#125;</span><br><span class="line">&gt;</span><br><span class="line">  &lt;AdminPanel /&gt;</span><br><span class="line">&lt;/Show&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3. 复杂条件渲染</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// ❌ 旧写法</span><br><span class="line">&#123;isCommentsEnabled &amp;&amp; (</span><br><span class="line">  &lt;&gt;</span><br><span class="line">    &lt;CommentsHeader /&gt;</span><br><span class="line">    &#123;comments.map(comment =&gt; (</span><br><span class="line">      &lt;CommentItem key=&#123;comment.id&#125; &#123;...comment&#125; /&gt;</span><br><span class="line">    ))&#125;</span><br><span class="line">    &#123;isLoggedIn &amp;&amp; &lt;CommentForm /&gt;&#125;</span><br><span class="line">  &lt;/&gt;</span><br><span class="line">)&#125;</span><br><span class="line"></span><br><span class="line">// ✅ 新写法</span><br><span class="line">&lt;Show when=&#123;isCommentsEnabled&#125;&gt;</span><br><span class="line">  &lt;CommentsHeader /&gt;</span><br><span class="line">  &#123;comments.map(comment =&gt; (</span><br><span class="line">    &lt;CommentItem key=&#123;comment.id&#125; &#123;...comment&#125; /&gt;</span><br><span class="line">  ))&#125;</span><br><span class="line">  &lt;Show when=&#123;isLoggedIn&#125;&gt;</span><br><span class="line">    &lt;CommentForm /&gt;</span><br><span class="line">  &lt;/Show&gt;</span><br><span class="line">&lt;/Show&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>4. 带数据处理的条件渲染</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// ❌ 旧写法</span><br><span class="line">&#123;user &amp;&amp; (</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    Welcome, &#123;user.name&#125;!</span><br><span class="line">    &#123;user.isAdmin &amp;&amp; &lt;AdminBadge /&gt;&#125;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">)&#125;</span><br><span class="line"></span><br><span class="line">// ✅ 新写法</span><br><span class="line">&lt;Show when=&#123;user&#125;&gt;</span><br><span class="line">  &#123;(userData) =&gt; (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      Welcome, &#123;userData.name&#125;!</span><br><span class="line">      &lt;Show when=&#123;userData.isAdmin&#125;&gt;</span><br><span class="line">        &lt;AdminBadge /&gt;</span><br><span class="line">      &lt;/Show&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )&#125;</span><br><span class="line">&lt;/Show&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>扩展功能</strong></p>
+<p>还可以添加一些实用的功能：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 支持异步数据</span><br><span class="line">const AsyncShow = (&#123; when, fallback, children &#125;) =&gt; &#123;</span><br><span class="line">  const [isLoading, setIsLoading] = useState(true);</span><br><span class="line">  const [data, setData] = useState(null);</span><br><span class="line"></span><br><span class="line">  useEffect(() =&gt; &#123;</span><br><span class="line">    Promise.resolve(when).then(result =&gt; &#123;</span><br><span class="line">      setData(result);</span><br><span class="line">      setIsLoading(false);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;, [when]);</span><br><span class="line"></span><br><span class="line">  if (isLoading) return fallback;</span><br><span class="line">  return data ? children : null;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 使用示例</span><br><span class="line">&lt;AsyncShow </span><br><span class="line">  when=&#123;fetchUserData()&#125; </span><br><span class="line">  fallback=&#123;&lt;Loading /&gt;&#125;</span><br><span class="line">&gt;</span><br><span class="line">  &#123;user =&gt; &lt;UserProfile data=&#123;user&#125; /&gt;&#125;</span><br><span class="line">&lt;/AsyncShow&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这个简单的组件不仅能让代码更加清晰易读，还能提升开发效率。有时候最简单的改进反而能带来最大的收益！🎉</p>
 
     
 
@@ -495,7 +520,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-PureComponent-%E4%B8%8E-React-Component-%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">react.PureComponent 与 React.Component 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useMemo%E4%B8%8EuseCallback"><span class="toc-number">2.</span> <span class="toc-text">useMemo与useCallback</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#react-PureComponent-%E4%B8%8E-React-Component-%E5%8C%BA%E5%88%AB"><span class="toc-number">1.</span> <span class="toc-text">react.PureComponent 与 React.Component 区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#useMemo%E4%B8%8EuseCallback"><span class="toc-number">2.</span> <span class="toc-text">useMemo与useCallback</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E6%9D%A1%E4%BB%B6%E6%B8%B2%E6%9F%93%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">组件条件渲染优化</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -653,15 +678,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,19 +698,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,11 +706,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -705,19 +722,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -725,11 +734,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,15 +758,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -757,15 +782,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -773,7 +794,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -797,11 +830,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -809,19 +838,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -829,67 +846,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,7 +870,67 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,7 +938,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,11 +966,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -950,10 +979,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

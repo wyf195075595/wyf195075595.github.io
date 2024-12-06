@@ -42,8 +42,11 @@
 <meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202409/bg2024092303.webp">
 <meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202409/bg2024092808.webp">
 <meta property="og:image" content="https://cdn.beekka.com/blogimg/asset/202404/bg2024040701.webp">
+<meta property="og:image" content="https://b3log.org/vditor/images/wysiwyg.gif">
+<meta property="og:image" content="https://user-images.githubusercontent.com/37766175/121808381-251f5000-cc93-11eb-8c47-4f5a809de2b3.png">
+<meta property="og:image" content="https://github.com/ianstormtaylor/slate/raw/main/docs/images/preview.png">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-10-18T01:07:49.621Z">
+<meta property="article:modified_time" content="2024-11-15T00:53:43.247Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="插件">
 <meta name="twitter:card" content="summary">
@@ -312,7 +315,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">18.4k字</span>
+      <span class="post-count">18.8k字</span>
     </span>
   </span>
 
@@ -321,7 +324,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">79分</span>
+      <span class="post-count">81分</span>
     </span>
   </span>
 </div>
@@ -365,12 +368,60 @@
 <h3 id="pdfjs-https-github-com-mozilla-pdf-js"><a href="#pdfjs-https-github-com-mozilla-pdf-js" class="headerlink" title="pdfjs](https://github.com/mozilla/pdf.js)"></a>pdfjs](<a target="_blank" rel="noopener" href="https://github.com/mozilla/pdf.js">https://github.com/mozilla/pdf.js</a>)</h3><blockquote>
 <p>预览pdf，支持很多功能，搜索，定位，高亮，菜单等,不能使用 npm 安装，手动去官网下载dist包，放置在 public 使用</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/IAIPython/article/details/134525898">参考链接</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.qianduange.cn/article/1646.html">参考链接</a></p>
+<p><strong>文章目录</strong></p>
+<ul>
+<li><ul>
+<li>一、pdf.js介绍<ul>
+<li>二、实现pdf预览的两种方式</li>
+<li><ul>
+<li>1、使用viewer.html<ul>
+<li>2、将PDF文件渲染成Canvas</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>三、viewer.js的使用形势下的一些方法及技巧</li>
+<li><ul>
+<li>1、实现外部操作跳转到具体的某一页<ul>
+<li><ul>
+<li>法1）、修改viewer.js源码，添加一个可供页面跳转的参数page<ul>
+<li>法2）、修改pdf.js里面的页码</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2、获取pdf.js里面的页码</li>
+<li>3、根据pdf.js内置的postMessage函数、findBar函数实现外部文本的搜索</li>
+<li>4、在pdfjs-3.7.107-dist版本中，给pdf.js传参的处理</li>
+<li>5、在pdfjs-3.7.107-dist版本中，修改convertToRegExpString方法，更换匹配方法（可匹配到带有空格的文档）</li>
+<li>6、清除pdf缓存</li>
+<li>7、pdf.js实现分片加载</li>
+<li>8、如果后端返回的是流的形式，就用此方法转一下</li>
+<li>9、 下载</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>四、原理</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </blockquote>
 <p>核心就是将 iframe 的 src 属性设置为 pdfjs 的地址，然后将 pdf 文件的地址作为参数传递给 pdfjs</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 例如：http://localhost:8080/pdfjs-4.0.189-dist/web/viewer.html?file=http%3A%2F%2Flocalhost%3A8080%2Fpdf%2Ftest.pdf</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">iframe</span> <span class="attr">:src</span>=<span class="string">&quot;pdfUrl&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;pdfViewRef&quot;</span> <span class="attr">width</span>=<span class="string">&quot;100%&quot;</span> <span class="attr">height</span>=<span class="string">&quot;100%&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>**<a target="_blank" rel="noopener" href="https://www.jb51.net/javascript/327521ngl.htm">对于老版本中可能遇见的问题</a> **</p>
+<ol>
+<li><p>pdfjs 3.11.174 以上的版本，js资源是 .mjs 后缀，低版本浏览器会加载资源报错</p>
+<p> 自己改 文件后缀不行，得配置 nginx ，或者 降级插件</p>
+<p> 找到 Nginx 文件夹下的 mime.types ，我的mimetype文件路径为  /usr/local/nginx/mime.types, 再类型后面加上 mjs</p>
+ <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">application/<span class="attribute">javascript</span>                 js mjs;</span><br></pre></td></tr></table></figure>
 
-
+</li>
+</ol>
 <h3 id="Docxtemplater"><a href="#Docxtemplater" class="headerlink" title="Docxtemplater"></a><strong><a target="_blank" rel="noopener" href="https://docxtemplater.com/demo/#/categories">Docxtemplater</a></strong></h3><blockquote>
 <p> <code>Docxtemplater</code> 是一个用于生成 Word 文档的 JavaScript 库，它通过填充模板来生成 Word 文档。您可以在模板中使用变量和条件语句，并通过 JavaScript 代码来填充模板。虽然它是一个商业库，但提供了强大的功能和灵活的定制选项</p>
 <p> <a target="_blank" rel="noopener" href="https://juejin.cn/post/7205181884589031485">参考连接</a></p>
@@ -1297,6 +1348,19 @@
 <p>一个纯前端的二次元动作捕捉方案，在网页上，从视频/图片/摄像头提取动作、表情来控制动画角色</p>
 <h3 id="faces-js"><a href="#faces-js" class="headerlink" title="[faces.js"></a>[<a target="_blank" rel="noopener" href="https://github.com/zengm-games/facesjs">faces.js</a></h3><p><img src="https://cdn.beekka.com/blogimg/asset/202404/bg2024040701.webp" alt="img"></p>
 <p>一个生成随机卡通头像的 JS 库。</p>
+<h3 id="markdown-语法编辑器"><a href="#markdown-语法编辑器" class="headerlink" title="markdown 语法编辑器"></a>markdown 语法编辑器</h3><ol>
+<li><p><strong><a target="_blank" rel="noopener" href="https://github.com/Vanessa219/vditor">vditor</a></strong></p>
+<p> 此插件不支持vue3语法，可以使用无封装版本</p>
+<p> <img src="https://b3log.org/vditor/images/wysiwyg.gif" alt="vditor"></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/nhn/tui.editor">tui.editor</a></p>
+<p> <img src="https://user-images.githubusercontent.com/37766175/121808381-251f5000-cc93-11eb-8c47-4f5a809de2b3.png" alt="tui editor"></p>
+</li>
+</ol>
+<h3 id="ProseMirror"><a href="#ProseMirror" class="headerlink" title="ProseMirror"></a><a target="_blank" rel="noopener" href="https://prosemirror.xheldon.com/">ProseMirror</a></h3><p>ProseMirror是一个开源的JavaScript库，专注于构建强大而可定制的富文本编辑器。 <strong>tui.editor</strong> 就是基于此开发的, WangEditor的某些版本（如v5）是基于<strong>slate.js</strong>开发的</p>
+<h3 id="Quill"><a href="#Quill" class="headerlink" title="Quill"></a><a target="_blank" rel="noopener" href="https://github.com/slab/quill">Quill</a></h3><p>一款很强的富文本编辑器，提供了很多api 拓展操作，可惜对表格支持不好</p>
+<h3 id="slate"><a href="#slate" class="headerlink" title="slate"></a><a target="_blank" rel="noopener" href="https://github.com/ianstormtaylor/slate">slate</a></h3><p>markdown 编辑器， <a target="_blank" rel="noopener" href="https://github.com/ianstormtaylor/slate/blob/main/packages/slate-react"><code>slate-react</code></a> 支持 react 拓展</p>
+<p><img src="https://github.com/ianstormtaylor/slate/raw/main/docs/images/preview.png" alt="img"></p>
 
     
 
@@ -1415,18 +1479,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/jsplugin/echarts/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/jsplugin/openlayers/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          echarts 实用技巧
+          OpenLayers
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/jsplugin/uuid/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UUID</div>
+    <a href="/2022/06/17/programming/jsplugin/rollup.js/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">rollup</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -1453,7 +1517,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlsx"><span class="toc-number">2.</span> <span class="toc-text">xlsx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html-docx-js"><span class="toc-number">3.</span> <span class="toc-text">html-docx-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DocRaptor"><span class="toc-number">4.</span> <span class="toc-text">DocRaptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mammoth-js"><span class="toc-number">5.</span> <span class="toc-text">mammoth.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pdfjs-https-github-com-mozilla-pdf-js"><span class="toc-number">6.</span> <span class="toc-text">pdfjs](https:&#x2F;&#x2F;github.com&#x2F;mozilla&#x2F;pdf.js)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docxtemplater"><span class="toc-number">7.</span> <span class="toc-text">Docxtemplater</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-html2pdf"><span class="toc-number">8.</span> <span class="toc-text">vue-html2pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docx-preview"><span class="toc-number">9.</span> <span class="toc-text">docx-preview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docx-js"><span class="toc-number">10.</span> <span class="toc-text">docx.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">11.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">12.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PizZip"><span class="toc-number">13.</span> <span class="toc-text">PizZip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jszip-%E4%BC%98%E7%A7%80%E7%9A%84%E5%89%8D%E7%AB%AF%E5%8E%8B%E7%BC%A9%E5%BA%93"><span class="toc-number">14.</span> <span class="toc-text">jszip 优秀的前端压缩库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip-a-folder"><span class="toc-number">15.</span> <span class="toc-text">zip-a-folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">16.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">17.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">17.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">18.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">19.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">20.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">21.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">22.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">23.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">24.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BPMN-IO"><span class="toc-number">25.</span> <span class="toc-text">BPMN.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">26.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">27.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">28.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">29.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">30.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">31.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">32.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">33.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">34.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js-%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">35.</span> <span class="toc-text">Inquirer.js 与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">36.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">37.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">38.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">39.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">40.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">41.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">42.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">43.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">44.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">45.</span> <span class="toc-text">LeaferJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%90%84%E7%BB%B4%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="toc-number">46.</span> <span class="toc-text">图形库各维度对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fabric-js"><span class="toc-number">46.1.</span> <span class="toc-text">fabric.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#konva-js"><span class="toc-number">46.2.</span> <span class="toc-text">konva.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leaflet-js"><span class="toc-number">46.3.</span> <span class="toc-text">leaflet.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pixi-js"><span class="toc-number">46.4.</span> <span class="toc-text">pixi.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">46.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anime-js"><span class="toc-number">47.</span> <span class="toc-text">Anime.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-removal-js"><span class="toc-number">48.</span> <span class="toc-text">background-removal-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-animate"><span class="toc-number">49.</span> <span class="toc-text">auto-animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Statistics"><span class="toc-number">50.</span> <span class="toc-text">Simple Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jTopo"><span class="toc-number">51.</span> <span class="toc-text">jTopo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E9%A3%8E%E5%A4%A9%E6%B0%94%E6%8F%92%E4%BB%B6"><span class="toc-number">52.</span> <span class="toc-text">和风天气插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mark-js"><span class="toc-number">53.</span> <span class="toc-text">mark.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pictode"><span class="toc-number">54.</span> <span class="toc-text">Pictode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#excalidraw"><span class="toc-number">55.</span> <span class="toc-text">excalidraw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recorder"><span class="toc-number">56.</span> <span class="toc-text">recorder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EasyPlayer"><span class="toc-number">57.</span> <span class="toc-text">EasyPlayer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number"></span> <span class="toc-text">About</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h265web-js"><span class="toc-number">1.</span> <span class="toc-text">h265web.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyLD"><span class="toc-number">2.</span> <span class="toc-text">TinyLD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VineJS"><span class="toc-number">3.</span> <span class="toc-text">VineJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antv-x6"><span class="toc-number">4.</span> <span class="toc-text">antv-x6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BApdf"><span class="toc-number">5.</span> <span class="toc-text">导出pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localforage"><span class="toc-number">6.</span> <span class="toc-text">localforage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisActor"><span class="toc-number">7.</span> <span class="toc-text">VisActor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#heatmap-js"><span class="toc-number">8.</span> <span class="toc-text">heatmap.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Echo-UI"><span class="toc-number">9.</span> <span class="toc-text">Echo UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animotion"><span class="toc-number">10.</span> <span class="toc-text">Animotion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inpaint-web"><span class="toc-number">11.</span> <span class="toc-text">Inpaint-web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">音视频处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E4%BB%A3%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">13.</span> <span class="toc-text">nginx代管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mermaid-js"><span class="toc-number">14.</span> <span class="toc-text">mermaid.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmind"><span class="toc-number">15.</span> <span class="toc-text">jsmind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whatsapp-web-js"><span class="toc-number">16.</span> <span class="toc-text">whatsapp-web.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#image-coversion"><span class="toc-number">17.</span> <span class="toc-text">image-coversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koodo"><span class="toc-number">18.</span> <span class="toc-text">koodo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vconsole"><span class="toc-number">19.</span> <span class="toc-text">vconsole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pear-rec"><span class="toc-number">20.</span> <span class="toc-text">pear-rec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blossom"><span class="toc-number">21.</span> <span class="toc-text">blossom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whistle"><span class="toc-number">22.</span> <span class="toc-text">whistle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Superjson"><span class="toc-number">23.</span> <span class="toc-text">Superjson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LunarLink"><span class="toc-number">24.</span> <span class="toc-text">LunarLink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#driver-js"><span class="toc-number">25.</span> <span class="toc-text">driver.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#simple-mind-map%EF%BC%88%E6%80%9D%E7%BB%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%89"><span class="toc-number">26.</span> <span class="toc-text">simple-mind-map（思绪思维导图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markmap"><span class="toc-number">27.</span> <span class="toc-text">markmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stokado"><span class="toc-number">28.</span> <span class="toc-text">stokado</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Newcar"><span class="toc-number">29.</span> <span class="toc-text">Newcar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x-crawl"><span class="toc-number">30.</span> <span class="toc-text">x-crawl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E7%A0%81%E7%94%9F%E6%88%90-JsBarcode"><span class="toc-number">31.</span> <span class="toc-text">条码生成 JsBarcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">32.</span> <span class="toc-text">音频可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#howlerjs"><span class="toc-number">33.</span> <span class="toc-text">howlerjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C"><span class="toc-number">34.</span> <span class="toc-text">打字机效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleMindMap"><span class="toc-number">35.</span> <span class="toc-text">SimpleMindMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%BC%95%E5%AF%BC"><span class="toc-number">36.</span> <span class="toc-text">页面引导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E5%8C%BA%E5%9F%9F%E6%95%B0%E6%8D%AE"><span class="toc-number">37.</span> <span class="toc-text">中国区域数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rrweb"><span class="toc-number">38.</span> <span class="toc-text">rrweb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom-purify"><span class="toc-number">39.</span> <span class="toc-text">dom purify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#editorAnnotate"><span class="toc-number">40.</span> <span class="toc-text">editorAnnotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElysiaJS"><span class="toc-number">41.</span> <span class="toc-text">ElysiaJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IMaker-%E5%88%9B%E5%AE%A2"><span class="toc-number">42.</span> <span class="toc-text">IMaker 创客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VideoSubtitleGenerator"><span class="toc-number">43.</span> <span class="toc-text">VideoSubtitleGenerator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vmr"><span class="toc-number">44.</span> <span class="toc-text">vmr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-tracing"><span class="toc-number">45.</span> <span class="toc-text">web-tracing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-number">46.</span> <span class="toc-text">二维码生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QrIt"><span class="toc-number">47.</span> <span class="toc-text">QrIt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#widget-qrcode"><span class="toc-number">48.</span> <span class="toc-text">widget-qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#autocomplete"><span class="toc-number">49.</span> <span class="toc-text">autocomplete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E6%B3%95%E9%97%AE%E9%A2%98"><span class="toc-number">50.</span> <span class="toc-text">JavaScript 语法问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E6%B5%B7%E6%8A%A5%E8%AE%BE%E8%AE%A1"><span class="toc-number">51.</span> <span class="toc-text">在线海报设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">52.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%8A%9F%E8%83%BD"><span class="toc-number">53.</span> <span class="toc-text">支持功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flowchart"><span class="toc-number">54.</span> <span class="toc-text">flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QuickJS"><span class="toc-number">55.</span> <span class="toc-text">QuickJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#color4bg-js"><span class="toc-number">56.</span> <span class="toc-text">color4bg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MathLive"><span class="toc-number">57.</span> <span class="toc-text">MathLive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E7%AB%AF%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5"><span class="toc-number">58.</span> <span class="toc-text">web端公式输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-event-source"><span class="toc-number">59.</span> <span class="toc-text">fetch event source</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E5%8D%8F%E5%90%8C%E6%96%87%E6%A1%A3"><span class="toc-number">60.</span> <span class="toc-text">在线协同文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium"><span class="toc-number">61.</span> <span class="toc-text">selenium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tagui"><span class="toc-number">62.</span> <span class="toc-text">tagui</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-wasm"><span class="toc-number">63.</span> <span class="toc-text">hash-wasm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebUI"><span class="toc-number">64.</span> <span class="toc-text">WebUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#canvas-confetti"><span class="toc-number">65.</span> <span class="toc-text">canvas-confetti</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fues-js-fues-js-Fuzzy-Search-%E5%89%8D%E7%AB%AF%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2"><span class="toc-number">66.</span> <span class="toc-text">fues.js fues.js Fuzzy Search 前端模糊搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text-Search-Engine"><span class="toc-number">67.</span> <span class="toc-text">Text Search Engine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k-colors-js"><span class="toc-number">68.</span> <span class="toc-text">k-colors.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-schema-library"><span class="toc-number">69.</span> <span class="toc-text">json-schema-library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zerox-OCR"><span class="toc-number">70.</span> <span class="toc-text">Zerox OCR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MiKaPo"><span class="toc-number">71.</span> <span class="toc-text">MiKaPo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#faces-js"><span class="toc-number">72.</span> <span class="toc-text">[faces.js</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#js%E8%AF%BB%E5%8F%96excel%E6%96%87%E4%BB%B6"><span class="toc-number">1.</span> <span class="toc-text">js读取excel文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xlsx"><span class="toc-number">2.</span> <span class="toc-text">xlsx</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#html-docx-js"><span class="toc-number">3.</span> <span class="toc-text">html-docx-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DocRaptor"><span class="toc-number">4.</span> <span class="toc-text">DocRaptor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mammoth-js"><span class="toc-number">5.</span> <span class="toc-text">mammoth.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pdfjs-https-github-com-mozilla-pdf-js"><span class="toc-number">6.</span> <span class="toc-text">pdfjs](https:&#x2F;&#x2F;github.com&#x2F;mozilla&#x2F;pdf.js)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docxtemplater"><span class="toc-number">7.</span> <span class="toc-text">Docxtemplater</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vue-html2pdf"><span class="toc-number">8.</span> <span class="toc-text">vue-html2pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docx-preview"><span class="toc-number">9.</span> <span class="toc-text">docx-preview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#docx-js"><span class="toc-number">10.</span> <span class="toc-text">docx.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fecs"><span class="toc-number">11.</span> <span class="toc-text">fecs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pinia"><span class="toc-number">12.</span> <span class="toc-text">Pinia</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PizZip"><span class="toc-number">13.</span> <span class="toc-text">PizZip</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jszip-%E4%BC%98%E7%A7%80%E7%9A%84%E5%89%8D%E7%AB%AF%E5%8E%8B%E7%BC%A9%E5%BA%93"><span class="toc-number">14.</span> <span class="toc-text">jszip 优秀的前端压缩库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zip-a-folder"><span class="toc-number">15.</span> <span class="toc-text">zip-a-folder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JSON-Server"><span class="toc-number">16.</span> <span class="toc-text">JSON Server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%9C%AC%E5%9F%9F%E9%AB%98%E5%BA%A6%E8%87%AA%E9%80%82%E5%BA%94%E5%86%85%E5%AE%B9"><span class="toc-number">17.</span> <span class="toc-text">文本域高度自适应内容</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#storybook"><span class="toc-number">17.1.</span> <span class="toc-text">storybook</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ramda-js"><span class="toc-number">18.</span> <span class="toc-text">Ramda.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cornerstoneJs"><span class="toc-number">19.</span> <span class="toc-text">cornerstoneJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immer-js"><span class="toc-number">20.</span> <span class="toc-text">immer.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#immutable-js"><span class="toc-number">21.</span> <span class="toc-text">immutable.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E6%9B%BF-momentjs-%E7%9A%84%E6%97%B6%E9%97%B4%E5%BA%93"><span class="toc-number">22.</span> <span class="toc-text">代替 momentjs 的时间库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsplumb-js%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-number">23.</span> <span class="toc-text">jsplumb.js在网页中绘制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%B8%83%E5%B1%80%E5%BC%95%E6%93%8Eviz-js"><span class="toc-number">24.</span> <span class="toc-text">图布局引擎viz.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BPMN-IO"><span class="toc-number">25.</span> <span class="toc-text">BPMN.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#easel-js"><span class="toc-number">26.</span> <span class="toc-text">easel.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5-PPT"><span class="toc-number">27.</span> <span class="toc-text">网页 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gossip-%E4%B8%80%E4%B8%AA%E9%AB%98%E6%95%88%E5%88%9B%E5%BB%BA%E5%92%8C%E6%BC%94%E7%A4%BA%E7%82%AB%E9%85%B7%E5%B9%BB%E7%81%AF%E7%89%87%E7%9A%84%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2%EF%BC%81-https-pearmini-github-io-gossip"><span class="toc-number">28.</span> <span class="toc-text">gossip 一个高效创建和演示炫酷幻灯片的用户界面！ https:&#x2F;&#x2F;pearmini.github.io&#x2F;gossip&#x2F;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Velocity-js"><span class="toc-number">29.</span> <span class="toc-text">Velocity.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tween-js%E5%92%8CjQuery-Easing-Plugin"><span class="toc-number">30.</span> <span class="toc-text">tween.js和jQuery Easing Plugin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7"><span class="toc-number">31.</span> <span class="toc-text">JavaScript 构建工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%AE%9E%E6%88%98"><span class="toc-number">32.</span> <span class="toc-text">百度语音识别实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmpeg-js"><span class="toc-number">33.</span> <span class="toc-text">jsmpeg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Commander-js"><span class="toc-number">34.</span> <span class="toc-text">Commander.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inquirer-js-%E4%B8%8E%E4%BA%A4%E4%BA%92%E5%BC%8F%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">35.</span> <span class="toc-text">Inquirer.js 与交互式命令行工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E8%84%9A%E6%9C%AC"><span class="toc-number">36.</span> <span class="toc-text">自动化脚本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shelljs-node-ssh-%E5%AE%9E%E7%8E%B0%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">37.</span> <span class="toc-text">Shelljs+node-ssh 实现自动化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E8%BF%9B%E5%88%B6%E6%B6%88%E6%81%AF%E6%A0%BC%E5%BC%8F%EF%BC%88protobuf%EF%BC%89"><span class="toc-number">38.</span> <span class="toc-text">二进制消息格式（protobuf）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8protobuf%E5%AE%9E%E7%8E%B0%E8%B7%A8%E8%AF%AD%E8%A8%80%E9%80%9A%E4%BF%A1"><span class="toc-number">39.</span> <span class="toc-text">使用protobuf实现跨语言通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#protobuf-js"><span class="toc-number">40.</span> <span class="toc-text">protobuf.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gRPC"><span class="toc-number">41.</span> <span class="toc-text">gRPC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Angular%E6%A1%86%E6%9E%B6%E4%B8%AD%E6%9C%80%E5%85%B7%E7%89%B9%E8%89%B2%E7%9A%84%E6%8A%80%E6%9C%AF"><span class="toc-number">42.</span> <span class="toc-text">Angular框架中最具特色的技术</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A5%E9%97%A8%E7%BA%A7%E7%89%A9%E8%81%94%E7%BD%91%E2%80%9C%E7%8E%A9%E5%85%B7%E2%80%9DArduino"><span class="toc-number">43.</span> <span class="toc-text">入门级物联网“玩具”Arduino</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xm-select"><span class="toc-number">44.</span> <span class="toc-text">xm-select</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LeaferJS"><span class="toc-number">45.</span> <span class="toc-text">LeaferJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E5%BA%93%E5%90%84%E7%BB%B4%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="toc-number">46.</span> <span class="toc-text">图形库各维度对比</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#fabric-js"><span class="toc-number">46.1.</span> <span class="toc-text">fabric.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#konva-js"><span class="toc-number">46.2.</span> <span class="toc-text">konva.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#leaflet-js"><span class="toc-number">46.3.</span> <span class="toc-text">leaflet.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#pixi-js"><span class="toc-number">46.4.</span> <span class="toc-text">pixi.js</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">46.5.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Anime-js"><span class="toc-number">47.</span> <span class="toc-text">Anime.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#background-removal-js"><span class="toc-number">48.</span> <span class="toc-text">background-removal-js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-animate"><span class="toc-number">49.</span> <span class="toc-text">auto-animate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Simple-Statistics"><span class="toc-number">50.</span> <span class="toc-text">Simple Statistics</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jTopo"><span class="toc-number">51.</span> <span class="toc-text">jTopo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%92%8C%E9%A3%8E%E5%A4%A9%E6%B0%94%E6%8F%92%E4%BB%B6"><span class="toc-number">52.</span> <span class="toc-text">和风天气插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mark-js"><span class="toc-number">53.</span> <span class="toc-text">mark.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pictode"><span class="toc-number">54.</span> <span class="toc-text">Pictode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#excalidraw"><span class="toc-number">55.</span> <span class="toc-text">excalidraw</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#recorder"><span class="toc-number">56.</span> <span class="toc-text">recorder</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EasyPlayer"><span class="toc-number">57.</span> <span class="toc-text">EasyPlayer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#About"><span class="toc-number"></span> <span class="toc-text">About</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h265web-js"><span class="toc-number">1.</span> <span class="toc-text">h265web.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TinyLD"><span class="toc-number">2.</span> <span class="toc-text">TinyLD</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VineJS"><span class="toc-number">3.</span> <span class="toc-text">VineJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#antv-x6"><span class="toc-number">4.</span> <span class="toc-text">antv-x6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%BC%E5%87%BApdf"><span class="toc-number">5.</span> <span class="toc-text">导出pdf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#localforage"><span class="toc-number">6.</span> <span class="toc-text">localforage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VisActor"><span class="toc-number">7.</span> <span class="toc-text">VisActor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#heatmap-js"><span class="toc-number">8.</span> <span class="toc-text">heatmap.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Echo-UI"><span class="toc-number">9.</span> <span class="toc-text">Echo UI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Animotion"><span class="toc-number">10.</span> <span class="toc-text">Animotion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inpaint-web"><span class="toc-number">11.</span> <span class="toc-text">Inpaint-web</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86"><span class="toc-number">12.</span> <span class="toc-text">音视频处理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nginx%E4%BB%A3%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">13.</span> <span class="toc-text">nginx代管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mermaid-js"><span class="toc-number">14.</span> <span class="toc-text">mermaid.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsmind"><span class="toc-number">15.</span> <span class="toc-text">jsmind</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whatsapp-web-js"><span class="toc-number">16.</span> <span class="toc-text">whatsapp-web.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#image-coversion"><span class="toc-number">17.</span> <span class="toc-text">image-coversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#koodo"><span class="toc-number">18.</span> <span class="toc-text">koodo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vconsole"><span class="toc-number">19.</span> <span class="toc-text">vconsole</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pear-rec"><span class="toc-number">20.</span> <span class="toc-text">pear-rec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#blossom"><span class="toc-number">21.</span> <span class="toc-text">blossom</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#whistle"><span class="toc-number">22.</span> <span class="toc-text">whistle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Superjson"><span class="toc-number">23.</span> <span class="toc-text">Superjson</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LunarLink"><span class="toc-number">24.</span> <span class="toc-text">LunarLink</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#driver-js"><span class="toc-number">25.</span> <span class="toc-text">driver.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#simple-mind-map%EF%BC%88%E6%80%9D%E7%BB%AA%E6%80%9D%E7%BB%B4%E5%AF%BC%E5%9B%BE%EF%BC%89"><span class="toc-number">26.</span> <span class="toc-text">simple-mind-map（思绪思维导图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markmap"><span class="toc-number">27.</span> <span class="toc-text">markmap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stokado"><span class="toc-number">28.</span> <span class="toc-text">stokado</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Newcar"><span class="toc-number">29.</span> <span class="toc-text">Newcar</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#x-crawl"><span class="toc-number">30.</span> <span class="toc-text">x-crawl</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E7%A0%81%E7%94%9F%E6%88%90-JsBarcode"><span class="toc-number">31.</span> <span class="toc-text">条码生成 JsBarcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">32.</span> <span class="toc-text">音频可视化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#howlerjs"><span class="toc-number">33.</span> <span class="toc-text">howlerjs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%AD%97%E6%9C%BA%E6%95%88%E6%9E%9C"><span class="toc-number">34.</span> <span class="toc-text">打字机效果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SimpleMindMap"><span class="toc-number">35.</span> <span class="toc-text">SimpleMindMap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E9%9D%A2%E5%BC%95%E5%AF%BC"><span class="toc-number">36.</span> <span class="toc-text">页面引导</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AD%E5%9B%BD%E5%8C%BA%E5%9F%9F%E6%95%B0%E6%8D%AE"><span class="toc-number">37.</span> <span class="toc-text">中国区域数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rrweb"><span class="toc-number">38.</span> <span class="toc-text">rrweb</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dom-purify"><span class="toc-number">39.</span> <span class="toc-text">dom purify</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#editorAnnotate"><span class="toc-number">40.</span> <span class="toc-text">editorAnnotate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ElysiaJS"><span class="toc-number">41.</span> <span class="toc-text">ElysiaJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IMaker-%E5%88%9B%E5%AE%A2"><span class="toc-number">42.</span> <span class="toc-text">IMaker 创客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VideoSubtitleGenerator"><span class="toc-number">43.</span> <span class="toc-text">VideoSubtitleGenerator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#vmr"><span class="toc-number">44.</span> <span class="toc-text">vmr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web-tracing"><span class="toc-number">45.</span> <span class="toc-text">web-tracing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%94%9F%E6%88%90"><span class="toc-number">46.</span> <span class="toc-text">二维码生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QrIt"><span class="toc-number">47.</span> <span class="toc-text">QrIt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#widget-qrcode"><span class="toc-number">48.</span> <span class="toc-text">widget-qrcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#autocomplete"><span class="toc-number">49.</span> <span class="toc-text">autocomplete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JavaScript-%E8%AF%AD%E6%B3%95%E9%97%AE%E9%A2%98"><span class="toc-number">50.</span> <span class="toc-text">JavaScript 语法问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E6%B5%B7%E6%8A%A5%E8%AE%BE%E8%AE%A1"><span class="toc-number">51.</span> <span class="toc-text">在线海报设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">52.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E5%8A%9F%E8%83%BD"><span class="toc-number">53.</span> <span class="toc-text">支持功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#flowchart"><span class="toc-number">54.</span> <span class="toc-text">flowchart</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#QuickJS"><span class="toc-number">55.</span> <span class="toc-text">QuickJS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#color4bg-js"><span class="toc-number">56.</span> <span class="toc-text">color4bg.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MathLive"><span class="toc-number">57.</span> <span class="toc-text">MathLive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web%E7%AB%AF%E5%85%AC%E5%BC%8F%E8%BE%93%E5%85%A5"><span class="toc-number">58.</span> <span class="toc-text">web端公式输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fetch-event-source"><span class="toc-number">59.</span> <span class="toc-text">fetch event source</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8%E7%BA%BF%E5%8D%8F%E5%90%8C%E6%96%87%E6%A1%A3"><span class="toc-number">60.</span> <span class="toc-text">在线协同文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selenium"><span class="toc-number">61.</span> <span class="toc-text">selenium</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tagui"><span class="toc-number">62.</span> <span class="toc-text">tagui</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-wasm"><span class="toc-number">63.</span> <span class="toc-text">hash-wasm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebUI"><span class="toc-number">64.</span> <span class="toc-text">WebUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#canvas-confetti"><span class="toc-number">65.</span> <span class="toc-text">canvas-confetti</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#fues-js-fues-js-Fuzzy-Search-%E5%89%8D%E7%AB%AF%E6%A8%A1%E7%B3%8A%E6%90%9C%E7%B4%A2"><span class="toc-number">66.</span> <span class="toc-text">fues.js fues.js Fuzzy Search 前端模糊搜索</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Text-Search-Engine"><span class="toc-number">67.</span> <span class="toc-text">Text Search Engine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k-colors-js"><span class="toc-number">68.</span> <span class="toc-text">k-colors.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#json-schema-library"><span class="toc-number">69.</span> <span class="toc-text">json-schema-library</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Zerox-OCR"><span class="toc-number">70.</span> <span class="toc-text">Zerox OCR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MiKaPo"><span class="toc-number">71.</span> <span class="toc-text">MiKaPo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#faces-js"><span class="toc-number">72.</span> <span class="toc-text">[faces.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown-%E8%AF%AD%E6%B3%95%E7%BC%96%E8%BE%91%E5%99%A8"><span class="toc-number">73.</span> <span class="toc-text">markdown 语法编辑器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ProseMirror"><span class="toc-number">74.</span> <span class="toc-text">ProseMirror</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Quill"><span class="toc-number">75.</span> <span class="toc-text">Quill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#slate"><span class="toc-number">76.</span> <span class="toc-text">slate</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -1611,15 +1675,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1631,19 +1695,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1651,11 +1703,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1663,19 +1719,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1683,11 +1731,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1695,15 +1755,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1715,15 +1779,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1731,7 +1791,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1755,11 +1827,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1767,19 +1835,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1787,67 +1843,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1859,7 +1867,67 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1867,7 +1935,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1895,11 +1963,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1908,10 +1976,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019091106.jpg">
 <meta property="og:image" content="https://www.wangbase.com/blogimg/asset/201909/bg2019091107.jpg">
 <meta property="article:published_time" content="2022-06-17T10:23:10.000Z">
-<meta property="article:modified_time" content="2024-05-10T01:05:28.683Z">
+<meta property="article:modified_time" content="2024-12-05T03:04:57.505Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -289,7 +289,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.6k字</span>
+      <span class="post-count">4.3k字</span>
     </span>
   </span>
 
@@ -298,7 +298,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">13分</span>
+      <span class="post-count">16分</span>
     </span>
   </span>
 </div>
@@ -503,6 +503,46 @@
 
 </li>
 </ol>
+<h2 id="git-提交-commit-注释规范"><a href="#git-提交-commit-注释规范" class="headerlink" title="git 提交 commit 注释规范"></a>git 提交 commit 注释规范</h2><p>Git提交注释规范是确保项目代码变更记录清晰、易于理解和维护的重要约定。以下是一套详细的Git提交注释规范：</p>
+<h3 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h3><p>Git提交注释通常由以下几个部分组成，使用空行分隔：</p>
+<ol>
+<li><strong>标题行（Header）</strong>：必填，描述主要修改类型和内容。格式为<code>&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</code>。<ul>
+<li><strong>type</strong>：用于说明commit的类别，如<code>feat</code>表示新功能，<code>fix</code>表示修复bug，<code>docs</code>表示文档修改，<code>style</code>表示代码格式修改，<code>refactor</code>表示代码重构，<code>test</code>表示测试用例修改，<code>build</code>表示构建系统或依赖项修改，<code>ci</code>表示持续集成相关文件修改，<code>chore</code>表示其他修改，<code>revert</code>表示回滚之前的commit等。</li>
+<li><strong>scope</strong>：用于说明commit影响的范围，如数据层、控制层、视图层等，或当前修改目录、功能模块的名称。</li>
+<li><strong>subject</strong>：commit目的的简短描述，不超过50个字符，以动词开头，使用第一人称现在时，如<code>change</code>，第一个字母小写，结尾不加句号。</li>
+</ul>
+</li>
+<li><strong>主题内容（Body）</strong>：可选，描述为什么修改，做了什么样的修改，以及开发的思路等。可以分成多行。</li>
+<li><strong>页脚注释（Footer）</strong>：可选，通常放置Breaking Changes或Closed Issues等备注信息。</li>
+</ol>
+<h3 id="二、示例"><a href="#二、示例" class="headerlink" title="二、示例"></a>二、示例</h3><p>以下是一些符合规范的Git提交注释示例：</p>
+<p><strong>新功能</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat(login): 添加网站主页静态页面</span><br><span class="line"> </span><br><span class="line">添加了网站主页的静态页面，包括头部、导航栏和底部等组件。</span><br></pre></td></tr></table></figure>
+
+<p><strong>修复bug</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fix(parser): 修复数组解析时字符串中包含多个空格的问题</span><br><span class="line"> </span><br><span class="line">当字符串中包含多个空格时，之前的解析器会出错。此commit修复了该问题，现在可以正确解析包含多个空格的字符串。</span><br></pre></td></tr></table></figure>
+
+<p><strong>代码重构</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">refactor(user-auth): 重构用户验证逻辑</span><br><span class="line"> </span><br><span class="line">为了提高代码的可读性和可维护性，对用户验证逻辑进行了重构。</span><br></pre></td></tr></table></figure>
+
+<p><strong>性能优化</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">perf(image-loader): 优化图片加载速度</span><br><span class="line"> </span><br><span class="line">通过改进图片加载算法，提高了图片加载速度，提升了用户体验。</span><br></pre></td></tr></table></figure>
+
+<p><strong>文档修改</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docs: 更新README文件</span><br><span class="line"> </span><br><span class="line">更新了README文件，添加了项目介绍和安装步骤等内容。</span><br></pre></td></tr></table></figure>
+
+<p><strong>构建系统修改</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">build: 升级webpack到版本5</span><br><span class="line"> </span><br><span class="line">为了支持新的JavaScript特性和更好的性能，将webpack升级到版本5。</span><br></pre></td></tr></table></figure>
+
+<p><strong>回滚</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">revert: feat(pencil): add ‘graphiteWidth’ option</span><br><span class="line"> </span><br><span class="line">此commit回滚了之前添加的‘graphiteWidth’选项的commit。</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、注意事项"><a href="#三、注意事项" class="headerlink" title="三、注意事项"></a>三、注意事项</h3><ol>
+<li><strong>简洁明了</strong>：注释应简洁明了，避免冗长和复杂的描述。</li>
+<li><strong>一致性</strong>：团队内部应保持一致的注释风格，以便更好地理解和维护代码。</li>
+<li><strong>使用英文</strong>：建议使用英文进行注释，以便更广泛地与全球开发者交流。如果团队内部有特定需求，也可以使用中文或其他语言。</li>
+<li><strong>遵循约定</strong>：遵循项目或团队内部的Git提交注释约定，以确保代码变更记录的一致性和可读性。</li>
+</ol>
 
     
 
@@ -621,18 +661,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/npm/npm/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          npm常用命令
+          Nodejs 编程基础
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/npm/yarn/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">npm常用命令</div>
+    <a href="/2022/06/17/programming/python/python-base/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -659,7 +699,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E4%B8%8D%E9%80%9A%E8%BF%87%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">git 密码验证不通过问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E9%AA%8C%E8%AF%81%E4%BC%98%E5%8C%96"><span class="toc-number"></span> <span class="toc-text">git 验证优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4"><span class="toc-number"></span> <span class="toc-text">git 撤销提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4"><span class="toc-number">0.1.</span> <span class="toc-text">一、撤销提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%A2%E5%BC%83%E6%8F%90%E4%BA%A4"><span class="toc-number">0.2.</span> <span class="toc-text">二、丢弃提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9B%BF%E6%8D%A2%E4%B8%8A%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4"><span class="toc-number">0.3.</span> <span class="toc-text">三、替换上一次提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%92%A4%E9%94%80%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="toc-number">0.4.</span> <span class="toc-text">四、撤销工作区的文件修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E6%92%A4%E9%94%80%E6%96%87%E4%BB%B6"><span class="toc-number">0.5.</span> <span class="toc-text">五、从暂存区撤销文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%92%A4%E9%94%80%E5%BD%93%E5%89%8D%E5%88%86%E6%94%AF%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">0.6.</span> <span class="toc-text">六、撤销当前分支的变化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github-action"><span class="toc-number">1.</span> <span class="toc-text">github-action</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E4%BE%8B%EF%BC%9AReact-%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0-GitHub-Pages"><span class="toc-number"></span> <span class="toc-text">四、实例：React 项目发布到 GitHub Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github%E3%80%81gitee-%E7%94%9F%E6%88%90%E8%AE%BE%E7%BD%AE-ssh-key"><span class="toc-number"></span> <span class="toc-text">github、gitee 生成设置 ssh key</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push-%E4%B8%80%E7%9B%B4%E5%BC%B9%E5%87%BA%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA%EF%BC%8C%E6%88%96%E8%80%85%E6%8A%A5%E9%94%99-%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">git push 一直弹出输入用户名密码提示，或者报错 问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86"><span class="toc-number"></span> <span class="toc-text">git多账号管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">搭建一个最简单的服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">远程服务器操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%9C%AC%E6%9C%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">4.2 本机计算机操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number"></span> <span class="toc-text">遇到的错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-deploy-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">hexo deploy 提交代码 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93ssh%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5"><span class="toc-number">2.</span> <span class="toc-text">本地仓库ssh提交失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%87%BA%E7%8E%B0Host-key-verification-failed"><span class="toc-number">3.</span> <span class="toc-text">SSH连接时出现Host key verification failed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Failed-to-connect-to-github-com-port-443-Timed-out"><span class="toc-number">4.</span> <span class="toc-text">Failed to connect to github.com port 443 : Timed out</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-%E5%AF%86%E7%A0%81%E9%AA%8C%E8%AF%81%E4%B8%8D%E9%80%9A%E8%BF%87%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">git 密码验证不通过问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E9%AA%8C%E8%AF%81%E4%BC%98%E5%8C%96"><span class="toc-number"></span> <span class="toc-text">git 验证优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4"><span class="toc-number"></span> <span class="toc-text">git 撤销提交</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%92%A4%E9%94%80%E6%8F%90%E4%BA%A4"><span class="toc-number">0.1.</span> <span class="toc-text">一、撤销提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%B8%A2%E5%BC%83%E6%8F%90%E4%BA%A4"><span class="toc-number">0.2.</span> <span class="toc-text">二、丢弃提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%9B%BF%E6%8D%A2%E4%B8%8A%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4"><span class="toc-number">0.3.</span> <span class="toc-text">三、替换上一次提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%92%A4%E9%94%80%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%9A%84%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="toc-number">0.4.</span> <span class="toc-text">四、撤销工作区的文件修改</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E4%BB%8E%E6%9A%82%E5%AD%98%E5%8C%BA%E6%92%A4%E9%94%80%E6%96%87%E4%BB%B6"><span class="toc-number">0.5.</span> <span class="toc-text">五、从暂存区撤销文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%92%A4%E9%94%80%E5%BD%93%E5%89%8D%E5%88%86%E6%94%AF%E7%9A%84%E5%8F%98%E5%8C%96"><span class="toc-number">0.6.</span> <span class="toc-text">六、撤销当前分支的变化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github-action"><span class="toc-number">1.</span> <span class="toc-text">github-action</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E4%BE%8B%EF%BC%9AReact-%E9%A1%B9%E7%9B%AE%E5%8F%91%E5%B8%83%E5%88%B0-GitHub-Pages"><span class="toc-number"></span> <span class="toc-text">四、实例：React 项目发布到 GitHub Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#github%E3%80%81gitee-%E7%94%9F%E6%88%90%E8%AE%BE%E7%BD%AE-ssh-key"><span class="toc-number"></span> <span class="toc-text">github、gitee 生成设置 ssh key</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-push-%E4%B8%80%E7%9B%B4%E5%BC%B9%E5%87%BA%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA%EF%BC%8C%E6%88%96%E8%80%85%E6%8A%A5%E9%94%99-%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">git push 一直弹出输入用户名密码提示，或者报错 问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git%E5%A4%9A%E8%B4%A6%E5%8F%B7%E7%AE%A1%E7%90%86"><span class="toc-number"></span> <span class="toc-text">git多账号管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number"></span> <span class="toc-text">搭建一个最简单的服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C"><span class="toc-number">1.</span> <span class="toc-text">远程服务器操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-%E6%9C%AC%E6%9C%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">4.2 本机计算机操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%94%99%E8%AF%AF"><span class="toc-number"></span> <span class="toc-text">遇到的错误</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-deploy-%E6%8F%90%E4%BA%A4%E4%BB%A3%E7%A0%81-%E6%8A%A5%E9%94%99"><span class="toc-number">1.</span> <span class="toc-text">hexo deploy 提交代码 报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93ssh%E6%8F%90%E4%BA%A4%E5%A4%B1%E8%B4%A5"><span class="toc-number">2.</span> <span class="toc-text">本地仓库ssh提交失败</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SSH%E8%BF%9E%E6%8E%A5%E6%97%B6%E5%87%BA%E7%8E%B0Host-key-verification-failed"><span class="toc-number">3.</span> <span class="toc-text">SSH连接时出现Host key verification failed</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Failed-to-connect-to-github-com-port-443-Timed-out"><span class="toc-number">4.</span> <span class="toc-text">Failed to connect to github.com port 443 : Timed out</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git-%E6%8F%90%E4%BA%A4-commit-%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83"><span class="toc-number"></span> <span class="toc-text">git 提交 commit 注释规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">一、基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E7%A4%BA%E4%BE%8B"><span class="toc-number">2.</span> <span class="toc-text">二、示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">三、注意事项</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -817,15 +857,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -837,19 +877,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -857,11 +885,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -869,19 +901,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -889,11 +913,23 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -901,15 +937,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -921,15 +961,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -937,7 +973,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,11 +1009,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -973,19 +1017,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -993,67 +1025,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1065,7 +1049,67 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1073,7 +1117,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1101,11 +1145,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1114,10 +1158,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
