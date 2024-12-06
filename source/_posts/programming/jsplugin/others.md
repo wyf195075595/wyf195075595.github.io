@@ -178,6 +178,28 @@ module.exports = function(obj){
 > 预览pdf，支持很多功能，搜索，定位，高亮，菜单等,不能使用 npm 安装，手动去官网下载dist包，放置在 public 使用
 >
 > [参考链接](https://blog.csdn.net/IAIPython/article/details/134525898)
+>
+> [参考链接](https://www.qianduange.cn/article/1646.html)
+>
+> **文章目录**
+>
+> - - 一、pdf.js介绍
+> 	- 二、实现pdf预览的两种方式
+> 	- - 1、使用viewer.html
+> 		- 2、将PDF文件渲染成Canvas
+> 	- 三、viewer.js的使用形势下的一些方法及技巧
+> 	- - 1、实现外部操作跳转到具体的某一页
+> 		- - 法1）、修改viewer.js源码，添加一个可供页面跳转的参数page
+> 			- 法2）、修改pdf.js里面的页码
+> 		- 2、获取pdf.js里面的页码
+> 		- 3、根据pdf.js内置的postMessage函数、findBar函数实现外部文本的搜索
+> 		- 4、在pdfjs-3.7.107-dist版本中，给pdf.js传参的处理
+> 		- 5、在pdfjs-3.7.107-dist版本中，修改convertToRegExpString方法，更换匹配方法（可匹配到带有空格的文档）
+> 		- 6、清除pdf缓存
+> 		- 7、pdf.js实现分片加载
+> 		- 8、如果后端返回的是流的形式，就用此方法转一下
+> 		- 9、 下载
+> 	- 四、原理
 
 核心就是将 iframe 的 src 属性设置为 pdfjs 的地址，然后将 pdf 文件的地址作为参数传递给 pdfjs
 
@@ -187,7 +209,19 @@ module.exports = function(obj){
 <iframe :src="pdfUrl" ref="pdfViewRef" width="100%" height="100%"></iframe>
 ```
 
+**[对于老版本中可能遇见的问题](https://www.jb51.net/javascript/327521ngl.htm) **
 
+1. pdfjs 3.11.174 以上的版本，js资源是 .mjs 后缀，低版本浏览器会加载资源报错
+
+	自己改 文件后缀不行，得配置 nginx ，或者 降级插件
+
+	找到 Nginx 文件夹下的 mime.types ，我的mimetype文件路径为  /usr/local/nginx/mime.types, 再类型后面加上 mjs
+
+	```nginx
+	application/javascript                 js mjs;
+	```
+
+	
 
 ### **[Docxtemplater](https://docxtemplater.com/demo/#/categories)**
 
@@ -2738,3 +2772,29 @@ const errors: JsonError[] = jsonSchema.validate({ name: "my-data" });
 ![img](https://cdn.beekka.com/blogimg/asset/202404/bg2024040701.webp)
 
 一个生成随机卡通头像的 JS 库。
+
+### markdown 语法编辑器
+
+1. **[vditor](https://github.com/Vanessa219/vditor)**
+
+	此插件不支持vue3语法，可以使用无封装版本
+
+	![vditor](https://b3log.org/vditor/images/wysiwyg.gif)
+
+2. [tui.editor](https://github.com/nhn/tui.editor)
+
+	![tui editor](https://user-images.githubusercontent.com/37766175/121808381-251f5000-cc93-11eb-8c47-4f5a809de2b3.png)
+
+### [ProseMirror](https://prosemirror.xheldon.com/)
+
+ProseMirror是一个开源的JavaScript库，专注于构建强大而可定制的富文本编辑器。 **tui.editor** 就是基于此开发的, WangEditor的某些版本（如v5）是基于**slate.js**开发的
+
+### [Quill](https://github.com/slab/quill)
+
+一款很强的富文本编辑器，提供了很多api 拓展操作，可惜对表格支持不好
+
+### [slate](https://github.com/ianstormtaylor/slate)
+
+markdown 编辑器， [`slate-react`](https://github.com/ianstormtaylor/slate/blob/main/packages/slate-react) 支持 react 拓展
+
+![img](https://github.com/ianstormtaylor/slate/raw/main/docs/images/preview.png)

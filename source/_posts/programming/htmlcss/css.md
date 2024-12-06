@@ -1030,3 +1030,160 @@ body {
 ```
 
 ### [如何使用 CSS flexbox 制作时间线](https://www.jonashietala.se/blog/2024/08/25/a_simple_timeline_using_css_flexbox/)（英文）
+
+
+
+### 纵横比
+
+对于高清视频，您可以仅使用
+
+```css
+aspect-ratio: 16/9;
+```
+
+ 。对于完美正方形，仅需要
+
+```css
+aspect-ratio: 1
+```
+
+ ，因为隐含的第二个值也是`1` 。
+
+### object-fit
+
+无论哪种情况， `object-fit`都是与`aspect-ratio`完美搭配的属性，可确保应用自定义纵横比时图像不会扭曲。
+
+```css
+.image {
+  object-fit: cover;
+  aspect-ratio: 1;
+
+  /* Optional: constrain image size */
+  max-block-size: 250px;
+}
+```
+
+### 边距内联
+
+`margin-inline`用作设置内联（水平书写模式下的左侧和右侧）边距的简写。
+
+这里的替换很简单：
+
+```css
+/* Before */
+margin-left: auto;
+margin-right: auto;
+
+/* After */
+margin-inline: auto;
+```
+
+### 文本下划线偏移
+
+使用`text-underline-offset`可以控制文本基线和下划线之间(上下)的距离。该属性已成为我的标准重置的一部分，应用如下：
+
+```css
+a:not([class]) {
+	text-underline-offset: 0.25em;
+}
+```
+
+- [text-decoration-color](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-color)更改下划线颜色
+- [text-decoration-thickness](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness)更改下划线笔划粗细。
+
+
+
+### 轮廓偏移
+
+效果是 outline 可以外扩和内缩，类似于 box-shadow 的效果
+
+```css
+.outline-offset {
+  outline: 2px dashed blue;
+  outline-offset: var(--outline-offset, .5em);
+}
+```
+
+### 滚动边距顶部/底部
+
+设置滚动条偏移量
+
+可以缓解激活锚链接时粘性导航元素覆盖内容所引起的问题。使用`scroll-margin-top`我们可以在通过**导航滚动到元素时增加元素上方的空间**，以考虑粘性导航占用的空间。
+
+```css
+[id] {
+	scroll-margin-top: 2rem;
+}
+```
+
+### 主题配色方案
+
+如果您要启用调整整个应用程序，请在`:root`上设置以下内容，即优先选择`dark`主题（或翻转顺序以优先选择`light`主题）。
+
+```css
+:root {
+	color-scheme: dark light;
+}
+```
+
+您还可以在单个元素上定义`color-scheme` ，例如调整具有深色背景的元素内的表单控件以提高对比度。
+
+```css
+.dark-background {
+	color-scheme: dark;
+}
+```
+
+### 表单配色方案
+
+改变元素选中，高亮时的颜色,如复选框或单选按钮的颜色
+
+```css
+:root {
+  accent-color: mediumvioletred;
+}
+```
+
+
+
+### 过度滚动
+
+嵌套元素滚动，滚动到底时不会触发 外部页面滚动。除非鼠标移出范围
+
+```css
+.sidebar, .article {
+  overscroll-behavior: contain;
+}
+```
+
+### 文本换行
+
+`balance` ，其目标是平衡每行文本的字符数。让每行字数量差球不多，不满足就不换行
+
+```css
+:is(h1, h2, h3, h4, .text-balance) {
+  text-wrap: balance;
+
+  /* For demonstration */
+  max-inline-size: 25ch;
+}
+```
+
+pretty， 让最后一行最少有两个及以上字符，不满足就不换行
+
+```css
+p {
+  text-wrap: pretty;
+
+  /* For demonstration */
+  max-inline-size: 35ch;
+}
+```
+
+
+
+### 滚动条优化
+
+​	在某些情况下，滚动条的出现或消失可能会导致不必要的布局变化。例如，当显示对话框覆盖并且背景页面添加`overflow: hidden`以防止滚动时，导致移动不再需要的滚动条
+
+`scrollbar-gutter`可以在布局中为滚动条保留空间，从而防止出现不需要的移动。当不需要滚动条时，浏览器仍然会绘制一个装订线，作为除了滚动容器上的任何填充之外创建的额外空间。

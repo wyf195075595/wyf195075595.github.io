@@ -149,3 +149,39 @@ export default FileUpload;
 支持markdown 语法，自带效果预览
 ```
 
+
+
+### 处理 markdown 图片地址
+
+```react
+const MarkdownIt = require('markdown-it');  
+
+// 创建一个 MarkdownIt 实例  
+const md = new MarkdownIt();  
+
+// 自定义图片渲染规则  
+md.renderer.rules.image = (tokens, idx, options, env, self) => {  
+  const token = tokens[idx];  
+  const src = token.attrGet('src');  
+
+  // 替换图片地址（这里只是一个示例，你可以根据需要进行替换）  
+  const newSrc = src.replace('old-domain.com', 'new-domain.com');  
+
+  // 更新 token 的 src 属性  
+  token.attrSet('src', newSrc);  
+
+  // 使用默认的渲染器渲染图片  
+  return self.renderToken(tokens, idx, options);  
+};  
+
+// 测试 Markdown 内容  
+const markdown = `  
+![Alt Text](https://old-domain.com/image.jpg)  
+`;  
+
+// 将 Markdown 转换为 HTML  
+const html = md.render(markdown);  
+
+console.log(html);
+```
+

@@ -157,3 +157,142 @@ function Child({ callback }) {
 ```
 
 所有依赖本地状态或props来创建函数，需要使用到缓存函数的地方，都是useCallback的应用场景。
+
+
+
+### 组件条件渲染优化
+
+从 Solid.js 框架获得灵感，可以创建一个 `Show` 组件来优化条件渲染的写法：
+
+```react
+// Show 组件类型定义
+interface ShowProps<T> {
+  when: T | undefined | null | false;
+  fallback?: React.ReactNode;
+  children: React.ReactNode | ((item: T) => React.ReactNode);
+}
+```
+
+**实现方案**
+
+创建一个简单但强大的 `Show` 组件：
+
+```react
+function Show({ when, fallback = null, children }) {
+  return when ? children : fallback;
+}
+```
+
+使用示例
+
+**1. 基础条件渲染**
+
+```react
+// ❌ 旧写法
+{isLoading && <Spinner />}
+
+// ✅ 新写法
+<Show when={isLoading}>
+  <Spinner />
+</Show>
+```
+
+**2. 条件分支渲染**
+
+```react
+// ❌ 旧写法
+{isAdmin 
+  ? <AdminPanel /> 
+  : <UserPanel />
+}
+
+// ✅ 新写法
+<Show 
+  when={isAdmin}
+  fallback={<UserPanel />}
+>
+  <AdminPanel />
+</Show>
+```
+
+**3. 复杂条件渲染**
+
+```react
+// ❌ 旧写法
+{isCommentsEnabled && (
+  <>
+    <CommentsHeader />
+    {comments.map(comment => (
+      <CommentItem key={comment.id} {...comment} />
+    ))}
+    {isLoggedIn && <CommentForm />}
+  </>
+)}
+
+// ✅ 新写法
+<Show when={isCommentsEnabled}>
+  <CommentsHeader />
+  {comments.map(comment => (
+    <CommentItem key={comment.id} {...comment} />
+  ))}
+  <Show when={isLoggedIn}>
+    <CommentForm />
+  </Show>
+</Show>
+```
+
+**4. 带数据处理的条件渲染**
+
+```react
+// ❌ 旧写法
+{user && (
+  <div>
+    Welcome, {user.name}!
+    {user.isAdmin && <AdminBadge />}
+  </div>
+)}
+
+// ✅ 新写法
+<Show when={user}>
+  {(userData) => (
+    <div>
+      Welcome, {userData.name}!
+      <Show when={userData.isAdmin}>
+        <AdminBadge />
+      </Show>
+    </div>
+  )}
+</Show>
+```
+
+**扩展功能**
+
+还可以添加一些实用的功能：
+
+```react
+// 支持异步数据
+const AsyncShow = ({ when, fallback, children }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    Promise.resolve(when).then(result => {
+      setData(result);
+      setIsLoading(false);
+    });
+  }, [when]);
+
+  if (isLoading) return fallback;
+  return data ? children : null;
+};
+
+// 使用示例
+<AsyncShow 
+  when={fetchUserData()} 
+  fallback={<Loading />}
+>
+  {user => <UserProfile data={user} />}
+</AsyncShow>
+```
+
+这个简单的组件不仅能让代码更加清晰易读，还能提升开发效率。有时候最简单的改进反而能带来最大的收益！🎉

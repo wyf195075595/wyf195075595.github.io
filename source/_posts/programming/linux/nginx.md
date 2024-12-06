@@ -1367,6 +1367,18 @@ server {
 }
 ```
 
+项目代理外网 开放 端口 20093，访问此项目 http://65.X.X.75:20093，刷新页面时 重定向到了 http://65.X.X.75:10093 ，导致访问失败
+
+```nginx
+# 修正响应中的location和refresh字段，使其指向20093端口
+# 项目部署再 10093端口，由10094 反向代理
+location / {
+    proxy_pass http://192.168.1.126:10093;
+    proxy_redirect http://localhost:10093/ http://$host:20093/:
+}
+
+```
+
 
 
 ### gzip压缩
@@ -1394,5 +1406,30 @@ http {
 }
 # 添加对图片的Gzip压缩支持
     gzip_types image/jpeg image/gif image/png;
+```
+
+### nginx 参数拦截重定向
+
+解决的问题，从三方统一登录平台登录后跳转回本系统时路径（http://192.168.1.126:80/?ticket=xxx）请求在浏览器中是post 请求，导致无法访问到本系统页面
+
+```nginx
+server{
+    listen 80;
+    server_name 192.168.1.126;
+    location / {
+        root   /home/zkrd/workspace/threeOne/;
+        index  index.html index.htm;
+        # $arg_ticket 从链接?后边查找 ticket 参数
+        if ($arg_ticket) {
+            # 跳转到 /ticket页面
+            return 301 /home?ticket=$arg_ticket;
+        }
+    }
+     location = /home {
+        root /home/zkrd/workspace/threeOne/;
+        # 指定加载/index.html页面文件，没有返回404
+        try_files /index.html =404;
+    }
+}
 ```
 

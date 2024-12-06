@@ -306,6 +306,59 @@ const fontSize = computed(() => `${props.fontSize ? px2rem(props.fontSize) : 'in
 </el-button>
 ```
 
+### 注册指令
+
+- directives
+
+	- modules
+
+		xxx.js
+
+		```js
+		export default  {
+		  // 在绑定元素的 attribute 前
+		  // 或事件监听器应用前调用
+		  created(el, binding, vnode) {
+		    // 下面会介绍各个参数的细节
+		  },
+		  // 在元素被插入到 DOM 前调用
+		  beforeMount(el, binding, vnode) {},
+		  // 在绑定元素的父组件
+		  // 及他自己的所有子节点都挂载完成后调用
+		  mounted(el, binding, vnode) {},
+		  // 绑定元素的父组件更新前调用
+		  beforeUpdate(el, binding, vnode, prevVnode) {},
+		  // 在绑定元素的父组件
+		  // 及他自己的所有子节点都更新后调用
+		  updated(el, binding, vnode, prevVnode) {},
+		  // 绑定元素的父组件卸载前调用
+		  beforeUnmount(el, binding, vnode) {},
+		  // 绑定元素的父组件卸载后调用
+		  unmounted(el, binding, vnode) {}
+		}
+		```
+
+	- index.js
+
+```js
+export default {
+  install(app) {
+    const directives = import.meta.glob('./modules/*.js', { eager: true })
+    for (const [key, value] of Object.entries(directives)) {
+      // 拼接指令注册的 name
+      const name = key.split('/')[2].replace('.js', '')
+      console.log(name, value)
+      // 通过 defineAsyncComponent 异步导入指定路径下的组件
+      app.directive(name, defineAsyncComponent(value))
+    }
+  },
+}
+
+// main.js 注册
+import derictives from 'xxx/derictives'
+app.use(derictives)
+```
+
 
 
 ### 注册svg组件
@@ -344,65 +397,76 @@ const fontSize = computed(() => `${props.fontSize ? px2rem(props.fontSize) : 'in
 
 4. SvgIcon 组件代码
 
-	```vue
-	<template>
-	<svg :class="svgClass" aria-hidden="true">
-	  <use :xlink:href="iconName" :fill="color" />
-	</svg>
-	</template>
-	
-	<script setup>
-	import { computed } from 'vue'
-	const props = defineProps({
-	  iconClass: {
-	    type: String,
-	    required: true
-	  },
-	  className: {
-	    type: String,
-	    default: ''
-	  },
-	  color: {
-	    type: String,
-	    default: ''
-	  },
-	})
-	const iconName = computed(() => `#icon-${props.iconClass}`)
-	const svgClass = computed(() => {
-	    if (props.className) {
-	        return `svg-icon ${props.className}`
-	    }
-	    return 'svg-icon'
-	})
-	</script>
-	
-	<style scope lang="scss">
-	.sub-el-icon,
-	.nav-icon {
-	display: inline-block;
-	font-size: 15px;
-	margin-right: 12px;
-	position: relative;
-	}
-	
-	.svg-icon {
-	width: 1em;
-	height: 1em;
-	position: relative;
-	fill: currentColor;
-	vertical-align: -2px;
-	}
-	</style>
-	
-	```
+  ```vue
+  <template>
+    <svg :class="svgClass" aria-hidden="true">
+      <use :xlink:href="iconName" :fill="color" />
+    </svg>
+  </template>
+  
+  <script setup>
+  import { computed } from 'vue'
+  const props = defineProps({
+    iconClass: {
+      type: String,
+      required: true
+    },
+    className: {
+      type: String,
+      default: ''
+    },
+    color: {
+      type: String,
+      default: 'currentColor'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  })
+  const iconName = computed(() => `#icon-${props.iconClass}`)
+  const color = computed(() => {
+    if (props.disabled) {
+      return '#ccc'
+    }
+    return props.color
+  })
+  const svgClass = computed(() => {
+    if (props.className) {
+      return `svg-icon ${props.className}`
+    }
+    return 'svg-icon'
+  })
+  </script>
+  
+  <style scope lang="scss">
+  .sub-el-icon,
+  .nav-icon {
+    display: inline-block;
+    font-size: 15px !important;
+    margin-right: 2px !important;
+    position: relative;
+  }
+  
+  .svg-icon {
+    width: 1em;
+    height: 1em;
+    min-width: 1em;
+    position: relative;
+    fill: currentColor;
+    vertical-align: -2px;
+  }
+  </style>
+  
+  ```
 
 5. svg 资源
 
-	path 需添加 fill="currentColor"  让图标自适应颜色
+	path 不需添加 fill="currentColor"，  让图标自适应颜色，如果添加了fill 那么color参数就不生效了
 
 	```svg
 	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
-	<path fill="currentColor" d="M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32"/>
+	<path  d="M288 896h448q32 0 32 32t-32 32H288q-32 0-32-32t32-32"/>
 	</svg>
 	```
 
@@ -745,7 +809,40 @@ export default defineConfig(({ mode }) => {
 >
 > [注意]新版本eslit和prettier配置文件后缀都必须是.cjs
 >
-> **vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 **
+> **vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 ** 但是可能还要设置.vscode 文件夹 中的配置
+>
+> ```json
+> // settings.json
+> {
+>   "explorer.fileNesting.enabled": true,
+>   "explorer.fileNesting.patterns": {
+>     "tsconfig.json": "tsconfig.*.json, env.d.ts",
+>     "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+>     "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig"
+>   },
+>   "editor.codeActionsOnSave": {
+>     "source.fixAll": "explicit"
+>   },
+>   "editor.formatOnSave": true,
+>   "editor.defaultFormatter": "esbenp.prettier-vscode"
+> }
+> 
+> ```
+>
+> ```json
+> // extensioins
+> {
+>   "recommendations": [
+>     "Vue.volar",
+>     "dbaeumer.vscode-eslint",
+>     "EditorConfig.EditorConfig",
+>     "esbenp.prettier-vscode"
+>   ]
+> }
+> 
+> ```
+>
+> 
 
 [Vite+vue3+js+eslint+prettierc](https://segmentfault.com/a/1190000041954694)
 
@@ -780,6 +877,8 @@ process.env.NODE_ENV === 'production'
 
 判断，但是在vite中，没有 process，而是使用
 
+【注意】vite.config.js 配置文件中还是使用 process.env.NODE_ENV 访问
+
 ```js
 import.meta.env.MODE === "production"
 ```
@@ -797,10 +896,15 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   plugins: [
-    AutoImport({ /* options */ }),
+    AutoImport({ 
+      imports: ['vue', 'vue-router'],
+      dts: true,
+    }),
   ],
 })
 ```
+
+**配置完成后 根目录会新增 auto-imports.d.ts，或一个json 文件，在 eslint.config.js 中配置 忽略即可，不然 eslint 会提示你 引用错误**
 
 使用前
 
