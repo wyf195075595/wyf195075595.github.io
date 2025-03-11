@@ -18,7 +18,7 @@
 <meta property="og:description" content="配置别名1234567891011resolve: &amp;#123;   &#x2F;&#x2F; https:&#x2F;&#x2F;cn.vitejs.dev&#x2F;config&#x2F;#resolve-alias   alias: &amp;#123;     &#x2F;&#x2F; 设置路径     &amp;#x27;~&amp;#x27;: path.resolve(__dirname, &amp;#x27;.&#x2F;&amp;#x27;),     &#x2F;&#x2F; 设置别名     &amp;#x27;@&amp;#x27;:">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-06-17T00:23:10.000Z">
-<meta property="article:modified_time" content="2024-11-18T06:33:59.553Z">
+<meta property="article:modified_time" content="2024-12-26T02:55:59.875Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="vite">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">3.8k字</span>
+      <span class="post-count">4.2k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">20分</span>
+      <span class="post-count">22分</span>
     </span>
   </span>
 </div>
@@ -324,7 +324,7 @@
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">build<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">	minify<span class="punctuation">:</span> &#x27;terser&#x27;<span class="punctuation">,</span></span><br><span class="line">    terserOptions<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="comment">// 清除console和debugger</span></span><br><span class="line">        compress<span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">            drop_console<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">            drop_debugger<span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">        <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="配置-px-转-rem-自适应"><a href="#配置-px-转-rem-自适应" class="headerlink" title="配置 px 转 rem 自适应"></a>配置 px 转 rem 自适应</h3><blockquote>
-<p>npm i <a href="mailto:&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#112;&#x78;&#x74;&#x6f;&#114;&#101;&#109;&#x40;&#x35;&#46;&#49;&#46;&#49;">&#x70;&#x6f;&#x73;&#116;&#99;&#115;&#115;&#x2d;&#112;&#x78;&#x74;&#x6f;&#114;&#101;&#109;&#x40;&#x35;&#46;&#49;&#46;&#49;</a> -D</p>
+<p>npm i <a href="mailto:&#x70;&#111;&#115;&#116;&#99;&#115;&#x73;&#45;&#112;&#120;&#x74;&#111;&#114;&#101;&#109;&#x40;&#x35;&#x2e;&#49;&#x2e;&#x31;">&#x70;&#111;&#115;&#116;&#99;&#115;&#x73;&#45;&#112;&#120;&#x74;&#111;&#114;&#101;&#109;&#x40;&#x35;&#x2e;&#49;&#x2e;&#x31;</a> -D</p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7114211754413916167#heading-4">参考链接</a></p>
 </blockquote>
 <p>vite.config.js</p>
@@ -420,9 +420,9 @@
 <p>可以在脚手架初始化项目是添加 eslint 和 prettier, 也可以为已有项目添加，参考如下</p>
 <p>[注意]新版本eslit和prettier配置文件后缀都必须是.cjs</p>
 <p>**vue3 新版本 脚手架，使用vite构建项目，添加eslit和prettier  就自动设置完成 ** 但是可能还要设置.vscode 文件夹 中的配置</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;explorer.fileNesting.enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;explorer.fileNesting.patterns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;tsconfig.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.*.json, env.d.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vite.config.*&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;package.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;source.fixAll&quot;</span><span class="punctuation">:</span> <span class="string">&quot;explicit&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// settings.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;explorer.fileNesting.enabled&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;explorer.fileNesting.patterns&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"> <span class="attr">&quot;tsconfig.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;tsconfig.*.json, env.d.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">&quot;vite.config.*&quot;</span><span class="punctuation">:</span> <span class="string">&quot;jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*&quot;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="attr">&quot;package.json&quot;</span><span class="punctuation">:</span> <span class="string">&quot;package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;editor.codeActionsOnSave&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line"> <span class="attr">&quot;source.fixAll&quot;</span><span class="punctuation">:</span> <span class="string">&quot;explicit&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;editor.formatOnSave&quot;</span><span class="punctuation">:</span> <span class="keyword">true</span><span class="punctuation">,</span></span><br><span class="line"><span class="attr">&quot;editor.defaultFormatter&quot;</span><span class="punctuation">:</span> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extensioins</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;recommendations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;Vue.volar&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;dbaeumer.vscode-eslint&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;EditorConfig.EditorConfig&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extensioins</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line"><span class="attr">&quot;recommendations&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line"> <span class="string">&quot;Vue.volar&quot;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="string">&quot;dbaeumer.vscode-eslint&quot;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="string">&quot;EditorConfig.EditorConfig&quot;</span><span class="punctuation">,</span></span><br><span class="line"> <span class="string">&quot;esbenp.prettier-vscode&quot;</span></span><br><span class="line"><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
 </blockquote>
@@ -457,6 +457,14 @@
 
 <p>使用</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/favicon.ico&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>&lt;%= domain %&gt; | &lt;%= title %&gt;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- Run Conditions--&gt;</span></span><br><span class="line">    &lt;% if(isDev)&#123; %&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/path/to/development-only-script.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    &lt;% &#125; else &#123; %&gt;</span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;/path/to/production-only-script.js&quot;</span> <span class="attr">crossorigin</span>=<span class="string">&quot;anonymous&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    &lt;% &#125; %&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/src/main.ts&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="浏览器兼容性配置"><a href="#浏览器兼容性配置" class="headerlink" title="浏览器兼容性配置"></a>浏览器兼容性配置</h3><p>vite 内置插件 <a target="_blank" rel="noopener" href="https://github.com/vitejs/vite/tree/main/packages/plugin-legacy">@vitejs/plugin-legacy</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">import</span> legacy <span class="keyword">from</span> <span class="string">&#x27;@vitejs/plugin-legacy&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">plugins</span>: [</span><br><span class="line">    <span class="title function_">legacy</span>(&#123;</span><br><span class="line">      <span class="attr">targets</span>: [<span class="string">&#x27;defaults&#x27;</span>, <span class="string">&#x27;not IE 11&#x27;</span>,<span class="string">&#x27;Chrome &gt;= 80&#x27;</span>], <span class="comment">// 设置目标浏览器</span></span><br><span class="line">      <span class="attr">additionalLegacyPolyfills</span>: [<span class="string">&#x27;regenerator-runtime/runtime&#x27;</span>], <span class="comment">// 添加额外的 polyfills</span></span><br><span class="line">      <span class="attr">modernPolyfills</span>: [<span class="string">&#x27;es.promise.finally&#x27;</span>], <span class="comment">// 在现代浏览器中只引入的 polyfill</span></span><br><span class="line">      <span class="attr">disablePolyfill</span>: <span class="literal">false</span>, <span class="comment">// 是否禁用 polyfills，禁止自动添加垫片</span></span><br><span class="line">      <span class="attr">polyfills</span>: <span class="literal">true</span>, <span class="comment">// 启用 polyfills，控制是否为所有目标浏览器添加 polyfill</span></span><br><span class="line">      <span class="attr">renderLegacyChunks</span>: <span class="literal">true</span>, <span class="comment">// 生成兼容老旧浏览器的 Chunk</span></span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//必须安装 Terser，因为旧版插件使用 Terser 进行压缩。</span></span><br><span class="line"></span><br><span class="line">npm add -D terser</span><br></pre></td></tr></table></figure>
+
+<p>css 后缀兼容添加</p>
+<p>通过配置 <code>.browserslistrc</code> 或 <code>package.json</code> 中的 <code>browserslist</code> 字段来指定目标浏览器，Autoprefixer 会根据这些设置自动添加浏览器前缀。</p>
+<h3 id="打包成无需node环境运行得包"><a href="#打包成无需node环境运行得包" class="headerlink" title="打包成无需node环境运行得包"></a>打包成无需node环境运行得包</h3><p>默认情况下，Vite 使用的是 <strong>ES模块</strong>（ESM）来进行打包和输出。如果你希望将项目打包为完全独立的静态文件（即 HTML、JS、CSS 等），并且能在没有 Node.js 环境的情况下运行，确保 Vite 配置正确地生成这些静态文件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vite.config.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">build</span>: &#123;</span><br><span class="line">    <span class="attr">outDir</span>: <span class="string">&#x27;dist&#x27;</span>,  <span class="comment">// 打包输出目录，默认是 dist</span></span><br><span class="line">    <span class="attr">assetsDir</span>: <span class="string">&#x27;assets&#x27;</span>, <span class="comment">// 静态资源目录</span></span><br><span class="line">    <span class="attr">rollupOptions</span>: &#123;</span><br><span class="line">      <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="comment">// 为了避免文件路径错误，可以设置 base 路径</span></span><br><span class="line">        <span class="comment">// base: &#x27;/path/to/static/assets/&#x27;, // 如果你的资源有路径前缀，可以设置 base</span></span><br><span class="line">          <span class="comment">// 静态资源打包做处理</span></span><br><span class="line">        <span class="attr">chunkFileNames</span>: <span class="string">&quot;js/[name]-[hash].js&quot;</span>,</span><br><span class="line">        <span class="attr">entryFileNames</span>: <span class="string">&quot;js/[name]-[hash].js&quot;</span>,</span><br><span class="line">        <span class="attr">assetFileNames</span>: <span class="string">&quot;[ext]/[name]-[hash].[ext]&quot;</span>,</span><br><span class="line">        <span class="title function_">manualChunks</span>(<span class="params">id</span>) &#123;</span><br><span class="line">          <span class="keyword">if</span> (id.<span class="title function_">includes</span>(<span class="string">&quot;node_modules&quot;</span>)) &#123;</span><br><span class="line">            <span class="keyword">return</span> id</span><br><span class="line">              .<span class="title function_">toString</span>()</span><br><span class="line">              .<span class="title function_">split</span>(<span class="string">&quot;node_modules/&quot;</span>)[<span class="number">1</span>]</span><br><span class="line">              .<span class="title function_">split</span>(<span class="string">&quot;/&quot;</span>)[<span class="number">0</span>]</span><br><span class="line">              .<span class="title function_">toString</span>();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     
@@ -576,11 +584,11 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/vue/v-model%E5%8F%98%E5%8C%96/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/vue/vitevue3%E9%A1%B9%E7%9B%AE/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          插件
+          vite + vue3 + tailwindcss
         
       </div>
     </a>
@@ -614,7 +622,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%951"><span class="toc-number">2.1.</span> <span class="toc-text">1.Vite代码分割方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%952"><span class="toc-number">2.2.</span> <span class="toc-text">Vite代码分割方法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">全局样式注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-iconfont"><span class="toc-number">7.</span> <span class="toc-text">引入 iconfont</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">8.</span> <span class="toc-text">注册指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Csvg%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">注册svg组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%80%9A%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">10.</span> <span class="toc-text">字典通用解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">11.</span> <span class="toc-text">完整的配置参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="toc-number">12.</span> <span class="toc-text">代码风格配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-require-%E8%AF%AD%E6%B3%95"><span class="toc-number">13.</span> <span class="toc-text">支持 require 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">14.</span> <span class="toc-text">环境变量获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80-api-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-number">15.</span> <span class="toc-text">全局 api 自动引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-html-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8-ejs-%E8%AF%AD%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text">index.html 模板使用 ejs 语法</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E5%88%AB%E5%90%8D"><span class="toc-number">1.</span> <span class="toc-text">配置别名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2"><span class="toc-number">2.</span> <span class="toc-text">代码分割</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%951"><span class="toc-number">2.1.</span> <span class="toc-text">1.Vite代码分割方法1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vite%E4%BB%A3%E7%A0%81%E5%88%86%E5%89%B2%E6%96%B9%E6%B3%952"><span class="toc-number">2.2.</span> <span class="toc-text">Vite代码分割方法2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E4%BB%A3%E7%A0%81console%E5%92%8Cdebugger"><span class="toc-number">3.</span> <span class="toc-text">清除代码console和debugger</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-px-%E8%BD%AC-rem-%E8%87%AA%E9%80%82%E5%BA%94"><span class="toc-number">4.</span> <span class="toc-text">配置 px 转 rem 自适应</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gzip%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E5%8E%8B%E7%BC%A9"><span class="toc-number">5.</span> <span class="toc-text">gzip静态资源压缩</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E6%A0%B7%E5%BC%8F%E6%B3%A8%E5%85%A5"><span class="toc-number">6.</span> <span class="toc-text">全局样式注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5-iconfont"><span class="toc-number">7.</span> <span class="toc-text">引入 iconfont</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%E6%8C%87%E4%BB%A4"><span class="toc-number">8.</span> <span class="toc-text">注册指令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%86%8Csvg%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">注册svg组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E5%85%B8%E9%80%9A%E7%94%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-number">10.</span> <span class="toc-text">字典通用解决方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%9A%84%E9%85%8D%E7%BD%AE%E5%8F%82%E8%80%83"><span class="toc-number">11.</span> <span class="toc-text">完整的配置参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC%E9%85%8D%E7%BD%AE"><span class="toc-number">12.</span> <span class="toc-text">代码风格配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%AF%E6%8C%81-require-%E8%AF%AD%E6%B3%95"><span class="toc-number">13.</span> <span class="toc-text">支持 require 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%8E%B7%E5%8F%96"><span class="toc-number">14.</span> <span class="toc-text">环境变量获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80-api-%E8%87%AA%E5%8A%A8%E5%BC%95%E5%85%A5"><span class="toc-number">15.</span> <span class="toc-text">全局 api 自动引入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#index-html-%E6%A8%A1%E6%9D%BF%E4%BD%BF%E7%94%A8-ejs-%E8%AF%AD%E6%B3%95"><span class="toc-number">16.</span> <span class="toc-text">index.html 模板使用 ejs 语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7%E9%85%8D%E7%BD%AE"><span class="toc-number">17.</span> <span class="toc-text">浏览器兼容性配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85%E6%88%90%E6%97%A0%E9%9C%80node%E7%8E%AF%E5%A2%83%E8%BF%90%E8%A1%8C%E5%BE%97%E5%8C%85"><span class="toc-number">18.</span> <span class="toc-text">打包成无需node环境运行得包</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -653,7 +661,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022-2024 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2025 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -772,15 +780,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,19 +800,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -812,19 +808,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -832,11 +824,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,15 +852,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -864,7 +864,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -872,15 +896,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -896,34 +932,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
@@ -932,11 +940,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -944,11 +948,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -964,43 +972,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1012,7 +996,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1020,7 +1028,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1068,11 +1076,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">

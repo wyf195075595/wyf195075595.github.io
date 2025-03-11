@@ -18,7 +18,7 @@
 <meta property="og:description" content="用命令netstat查侦听端口netstat 是一个命令行工具，可以提供有关网络连接的信息。 要列出正在侦听的所有TCP或UDP端口，包括使用端口和套接字状态的服务，请使用以下命令： 1sudo netstat -tunlp  此命令中使用的选项具有以下含义：  -t - 显示TCP端口。 -u - 显示UDP端口。 -n - 显示数字地址而不是解析主机。 -l - 仅显示侦听端口。 -p - 显">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-08-02T02:54:10.000Z">
-<meta property="article:modified_time" content="2023-10-31T02:58:48.383Z">
+<meta property="article:modified_time" content="2025-01-03T09:15:25.163Z">
 <meta property="article:author" content="王不留行">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">685字</span>
+      <span class="post-count">1.7k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">2分</span>
+      <span class="post-count">6分</span>
     </span>
   </span>
 </div>
@@ -382,7 +382,98 @@
 
 </li>
 </ol>
+<h3 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a><strong>grep</strong>命令</h3><p>搜索文件中的特定模式。</p>
+<p>语法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">&quot;let&#x27;s find something&quot;</span> file.[txt,json,js,md,etc]</span><br></pre></td></tr></table></figure>
 
+<p>参数</p>
+<ul>
+<li><p>-i 区分大小写</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i <span class="string">&quot;Operation not supported on socket&quot;</span> system.log</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>-c 统计匹配行数量</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -c <span class="string">&quot;error&quot;</span> system.log</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>-e 搜索多个模式</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -e <span class="string">&quot;error&quot;</span> -e <span class="string">&quot;404&quot;</span> system.log</span><br></pre></td></tr></table></figure></li>
+<li><p>-r 递归搜索</p>
+<p>  要在目录及其子目录内的所有文件中搜索模式，请使用*-r*</p>
+<p>   <strong>-o</strong>选项告诉 grep 仅打印该行的匹配部分。</p>
+<p>  管道**|**获取左侧命令 (grep) 的输出，并将其用作右侧命令 ( <em>wc -l</em> ) 的输入。</p>
+<p>  <strong>wc -l</strong> 计算并显示其输入中的行数。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grep -o -r <span class="string">&quot;fs&quot;</span> node_modules | <span class="built_in">wc</span> -l</span><br><span class="line">22491</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="man命令"><a href="#man命令" class="headerlink" title="man命令"></a>man命令</h3><p>帮助您查找有关其他命令和程序的详细信息。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man grep</span><br></pre></td></tr></table></figure>
+
+<h3 id="cat命令"><a href="#cat命令" class="headerlink" title="cat命令"></a>cat命令</h3><p>它用于显示文件的内容、组合文件或创建新文件。</p>
+<p>cat 的主要功能之一是它能够将多个文件合并为一个</p>
+<p><strong>获取<em>file1.txt</em>和<em>file2.txt</em>的内容并将它们合并到<em>file3.txt</em>中</strong>。 **&gt;**运算符用于将组合输出定向到新文件中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> file1.txt file2.txt &gt; file3.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>创建新文件：</strong>您还可以使用<em>cat</em>创建新文件。输入文本，完成后按<em>Ctrl+D</em>保存并退出。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &gt; newfile.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>查看文件</strong></p>
+<p>查看小文件比较方便，但是大的文件不行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> newfile.txt</span><br></pre></td></tr></table></figure>
+
+<p><strong>head 命令</strong></p>
+<p>处理大文件时，您通常不需要查看所有内容。 head 命令可以让您仅预览文件的前几行，而不是使用 cat 显示所有内容。</p>
+<p>默认情况下， <strong>head</strong>显示文件的前 10 行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span> package-lock.json</span><br></pre></td></tr></table></figure>
+
+<p>如果需要更多或更少的行，可以使用**-n**选项指定确切的数量：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">head</span> -n 5 package-lock.json</span><br></pre></td></tr></table></figure>
+
+<h3 id="tail-命令"><a href="#tail-命令" class="headerlink" title="tail 命令"></a>tail 命令</h3><p><strong>tail</strong>是<strong>head</strong>的对应部分。它允许您查看文件的最后几行而不是第一行。它默认也是展示十行</p>
+<ul>
+<li><em>-n</em>选项调整显示的行数。</li>
+<li>-f 实时查看最后 （默认十条）</li>
+</ul>
+<h3 id="sed-命令"><a href="#sed-命令" class="headerlink" title="sed 命令"></a>sed 命令</h3><p><strong>sed</strong>是 Stream Editor 的缩写，是终端中文本处理的强大工具。它允许您在文件或数据流中查找、替换、插入或删除文本。</p>
+<p><strong>替换文件中的单词或模式：</strong>将“Trevor”替换为“John”。</p>
+<p>如果要保存更改，请使用**-i**选项。</p>
+<p>-i 后边必须跟一个参数，可以是空字符串或拓展名。但在GNU/Linux系统中，直接使用 <code>-i</code> 也是可以的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">&#x27;&#x27;</span> <span class="string">&#x27;s/Trevor/John/&#x27;</span> hello.md</span><br></pre></td></tr></table></figure>
+
+<p><strong>打印特定行：</strong>仅打印文件中的特定行。</p>
+<p>这会打印第 2 行到第 4 行。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">&#x27;2,4p&#x27;</span> package-lock.json</span><br></pre></td></tr></table></figure>
+
+<p><strong>正则表达式：</strong> <em>sed</em>支持正则表达式，允许复杂的搜索和替换操作。例如，将所有数字替换为“ <em>X</em> ”：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed <span class="string">&#x27;s/[0-9]/X/g&#x27;</span> combined.csv</span><br></pre></td></tr></table></figure>
+
+<p><strong>批量重命名文件：</strong>假设您有多个扩展名为*.txt<em>的文件，并且您希望将它们重命名为</em>.md* 。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> *.txt; <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">mv</span> <span class="string">&quot;<span class="variable">$file</span>&quot;</span> <span class="string">&quot;<span class="subst">$(echo <span class="string">&quot;<span class="variable">$file</span>&quot;</span> | sed &#x27;s/.txt$/.md/&#x27;)</span>&quot;</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="chmod命令"><a href="#chmod命令" class="headerlink" title="chmod命令"></a><strong>chmod命令</strong></h3><p>每个文件具有三组权限：<strong>所有者</strong>、<strong>组</strong>和<strong>其他</strong>。</p>
+<p>文件权限-rw-rx—r—表示：</p>
+<ul>
+<li><strong>所有者 (trevorindreklasn)：</strong>具有读取 (r) 和写入 (w) 权限。</li>
+<li><strong>组（职员）：</strong>具有读取（r）权限,执行（x）权限。</li>
+<li><strong>其他：</strong>具有读(r)权限。</li>
+</ul>
+<h3 id="xargs命令"><a href="#xargs命令" class="headerlink" title="xargs命令"></a><strong>xargs命令</strong></h3><p><strong>xargs</strong>命令使用其他命令的输入来构建和运行命令。它用于将项目列表作为参数传递给另一个命令。</p>
+<p>将左侧 find 的 .txt 文件列表作为参数传递给 rm 命令，删除所有 .txt 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">&quot;*.txt&quot;</span> | xargs <span class="built_in">rm</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="find命令"><a href="#find命令" class="headerlink" title="find命令"></a>find命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find [path] [expression]</span><br></pre></td></tr></table></figure>
+
+<p>find 命令在<em>node_modules</em>目录中搜索“astro”的出现，返回具有该名称的文件和目录的路径，包括可执行文件和包文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find node_modules -name <span class="string">&quot;astro&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>清理旧日志文件：</strong>定期删除超过一个月的日志文件以释放磁盘空间。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /var/log -<span class="built_in">type</span> f -name <span class="string">&quot;*.log&quot;</span> -mtime +30 -delete</span><br></pre></td></tr></table></figure>
+
+<p><strong>备份重要文件：</strong>找到所有**.docx**文件并将其从主目录复制到备份位置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ~/Documents -name <span class="string">&quot;*.docx&quot;</span> -<span class="built_in">exec</span> <span class="built_in">cp</span> &#123;&#125; /path/to/backup/ \;</span><br></pre></td></tr></table></figure>
     
 
     
@@ -538,7 +629,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4netstat%E6%9F%A5%E4%BE%A6%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">用命令netstat查侦听端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2nginx%E4%B8%BB%E8%BF%9B%E7%A8%8B%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">查询nginx主进程号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-IP"><span class="toc-number">3.</span> <span class="toc-text">查询 IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B-tar-gz-%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">解压.tar .gz 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">解压文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">设置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">引入第三方库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2java%E9%A1%B9%E7%9B%AE"><span class="toc-number">8.</span> <span class="toc-text">部署java项目</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%91%BD%E4%BB%A4netstat%E6%9F%A5%E4%BE%A6%E5%90%AC%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">用命令netstat查侦听端口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2nginx%E4%B8%BB%E8%BF%9B%E7%A8%8B%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">查询nginx主进程号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2-IP"><span class="toc-number">3.</span> <span class="toc-text">查询 IP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B-tar-gz-%E6%96%87%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">解压.tar .gz 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text">解压文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-number">6.</span> <span class="toc-text">设置环境变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-number">7.</span> <span class="toc-text">引入第三方库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%83%A8%E7%BD%B2java%E9%A1%B9%E7%9B%AE"><span class="toc-number">8.</span> <span class="toc-text">部署java项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grep%E5%91%BD%E4%BB%A4"><span class="toc-number">9.</span> <span class="toc-text">grep命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#man%E5%91%BD%E4%BB%A4"><span class="toc-number">10.</span> <span class="toc-text">man命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#cat%E5%91%BD%E4%BB%A4"><span class="toc-number">11.</span> <span class="toc-text">cat命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tail-%E5%91%BD%E4%BB%A4"><span class="toc-number">12.</span> <span class="toc-text">tail 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed-%E5%91%BD%E4%BB%A4"><span class="toc-number">13.</span> <span class="toc-text">sed 命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#chmod%E5%91%BD%E4%BB%A4"><span class="toc-number">14.</span> <span class="toc-text">chmod命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xargs%E5%91%BD%E4%BB%A4"><span class="toc-number">15.</span> <span class="toc-text">xargs命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find%E5%91%BD%E4%BB%A4"><span class="toc-number">16.</span> <span class="toc-text">find命令</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -577,7 +668,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2022-2024 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
+    		&copy; 2022-2025 <a href="https://wyf195075595.github.io/" target="_blank">王不留行</a>
     	</div>
       	<div class="footer-right">
 			
@@ -696,15 +787,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -716,19 +807,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -736,19 +815,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -756,11 +831,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -772,15 +859,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -788,7 +871,31 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,15 +903,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,34 +939,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
@@ -856,11 +947,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -868,11 +955,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -888,43 +979,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -936,7 +1003,31 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -944,7 +1035,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,11 +1083,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
