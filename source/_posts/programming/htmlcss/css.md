@@ -736,6 +736,8 @@ clip-path: path('M 0 200 L 0,75 A 5,5 0,0,1 150,75 L 200 200 z');
 
 ### 适配移动端视口的单位
 
+postcss-px-to-viewport，一个postcss插件自动将px单位转换为 vh,vw 单位
+
 > 桌面端的 vh,vw 单位在移动端下 设置100%，由于状态栏，浏览器导航栏，📱下面的按钮栏，会导致 100% vh出现滚动条。
 >
 > 为了解决这个问题，CSS 工作组规定了视口的各种状态。
@@ -1187,3 +1189,191 @@ p {
 ​	在某些情况下，滚动条的出现或消失可能会导致不必要的布局变化。例如，当显示对话框覆盖并且背景页面添加`overflow: hidden`以防止滚动时，导致移动不再需要的滚动条
 
 `scrollbar-gutter`可以在布局中为滚动条保留空间，从而防止出现不需要的移动。当不需要滚动条时，浏览器仍然会绘制一个装订线，作为除了滚动容器上的任何填充之外创建的额外空间。
+
+
+
+### [3d折叠效果](https://www.joshwcomeau.com/react/folding-the-dom/)
+
+本文介绍如何使用 CSS 实现 3D 的页面折叠动画效果(英文)
+
+```jsx
+const Foldable = ({ width, height, src }) => {
+  const [
+    foldAngle,
+    setFoldAngle,
+  ] = React.useState(0);
+
+  // Both our top half and bottom half share
+  // a few common styles
+  const sharedStyles = {
+    width,
+    height: height / 2,
+  };
+
+  return (
+    <div style={{ perspective: 500 }}>
+      {/* Top half */}
+      <div
+        style={{
+          ...sharedStyles,
+          // This property's new ⤸
+          overflow: 'hidden',
+        }}
+      >
+        {/* This image is new ⤸ */}
+        <img
+          src={src}
+          alt="a neon Chinese alley"
+          style={{
+            width,
+            height,
+          }}
+        />
+      </div>
+
+      {/* Bottom half */}
+      <div
+        style={{
+          ...sharedStyles,
+
+          // Only the bottom half gets a bg-image
+          backgroundSize: `${width}px ${height}px`,
+          backgroundImage: `url(${src})`,
+
+          // Shift our background up to
+          // make it contiguous with the
+          // top half:
+          backgroundPosition: `0px -100%`,
+
+          // Apply the folding rotation:
+          transform: `rotateX(${foldAngle}deg)`,
+          transformOrigin: 'center top',
+
+          // This optional prop can improve
+          // performance, by letting the
+          // browser optimize it:
+          willChange: 'transform',
+        }}
+      />
+
+      {/* Slider control */}
+      <br />
+      <label htmlFor="slider">Fold ratio:</label>
+      <input
+        id="slider"
+        type="range"
+        min={0}
+        max={180}
+        value={foldAngle}
+        onChange={ev =>
+          setFoldAngle(ev.target.value)
+        }
+        style={{ width }}
+      />
+    </div>
+  );
+};
+
+render(
+  <Foldable
+    width={200}
+    height={300}
+    src={src}
+  />
+);
+```
+
+### [主题切换效果](https://juejin.cn/post/7207810396420325413?searchId=202501060958263E6A510CA320CE776C02)
+
+**document.startViewTransition** 方法 实现丝滑切换主题
+
+注意edge/chrome版本至少为111
+
+![transitionAnimation.gif](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0039c7e7f6434e2aa54aca8fbfcb914e~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp?)
+
+
+
+### [无限的滚动旋转木马动画](https://codepen.io/wyf195075595/pen/MYWYpVm)
+
+CSS创建一个无限的滚动旋转木马动画，并在悬停效果上停下来
+
+```html
+<style>
+  .carousel {
+    margin: 0 auto;
+    padding: 20px 0;
+    max-width: 700px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .card {
+    width: 100%;
+    color: white;
+    border-radius: 24px;
+    box-shadow: rgba(0, 0, 0, 10%) 5px 5px 20px 0;
+    padding: 20px;
+    font-size: xx-large;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+
+    &:nth-child(1) {
+      background: #7958ff;
+    }
+
+    &:nth-child(2) {
+      background: #5d34f2;
+    }
+
+    &:nth-child(3) {
+      background: #4300da;
+    }
+  }
+
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .carousel {
+    /* ... */
+    > * {
+      flex: 0 0 100%;
+    }
+      
+    &:hover .group {
+      animation-play-state: paused;
+    }
+  }
+
+  /* Group the cards for better structure. */
+  .group {
+    display: flex;
+    gap: 20px;
+    /* Add padding to the right to create a gap between the last and first card. */
+    padding-right: 20px;
+      
+    /* ... */
+    will-change: transform; /* We should be nice to the browser - let it know what we're going to animate. */
+    animation: scrolling 10s linear infinite;
+  }
+</style>
+<div class="carousel">
+  <div class="group">
+    <div class="card">A</div>
+    <div class="card">B</div>
+    <div class="card">C</div>
+  </div>
+  <!-- Add `aria-hidden` to hide the duplicated cards from screen readers. -->
+  <div aria-hidden class="group">
+    <div class="card">A</div>
+    <div class="card">B</div>
+    <div class="card">C</div>
+  </div>
+</div>
+```
+

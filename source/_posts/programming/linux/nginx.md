@@ -1338,6 +1338,23 @@ server {
     }
 ```
 
+### 代理eventSource吐出异常
+
+因为默认带有缓存，数据量过少会等到累计接收到指定大小才会主动发送。导致页面流式加载展示会出现吐出卡顿现象
+
+```nginx
+location /proxy/ {
+    proxy_pass  http://192.168.1.126:10028/;
+    # 关闭缓冲
+    proxy_buffering off;
+    fastcgi_buffering off;
+    uwsgi_buffering off;
+    scgi buffering off;
+}
+```
+
+
+
 ### 代理图片静态资源
 
 ```nginx
@@ -1431,5 +1448,16 @@ server{
         try_files /index.html =404;
     }
 }
+```
+
+### 静态资源缓存问题
+
+```nginx
+location / {
+    root   /home/zkrd/workspace/threeOne/;
+    index  index.html index.htm;
+    expires 1d;  # 缓存一天，或者根据需要调整
+}
+
 ```
 

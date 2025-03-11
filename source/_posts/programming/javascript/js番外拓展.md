@@ -2663,6 +2663,122 @@ safe(re); // false
 3. 跨域Web字体（如CSS @font-face）
 	- 浏览器可以加载并使用来自不同源的Web字体。但是，出于安全考虑，**字体文件的内容通常被限制为只包含字体数据，而不允许包含可执行的脚本或恶意代码**。
 
+### 时间切片
+
+我们知道 浏览器的渲染 和 JS 运行在一个单线程上，如果 JS 执行一个 **LongTask 长任务**，势必会阻塞浏览器渲染，导致用户在界面交互出现卡顿。
+
+因此我们需要避免长任务的执行，或按照一定规则拆分成一个个小任务通过 **时间切片** 来管理和执行。
+
+有关 **时间切片** 的详细介绍和使用可以参考这篇文章：[React Scheduler - 时间切片](https://juejin.cn/post/7146004454653820935)
+
+```js
+// 每执行一段时间的任务，就把主线程交还给浏览器，避免长时间占用主线程。
+function timeSlicingTask(task, sliceDuration) {
+    let startTime = Date.now();
+    let index = 0;
+
+    async function executeSlice() {
+        const currentTime = Date.now();
+        while (index < task.length && (currentTime - startTime) < sliceDuration) {
+            try {
+                // 如果任务是异步的，使用 await 确保顺序执行
+                await task[index]();
+                index++;
+            } catch (error) {
+                console.error('Task execution error:', error);
+                break; // 遇到错误时跳出循环
+            }
+        }
+
+        if (index < task.length) {
+            // requestIdelCallback 会在每一帧任务执行后存在剩余时间时，允许用户调用它来执行自己定义的代码，当没有剩余时间时，会将执行权交还给浏览器；
+            // 让出控制权，等待下一次事件循环
+            requestIdelCallback(executeSlice);
+        }
+    }
+
+    executeSlice();
+}
+
+```
+
+### LRU 算法
+
+业务中涉及缓存已访问数据操作，为避免操作越多缓存数据越来越大。**LRU（最近最少使用）算法用于管理缓存中的数据**，确保缓存集合中数据的条目在一个可控的范围内。
+
+通过 **队列** 可以实现 LRU 算法。
+
+```js
+class LRUCache {
+  constructor(max) {
+    this.max = max; // 缓存容量
+    this.cache = new Map(); // 定义缓存 Map，优化查找速度
+    this.keys = []; // 队列，记录最近节点的 key
+  }
+
+  // 访问数据
+  get(key) {
+    if (this.cache.has(key)) {
+      // 更新节点到队列尾部
+      this.update(key);
+      const val = this.cache.get(key);
+      return val;
+    }
+    return undefined;
+  }
+
+  // 添加/更新数据
+  put(key, val) {
+    // 1、更新数据（和 get 相似都是更新节点到队列尾部，不过多了更新 val 操作）
+    if (this.cache.has(key)) {
+      this.cache.set(key, val);
+      this.update(key);
+    }
+    // 2、添加数据
+    else {
+      this.cache.set(key, val); // 记录到 Map 中
+      this.keys.push(key); // 添加到队列尾部
+      // 考虑容量是否超出
+      if (this.keys.length > this.max) {
+        const oldKey = this.keys.shift(); // 删除队列头部
+        this.cache.delete(oldKey);
+      }
+    }
+  }
+
+  // 移动到队列尾部
+  update(key) {
+    const index = this.keys.indexOf(key);
+    this.keys.splice(index, 1); // 删除旧的位置
+    this.keys.push(key); // 添加到队列尾部
+  }
+}
+
+```
+
+从功能上看类似于热门top20,最近20条历史记录 这种至缓存最新多少条数据
+
+```js
+const cache = new LRUCache(3);
+
+// 1. 添加新数据，此时缓存未满
+cache.put("a", 1);
+cache.put("b", 2);
+cache.put("c", 3);
+console.log(cache.keys); // [a, b, c]
+
+// 2. 访问已有数据
+cache.get("b");
+console.log(cache.keys); // [a, c, b]
+
+// 3. 添加新数据，此时缓存已满
+cache.put("d", 4);
+console.log(cache.keys); // [c, b, d]
+
+```
+
+
+
 ## 方法
 
 ### npm i 与 npm ci
@@ -4763,7 +4879,129 @@ Content-Security-Policy: frame-ancestors <source> <source>;
 
 **Safari 17（2023 年 9 月发布）和 Chrome 122（2024 年 2 月）已发布这些方法的实现。**
 
+### document.createTreeWalker 树遍历器
 
+`document.createTreeWalker` 是一个用于创建一个树遍历器（TreeWalker）的方法，允许你在文档树中遍历 DOM 元素、文本节点等。它通过“树形”结构访问页面的元素节点、文本节点等，类似于深度优先或广度优先搜索。这个方法非常有用，尤其在你需要对 DOM 树进行精细化操作时。
+
+**语法**
+
+```
+javascript
+
+
+复制代码
+document.createTreeWalker(root, whatToShow, filter, entityReferenceExpansion);
+```
+
+参数：
+
+- `root`: 要开始遍历的 DOM 节点，通常是 `document` 或者其他 DOM 元素。
+
+- ```
+	whatToShow
+	```
+
+	: 一个位掩码，表示要遍历的节点类型。常用的有：
+
+	- `NodeFilter.SHOW_ALL`：遍历所有节点
+	- `NodeFilter.SHOW_ELEMENT`：遍历元素节点
+	- `NodeFilter.SHOW_TEXT`：遍历文本节点
+	- `NodeFilter.SHOW_COMMENT`：遍历注释节点
+
+- ```
+	filter
+	```
+
+	: 用来过滤节点的函数。可以返回：
+
+	- `NodeFilter.FILTER_ACCEPT`：节点被接受，继续遍历。
+	- `NodeFilter.FILTER_REJECT`：节点被拒绝，跳过该节点。
+	- `NodeFilter.FILTER_SKIP`：跳过当前节点，继续遍历其子节点。
+
+- `entityReferenceExpansion`: 是否扩展实体引用。默认是 `false`。
+
+返回值
+
+`createTreeWalker` 返回一个 `TreeWalker` 对象，允许你通过该对象访问文档树中的节点。
+
+**TreeWalker 方法：**
+
+- `nextNode()`: 返回树中下一个符合条件的节点。
+- `previousNode()`: 返回树中上一个符合条件的节点。
+- `parentNode()`: 返回当前节点的父节点。
+- `firstChild()`: 返回当前节点的第一个子节点。
+- `lastChild()`: 返回当前节点的最后一个子节点。
+- `nextSibling()`: 返回当前节点的下一个兄弟节点。
+- `previousSibling()`: 返回当前节点的上一个兄弟节点。
+
+示例：遍历所有的文本节点
+
+假设你想要遍历文档中的所有文本节点，查找包含特定文本的节点，可以这样使用 `TreeWalker`：
+
+```js
+javascript复制代码// 创建TreeWalker对象，从文档根节点开始，遍历文本节点
+let walker = document.createTreeWalker(
+  document.body,  // 根节点是 body
+  NodeFilter.SHOW_TEXT,  // 只遍历文本节点
+  null,  // 不使用过滤器
+  false  // 不扩展实体引用
+);
+
+let node;
+while (node = walker.nextNode()) {
+  if (node.nodeValue.includes("特定文本")) {
+    console.log("找到文本节点: ", node.nodeValue);
+  }
+}
+```
+
+示例：遍历所有元素节点并修改其样式
+
+你可以使用 `TreeWalker` 遍历所有的元素节点并修改其样式或做其他操作：
+
+```js
+javascript复制代码// 创建TreeWalker对象，从文档根节点开始，遍历元素节点
+let walker = document.createTreeWalker(
+  document.body,  // 根节点是 body
+  NodeFilter.SHOW_ELEMENT,  // 只遍历元素节点
+  null,  // 不使用过滤器
+  false  // 不扩展实体引用
+);
+
+let node;
+while (node = walker.nextNode()) {
+  node.style.backgroundColor = 'yellow';  // 修改每个元素的背景色
+}
+```
+
+示例：使用过滤器
+
+你可以自定义过滤器来遍历符合特定条件的节点。例如，过滤出所有包含 `class="highlight"` 的元素节点：
+
+```js
+javascript复制代码let walker = document.createTreeWalker(
+  document.body,  // 根节点是 body
+  NodeFilter.SHOW_ELEMENT,  // 只遍历元素节点
+  function(node) {
+    if (node.classList.contains("highlight")) {
+      return NodeFilter.FILTER_ACCEPT;  // 如果节点包含 'highlight' 类，接受这个节点
+    }
+    return NodeFilter.FILTER_SKIP;  // 否则跳过这个节点
+  },
+  false  // 不扩展实体引用
+);
+
+let node;
+while (node = walker.nextNode()) {
+  console.log("找到符合条件的节点: ", node);
+}
+```
+
+使用场景
+
+1. **遍历和过滤节点**：当你需要按特定规则遍历 DOM 树的节点时，`TreeWalker` 非常有用。你可以指定过滤条件、选择节点类型，并遍历树中的每个节点。
+2. **递归遍历**：`TreeWalker` 的方法可以模拟递归遍历树状结构，但相比手动编写递归函数，它提供了更加简洁的 API。
+3. **修改 DOM 结构**：在遍历过程中，你可以修改节点、添加或删除节点等。
 
 
 

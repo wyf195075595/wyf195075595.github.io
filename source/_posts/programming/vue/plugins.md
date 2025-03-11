@@ -782,6 +782,10 @@ import 'normalize.css/normalize.css'
 > 富文本编辑器。安装命令：pnpm add tinymce @tinymce/tinymce-vue
 >
 > 安装成功后，在框架 /public 目录下创建 tinymce 文件夹，并将 /node_modules/tinymce 目录下的 langs 和 skins 文件夹复制到 /public/tinymce 目录下。
+>
+> [tynymce中文网](http://tinymce.ax-z.cn/)
+>
+> [富文本编辑器选型](https://juejin.cn/post/7434373084747333658?utm_source=gold_browser_extension)
 
 ![富文本](https://camo.githubusercontent.com/703496cf0c2806ff6aba376c72b0a50e016329d68ccc4b92d0bbbbdf51347fd0/68747470733a2f2f7777772e74696e792e636c6f75642f73746f726167652f6769746875622d726561646d652d696d616765732f74696e796d63652d656469746f722d36782e706e67)
 
@@ -937,3 +941,57 @@ new Vue({ i18n }).$mount('#app')
 ![img](https://cdn.beekka.com/blogimg/asset/202410/bg2024100803.webp)
 
 一个基于 ThreeJS + Vue + TresJS 封装的框架，用 Vue 组件的方式写 3D 可视化项目。
+
+将px单位转换为视口单位的 (vw, vh, vmin, vmax) 的 [PostCSS](https://github.com/postcss/postcss) 插件.
+
+### [postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport?tab=readme-ov-file)
+
+如果你的样式需要做根据视口大小来调整宽度，这个脚本可以将你CSS中的px单位转化为vw，1vw等于1/100视口宽度。
+
+postcss.config.js
+
+```js
+module.exports = {
+  plugins: {
+     // 使用 cnjm-postcss-px-to-viewport 规避 postcss.plugin was deprecated 警告
+    "cnjm-postcss-px-to-viewport": {
+      viewportWidth: 375, // 根据设计稿设定
+      unitPrecision: 4, // 转化精度，转换后保留位数
+      viewportUnit: "vmin", // 转换后的单位
+      fontViewportUnit: "vmin", // 字体单位
+      unitToConvert: "px" // 需要转换的单位
+    },
+  }
+}
+
+```
+
+输入
+
+```css
+.class2 {
+  padding-top: 10px; /* px-to-viewport-ignore */
+  /* px-to-viewport-ignore-next */
+  padding-bottom: 10px;
+  /* Any other comment */
+  border: 1px solid black;
+  margin-bottom: 1px;
+  font-size: 20px;
+  line-height: 30px;
+}
+```
+
+输出
+
+```css
+.class2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* Any other comment */
+  border: 1px solid black;
+  margin-bottom: 1px;
+  font-size: 6.25vw;
+  line-height: 9.375vw;
+}
+```
+

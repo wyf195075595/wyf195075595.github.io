@@ -488,6 +488,158 @@ module.exports = {
 };
 ```
 
+### 浏览器js兼容性配置
+
+1. 配置 `browserslist`
+
+	**在根目录创建 `.browserslistrc` 文件** 或者在 `package.json` 中配置 `browserslist` 字段。
+
+	```txt
+	# .browserslistrc
+	> 0.5%
+	last 2 versions
+	not dead
+	```
+
+	```json
+	{
+	  "browserslist": [
+	    "> 0.5%",
+	    "last 2 versions",
+	    "not dead"
+	  ]
+	}
+	```
+
+	
+
+2. 启用自动 Polyfill
+
+	```js
+	// vue.config.js
+	module.exports = {
+	// 默认情况下 babel-loader 会忽略所有 node_modules 中的文件。你可以启用本选项，以避免构建后的代码中出现未转译的第三方依赖。
+	
+	// 不过，对所有的依赖都进行转译可能会降低构建速度。如果对构建性能有所顾虑，你可以只转译部分特定的依赖：给本选项传一个数组，列出需要转译的第三方包包名或正则表达式即可。
+	  transpileDependencies: ['core-js', 'regenerator-runtime'], // 确保这些库被正确转译
+	};
+	```
+
+	
+
+3. 使用 Polyfill 方式
+
+	- `useBuiltIns: 'usage'`（按需按文件加载 polyfill）
+
+	Babel 会根据每个文件中使用的 JavaScript 特性，自动选择需要 polyfill 的部分，避免将所有 polyfill 引入到每个文件中。此时不需要在入口文件中显式地引入 polyfill。此模式下main.js不需要引入东西
+
+	```js
+	module.exports = {
+	  presets: [
+	    [
+	      '@babel/preset-env',
+	      {
+	        useBuiltIns: 'usage', // (按需按文件加载 polyfill)
+	        corejs: 3,          // 使用 core-js 版本 3
+	      },
+	    ],
+	  ],
+	};
+	
+	```
+
+	- `useBuiltIns: 'entry'`
+
+	Vue CLI 会根据 `browserslist` 自动引入所需的 polyfill，并且你需要在项目的入口文件（如 `src/main.js`）中手动引入 `core-js`：
+
+	```js
+	// src/main.js
+	import 'core-js/stable';
+	import 'regenerator-runtime/runtime';
+	```
+
+4. 配置 Vue CLI 来启用自动 Polyfill
+
+	```js
+	// vue.config.js
+	module.exports = {
+	  transpileDependencies: ['core-js', 'regenerator-runtime'], // 确保这些库被正确转译
+	  chainWebpack: (config) => {
+	    config.module
+	      .rule('js')
+	      .test(/\.js$/)
+	      .use('babel-loader')
+	      .loader('babel-loader')
+	      .options({
+	        presets: [
+	          [
+	            '@babel/preset-env',
+	            {
+	              useBuiltIns: 'entry', // 按需加载 polyfills
+	              corejs: 3,             // 使用 core-js 版本 3
+	            },
+	          ],
+	        ],
+	      });
+	  },
+	};
+	
+	```
+
+	### 浏览器 css 兼容性配置
+
+Vue CLI 支持通过 **postcss.config.js** 来配置 **PostCSS** 插件或**package.json**。你可以在项目根目录创建 `postcss.config.js` 文件，或者修改该文件以确保样式兼容。
+
+3选1
+
+```js
+// postcss.config.js
+module.exports = {
+  plugins: {
+    autoprefixer: {
+      overrideBrowserslist: [
+        'last 2 versions', // 支持最新两个版本的浏览器
+        'IE 10',           // 支持 IE10 及以上版本
+        'Safari >= 9',      // 支持 Safari 9 及以上版本
+      ],
+    },
+  },
+};
+
+```
+
+```js
+// vue.config.js
+module.exports = {
+  css: {
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('autoprefixer')({
+            overrideBrowserslist: [
+              'last 2 versions',
+              'IE 10',
+              'Safari >= 9',
+            ],
+          }),
+        ],
+      },
+    },
+  },
+};
+
+```
+
+package.json 中配置browserslist后会自动触发 css后缀样式添加，如果配置了 js垫片添加，css可以不用配置了
+
+```js
+"browserslist": [
+  "last 2 versions",
+  "> 1%",
+  "not dead"
+]
+```
+
 
 
 ### webpack-chain 语法

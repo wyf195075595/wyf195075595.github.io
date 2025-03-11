@@ -3,6 +3,7 @@ title:  vite 打包优化项
 date: 2022-06-17 08:23:10
 tags: vite
 categories: vite
+
 ---
 
 
@@ -814,17 +815,17 @@ export default defineConfig(({ mode }) => {
 > ```json
 > // settings.json
 > {
->   "explorer.fileNesting.enabled": true,
->   "explorer.fileNesting.patterns": {
->     "tsconfig.json": "tsconfig.*.json, env.d.ts",
->     "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
->     "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig"
->   },
->   "editor.codeActionsOnSave": {
->     "source.fixAll": "explicit"
->   },
->   "editor.formatOnSave": true,
->   "editor.defaultFormatter": "esbenp.prettier-vscode"
+> "explorer.fileNesting.enabled": true,
+> "explorer.fileNesting.patterns": {
+>  "tsconfig.json": "tsconfig.*.json, env.d.ts",
+>  "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+>  "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .prettier*, prettier*, .editorconfig"
+> },
+> "editor.codeActionsOnSave": {
+>  "source.fixAll": "explicit"
+> },
+> "editor.formatOnSave": true,
+> "editor.defaultFormatter": "esbenp.prettier-vscode"
 > }
 > 
 > ```
@@ -832,12 +833,12 @@ export default defineConfig(({ mode }) => {
 > ```json
 > // extensioins
 > {
->   "recommendations": [
->     "Vue.volar",
->     "dbaeumer.vscode-eslint",
->     "EditorConfig.EditorConfig",
->     "esbenp.prettier-vscode"
->   ]
+> "recommendations": [
+>  "Vue.volar",
+>  "dbaeumer.vscode-eslint",
+>  "EditorConfig.EditorConfig",
+>  "esbenp.prettier-vscode"
+> ]
 > }
 > 
 > ```
@@ -981,5 +982,68 @@ export default defineConfig({
 <script type="module" src="/src/main.ts"></script>
 </body>
 </html>
+```
+
+### 浏览器兼容性配置
+
+vite 内置插件 [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
+
+```js
+// vite.config.js
+import legacy from '@vitejs/plugin-legacy'
+
+export default {
+  plugins: [
+    legacy({
+      targets: ['defaults', 'not IE 11','Chrome >= 80'], // 设置目标浏览器
+      additionalLegacyPolyfills: ['regenerator-runtime/runtime'], // 添加额外的 polyfills
+      modernPolyfills: ['es.promise.finally'], // 在现代浏览器中只引入的 polyfill
+      disablePolyfill: false, // 是否禁用 polyfills，禁止自动添加垫片
+      polyfills: true, // 启用 polyfills，控制是否为所有目标浏览器添加 polyfill
+      renderLegacyChunks: true, // 生成兼容老旧浏览器的 Chunk
+    }),
+  ],
+}
+//必须安装 Terser，因为旧版插件使用 Terser 进行压缩。
+
+npm add -D terser
+```
+
+css 后缀兼容添加
+
+通过配置 `.browserslistrc` 或 `package.json` 中的 `browserslist` 字段来指定目标浏览器，Autoprefixer 会根据这些设置自动添加浏览器前缀。
+
+### 打包成无需node环境运行得包
+
+默认情况下，Vite 使用的是 **ES模块**（ESM）来进行打包和输出。如果你希望将项目打包为完全独立的静态文件（即 HTML、JS、CSS 等），并且能在没有 Node.js 环境的情况下运行，确保 Vite 配置正确地生成这些静态文件。
+
+```js
+// vite.config.js
+export default {
+  build: {
+    outDir: 'dist',  // 打包输出目录，默认是 dist
+    assetsDir: 'assets', // 静态资源目录
+    rollupOptions: {
+      output: {
+        // 为了避免文件路径错误，可以设置 base 路径
+        // base: '/path/to/static/assets/', // 如果你的资源有路径前缀，可以设置 base
+          // 静态资源打包做处理
+        chunkFileNames: "js/[name]-[hash].js",
+        entryFileNames: "js/[name]-[hash].js",
+        assetFileNames: "[ext]/[name]-[hash].[ext]",
+        manualChunks(id) {
+          if (id.includes("node_modules")) {
+            return id
+              .toString()
+              .split("node_modules/")[1]
+              .split("/")[0]
+              .toString();
+          }
+        },
+      }
+    }
+  }
+}
+
 ```
 

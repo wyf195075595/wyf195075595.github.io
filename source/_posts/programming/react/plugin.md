@@ -807,3 +807,8 @@ function Demo() {
 }
 ```
 
+### [在线 Excel 协同编辑器](https://github.com/nusr/excel)
+
+![img](https://cdn.beekka.com/blogimg/asset/202412/bg2024122509.webp)
+
+一个开源的类 Excel 电子表格网页应用，支持多人协同编辑。

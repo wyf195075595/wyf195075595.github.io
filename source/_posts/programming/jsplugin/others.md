@@ -1804,6 +1804,8 @@ console.log('还原对象:', toObj)
 > 可以快速实现 流程图、序列图、类图、状态图、实体关系图、用户旅程图、甘特图、饼图、象限图、需求图、git图、C4图、思维导图、时间线、桑基图、方框图...。但是**可自定义性差**
 >
 > [在线演示](https://mermaid.live/edit#pako:eNp1Uk1vwjAM_SuRuYBUUPqxlkYT0kavO-02skNoDFSkSdWmAob470tbOrFJ88nPfn7xU3yF3EgEBltl8uN8i1ZwTVzkRrWlbkg4QGnyFYfM5G2J2nL4ZPdGU4kcXfuk_ecNB-Jaq2kHZ0OL647XqzMch4ZQjq9w16k9lssphxdyKiQSo5EUmtgDkrKQUiGH2SO1dgp1sT-MEqjl362Cf7bqTW037q3s1an-9jOC7C60HvlkPl-RbEDrHkhhcSsaHAe62p3e2Ityi5NdoRSbyFh6ja3NEdkkDMN7Pnc-7YFF1XmYAQ9KrEtRSPcn167GwdkvnXPmUinqIweub44nWmveLzoHthOqQQ_aqlsmK8S-FuVPtRL6wxiHbd0OENgVzsCScOGnEaVRHCSUpnTpwQVYkNIFpX6UJEHq-0EShDcPvnoBuojDOArT5VNMl0ka-W4CZWFN_TbcUH9Kt28H1K5A)
+>
+> 类似得库：Plantuml、Graphviz
 
 html中使用
 
@@ -1905,7 +1907,15 @@ mermaid.render('mermaid', mermaidDiv.textContent, (svgCode) => {
 </html>
 ```
 
+### 示意图利器  [D2](https://d2lang.com/)
 
+> 根据代码，生成图片，非常适合放入代码仓库，进行版本管理。
+>
+> 它有一个线上生成器 [play.d2lang.com](https://play.d2lang.com/)（下图），把代码贴进去，按下"compile"按钮，马上生成图片。
+
+可以绘制复杂得图
+
+![img](https://cdn.beekka.com/blogimg/asset/202412/bg2024120614.webp)
 
 ### [`whatsapp-web.js`](https://github.com/pedroslopez/whatsapp-web.js?utm_source=gold_browser_extension)
 
@@ -2798,3 +2808,47 @@ ProseMirror是一个开源的JavaScript库，专注于构建强大而可定制�
 markdown 编辑器， [`slate-react`](https://github.com/ianstormtaylor/slate/blob/main/packages/slate-react) 支持 react 拓展
 
 ![img](https://github.com/ianstormtaylor/slate/raw/main/docs/images/preview.png)
+
+### [CheerpJ](https://labs.leaningtech.com/blog/cheerpj-3.0)
+
+![img](https://cdn.beekka.com/blogimg/asset/202402/bg2024021302.webp)
+
+### [PhysicsJS](https://gitcode.com/gh_mirrors/ph/PhysicsJS)
+
+浏览器里面的 JVM 编译器，让 Java 程序可以在浏览器运行。
+
+ 一、**项目概述**
+
+- **项目地址**：https://gitcode.com/gh_mirrors/ph/PhysicsJS
+- **主要编程语言**：JavaScript
+- **特点**：模块化设计、可扩展性、易于使用
+
+**二、功能与应用**
+
+- **核心功能**：PhysicsJS包含了碰撞检测、刚体动力学、约束模拟等多种功能，能够满足开发者在物理模拟方面的需求。
+- **应用场景**：
+	- **游戏开发**：PhysicsJS可用于实现真实的物体碰撞、重力感应等效果，提升游戏的真实感和互动性。
+	- **交互式设计**：在网页或应用中，通过PhysicsJS可以创建具有物理效果的交互元素，增强用户体验。
+	- **模拟应用**：在教育软件中，PhysicsJS可用于模拟物理实验，帮助学生更好地理解和掌握知识。
+
+[xterm.js](https://xtermjs.org/)
+
+Build terminals in the browser. 
+
+xterm.js + node-pty + ws 实现 web-terminal
+
+[用 xterm.js 实现一个简易的 web-terminal ！](https://juejin.cn/post/6918911964009725959)
+
+
+
+### [barba.js](https://barba.js.org/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202403/bg2024033002.webp)
+
+一个 JS 库，让网站**页面的切换**产生**平滑的动画 ** [效果](https://codepen.io/wyf195075595/pen/ogNgZPJ)。	
+
+### [Superdiff](https://github.com/DoneDeal0/superdiff)
+
+![img](https://cdn.beekka.com/blogimg/asset/202410/bg2024101201.webp)
+
+一个 JS 库，对两个对象或数组进行 diff 操作，返回差异的部分。
