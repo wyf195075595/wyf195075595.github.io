@@ -537,3 +537,46 @@ revert: feat(pencil): add ‘graphiteWidth’ option
 3. **使用英文**：建议使用英文进行注释，以便更广泛地与全球开发者交流。如果团队内部有特定需求，也可以使用中文或其他语言。
 4. **遵循约定**：遵循项目或团队内部的Git提交注释约定，以确保代码变更记录的一致性和可读性。
 
+## 使用 GitHub Actions 和 GitHub Pages 构建和部署自定义站点
+
+首先，您需要为仓库启用 GitHub Pages。Settings -> Pages(或访问 `$repo/settings/pages`）并将构建源设置为“GitHub Actions”。
+
+最小 YAML 配方 - 将其保存在 `.github/workflows/publish.yml` 文件中
+
+```yml
+name: Publish site
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the site
+      run: |
+        mkdir _site
+        echo '<h1>Hello, world!</h1>' > _site/index.html
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+该 `_site/` 目录中的任何内容都将发布到 GitHub Pages 站点。站点的默认 URL 将为 `https://$GITHUB_USERNAME.github.io/$REPO_NAME/` 。如果需要，您可以将其设置为 [custom domain](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)。
+
+如果你的仓库名字（$REPO_NAME）设置为   $GITHUB_USERNAME.github.io，将直接使用  `https://$GITHUB_USERNAME.github.io就能访问不需要 拼接/$REPO_NAME

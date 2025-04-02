@@ -1377,3 +1377,57 @@ CSS创建一个无限的滚动旋转木马动画，并在悬停效果上停下�
 </div>
 ```
 
+### css 实现单页面切换过渡效果
+
+![Animated demo - clicking the tabs to swap between Latest, Trending and Hacker News Hits rearranges the list of posts in a smooth animation, then navigating to a post causes its title to enlarge and move to the top while the rest of the article loads in.](https://static.simonwillison.net/static/2025/llms-demo.gif)
+
+Watching the network panel in my browser, most of these pages are 17-20KB gzipped (~45KB after they've decompressed). No wonder it feels so snappy.
+查看浏览器中的网络面板，这些页面中的大多数都是 17-20KB 的 gzip 压缩的（解压缩后为 ~45KB）。难怪感觉如此活泼。
+
+I poked around [in Jim's CSS](https://blog.jim-nielsen.com/styles.css) and found this relevant code:
+我在 [Jim 的 CSS 中](https://blog.jim-nielsen.com/styles.css)四处寻找并找到了以下相关代码：
+
+```css
+@view-transition {
+  navigation: auto;
+}
+
+.posts-nav a[aria-current="page"]:not(:last-child):after {
+  border-color: var(--c-text);
+  view-transition-name: posts-nav;
+}
+
+/* Old stuff going out */
+::view-transition-old(posts-nav) {
+  animation: fade 0.2s linear forwards;
+  /* https://jakearchibald.com/2024/view-transitions-handling-aspect-ratio-changes/ */
+  height: 100%;
+}
+
+/* New stuff coming in */
+::view-transition-new(posts-nav) {
+  animation: fade 0.3s linear reverse;
+  height: 100%;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+```
+
+### 用户输入框校验伪类
+
+`:user-valid` 伪类是 `:valid` 的更新版本，它使表单验证方式更加用户友好。**只有在用户与输入**交互（如键入或选择某些内容） *并且*他们的输入满足所有验证要求后，它才会启动。
+
+```css
+input:user-valid {
+  border: 2px solid green;
+  background: #f0fff0;
+}
+```
+

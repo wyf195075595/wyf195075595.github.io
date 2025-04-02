@@ -86,3 +86,10 @@ https://cnodejs.org/topic/589d625a5c8036f7019e7a4a
 > 
 
 对于小型开发者，这个产品是免费使用，只有企业级应用才需要付费。
+
+### 小游戏引擎（ RealClip）
+
+这个引擎重点针对小游戏的性能和兼容性，进行了优化，除了微信小游戏，还兼容 Unity、Cocos、Laya、Egret Engine 等主流引擎和 WebView。也就是说，无论哪种引擎制作的小游戏，都能够直接运行在你的 App 中。他是与 FinClip 配套的。
+
+**配套开发工具 FinClip Studio**。这个工具能将现有的小程序/小游戏代码，一键转换成独立 App，做成可用于 iOS、Android 和鸿蒙的安装包。
+
