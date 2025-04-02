@@ -562,7 +562,7 @@
 
 
   
-    <article id="post-programming/javascript/for_await" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/fullScreen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -570,7 +570,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/for_await/" target="_blank">在循环中使用await</a>
+	  <a class="article-title" href="/2022/06/17/programming/javascript/fullScreen/" target="_blank">页面元素的全屏</a>
   
     </h1>
   
@@ -578,7 +578,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/for_await/" class="archive-article-date">
+<a href="/2022/06/17/programming/javascript/fullScreen/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -591,13 +591,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <blockquote>
-<p>在循环中使用 await ,效果是顺序等待同步执行代码。有的循环中可能会不生效</p>
-</blockquote>
-<p>1、for：循环中使用await的写法（生效）：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.<span class="property">length</span>; i++ )&#123;</span><br><span class="line">    <span class="keyword">let</span> datas = <span class="keyword">await</span> <span class="title function_">getDatas</span>()</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    <h1 id="页面元素的全屏"><a href="#页面元素的全屏" class="headerlink" title="页面元素的全屏"></a>页面元素的全屏</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、全屏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fullScreen</span>(<span class="params">ele</span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(ele);</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">RequestFullScreen</span>)&#123;</span><br><span class="line">         target.<span class="title class_">RequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等可以webkitRequestFullScreen也可以webkitRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE,只能写msRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msRequestFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msRequestFullscreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、退出全屏</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">exitFullScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>;</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">exitFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">exitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozCancelFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozCancelFullScreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/for_await/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/#more">more >></a>
     
     
 
@@ -635,7 +631,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/for_await/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/">展开全文 >></a>
     </p>
     
 
@@ -777,105 +773,6 @@
 
 
   
-    <article id="post-programming/javascript/fullScreen" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/fullScreen/" target="_blank">页面元素的全屏</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/fullScreen/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="页面元素的全屏"><a href="#页面元素的全屏" class="headerlink" title="页面元素的全屏"></a>页面元素的全屏</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、全屏</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fullScreen</span>(<span class="params">ele</span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(ele);</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">RequestFullScreen</span>)&#123;</span><br><span class="line">         target.<span class="title class_">RequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等可以webkitRequestFullScreen也可以webkitRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitRequestFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitRequestFullScreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE,只能写msRequestFullscreen</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msRequestFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msRequestFullscreen</span>();</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2、退出全屏</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">exitFullScreen</span>(<span class="params"></span>)&#123;</span><br><span class="line">     <span class="keyword">const</span> target = <span class="variable language_">document</span>;</span><br><span class="line">     <span class="keyword">if</span>(target.<span class="property">exitFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">exitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容火狐</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">mozCancelFullScreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">mozCancelFullScreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容谷歌等</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">webkitExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">webkitExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//兼容IE</span></span><br><span class="line">      <span class="keyword">if</span>(target.<span class="property">msExitFullscreen</span>)&#123;</span><br><span class="line">        target.<span class="title function_">msExitFullscreen</span>()</span><br><span class="line">      &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/fullScreen/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/javascript/iframe" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -948,6 +845,207 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/iframe/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/for_await" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/for_await/" target="_blank">在循环中使用await</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/for_await/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>在循环中使用 await ,效果是顺序等待同步执行代码。有的循环中可能会不生效</p>
+</blockquote>
+<p>1、for：循环中使用await的写法（生效）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>( <span class="keyword">let</span> i=<span class="number">0</span>; i&lt;array.<span class="property">length</span>; i++ )&#123;</span><br><span class="line">    <span class="keyword">let</span> datas = <span class="keyword">await</span> <span class="title function_">getDatas</span>()</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/for_await/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/for_await/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/objectPool/" target="_blank">对象池</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/objectPool/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象池工厂</span></span><br><span class="line"><span class="keyword">var</span> objectPoolFactory = <span class="keyword">function</span>(<span class="params">createObjFn</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> objectPool = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">create</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = objectPool.<span class="property">length</span> === <span class="number">0</span> ?</span><br><span class="line">				createObjFn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) : objectPool.<span class="title function_">shift</span>();</span><br><span class="line">			<span class="keyword">return</span> obj;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">recover</span>: <span class="keyword">function</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">			objectPool.<span class="title function_">push</span>(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> iframeFactory = <span class="title function_">objectPoolFactory</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">	<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"></span><br><span class="line">	iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		iframe.<span class="property">onload</span> = <span class="literal">null</span>;   <span class="comment">// 防止iframe重复加载</span></span><br><span class="line">		iframeFactory.<span class="title function_">recover</span>(iframe); <span class="comment">// iframe加载完了回收节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> iframe;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe1 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe1.<span class="property">src</span> = <span class="string">&#x27;https://www.baidu.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe2 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe2.<span class="property">src</span> = <span class="string">&#x27;http://www.qq.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe3 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">	iframe3.<span class="property">src</span> = <span class="string">&#x27;http://www.163.com&#x27;</span>;</span><br><span class="line">&#125;, <span class="number">750</span>);</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
     </p>
     
 
@@ -1074,104 +1172,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/objectPool/" target="_blank">对象池</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/objectPool/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象池工厂</span></span><br><span class="line"><span class="keyword">var</span> objectPoolFactory = <span class="keyword">function</span>(<span class="params">createObjFn</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> objectPool = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">create</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = objectPool.<span class="property">length</span> === <span class="number">0</span> ?</span><br><span class="line">				createObjFn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) : objectPool.<span class="title function_">shift</span>();</span><br><span class="line">			<span class="keyword">return</span> obj;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">recover</span>: <span class="keyword">function</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">			objectPool.<span class="title function_">push</span>(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> iframeFactory = <span class="title function_">objectPoolFactory</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">	<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"></span><br><span class="line">	iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		iframe.<span class="property">onload</span> = <span class="literal">null</span>;   <span class="comment">// 防止iframe重复加载</span></span><br><span class="line">		iframeFactory.<span class="title function_">recover</span>(iframe); <span class="comment">// iframe加载完了回收节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> iframe;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe1 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe1.<span class="property">src</span> = <span class="string">&#x27;https://www.baidu.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe2 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe2.<span class="property">src</span> = <span class="string">&#x27;http://www.qq.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe3 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">	iframe3.<span class="property">src</span> = <span class="string">&#x27;http://www.163.com&#x27;</span>;</span><br><span class="line">&#125;, <span class="number">750</span>);</span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
     </p>
     
 
@@ -1434,7 +1434,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1442,11 +1442,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1454,7 +1454,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1462,19 +1462,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,7 +1474,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1490,11 +1482,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1502,7 +1498,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,7 +1510,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1526,11 +1526,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1542,11 +1542,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,6 +1562,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
@@ -1570,7 +1574,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,11 +1582,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1590,11 +1594,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,11 +1606,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1626,18 +1626,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1650,11 +1638,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1662,7 +1650,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1670,11 +1658,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1682,7 +1686,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1698,27 +1718,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1726,7 +1726,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1734,7 +1734,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
