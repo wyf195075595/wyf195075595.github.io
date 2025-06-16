@@ -258,6 +258,108 @@
             
 
   
+    <article id="post-programming/vue/plugins" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/09/23/programming/vue/plugins/" target="_blank">插件合集</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/09/23/programming/vue/plugins/" class="archive-article-date">
+        <time datetime="2022-09-23T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="1、VueUse"><a href="#1、VueUse" class="headerlink" title="1、VueUse"></a>1、VueUse</h3><blockquote>
+<p>​    VueUse 是 <strong>Anthony Fu  大佬</strong>的一个开源项目，它为Vue的开发者提供了大量用于 Vue2 和Vue3 的基本 <strong>Composition API</strong> 实用工具函数。</p>
+<p>它有几十个用于常见开发人员用例的解决方案，如跟踪<code>ref</code>更改，检测元素可见性，简化常见Vue模式，键盘/鼠标输入等。 这是真正节省开发时间的好方法，因为我们不必自己亲手添加所有这些标准功能，拿来主义，用就对了(再次感谢大佬的付出)。</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/vue//" class="article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/09/23/programming/vue/plugins/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/react/react实践与优化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -498,6 +600,14 @@
 
 <p>初始化时加载主题, 如果还有配置页面也可以加上这个动作</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> useSettingsStore <span class="keyword">from</span> <span class="string">&#x27;@/store/modules/settings&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; handleThemeStyle &#125; <span class="keyword">from</span> <span class="string">&#x27;@/utils/theme&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title function_">onMounted</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">nextTick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 初始化主题样式</span></span><br><span class="line">    <span class="title function_">handleThemeStyle</span>(<span class="title function_">useSettingsStore</span>().<span class="property">theme</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="echarts实现全国地图下钻到县级"><a href="#echarts实现全国地图下钻到县级" class="headerlink" title="echarts实现全国地图下钻到县级"></a>echarts实现全国地图下钻到县级</h3><p>思路，先有一个全国范围到县级（3级）的地图名称编码映射<a target="_blank" rel="noopener" href="https://hxkj.vip/demo/mapData/pca-code.json">下载地址</a>，然后去<a target="_blank" rel="noopener" href="https://datav.aliyun.com/portal/school/atlas/area_selector#&lat=31.769817845138945&lng=104.29901249999999&zoom=4">下载每个省份的地图</a>（市级），及县级地图数据，每个省两个json数据【之前有想下载一个全国的地图作为省级，但是全国地图省级没有市级的范围，其实是可行的🧓🏽】,然后默认显示对应省份地图，每次点击后动态组装下级地图（例如：点击合肥市，就将合肥市下边所有县区级地图组装，县级就直接渲染），然后渲染出来</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/TangSY/echarts-map-demo">参考项目</a></p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line"> * @Description: </span><br><span class="line"> * @Author:  </span><br><span class="line"> * @Date: 2025-03-31 10:23:05</span><br><span class="line"> * @LastEditTime: 2025-04-03 10:39:50</span><br><span class="line"> * @LastEditors:  </span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;chart-map-box&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;map-stack&quot;&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!-- 显示地图现在层级关系 --&gt;</span><br><span class="line">        &lt;span  style=&quot;color: #fff;&quot;&gt;&#123;&#123; mapStack.join(&#x27; \/ &#x27;) &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;btn-back&quot;&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot; icon=&quot;Back&quot; size=&quot;small&quot;  v-if=&quot;mapStack.length &gt; 1&quot; @click=&quot;back&quot;&gt;上一级&lt;/el-button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;map&quot; ref=&quot;mapRef&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import * as echarts from &#x27;echarts&#x27;</span><br><span class="line">import &#123; onBeforeMount &#125; from &#x27;vue&#x27;;</span><br><span class="line">import &#123; getMapOption &#125; from &#x27;@/utils/chart&#x27;</span><br><span class="line">import &#123; listDevice &#125; from &quot;@/api/device/device&quot;;</span><br><span class="line">import mapMap from &#x27;@/assets/json/map.json&#x27;</span><br><span class="line">const &#123; proxy &#125; = getCurrentInstance()</span><br><span class="line">let mapRef = ref(null)</span><br><span class="line">let mapList = &#123;&#125;</span><br><span class="line">let mapStack = ref([])</span><br><span class="line">let points = ref([])</span><br><span class="line">let myChart = null</span><br><span class="line">let defaultProvince = ref(&#x27;安徽省&#x27;)</span><br><span class="line">function loadJson (url, type=&quot;geo&quot;) &#123;</span><br><span class="line">    fetch(url)</span><br><span class="line">    .then(res=&gt;res.json())</span><br><span class="line">    .then(function (geoJson) &#123;</span><br><span class="line">        if(type === &#x27;geo&#x27;) &#123;</span><br><span class="line">            geoJson.features.forEach(f =&gt; &#123;</span><br><span class="line">                mapList[f.properties.name] = f</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).catch(function (error) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function loadMap(name, myChart) &#123;</span><br><span class="line">    let mapjson = &#123;</span><br><span class="line">        type: &#x27;FeatureCollection&#x27;,</span><br><span class="line">        features: []</span><br><span class="line">    &#125;</span><br><span class="line">    let [shengName = name, shiName,xianName] = mapStack.value</span><br><span class="line">    let sheng = mapMap.find(f=&gt; f.name === shengName)    </span><br><span class="line">    let isZXS = sheng.children[0].name === &#x27;市辖区&#x27;//是否直辖市</span><br><span class="line">    if(xianName) &#123;</span><br><span class="line">    let xian = mapList[xianName]</span><br><span class="line">    if(xian) &#123;</span><br><span class="line">        mapjson.features.push(xian)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125; else if(shiName) &#123;</span><br><span class="line">        let childrens =  isZXS? sheng.children.map(m=&gt;m.children).flat(1) : sheng.children</span><br><span class="line">        let shi = childrens.find(f=&gt; f.name === shiName)</span><br><span class="line">        if(isZXS) &#123;</span><br><span class="line">            mapjson.features.push(mapList[shi.name])</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            shi.children.forEach(c =&gt; &#123;</span><br><span class="line">                let xian = mapList[c.name]</span><br><span class="line">                if(xian) &#123;</span><br><span class="line">                    mapjson.features.push(xian)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else if(sheng) &#123;</span><br><span class="line">        let childrens = isZXS ? sheng.children.map(m=&gt;m.children).flat(1) : sheng.children</span><br><span class="line">        childrens.forEach(c =&gt; &#123;</span><br><span class="line">            let city = mapList[c.name]</span><br><span class="line">            if(city) &#123;</span><br><span class="line">                mapjson.features.push(city)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    myChart.hideLoading();</span><br><span class="line">    echarts.registerMap(&#x27;liaoning&#x27;, mapjson);</span><br><span class="line">    let pointSeries = &#123;</span><br><span class="line">        name: &quot;设备&quot;,</span><br><span class="line">        type: &quot;effectScatter&quot;,</span><br><span class="line">        coordinateSystem: &quot;geo&quot;,</span><br><span class="line">        symbolSize: 15, // 点的大小</span><br><span class="line">        zlevel: 9,</span><br><span class="line">        data: points.value || []</span><br><span class="line">    &#125;;</span><br><span class="line">    let options = getMapOption([pointSeries])</span><br><span class="line">    myChart.setOption(options);</span><br><span class="line">&#125;</span><br><span class="line">function back() &#123;</span><br><span class="line">    if(mapStack.value.length &gt; 1) &#123;</span><br><span class="line">        mapStack.value.pop()</span><br><span class="line">        loadMap(mapStack.value[mapStack.value.length - 1], myChart)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">async function loadDevice() &#123;</span><br><span class="line">    let rs;</span><br><span class="line">    try &#123;</span><br><span class="line">        rs = await listDevice(&#123;</span><br><span class="line">            pageSize: Number.MAX_SAFE_INTEGER</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        rs = &#123;</span><br><span class="line">            rows: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    points.value = rs?.rows.map(item=&gt;&#123;</span><br><span class="line">        let &#123; longitude, latitude &#125; = item;</span><br><span class="line">        if(!longitude || !latitude) return false</span><br><span class="line">        return [longitude, latitude, item]</span><br><span class="line">    &#125;).filter(Boolean)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">onBeforeMount(()=&gt; &#123;</span><br><span class="line">    proxy.getConfigKey(&#x27;sys.index.provinceMap&#x27;).then(rs=&gt;&#123;</span><br><span class="line">        if(rs.msg) &#123;</span><br><span class="line">            defaultProvince.value = rs.msg</span><br><span class="line">            let code = mapMap.find(item=&gt;item.name === rs.msg).code</span><br><span class="line">            let fullCode = String(code).padEnd(6, &#x27;0&#x27;)</span><br><span class="line">            loadJson(`/json/$&#123;fullCode&#125;_full.json`)</span><br><span class="line">            loadJson(`/json/$&#123;fullCode&#125;_full_district.json`)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            loadJson(&#x27;/json/340000_full.json&#x27;)</span><br><span class="line">            loadJson(&#x27;/json/340000_full_district.json&#x27;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">onMounted(async () =&gt; &#123;</span><br><span class="line">    myChart = echarts.init(mapRef.value);</span><br><span class="line">    myChart.showLoading();</span><br><span class="line">    await loadDevice()</span><br><span class="line">    setTimeout(()=&gt; &#123;</span><br><span class="line">      mapStack.value.push(defaultProvince.value)</span><br><span class="line">      loadMap(defaultProvince.value, myChart)</span><br><span class="line">    &#125;, 500)</span><br><span class="line">    let timeFn;</span><br><span class="line">    //单击切换到省级地图，当mapCode有值,说明可以切换到下级地图</span><br><span class="line">    myChart.on(&#x27;click&#x27;, function(params) &#123;</span><br><span class="line">        if(params.componentType !== &quot;geo&quot;)return</span><br><span class="line">        clearTimeout(timeFn);</span><br><span class="line">        //由于单击事件和双击事件冲突，故单击的响应事件延迟250毫秒执行</span><br><span class="line">        timeFn = setTimeout(function() &#123;</span><br><span class="line">            var name = params.name; //地区name</span><br><span class="line">            if(defaultProvince.value.includes(&#x27;市&#x27;)) &#123;</span><br><span class="line">                if(mapStack.value.length === 2) return</span><br><span class="line">            &#125;</span><br><span class="line">            if(mapStack.value.length === 3) return</span><br><span class="line">            mapStack.value.push(name)</span><br><span class="line">            loadMap(name, myChart);</span><br><span class="line">        &#125;, 250);</span><br><span class="line">    &#125;);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.chart-map-box &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line">  background: url(&#x27;@/assets/images/bg_map02.png&#x27;) 0 0/100% 100% no-repeat;</span><br><span class="line">  position: relative;</span><br><span class="line">  #map &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">  &#125;</span><br><span class="line">  #map-stack &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 10px;</span><br><span class="line">    left: 10px;</span><br><span class="line">    z-index: 1000;</span><br><span class="line">    color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 5px 10px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">  &#125;</span><br><span class="line">  #btn-back &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 10px;</span><br><span class="line">    right: 10px;</span><br><span class="line">    z-index: 1000;</span><br><span class="line">    color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 5px 10px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="G6实现流程图"><a href="#G6实现流程图" class="headerlink" title="G6实现流程图"></a>G6实现流程图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;span class=&quot;iconfont icon-fanhui&quot; style=&quot;position: absolute; visibility: hidden&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;div id=&quot;draw-box&quot; ref=&quot;drawBoxRef&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; Graph, NodeEvent, EdgeEvent &#125; from &#x27;@antv/g6&#x27;</span><br><span class="line">let &#123; proxy &#125; = getCurrentInstance()</span><br><span class="line">aph = shallowRef(null)</span><br><span class="line"></span><br><span class="line">const getChartDatas = async () =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    nodes: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;1&#x27;,</span><br><span class="line">        title: &#x27;新建项目&#x27;,</span><br><span class="line">        status: idArr.includes(1) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 20, iconText: &#x27;\ue7d1&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;2&#x27;,</span><br><span class="line">        title: &#x27;上传文件&#x27;,</span><br><span class="line">        status: idArr.includes(1) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 120, iconText: &#x27;\ue614&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;3&#x27;,</span><br><span class="line">        title: &#x27;人工审核&#x27;,</span><br><span class="line">        status: idArr.includes(2) || idArr.includes(0),</span><br><span class="line">        style: &#123; x: 150, y: 220, labelPlacement: &#x27;right&#x27;, labelOffsetY: -10, iconText: &#x27;\ue616&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;4&#x27;,</span><br><span class="line">        title: &#x27;审核是否通过&#x27;,</span><br><span class="line">        status: idArr.includes(3) || idArr.includes(4) || idArr.includes(5),</span><br><span class="line">        style: &#123; x: 150, y: 320, iconText: &#x27;\ue608&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;5&#x27;,</span><br><span class="line">        title: &#x27;审核通过&#x27;,</span><br><span class="line">        status: idArr.includes(5) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 450, iconText: &#x27;\ue622&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;6&#x27;,</span><br><span class="line">        title: &#x27;上传可研执复核&#x27;,</span><br><span class="line">        status: idArr.includes(3) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 20, y: 320, labelPlacement: &#x27;bottom&#x27;, iconText: &#x27;\ue762&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;7&#x27;,</span><br><span class="line">        title: &#x27;预审通过&#x27;,</span><br><span class="line">        status: idArr.includes(0) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 350, y: 220, labelPlacement: &#x27;bottom&#x27;, labelOffsetX: 0, iconText: &#x27;\ue606&#x27; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    edges: [</span><br><span class="line">      &#123; id: &#x27;edge-1&#x27;, source: &#x27;1&#x27;, target: &#x27;2&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-2&#x27;, source: &#x27;2&#x27;, target: &#x27;3&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-3&#x27;, source: &#x27;3&#x27;, target: &#x27;4&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-4&#x27;, source: &#x27;4&#x27;, target: &#x27;5&#x27;, title: &#x27;是，通过&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-5&#x27;, source: &#x27;4&#x27;, target: &#x27;6&#x27;, title: &#x27;否，需复核&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-6&#x27;, source: &#x27;6&#x27;, target: &#x27;3&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-7&#x27;, source: &#x27;7&#x27;, target: &#x27;3&#x27;, title: &#x27;预审通过&#x27; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const renderChart = async () =&gt; &#123;</span><br><span class="line">  graph.value = new Graph(&#123;</span><br><span class="line">    container: proxy.$refs.drawBoxRef, //document.getElementById(&#x27;draw-box&#x27;), // String | HTMLElement，必须，在 Step 1 中创建的容器 id 或容器本身</span><br><span class="line">    data: await getChartDatas(),</span><br><span class="line">    // width: 350,</span><br><span class="line">    // height: 800,</span><br><span class="line">    autoFit: &#x27;center&#x27;,</span><br><span class="line">    animation: false,</span><br><span class="line">    node: &#123;</span><br><span class="line">      type: &#x27;circle&#x27;,</span><br><span class="line">      style: &#123;</span><br><span class="line">        size: 40,</span><br><span class="line">        radius: 8,</span><br><span class="line">        labelPlacement: (d) =&gt; &#123;</span><br><span class="line">          return d.style?.labelPlacement || &#x27;right&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        labelText: (d) =&gt; d.title,</span><br><span class="line">        labelOffsetX: (d) =&gt; d.style.labelOffsetX ?? 10,</span><br><span class="line">        fill: (d) =&gt; (d.status ? &#x27;#27a4a8&#x27; : &#x27;#b2b2b2&#x27;),</span><br><span class="line">        labelFill: (d) =&gt; (d.status ? &#x27;#27a4a8&#x27; : &#x27;#b2b2b2&#x27;),</span><br><span class="line">        labelFontWeight: &#x27;bold&#x27;,</span><br><span class="line">        labelWordWrap: true,</span><br><span class="line">        labelMaxWidth: 80,</span><br><span class="line">        labelMaxLines: 4,</span><br><span class="line">        iconTextBaseline: &#x27;middle&#x27;,</span><br><span class="line">        iconFontFamily: &#x27;iconfont&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    edge: &#123;</span><br><span class="line">      type: &#x27;polyline&#x27;,</span><br><span class="line">      style: &#123;</span><br><span class="line">        endArrow: true,</span><br><span class="line">        lineWidth: 2,</span><br><span class="line">        stroke: &#x27;#27a4a8&#x27;,</span><br><span class="line">        router: &#123;</span><br><span class="line">          type: &#x27;orth&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        labelOffsetY: (d) =&gt; d.style.labelOffsetY || 10,</span><br><span class="line">        labelText: (d) =&gt; d.title,</span><br><span class="line">        labelFill: &#x27;#b2b2b2&#x27;</span><br><span class="line">        // labelAutoRotate: &#x27;90deg&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    behaviors: [&#x27;drag-canvas&#x27;, &#x27;zoom-canvas&#x27;]</span><br><span class="line">  &#125;)</span><br><span class="line">  graph.value.render() //</span><br><span class="line">  graph.value.on(NodeEvent.CLICK, (e) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;NodeEvent.CLICK&#x27;, e)</span><br><span class="line">  &#125;)</span><br><span class="line">  graph.value.on(EdgeEvent.CLICK, (e) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;EdgeEvent.CLICK&#x27;, e)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">onBeforeUnmount(() =&gt; &#123;</span><br><span class="line">  if (graph.value) &#123;</span><br><span class="line">    graph.value.destroy()</span><br><span class="line">    graph.value = null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">watch(isShowModel, (val) =&gt; &#123;</span><br><span class="line">  if (val) &#123;</span><br><span class="line">    if (!graph.value) &#123;</span><br><span class="line">      setTimeout(() =&gt; &#123;</span><br><span class="line">        renderChart()</span><br><span class="line">      &#125;, 100)</span><br><span class="line">      console.log(&#x27;第一次&#x27;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      graph.value.updateData(getChartDatas())</span><br><span class="line">      // console.log(&#x27;更新数据&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    graph.value?.destroy()</span><br><span class="line">    graph.value = null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.box &#123;</span><br><span class="line">  width: 95%;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  height: 480px;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: 9999999;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     
@@ -1293,114 +1403,6 @@
 
 
   
-    <article id="post-programming/jsplugin/图片裁剪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/" target="_blank">方便快捷的实现图片裁剪</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/" class="archive-article-date">
-        <time datetime="2022-07-11T02:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-07-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="JavaScript-image-cropper"><a href="#JavaScript-image-cropper" class="headerlink" title="JavaScript image cropper"></a>JavaScript image cropper</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://fengyuanchen.github.io/cropperjs/">官网</a></p>
-<p><a target="_blank" rel="noopener" href="https://hub.nuaa.cf/fengyuanchen/cropperjs/blob/main/README.md">1.5.12文档</a></p>
-</blockquote>
-<h4 id="CDN-地址"><a href="#CDN-地址" class="headerlink" title="CDN 地址"></a>CDN 地址</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 2.0</span></span><br><span class="line">&lt;link href=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/2.0.0-alpha.1/cropper.min.css&quot;</span> rel=<span class="string">&quot;stylesheet&quot;</span>&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/2.0.0-alpha.1/cropper.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1.5.12</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.bootcdn.net/ajax/libs/cropperjs/1.5.12/cropper.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/1531383-20191201202454722-1046050136.jpg" alt="img"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># cropper - 裁剪图片 - <span class="title class_">IE9</span>+</span><br><span class="line"></span><br><span class="line">## 使用 cropperjs</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Cropper</span> <span class="keyword">from</span> <span class="string">&#x27;cropperjs&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;cropperjs/dist/cropper.css&#x27;</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span> = <span class="keyword">new</span> <span class="title class_">Cropper</span>(<span class="string">&#x27;被裁剪对象&#x27;</span>, <span class="string">&#x27;配置对象&#x27;</span>) <span class="comment">//返回一个cropper对象</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCroppedCanvas</span>().<span class="title function_">toDataURL</span>(<span class="string">&#x27;image/jpeg&#x27;</span>) <span class="comment">//拿到裁剪后的base64的图片</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCropBoxData</span>();    <span class="comment">//获取裁剪框数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">setCropBoxData</span>();    <span class="comment">//设置裁剪框数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">getCanvasData</span>();      <span class="comment">//获取图片数据</span></span><br><span class="line"><span class="variable language_">this</span>.<span class="property">myCropper</span>.<span class="title function_">setCanvasData</span>();      <span class="comment">//设置图片数据</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js图片裁剪//" class="article-tag-list-link color2">js图片裁剪</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/07/11/programming/jsplugin/%E5%9B%BE%E7%89%87%E8%A3%81%E5%89%AA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/5/">« Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/7/">Next »</a>
@@ -1534,15 +1536,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1550,15 +1544,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1566,19 +1560,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">网络</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1586,11 +1576,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+                <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1614,15 +1604,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1630,7 +1612,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1638,7 +1624,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1646,11 +1652,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1662,19 +1672,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1682,15 +1680,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1702,10 +1704,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
@@ -1714,7 +1712,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1726,6 +1724,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1734,15 +1736,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">RPA</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1758,19 +1760,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1782,10 +1788,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1794,11 +1796,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1810,11 +1812,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1826,15 +1828,15 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
