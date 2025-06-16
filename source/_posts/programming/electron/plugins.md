@@ -277,3 +277,14 @@ Electron 没有内置方法来保存用户设置和其他数据。此模块会�
 可以让electron 自动给浏览器安装指定拓展，只需提供拓展程序id ,内置了很多应用id
 
 ​	从技术上讲，您可以使用任何您想要的扩展程序。只需找到您要安装的扩展程序的 ChromeStore ID，然后调用`installExtension('YOUR_ID_HERE')`。我们在包内提供了几个扩展程序 ID，因此您可以轻松导入它们进行安装，而无需自己寻找它们。
+
+
+
+## [Electron Forge](https://www.electronforge.io/)
+
+用于构建和发布 Electron 应用的完整工具.这个脚手架提供了 vite + js, vite + ts 的版本模板。可直接集成 vue,react,打包等一系列操作，github ⭐6.7k。 下载依赖时记得配置 electron 镜像 
+
+```bash
+yarn config set electron_mirror "https://npmmirror.com/mirrors/electron/"
+```
+

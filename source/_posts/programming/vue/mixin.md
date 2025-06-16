@@ -70,7 +70,7 @@ export default {
 
 ```
 
-1、编写组件 dict.js
+1、编写组件 dict.js 
 
 ```js
 const options = null;
@@ -161,6 +161,7 @@ class Dict {
                 d.map(item => {
                     Vue.$set(Vue.dict.label, [item.dictValue], item.dictLabel)
                 })
+                // 将每一项字典添加到 Vue.dict 这个属性上
                 Vue.$set(Vue.dict.type, dictType, d)
                 
             } catch (error) {
@@ -178,10 +179,14 @@ export default {
 }
 ```
 
-2、main.js 注册 组件
+2、dictData 组件
 
 ```js
-// 从 store 中查询此字典是否已加载
+import Vue from 'vue'
+import store from '@/store'
+import DataDict from '@/utils/dict'
+import { getDicts as getDicts } from '@/api/common'
+
 function searchDictByKey(dict, key) {
   if (key == null && key == "") {
     return null
@@ -196,30 +201,46 @@ function searchDictByKey(dict, key) {
     return null
   }
 }
-Vue.use(dict, {
-  labelField: 'dictLabel',
-  valueField: 'dictValue',
-  request(dictType) {
-    const storeDict = searchDictByKey(store.getters["dictModule/getDict"], dictType)
-    if (storeDict) {
-      return new Promise(resolve => { resolve(storeDict) })
-    } else {
-      return new Promise((resolve, reject) => {
-        fetch(`http://localhost:8081/api/system/dict/data/type/${dictType}`, {
-            headers: {"Authorization": `Bearer eyJhbGciOiJIUzUxMiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VyX2tleSI6IjFhZWNjYmM2LTJmNDItNDMyNS05ZTkxLTViNGEyZTc1MmUxMCIsInVzZXJuYW1lIjoiYWRtaW4ifQ.c8w0X5ydwbxBFANwfykVC3WjDS-0X6LCBXd_5nnc05I25YLxmkIyRRsR9fAaitkuNYqUHkcQXca99ZWbNxPKyw`}
-        }).then(res=> res.json()).then(res=> {
-          store.dispatch('dictModule/setDict', { key: dictType, value: res.data })
-          resolve(res.data)
-        }).catch(error => {
-          reject(error)
-        })
-      })
-    }
-  },
-})
+
+function install() {
+  Vue.use(DataDict, {
+    metas: {
+      '*': {
+        labelField: 'dictLabel',
+        valueField: 'dictValue',
+        request(dictMeta) {
+          const storeDict = searchDictByKey(store.getters.dict, dictMeta.type)
+          if (storeDict) {
+            return new Promise(resolve => { resolve(storeDict) })
+          } else {
+            return new Promise((resolve, reject) => {
+              getDicts(dictMeta.type).then(res => {
+                store.dispatch('dict/setDict', { key: dictMeta.type, value: res.data })
+                resolve(res.data)
+              }).catch(error => {
+                reject(error)
+              })
+            })
+          }
+        },
+      },
+    },
+  })
+}
+
+export default {
+  install,
+}
 ```
 
-3、在页面使用
+3、main.js 注册 组件
+
+```js
+// 全局组件挂载
+DictData.install()
+```
+
+4、在页面使用
 
 ```vue
 <template>

@@ -805,4 +805,69 @@ console.log(`%c 1 2 3 4 5`, `color: #4CAF50; font-weight: bold`);
 console.groupEnd();
 ```
 
+### 封装 webSocket
+
+```js
+
+export class CustomWebSocket {
+  constructor({url,fn_error=null, fn_open=null,fn_message=null, fn_close=null}) {
+    // 是否链接成功
+    this.isSocketCan = false;
+    // 是否自动连接
+    this.isAutoCan = true;
+    this.websocket_url = url;
+    this.fn_error = fn_error;
+    this.fn_open = fn_open;
+    this.fn_message = fn_message;
+    this.fn_close = fn_close;
+    this.init();
+  }
+  init() {
+    this.myWebsocket = new WebSocket(this.websocket_url);
+    this.bindEvent();
+    // setInterval(()=> {
+    //   console.log('test connect:',this.isSocketCan , this.isAutoCan);
+    //   if (!this.isSocketCan && this.isAutoCan) {
+    //       // getWebsocketRelative();
+    //       this.myWebsocket = new WebSocket(this.websocket_url);
+    //   }
+    // }, 3000)
+  }
+  bindEvent() {
+    //连接发生错误的回调方法 
+    this.myWebsocket.onerror = ()=> {
+      this.isSocketCan = false;
+      console.log('websocket 连接失败');
+      this.fn_error&&this.fn_error()
+    };
+
+    //连接成功建立的回调方法 
+    this.myWebsocket.onopen = ()=> {
+      this.isSocketCan = true;
+      console.log('websocket 连接成功');
+      this.fn_open&&this.fn_open()
+    };
+
+    //接收到消息的回调方法 
+    this.myWebsocket.onmessage = (event)=> {
+      this.isSocketCan = true;
+      // console.log(event);
+      this.fn_message&&this.fn_message(event)
+    };
+
+    //连接关闭的回调方法 
+    this.myWebsocket.onclose = ()=> {
+      this.isSocketCan = false;
+      console.log('websocket 关闭成功');
+      this.fn_close&&this.fn_close()
+    };
+  }
+  //关闭WebSocket连接
+  closeWebSocket () {
+    this.isAutoCan = false;
+    this.myWebsocket && this.myWebsocket.close && this.myWebsocket.close();
+  }
+}
+
+```
 

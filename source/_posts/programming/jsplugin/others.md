@@ -866,6 +866,39 @@ easel.js提供了丰富的语义化的API和交互解决方案，能够优雅地
 >
 > ### gossip 一个高效创建和演示炫酷幻灯片的用户界面！ [https://pearmini.github.io/gossip/](https://link.zhihu.com/?target=https%3A//pearmini.github.io/gossip/%5D)
 
+### [PPTist](https://github.com/pipipi-pikachu/PPTist)
+
+本项目禁止闭源商用，PowerPoint-ist ，一个在线演示应用程序，它复制了 MS PowerPoint 的大部分常用功能，允许在线编辑和演示 PPT。支持 AIPPT。
+
+### [hfmath](https://github.com/LingDong-/hfmath)
+
+hfmath 是一个微型 JS 工具，用于使用单行 Hershey 字体渲染数学运算。~140 KB 脚本，无依赖项：LaTeX 进入，SVG 路径出现。没有 CSS。无字体加载。快如闪电。适用于浏览器和服务器。折线数据、SVG 或 PDF 的可自定义导出。在您的博客中显示数学。
+
+```html
+<script src="hfmath.global.js"></script>
+<script>
+    let eq = new HFMATH.hfmath("x^2 + 2x + 1");
+    let svgStr = eq.svg();
+    document.write(svgStr);
+</script>
+```
+
+[vue-ts 示例的数学公式编辑器](https://github.com/pipipi-pikachu/PPTist/tree/b7da6fe9f52b37ea6bce693b47e9a7c829916384/src/components/LaTeXEditor)
+
+这是 PPTist 项目中的一个模块功能，可用于参考. 编辑时还是编辑 LaTeX  语法，但是可以实时预览
+
+### [DDei](https://docs.ddei.top/quickstart/quickstart.html)
+
+开源图形设计器,打造开箱即用的设计器组件。可作为插件使用
+
+```bash
+npm i ddei-editor
+```
+
+![DDei设计器-缺省界面](https://docs.ddei.top/assets/image-4.BnK4Bpn-.jpeg)
+
+缺省布局包含了`顶部菜单栏`、`控件工具项`、`主画布`、`属性面板`和`底部菜单栏`，可以通过配置进行删减。
+
 ### Velocity.js
 
 > js 操作动画的库
@@ -1644,9 +1677,342 @@ console.log('还原对象:', toObj)
 
 > ## About
 >
-> EasyPlayer.js H5播放器，是一款免费的能够同时支持HTTP、RTMP、HTTP-FLV、HLS（m3u8）直播与点播等多种协议，支持H.264、H.265、AAC等多种音视频编码格式，支持mse、asm、wasm等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器。
+> EasyPlayer.js H5播放器，是一款能够同时支持HTTP、HTTP-FLV、HLS（m3u8）、WS、WEBRTC、FMP4视频直播与视频点播等多种协议，支持H.264、H.265、AAC、G711A、Mp3等多种音视频编码格式，支持MSE、WASM、WebCodec等多种解码方式，支持Windows、Linux、Android、iOS全平台终端的H5播放器，使用简单, 功能强大。
 >
 > [在线演示](https://www.tsingsee.com/easyplayer/)
+
+使用实例
+
+```vue
+<template>
+	<div class="container">
+		<div class="left-side">
+			<div class="left-top">
+				<div class="title" @click="play()"><img src="@\assets\images\icon_video_monitoring.png" alt="">实时监控</div>
+				<div class="flex-left">
+					<el-input placeholder="请输入摄像头名称" v-model="searchText"></el-input>
+				</div>
+				<el-scrollbar>
+				<el-tree 
+					ref="treeRef"
+					:data="treeData" 
+					:props="defaultProps" 
+					default-expand-all
+					:filter-node-method="filterNode" 
+					class="tree-container"
+					@node-click="handleNodeClick"
+					></el-tree>
+				</el-scrollbar>
+			</div>
+			<!-- <div class="left-bottom">
+				<div class="button-container">
+					<el-button @click="showBoxes(1)">1</el-button>
+					<el-button @click="showBoxes(4)">4</el-button>
+					<el-button @click="showBoxes(6)">6</el-button>
+					<el-button @click="showBoxes(9)">9</el-button>
+				</div>
+			</div> -->
+		</div>
+		<div class="right-side">
+			<div v-for="(box, index) in boxes" :key="index" :class="getBoxClass(boxes)">
+				<div class="player_box" :id="'player_box'+(index+1)"></div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<script setup>
+import { Document,FolderOpened ,Folder } from '@element-plus/icons-vue'
+const { proxy } = getCurrentInstance();
+import { getMonitorTree, getCreateStream } from '@/api/device/realTimeMonitoring'
+import { ElMessage } from 'element-plus';
+const treeData = ref([]);
+const searchText =ref('')
+const defaultProps = {
+	children: 'childList',
+	label: 'monitorName',
+};
+
+const boxes = ref(1);
+let playerList = ref([]);
+
+const showBoxes = (num) => {
+	onDestroy().then(() => {
+		boxes.value = num;
+		nextTick(() => {
+			onCreate().then(() => {
+				create()
+			});
+		})
+	});
+};
+watch(searchText, (val) => {
+	try {
+		proxy.$refs.treeRef.filter(val)
+	} catch (error) {
+		console.log(error);
+	}
+})
+const filterNode = (value, data) => {
+	if (!value) return true
+	return data.label.includes(value)
+}
+const handleNodeClick = (data) => {
+	console.log(data);
+	if(data.remark == '999') {
+		getCreateStream({cameraId:data.id}).then(res=>{
+			if(res.msg && res.msg != '-1') {
+				play(res.msg)
+			} else {
+			    ElMessage.warning('当前流信息已被使用')
+			}
+		}).catch(err=>{
+		    onDestroy().then(() => {
+				nextTick(() => {
+					onCreate().then(() => {
+						create()
+						play._hasPlayed = false
+					});
+				})
+			});
+		})
+	}
+}
+const getBoxClass = (num) => {
+	switch (num) {
+		case 1:
+			return 'big-box';
+		case 4:
+			return 'medium-box-4';
+		case 6:
+			return 'medium-box-6';
+		case 9:
+			return 'small-box';
+		default:
+			return '';
+	}
+};
+function onCreate() {
+	return new Promise((resolve, reject) => {
+		playerList.value = []
+		for (let index = 0; index < boxes.value; index++) {
+			playerList.value.push({ index: index + 1 })
+		}
+		resolve();
+	})
+}
+function onDestroy() {
+	return new Promise((resolve, reject) => {
+		for (let index = 0; index < boxes.value; index++) {
+			if (playerList.value[index]?.player) {
+				playerList.value[index].player.destroy()
+				playerList.value[index].player = null
+			}
+		}
+		setTimeout(() => {
+			resolve();
+		}, 100);
+	})
+}
+function playCreate(index) {
+	console.log('player_box' + playerList.value[index].index);
+	var container = document.getElementById('player_box' + playerList.value[index].index);
+	var easyplayer = new EasyPlayerPro(container,{
+		bufferTime: 0.2, // 缓存时长
+		stretch: false,
+		MSE: false,
+		WCS: false,
+		hasAudio: true,
+		// watermark: {text: {content: 'easyplayer-pro'},right: 10,top: 10},
+	});
+
+	easyplayer.on("error", function (error) {
+		console.log('play on errror', error)
+		easyplayer.destroy()
+		ElMessage.error('视频播放错误')
+		play._hasPlayed = true
+	})
+	playerList.value[index].player = easyplayer
+}
+function create() {
+	for (let i = 0; i < boxes.value; i++) {
+		playCreate(i);
+	}
+}
+function play(url) {
+	if(!play._hasPlayed) {
+		let player = playerList.value[0].player;
+		player.play(url)
+		play._hasPlayed = true
+	} else {
+		onDestroy().then(() => {
+			nextTick(() => {
+				onCreate().then(() => {
+					create()
+					setTimeout(() => {
+						let player = playerList.value[0].player;
+						player.play(url)
+					},0)
+				});
+			})
+		});
+	}
+}
+async function getTreeList() {
+    let rs;
+	try {
+	    rs = await getMonitorTree();
+	} catch (error) {
+		console.log(error);
+		rs = {
+			data: []
+		}
+	}
+	treeData.value = rs.data;
+}
+onMounted(() => {
+	getTreeList()
+    onCreate().then(() => {
+		create()
+	});
+})
+</script>
+
+<style lang="scss" scoped>
+	.container {
+		display: flex;
+		height: calc(100vh - 130px);
+		width: 100%;
+		.left-side {
+			width: 340px;
+			height: 100%;
+			display: flex;
+			flex-direction: column; //? 块级元素为什么会变成行内
+			box-sizing: border-box;
+			padding: 20px;
+			gap: 10px;
+			background: linear-gradient(180deg, rgba(8, 35, 51, 0) 0%, rgba(8, 35, 51, 1) 100%);
+			border: 1px solid rgba(0, 0, 0, 1);
+			.left-top {
+				height: 100%;
+				// height: calc(100% - 200px);
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 20px;
+				.title {
+					display: flex;
+					align-items: center;
+					font-size: 24px;
+					color: white;
+					font-weight: bold;
+					box-sizing: border-box;
+					gap: 10px;
+					img {
+						width: 24px;
+						height: 24px;
+					}
+				}
+				.flex-left {
+					display: flex;
+					justify-content: flex-start;
+					width: 190px;
+					height: 28px;
+					.el-input__wrapper {
+						border-radius: 14px;
+						// overflow-x: auto;
+					}
+				}
+				.tree-container { //? 为什么不居中
+					height: calc(100% - 100px);
+					width: 100%;
+					overflow-y: auto;
+				}
+			}
+			.left-bottom {
+				height: 200px;
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				.button-container {
+					width: 160px;
+					height: 160px;
+					box-sizing: border-box;
+					border: grey 1px solid;
+					// background-color: green;
+					display: flex;
+					align-content: center;
+					justify-content: center;
+					flex-wrap: wrap;
+					gap:10px;
+					.el-button {
+						width: 60px;
+						height: 60px;
+						margin-left: 0px;
+						background-color: rgba(128, 128, 128, 0.5);
+						color: white;
+						font-size: 20px;
+						font-weight: bold;
+					}
+				}
+			}
+		}
+		.right-side {
+			width: calc(100% - 340px);
+			// height: 100%; //加上不生效？
+			box-sizing: border-box;
+			padding: 10px;
+			flex-wrap: wrap;
+			gap: 8px;
+			display: flex;
+			align-content: center;
+			justify-content: center;
+			background: linear-gradient(180deg, rgba(8, 35, 51, 0) 0%, rgba(8, 35, 51, 1) 100%);
+			// background-color: rgba(228, 228, 228, 0.5);
+			.big-box {
+				width: 99%;
+				height: 99%;
+				background: black;
+				border: 1px solid rgba(102, 217, 255, 1); 
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+
+			.medium-box-4 {
+				width: 49%;
+				height: 48%;
+				background: black;
+				border: 1px solid rgba(102, 217, 255, 1); 
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+
+			.medium-box-6 {
+				width: 49%;
+				height: calc(97% / 3);
+				// height: 48%;
+				// width: calc(97% / 3);
+				background: black;
+				border: 1px solid rgba(102, 217, 255, 1); 
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+
+			.small-box {
+				width: calc(98% / 3);
+				height: calc(97% / 3);
+				background: black;
+				border: 1px solid rgba(102, 217, 255, 1); 
+				box-sizing: border-box;
+				overflow: hidden;
+			}
+		}
+	}
+</style>
+```
+
+
 
 ### [h265web.js](https://github.com/numberwolf/h265web.js/wiki/%E3%80%90%E8%AF%B4%E6%98%8E%E3%80%91%E5%88%9B%E5%BB%BA%E6%92%AD%E6%94%BE%E5%99%A8)
 
@@ -1675,6 +2041,24 @@ console.log('还原对象:', toObj)
 > 专注于业务自定义的流程图编辑框架，支持实现脑图、ER图、UML、工作流等各种图编辑场景。比x6使用更简单，更强
 >
 > [官方文档](https://site.logic-flow.cn/examples)
+
+### [mind-map](https://github.com/wanglin2/mind-map)
+
+> 一个还算强大的Web思维导图。[在线演示](https://wanglin2.github.io/mind-map/#/)
+>
+> - 插件化架构，除核心功能外，其他功能作为插件提供，按需使用，减小打包体积
+> -  支持逻辑结构图（向左、向右逻辑结构图）、思维导图、组织结构图、目录组织图、时间轴（横向、竖向）、鱼骨图等结构
+> -  内置多种主题，允许高度自定义样式，支持注册新主题
+> -  节点内容支持文本（普通文本、富文本）、图片、图标、超链接、备注、标签、概要、数学公式
+> -  节点支持拖拽（拖拽移动、自由调整）、多种节点形状；支持扩展节点内容、支持使用 DDM 完全自定义节点内容
+> -  支持画布拖动、缩放
+> -  支持鼠标按键拖动选择和 Ctrl+左键两种多选节点方式
+> -  支持导出为`json`、`png`、`svg`、`pdf`、`markdown`、`xmind`、`txt`，支持从`json`、`xmind`、`markdown`导入
+> -  支持快捷键、前进后退、关联线、搜索替换、小地图、水印、滚动条、手绘风格、彩虹线条、标记、外框
+> -  提供丰富的配置，满足各种场景各种使用习惯
+> -  支持协同编辑
+> -  支持演示模式
+> -  更多功能等你来发现
 
 ### 导出pdf
 
@@ -2852,3 +3236,67 @@ xterm.js + node-pty + ws 实现 web-terminal
 ![img](https://cdn.beekka.com/blogimg/asset/202410/bg2024101201.webp)
 
 一个 JS 库，对两个对象或数组进行 diff 操作，返回差异的部分。
+
+### [Midscene.js](https://midscenejs.com/zh/blog-support-android-automation.html)
+
+![](https://cdn.beekka.com/blogimg/asset/202504/bg2025042310.webp)
+
+字节推出的 JS 工具，最新功能是通过 AI 和 adb，完成安卓手机自动化。它早先已经可以浏览器自动化。
+
+### Playwright
+
+[Documentation](https://playwright.dev/) | [API reference](https://playwright.dev/docs/api/class-playwright) 文档 | API 参考文档，github 72K⭐
+KPlaywright 是一个用于 Web 测试和自动化的框架。它允许使用单个 API 对 Chromium、Firefox 和 WebKit 进行测试。
+
+
+
+### [js 动画组件 motion](https://motion.dev/docs)
+
+可以在 js,vue,react 中使用，有不同的版本
+
+vue,react 中类似于这种用法
+
+```vue
+<motion.div
+  :animate="{
+    scale: 2,
+    transition: { duration: 2 }
+  }"
+/>
+```
+
+js中
+
+```js
+import { animate } from "motion"
+// CSS selector
+animate(".box", { rotate: 360 })
+
+// Elements
+const boxes = document.querySelectorAll(".box")
+
+animate(boxes, { rotate: 360 })
+```
+
+### [Defuddle](https://github.com/kepano/defuddle)
+
+![img](https://cdn.beekka.com/blogimg/asset/202505/bg2025052401.webp)
+
+一个 JS 库，从 HTML 网页代码提取内容，转成文本。kepano/defuddle 可以从网页中提取主要内容。它通过移除评论、侧边栏、页眉、页脚和其他非必要元素来清理网页，只保留主要的内容。
+
+### [Raingad-IM](https://im.raingad.com/index.html#/demo)
+
+Raingad-IM是一个**开源的即时通信demo（存在一定的BUG），已取得软件著作权，主要用于学习交流，为大家提供即时通讯的开发思路**，许多功能需要自行开发，开发的初衷旨在快速建立企业内部通讯系统、内网交流、社交交流。
+
+ 不建议用于商业用途，如确有需要商用，请联系作者授权，自行开发代码量必须要高于原代码量的30%以上，并注明相关的版权问题。
+
+ 支持企业模式：类似于企业微信，初始化联系人是加载企业内的所有人员，无须加好友可以直接进行对话、创建群聊等，适用于企业内部通讯。
+
+ 支持社交模式：类似于微信或QQ，需要添加好友才能进行对话，适用于社交交流。社交模式支持加好友、删除好友、改备注等功能。
+
+ 选择适合自己项目的模式，然后在后台设置即可。社交模式体验需要自行搭建部署哦，可以在项目地址中看到相关的截图。
+
+### [chat-area](https://gitee.com/jianfv/chat-area?utm_source=gold_browser_extension)
+
+纯js封装的聊天框，兼容各大框架适用，适配pc与h5的交互。输入框支持@人员选择（多选），混合粘贴，拼音匹配
+

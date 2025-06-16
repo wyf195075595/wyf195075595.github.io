@@ -3376,6 +3376,371 @@ const layer = new VectorLayer({
 
 > ### [demo示例](https://codepen.io/wyf195075595/pen/ExGJZzv)
 
+### 绘制点线面获取坐标
+
+```vue
+<template>
+    <main class="map_container">
+      <div id="lonlatText1" class="lonlatText1"></div>
+      <!-- <div class="mapCard">
+        <div :class="['weixin-map', mapType == 1 ? 'show-map' : '']" @click="changMapType(1)"><span>卫星</span></div>
+        <div :class="['putong-map', mapType == 2 ? 'show-map' : '']" @click="changMapType(2)"><span>普通</span></div>
+      </div> -->
+      <div class="tools">
+        <el-button-group>
+          <el-button type="primary" v-if="props.type == 'Point'" @click="addPointInteraction">点</el-button>
+          <el-button type="primary" v-if="props.type == 'LineString'"  @click="addLineInteraction">线</el-button>
+          <el-button type="primary" v-if="props.type == 'Polygon'"  @click="addPolygonInteraction">面</el-button>
+          <!-- <el-button type="primary" @click="getMapPosition">我的位置</el-button> -->
+          <el-button type="primary" @click="resetDrawing">重置</el-button>
+          <el-tooltip
+            class="box-item"
+            content="点击绘制类型按钮开始绘制，绘制线面时，按回车键结束绘制"
+            placement="top-start"
+          >
+            <el-button type="primary" :icon="QuestionFilled">提示</el-button>
+          </el-tooltip>
+        </el-button-group>
+      </div>
+      <div class="map_openlayer" ref="mapContainer"></div>
+    </main>
+  </template>
+  
+  <script setup>
+  import { QuestionFilled } from '@element-plus/icons-vue'
+  import "ol/ol.css";
+  import { Map as olMap, View } from "ol";
+  import TileLayer from 'ol/layer/Tile';
+  import TileWMS from 'ol/source/TileWMS';
+  import XYZ from 'ol/source/XYZ';
+  import { get, fromLonLat } from 'ol/proj';
+  import { defaults } from 'ol/control';
+  import controlMousePosition from 'ol/control/MousePosition';
+  import controlZoomToExtent from 'ol/control/ZoomToExtent';
+  import controlZoomSlider from 'ol/control/ZoomSlider';
+  import controlFullScreen from 'ol/control/FullScreen';
+  import controlScaleLine from 'ol/control/ScaleLine';
+  
+  import { format } from 'ol/coordinate';
+  import VectorSource from 'ol/source/Vector';
+  import Cluster from 'ol/source/Cluster';
+  import VectorLayer from 'ol/layer/Vector';
+  import Style from 'ol/style/Style';
+  import Icon from 'ol/style/Icon';
+  import Text from 'ol/style/Text';
+  import Fill from 'ol/style/Fill';
+  import Stroke from 'ol/style/Stroke';
+  import Feature from 'ol/Feature';
+  import Point from 'ol/geom/Point';
+  import { containsExtent } from 'ol/extent';
+  import * as olInteraction from 'ol/interaction';
+  import GeoJSON from 'ol/format/GeoJSON';
+  import anhuiJSON from '@/assets/json/fx.json';
+  import { onMounted, ref } from "vue";
+  import mapPointIcon from '@/assets/images/icon_map_point.png'
+  const { proxy } = getCurrentInstance();
+  const props = defineProps({
+    type: {
+      type: String,
+      default: 'Point'
+    }
+  })
+  let emitPosition = defineEmits(['update:position']);
+  const defaultPointStyle = new Style({
+    image: new Icon({
+      anchor: [0.5, 1],
+      src: mapPointIcon
+    })
+  });
+  const useMap = () => {
+    let map = null;
+    const mapPosition = ref({
+      // 点
+      point: [],
+      // 线
+      line: [],
+      // 面
+      polygon: [],
+    })
+    const vector = new VectorLayer({
+      zIndex: 999,
+      visible: true,
+      name: "绘制图层",
+      source: new VectorSource({ wrapX: false }),
+      style: function (feature) {
+        if (feature.getGeometry().getType() === 'Point') {
+          return defaultPointStyle;
+        }
+        return null;
+      }
+    });
+    const mapInit = () => {
+      map = new olMap({
+        target: proxy.$refs.mapContainer, // 地图的容器，可以是元素本身，也可以是元素的 id
+        layers: [ // 图层 按照提供的顺序呈现的（后面层级越高）
+          new TileLayer({
+            name: "普通",
+            zIndex: 1,
+            source: new XYZ({
+              url: GLOBAL_CONFIG.gisServerUrl + "/{z}/{x}/{y}.png"
+            }),
+          }),
+          vector
+        ],
+        view: new View({
+          center: [117.25, 31.68],
+          projection: get("EPSG:4326"),
+          zoom: 9,
+          minZoom: 9,
+          maxZoom: 16
+        }),
+        controls: defaults({
+          attribution: false,
+          rotate: false,
+          zoom: false,
+          zoomOptions: { delta: 0.5 }
+        }).extend([
+            /* 视图重置跳转控件 */
+            new controlZoomToExtent({
+                extent: [110, 30, 160, 30],
+            }),
+            /* 放大缩小条控件 */
+            new controlZoomSlider({
+                zoomInTipLabel: '放大',
+                zoomOutTipLabel: '缩小'
+            }),
+            //全屏控件
+            new controlFullScreen({
+
+            }),
+            // 比例尺
+            new controlScaleLine({
+
+            }),
+            new controlMousePosition({
+                // 坐标格式
+                coordinateFormat: (coordinate) => {
+                const zoom = map.getView().getZoom();
+                return format(coordinate, '经度：{x}°，纬度：{y}°' + '，层级：' + zoom, 4);
+                },
+                //地图投影坐标系（若未设置则输出为默认投影坐标系下的坐标）
+                projection: "EPSG:4326",
+                //坐标信息显示样式类名，默认是'ol-mouse-position'
+                className: "custom-mouse-position",
+                //显示鼠标位置信息的目标容器
+                // target: document.getElementById("lonlatText1"),
+                //未定义坐标的标记
+                undefinedHTML: ""
+            }),
+        ]),
+      });
+  
+    }
+    let draw;
+    const source = vector.getSource();
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Enter' && draw) {
+        // 按下回车键结束绘制
+        finishDrawing();
+      }
+    });
+    function addPointInteraction() {
+        draw = new olInteraction.Draw({
+          source: source,
+          type: 'Point'
+        });
+        draw.on('drawend', function (event) {
+          const feature = event.feature;
+          const geometry = feature.getGeometry();
+          const coordinates = geometry.getCoordinates();
+          mapPosition.value.point = coordinates;
+          finishDrawing();
+        });
+        map.addInteraction(draw);
+    }
+  
+    function addLineInteraction() {
+        draw = new olInteraction.Draw({
+            source: source,
+            type: 'LineString'
+        });
+        draw.on('drawend', function (event) {
+          const feature = event.feature;
+          const geometry = feature.getGeometry();
+          const coordinates = geometry.getCoordinates();
+          mapPosition.value.line = coordinates;
+          finishDrawing();
+        });
+        map.addInteraction(draw);
+    }
+  
+    function addPolygonInteraction() {
+        draw = new olInteraction.Draw({
+            source: source,
+            type: 'Polygon'
+        });
+        draw.on('drawend', function (event) {
+          const feature = event.feature;
+          const geometry = feature.getGeometry();
+          const coordinates = geometry.getCoordinates();
+          mapPosition.value.polygon = coordinates;
+          finishDrawing();
+        });
+        map.addInteraction(draw);
+    }
+  
+    function finishDrawing() {
+      if (draw) {
+        draw.finishDrawing();
+        map.removeInteraction(draw);
+        draw = null;
+      }
+      emitPosition('update:position', mapPosition.value);
+    }
+    function resetDrawing() {
+      source.clear();
+      mapPosition.value.polygon = [];
+      mapPosition.value.line = [];
+      mapPosition.value.point = [];
+    }
+    function getMapPosition() {
+      if ('geolocation' in navigator) {
+          // 获取当前位置
+          navigator.geolocation.getCurrentPosition(function (position) {
+              const lon = position.coords.longitude;
+              const lat = position.coords.latitude;
+              // 将经纬度转换为地图投影坐标
+              const center = fromLonLat([lon, lat]);
+              console.log('我的位置：',center, [lon, lat]);
+              
+              // 定位地图视图到当前位置
+              map.getView().animate({
+                center: [lon, lat],
+                zoom: 15
+              })
+              // map.getView().setCenter([lon, lat]);
+              // map.getView().setZoom(15);
+          }, function (error) {
+              console.error('获取位置失败:', error.message);
+          });
+      } else {
+          console.error('浏览器不支持地理定位');
+      }
+    }
+    onMounted(() => {
+      resetDrawing();
+      mapInit();
+    });
+    // onBeforeUnmount(() => {
+    // })
+  
+    return {
+      addPointInteraction,
+      addLineInteraction,
+      addPolygonInteraction,
+      finishDrawing,
+      resetDrawing,
+      getMapPosition
+    }
+  }
+  
+  const { 
+    addPointInteraction,
+    addLineInteraction,
+    addPolygonInteraction,
+    finishDrawing,
+    resetDrawing,
+    getMapPosition
+  } = useMap();
+  </script>
+  
+  <style lang="scss" scoped>
+  .map_container {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+  
+    .lonlatText1 {
+      position: absolute;
+      width: fit-content;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 5px;
+      background: #1e1e2b;
+      border-radius: 5px;
+      opacity: 0.65;
+      color: #fff;
+      font-size: 12px;
+      line-height: 24px;
+      padding: 0 10px;
+      z-index: 9;
+    }
+  
+    .map_openlayer {
+      height: 100%;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    .tools {
+      position: absolute;
+      left: 30px;
+      top: 30px;
+      z-index: 8;
+      display: flex;
+    }
+    .mapCard {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      z-index: 8;
+      display: flex;
+  
+      >div {
+        display: none;
+        width: 86px;
+        height: 60px;
+        border: 2px solid white;
+        cursor: pointer;
+  
+        span {
+          background: #2d3122;
+          padding: 2px 5px;
+          font-size: 12px;
+          color: #fff;
+          display: inline-block;
+        }
+      }
+  
+      >div.show-map {
+        display: block;
+  
+        span {
+          background: #3385FF;
+        }
+      }
+  
+      &:hover>div {
+        display: block;
+      }
+  
+      .weixin-map {
+        background-image: url("@/assets/images/maptype.png");
+        background-position: 0 -60px;
+      }
+  
+      .putong-map {
+        background-image: url("@/assets/images/maptype.png");
+        background-position: 0 0;
+      }
+    }
+  }</style>
+```
+
+
+
 ### 自定义控件
 
 > ol组件拓展

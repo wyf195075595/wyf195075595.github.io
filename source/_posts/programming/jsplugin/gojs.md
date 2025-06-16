@@ -184,8 +184,6 @@ Figures.js	 扩展图表(go.js自带的图表比较少，如果出现图标显�
 
 ## 自定义审批流程图
 
-![](https://raw.githubusercontent.com/wyf195075595/images/main/blog/gojsCustomdefine.png)
-
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -206,7 +204,6 @@ Figures.js	 扩展图表(go.js自带的图表比较少，如果出现图标显�
     <!-- 划定用来渲染gojs图标的div区域，背景颜色等参数 -->
     <div id="myDiagramDiv"></div>
     <script src="../js/go-debug.js"></script>
-    <!-- <script src="../js/go.js"></script> -->
     <script>
         const successColor = "rgba(88,172,48,1)",
                 failColor = "rgba(232,81,16,1)",
@@ -307,30 +304,26 @@ Figures.js	 扩展图表(go.js自带的图表比较少，如果出现图标显�
                 ),
             )
         )
-        // 审批流程
-        //                     -> 运检部专责3     3-top       -> 运检部领导6
-        // 班组长1 -> 分部领导2                  - 3-middle                   -8    -> 公司领导9
-        //                     -> 安监部专责4     3-bottom    -> 安监部领导7
         let nodeDataArray = [
-            { key: "1", text: "班组长", location: "0 0", background: successColor, borderColor: successColor, text2: "√"}, 
-            { key: "2", text: "分部领导", location: "300 0", background: stayColor, borderColor: stayColor }, 
+            { key: "1", text: "组长", location: "0 0", background: successColor, borderColor: successColor, text2: "√"}, 
+            { key: "2", text: "领导", location: "300 0", background: stayColor, borderColor: stayColor }, 
             { key: "2-top", category: "pointTemplate", location: "450 -150"  },
             { key: "2-middle", category: "pointTemplate", location: "450 0"  },
             { key: "2-buttom", category: "pointTemplate", location: "450 150"  },
-            { key: "3", text: "运检部专责", location: "600 -150", background: stayColor, borderColor: stayColor },
-            { key: "4", text: "安监部专责", location: "600 150", background: stayColor, borderColor: stayColor },
+            { key: "3", text: "专责1", location: "600 -150", background: stayColor, borderColor: stayColor },
+            { key: "4", text: "专责2", location: "600 150", background: stayColor, borderColor: stayColor },
             { key: "3-top", category: "pointTemplate", location: "750 -150"  },
             { key: "3-middle", category: "pointTemplate", location: "750 0"  },
             { key: "3-buttom", category: "pointTemplate", location: "750 150"  },
-            { key: "6", text: "运检部领导", location: "1000 -150", background: stayColor, borderColor: stayColor },
-            { key: "7", text: "安监部领导", location: "1000 150", background: stayColor, borderColor: stayColor },
+            { key: "6", text: "领导1", location: "1000 -150", background: stayColor, borderColor: stayColor },
+            { key: "7", text: "领导2", location: "1000 150", background: stayColor, borderColor: stayColor },
             { key: "6-top", category: "pointTemplate", location: "850 -150"  },
             { key: "6-middle", category: "pointTemplate", location: "850 0"  },
             { key: "6-buttom", category: "pointTemplate", location: "850 150"  },
             { key: "7-top", category: "pointTemplate", location: "1150 -150"  },
             { key: "7-middle", category: "pointTemplate", location: "1150 0"  },
             { key: "7-buttom", category: "pointTemplate", location: "1150 150"  },
-            { key: "8", text: "公司领导", location: "1300 0", background: stayColor, borderColor: stayColor },
+            { key: "8", text: "领导", location: "1300 0", background: stayColor, borderColor: stayColor },
         ];
         let linkDataArray = [
             { from: "1", to: "2", fromSpot: "Right", toSpot: "Left", lineStroke: successColor, toArrowStroke:  successColor, toArrowFill: successColor },

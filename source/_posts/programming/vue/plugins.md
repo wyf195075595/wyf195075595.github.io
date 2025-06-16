@@ -496,7 +496,19 @@ EventEmitter在其原型上添加了如下方法：
 
 ### [GSAP（GreenSock）](https://greensock.com/)
 
+> github⭐20.6k
+>
 > 最健全的web动画库之一
+
+### [Anime.js](https://github.com/juliangarnier/anime?utm_source=gold_browser_extension)
+
+> github⭐55.8k
+>
+> Anime.js 是一个轻量级的 JavaScript 动画库，易于上手，能创建流畅的动画效果。
+
+
+
+- **特点**：支持多种动画属性，能够创建复杂的动画时间轴，具有简洁的 API。
 
 ### ESLint
 
@@ -995,8 +1007,15 @@ module.exports = {
 }
 ```
 
-[EchoShare](https://github.com/echoshare/echoshare)
+### [EchoShare](https://github.com/echoshare/echoshare)
 
 ![img](https://cdn.beekka.com/blogimg/asset/202503/bg2025031706.webp)
 
 开源的基于 WebRTC 的在线屏幕共享工具，允许与他人共享屏幕、摄像头和音频。使用vue+ts开发的项目
+
+### [to-unocss](https://to-unocss.netlify.app/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202504/bg2025042401.webp)
+
+这个网页工具将 CSS 代码转成 [unoCSS](https://github.com/Simon-He95/transformToUnocss?tab=readme-ov-file) 或者 [TailwindCSS](https://github.com/Simon-He95/transformToTailwindcss) 的写法。
+

@@ -2423,3 +2423,156 @@ Physijs库。这个库可以扩展Three.js来实现比如碰撞、重力和约�
 2、使用THREE.Audio和THREE.AudioListener在场景中添加固定的声源。
 ```
 
+
+
+## 官方文档笔记
+
+​	three.js其实是使用WebGL来绘制三维效果的。 [WebGL是一个只能画点、线和三角形的非常底层的系统](https://webglfundamentals.org/). 想要用WebGL来做一些实用的东西通常需要大量的代码， 这就是Three.js的用武之地。它封装了诸如场景、灯光、阴影、材质、贴图、空间运算等一系列功能，让你不必要再从底层WebGL开始写起。
+
+### 基础图解
+
+下图是一个基础的three.js应用结构。
+
+![img](https://threejs.org/manual/resources/images/threejs-structure.svg)
+
+```js
+// 渲染器
+const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
+// 创建一个场景
+const scene = new THREE.Scene();
+// 创建相机
+const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+// 渲染场景
+renderer.render( scene, camera );
+```
+
+#### 渲染器
+
+首先有一个[渲染器(`Renderer`)](https://threejs.org/docs/#api/zh/constants/Renderer)。这可以说是three.js的主要对象。你传入一个[场景(`Scene`)](https://threejs.org/docs/#api/zh/scenes/Scene)和一个[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)到[渲染器(`Renderer`)](https://threejs.org/docs/#api/zh/constants/Renderer)中，然后它会将摄像机视椎体中的三维场景渲染成一个二维图片显示在画布上。
+
+#### 场景
+
+[场景(`Scene`)](https://threejs.org/docs/#api/zh/scenes/Scene)对象 可以包括多个[网格(`Mesh`)](https://threejs.org/docs/#api/zh/objects/Mesh)对象，[光源(`Light`)](https://threejs.org/docs/#api/zh/lights/Light)对象，[群组(`Group`)](https://threejs.org/docs/#api/zh/objects/Group)，[三维物体(`Object3D`)](https://threejs.org/docs/#api/zh/core/Object3D)，和[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)对象。它们一起组成一个场景图。
+
+#### 相机
+
+注意图中[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)是一半在场景图中，一半在场景图外的。这表示在three.js中，[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)和其他对象不同的是，它不一定要在场景图中才能起作用。相同的是，[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)作为其他对象的子对象，同样会继承它父对象的位置和朝向。在[场景图](https://threejs.org/manual/zh/scenegraph.html)这篇文章的结尾部分有放置多个[摄像机(`Camera`)](https://threejs.org/docs/#api/zh/cameras/Camera)在一个场景中的例子。
+
+#### 网格
+
+[网格(`Mesh`)](https://threejs.org/docs/#api/zh/objects/Mesh)对象可以理解为用一种特定的[材质(`Material`)](https://threejs.org/docs/#api/zh/materials/Material)来绘制的一个特定的[几何体(`Geometry`)](https://threejs.org/manual/zh/Geometry)。[材质(`Material`)](https://threejs.org/docs/#api/zh/materials/Material)和[几何体(`Geometry`)](https://threejs.org/manual/zh/Geometry)可以被多个[网格(`Mesh`)](https://threejs.org/docs/#api/zh/objects/Mesh)对象使用。
+
+#### 基础示例
+
+```react
+/*
+ * @Description: 
+ * @Author:  
+ * @Date: 2025-04-10 09:34:03
+ * @LastEditTime: 2025-04-23 08:57:20
+ * @LastEditors:  
+ */
+import { useEffect } from 'react';
+import * as THREE from 'three';
+function Three() {
+    useEffect(() => {
+        const canvas = document.querySelector('#cc');
+        // 渲染器
+        const renderer = new THREE.WebGLRenderer({antialias: true, canvas});
+
+        const fov = 75;// 视锥，视线形成的锥形范围
+        const aspect = 2;  // 画布的宽高比，相机默认值 300X150 或者说 2
+        // near和far代表近平面和远平面，它们限制了摄像机面朝方向的可绘区域。 任何距离小于或超过这个范围的物体都将被裁剪掉(不绘制)。
+        const near = 0.1;
+        const far = 5;
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.z = 2;
+
+        // 创建一个场景
+        const scene = new THREE.Scene();
+
+        // 添加一个立方体
+        const boxWidth = 1;
+        const boxHeight = 1;
+        const boxDepth = 1;
+        const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth);
+        // 材质
+        // const material = new THREE.MeshBasicMaterial({color: 0x44aa88}); // 不受灯光影响的颜色
+        // const material = new THREE.MeshPhongMaterial({color: 0x44aa88});  // 受灯光影响的颜色，绿蓝色
+        function makeInstance(geometry, color, x) {
+            // 材质
+            const material = new THREE.MeshPhongMaterial({color});
+            
+            // 创建一个网格对象
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+            // 设置网格的位置
+            cube.position.x = x;
+            
+            return cube;
+        }
+        const cubes = [
+            makeInstance(geometry, 0x44aa88,  0),
+            makeInstance(geometry, 0x8844aa, -2),
+            makeInstance(geometry, 0xaa8844,  2),
+        ];
+        // 添加灯光 
+        {
+
+            const color = 0xFFFFFF;
+            const intensity = 3;
+            const light = new THREE.DirectionalLight( color, intensity );
+            light.position.set( - 1, 2, 4 );
+            scene.add( light );
+    
+        }
+        // 判断画布尺寸是否改变，如果改变则重新渲染
+        function resizeRendererToDisplaySize(renderer) {
+            const canvas = renderer.domElement;
+            const width = canvas.clientWidth;
+            const height = canvas.clientHeight;
+            const needResize = canvas.width !== width || canvas.height !== height;
+            // 设置画布尺寸,可以防止模糊
+            if (needResize) {
+              renderer.setSize(width, height, false);
+            }
+            return needResize;
+        }
+        
+        function render( time ) {
+            time *= 0.001; // convert time to seconds
+            cubes.forEach((cube, ndx) => {
+                const speed = 1 + ndx * .1;
+                const rot = time * speed;
+                cube.rotation.x = rot;
+                cube.rotation.y = rot;
+            });
+            if (resizeRendererToDisplaySize(renderer)) {
+                // 设置相机宽高比与画布一样，并更新相机投影矩阵。这样浏览器页面大小改变时，渲染的图像不会变形。
+                const canvas = renderer.domElement;
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+            }
+
+            
+            // 渲染场景
+            renderer.render( scene, camera );
+    
+            requestAnimationFrame( render );
+    
+        }
+    
+        requestAnimationFrame( render );
+    }, [])
+    return (
+        <div className='three'>
+            <h1>About</h1>
+            <p>About page content</p>
+            <canvas id='cc'></canvas>
+        </div>
+    )
+}
+
+export default Three;
+```
+

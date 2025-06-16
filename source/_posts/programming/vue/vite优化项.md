@@ -717,6 +717,74 @@ onMounted(async ()=> {
 })
 ```
 
+### 通过配置文件读取不通环境的参数变量
+
+根目录新建
+
+.env.production
+
+```yaml
+# 页面标题
+VITE_APP_TITLE = 光纤测温平台
+
+# 生产环境配置
+VITE_APP_ENV = 'production'
+
+# 若依管理系统/生产环境
+VITE_APP_BASE_API = '/prod-api'
+
+# 是否在打包时开启压缩，支持 gzip 和 brotli
+VITE_BUILD_COMPRESS = gzip
+```
+
+.env.devlopment
+
+```yaml
+# 页面标题
+VITE_APP_TITLE = 光纤测温平台
+
+# 开发环境配置
+VITE_APP_ENV = 'development'
+
+# 若依管理系统/开发环境
+VITE_APP_BASE_API = '/dev-api'
+
+```
+
+vite.config.js配置
+
+```js
+import { defineConfig, loadEnv } from 'vite'
+import path from 'path'
+import createVitePlugins from './vite/plugins'
+
+export default defineConfig(({ mode, command }) => {
+  // 不通 mode 注入不通 参数
+  const env = loadEnv(mode, process.cwd())
+  // 配置文件中读取环境参数
+  const { VITE_APP_ENV } = env
+  return {
+    base: VITE_APP_ENV === 'production' ? '/' : '/',
+    ...
+   }
+})
+```
+
+代码中读取环境参数，如 开发生产环境的代理
+
+```js
+import.meta.env.VITE_APP_BASE_API
+
+/*** 用户导入参数 */
+const upload = reactive({
+  // 是否显示弹出层（用户导入）
+  open: false,
+  ...
+  // 上传的地址
+  url: import.meta.env.VITE_APP_BASE_API + "/system/user/importData"
+});
+```
+
 
 
 ### 完整的配置参考
