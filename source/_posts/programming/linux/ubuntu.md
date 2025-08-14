@@ -33,7 +33,10 @@ sudo vi /etc/ssh/sshd_config
 配置重启
 
 ```shell
+# 重启
 sudo service ssh restart
+# 设置自启动
+sudo systemctl enable ssh
 ```
 
 #### 防火墙管理
@@ -80,6 +83,34 @@ sudo ufw default deny
 ```
 
 以上三条命令已经足够安全了，如果你需要开放某些服务，再使用sudo ufw allow开启。
+
+### [Ubuntu 18.04关于version `GLIBC_2.28‘ not found 的问题](https://blog.csdn.net/weixin_46706926/article/details/143070343)
+
+安装node后，输入node命名出现报错
+
+如果输出中没有`GLIBC_2.28`，则说明版本不足（例如 Ubuntu 18.04 默认仅支持到 GLIBC 2.27）。
+
+```shell
+strings /lib/x86_64-linux-gnu/libc.so.6 | grep GLIBC_
+# 或
+ldd --version
+```
+
+安装  GLIBC_2.28 逐行输入即可
+
+```shell
+sudo su -c 'echo "deb http://security.debian.org/debian-security buster/updates main" >> /etc/apt/sources.list' root
+ 
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A 54404762BBB6E853
+ 
+sudo apt update
+ 
+sudo apt install libc6 libc6-dev -y
+```
+
+### [电脑vpn共享到虚拟机](https://blog.csdn.net/qq_27462573/article/details/130484723#:~:text=%E6%AD%A5%E9%AA%A4%E5%8C%85%E6%8B%AC%E5%B0%86VM%E8%AE%BE,%E5%92%8C%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5%E6%88%90%E5%8A%9F%E3%80%82)
+
+vm使用桥接模式，clash 打开允许局域网连接。将本机代理地址填入到 ubuntu http代理
 
 ### vi 常用命令
 

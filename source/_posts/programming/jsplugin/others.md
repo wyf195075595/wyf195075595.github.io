@@ -899,6 +899,10 @@ npm i ddei-editor
 
 缺省布局包含了`顶部菜单栏`、`控件工具项`、`主画布`、`属性面板`和`底部菜单栏`，可以通过配置进行删减。
 
+### [ueditor-plus](https://open-demo.modstart.com/ueditor-plus/_examples/)
+
+UEditorPlus 是基于 UEditor 二次开发的富文本编辑器，让 UEditor 焕然一新，功能挺多的。[latexeasy](https://latexeasy.com/zh/document) 是其中的数学公式方案，但是是在线渲染模式，无法内网使用，商用根据渲染公式次数收费
+
 ### Velocity.js
 
 > js 操作动画的库
@@ -3300,3 +3304,52 @@ Raingad-IM是一个**开源的即时通信demo（存在一定的BUG），已取�
 
 纯js封装的聊天框，兼容各大框架适用，适配pc与h5的交互。输入框支持@人员选择（多选），混合粘贴，拼音匹配
 
+### [中国城市地铁可视化](https://subway.cuvii.dev/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202506/bg2025061413.webp)
+
+一个交互式网页可视化应用，展示中国城市地铁线路，[代码开源](https://github.com/thecuvii/subway)。
+
+### [Thiings](https://www.thiings.co/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202506/bg2025061406.webp)
+
+一个搜索下载 3D 图标的网站，现有近3000个图标。
+
+### [to-userscript](https://github.com/Explosion-Scratch/to-userscript)
+
+一个命令行工具，可以将浏览器插件转成 userscript，方便移植。
+
+### [AdaCpp](https://www.adacpp.com/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202506/bg2025062608.webp)
+
+一个基于浏览器的在线 C++ 学习环境，可以编辑/编译代码，并有 AI 的代码解释。
+
+### [My Ringtone](https://myringtone.app/zh-cn/#featured)
+
+![img](https://cdn.beekka.com/blogimg/asset/202506/bg2025062403.webp)
+
+免费无需注册的铃声搜索下载网站，提供 MP3 格式铃声。
+
+### [ICONIC](https://github.com/YuheshPandian/ICONIC)
+
+![img](https://cdn.beekka.com/blogimg/asset/202506/bg2025062514.webp)
+
+一个开源的图标库，专门提供各种软件技术的图标。是 svg 类型
+
+### [OpenFLOW](https://github.com/stan-smith/OpenFLOW)
+
+![img](https://cdn.beekka.com/blogimg/asset/202507/bg2025070105.webp)
+
+绘制网络基础设施图的开源工具。
+
+### [OnlyOffice Web](https://github.com/ranuts/document)
+
+![img](https://cdn.beekka.com/blogimg/asset/202507/bg2025070710.webp)
+
+这个项目把 [OnlyOffice](https://www.onlyoffice.com/) 转成了 WASM 文件，不需要服务器，浏览器纯前端就能查看/编辑 Word、Excel、PowerPoint 文档，[在线试用](https://ranuts.github.io/document/)。 打开页面和 office 很像。但是不能自定义页面
+
+### [snapDOM](https://github.com/zumerlab/snapdom)
+
+一个 JS 库，生成指定的 DOM 节点的截图。

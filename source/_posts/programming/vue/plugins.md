@@ -789,6 +789,22 @@ import 'normalize.css/normalize.css'
 
 ![image-20231103095727302](https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20231103095727302.png)
 
+### [tiptap](https://tiptap.dev/docs)
+
+Tiptap 是一个基于 ProseMirror 的轻量级、可扩展的富文本编辑器框架，专为现代前端开发设计。它采用无头（headless）架构，核心专注于编辑器逻辑，UI 部分完全由开发者自定义，非常支持 Vue、React 等主流框架。
+
+**Tiptap 核心功能**：
+
+> 可以实现那种类似于飞书一样的编辑器交互功能样式，高度自定义
+
+**高度可定制**：无默认 UI，开发者可完全控制编辑器外观和交互
+
+1. **模块化设计**：通过扩展（extensions）添加功能（如表格、图片上传、代码块等）
+2. **框架友好**：提供 Vue 2/3、React 等集成方案
+3. **语义化输出**：生成结构化的 JSON 文档模型，便于处理和存储
+4. **协作编辑**：支持多人实时协作（需配合额外服务）
+5. **轻量高效**：核心体积小，按需加载功能模块
+
 ### [tinymce](https://github.com/tinymce/tinymce)
 
 > 富文本编辑器。安装命令：pnpm add tinymce @tinymce/tinymce-vue
