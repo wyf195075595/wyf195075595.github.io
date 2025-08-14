@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/javascript/js番外拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/js编码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" target="_blank">js拓展</a>
+	  <a class="article-title" href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" target="_blank">js编码解码</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" class="archive-article-date">
+<a href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,38 +287,37 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="1、发展史"><a href="#1、发展史" class="headerlink" title="1、发展史"></a>1、发展史</h2><h3 id="5大主流浏览器"><a href="#5大主流浏览器" class="headerlink" title="5大主流浏览器"></a>5大主流浏览器</h3><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>内核</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>IE</td>
-<td>trident</td>
-</tr>
-<tr>
-<td>chrome</td>
-<td>webkit blink</td>
-</tr>
-<tr>
-<td>safari</td>
-<td>webkit</td>
-</tr>
-<tr>
-<td>firefox</td>
-<td>gecko</td>
-</tr>
-<tr>
-<td>opera</td>
-<td>presto</td>
-</tr>
-</tbody></table>
-<h3 id="历史事件"><a href="#历史事件" class="headerlink" title="历史事件"></a>历史事件</h3><h2 id="2、js相关概念"><a href="#2、js相关概念" class="headerlink" title="2、js相关概念"></a>2、js相关概念</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/#more">more >></a>
-    
+    <ol>
+<li><p>编码 encodeURI和encodeURIComponent</p>
+<blockquote>
+<p>它们都是编码URL，唯一区别就是编码的字符范围了：</p>
+<p>encodeURI方法<strong>不会</strong>对下列字符编码 ASCII字母、数字、~!@#$&amp;*()=:/,;?+’</p>
+<p>encodeURIComponent方法<strong>不会</strong>对下列字符编码 ASCII字母、数字、~!*()’</p>
+<p>所以encodeURIComponent比encodeURI编码的范围更大。</p>
+<p><strong>当你要编码整个URL，使用这个URL，那么用encodeURI。</strong></p>
+<p><strong>当你要编码URL中的参数的时候，那么encodeURIComponent是最好方法。</strong></p>
+</blockquote>
+</li>
+<li><p>解码 decodeURI()和decodeURIComponent()函数</p>
+<blockquote>
+<ul>
+<li><p>decodeURIComponent()定义和用法：decodeURIComponent() 函数可对 encodeURIComponent() 函数编码的 URI 进行解码。</p>
+</li>
+<li><p>decodeURI()定义和用法：decodeURI() 函数可对 encodeURI() 函数编码过的URI 进行解码。</p>
+</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p>3、btoa(),atob()</p>
+<blockquote>
+<p><code>btoa()</code> 方法可以将一个<em>二进制字符串</em>（例如，将字符串中的每一个字节都视为一个二进制数据字节）编码为 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Glossary/Base64">Base64</a> 编码的 ASCII 字符串。。atob()方法进行解码</p>
+</blockquote>
+<p>4、unescape(),escape()</p>
+<blockquote>
+<p>对字符串进行编解码。</p>
+</blockquote>
+
     
 
     
@@ -334,7 +333,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -355,7 +354,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%BC%96%E7%A0%81/">展开全文 >></a>
     </p>
     
 
@@ -385,7 +384,7 @@
 
 
   
-    <article id="post-programming/javascript/svg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -393,7 +392,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/svg/" target="_blank">SVG</a>
+	  <a class="article-title" href="/2022/06/17/programming/javascript/objectPool/" target="_blank">对象池</a>
   
     </h1>
   
@@ -401,7 +400,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/svg/" class="archive-article-date">
+<a href="/2022/06/17/programming/javascript/objectPool/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -414,11 +413,108 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> standalone=<span class="string">&quot;no&quot;</span>?&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;10&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;60&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;10&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;25&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">r</span>=<span class="string">&quot;20&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;75&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;20&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;110&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;150&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">&quot;60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M20,230 Q40,205 50,230 T90,230&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;none&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象池工厂</span></span><br><span class="line"><span class="keyword">var</span> objectPoolFactory = <span class="keyword">function</span>(<span class="params">createObjFn</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> objectPool = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">create</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = objectPool.<span class="property">length</span> === <span class="number">0</span> ?</span><br><span class="line">				createObjFn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) : objectPool.<span class="title function_">shift</span>();</span><br><span class="line">			<span class="keyword">return</span> obj;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">recover</span>: <span class="keyword">function</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">			objectPool.<span class="title function_">push</span>(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> iframeFactory = <span class="title function_">objectPoolFactory</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">	<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"></span><br><span class="line">	iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		iframe.<span class="property">onload</span> = <span class="literal">null</span>;   <span class="comment">// 防止iframe重复加载</span></span><br><span class="line">		iframeFactory.<span class="title function_">recover</span>(iframe); <span class="comment">// iframe加载完了回收节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> iframe;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe1 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe1.<span class="property">src</span> = <span class="string">&#x27;https://www.baidu.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe2 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe2.<span class="property">src</span> = <span class="string">&#x27;http://www.qq.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe3 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">	iframe3.<span class="property">src</span> = <span class="string">&#x27;http://www.163.com&#x27;</span>;</span><br><span class="line">&#125;, <span class="number">750</span>);</span><br></pre></td></tr></table></figure>
 
-<h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3>
+
     
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/svg/#more">more >></a>
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/load" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/load/" target="_blank">jq的$.load()方法</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/load/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<h2 id="通过jQuery-load-方法动态加载HTML，然后动态加载-js脚本，实现动态加载页面功能"><a href="#通过jQuery-load-方法动态加载HTML，然后动态加载-js脚本，实现动态加载页面功能" class="headerlink" title="通过jQuery load 方法动态加载HTML，然后动态加载 js脚本，实现动态加载页面功能"></a>通过jQuery load 方法动态加载HTML，然后动态加载 js脚本，实现动态加载页面功能</h2></blockquote>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/load/#more">more >></a>
     
     
 
@@ -456,7 +552,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/svg/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/load/">展开全文 >></a>
     </p>
     
 
@@ -587,7 +683,7 @@
 
 
   
-    <article id="post-programming/javascript/objectPool" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/javascript/svg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -595,7 +691,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/objectPool/" target="_blank">对象池</a>
+	  <a class="article-title" href="/2022/06/17/programming/javascript/svg/" target="_blank">SVG</a>
   
     </h1>
   
@@ -603,7 +699,7 @@
 
   
   
-<a href="/2022/06/17/programming/javascript/objectPool/" class="archive-article-date">
+<a href="/2022/06/17/programming/javascript/svg/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -616,9 +712,12 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象池工厂</span></span><br><span class="line"><span class="keyword">var</span> objectPoolFactory = <span class="keyword">function</span>(<span class="params">createObjFn</span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> objectPool = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		<span class="attr">create</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">			<span class="keyword">var</span> obj = objectPool.<span class="property">length</span> === <span class="number">0</span> ?</span><br><span class="line">				createObjFn.<span class="title function_">apply</span>(<span class="variable language_">this</span>, <span class="variable language_">arguments</span>) : objectPool.<span class="title function_">shift</span>();</span><br><span class="line">			<span class="keyword">return</span> obj;</span><br><span class="line">		&#125;,</span><br><span class="line">		<span class="attr">recover</span>: <span class="keyword">function</span>(<span class="params">obj</span>) &#123;</span><br><span class="line">			objectPool.<span class="title function_">push</span>(obj);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// test</span></span><br><span class="line"><span class="keyword">var</span> iframeFactory = <span class="title function_">objectPoolFactory</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;iframe&#x27;</span>);</span><br><span class="line">	<span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(iframe);</span><br><span class="line"></span><br><span class="line">	iframe.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">		iframe.<span class="property">onload</span> = <span class="literal">null</span>;   <span class="comment">// 防止iframe重复加载</span></span><br><span class="line">		iframeFactory.<span class="title function_">recover</span>(iframe); <span class="comment">// iframe加载完了回收节点</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> iframe;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe1 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe1.<span class="property">src</span> = <span class="string">&#x27;https://www.baidu.com&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> iframe2 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">iframe2.<span class="property">src</span> = <span class="string">&#x27;http://www.qq.com/&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">var</span> iframe3 = iframeFactory.<span class="title function_">create</span>();</span><br><span class="line">	iframe3.<span class="property">src</span> = <span class="string">&#x27;http://www.163.com&#x27;</span>;</span><br><span class="line">&#125;, <span class="number">750</span>);</span><br></pre></td></tr></table></figure>
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">&quot;1.0&quot;</span> standalone=<span class="string">&quot;no&quot;</span>?&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;250&quot;</span> <span class="attr">version</span>=<span class="string">&quot;1.1&quot;</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;10&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span>=<span class="string">&quot;60&quot;</span> <span class="attr">y</span>=<span class="string">&quot;10&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;10&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;10&quot;</span> <span class="attr">width</span>=<span class="string">&quot;30&quot;</span> <span class="attr">height</span>=<span class="string">&quot;30&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;black&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">&quot;25&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">r</span>=<span class="string">&quot;20&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span>=<span class="string">&quot;75&quot;</span> <span class="attr">cy</span>=<span class="string">&quot;75&quot;</span> <span class="attr">rx</span>=<span class="string">&quot;20&quot;</span> <span class="attr">ry</span>=<span class="string">&quot;5&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;red&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;10&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;50&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;110&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;150&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polyline</span> <span class="attr">points</span>=<span class="string">&quot;60 110 65 120 70 115 75 130 80 125 85 140 90 135 95 150 100 145&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;orange&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">polygon</span> <span class="attr">points</span>=<span class="string">&quot;50 160 55 180 70 180 60 190 65 205 50 195 35 205 40 190 30 180 45 180&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">stroke</span>=<span class="string">&quot;green&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;transparent&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;<span class="name">path</span> <span class="attr">d</span>=<span class="string">&quot;M20,230 Q40,205 50,230 T90,230&quot;</span> <span class="attr">fill</span>=<span class="string">&quot;none&quot;</span> <span class="attr">stroke</span>=<span class="string">&quot;blue&quot;</span> <span class="attr">stroke-width</span>=<span class="string">&quot;5&quot;</span>/&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
-
+<h3 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h3>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/svg/#more">more >></a>
+    
     
 
     
@@ -655,7 +754,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/objectPool/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/svg/">展开全文 >></a>
     </p>
     
 
@@ -890,6 +989,133 @@
 
 
   
+    <article id="post-programming/javascript/js番外拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" target="_blank">js拓展</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1、发展史"><a href="#1、发展史" class="headerlink" title="1、发展史"></a>1、发展史</h2><h3 id="5大主流浏览器"><a href="#5大主流浏览器" class="headerlink" title="5大主流浏览器"></a>5大主流浏览器</h3><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>内核</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IE</td>
+<td>trident</td>
+</tr>
+<tr>
+<td>chrome</td>
+<td>webkit blink</td>
+</tr>
+<tr>
+<td>safari</td>
+<td>webkit</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>gecko</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>presto</td>
+</tr>
+</tbody></table>
+<h3 id="历史事件"><a href="#历史事件" class="headerlink" title="历史事件"></a>历史事件</h3><h2 id="2、js相关概念"><a href="#2、js相关概念" class="headerlink" title="2、js相关概念"></a>2、js相关概念</h2>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">拓展</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/js%E7%95%AA%E5%A4%96%E6%8B%93%E5%B1%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/javascript/标签模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -959,105 +1185,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/" target="_blank">对象</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="Object-Origin-Program"><a href="#Object-Origin-Program" class="headerlink" title="Object Origin Program"></a>Object Origin Program</h1><h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="title class_">Object</span>.<span class="title function_">create</span>(&#123;&#125;,&#123;</span><br><span class="line">    <span class="attr">a</span>:&#123;</span><br><span class="line">        <span class="attr">configurable</span>:<span class="literal">true</span>,<span class="comment">//是否可以通过 delete 删除并重新定义，是否修改它的访问属性</span></span><br><span class="line">        <span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="comment">//是否可枚举</span></span><br><span class="line">        <span class="attr">writable</span>:<span class="literal">true</span>,<span class="comment">//是否可写</span></span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,<span class="comment">//实际值</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">b</span>:&#123;</span><br><span class="line">    	<span class="attr">configurable</span>:<span class="literal">true</span>,</span><br><span class="line">        <span class="attr">enumerable</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attr">writable</span>:<span class="literal">false</span>,</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;66&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line">    </span><br><span class="line">一、定义对象的属性方法</span><br><span class="line"><span class="number">1</span>、defineProperty</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperty</span>(obj,<span class="string">&#x27;a&#x27;</span>,&#123;</span><br><span class="line">    <span class="attr">configurable</span>:<span class="literal">true</span>,<span class="comment">//是否可以通过 delete 删除并重新定义，是否修改它的访问属性</span></span><br><span class="line">    <span class="attr">enumerable</span>:<span class="literal">true</span>,<span class="comment">//是否可枚举</span></span><br><span class="line">    <span class="attr">writable</span>:<span class="literal">true</span>,<span class="comment">//是否可写</span></span><br><span class="line">    <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,<span class="comment">//实际值</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="number">2</span>、defineProperties</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">defineProperties</span>(obj,&#123;</span><br><span class="line">    <span class="attr">a</span>:&#123;</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;xxx&#x27;</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">b</span>:&#123;</span><br><span class="line">        <span class="attr">value</span>:<span class="string">&#x27;66&#x27;</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">//[注意]：省略不写的属性描述符默都是false</span></span><br><span class="line"></span><br><span class="line">二、获取对象的属性的特性</span><br><span class="line"><span class="number">1</span>、getOwnPropertyDescriptor</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(obj,<span class="string">&#x27;a&#x27;</span>);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//   value:&#x27;xxx&#x27;,</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="number">2</span>、getOwnPropertyDescriptors</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyDescriptor</span>(obj);</span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//    a:&#123;</span></span><br><span class="line"><span class="comment">//        value:&#x27;xxx&#x27;,</span></span><br><span class="line"><span class="comment">//    &#125;,</span></span><br><span class="line"><span class="comment">//    b:&#123;</span></span><br><span class="line"><span class="comment">//        value:&#x27;66&#x27;</span></span><br><span class="line"><span class="comment">//	  &#125;</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br><span class="line"><span class="comment">//[注意]:Symbol类型的键名属性获取不了</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、<span class="title class_">Object</span>.<span class="property">getOwnPropertySymbols</span> </span><br><span class="line"><span class="comment">//与getOwnPropertySymbols一样，针对Symbol类型属性</span></span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">Object</span>.<span class="property">getOwnPropertyNames</span></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">getOwnPropertyNames</span>(obj);<span class="comment">//不管对象属性是否可枚举都能获取到</span></span><br><span class="line"></span><br><span class="line">三、对象属性是否可枚举</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">propertyIsEnumerable</span>(obj); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line">四、对象是否拥有某属性</span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">hasOwnProperty</span>(obj);<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E5%AF%B9%E8%B1%A1/">展开全文 >></a>
     </p>
     
 
@@ -1161,105 +1288,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/javascript/网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" target="_blank">网络通信</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
     </p>
     
 
@@ -1442,14 +1470,6 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -1458,7 +1478,27 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1466,11 +1506,35 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1482,11 +1546,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1495,10 +1563,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1514,55 +1578,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1574,15 +1598,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1594,11 +1622,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1610,15 +1646,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1634,11 +1666,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1646,7 +1678,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1654,15 +1686,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,6 +1707,14 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1690,11 +1734,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1702,15 +1746,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
               </li>
              
               <li class="article-tag-list-item">
