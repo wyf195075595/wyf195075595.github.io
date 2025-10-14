@@ -812,3 +812,10 @@ function Demo() {
 ![img](https://cdn.beekka.com/blogimg/asset/202412/bg2024122509.webp)
 
 一个开源的类 Excel 电子表格网页应用，支持多人协同编辑。
+
+### [react-three-fiber](https://github.com/pmndrs/react-three-fiber#hooks)
+
+React-three-fiber 是用于 three.js 的 React 渲染器。使用可重用的、独立的组件以声明方式构建场景，这些组件对状态做出反应，易于交互，并且可以参与 [React](https://react.dev/) 的生态系统。实际效果可看看 [dualai公司官网](https://dualai.com/)
+
+Three-fiber 是一个 React 渲染器，它必须与 React 的主要版本配对，就像 react-dom、react-native 等一样，@react-three/fiber@8 与 react@18 配对，@react-three/fiber@9 与 react@19 配对。
+

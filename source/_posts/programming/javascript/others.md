@@ -871,3 +871,100 @@ export class CustomWebSocket {
 
 ```
 
+### 实现“选区高亮 + 关联批注”的基础逻辑
+
+通过使用 **`rangy-core.js`** + **`rangy-classapplier.js`** 实现的 [在线示例](https://codepen.io/wyf195075595/pen/JoGrPgK)
+
+```js
+rangy.init();
+
+    const comments = [];
+    const commentList = document.getElementById("commentList");
+    const addBtn = document.getElementById("addNoteBtn");
+
+    // 创建一个通用的 class applier（用来给选区加上 .highlight 样式）
+    const applier = rangy.createClassApplier("highlight", {
+      elementTagName: "span",
+      elementProperties: {
+        onclick: (e) => {
+          const id = e.target.getAttribute("data-id");
+          highlightComment(id);
+        }
+      }
+    });
+
+    // 点击“添加批注”
+    addBtn.onclick = () => {
+      const selection = rangy.getSelection();
+
+      if (selection.isCollapsed) {
+        alert("请先选中一段文字再添加批注。");
+        return;
+      }
+
+      // 为该批注生成唯一 ID
+      const id = "note-" + Date.now();
+      const text = selection.toString();
+
+      // 应用样式并加上 data-id
+      applier.applyToSelection();
+      const spans = document.querySelectorAll(".highlight");
+      spans.forEach(span => {
+        if (!span.getAttribute("data-id")) {
+          span.setAttribute("data-id", id);
+        }
+      });
+
+      // 输入批注内容
+      const note = prompt("请输入批注内容：", "");
+      if (!note) {
+        applier.undoToSelection(); // 撤销高亮
+        return;
+      }
+
+      // 保存批注对象
+      comments.push({ id, text, note, created: new Date() });
+      renderComments();
+    };
+
+    // 渲染批注列表
+    function renderComments() {
+      commentList.innerHTML = "";
+      comments.forEach(c => {
+        const div = document.createElement("div");
+        div.className = "comment";
+        div.innerHTML = `
+          <strong>${c.text}</strong><br/>
+          <small>${c.note}</small><br/>
+          <small>${c.created.toLocaleTimeString()}</small><br/>
+          <button onclick="removeComment('${c.id}')">删除</button>
+        `;
+        div.onclick = () => highlightComment(c.id);
+        commentList.appendChild(div);
+      });
+    }
+
+    // 点击批注或高亮时，滚动到对应位置并闪烁
+    function highlightComment(id) {
+      document.querySelectorAll(".highlight").forEach(span => {
+        span.style.outline = span.getAttribute("data-id") === id ? "2px solid orange" : "none";
+      });
+    }
+
+    // 删除批注
+    function removeComment(id) {
+      // 移除批注数据
+      const index = comments.findIndex(c => c.id === id);
+      if (index !== -1) comments.splice(index, 1);
+
+      // 移除文档中对应的高亮
+      document.querySelectorAll(`[data-id='${id}']`).forEach(span => {
+        const parent = span.parentNode;
+        while (span.firstChild) parent.insertBefore(span.firstChild, span);
+        parent.removeChild(span);
+      });
+
+      renderComments();
+    }
+```
+

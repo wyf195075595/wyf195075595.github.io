@@ -1431,3 +1431,93 @@ input:user-valid {
 }
 ```
 
+### [CSS 和 SVG 模拟液态玻璃](https://kube.io/blog/liquid-glass-css-svg/)（英文）
+
+![img](https://cdn.beekka.com/blogimg/asset/202509/bg2025090912.webp)
+
+本文介绍只使用 CSS 和 SVG 文件来模拟苹果的液态玻璃效果。大家可以先看结尾的效果展示，非常惊艳（只限于 Chrome 浏览器）。
+
+### css 文字渐变效果
+
+设置文本渐变背景，再将文本颜色设置为透明，最后设置 背景裁剪效果为 文本
+
+```css
+background: linear-gradient(226.67deg, rgba(0, 132, 255, 1) 0%, rgba(2, 225, 255, 1) 100%);
+background-clip: text;
+-webkit-background-clip: text;
+color: transparent;
+```
+
+
+
+### 页面内容淡入弹出效果
+
+进入页面时进入视图的页面内容会 淡入弹出的效果
+
+```css
+/* 动画类：往上蹦的效果 */
+.slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: .8s ease transform, .8s ease opacity;
+}
+.slide-up.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+```
+
+给页面要施加效果得元素添加默认 slide-up 类，再通过 js控制，当页面元素进入视图就添加 active 类,下边是工具函数
+
+```js
+// 1. 检测元素是否在视口内（可自定义“进入多少时触发”，这里是元素顶部进入视口底部100px时）
+export function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    // 条件：元素顶部 < 视口底部 + 100px（提前100px触发），且元素底部 > 视口顶部
+    return rect.top < viewportHeight + 100 && rect.bottom > 0;
+}
+
+// 2. 处理滚动事件：给进入视口的元素加active类
+export function handleScroll() {
+    const elements = document.querySelectorAll('.slide-up');
+    elements.forEach(el => {
+        if (isInViewport(el) && !el.classList.contains('active')) {
+            setTimeout(() => {
+                el.classList.add('active'); // 触发动画
+            }, 100);
+        }
+        // 可选：滚动离开时移除类（实现“反复触发”）
+        // else if (!isInViewport(el) && el.classList.contains('active')) {
+        //   el.classList.remove('active');
+        // }
+    });
+}
+
+
+// 简单的节流函数（优化性能）
+export function throttle(fn, delay) {
+    let lastTime = 0;
+    return function() {
+        const now = Date.now();
+        if (now - lastTime > delay) {
+        fn.apply(this, arguments);
+        lastTime = now;
+        }
+    };
+}
+
+```
+
+具体页面使用
+
+```js
+onMounted(() => {
+    // 3. 初始化：页面加载时先检测一次（避免顶部元素未触发）
+    // window.addEventListener('load', handleScroll);
+    handleScroll();
+    // 4. 监听滚动事件（用throttle优化性能，避免频繁触发）
+    window.addEventListener('scroll', throttle(handleScroll, 100));
+})
+```
+

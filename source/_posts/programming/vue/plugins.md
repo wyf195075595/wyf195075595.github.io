@@ -1035,3 +1035,6 @@ module.exports = {
 
 这个网页工具将 CSS 代码转成 [unoCSS](https://github.com/Simon-He95/transformToUnocss?tab=readme-ov-file) 或者 [TailwindCSS](https://github.com/Simon-He95/transformToTailwindcss) 的写法。
 
+### [vue-renderer-markdown](https://github.com/Simon-He95/vue-markdown-render)
+
+Vue 框架的 markdown 渲染组件，针对 AI 的 markdown 流式传输场景。
