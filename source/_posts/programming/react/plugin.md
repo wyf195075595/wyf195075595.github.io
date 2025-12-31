@@ -819,3 +819,50 @@ React-three-fiber 是用于 three.js 的 React 渲染器。使用可重用的、
 
 Three-fiber 是一个 React 渲染器，它必须与 React 的主要版本配对，就像 react-dom、react-native 等一样，@react-three/fiber@8 与 react@18 配对，@react-three/fiber@9 与 react@19 配对。
 
+[React DevTools Plus](https://github.com/wzc520pyfm/react-devtools-plus)
+
+React 调试工具，以 Vite/Webpack 插件形式提供，一键即可在浏览器唤起调试面板。.🎯 **React 16-19** - 支持 React 16.8+、17、18 和 19
+
+**📦 Quick Start 📦 快速入门**
+
+### Installation 安装
+
+```js
+# pnpm (recommended)
+pnpm add -D react-devtools-plus
+
+# npm
+npm install -D react-devtools-plus
+
+# yarn
+yarn add -D react-devtools-plus
+```
+
+### Vite Setup 管道设置
+
+```js
+// vite.config.ts
+import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite'
+import { reactDevToolsPlus } from 'react-devtools-plus/vite'
+
+export default defineConfig({
+  plugins: [
+    react(),
+    reactDevToolsPlus(),
+  ],
+})
+```
+
+### Webpack Setup Webpack 设置
+
+```js
+// webpack.config.js
+const { reactDevToolsPlus } = require('react-devtools-plus/webpack')
+
+module.exports = {
+  plugins: [
+    reactDevToolsPlus(),
+  ],
+}
+```

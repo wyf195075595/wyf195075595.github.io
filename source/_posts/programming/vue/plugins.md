@@ -793,6 +793,8 @@ import 'normalize.css/normalize.css'
 
 Tiptap 是一个基于 ProseMirror 的轻量级、可扩展的富文本编辑器框架，专为现代前端开发设计。它采用无头（headless）架构，核心专注于编辑器逻辑，UI 部分完全由开发者自定义，非常支持 Vue、React 等主流框架。
 
+[中文文档](https://www.koudingke.cn/docs/zh-Hans/tiptap-docs)
+
 **Tiptap 核心功能**：
 
 > 可以实现那种类似于飞书一样的编辑器交互功能样式，高度自定义

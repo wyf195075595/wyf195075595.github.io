@@ -1521,3 +1521,235 @@ onMounted(() => {
 })
 ```
 
+### 页面实现了一个**鼠标悬停时会展开的横向滑动卡片组件**
+
+[示例展示](https://codepen.io/wyf195075595/pen/GgoXNbx)
+
+```vue
+<div class="home_info production">
+          <p class="info_title slide-up">核心产品</p>
+          <p class="info_text slide-up">公司核心产品包括人工智能算法、智能终端及软件平台。</p>
+          <div class="info_production">
+            <div class="info_production_box scene-content">
+                <div class="scene-content-item" v-for="item in productionAndServiceList" :key="item.id">
+                    <div class="scene-wrapper">
+                        <div class="scene-wrapper-bg">
+                            <img :src="item.img" alt="">
+                            <div class="item-thumb">
+                                <div class="item-thumb-title">{{item.title}}</div>
+                                <div class="item-thumb-desc">{{ item.text }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <el-button size="large" class="btn_toDetail_more slide-up" >查看全部产品及服务</el-button>
+          </div>
+      </div>
+```
+
+```less
+.home_info {
+  background: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  padding: 62px 0;
+  height: 100vh;
+  .info_title {
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    line-height: 104.26px;
+    color: rgba(51, 51, 51, 1);
+    text-align: center;
+  }
+  .info_text {
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0px;
+    line-height: 28.96px;
+    color: rgba(102, 102, 102, 1);
+    text-align: center;
+    margin: 60px auto;
+    width: 1200px;
+  }
+  &.production {
+    padding: 120px 0;
+    height: auto;
+  }
+  .info_production {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+    .info_production_box {
+      display: flex;
+      height: 780px;
+      width: 2072px;
+      .scene-content-item {
+        position: relative;
+        flex: 1 1 152px;
+        transition: all 1s;
+        will-change: auto;
+        &:hover {
+          flex: 1 0 1700px;
+          .scene-wrapper {
+            .scene-wrapper-bg {
+              .item-thumb {
+                .item-thumb-title {
+                  margin-top: 300px;
+                }
+                .item-thumb-desc {
+                  visibility: visible; /* 显示元素 */
+                  opacity: 1; /* 完全不透明 */
+                }
+                .item-thumb-more {
+                  margin-top: 150px;
+                }
+              }
+            }
+          }
+        }
+        .scene-wrapper {
+          position: relative;
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+          box-sizing: border-box;
+          transform: skew(-10.15deg);
+          transform-origin: left top;
+          overflow: hidden;
+          &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            width: 2px;
+            height: 100%;
+            background-color: #fff;
+            opacity: 0.3;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+              107deg,
+              #0a2349 20%,
+              rgba(10, 35, 73, 0) 100%
+            );
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.6s;
+          }
+          .scene-wrapper-bg {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            margin-left: -76px;
+            width: 1920px;
+            height: 100%;
+            transform: translate(-50%, 0) skew(10.15deg);
+            transform-origin: left top;
+            .scene-modal {
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              background-color: #000;
+              opacity: 0;
+              z-index: 100;
+              transition: all 0.6s;
+            }
+            > img {
+              width: 100%;
+              height: 100%;
+              transition: transform 0.5s;
+            }
+            .item-thumb {
+              position: absolute;
+              z-index: 2;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(
+                360deg,
+                #0a2349 0,
+                rgba(10, 35, 73, 0) 100%
+              );
+              transition: all 0.5s;
+              .item-thumb-title {
+                margin-top: 450px;
+                margin-bottom: 16px;
+                text-align: center;
+                color: #fff;
+                font-size: 48px;
+                font-weight: 400;
+                letter-spacing: 0px;
+                line-height: 69.5px;
+                transition: all 1s;
+              }
+              .item-thumb-desc {
+                width: 1000px;
+                visibility: hidden; /* 初始隐藏 */
+                opacity: 0; /* 初始透明 */
+                font-size: 16px;
+                font-weight: 300;
+                letter-spacing: 0px;
+                line-height: 23.17px;
+                color: rgba(255, 255, 255, 1);
+                text-align: center;
+                margin: 80px auto 0px auto;
+                transition: all 1s;
+              }
+            }
+          }
+        }
+      }
+    }
+    .btn_toDetail_more {
+      padding: 0 2em;
+      margin-top: 60px;
+    }
+  }
+}
+
+```
+
+### css选择只有一个子节点得元素
+
+选择 product_img_box 元素下 
+
+```less
+.product_img_box {
+      height: 540px;
+      text-align: center;
+      user-select: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    // 有多张图片
+      &:not(&:only-child) {
+        justify-content: space-around;
+        > img {
+          max-height: 100%;
+          max-width: 50%;
+          object-fit: contain;
+        }
+      }
+    // 只有一张图片
+      &:only-child {
+        > img {
+          height: 100%;
+          width: auto;
+          // max-height: 100%;
+        }
+      }
+    }
+```
+
