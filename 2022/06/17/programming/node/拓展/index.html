@@ -286,7 +286,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">1.6k字</span>
+      <span class="post-count">2.1k字</span>
     </span>
   </span>
 
@@ -295,7 +295,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">8分</span>
     </span>
   </span>
 </div>
@@ -366,6 +366,21 @@
 <p>Nodemailer 是一个用于Node.js应用程序的模块，可以像蛋糕一样轻松发送电子邮件。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodemailer = <span class="built_in">require</span>(<span class="string">&quot;nodemailer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> transporter = nodemailer.<span class="title function_">createTransport</span>(&#123;</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&quot;smtp.ethereal.email&quot;</span>,</span><br><span class="line">  <span class="attr">port</span>: <span class="number">587</span>,</span><br><span class="line">  <span class="attr">secure</span>: <span class="literal">false</span>, <span class="comment">// Use `true` for port 465, `false` for all other ports</span></span><br><span class="line">  <span class="attr">auth</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;maddison53@ethereal.email&quot;</span>,</span><br><span class="line">    <span class="attr">pass</span>: <span class="string">&quot;jn7jnAPss4f63QBp6D&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// async..await is not allowed in global scope, must use a wrapper</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// send mail with defined transport object</span></span><br><span class="line">  <span class="keyword">const</span> info = <span class="keyword">await</span> transporter.<span class="title function_">sendMail</span>(&#123;</span><br><span class="line">    <span class="attr">from</span>: <span class="string">&#x27;&quot;Maddison Foo Koch 👻&quot; &lt;maddison53@ethereal.email&gt;&#x27;</span>, <span class="comment">// sender address</span></span><br><span class="line">    <span class="attr">to</span>: <span class="string">&quot;bar@example.com, baz@example.com&quot;</span>, <span class="comment">// list of receivers</span></span><br><span class="line">    <span class="attr">subject</span>: <span class="string">&quot;Hello ✔&quot;</span>, <span class="comment">// Subject line</span></span><br><span class="line">    <span class="attr">text</span>: <span class="string">&quot;Hello world?&quot;</span>, <span class="comment">// plain text body</span></span><br><span class="line">    <span class="attr">html</span>: <span class="string">&quot;&lt;b&gt;Hello world?&lt;/b&gt;&quot;</span>, <span class="comment">// html body</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Message sent: %s&quot;</span>, info.<span class="property">messageId</span>);</span><br><span class="line">  <span class="comment">// Message sent: &lt;d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>().<span class="title function_">catch</span>(<span class="variable language_">console</span>.<span class="property">error</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="joi"><a href="#joi" class="headerlink" title="joi"></a>joi</h3><blockquote>
+<p>对输入数据（如用户提交的表单、API 请求参数）进行规则校验，确保数据格式、类型、范围等符合预期，避免无效或恶意数据进入系统。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">Joi</span> = <span class="built_in">require</span>(<span class="string">&#x27;joi&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义验证规则</span></span><br><span class="line"><span class="keyword">const</span> schema = <span class="title class_">Joi</span>.<span class="title function_">object</span>(&#123;</span><br><span class="line">  <span class="attr">email</span>: <span class="title class_">Joi</span>.<span class="title function_">string</span>().<span class="title function_">email</span>().required(), <span class="comment">// 必须是合法邮箱</span></span><br><span class="line">  <span class="attr">password</span>: <span class="title class_">Joi</span>.<span class="title function_">string</span>().<span class="title function_">min</span>(<span class="number">6</span>).<span class="title function_">max</span>(<span class="number">20</span>).required(), <span class="comment">// 密码长度6-20位</span></span><br><span class="line">  <span class="attr">age</span>: <span class="title class_">Joi</span>.<span class="title function_">number</span>().<span class="title function_">integer</span>().<span class="title function_">min</span>(<span class="number">0</span>).<span class="title function_">max</span>(<span class="number">120</span>) <span class="comment">// 年龄是0-120的整数（可选）</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证数据</span></span><br><span class="line"><span class="keyword">const</span> userData = &#123; <span class="attr">email</span>: <span class="string">&#x27;test@example.com&#x27;</span>, <span class="attr">password</span>: <span class="string">&#x27;123456&#x27;</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> result = schema.<span class="title function_">validate</span>(userData);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (result.<span class="property">error</span>) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;验证失败：&#x27;</span>, result.<span class="property">error</span>.<span class="property">details</span>[<span class="number">0</span>].<span class="property">message</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;验证通过&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="bcryptjs：密码加密库"><a href="#bcryptjs：密码加密库" class="headerlink" title="bcryptjs：密码加密库"></a><code>bcryptjs</code>：密码加密库</h3><blockquote>
+<p>对用户密码进行<strong>单向哈希加密</strong>（不可逆），将明文密码转换为乱码字符串（哈希值），避免密码明文存储在数据库中，提升安全性。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bcrypt = <span class="built_in">require</span>(<span class="string">&#x27;bcryptjs&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加密密码（注册时）</span></span><br><span class="line"><span class="keyword">const</span> plainPassword = <span class="string">&#x27;user123&#x27;</span>; <span class="comment">// 用户输入的明文密码</span></span><br><span class="line"><span class="keyword">const</span> saltRounds = <span class="number">10</span>; <span class="comment">// 加盐强度（数值越大，加密越慢但越安全，通常取10-12）</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 生成哈希值</span></span><br><span class="line">bcrypt.<span class="title function_">hash</span>(plainPassword, saltRounds, <span class="function">(<span class="params">err, hash</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;加密后的密码：&#x27;</span>, hash); <span class="comment">// 类似 $2a$10$...（存储到数据库）</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 验证密码（登录时）</span></span><br><span class="line"><span class="keyword">const</span> storedHash = <span class="string">&#x27;$2a$10$...&#x27;</span>; <span class="comment">// 从数据库取出的哈希值</span></span><br><span class="line">bcrypt.<span class="title function_">compare</span>(plainPassword, storedHash, <span class="function">(<span class="params">err, isMatch</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;密码是否匹配：&#x27;</span>, isMatch); <span class="comment">// true 或 false</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="jsonwebtoken（JWT）"><a href="#jsonwebtoken（JWT）" class="headerlink" title="jsonwebtoken（JWT）"></a>jsonwebtoken（JWT）</h3><blockquote>
+<p>该库提供了简单的 API，实现 JWT 的<strong>生成（sign）</strong>、<strong>验证（verify）</strong> 和<strong>解码（decode）</strong></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> jwt <span class="keyword">from</span> <span class="string">&#x27;jsonwebtoken&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; config &#125; <span class="keyword">from</span> <span class="string">&#x27;../config.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 签发 JWT，默认过期时间来自配置</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">signToken</span>(<span class="params">payload</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> jwt.<span class="title function_">sign</span>(payload, config.<span class="property">jwtSecret</span>, &#123; <span class="attr">expiresIn</span>: config.<span class="property">jwtExpiresIn</span> &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">function</span> <span class="title function_">authRequired</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function">(<span class="params">req, res, next</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> authHeader = req.<span class="property">headers</span>.<span class="property">authorization</span> || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">const</span> token = authHeader.<span class="title function_">startsWith</span>(<span class="string">&#x27;Bearer &#x27;</span>) ? authHeader.<span class="title function_">slice</span>(<span class="number">7</span>) : <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">if</span> (!token) &#123;</span><br><span class="line">      <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">401</span>).<span class="title function_">json</span>(&#123; <span class="attr">ok</span>: <span class="literal">false</span>, <span class="attr">error</span>: <span class="string">&#x27;Unauthorized&#x27;</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> decoded = jwt.<span class="title function_">verify</span>(token, config.<span class="property">jwtSecret</span>);</span><br><span class="line">      req.<span class="property">user</span> = decoded;</span><br><span class="line">      <span class="keyword">return</span> <span class="title function_">next</span>();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">      <span class="keyword">return</span> res.<span class="title function_">status</span>(<span class="number">401</span>).<span class="title function_">json</span>(&#123; <span class="attr">ok</span>: <span class="literal">false</span>, <span class="attr">error</span>: <span class="string">&#x27;Invalid token&#x27;</span> &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -497,18 +512,18 @@
 
 <nav id="article-nav">
   
-    <a href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Nodejs 编程基础
+          node 升级命令
         
       </div>
     </a>
   
   
-    <a href="/2022/06/17/programming/python/python-web-app/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python app</div>
+    <a href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nodejs 编程基础</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -535,7 +550,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs-%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">Nodejs 主流框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs-%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">nodejs 库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequelize"><span class="toc-number">2.1.</span> <span class="toc-text">Sequelize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS"><span class="toc-number">2.2.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodemailer"><span class="toc-number">2.3.</span> <span class="toc-text">Nodemailer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passport"><span class="toc-number">2.4.</span> <span class="toc-text">passport</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async"><span class="toc-number">2.5.</span> <span class="toc-text">Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Winston"><span class="toc-number">2.6.</span> <span class="toc-text">Winston</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mongoose"><span class="toc-number">2.7.</span> <span class="toc-text">Mongoose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket-IO"><span class="toc-number">2.8.</span> <span class="toc-text">Socket.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lodash"><span class="toc-number">2.9.</span> <span class="toc-text">Lodash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#puppeteer"><span class="toc-number">2.10.</span> <span class="toc-text">puppeteer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multer"><span class="toc-number">2.11.</span> <span class="toc-text">Multer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dotenv"><span class="toc-number">2.12.</span> <span class="toc-text">Dotenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQTT-js"><span class="toc-number">2.13.</span> <span class="toc-text">MQTT.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-fluent-ffmpeg"><span class="toc-number">2.14.</span> <span class="toc-text">node-fluent-ffmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-mail"><span class="toc-number">2.15.</span> <span class="toc-text">node mail</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#laf%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">laf云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aircode"><span class="toc-number">3.1.1.</span> <span class="toc-text">aircode</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Nodejs-%E4%B8%BB%E6%B5%81%E6%A1%86%E6%9E%B6"><span class="toc-number">1.</span> <span class="toc-text">Nodejs 主流框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodejs-%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">nodejs 库</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sequelize"><span class="toc-number">2.1.</span> <span class="toc-text">Sequelize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CORS"><span class="toc-number">2.2.</span> <span class="toc-text">CORS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nodemailer"><span class="toc-number">2.3.</span> <span class="toc-text">Nodemailer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#passport"><span class="toc-number">2.4.</span> <span class="toc-text">passport</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Async"><span class="toc-number">2.5.</span> <span class="toc-text">Async</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Winston"><span class="toc-number">2.6.</span> <span class="toc-text">Winston</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mongoose"><span class="toc-number">2.7.</span> <span class="toc-text">Mongoose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Socket-IO"><span class="toc-number">2.8.</span> <span class="toc-text">Socket.IO</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lodash"><span class="toc-number">2.9.</span> <span class="toc-text">Lodash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#puppeteer"><span class="toc-number">2.10.</span> <span class="toc-text">puppeteer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Multer"><span class="toc-number">2.11.</span> <span class="toc-text">Multer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dotenv"><span class="toc-number">2.12.</span> <span class="toc-text">Dotenv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MQTT-js"><span class="toc-number">2.13.</span> <span class="toc-text">MQTT.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-fluent-ffmpeg"><span class="toc-number">2.14.</span> <span class="toc-text">node-fluent-ffmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node-mail"><span class="toc-number">2.15.</span> <span class="toc-text">node mail</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#joi"><span class="toc-number">2.16.</span> <span class="toc-text">joi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bcryptjs%EF%BC%9A%E5%AF%86%E7%A0%81%E5%8A%A0%E5%AF%86%E5%BA%93"><span class="toc-number">2.17.</span> <span class="toc-text">bcryptjs：密码加密库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#jsonwebtoken%EF%BC%88JWT%EF%BC%89"><span class="toc-number">2.18.</span> <span class="toc-text">jsonwebtoken（JWT）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.</span> <span class="toc-text">云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#laf%E4%BA%91%E5%87%BD%E6%95%B0"><span class="toc-number">3.1.</span> <span class="toc-text">laf云函数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#aircode"><span class="toc-number">3.1.1.</span> <span class="toc-text">aircode</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -693,15 +708,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -709,11 +720,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -721,15 +732,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -741,11 +756,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -753,111 +764,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,27 +788,115 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -909,11 +908,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -921,11 +924,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -933,11 +944,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -946,30 +969,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -985,7 +984,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -997,15 +1016,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>

@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/wechat/公众号/环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/wechat/小程序/开发流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_blank">微信公众号环境搭建</a>
+	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" target="_blank">微信小程序开发流程</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+<a href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,8 +287,97 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="注册微信公众号"><a href="#注册微信公众号" class="headerlink" title="注册微信公众号"></a>注册微信公众号</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、注册地址</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//mp.weixin.qq.com/</span></span><br><span class="line"></span><br><span class="line">-服务号：主要偏向于服务交互（功能类似<span class="number">12315</span>，<span class="number">114</span>，银行，提供绑定信息，服务交互），每月可群发<span class="number">4</span>条消息；服务号适用人群：**媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line">-订阅号：主要偏向于为用户传达资讯，（功能类似报纸杂志，为用户提供新闻信息或娱乐趣事），每天可群发<span class="number">1</span>条消息；订阅号适用人群**：个人、媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、注册测试公众号</span><br><span class="line">	个人订阅号有一些接口是没有权限的，也就是说个人订阅号无法调用一些高级的权限接口,如生成二维码、网页授权、自定义菜单、微信支付这样的接口权限个人订阅号是没有调用权限的, 幸运的是，微信公众平台提供了测试公众账号，测试公众号有很多个人订阅号不具备的权限, 测试公众号的注册地址为：</span><br><span class="line">	<span class="attr">http</span>:<span class="comment">//mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login</span></span><br><span class="line">	</span><br><span class="line"><span class="number">3</span>、搭建本地测试环境</span><br><span class="line">	开发基于微信公众号的应用最大的痛苦之处就是调试问题，每次实现一个功能后都需要部署到一个公网服务器进行测试，因为微信用户每次向公众号发起请求时，微信服务器会先接收到用户的请求，然后再转发到我们的服务器上，也就是说，微信服务器是要和我们的服务器进行网络交互，所以我们必须保证我们的服务器外网可以访问到</span><br><span class="line">    国内提供<span class="title class_">Ngrok</span>服务比较好的网站是:<span class="attr">http</span>:<span class="comment">//natapp.cn/</span></span><br><span class="line">	需手机号，支付宝注册，实名</span><br></pre></td></tr></table></figure>
-
+    <h2 id="小程序注册"><a href="#小程序注册" class="headerlink" title="小程序注册"></a>小程序注册</h2><h3 id="注册小程序账号"><a href="#注册小程序账号" class="headerlink" title="注册小程序账号"></a>注册小程序账号</h3><p>在微信公众平台官网首页（<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">mp.weixin.qq.com</a>）点击右上角的“立即注册”按钮。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/a.c0bcf4a8.png" alt="img"></p>
+<h3 id="选择注册的账号类型"><a href="#选择注册的账号类型" class="headerlink" title="选择注册的账号类型"></a>选择注册的账号类型</h3><p>选择“小程序”，点击“查看类型区别”可查看不同类型账号的区别和优势。</p>
+<h3 id="填写邮箱和密码"><a href="#填写邮箱和密码" class="headerlink" title="填写邮箱和密码"></a>填写邮箱和密码</h3><p>请填写未注册过公众平台、开放平台、企业号、未绑定个人号的邮箱。</p>
+<h3 id="激活邮箱"><a href="#激活邮箱" class="headerlink" title="激活邮箱"></a>激活邮箱</h3><p>登录邮箱，查收激活邮件，点击激活链接。</p>
+<h3 id="填写主体信息"><a href="#填写主体信息" class="headerlink" title="填写主体信息"></a>填写主体信息</h3><p>点击激活链接后，继续下一步的注册流程。请选择主体类型选择，完善主体信息和管理员信息。</p>
+<h4 id="选择主体类型"><a href="#选择主体类型" class="headerlink" title="选择主体类型"></a>选择主体类型</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/03271.7befb864.png" alt="img"></p>
+<p>主体类型说明如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>账号主体</strong></th>
+<th align="center"><strong>范围</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">个人</td>
+<td align="center">18岁以上有国内身份信息的微信实名用户</td>
+</tr>
+<tr>
+<td align="center">企业</td>
+<td align="center">企业、分支机构、企业相关品牌。</td>
+</tr>
+<tr>
+<td align="center">企业（个体工商户）</td>
+<td align="center">个体工商户。</td>
+</tr>
+<tr>
+<td align="center">政府</td>
+<td align="center">国内、各级、各类政府机构、事业单位、具有行政职能的社会组织等。目前主要覆盖公安机构、党团机构、司法机构、交通机构、旅游机构、工商税务机构、市政机构等。</td>
+</tr>
+<tr>
+<td align="center">媒体</td>
+<td align="center">报纸、杂志、电视、电台、通讯社、其他等。</td>
+</tr>
+<tr>
+<td align="center">其他组织</td>
+<td align="center">不属于政府、媒体、企业或个人的类型。</td>
+</tr>
+</tbody></table>
+<h4 id="填写主体信息并选择验证方式"><a href="#填写主体信息并选择验证方式" class="headerlink" title="填写主体信息并选择验证方式"></a>填写主体信息并选择验证方式</h4><ul>
+<li>企业类型账号可选择两种主体验证方式。<ul>
+<li>方式一：需要用公司的对公账户向腾讯公司打款来验证主体身份。打款信息在提交主体信息后可以查看到。</li>
+<li>方式二：通过微信认证验证主体身份，需支付300元认证费。认证通过前，小程序部分功能暂无法使用。</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/2.417f8be4.png" alt="img"></p>
+<ul>
+<li>政府、媒体、其他组织类型账号，必须通过微信认证验证主体身份。认证通过前，小程序部分功能暂无法使用。</li>
+</ul>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/3.c64f7726.png" alt="img"></p>
+<ul>
+<li><p>微信认证入口：登录小程序 - 设置 - 微信认证详情</p>
+<p>  <img src="https://res.wx.qq.com/wxdoc/dist/assets/img/w.3bf5a990.png" alt="img"></p>
+</li>
+</ul>
+<h4 id="填写管理员信息"><a href="#填写管理员信息" class="headerlink" title="填写管理员信息"></a>填写管理员信息</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/4.8abdab7f.png" alt="img"></p>
+<h4 id="确认主体信息不可变更"><a href="#确认主体信息不可变更" class="headerlink" title="确认主体信息不可变更"></a>确认主体信息不可变更</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/5.e3cfe779.png" alt="img"></p>
+<h4 id="点击确认完成注册流程"><a href="#点击确认完成注册流程" class="headerlink" title="点击确认完成注册流程"></a>点击确认完成注册流程</h4><p>选择对公打款的用户，请根据页面提示，向指定的收款账号汇入指定金额。</p>
+<p><strong>注意：请在10天内完成汇款，否则将注册失败。</strong></p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/6.7f5bbc0d.png" alt="img"></p>
+<p>选择通过微信认证验证主体身份的用户，完成注册流程后请尽快进行微信认证，认证完成之前部分功能暂不可使用。</p>
+<h2 id="小程序信息完善及开发前准备"><a href="#小程序信息完善及开发前准备" class="headerlink" title="小程序信息完善及开发前准备"></a>小程序信息完善及开发前准备</h2><h3 id="登录小程序管理平台"><a href="#登录小程序管理平台" class="headerlink" title="登录小程序管理平台"></a>登录小程序管理平台</h3><p>完成注册后，在微信公众平台官网首页（<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">mp.weixin.qq.com</a>）的登录入口直接登录。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/a.c0bcf4a8.png" alt="img"></p>
+<h3 id="完善小程序信息"><a href="#完善小程序信息" class="headerlink" title="完善小程序信息"></a>完善小程序信息</h3><p><strong>完成注册后，微信小程序信息完善步骤和开发可同步进行。</strong></p>
+<p>选择对公打款的用户，完成汇款验证后，可以补充小程序名称信息，上传小程序头像，填写小程序介绍并选择服务范围。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/u.7a486eb9.png" alt="img"></p>
+<h3 id="开发前准备"><a href="#开发前准备" class="headerlink" title="开发前准备"></a>开发前准备</h3><h4 id="绑定开发者"><a href="#绑定开发者" class="headerlink" title="绑定开发者"></a>绑定开发者</h4><p>登录小程序管理后台（mp.weixin.qq.com）– 用户身份 – 成员管理 – 添加成员 。</p>
+<p>个人主体小程序最多可绑定15个项目成员，15个体验成员。</p>
+<p>未认证、未发布非个人的小程序最多可绑定30个项目成员，30个体验成员。</p>
+<p>已认证未发布/未认证已发布非个人的小程序最多可绑定60个项目成员，60个体验成员。</p>
+<p>已认证已发布非个人的小程序最多可绑定90个项目成员，90个体验成员。</p>
+<p><img src="https://res.wx.qq.com/op_res/1fcFu3RFaktW-_9piduEBLjLf_5qiXIMIS8djTtFd775ju3hZldW99x38zZSfPhGTZSZ67gzSVU_uVDzRennLg" alt="img"></p>
+<h4 id="获取AppID"><a href="#获取AppID" class="headerlink" title="获取AppID"></a>获取AppID</h4><p>进入“设置-开发设置”，获取AppID信息。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/i.3b2c8916.png" alt="img"></p>
+<h2 id="代码审核与发布"><a href="#代码审核与发布" class="headerlink" title="代码审核与发布"></a>代码审核与发布</h2><h3 id="提交审核"><a href="#提交审核" class="headerlink" title="提交审核"></a>提交审核</h3><p>登录微信公众平台小程序，进入版本管理，开发版本中展示已上传的代码，管理员可提交审核或是删除代码。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/q.7e99b261.png" alt="img"></p>
+<h3 id="审核信息填写"><a href="#审核信息填写" class="headerlink" title="审核信息填写"></a>审核信息填写</h3><h4 id="配置功能页面"><a href="#配置功能页面" class="headerlink" title="配置功能页面"></a>配置功能页面</h4><p>填写重要业务页面的类目与标签，重要业务页面组数不多于5组。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/s.50132b2b.png" alt="img"></p>
+<h4 id="测试账号"><a href="#测试账号" class="headerlink" title="测试账号"></a>测试账号</h4><p>当小程序需要开发者提供测试账号才能完成审核体验时，小程序在首次提交审核时将被打回，再次提交审核时将开放提供测试账号的入口，该入口将由开发者提供账号给微信审核人员审核微信小程序时登录使用。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/03272.c8dc453d.jpg" alt="img"></p>
+<h4 id="完成提交"><a href="#完成提交" class="headerlink" title="完成提交"></a>完成提交</h4><p>提交审核完成后，开发管理页中审核版本模块展示审核进度。</p>
+<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/t.c952589d.png" alt="img"></p>
+<p><strong>提示：</strong></p>
+<ul>
+<li>开发者可参考<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/product/reject.html">《微信小程序平台常见拒绝情形》</a>，详细了解审核标准。</li>
+</ul>
+<h4 id="代码发布"><a href="#代码发布" class="headerlink" title="代码发布"></a>代码发布</h4><p>代码审核通过，需要开发者手动点击发布，小程序才会发布到线上提供服务。</p>
+<p><strong>注意：</strong></p>
+<p>内测期间，代码发布按钮不可点击。</p>
 
     
 
@@ -305,7 +394,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信公众号</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -317,7 +406,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/微信公众号//" class="article-tag-list-link color1">微信公众号</a>
+        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
         		</li>
       		
 		</ul>
@@ -326,7 +415,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/">展开全文 >></a>
     </p>
     
 
@@ -426,105 +515,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/computer/bat/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-computer/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/" target="_blank">什么是信息</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="信息篇"><a href="#信息篇" class="headerlink" title="信息篇"></a>信息篇</h1><h2 id="什么是信息"><a href="#什么是信息" class="headerlink" title="什么是信息"></a>什么是信息</h2><h3 id="摩尔定律"><a href="#摩尔定律" class="headerlink" title="摩尔定律"></a>摩尔定律</h3><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B.png"></p>
-    
-    <a class="article-more-a" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/computer//" class="article-tag-list-link color4">computer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/">展开全文 >></a>
     </p>
     
 
@@ -663,6 +653,105 @@
 
 
   
+    <article id="post-computer/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/" target="_blank">什么是信息</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="信息篇"><a href="#信息篇" class="headerlink" title="信息篇"></a>信息篇</h1><h2 id="什么是信息"><a href="#什么是信息" class="headerlink" title="什么是信息"></a>什么是信息</h2><h3 id="摩尔定律"><a href="#摩尔定律" class="headerlink" title="摩尔定律"></a>摩尔定律</h3><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/%E6%91%A9%E5%B0%94%E5%AE%9A%E5%BE%8B.png"></p>
+    
+    <a class="article-more-a" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">科普</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/computer//" class="article-tag-list-link color4">computer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/computer/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-computer/网络基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -767,7 +856,7 @@
 
 
   
-    <article id="post-programming/echarts/实用文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/echarts/echarts优化与实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -775,7 +864,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/" target="_blank">echarts 基础使用</a>
+	  <a class="article-title" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/" target="_blank">echarts 优化与实践</a>
   
     </h1>
   
@@ -783,7 +872,7 @@
 
   
   
-<a href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/" class="archive-article-date">
+<a href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -796,14 +885,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h2><h3 id="关于Echarts"><a href="#关于Echarts" class="headerlink" title="关于Echarts"></a>关于Echarts</h3><blockquote>
-<p>ECharts 是一个使用 JavaScript 实现的开源可视化库，涵盖各行业图表，满足各种需求。</p>
-<p>ECharts 遵循 Apache-2.0 开源协议，免费商用。</p>
-<p>ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）及兼容多种设备，可随时随地任性展示。</p>
+    <h2 id="series-graph"><a href="#series-graph" class="headerlink" title="series-graph"></a>series-graph</h2><blockquote>
+<p>用于展现节点以及节点之间的关系数据。</p>
 </blockquote>
-<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3>
+<p>本次示例展示关系图采用力引导布局方式，可以不用设置每个节点得位置（x,y）让他们自动生成。效果图如下【球中文字脱敏不显示】</p>
+<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20220817152404686.png" alt="image-20220817152404686"></p>
+<p>配置项如下：</p>
     
-    <a class="article-more-a" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/#more">more >></a>
     
     
 
@@ -820,7 +909,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">echarts</a>
         		</li>
       		
 		</ul>
@@ -841,7 +930,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
     </p>
     
 
@@ -1080,7 +1169,7 @@
 
 
   
-    <article id="post-programming/echarts/echarts优化与实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/echarts/实用文档" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1088,7 +1177,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/" target="_blank">echarts 优化与实践</a>
+	  <a class="article-title" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/" target="_blank">echarts 基础使用</a>
   
     </h1>
   
@@ -1096,7 +1185,7 @@
 
   
   
-<a href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/" class="archive-article-date">
+<a href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1109,14 +1198,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="series-graph"><a href="#series-graph" class="headerlink" title="series-graph"></a>series-graph</h2><blockquote>
-<p>用于展现节点以及节点之间的关系数据。</p>
+    <h2 id="Echarts"><a href="#Echarts" class="headerlink" title="Echarts"></a>Echarts</h2><h3 id="关于Echarts"><a href="#关于Echarts" class="headerlink" title="关于Echarts"></a>关于Echarts</h3><blockquote>
+<p>ECharts 是一个使用 JavaScript 实现的开源可视化库，涵盖各行业图表，满足各种需求。</p>
+<p>ECharts 遵循 Apache-2.0 开源协议，免费商用。</p>
+<p>ECharts 兼容当前绝大部分浏览器（IE8/9/10/11，Chrome，Firefox，Safari等）及兼容多种设备，可随时随地任性展示。</p>
 </blockquote>
-<p>本次示例展示关系图采用力引导布局方式，可以不用设置每个节点得位置（x,y）让他们自动生成。效果图如下【球中文字脱敏不显示】</p>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/image-20220817152404686.png" alt="image-20220817152404686"></p>
-<p>配置项如下：</p>
+<h3 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h3>
     
-    <a class="article-more-a" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/#more">more >></a>
     
     
 
@@ -1133,7 +1222,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">echarts</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础知识</a>
         		</li>
       		
 		</ul>
@@ -1154,7 +1243,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/echarts/echarts%E4%BC%98%E5%8C%96%E4%B8%8E%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/echarts/%E5%AE%9E%E7%94%A8%E6%96%87%E6%A1%A3/">展开全文 >></a>
     </p>
     
 
@@ -1418,15 +1507,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1434,11 +1519,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1446,15 +1531,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1466,11 +1555,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1478,111 +1563,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1602,27 +1587,115 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1634,11 +1707,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1646,11 +1723,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1658,11 +1743,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,30 +1768,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1710,7 +1783,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1722,15 +1815,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>

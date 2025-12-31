@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/npm/yarn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
+	  <a class="article-title" href="/2022/06/17/programming/npm/yarn/" target="_blank">npm常用命令</a>
   
     </h1>
   
@@ -274,7 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+<a href="/2022/06/17/programming/npm/yarn/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -287,233 +287,7 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h2 id="Nodejs-主流框架"><a href="#Nodejs-主流框架" class="headerlink" title="Nodejs 主流框架"></a>Nodejs 主流框架</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="title class_">Express</span></span><br><span class="line"><span class="title class_">Node</span>界最老牌的<span class="title class_">Web</span>框架，最成熟，生态最好。提供了基础的请求上下文封装，路由，中间件，模板引擎接口，静态资源服务。麻雀虽小，五脏俱全。很方便的进行扩展，大量的基于<span class="title class_">Express</span>的框架。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="title class_">Koa</span></span><br><span class="line"><span class="title class_">Express</span>原班人马打造，定义为下一代<span class="title class_">Web</span>开发框架。仅提供一个请求上下文，中间件机制，没有捆绑任何中间件。通过利用<span class="keyword">async</span>/<span class="keyword">await</span>，让你写出更优雅的代码。方便开发者针对自身需求开发自定义框架。</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、egg</span><br><span class="line">eggjs是由阿里推出的一款web企业级框架，提供了完整的<span class="title class_">Web</span>开发所需的组件，使用koa作为底层。使用了约定大于配置的理念，提供强大的插件机制，方便扩展。</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、<span class="title class_">NestJs</span></span><br><span class="line"><span class="title class_">NestJs</span>的主要卖点是<span class="title class_">TypeScript</span>的完全支持。大量的使用装饰器，代码看起来清爽多了。orm采用<span class="title class_">TypeORM</span>，使用类型加装饰器，代码比一般的orm整洁得多。</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、<span class="title class_">Fastify</span></span><br><span class="line"><span class="title class_">Fastify</span>号称是最快的<span class="title class_">Nodejs</span> web框架，在<span class="title class_">Json</span>输出的场景下，通过<span class="title class_">Json</span> <span class="title class_">Schema</span>序列化为<span class="title class_">Json</span>数据，可以达到原生<span class="title class_">JSON</span>.<span class="property">stringify</span> <span class="number">2</span>倍的性能，在极端情况下可达到<span class="number">10</span>倍速。采用对象池，将请求上下文包装对象进行复用。使用trie树存储路由，查找效率更高（在大量有路由的情况下）。<span class="title class_">Fastify</span>提供了强大的插件机制，通过插件可以分割路由及中间件。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">地址：</span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/</span></span><br><span class="line">	<span class="attr">https</span>:<span class="comment">//npm-stat.com/charts.html?package=koa&amp;from=2021-01-01&amp;to=2022-04-27</span></span><br><span class="line"></span><br><span class="line">包下载量查询 <span class="number">2021</span>-<span class="number">01</span>-<span class="number">01</span> - <span class="number">2022</span>-<span class="number">04</span>-<span class="number">27</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Express</span>	<span class="number">1</span>,<span class="number">258</span>,<span class="number">568</span>,<span class="number">282</span></span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">69</span>,<span class="number">468</span>,<span class="number">698</span></span><br><span class="line">egg	<span class="number">2</span>,<span class="number">177</span>,<span class="number">325</span></span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">160</span>,<span class="number">925</span></span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">19</span>,<span class="number">580</span>,<span class="number">835</span></span><br><span class="line"></span><br><span class="line">github星数</span><br><span class="line"></span><br><span class="line">xpress	<span class="number">87.</span>1k</span><br><span class="line"><span class="title class_">Koa</span>	<span class="number">32.</span>5k</span><br><span class="line">egg	<span class="number">17.</span>9k</span><br><span class="line"><span class="title class_">NestJs</span>	<span class="number">46.</span>5k</span><br><span class="line"><span class="title class_">Fastify</span>	<span class="number">22.</span>8k</span><br></pre></td></tr></table></figure>
-
-<h2 id="nodejs-库"><a href="#nodejs-库" class="headerlink" title="nodejs 库"></a>nodejs 库</h2><h3 id="Sequelize"><a href="#Sequelize" class="headerlink" title="Sequelize"></a>Sequelize</h3><blockquote>
-<p>Sequelize 是一种基于 promise 的 Node.js 对象关系映射器 （ORM） 使用，它使开发人员更容易使用关系数据库。<br>支持 PostgreSQL、MySQL、MariaDB、SQLite 等数据库。</p>
-</blockquote>
-<h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><blockquote>
-<p>它使用 Connect/Express 提供跨域资源共享 （CORS） 作为中间件。</p>
-</blockquote>
-<h3 id="Nodemailer"><a href="#Nodemailer" class="headerlink" title="Nodemailer"></a>Nodemailer</h3><blockquote>
-<p>Nodemailer简化了从Node.js服务器发送电子邮件的过程。</p>
-</blockquote>
-<h3 id="passport"><a href="#passport" class="headerlink" title="passport"></a>passport</h3><blockquote>
-<p>Passport 是一个模块化的 Node.js 身份验证中间件。</p>
-<p>支持 500 多种身份验证方案，包括 Google、Facebook、Twitter 和其他自定义和单点登录 （SSO） 提供商。</p>
-</blockquote>
-<h3 id="Async"><a href="#Async" class="headerlink" title="Async"></a>Async</h3><blockquote>
-<p>Async 是一个强大的 Node.js 实用程序模块，可帮助开发人员通过使用 JavaScript“异步”或回调接受方法使用异步 JavaScript。</p>
-<p>提供 70 多种实用方法，用于轻松开发异步控制流。</p>
-</blockquote>
-<h3 id="Winston"><a href="#Winston" class="headerlink" title="Winston"></a>Winston</h3><blockquote>
-<p>Winston 是 Node.js 的日志记录包，允许在许多传输上进行通用日志记录。</p>
-</blockquote>
-<h3 id="Mongoose"><a href="#Mongoose" class="headerlink" title="Mongoose"></a>Mongoose</h3><blockquote>
-<p>Mongoose 是一个 Node。基于 js 的 MongoDB 对象建模工具，通常称为对象数据建模 （ODM） 库，提供钩子、模型验证、连接和查询等功能。</p>
-</blockquote>
-<h3 id="Socket-IO"><a href="#Socket-IO" class="headerlink" title="Socket.IO"></a>Socket.IO</h3><blockquote>
-<p>Socket.IO 是一个 Node .js通信包，它允许客户端浏览器和服务器实时、双向和基于事件进行通信。</p>
-</blockquote>
-<h3 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h3><blockquote>
-<p>Lodash 是一个 JavaScript 实用程序包，可帮助开发人员编写简单且可维护的代码。</p>
-</blockquote>
-<h3 id="puppeteer"><a href="#puppeteer" class="headerlink" title="puppeteer"></a>puppeteer</h3><blockquote>
-<p>Puppeteer 是一个 Node.js 框架，它允许您通过提供用于通过 DevTools 协议控制 Chrome/Chromium 的高级 API，从而实现 Chrome 的自动化。</p>
-<p>它可以自动执行前端测试，例如请求处理测试、识别和比较 UI 组件以及性能测试等。</p>
-</blockquote>
-<h3 id="Multer"><a href="#Multer" class="headerlink" title="Multer"></a>Multer</h3><blockquote>
-<p>Multer 是一个 Node.js 中间件库。它建立在 HTML 表单解析器 Busboy 之上，支持多部分和多表单数据。</p>
-<p>初始化 Multer 实例后，其参数之一是测试对象，它指定上传的文件在服务器上的保存位置。</p>
-</blockquote>
-<h3 id="Dotenv"><a href="#Dotenv" class="headerlink" title="Dotenv"></a>Dotenv</h3><blockquote>
-<p>Dotenv 是一个 Node.js 实用程序模块，用于维护应用程序环境变量并保护关键配置数据。</p>
-</blockquote>
-<h3 id="MQTT-js"><a href="#MQTT-js" class="headerlink" title="MQTT.js"></a><a target="_blank" rel="noopener" href="https://github.com/mqttjs/MQTT.js">MQTT.js</a></h3><blockquote>
-<p>MQTT是一种轻量级的、基于发布/订阅模式的物联网通信协议，专为计算能力有限并在低带宽、不可靠网络环境下工作的远程传感器、控制设备通信而设计。</p>
-<p>MQTT和Socket的主要区别在于它们的应用场景和目的。<strong>MQTT更适用于物联网场景</strong>，特别是需要发布/订阅模式以及低带宽、不可靠网络环境的场景；而<strong>Socket则更偏向于网络编程中的基础通信手段</strong>，用于建立可靠的连接和数据传输。在实际应用中，可以根据具体需求选择合适的协议或技术。</p>
-</blockquote>
-<blockquote>
-<p><a href="src/views/able/mqtt-client.vue">客户端 mqtt-client.vue</a></p>
-</blockquote>
-<h3 id="node-fluent-ffmpeg"><a href="#node-fluent-ffmpeg" class="headerlink" title="node-fluent-ffmpeg"></a><a target="_blank" rel="noopener" href="https://github.com/fluent-ffmpeg/node-fluent-ffmpeg">node-fluent-ffmpeg</a></h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install fluent-ffmpeg</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>该库将 ffmpeg 的复杂命令行用法抽象为一个流畅、易于使用的node.js模块。为了能够使用此模块，请确保您的系统上安装了 ffmpeg（包括所有必要的编码库，如 libmp3lame 或 libx264）。</p>
-</blockquote>
-<h3 id="node-mail"><a href="#node-mail" class="headerlink" title="node mail"></a><a target="_blank" rel="noopener" href="https://www.nodemailer.com/">node mail</a></h3><blockquote>
-<p>Nodemailer 是一个用于Node.js应用程序的模块，可以像蛋糕一样轻松发送电子邮件。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodemailer = <span class="built_in">require</span>(<span class="string">&quot;nodemailer&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> transporter = nodemailer.<span class="title function_">createTransport</span>(&#123;</span><br><span class="line">  <span class="attr">host</span>: <span class="string">&quot;smtp.ethereal.email&quot;</span>,</span><br><span class="line">  <span class="attr">port</span>: <span class="number">587</span>,</span><br><span class="line">  <span class="attr">secure</span>: <span class="literal">false</span>, <span class="comment">// Use `true` for port 465, `false` for all other ports</span></span><br><span class="line">  <span class="attr">auth</span>: &#123;</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&quot;maddison53@ethereal.email&quot;</span>,</span><br><span class="line">    <span class="attr">pass</span>: <span class="string">&quot;jn7jnAPss4f63QBp6D&quot;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// async..await is not allowed in global scope, must use a wrapper</span></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// send mail with defined transport object</span></span><br><span class="line">  <span class="keyword">const</span> info = <span class="keyword">await</span> transporter.<span class="title function_">sendMail</span>(&#123;</span><br><span class="line">    <span class="attr">from</span>: <span class="string">&#x27;&quot;Maddison Foo Koch 👻&quot; &lt;maddison53@ethereal.email&gt;&#x27;</span>, <span class="comment">// sender address</span></span><br><span class="line">    <span class="attr">to</span>: <span class="string">&quot;bar@example.com, baz@example.com&quot;</span>, <span class="comment">// list of receivers</span></span><br><span class="line">    <span class="attr">subject</span>: <span class="string">&quot;Hello ✔&quot;</span>, <span class="comment">// Subject line</span></span><br><span class="line">    <span class="attr">text</span>: <span class="string">&quot;Hello world?&quot;</span>, <span class="comment">// plain text body</span></span><br><span class="line">    <span class="attr">html</span>: <span class="string">&quot;&lt;b&gt;Hello world?&lt;/b&gt;&quot;</span>, <span class="comment">// html body</span></span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Message sent: %s&quot;</span>, info.<span class="property">messageId</span>);</span><br><span class="line">  <span class="comment">// Message sent: &lt;d786aa62-4e0a-070a-47ed-0b0666549519@ethereal.email&gt;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>().<span class="title function_">catch</span>(<span class="variable language_">console</span>.<span class="property">error</span>);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="云函数"><a href="#云函数" class="headerlink" title="云函数"></a>云函数</h2><h3 id="laf云函数"><a href="#laf云函数" class="headerlink" title="laf云函数"></a><a target="_blank" rel="noopener" href="https://laf.dev/">laf云函数</a></h3><blockquote>
-<p><code>laf</code> 是一个集「函数计算」、「数据库」、「对象存储」等于一身的一站式开发平台。</p>
-<p>支持get,post 等常规请求。支持socket长连接。功能很齐全</p>
-<p>收费方式按时间计算，可随时关停</p>
-</blockquote>
-<h4 id="aircode"><a href="#aircode" class="headerlink" title="aircode"></a><a target="_blank" rel="noopener" href="https://docs-cn.aircode.io/guide/functions/post-params"><strong>aircode</strong></a></h4><blockquote>
-<p>AirCode 是一个在线开发和部署 Node.js 应用的平台，为全栈工程师量身定制，目标是让开发变得简单。</p>
-<p>我们通过提供极致简单的 WebIDE 和开箱即用的云服务，让开发者无需再操心后端选型、环境搭建和线上运维等一系列繁琐之事，只需打开浏览器即可完成产品开发，并部署到全球节点。</p>
-</blockquote>
-<p>功能与laf 类似，没有提供socket 长连接服务。但是拥有免费的额度可以白嫖</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/python/python-web-app" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/python/python-web-app/" target="_blank">python app</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/python/python-web-app/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>这一步并非必要，却十分重要。主要用于多个 python 项目时，同名依赖不同版本情况。创建虚拟环境可以隔离项目之间的依赖（也可以使用 docker 来实现项目隔离）</p>
-<h4 id="创建虚拟环境："><a href="#创建虚拟环境：" class="headerlink" title="创建虚拟环境："></a>创建虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv venv  <span class="comment"># Windows/macOS/Linux 通用命令</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="激活虚拟环境："><a href="#激活虚拟环境：" class="headerlink" title="激活虚拟环境："></a>激活虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">.\venv\Scripts\activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS/Linux</span></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
-
-<h4 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask  <span class="comment"># 仅安装到当前虚拟环境</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="查看已安装的包："><a href="#查看已安装的包：" class="headerlink" title="查看已安装的包："></a>查看已安装的包：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
-
-<h4 id="退出虚拟环境："><a href="#退出虚拟环境：" class="headerlink" title="退出虚拟环境："></a>退出虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
-
-<p>虚拟环境是 Python 开发的<strong>标准实践</strong>，虽然不是强制要求，但它能避免 90% 的环境相关问题。建议养成 “每个项目一个虚拟环境” 的习惯，从一开始就使用它！</p>
-<h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><h3 id="1、requirements-txt"><a href="#1、requirements-txt" class="headerlink" title="1、requirements.txt"></a>1、requirements.txt</h3><p>自动生成项目中的依赖 到 requirements.txt 文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
-
-<p>类似于yarn 的一键安装项目依赖</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、-pyproject-toml"><a href="#2、-pyproject-toml" class="headerlink" title="2、**pyproject.toml**"></a>2、**<code>pyproject.toml</code>**</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyproject.toml</span></span><br><span class="line">[build-system]</span><br><span class="line">requires = [<span class="string">&quot;setuptools&gt;=42&quot;</span>]</span><br><span class="line">build-backend = <span class="string">&quot;setuptools.build_meta&quot;</span></span><br><span class="line"></span><br><span class="line">[project]</span><br><span class="line">name = <span class="string">&quot;my-project&quot;</span></span><br><span class="line">version = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line">dependencies = [</span><br><span class="line">    <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>安装方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、-setup-py（传统方法）"><a href="#3、-setup-py（传统方法）" class="headerlink" title="3、**setup.py（传统方法）**"></a>3、**<code>setup.py</code>（传统方法）**</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># setup.py</span></span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">    version=<span class="string">&quot;0.1.0&quot;</span>,</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="敏感参数配置"><a href="#敏感参数配置" class="headerlink" title="敏感参数配置"></a>敏感参数配置</h2><p>项目推荐使用 .env 文件放置，通过 dotenv 第三方模块来加载。.env 文件不提交。生产环境时可以</p>
-<ol>
-<li><p>在生产环境新建一个.env 文件</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FLASK_APP=app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">FLASK_DEBUG=True</span></span><br><span class="line">SECRET_KEY=your-secret-key</span><br></pre></td></tr></table></figure>
-
-</li>
-<li><p>在运行环境设置环境变量</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS</span></span><br><span class="line">export SECRET_KEY=prod_secret_key</span><br><span class="line">export FLASK_DEBUG=False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows（PowerShell）</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:SECRET_KEY = <span class="string">&quot;prod_secret_key&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:FLASK_DEBUG = <span class="string">&quot;False&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS：写入 shell 配置文件（如 ~/.bashrc、~/.zshrc）</span></span><br><span class="line">echo &#x27;export SECRET_KEY=prod_secret_key&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &#x27;export FLASK_DEBUG=False&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc  # 立即生效</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows：通过「系统属性 → 高级 → 环境变量」图形界面配置，或使用 PowerShell 命令永久设置。</span></span><br></pre></td></tr></table></figure></li>
-<li><p>docker 容器部署</p>
-<p> docker run 命令直接传入</p>
- <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e &quot;SECRET_KEY=prod_secret&quot; -e &quot;FLASK_DEBUG=False&quot; your-image</span><br></pre></td></tr></table></figure>
-
-<p> docker-compose.yml 文件配置</p>
- <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">your-image</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SECRET_KEY=prod_secret</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FLASK_DEBUG=False</span></span><br><span class="line">    <span class="comment"># 或引用服务器上的 .env 文件（但需确保该文件仅在服务器存在）</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env.prod</span>  <span class="comment"># 服务器上的生产环境变量文件</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="app项目架构"><a href="#app项目架构" class="headerlink" title="app项目架构"></a>app项目架构</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">flask_project/</span><br><span class="line">│</span><br><span class="line">├── app/                 # 应用包</span><br><span class="line">│   ├── __init__.py      # 应用工厂</span><br><span class="line">│   ├── routes/          # 路由模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   ├── main.py      # 主路由</span><br><span class="line">│   │   └── api.py       # API路由</span><br><span class="line">│   ├── models/          # 业务模块</span><br><span class="line">│   ├── test/            # 测试业务模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   └── test.py      # 测试业务逻辑</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── utils/          # 工具类模块</span><br><span class="line">│   │   ├── db.py       # 数据库工具类</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── templates/       # 模板文件</span><br><span class="line">│   │   ├── index.html   # index 页面</span><br><span class="line">│   │   └── about.html   # about 页面,如果使用单页面应用，可以打包成只有一个html文件</span><br><span class="line">│   ├── static/          # 静态文件</span><br><span class="line">│   └── <span class="built_in">config</span>.py        # 配置文件</span><br><span class="line">│</span><br><span class="line">├── .env                 # 环境变量</span><br><span class="line">├── requirements.txt     # 依赖清单</span><br><span class="line">└── run.py               # 应用入口</span><br></pre></td></tr></table></figure>
-
-<h3 id="数据库集成"><a href="#数据库集成" class="headerlink" title="数据库集成"></a>数据库集成</h3><p>数据库使用的是 pymysql，连接池 dbutils.pooled_db</p>
-<p>.env 环境配置</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line"><span class="string">DB_HOST=*.*.*.*</span></span><br><span class="line"><span class="string">DB_PORT=18453</span></span><br><span class="line"><span class="string">DB_USER=root</span></span><br><span class="line"><span class="string">DB_PASSWORD=***</span></span><br><span class="line"><span class="string">DB_NAME=anjian</span></span><br><span class="line"><span class="string">DB_CHARSET=utf8mb4</span></span><br><span class="line"><span class="string">DB_AUTOCOMMIT=True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库连接池配置</span></span><br><span class="line"><span class="string">DB_POOL_MIN_CACHED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CACHED</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">DB_POOL_MAX_SHARED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CONNECTIONS</span> <span class="string">=</span> <span class="number">20</span></span><br><span class="line"><span class="string">DB_POOL_BLOCKING</span> <span class="string">=</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Description: </span></span><br><span class="line"><span class="string">Author:  </span></span><br><span class="line"><span class="string">Date: 2025-07-08 17:41:42</span></span><br><span class="line"><span class="string">LastEditTime: 2025-07-09 09:50:19</span></span><br><span class="line"><span class="string">LastEditors:  </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># app/utils/db.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> Generator, <span class="type">Any</span>, <span class="type">List</span>, <span class="type">Tuple</span>, <span class="type">Sequence</span>, <span class="type">Callable</span>, <span class="type">Union</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"><span class="keyword">from</span> dbutils.pooled_db <span class="keyword">import</span> PooledDB</span><br><span class="line"></span><br><span class="line">DB_CONFIG = &#123;</span><br><span class="line">    <span class="string">&quot;host&quot;</span>: os.getenv(<span class="string">&quot;DB_HOST&quot;</span>, <span class="string">&quot;localhost&quot;</span>),</span><br><span class="line">    <span class="string">&quot;port&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_PORT&quot;</span>, <span class="number">3306</span>)),</span><br><span class="line">    <span class="string">&quot;user&quot;</span>: os.getenv(<span class="string">&quot;DB_USER&quot;</span>, <span class="string">&quot;admin_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: os.getenv(<span class="string">&quot;DB_PASSWORD&quot;</span>, <span class="string">&quot;***&quot;</span>),</span><br><span class="line">    <span class="string">&quot;database&quot;</span>: os.getenv(<span class="string">&quot;DB_NAME&quot;</span>, <span class="string">&quot;test_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;charset&quot;</span>: os.getenv(<span class="string">&quot;DB_CHARSET&quot;</span>, <span class="string">&quot;utf8mb4&quot;</span>),</span><br><span class="line">    <span class="string">&quot;autocommit&quot;</span>: os.getenv(<span class="string">&quot;DB_AUTOCOMMIT&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>,  <span class="comment"># 是否自动提交事务</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DB_POOL_CONFIG = &#123;</span><br><span class="line">    <span class="string">&#x27;mincached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MINCACHED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 连接池中空闲连接的初始数量</span></span><br><span class="line">    <span class="string">&#x27;maxcached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXCACHED&quot;</span>, <span class="number">10</span>)),                     <span class="comment"># 连接池中空闲连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxshared&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXSHARED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 共享连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxconnections&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAX_CONN_NUM&quot;</span>, <span class="number">20</span>)),             <span class="comment"># 连接池允许的最大连接数</span></span><br><span class="line">    <span class="string">&quot;blocking&quot;</span>: os.getenv(<span class="string">&quot;DB_POOL_BLOCKING&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>, <span class="comment"># 连接池达到最大连接数时是否阻塞</span></span><br><span class="line">    <span class="string">&quot;ping&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_PING&quot;</span>, <span class="number">1</span>)),                           <span class="comment"># 检查连接的有效性 (0=从不，1=默认，2=每一次获得连接时，4=每一次游标执行时，7=总是)</span></span><br><span class="line">    <span class="string">&quot;maxusage&quot;</span>: <span class="literal">None</span>,                                                    <span class="comment"># 一个连接最多被重复使用的次数，None 表示无限制</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 创建数据库连接池</span></span><br><span class="line">pool = PooledDB(</span><br><span class="line">    creator=pymysql,               <span class="comment"># 使用 pymysql 作为数据库驱动</span></span><br><span class="line">    **DB_CONFIG,                   <span class="comment"># 数据库连接配置</span></span><br><span class="line">    <span class="comment">#autocommit=True,  # 自动提交事务</span></span><br><span class="line">    <span class="comment"># 连接池参数</span></span><br><span class="line">    **DB_POOL_CONFIG,              <span class="comment"># 连接池配置</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库操作上下文管理器</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_db_cursor</span>(<span class="params">dict_=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取数据库游标，支持字典格式返回。</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        dict_: 是否使用字典游标（默认 False）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> pool.connection() <span class="keyword">as</span> conn:</span><br><span class="line">            cursor_cls = pymysql.cursors.DictCursor <span class="keyword">if</span> dict_ <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">with</span> conn.cursor(cursor_cls) <span class="keyword">as</span> cur:</span><br><span class="line">                <span class="keyword">yield</span> cur</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Database operation failed: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">raise</span> e</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_one</span>(<span class="params">sql: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">              params: <span class="built_in">tuple</span> | <span class="built_in">list</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">              dict_: <span class="built_in">bool</span> = <span class="literal">True</span></span>) -&gt; <span class="type">Any</span> | <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">with</span> get_db_cursor(dict_) <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(sql, params)</span><br><span class="line">        <span class="keyword">return</span> cur.fetchone()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>db.py 中的 fetch_one 方法 可以到 mudules.test.test.py 中 引入使用</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mudules.test.test.py</span></span><br><span class="line"><span class="keyword">from</span> app.utils.db <span class="keyword">import</span>  fetch_one</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">select_query_plan_file_mesures</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        data_sql = (</span><br><span class="line">            <span class="string">&quot; SELECT * from query_wztp &quot;</span></span><br><span class="line">        )</span><br><span class="line">        params = []</span><br><span class="line">        rows = fetch_one(data_sql, params, <span class="literal">True</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划：<span class="subst">&#123;rows&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> rows</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划出错：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+    <h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//vecode中yarn命令报</span><br><span class="line">yarn : 无法加载文件 C:\Users\Admin\AppData\Roaming\npm\yarn.ps1,因为在此系统因为在此系统上禁止运行脚本。</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">以管理员身份运行vscode;</span><br><span class="line">执行：get-ExecutionPolicy，显示Restricted，表示状态是禁止的;</span><br><span class="line">执行：set-ExecutionPolicy RemoteSigned;</span><br><span class="line">这时再执行get-ExecutionPolicy，就显示RemoteSigned;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
     
@@ -531,7 +305,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">app</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yarn</a>
         		</li>
       		
 		</ul>
@@ -543,7 +317,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        			<a href="/categories/npm//" class="article-tag-list-link color4">npm</a>
         		</li>
       		
 		</ul>
@@ -552,7 +326,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/python/python-web-app/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/npm/yarn/">展开全文 >></a>
     </p>
     
 
@@ -657,6 +431,193 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/python/python-base/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/python/python-flask" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/python/python-flask/" target="_blank">python app</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/python/python-flask/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>这一步并非必要，却十分重要。主要用于多个 python 项目时，同名依赖不同版本情况。创建虚拟环境可以隔离项目之间的依赖（也可以使用 docker 来实现项目隔离）</p>
+<h4 id="创建虚拟环境："><a href="#创建虚拟环境：" class="headerlink" title="创建虚拟环境："></a>创建虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv venv  <span class="comment"># Windows/macOS/Linux 通用命令</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="激活虚拟环境："><a href="#激活虚拟环境：" class="headerlink" title="激活虚拟环境："></a>激活虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">.\venv\Scripts\activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS/Linux</span></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask  <span class="comment"># 仅安装到当前虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看已安装的包："><a href="#查看已安装的包：" class="headerlink" title="查看已安装的包："></a>查看已安装的包：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
+
+<h4 id="退出虚拟环境："><a href="#退出虚拟环境：" class="headerlink" title="退出虚拟环境："></a>退出虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<p>虚拟环境是 Python 开发的<strong>标准实践</strong>，虽然不是强制要求，但它能避免 90% 的环境相关问题。建议养成 “每个项目一个虚拟环境” 的习惯，从一开始就使用它！</p>
+<h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><h3 id="1、requirements-txt"><a href="#1、requirements-txt" class="headerlink" title="1、requirements.txt"></a>1、requirements.txt</h3><p>自动生成项目中的依赖 到 requirements.txt 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>类似于yarn 的一键安装项目依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、-pyproject-toml"><a href="#2、-pyproject-toml" class="headerlink" title="2、**pyproject.toml**"></a>2、**<code>pyproject.toml</code>**</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyproject.toml</span></span><br><span class="line">[build-system]</span><br><span class="line">requires = [<span class="string">&quot;setuptools&gt;=42&quot;</span>]</span><br><span class="line">build-backend = <span class="string">&quot;setuptools.build_meta&quot;</span></span><br><span class="line"></span><br><span class="line">[project]</span><br><span class="line">name = <span class="string">&quot;my-project&quot;</span></span><br><span class="line">version = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line">dependencies = [</span><br><span class="line">    <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>安装方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、-setup-py（传统方法）"><a href="#3、-setup-py（传统方法）" class="headerlink" title="3、**setup.py（传统方法）**"></a>3、**<code>setup.py</code>（传统方法）**</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># setup.py</span></span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">    version=<span class="string">&quot;0.1.0&quot;</span>,</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="敏感参数配置"><a href="#敏感参数配置" class="headerlink" title="敏感参数配置"></a>敏感参数配置</h2><p>项目推荐使用 .env 文件放置，通过 dotenv 第三方模块来加载。.env 文件不提交。生产环境时可以</p>
+<ol>
+<li><p>在生产环境新建一个.env 文件</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FLASK_APP=app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">FLASK_DEBUG=True</span></span><br><span class="line">SECRET_KEY=your-secret-key</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>在运行环境设置环境变量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS</span></span><br><span class="line">export SECRET_KEY=prod_secret_key</span><br><span class="line">export FLASK_DEBUG=False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows（PowerShell）</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:SECRET_KEY = <span class="string">&quot;prod_secret_key&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:FLASK_DEBUG = <span class="string">&quot;False&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS：写入 shell 配置文件（如 ~/.bashrc、~/.zshrc）</span></span><br><span class="line">echo &#x27;export SECRET_KEY=prod_secret_key&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &#x27;export FLASK_DEBUG=False&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc  # 立即生效</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows：通过「系统属性 → 高级 → 环境变量」图形界面配置，或使用 PowerShell 命令永久设置。</span></span><br></pre></td></tr></table></figure></li>
+<li><p>docker 容器部署</p>
+<p> docker run 命令直接传入</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e &quot;SECRET_KEY=prod_secret&quot; -e &quot;FLASK_DEBUG=False&quot; your-image</span><br></pre></td></tr></table></figure>
+
+<p> docker-compose.yml 文件配置</p>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">your-image</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SECRET_KEY=prod_secret</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FLASK_DEBUG=False</span></span><br><span class="line">    <span class="comment"># 或引用服务器上的 .env 文件（但需确保该文件仅在服务器存在）</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env.prod</span>  <span class="comment"># 服务器上的生产环境变量文件</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="app项目架构"><a href="#app项目架构" class="headerlink" title="app项目架构"></a>app项目架构</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">flask_project/</span><br><span class="line">│</span><br><span class="line">├── app/                 # 应用包</span><br><span class="line">│   ├── __init__.py      # 应用工厂</span><br><span class="line">│   ├── routes/          # 路由模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   ├── main.py      # 主路由</span><br><span class="line">│   │   └── api.py       # API路由</span><br><span class="line">│   ├── models/          # 业务模块</span><br><span class="line">│   ├── test/            # 测试业务模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   └── test.py      # 测试业务逻辑</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── utils/          # 工具类模块</span><br><span class="line">│   │   ├── db.py       # 数据库工具类</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── templates/       # 模板文件</span><br><span class="line">│   │   ├── index.html   # index 页面</span><br><span class="line">│   │   └── about.html   # about 页面,如果使用单页面应用，可以打包成只有一个html文件</span><br><span class="line">│   ├── static/          # 静态文件</span><br><span class="line">│   └── <span class="built_in">config</span>.py        # 配置文件</span><br><span class="line">│</span><br><span class="line">├── .env                 # 环境变量</span><br><span class="line">├── requirements.txt     # 依赖清单</span><br><span class="line">└── run.py               # 应用入口</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库集成"><a href="#数据库集成" class="headerlink" title="数据库集成"></a>数据库集成</h3><p>数据库使用的是 pymysql，连接池 dbutils.pooled_db</p>
+<p>.env 环境配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line"><span class="string">DB_HOST=*.*.*.*</span></span><br><span class="line"><span class="string">DB_PORT=18453</span></span><br><span class="line"><span class="string">DB_USER=root</span></span><br><span class="line"><span class="string">DB_PASSWORD=***</span></span><br><span class="line"><span class="string">DB_NAME=anjian</span></span><br><span class="line"><span class="string">DB_CHARSET=utf8mb4</span></span><br><span class="line"><span class="string">DB_AUTOCOMMIT=True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库连接池配置</span></span><br><span class="line"><span class="string">DB_POOL_MIN_CACHED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CACHED</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">DB_POOL_MAX_SHARED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CONNECTIONS</span> <span class="string">=</span> <span class="number">20</span></span><br><span class="line"><span class="string">DB_POOL_BLOCKING</span> <span class="string">=</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Description: </span></span><br><span class="line"><span class="string">Author:  </span></span><br><span class="line"><span class="string">Date: 2025-07-08 17:41:42</span></span><br><span class="line"><span class="string">LastEditTime: 2025-07-09 09:50:19</span></span><br><span class="line"><span class="string">LastEditors:  </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># app/utils/db.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> Generator, <span class="type">Any</span>, <span class="type">List</span>, <span class="type">Tuple</span>, <span class="type">Sequence</span>, <span class="type">Callable</span>, <span class="type">Union</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"><span class="keyword">from</span> dbutils.pooled_db <span class="keyword">import</span> PooledDB</span><br><span class="line"></span><br><span class="line">DB_CONFIG = &#123;</span><br><span class="line">    <span class="string">&quot;host&quot;</span>: os.getenv(<span class="string">&quot;DB_HOST&quot;</span>, <span class="string">&quot;localhost&quot;</span>),</span><br><span class="line">    <span class="string">&quot;port&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_PORT&quot;</span>, <span class="number">3306</span>)),</span><br><span class="line">    <span class="string">&quot;user&quot;</span>: os.getenv(<span class="string">&quot;DB_USER&quot;</span>, <span class="string">&quot;admin_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: os.getenv(<span class="string">&quot;DB_PASSWORD&quot;</span>, <span class="string">&quot;***&quot;</span>),</span><br><span class="line">    <span class="string">&quot;database&quot;</span>: os.getenv(<span class="string">&quot;DB_NAME&quot;</span>, <span class="string">&quot;test_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;charset&quot;</span>: os.getenv(<span class="string">&quot;DB_CHARSET&quot;</span>, <span class="string">&quot;utf8mb4&quot;</span>),</span><br><span class="line">    <span class="string">&quot;autocommit&quot;</span>: os.getenv(<span class="string">&quot;DB_AUTOCOMMIT&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>,  <span class="comment"># 是否自动提交事务</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DB_POOL_CONFIG = &#123;</span><br><span class="line">    <span class="string">&#x27;mincached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MINCACHED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 连接池中空闲连接的初始数量</span></span><br><span class="line">    <span class="string">&#x27;maxcached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXCACHED&quot;</span>, <span class="number">10</span>)),                     <span class="comment"># 连接池中空闲连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxshared&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXSHARED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 共享连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxconnections&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAX_CONN_NUM&quot;</span>, <span class="number">20</span>)),             <span class="comment"># 连接池允许的最大连接数</span></span><br><span class="line">    <span class="string">&quot;blocking&quot;</span>: os.getenv(<span class="string">&quot;DB_POOL_BLOCKING&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>, <span class="comment"># 连接池达到最大连接数时是否阻塞</span></span><br><span class="line">    <span class="string">&quot;ping&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_PING&quot;</span>, <span class="number">1</span>)),                           <span class="comment"># 检查连接的有效性 (0=从不，1=默认，2=每一次获得连接时，4=每一次游标执行时，7=总是)</span></span><br><span class="line">    <span class="string">&quot;maxusage&quot;</span>: <span class="literal">None</span>,                                                    <span class="comment"># 一个连接最多被重复使用的次数，None 表示无限制</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 创建数据库连接池</span></span><br><span class="line">pool = PooledDB(</span><br><span class="line">    creator=pymysql,               <span class="comment"># 使用 pymysql 作为数据库驱动</span></span><br><span class="line">    **DB_CONFIG,                   <span class="comment"># 数据库连接配置</span></span><br><span class="line">    <span class="comment">#autocommit=True,  # 自动提交事务</span></span><br><span class="line">    <span class="comment"># 连接池参数</span></span><br><span class="line">    **DB_POOL_CONFIG,              <span class="comment"># 连接池配置</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库操作上下文管理器</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_db_cursor</span>(<span class="params">dict_=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取数据库游标，支持字典格式返回。</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        dict_: 是否使用字典游标（默认 False）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> pool.connection() <span class="keyword">as</span> conn:</span><br><span class="line">            cursor_cls = pymysql.cursors.DictCursor <span class="keyword">if</span> dict_ <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">with</span> conn.cursor(cursor_cls) <span class="keyword">as</span> cur:</span><br><span class="line">                <span class="keyword">yield</span> cur</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Database operation failed: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">raise</span> e</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_one</span>(<span class="params">sql: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">              params: <span class="built_in">tuple</span> | <span class="built_in">list</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">              dict_: <span class="built_in">bool</span> = <span class="literal">True</span></span>) -&gt; <span class="type">Any</span> | <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">with</span> get_db_cursor(dict_) <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(sql, params)</span><br><span class="line">        <span class="keyword">return</span> cur.fetchone()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>db.py 中的 fetch_one 方法 可以到 mudules.test.test.py 中 引入使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mudules.test.test.py</span></span><br><span class="line"><span class="keyword">from</span> app.utils.db <span class="keyword">import</span>  fetch_one</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">select_query_plan_file_mesures</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        data_sql = (</span><br><span class="line">            <span class="string">&quot; SELECT * from query_wztp &quot;</span></span><br><span class="line">        )</span><br><span class="line">        params = []</span><br><span class="line">        rows = fetch_one(data_sql, params, <span class="literal">True</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划：<span class="subst">&#123;rows&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> rows</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划出错：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="与其他-Python-Web-框架对比"><a href="#与其他-Python-Web-框架对比" class="headerlink" title="与其他 Python Web 框架对比"></a>与其他 Python Web 框架对比</h2><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>定位</th>
+<th>优势</th>
+<th>劣势</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Django</td>
+<td>全栈框架（ batteries-included ）</td>
+<td>功能全面、安全稳定、生态丰富、后台管理强大</td>
+<td>略厚重、同步性能一般</td>
+<td>企业级应用、后台系统、API 服务</td>
+</tr>
+<tr>
+<td>Flask</td>
+<td>微框架（轻量灵活）</td>
+<td>体积小、可定制化强</td>
+<td>需手动拼接第三方库（如 ORM、表单）</td>
+<td>小应用、原型开发、API 原型</td>
+</tr>
+<tr>
+<td>FastAPI</td>
+<td>异步 API 框架</td>
+<td>异步性能优、自动生成 API 文档</td>
+<td>无内置后台管理、生态较新</td>
+<td>高并发 API 服务、实时数据接口</td>
+</tr>
+</tbody></table>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">app</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/python/python-flask/">展开全文 >></a>
     </p>
     
 
@@ -1499,6 +1460,104 @@
 
 
   
+    <article id="post-programming/wechat/公众号/环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" target="_blank">微信公众号环境搭建</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="注册微信公众号"><a href="#注册微信公众号" class="headerlink" title="注册微信公众号"></a>注册微信公众号</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、注册地址</span><br><span class="line"><span class="attr">https</span>:<span class="comment">//mp.weixin.qq.com/</span></span><br><span class="line"></span><br><span class="line">-服务号：主要偏向于服务交互（功能类似<span class="number">12315</span>，<span class="number">114</span>，银行，提供绑定信息，服务交互），每月可群发<span class="number">4</span>条消息；服务号适用人群：**媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line">-订阅号：主要偏向于为用户传达资讯，（功能类似报纸杂志，为用户提供新闻信息或娱乐趣事），每天可群发<span class="number">1</span>条消息；订阅号适用人群**：个人、媒体、企业、政府或其他组织。</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、注册测试公众号</span><br><span class="line">	个人订阅号有一些接口是没有权限的，也就是说个人订阅号无法调用一些高级的权限接口,如生成二维码、网页授权、自定义菜单、微信支付这样的接口权限个人订阅号是没有调用权限的, 幸运的是，微信公众平台提供了测试公众账号，测试公众号有很多个人订阅号不具备的权限, 测试公众号的注册地址为：</span><br><span class="line">	<span class="attr">http</span>:<span class="comment">//mp.weixin.qq.com/debug/cgi-bin/sandbox?t=sandbox/login</span></span><br><span class="line">	</span><br><span class="line"><span class="number">3</span>、搭建本地测试环境</span><br><span class="line">	开发基于微信公众号的应用最大的痛苦之处就是调试问题，每次实现一个功能后都需要部署到一个公网服务器进行测试，因为微信用户每次向公众号发起请求时，微信服务器会先接收到用户的请求，然后再转发到我们的服务器上，也就是说，微信服务器是要和我们的服务器进行网络交互，所以我们必须保证我们的服务器外网可以访问到</span><br><span class="line">    国内提供<span class="title class_">Ngrok</span>服务比较好的网站是:<span class="attr">http</span>:<span class="comment">//natapp.cn/</span></span><br><span class="line">	需手机号，支付宝注册，实名</span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信公众号</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/微信公众号//" class="article-tag-list-link color1">微信公众号</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%85%AC%E4%BC%97%E5%8F%B7/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/wechat/小程序/入门开发到实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1574,193 +1633,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%85%A5%E9%97%A8%E5%BC%80%E5%8F%91%E5%88%B0%E5%AE%9E%E8%B7%B5/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/wechat/小程序/开发流程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" target="_blank">微信小程序开发流程</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="小程序注册"><a href="#小程序注册" class="headerlink" title="小程序注册"></a>小程序注册</h2><h3 id="注册小程序账号"><a href="#注册小程序账号" class="headerlink" title="注册小程序账号"></a>注册小程序账号</h3><p>在微信公众平台官网首页（<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">mp.weixin.qq.com</a>）点击右上角的“立即注册”按钮。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/a.c0bcf4a8.png" alt="img"></p>
-<h3 id="选择注册的账号类型"><a href="#选择注册的账号类型" class="headerlink" title="选择注册的账号类型"></a>选择注册的账号类型</h3><p>选择“小程序”，点击“查看类型区别”可查看不同类型账号的区别和优势。</p>
-<h3 id="填写邮箱和密码"><a href="#填写邮箱和密码" class="headerlink" title="填写邮箱和密码"></a>填写邮箱和密码</h3><p>请填写未注册过公众平台、开放平台、企业号、未绑定个人号的邮箱。</p>
-<h3 id="激活邮箱"><a href="#激活邮箱" class="headerlink" title="激活邮箱"></a>激活邮箱</h3><p>登录邮箱，查收激活邮件，点击激活链接。</p>
-<h3 id="填写主体信息"><a href="#填写主体信息" class="headerlink" title="填写主体信息"></a>填写主体信息</h3><p>点击激活链接后，继续下一步的注册流程。请选择主体类型选择，完善主体信息和管理员信息。</p>
-<h4 id="选择主体类型"><a href="#选择主体类型" class="headerlink" title="选择主体类型"></a>选择主体类型</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/03271.7befb864.png" alt="img"></p>
-<p>主体类型说明如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center"><strong>账号主体</strong></th>
-<th align="center"><strong>范围</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">个人</td>
-<td align="center">18岁以上有国内身份信息的微信实名用户</td>
-</tr>
-<tr>
-<td align="center">企业</td>
-<td align="center">企业、分支机构、企业相关品牌。</td>
-</tr>
-<tr>
-<td align="center">企业（个体工商户）</td>
-<td align="center">个体工商户。</td>
-</tr>
-<tr>
-<td align="center">政府</td>
-<td align="center">国内、各级、各类政府机构、事业单位、具有行政职能的社会组织等。目前主要覆盖公安机构、党团机构、司法机构、交通机构、旅游机构、工商税务机构、市政机构等。</td>
-</tr>
-<tr>
-<td align="center">媒体</td>
-<td align="center">报纸、杂志、电视、电台、通讯社、其他等。</td>
-</tr>
-<tr>
-<td align="center">其他组织</td>
-<td align="center">不属于政府、媒体、企业或个人的类型。</td>
-</tr>
-</tbody></table>
-<h4 id="填写主体信息并选择验证方式"><a href="#填写主体信息并选择验证方式" class="headerlink" title="填写主体信息并选择验证方式"></a>填写主体信息并选择验证方式</h4><ul>
-<li>企业类型账号可选择两种主体验证方式。<ul>
-<li>方式一：需要用公司的对公账户向腾讯公司打款来验证主体身份。打款信息在提交主体信息后可以查看到。</li>
-<li>方式二：通过微信认证验证主体身份，需支付300元认证费。认证通过前，小程序部分功能暂无法使用。</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/2.417f8be4.png" alt="img"></p>
-<ul>
-<li>政府、媒体、其他组织类型账号，必须通过微信认证验证主体身份。认证通过前，小程序部分功能暂无法使用。</li>
-</ul>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/3.c64f7726.png" alt="img"></p>
-<ul>
-<li><p>微信认证入口：登录小程序 - 设置 - 微信认证详情</p>
-<p>  <img src="https://res.wx.qq.com/wxdoc/dist/assets/img/w.3bf5a990.png" alt="img"></p>
-</li>
-</ul>
-<h4 id="填写管理员信息"><a href="#填写管理员信息" class="headerlink" title="填写管理员信息"></a>填写管理员信息</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/4.8abdab7f.png" alt="img"></p>
-<h4 id="确认主体信息不可变更"><a href="#确认主体信息不可变更" class="headerlink" title="确认主体信息不可变更"></a>确认主体信息不可变更</h4><p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/5.e3cfe779.png" alt="img"></p>
-<h4 id="点击确认完成注册流程"><a href="#点击确认完成注册流程" class="headerlink" title="点击确认完成注册流程"></a>点击确认完成注册流程</h4><p>选择对公打款的用户，请根据页面提示，向指定的收款账号汇入指定金额。</p>
-<p><strong>注意：请在10天内完成汇款，否则将注册失败。</strong></p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/6.7f5bbc0d.png" alt="img"></p>
-<p>选择通过微信认证验证主体身份的用户，完成注册流程后请尽快进行微信认证，认证完成之前部分功能暂不可使用。</p>
-<h2 id="小程序信息完善及开发前准备"><a href="#小程序信息完善及开发前准备" class="headerlink" title="小程序信息完善及开发前准备"></a>小程序信息完善及开发前准备</h2><h3 id="登录小程序管理平台"><a href="#登录小程序管理平台" class="headerlink" title="登录小程序管理平台"></a>登录小程序管理平台</h3><p>完成注册后，在微信公众平台官网首页（<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/">mp.weixin.qq.com</a>）的登录入口直接登录。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/a.c0bcf4a8.png" alt="img"></p>
-<h3 id="完善小程序信息"><a href="#完善小程序信息" class="headerlink" title="完善小程序信息"></a>完善小程序信息</h3><p><strong>完成注册后，微信小程序信息完善步骤和开发可同步进行。</strong></p>
-<p>选择对公打款的用户，完成汇款验证后，可以补充小程序名称信息，上传小程序头像，填写小程序介绍并选择服务范围。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/u.7a486eb9.png" alt="img"></p>
-<h3 id="开发前准备"><a href="#开发前准备" class="headerlink" title="开发前准备"></a>开发前准备</h3><h4 id="绑定开发者"><a href="#绑定开发者" class="headerlink" title="绑定开发者"></a>绑定开发者</h4><p>登录小程序管理后台（mp.weixin.qq.com）– 用户身份 – 成员管理 – 添加成员 。</p>
-<p>个人主体小程序最多可绑定15个项目成员，15个体验成员。</p>
-<p>未认证、未发布非个人的小程序最多可绑定30个项目成员，30个体验成员。</p>
-<p>已认证未发布/未认证已发布非个人的小程序最多可绑定60个项目成员，60个体验成员。</p>
-<p>已认证已发布非个人的小程序最多可绑定90个项目成员，90个体验成员。</p>
-<p><img src="https://res.wx.qq.com/op_res/1fcFu3RFaktW-_9piduEBLjLf_5qiXIMIS8djTtFd775ju3hZldW99x38zZSfPhGTZSZ67gzSVU_uVDzRennLg" alt="img"></p>
-<h4 id="获取AppID"><a href="#获取AppID" class="headerlink" title="获取AppID"></a>获取AppID</h4><p>进入“设置-开发设置”，获取AppID信息。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/i.3b2c8916.png" alt="img"></p>
-<h2 id="代码审核与发布"><a href="#代码审核与发布" class="headerlink" title="代码审核与发布"></a>代码审核与发布</h2><h3 id="提交审核"><a href="#提交审核" class="headerlink" title="提交审核"></a>提交审核</h3><p>登录微信公众平台小程序，进入版本管理，开发版本中展示已上传的代码，管理员可提交审核或是删除代码。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/q.7e99b261.png" alt="img"></p>
-<h3 id="审核信息填写"><a href="#审核信息填写" class="headerlink" title="审核信息填写"></a>审核信息填写</h3><h4 id="配置功能页面"><a href="#配置功能页面" class="headerlink" title="配置功能页面"></a>配置功能页面</h4><p>填写重要业务页面的类目与标签，重要业务页面组数不多于5组。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/s.50132b2b.png" alt="img"></p>
-<h4 id="测试账号"><a href="#测试账号" class="headerlink" title="测试账号"></a>测试账号</h4><p>当小程序需要开发者提供测试账号才能完成审核体验时，小程序在首次提交审核时将被打回，再次提交审核时将开放提供测试账号的入口，该入口将由开发者提供账号给微信审核人员审核微信小程序时登录使用。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/03272.c8dc453d.jpg" alt="img"></p>
-<h4 id="完成提交"><a href="#完成提交" class="headerlink" title="完成提交"></a>完成提交</h4><p>提交审核完成后，开发管理页中审核版本模块展示审核进度。</p>
-<p><img src="https://res.wx.qq.com/wxdoc/dist/assets/img/t.c952589d.png" alt="img"></p>
-<p><strong>提示：</strong></p>
-<ul>
-<li>开发者可参考<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/product/reject.html">《微信小程序平台常见拒绝情形》</a>，详细了解审核标准。</li>
-</ul>
-<h4 id="代码发布"><a href="#代码发布" class="headerlink" title="代码发布"></a>代码发布</h4><p>代码审核通过，需要开发者手动点击发布，小程序才会发布到线上提供服务。</p>
-<p><strong>注意：</strong></p>
-<p>内测期间，代码发布按钮不可点击。</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/微信小程序//" class="article-tag-list-link color1">微信小程序</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/wechat/%E5%B0%8F%E7%A8%8B%E5%BA%8F/%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B/">展开全文 >></a>
     </p>
     
 
@@ -1923,15 +1795,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1939,11 +1807,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1951,15 +1819,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1971,11 +1843,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1983,111 +1851,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2107,27 +1875,115 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2139,11 +1995,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2151,11 +2011,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2163,11 +2031,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2176,30 +2056,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2215,7 +2071,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -2227,15 +2103,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>

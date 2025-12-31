@@ -640,6 +640,12 @@
  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-/css/       # 用于web开发时候使用，一般情况下只需引用这里的all.min.css即可正常使用fontawesome字体图标了）</span><br><span class="line">|-/js/        # 用于一些高级用法比如配合svg使用，以及图标/动画/旋转/蒙版/等等）</span><br><span class="line">|-/less/      # 字体图标 Less 样式文件</span><br><span class="line">|-/metadata/  # 图标集 Meta 数据文件</span><br><span class="line">|-/scss/      # 字体图标 Scss 样式文件</span><br><span class="line">|-/sprites/   # 字体图标 SVG合集文件</span><br><span class="line">|-/svgs/      # 这里有全部的单独的svg图标，可以用于PPT/Axure/等原型软件</span><br><span class="line">|-/webfonts/  # 核心字体文件</span><br></pre></td></tr></table></figure>
 <p> <a target="_blank" rel="noopener" href="https://docs.fontawesome.com/web/use-with/vue">vue组件版本</a></p>
 </li>
+<li><p>万金油解决方案<a target="_blank" rel="noopener" href="https://xicons.org/#/zh-CN">xicons</a></p>
+<p> 它整合了多个图标库得资源可以同时引入，并且保准风格一致，兼容vue/react和普通页面svg方式引入使用</p>
+<p> 包含 <code>vicons</code>（vue3），<code>ricons</code>（react），<code>sicons</code>（svg）和 <code>v2icons</code>(vue2)。</p>
+<p> 整合自 <a target="_blank" rel="noopener" href="https://github.com/microsoft/fluentui-system-icons"><code>fluentui-system-icons</code></a>、<a target="_blank" rel="noopener" href="https://github.com/ionic-team/ionicons"><code>ionicons</code></a>、<a target="_blank" rel="noopener" href="https://github.com/ant-design/ant-design-icons"><code>ant-design-icons</code></a>、<a target="_blank" rel="noopener" href="https://github.com/google/material-design-icons"><code>material-design-icons</code></a>、<a target="_blank" rel="noopener" href="https://github.com/FortAwesome/Font-Awesome"><code>Font-Awesome</code></a> <a target="_blank" rel="noopener" href="https://github.com/tabler/tabler-icons"><code>tabler-icons</code></a> 和 <a target="_blank" rel="noopener" href="https://github.com/carbon-design-system/carbon/tree/main/packages/icons"><code>carbon</code></a> 的 SVG Vue/React 组件。</p>
+<p> 同时 xicons 提供了一些图标工具组件来自定义图标的颜色和尺寸。</p>
+</li>
 </ol>
 <h3 id="vue3-路由传参，参数隐藏不在地址栏显示（history）"><a href="#vue3-路由传参，参数隐藏不在地址栏显示（history）" class="headerlink" title="vue3 路由传参，参数隐藏不在地址栏显示（history）"></a>vue3 路由传参，参数隐藏不在地址栏显示（history）</h3><p>跳转</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">SkipPage</span> = (<span class="params">row</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">let</span> obj = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(row)</span><br><span class="line">    router.<span class="title function_">push</span>(&#123;</span><br><span class="line">        <span class="attr">path</span>: <span class="string">&#x27;/supplyDesc&#x27;</span>,</span><br><span class="line">        <span class="attr">state</span>: &#123; obj &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -666,6 +672,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--</span><br><span class="line"> * @Description: </span><br><span class="line"> * @Author:  </span><br><span class="line"> * @Date: 2025-03-31 10:23:05</span><br><span class="line"> * @LastEditTime: 2025-04-03 10:39:50</span><br><span class="line"> * @LastEditors:  </span><br><span class="line">--&gt;</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;chart-map-box&quot;&gt;</span><br><span class="line">    &lt;div id=&quot;map-stack&quot;&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;!-- 显示地图现在层级关系 --&gt;</span><br><span class="line">        &lt;span  style=&quot;color: #fff;&quot;&gt;&#123;&#123; mapStack.join(&#x27; \/ &#x27;) &#125;&#125;&lt;/span&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;btn-back&quot;&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot; icon=&quot;Back&quot; size=&quot;small&quot;  v-if=&quot;mapStack.length &gt; 1&quot; @click=&quot;back&quot;&gt;上一级&lt;/el-button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div id=&quot;map&quot; ref=&quot;mapRef&quot;&gt;&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import * as echarts from &#x27;echarts&#x27;</span><br><span class="line">import &#123; onBeforeMount &#125; from &#x27;vue&#x27;;</span><br><span class="line">import &#123; getMapOption &#125; from &#x27;@/utils/chart&#x27;</span><br><span class="line">import &#123; listDevice &#125; from &quot;@/api/device/device&quot;;</span><br><span class="line">import mapMap from &#x27;@/assets/json/map.json&#x27;</span><br><span class="line">const &#123; proxy &#125; = getCurrentInstance()</span><br><span class="line">let mapRef = ref(null)</span><br><span class="line">let mapList = &#123;&#125;</span><br><span class="line">let mapStack = ref([])</span><br><span class="line">let points = ref([])</span><br><span class="line">let myChart = null</span><br><span class="line">let defaultProvince = ref(&#x27;安徽省&#x27;)</span><br><span class="line">function loadJson (url, type=&quot;geo&quot;) &#123;</span><br><span class="line">    fetch(url)</span><br><span class="line">    .then(res=&gt;res.json())</span><br><span class="line">    .then(function (geoJson) &#123;</span><br><span class="line">        if(type === &#x27;geo&#x27;) &#123;</span><br><span class="line">            geoJson.features.forEach(f =&gt; &#123;</span><br><span class="line">                mapList[f.properties.name] = f</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).catch(function (error) &#123;</span><br><span class="line">        </span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">function loadMap(name, myChart) &#123;</span><br><span class="line">    let mapjson = &#123;</span><br><span class="line">        type: &#x27;FeatureCollection&#x27;,</span><br><span class="line">        features: []</span><br><span class="line">    &#125;</span><br><span class="line">    let [shengName = name, shiName,xianName] = mapStack.value</span><br><span class="line">    let sheng = mapMap.find(f=&gt; f.name === shengName)    </span><br><span class="line">    let isZXS = sheng.children[0].name === &#x27;市辖区&#x27;//是否直辖市</span><br><span class="line">    if(xianName) &#123;</span><br><span class="line">    let xian = mapList[xianName]</span><br><span class="line">    if(xian) &#123;</span><br><span class="line">        mapjson.features.push(xian)</span><br><span class="line">    &#125;</span><br><span class="line">    &#125; else if(shiName) &#123;</span><br><span class="line">        let childrens =  isZXS? sheng.children.map(m=&gt;m.children).flat(1) : sheng.children</span><br><span class="line">        let shi = childrens.find(f=&gt; f.name === shiName)</span><br><span class="line">        if(isZXS) &#123;</span><br><span class="line">            mapjson.features.push(mapList[shi.name])</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            shi.children.forEach(c =&gt; &#123;</span><br><span class="line">                let xian = mapList[c.name]</span><br><span class="line">                if(xian) &#123;</span><br><span class="line">                    mapjson.features.push(xian)</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else if(sheng) &#123;</span><br><span class="line">        let childrens = isZXS ? sheng.children.map(m=&gt;m.children).flat(1) : sheng.children</span><br><span class="line">        childrens.forEach(c =&gt; &#123;</span><br><span class="line">            let city = mapList[c.name]</span><br><span class="line">            if(city) &#123;</span><br><span class="line">                mapjson.features.push(city)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    myChart.hideLoading();</span><br><span class="line">    echarts.registerMap(&#x27;liaoning&#x27;, mapjson);</span><br><span class="line">    let pointSeries = &#123;</span><br><span class="line">        name: &quot;设备&quot;,</span><br><span class="line">        type: &quot;effectScatter&quot;,</span><br><span class="line">        coordinateSystem: &quot;geo&quot;,</span><br><span class="line">        symbolSize: 15, // 点的大小</span><br><span class="line">        zlevel: 9,</span><br><span class="line">        data: points.value || []</span><br><span class="line">    &#125;;</span><br><span class="line">    let options = getMapOption([pointSeries])</span><br><span class="line">    myChart.setOption(options);</span><br><span class="line">&#125;</span><br><span class="line">function back() &#123;</span><br><span class="line">    if(mapStack.value.length &gt; 1) &#123;</span><br><span class="line">        mapStack.value.pop()</span><br><span class="line">        loadMap(mapStack.value[mapStack.value.length - 1], myChart)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">async function loadDevice() &#123;</span><br><span class="line">    let rs;</span><br><span class="line">    try &#123;</span><br><span class="line">        rs = await listDevice(&#123;</span><br><span class="line">            pageSize: Number.MAX_SAFE_INTEGER</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        rs = &#123;</span><br><span class="line">            rows: []</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    points.value = rs?.rows.map(item=&gt;&#123;</span><br><span class="line">        let &#123; longitude, latitude &#125; = item;</span><br><span class="line">        if(!longitude || !latitude) return false</span><br><span class="line">        return [longitude, latitude, item]</span><br><span class="line">    &#125;).filter(Boolean)</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">onBeforeMount(()=&gt; &#123;</span><br><span class="line">    proxy.getConfigKey(&#x27;sys.index.provinceMap&#x27;).then(rs=&gt;&#123;</span><br><span class="line">        if(rs.msg) &#123;</span><br><span class="line">            defaultProvince.value = rs.msg</span><br><span class="line">            let code = mapMap.find(item=&gt;item.name === rs.msg).code</span><br><span class="line">            let fullCode = String(code).padEnd(6, &#x27;0&#x27;)</span><br><span class="line">            loadJson(`/json/$&#123;fullCode&#125;_full.json`)</span><br><span class="line">            loadJson(`/json/$&#123;fullCode&#125;_full_district.json`)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            loadJson(&#x27;/json/340000_full.json&#x27;)</span><br><span class="line">            loadJson(&#x27;/json/340000_full_district.json&#x27;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line">onMounted(async () =&gt; &#123;</span><br><span class="line">    myChart = echarts.init(mapRef.value);</span><br><span class="line">    myChart.showLoading();</span><br><span class="line">    await loadDevice()</span><br><span class="line">    setTimeout(()=&gt; &#123;</span><br><span class="line">      mapStack.value.push(defaultProvince.value)</span><br><span class="line">      loadMap(defaultProvince.value, myChart)</span><br><span class="line">    &#125;, 500)</span><br><span class="line">    let timeFn;</span><br><span class="line">    //单击切换到省级地图，当mapCode有值,说明可以切换到下级地图</span><br><span class="line">    myChart.on(&#x27;click&#x27;, function(params) &#123;</span><br><span class="line">        if(params.componentType !== &quot;geo&quot;)return</span><br><span class="line">        clearTimeout(timeFn);</span><br><span class="line">        //由于单击事件和双击事件冲突，故单击的响应事件延迟250毫秒执行</span><br><span class="line">        timeFn = setTimeout(function() &#123;</span><br><span class="line">            var name = params.name; //地区name</span><br><span class="line">            if(defaultProvince.value.includes(&#x27;市&#x27;)) &#123;</span><br><span class="line">                if(mapStack.value.length === 2) return</span><br><span class="line">            &#125;</span><br><span class="line">            if(mapStack.value.length === 3) return</span><br><span class="line">            mapStack.value.push(name)</span><br><span class="line">            loadMap(name, myChart);</span><br><span class="line">        &#125;, 250);</span><br><span class="line">    &#125;);</span><br><span class="line">  </span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.chart-map-box &#123;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line">  background: url(&#x27;@/assets/images/bg_map02.png&#x27;) 0 0/100% 100% no-repeat;</span><br><span class="line">  position: relative;</span><br><span class="line">  #map &#123;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">  &#125;</span><br><span class="line">  #map-stack &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 10px;</span><br><span class="line">    left: 10px;</span><br><span class="line">    z-index: 1000;</span><br><span class="line">    color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 5px 10px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">  &#125;</span><br><span class="line">  #btn-back &#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 10px;</span><br><span class="line">    right: 10px;</span><br><span class="line">    z-index: 1000;</span><br><span class="line">    color: #fff;</span><br><span class="line">    border-radius: 4px;</span><br><span class="line">    padding: 5px 10px;</span><br><span class="line">    cursor: pointer;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h3 id="G6实现流程图"><a href="#G6实现流程图" class="headerlink" title="G6实现流程图"></a>G6实现流程图</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;span class=&quot;iconfont icon-fanhui&quot; style=&quot;position: absolute; visibility: hidden&quot;&gt;&lt;/span&gt;</span><br><span class="line">    &lt;div class=&quot;box&quot;&gt;</span><br><span class="line">        &lt;div id=&quot;draw-box&quot; ref=&quot;drawBoxRef&quot;&gt;&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; Graph, NodeEvent, EdgeEvent &#125; from &#x27;@antv/g6&#x27;</span><br><span class="line">let &#123; proxy &#125; = getCurrentInstance()</span><br><span class="line">aph = shallowRef(null)</span><br><span class="line"></span><br><span class="line">const getChartDatas = async () =&gt; &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    nodes: [</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;1&#x27;,</span><br><span class="line">        title: &#x27;新建项目&#x27;,</span><br><span class="line">        status: idArr.includes(1) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 20, iconText: &#x27;\ue7d1&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;2&#x27;,</span><br><span class="line">        title: &#x27;上传文件&#x27;,</span><br><span class="line">        status: idArr.includes(1) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 120, iconText: &#x27;\ue614&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;3&#x27;,</span><br><span class="line">        title: &#x27;人工审核&#x27;,</span><br><span class="line">        status: idArr.includes(2) || idArr.includes(0),</span><br><span class="line">        style: &#123; x: 150, y: 220, labelPlacement: &#x27;right&#x27;, labelOffsetY: -10, iconText: &#x27;\ue616&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;4&#x27;,</span><br><span class="line">        title: &#x27;审核是否通过&#x27;,</span><br><span class="line">        status: idArr.includes(3) || idArr.includes(4) || idArr.includes(5),</span><br><span class="line">        style: &#123; x: 150, y: 320, iconText: &#x27;\ue608&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;5&#x27;,</span><br><span class="line">        title: &#x27;审核通过&#x27;,</span><br><span class="line">        status: idArr.includes(5) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 150, y: 450, iconText: &#x27;\ue622&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;6&#x27;,</span><br><span class="line">        title: &#x27;上传可研执复核&#x27;,</span><br><span class="line">        status: idArr.includes(3) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 20, y: 320, labelPlacement: &#x27;bottom&#x27;, iconText: &#x27;\ue762&#x27; &#125;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        id: &#x27;7&#x27;,</span><br><span class="line">        title: &#x27;预审通过&#x27;,</span><br><span class="line">        status: idArr.includes(0) ? 1 : 0,</span><br><span class="line">        style: &#123; x: 350, y: 220, labelPlacement: &#x27;bottom&#x27;, labelOffsetX: 0, iconText: &#x27;\ue606&#x27; &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    edges: [</span><br><span class="line">      &#123; id: &#x27;edge-1&#x27;, source: &#x27;1&#x27;, target: &#x27;2&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-2&#x27;, source: &#x27;2&#x27;, target: &#x27;3&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-3&#x27;, source: &#x27;3&#x27;, target: &#x27;4&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-4&#x27;, source: &#x27;4&#x27;, target: &#x27;5&#x27;, title: &#x27;是，通过&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-5&#x27;, source: &#x27;4&#x27;, target: &#x27;6&#x27;, title: &#x27;否，需复核&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-6&#x27;, source: &#x27;6&#x27;, target: &#x27;3&#x27; &#125;,</span><br><span class="line">      &#123; id: &#x27;edge-7&#x27;, source: &#x27;7&#x27;, target: &#x27;3&#x27;, title: &#x27;预审通过&#x27; &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">const renderChart = async () =&gt; &#123;</span><br><span class="line">  graph.value = new Graph(&#123;</span><br><span class="line">    container: proxy.$refs.drawBoxRef, //document.getElementById(&#x27;draw-box&#x27;), // String | HTMLElement，必须，在 Step 1 中创建的容器 id 或容器本身</span><br><span class="line">    data: await getChartDatas(),</span><br><span class="line">    // width: 350,</span><br><span class="line">    // height: 800,</span><br><span class="line">    autoFit: &#x27;center&#x27;,</span><br><span class="line">    animation: false,</span><br><span class="line">    node: &#123;</span><br><span class="line">      type: &#x27;circle&#x27;,</span><br><span class="line">      style: &#123;</span><br><span class="line">        size: 40,</span><br><span class="line">        radius: 8,</span><br><span class="line">        labelPlacement: (d) =&gt; &#123;</span><br><span class="line">          return d.style?.labelPlacement || &#x27;right&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        labelText: (d) =&gt; d.title,</span><br><span class="line">        labelOffsetX: (d) =&gt; d.style.labelOffsetX ?? 10,</span><br><span class="line">        fill: (d) =&gt; (d.status ? &#x27;#27a4a8&#x27; : &#x27;#b2b2b2&#x27;),</span><br><span class="line">        labelFill: (d) =&gt; (d.status ? &#x27;#27a4a8&#x27; : &#x27;#b2b2b2&#x27;),</span><br><span class="line">        labelFontWeight: &#x27;bold&#x27;,</span><br><span class="line">        labelWordWrap: true,</span><br><span class="line">        labelMaxWidth: 80,</span><br><span class="line">        labelMaxLines: 4,</span><br><span class="line">        iconTextBaseline: &#x27;middle&#x27;,</span><br><span class="line">        iconFontFamily: &#x27;iconfont&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    edge: &#123;</span><br><span class="line">      type: &#x27;polyline&#x27;,</span><br><span class="line">      style: &#123;</span><br><span class="line">        endArrow: true,</span><br><span class="line">        lineWidth: 2,</span><br><span class="line">        stroke: &#x27;#27a4a8&#x27;,</span><br><span class="line">        router: &#123;</span><br><span class="line">          type: &#x27;orth&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        labelOffsetY: (d) =&gt; d.style.labelOffsetY || 10,</span><br><span class="line">        labelText: (d) =&gt; d.title,</span><br><span class="line">        labelFill: &#x27;#b2b2b2&#x27;</span><br><span class="line">        // labelAutoRotate: &#x27;90deg&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    behaviors: [&#x27;drag-canvas&#x27;, &#x27;zoom-canvas&#x27;]</span><br><span class="line">  &#125;)</span><br><span class="line">  graph.value.render() //</span><br><span class="line">  graph.value.on(NodeEvent.CLICK, (e) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;NodeEvent.CLICK&#x27;, e)</span><br><span class="line">  &#125;)</span><br><span class="line">  graph.value.on(EdgeEvent.CLICK, (e) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;EdgeEvent.CLICK&#x27;, e)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">onBeforeUnmount(() =&gt; &#123;</span><br><span class="line">  if (graph.value) &#123;</span><br><span class="line">    graph.value.destroy()</span><br><span class="line">    graph.value = null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">watch(isShowModel, (val) =&gt; &#123;</span><br><span class="line">  if (val) &#123;</span><br><span class="line">    if (!graph.value) &#123;</span><br><span class="line">      setTimeout(() =&gt; &#123;</span><br><span class="line">        renderChart()</span><br><span class="line">      &#125;, 100)</span><br><span class="line">      console.log(&#x27;第一次&#x27;)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      graph.value.updateData(getChartDatas())</span><br><span class="line">      // console.log(&#x27;更新数据&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    graph.value?.destroy()</span><br><span class="line">    graph.value = null</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.box &#123;</span><br><span class="line">  width: 95%;</span><br><span class="line">  margin: 0 auto;</span><br><span class="line">  height: 480px;</span><br><span class="line">  position: relative;</span><br><span class="line">  z-index: 9999999;</span><br><span class="line">  display: flex;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="vue-国际化"><a href="#vue-国际化" class="headerlink" title="vue 国际化"></a>vue 国际化</h3><p>vue-i18n 使用简单，很好入手</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// translation.json</span></span><br><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;welcome&quot;</span><span class="punctuation">:</span> <span class="string">&quot;欢迎进入&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;greeting&quot;</span><span class="punctuation">:</span> <span class="string">&quot;你好, | &#123;name&#125;!&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;button&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;switchLang&quot;</span><span class="punctuation">:</span> <span class="string">&quot;切换语言&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// src/i18n.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; createI18n &#125; <span class="keyword">from</span> <span class="string">&#x27;vue-i18n&#x27;</span></span><br><span class="line"><span class="comment">// 导入语言资源</span></span><br><span class="line"><span class="keyword">import</span> translationEN <span class="keyword">from</span> <span class="string">&#x27;@/assets/locales/en/translation.json&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> translationZH <span class="keyword">from</span> <span class="string">&#x27;@/assets/locales/zh-CN/translation.json&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> vueI18n = <span class="title function_">createI18n</span>(&#123;</span><br><span class="line">  <span class="attr">locale</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">  <span class="attr">fallbackLocale</span>: <span class="string">&#x27;en&#x27;</span>,</span><br><span class="line">  <span class="attr">messages</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;en&#x27;</span>: translationEN,</span><br><span class="line">    <span class="string">&#x27;zh-CN&#x27;</span>: translationZH,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> vueI18n;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> i18n <span class="keyword">from</span> <span class="string">&#x27;@/components/i18n&#x27;</span>; <span class="comment">// 导入配置好的 i18n 实例</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">let</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>)</span><br><span class="line">app.<span class="title function_">use</span>(i18n)</span><br><span class="line">app.<span class="title function_">use</span>(router)</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;p&gt;&#123;&#123; title &#125;&#125;&lt;/p&gt;</span><br><span class="line">        &lt;button @click=&quot;changeLanguage(&#x27;en&#x27;)&quot;&gt;English&lt;/button&gt;</span><br><span class="line">        &lt;button @click=&quot;changeLanguage(&#x27;zh-CN&#x27;)&quot;&gt;中文&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;!-- 基础文本 --&gt;</span><br><span class="line">    &lt;h1&gt;&#123;&#123; $t(&#x27;welcome&#x27;) &#125;&#125;&lt;/h1&gt; &lt;!-- 渲染：Welcome --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 嵌套结构（点语法） --&gt;</span><br><span class="line">    &lt;button&gt;&#123;&#123; $t(&#x27;button.switchLang&#x27;) &#125;&#125;&lt;/button&gt; &lt;!-- 渲染：Switch Language --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 动态变量（传递参数） --&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123; $t(&#x27;greeting&#x27;, &#123; name: &#x27;Vue&#x27; &#125;) &#125;&#125;&lt;/p&gt; &lt;!-- 渲染：Hello, Vue! --&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; useI18n &#125; from &#x27;vue-i18n&#x27;;</span><br><span class="line"></span><br><span class="line">// 获取翻译函数和 i18n 实例</span><br><span class="line">const &#123; t, locale  &#125; = useI18n();</span><br><span class="line"></span><br><span class="line">// 切换语言的方法</span><br><span class="line">const changeLanguage = (lng) =&gt; &#123;</span><br><span class="line">  locale.value = lng; </span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// 在脚本中使用翻译</span><br><span class="line">const title = t(&#x27;welcome&#x27;); // title 的值为当前语言的 &quot;welcome&quot; 文本</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
 
     
@@ -1504,15 +1520,11 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1520,11 +1532,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1532,15 +1544,19 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1552,11 +1568,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1564,111 +1576,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTMLCSS拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1688,27 +1600,115 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">chrome</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1720,11 +1720,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1732,11 +1736,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">低代码</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1744,11 +1756,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1757,30 +1781,6 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1796,7 +1796,27 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1808,15 +1828,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>
