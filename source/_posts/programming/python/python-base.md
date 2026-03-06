@@ -127,13 +127,66 @@ IPO模式
 		import 模块名 as *
 ```
 
+### 三目运算符
+
+```python
+result = "真值" if condition else "假值"
+
+# 等价的传统if-else写法：
+if condition:
+    result = "真值"
+else:
+    result = "假值"
+```
+
+示例
+
+```python
+name = "A" if "1" else "B" #  name = 'A'
+```
+
+### 列表推导式
+
+```python
+[expression for item in iterable]
+```
+
+示例
+
+```python
+# 遍历 parts 并对每一项 执行 .strip() 去空格处理
+[c.strip() for c in parts]
+```
+
+### 带有条件判断的列表推导式
+
+```python
+[expression for item in iterable if condition]
+```
+
+示例
+
+```python
+[x**2 for x in list if x % 2 == 0]
+
+# 等价的传统写法：
+result = []
+for x in list:
+    if x % 2 == 0:
+        result.append(x**2)
+```
+
+
+
+
+
 ## 字符串
 
 ```python
 方法
     capitalize()	把首字符转换为大写。
     casefold()	把字符串转换为小写。
-    center()	返回居中的字符串。
+    center(width, fillchar)	返回居中的字符串。设置字符串总长度
     count()	返回指定值在字符串中出现的次数。
     encode()	返回字符串的编码版本。
     endswith()	如果字符串以指定值结尾，则返回 true。

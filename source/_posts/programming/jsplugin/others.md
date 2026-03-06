@@ -291,7 +291,11 @@ downloadWithTemplate("审计底稿1.dotx", {
 
 pdf导出的方案.[vue3版本分支](https://github.com/raiblaze/vue3-html2pdf)，
 
+### [dompdf](https://github.com/lmn1919/dompdf.js)
 
+![img](https://cdn.beekka.com/blogimg/asset/202601/bg2026012903.webp)
+
+一个网页 JS 库，可以将某个 DOM 节点生成为非图片式的 PDF 文件。
 
 ### [docx-preview](https://github.com/VolodymyrBaydalka/docxjs)
 
@@ -3858,3 +3862,13 @@ docker-compose restart
 ![img](https://cdn.beekka.com/blogimg/asset/202601/bg2026012306.webp)
 
 一个 JS/TS 库，用来计算中国亲戚关系（称谓），[Demo 试用](https://example.qinyimo.cn/)。
+
+### [Extension.js](https://github.com/cezaraugusto/extension.js)
+
+![img](https://cdn.beekka.com/blogimg/asset/202405/bg2024050101.webp)
+
+一个浏览器插件开发的工具库，帮你快速开发一个插件。
+
+### [jsonriver](https://github.com/rictic/jsonriver)
+
+一个 JS 库，用于解析 JSON 字符流，可以作用 JSON.parse() 的替代品，后者不支持流模式。
