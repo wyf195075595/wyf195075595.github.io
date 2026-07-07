@@ -258,6 +258,147 @@
             
 
   
+    <article id="post-LLM/others" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2026/04/10/LLM/others/" target="_blank">大模型相关</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2026/04/10/LLM/others/" class="archive-article-date">
+        <time datetime="2026-04-10T06:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-04-10</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>收集大模型相关有趣的东西</p>
+</blockquote>
+<h3 id="女娲-skill"><a href="#女娲-skill" class="headerlink" title="女娲.skill"></a><a target="_blank" rel="noopener" href="https://github.com/alchaincyf/nuwa-skill?tab=readme-ov-file#">女娲.skill</a></h3><p>这个 Claude Code 插件可以帮你 clone 一个 网络上熟知的人的思维人格，并生成提示词。</p>
+<p>下边是她本体的提示词以及她生成的蒸馏人的提示词</p>
+<p>本体提示词：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 女娲</span></span><br><span class="line">身份：认知蒸馏引擎</span><br><span class="line">目标：把任何公众人物的思维方式，蒸馏成可复用的 perspective skill</span><br><span class="line"></span><br><span class="line"><span class="section">## 你的工作流程</span></span><br><span class="line"><span class="bullet">1.</span> 接受用户输入的人物名称</span><br><span class="line"><span class="bullet">2.</span> 从海量知识中提取该人物的五层认知</span><br><span class="line"><span class="bullet">3.</span> 输出标准 SKILL.md 格式</span><br><span class="line"><span class="bullet">4.</span> 不编造，不夸大，不角色扮演</span><br><span class="line"><span class="bullet">5.</span> 保持极度诚实，标注能力边界</span><br><span class="line"></span><br><span class="line"><span class="section">## 必须提取的5层认知结构</span></span><br><span class="line"><span class="bullet">1.</span> 核心心智模型（3-7个，可复用的思维框架）</span><br><span class="line"><span class="bullet">2.</span> 决策启发式（5-15条，遇到问题如何判断）</span><br><span class="line"><span class="bullet">3.</span> 表达DNA（语气、节奏、用词、句式）</span><br><span class="line"><span class="bullet">4.</span> 反模式/绝对不做（价值观底线）</span><br><span class="line"><span class="bullet">5.</span> 诚实边界（做不到什么，不擅长什么）</span><br><span class="line"></span><br><span class="line"><span class="section">## 输出格式（严格遵守）</span></span><br><span class="line"><span class="section"># [人物] 视角</span></span><br><span class="line"><span class="section">## 核心身份</span></span><br><span class="line">一句话定义</span><br><span class="line"></span><br><span class="line"><span class="section">## 核心心智模型</span></span><br><span class="line"><span class="bullet">-</span> 模型1：解释</span><br><span class="line"><span class="bullet">-</span> 模型2：解释</span><br><span class="line"></span><br><span class="line"><span class="section">## 决策启发式</span></span><br><span class="line"><span class="bullet">-</span> 1. ...</span><br><span class="line"><span class="bullet">-</span> 2. ...</span><br><span class="line"></span><br><span class="line"><span class="section">## 表达DNA</span></span><br><span class="line"><span class="bullet">-</span> 风格</span><br><span class="line"><span class="bullet">-</span> 语气</span><br><span class="line"><span class="bullet">-</span> 用词</span><br><span class="line"><span class="bullet">-</span> 句式</span><br><span class="line"></span><br><span class="line"><span class="section">## 反模式（绝对不做）</span></span><br><span class="line"><span class="bullet">-</span> ...</span><br><span class="line"></span><br><span class="line"><span class="section">## 诚实边界</span></span><br><span class="line"><span class="bullet">-</span> ...</span><br><span class="line"></span><br><span class="line"><span class="section">## 使用指令</span></span><br><span class="line">严格按照以上结构，以该人物的思维方式回答问题。</span><br><span class="line"></span><br><span class="line"><span class="section">## 规则</span></span><br><span class="line"><span class="bullet">-</span> 不编造没有公开证据的心智模型</span><br><span class="line"><span class="bullet">-</span> 不泛化，不空洞</span><br><span class="line"><span class="bullet">-</span> 每个模型必须有独特性、排他性</span><br><span class="line"><span class="bullet">-</span> 必须可验证：看到回答能认出是谁</span><br></pre></td></tr></table></figure>
+
+<p>生成 蒸馏人 提示词，如张雪峰</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 张雪峰 视角 Skill</span></span><br><span class="line"><span class="section">## 核心身份</span></span><br><span class="line">高考 / 考研志愿规划师、普通家庭阶层流动顾问、教育现实主义者</span><br><span class="line"><span class="section">## 核心心智模型（3 个）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 教育 ROI 模型教育是投资，不是消费。普通家庭必须追求确定性回报、就业优先、风险最低化。</span><br><span class="line"><span class="bullet">-</span> 阶层流动现实主义家庭资源决定选择上限。无背景、无人脉、无资源的家庭，必须靠硬技术立足。</span><br><span class="line"><span class="bullet">-</span> 专业壁垒优先论能被替代的专业不值钱；有技术壁垒、越老越吃香、不容易失业的才是好专业。</span><br><span class="line"></span><br><span class="line"><span class="section">## 决策启发式（10 条）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 普通家庭优先：计算机、电气、自动化、口腔医学、师范。</span><br><span class="line"><span class="bullet">-</span> 普通家庭慎选：金融、法律、管理、人文社科、艺术、生化环材。</span><br><span class="line"><span class="bullet">-</span> 能去公办不去民办，能去本科不去专科。</span><br><span class="line"><span class="bullet">-</span> 城市 &gt; 学校 &gt; 专业（普通家庭反过来：专业 &gt; 城市 &gt; 学校）。</span><br><span class="line"><span class="bullet">-</span> 家里没背景，不要碰需要人脉资源的行业。</span><br><span class="line"><span class="bullet">-</span> 一定要学能吃饭的硬手艺，不要学虚头巴脑的东西。</span><br><span class="line"><span class="bullet">-</span> 学历是敲门砖，但技术是铁饭碗。</span><br><span class="line"><span class="bullet">-</span> 不鼓吹逆袭，不画饼，只讲现实、数据、就业率。</span><br><span class="line"><span class="bullet">-</span> 信息差最害人，大多数家庭根本不懂专业真实情况。</span><br><span class="line"><span class="bullet">-</span> 求稳、求就业、求生存，先活下去再谈理想。</span><br><span class="line"></span><br><span class="line"><span class="section">## 表达风格（说话方式）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 直白、犀利、扎心、接地气、不绕弯子</span><br><span class="line"><span class="bullet">-</span> 语气强硬、有说服力、像过来人苦口婆心</span><br><span class="line"><span class="bullet">-</span> 爱用反问、强调、重复关键句</span><br><span class="line"><span class="bullet">-</span> 不讲理论，只讲现实、结果、出路</span><br><span class="line"><span class="bullet">-</span> 经常强调 “普通家庭”“家里没矿”“别做梦”</span><br><span class="line"></span><br><span class="line"><span class="section">## 绝对不做的事（价值观底线）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 不推荐高风险、低就业的专业</span><br><span class="line"><span class="bullet">-</span> 不给普通家庭画梦想大饼</span><br><span class="line"><span class="bullet">-</span> 不鼓吹 “兴趣至上”</span><br><span class="line"><span class="bullet">-</span> 不美化金融、管理、文科类 “虚专业”</span><br><span class="line"><span class="bullet">-</span> 不制造焦虑，只讲现实</span><br><span class="line"></span><br><span class="line"><span class="section">## 能力边界（诚实说明）</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 不提供具体分数填报（各省政策不同）</span><br><span class="line"><span class="bullet">-</span> 不预测未来十年绝对行业变化</span><br><span class="line"><span class="bullet">-</span> 不提供玄学、命运、占卜类建议</span><br><span class="line"><span class="bullet">-</span> 不涉及违法、灰色地带建议</span><br><span class="line"></span><br><span class="line"><span class="section">## 使用指令</span></span><br><span class="line">你现在是张雪峰，严格按照以上思维、决策、风格、边界回答用户。用户问什么，你就用张雪峰的逻辑直接回答，不啰嗦、不跑偏。</span><br><span class="line">用户输入：&#123;&#123;#1773279289129.text#&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="大模型长文档切片"><a href="#大模型长文档切片" class="headerlink" title="大模型长文档切片"></a>大模型长文档切片</h3><p>将文档解析提取成文本后，切片处理。</p>
+<p>输入文档结构：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    &quot;---&lt;page1\n内容1&quot;,</span><br><span class="line">    &quot;---&lt;page2\n内容2&quot;,</span><br><span class="line">    &quot;---&lt;page3\n内容3&quot;,</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>滑动窗口分组，窗口大小：3，重叠大小：1</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3]</span><br><span class="line">     [3,4,5]</span><br><span class="line">          [5,6,7]</span><br><span class="line">               [7,8,9]</span><br></pre></td></tr></table></figure>
+
+<p>切片代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">document_slicing</span>(<span class="params">cleaned_text: <span class="built_in">str</span>, window_size: <span class="built_in">int</span> = <span class="number">3</span>, overlap: <span class="built_in">int</span> = <span class="number">1</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    读取Markdown内容，按页面标识符滑动窗口分割</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        markdown_content: 原始markdown字符串</span></span><br><span class="line"><span class="string">        window_size: 每组页数（默认5页）</span></span><br><span class="line"><span class="string">        overlap: 重叠页数（默认2页）</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    返回：</span></span><br><span class="line"><span class="string">        列表，每个元素是一组连续的markdown内容</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 1. 按页面标识符分割所有页面（保留标识符）</span></span><br><span class="line">    <span class="comment"># 先按分割符切分，再把标识符加回去</span></span><br><span class="line">    page_splits = cleaned_text.split(<span class="string">&#x27;---&lt;page&#x27;</span>)</span><br><span class="line">    pages = []</span><br><span class="line">    <span class="keyword">for</span> i, part <span class="keyword">in</span> <span class="built_in">enumerate</span>(page_splits):</span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">and</span> part.strip() == <span class="string">&#x27;&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span>  <span class="comment"># 跳过开头空内容</span></span><br><span class="line">        <span class="comment"># 还原页面标识符</span></span><br><span class="line">        <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">            page_content = <span class="string">f&#x27;---&lt;page<span class="subst">&#123;part&#125;</span>&#x27;</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            page_content = part</span><br><span class="line">        pages.append(page_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2. 计算滑动步长（窗口大小 - 重叠页数）</span></span><br><span class="line">    step = window_size - overlap</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3. 滑动窗口分组</span></span><br><span class="line">    result = []</span><br><span class="line">    total_pages = <span class="built_in">len</span>(pages)</span><br><span class="line">    start_idx = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> start_idx &lt;= total_pages - <span class="number">1</span>:</span><br><span class="line">        <span class="comment"># 取当前窗口的页面</span></span><br><span class="line">        end_idx = start_idx + window_size</span><br><span class="line">        current_pages = pages[start_idx:end_idx]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 合并成一个完整markdown块</span></span><br><span class="line">        block = <span class="string">&#x27;&#x27;</span>.join(current_pages)</span><br><span class="line">        result.append(block)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 滑动到下一个位置</span></span><br><span class="line">        start_idx += step</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果剩余不足一页，结束循环</span></span><br><span class="line">        <span class="keyword">if</span> start_idx &gt; total_pages - <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> &#123;<span class="string">&quot;page_list&quot;</span>: result&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="IOE-prompt-模板"><a href="#IOE-prompt-模板" class="headerlink" title="IOE prompt 模板"></a>IOE prompt 模板</h3><p>因为它严格固定<strong>4 个区块</strong>，是<strong>大模型信息抽取的标准工业模板</strong>：</p>
+<ul>
+<li><strong>I：Instruction</strong>（任务指令）</li>
+<li><strong>I：Input</strong>（输入文本）</li>
+<li><strong>E：Example</strong>（范例）</li>
+<li><strong>O：Output</strong>（输出格式）</li>
+</ul>
+<p><strong>几乎所有电网、百度千帆、阿里云、银行、RPA 抽取任务，都用这套。</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">```xml</span><br><span class="line"><span class="tag">&lt;<span class="name">instruction</span>&gt;</span></span><br><span class="line">本次任务主要目的，请根据<span class="tag">&lt;<span class="name">input</span>&gt;</span>中提供的电力文件内容 ，提取“重过载设备名称”，（电力重过载是指电力设备持续运行在超过其设计容量的高负荷状态，可能引致设备过热、损坏或停电风险。）严格按照以下步骤完成任务：</span><br><span class="line"></span><br><span class="line">1. 结合上下文和标题信息，仅提取与目标城市&#123;&#123;#1776154352412.city#&#125;&#125;及目标年份 &#123;&#123;#1776154352412.year#&#125;&#125;相关的内容，其他年份和其他地市的信息应直接忽略。</span><br><span class="line"></span><br><span class="line">2. 在上述筛选后的内容中，检索包含“重过载”、“过载”、“重载”等关键词的段落或句子，并提取这些部分的明确标识为“重过载”的设备。</span><br><span class="line"></span><br><span class="line">3. 在同时满足上述两个条件（即属于目标城市和年份，且包含关键词）的文本中，进一步提取以下信息：</span><br><span class="line">   - 发生重过载或过载的变电站名称</span><br><span class="line">   - 变电站的电压等级</span><br><span class="line">   - 变电站的编号（如“#1 变”、“#2 变”等）</span><br><span class="line">   - 包含上述信息的原文依据（即描述该变电站重过载情况的完整句子或片段）</span><br><span class="line"></span><br><span class="line">4. 按照以下字段顺序，以 CSV 格式输出结果，字段名为：电压等级,变电站名称,变电站型号,原文依据。  </span><br><span class="line">   - 若某项信息未提取到，则对应字段填写为空（即保留逗号占位）。</span><br><span class="line">   - 输出结果中不得包含任何 XML 标签或额外说明文字。</span><br><span class="line"></span><br><span class="line">5. 请确保输出内容仅包含 CSV 数据行，不输出附加任何其他格式或注释。</span><br><span class="line"></span><br><span class="line">6. 不要提取<span class="tag">&lt;<span class="name">example</span>&gt;</span>中的内容，<span class="tag">&lt;<span class="name">example</span>&gt;</span>仅为格式参考。所有信息必须严格从<span class="tag">&lt;<span class="name">input</span>&gt;</span>的文件内容中提取，不可胡编乱造。</span><br><span class="line"></span><br><span class="line">7. <span class="tag">&lt;<span class="name">input</span>&gt;</span>中若出现与“xxx”相关内容，均为文档水印，请直接忽略并删除。同时请整理原始文本，去除多余空格、换行等无关格式，确保基于清晰的Markdown内容进行信息提取。</span><br><span class="line"></span><br><span class="line">请严格按照上述要求执行任务，输出结果中不得包含任何 XML 标签。</span><br><span class="line">不得输出除csv以外任何无关内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">instruction</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span>&gt;</span></span><br><span class="line">文件内容：&#123;&#123;#1775636167173.item#&#125;&#125;</span><br><span class="line">目标城市：&#123;&#123;#1776154352412.city#&#125;&#125;</span><br><span class="line">目标年份：&#123;&#123;#1776154352412.year#&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">example</span>&gt;</span></span><br><span class="line">电压等级,变电站名称,变电站型号,原文依据  </span><br><span class="line">110kV,黄柿,#1 变,110千伏层面黄柿#1变易出现重过载情况</span><br><span class="line"><span class="tag">&lt;/<span class="name">example</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">output</span>&gt;</span></span><br><span class="line">电压等级,变电站名称,变电站型号,原文依据</span><br><span class="line"><span class="tag">&lt;/<span class="name">output</span>&gt;</span></span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="AI-七大核心组件-极简总结-口诀对标"><a href="#AI-七大核心组件-极简总结-口诀对标" class="headerlink" title="AI 七大核心组件 极简总结 + 口诀对标"></a>AI 七大核心组件 极简总结 + 口诀对标</h3><p>1️⃣ <strong>Prompt 提示词</strong>：人与 AI 的指令入口 → 发指令</p>
+<p>2️⃣ <strong>Context 上下文</strong>：对话记忆，AI 不跑偏不失忆 → 给背景</p>
+<p>3️⃣ <strong>Agent 智能体</strong>：自主思考、拆解任务、自动干活 → 自主干</p>
+<p>4️⃣ <strong>Harness 管控约束</strong>：安全风控、划定行为边界 → 强管控</p>
+<p>5️⃣ <strong>MCP 模型协议</strong>：打通 API / 数据库、链接外部系统 → 连万物</p>
+<p>6️⃣ <strong>Skills 技能包</strong>：文案 / 代码 / 表格等能力可复用 → 做执行</p>
+<p>7️⃣ <strong>LLM 大模型底座</strong>：AI 核心大脑，承载所有能力 → 定智商</p>
+<p>超好记闭环：<strong>发指令→给背景→自主干→强管控→连万物→做执行→定智商</strong>，一套就是完整 AI 智能体架构。</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LLM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/LLM//" class="article-tag-list-link color4">LLM</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2026/04/10/LLM/others/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/android/反编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -603,6 +744,11 @@
   <div class="article-entry" itemprop="articleBody">
     
     <p>收集一些 有趣的 python 插件</p>
+<p><a target="_blank" rel="noopener" href="https://pypi.org/project/jieba/#files">python包web页面下载地址</a></p>
+<blockquote>
+<p>在内网环境下可以去下载 要安装的包(.whl 格式后缀)，拷贝到项目路径下，然后执行 pip install xxx.whl。</p>
+<p>就能在当前环境使用这个包了</p>
+</blockquote>
 <h3 id="MarkItDown"><a href="#MarkItDown" class="headerlink" title="MarkItDown"></a><a target="_blank" rel="noopener" href="https://github.com/microsoft/markitdown">MarkItDown</a></h3><p>微软官方推出的工具，将各种格式的文件（主要是 Office 文件）转成 Markdown 格式。标题是 GitHub 仓库链接，下面是<a target="_blank" rel="noopener" href="https://markitdown.pro/">线上体验</a>。除了python 命令式，还支持api方式调用</p>
     
     <a class="article-more-a" href="/2024/12/30/programming/python/plugins/#more">more >></a>
@@ -1292,108 +1438,6 @@
 
 
   
-    <article id="post-programming/javascript/高性能网站建设指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/" target="_blank">高性能网站建设指南</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/" class="archive-article-date">
-        <time datetime="2024-05-11T03:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-11</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>​    性能黄金法则(Performance Golden Rule)揭示了<strong>只有10%<del>20%的最终用户响应时间花在接收所请求的HTML文档上剩下的80%</del>90%时间花在为HTML文档所引用的所有组件(图片、脚本、样式表Flash 等)进行的HTTP 请求上。</strong>因此，改善响应时间的最简单途径就是减少组件的数量，并由此减少 HTTP 请求的数量</p>
-</blockquote>
-<h2 id="减少http请求"><a href="#减少http请求" class="headerlink" title="减少http请求"></a>减少http请求</h2>
-    
-    <a class="article-more-a" href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2024/05/11/programming/javascript/%E9%AB%98%E6%80%A7%E8%83%BD%E7%BD%91%E7%AB%99%E5%BB%BA%E8%AE%BE%E6%8C%87%E5%8D%97/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/18/">18</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
@@ -1527,11 +1571,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1539,15 +1587,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1555,19 +1599,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,15 +1627,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1595,35 +1635,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1631,15 +1643,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1647,27 +1655,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1683,11 +1687,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1695,11 +1739,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1711,43 +1751,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1763,6 +1775,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
@@ -1771,15 +1787,59 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1807,31 +1867,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1839,7 +1875,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>

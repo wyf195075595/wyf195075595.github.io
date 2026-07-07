@@ -258,6 +258,104 @@
             
 
   
+    <article id="post-programming/javascript/标签模板" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" target="_blank">标签模板</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建标签模板 防止用户恶意输入</span></span><br><span class="line"><span class="comment">//string：除变量外的其他字符串数组，argus：变量数组，前者总比后者长度大1</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">SaferHTMLx</span>(<span class="params">string,...argus</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(string,argus);<span class="comment">//[&quot;&lt;p&gt;&quot;, &quot; has &quot;, &quot; sent you a message.&lt;/p&gt;&quot;] , </span></span><br><span class="line">    <span class="comment">// [&quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;, &quot;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&quot;]</span></span><br><span class="line">    <span class="keyword">let</span> s = string[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; string.<span class="property">length</span>; i++) &#123;</span><br><span class="line">      <span class="keyword">let</span> arg = <span class="title class_">String</span>(argus[i-<span class="number">1</span>]);</span><br><span class="line"> 	  <span class="comment">//对变量参数进行处理</span></span><br><span class="line">      s += arg.<span class="title function_">replace</span>(<span class="regexp">/&amp;/g</span>, <span class="string">&quot;&amp;amp;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&lt;/g</span>, <span class="string">&quot;&amp;lt;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&gt;/g</span>, <span class="string">&quot;&amp;gt;&quot;</span>);</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&quot;/g</span>, <span class="string">&quot;&amp;qout;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/&#x27;/g</span>, <span class="string">&quot;&amp;#27;&quot;</span>)</span><br><span class="line">              .<span class="title function_">replace</span>(<span class="regexp">/\//g</span>, <span class="string">&quot;&amp;#x2F;&quot;</span>);</span><br><span class="line">      s += string[i]         </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">let</span> senderx = <span class="string">&#x27;&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;&#x27;</span>;</span><br><span class="line"><span class="comment">//使用标签模板 </span></span><br><span class="line"><span class="keyword">let</span> messagex = <span class="title class_">SaferHTMLx</span><span class="string">`&lt;p&gt;<span class="subst">$&#123;senderx&#125;</span> has <span class="subst">$&#123;senderx&#125;</span>sent you a message.&lt;/p&gt;`</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(messagex);<span class="comment">//&lt;p&gt;&amp;lt;script&amp;gt;alert(&quot;abc&quot;)&amp;lt;/script&amp;gt; has sent you a message.&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%A0%87%E7%AD%BE%E6%A8%A1%E6%9D%BF/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-programming/javascript/正则" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -332,6 +430,105 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/javascript/%E6%AD%A3%E5%88%99/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/javascript/网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" target="_blank">网络通信</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
     </p>
     
 
@@ -581,105 +778,6 @@
 
 
   
-    <article id="post-programming/javascript/网络" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" target="_blank">网络通信</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="fetch-API"><a href="#fetch-API" class="headerlink" title="fetch API"></a>fetch API</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/javascript/%E7%BD%91%E7%BB%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-programming/jsplugin/SortableJS" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -759,6 +857,204 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2022/06/17/programming/jsplugin/SortableJS/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/echarts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/echarts/" target="_blank">echarts 实用技巧</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/echarts/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>echarts.图标案例</p>
+<h4 id="layui-jq-项目中"><a href="#layui-jq-项目中" class="headerlink" title="layui + jq 项目中"></a>layui + jq 项目中</h4>
+    
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/echarts/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技巧</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/echarts//" class="article-tag-list-link color3">echarts</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/echarts/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-programming/jsplugin/is.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/is.js/" target="_blank">代码类型检查库</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/programming/jsplugin/is.js/" class="archive-article-date">
+        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="代码类型检查库"><a href="#代码类型检查库" class="headerlink" title="代码类型检查库"></a>代码类型检查库</h3><blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm install is_js</span><br></pre></td></tr></table></figure></blockquote>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/is.js/">展开全文 >></a>
     </p>
     
 
@@ -892,7 +1188,7 @@
 
 
   
-    <article id="post-programming/jsplugin/is.js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-programming/jsplugin/gojs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -900,7 +1196,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/is.js/" target="_blank">代码类型检查库</a>
+	  <a class="article-title" href="/2022/06/17/programming/jsplugin/gojs/" target="_blank">gojs</a>
   
     </h1>
   
@@ -908,7 +1204,7 @@
 
   
   
-<a href="/2022/06/17/programming/jsplugin/is.js/" class="archive-article-date">
+<a href="/2022/06/17/programming/jsplugin/gojs/" class="archive-article-date">
         <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -921,207 +1217,14 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h3 id="代码类型检查库"><a href="#代码类型检查库" class="headerlink" title="代码类型检查库"></a>代码类型检查库</h3><blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 安装</span></span><br><span class="line">npm install is_js</span><br></pre></td></tr></table></figure></blockquote>
+    <p>仅仅是一个前端插件</p>
+<p>官网:<a target="_blank" rel="noopener" href="https://gojs.net/latest/index.html">https://gojs.net/latest/index.html</a></p>
+<p>下载之后并不是所有的js文件都用的到，我们需要了解到只有三个</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;&quot;</span><span class="string">&quot;</span></span><br><span class="line"><span class="string">go.js				 正常必须要导入的文件</span></span><br><span class="line"><span class="string">go-debug.js  会展示报错消息 类似于debug模式 线上肯定不会使用</span></span><br><span class="line"><span class="string">Figures.js	 扩展图表(go.js自带的图表比较少，如果出现图标显示不出来的情况)</span></span><br><span class="line"><span class="string">&quot;</span><span class="string">&quot;&quot;</span></span><br><span class="line"># 总结:使用的时候导入go.<span class="property">js</span>和<span class="title class_">Figures</span>.<span class="property">js</span>就不会有任何问题了</span><br></pre></td></tr></table></figure>
 
+<h2 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h2><p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/gojsBaseTest.png"></p>
     
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/is.js/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/jsplugin/echarts" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/echarts/" target="_blank">echarts 实用技巧</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/jsplugin/echarts/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>echarts.图标案例</p>
-<h4 id="layui-jq-项目中"><a href="#layui-jq-项目中" class="headerlink" title="layui + jq 项目中"></a>layui + jq 项目中</h4>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/echarts/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">实用技巧</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/echarts//" class="article-tag-list-link color3">echarts</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/echarts/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/jsplugin/jquery" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/jquery/" target="_blank">jquery</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/jsplugin/jquery/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/jquery/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/gojs/#more">more >></a>
     
     
 
@@ -1159,236 +1262,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/jquery/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/jsplugin/momentjs" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/jsplugin/momentjs/" target="_blank">momentjs时间处理类库</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/jsplugin/momentjs/" class="archive-article-date">
-        <time datetime="2022-06-17T00:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="1、安装"><a href="#1、安装" class="headerlink" title="1、安装"></a>1、安装</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm install moment --save   # npm</span><br><span class="line">yarn add moment             # <span class="title class_">Yarn</span></span><br><span class="line"><span class="title class_">Install</span>-<span class="title class_">Package</span> <span class="title class_">Moment</span>.<span class="property">js</span>   # <span class="title class_">NuGet</span></span><br><span class="line">spm install moment --save   # spm</span><br><span class="line">meteor add <span class="attr">momentjs</span>:moment  # meteor</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、日期格式化"><a href="#2、日期格式化" class="headerlink" title="2、日期格式化"></a>2、日期格式化</h3><table>
-<thead>
-<tr>
-<th>格式代码</th>
-<th>说明</th>
-<th>返回值例子</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>M</td>
-<td>数字表示的月份，没有前导零</td>
-<td>1到12</td>
-</tr>
-<tr>
-<td>MM</td>
-<td>数字表示的月份，有前导零</td>
-<td>01到12</td>
-</tr>
-<tr>
-<td>MMM</td>
-<td>三个字母缩写表示的月份</td>
-<td>Jan到Dec</td>
-</tr>
-<tr>
-<td>MMMM</td>
-<td>月份，完整的文本格式</td>
-<td>January到December</td>
-</tr>
-<tr>
-<td>Q</td>
-<td>季度</td>
-<td>1到4</td>
-</tr>
-<tr>
-<td>D</td>
-<td>月份中的第几天，没有前导零</td>
-<td>1到31</td>
-</tr>
-<tr>
-<td>DD</td>
-<td>月份中的第几天，有前导零</td>
-<td>01到31</td>
-</tr>
-<tr>
-<td>d</td>
-<td>星期中的第几天，数字表示</td>
-<td>0到6，0表示周日，6表示周六</td>
-</tr>
-<tr>
-<td>ddd</td>
-<td>三个字母表示星期中的第几天</td>
-<td>Sun到Sat</td>
-</tr>
-<tr>
-<td>dddd</td>
-<td>星期几，完整的星期文本</td>
-<td>从Sunday到Saturday</td>
-</tr>
-<tr>
-<td>w</td>
-<td>年份中的第几周</td>
-<td>如42：表示第42周</td>
-</tr>
-<tr>
-<td>YYYY</td>
-<td>四位数字完整表示的年份</td>
-<td>如：2014 或 2000</td>
-</tr>
-<tr>
-<td>YY</td>
-<td>两位数字表示的年份</td>
-<td>如：14 或 98</td>
-</tr>
-<tr>
-<td>A</td>
-<td>大写的AM PM</td>
-<td>AM PM</td>
-</tr>
-<tr>
-<td>a</td>
-<td>小写的am pm</td>
-<td>am pm</td>
-</tr>
-<tr>
-<td>HH</td>
-<td>小时，24小时制，有前导零</td>
-<td>00到23</td>
-</tr>
-<tr>
-<td>H</td>
-<td>小时，24小时制，无前导零</td>
-<td>0到23</td>
-</tr>
-<tr>
-<td>hh</td>
-<td>小时，12小时制，有前导零</td>
-<td>00到12</td>
-</tr>
-<tr>
-<td>h</td>
-<td>小时，12小时制，无前导零</td>
-<td>0到12</td>
-</tr>
-<tr>
-<td>m</td>
-<td>没有前导零的分钟数</td>
-<td>0到59</td>
-</tr>
-<tr>
-<td>mm</td>
-<td>有前导零的分钟数</td>
-<td>00到59</td>
-</tr>
-<tr>
-<td>s</td>
-<td>没有前导零的秒数</td>
-<td>1到59</td>
-</tr>
-<tr>
-<td>ss</td>
-<td>有前导零的描述</td>
-<td>01到59</td>
-</tr>
-<tr>
-<td>X</td>
-<td>Unix时间戳</td>
-<td>1411572969</td>
-</tr>
-</tbody></table>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/jsplugin/momentjs/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/js//" class="article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/momentjs/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/programming/jsplugin/gojs/">展开全文 >></a>
     </p>
     
 
@@ -1551,11 +1425,15 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+                <a href="javascript:void(0)" class="js-tag color4">LLM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1563,15 +1441,11 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">浏览器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">虚拟机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1579,19 +1453,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">c</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1603,15 +1481,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1619,35 +1489,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1655,15 +1497,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1671,27 +1509,23 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">性能优化</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">typescript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1707,11 +1541,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1719,11 +1593,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1735,43 +1605,15 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1787,6 +1629,10 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">svn</a>
               </li>
              
@@ -1795,15 +1641,59 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">app</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1831,31 +1721,7 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1863,7 +1729,19 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">webrtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
             
             <div class="clearfix"></div>
