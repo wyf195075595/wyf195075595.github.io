@@ -324,6 +324,18 @@ const goPreview = async () => {
 >
 > [参考教程文章2](https://blog.csdn.net/baijiafan/article/details/126779192)
 
+### [DOCX Editor](https://github.com/eigenpal/docx-editor)
+
+![img](https://cdn.beekka.com/blogimg/asset/202605/bg2026052202.webp)
+
+开源的 docx 文件的网页编辑器，所见即所得。
+
+### [File Viewer](https://github.com/flyfish-dev/file-viewer)
+
+![img](https://cdn.beekka.com/blogimg/asset/202606/bg2026062903.webp)
+
+前端的文件预览组件，无需服务端转码，在网页预览各种文件内容，支持200多种文件扩展名。
+
 ### [fecs](http://fecs.baidu.com/)
 
 代码检查 / 格式化，从未如此简单
@@ -3872,3 +3884,21 @@ docker-compose restart
 ### [jsonriver](https://github.com/rictic/jsonriver)
 
 一个 JS 库，用于解析 JSON 字符流，可以作用 JSON.parse() 的替代品，后者不支持流模式。
+
+### [Page Agent](https://github.com/alibaba/page-agent)
+
+![img](https://cdn.beekka.com/blogimg/asset/202603/bg2026030702.webp)
+
+只要在网页插入这个 JS 库，就可以使用自然语言操作页面，比如"点击导航栏的文档链接，总结其内容"。
+
+### [RaTeX](https://github.com/erweixin/RaTeX)
+
+![img](https://cdn.beekka.com/blogimg/asset/202603/bg2026032401.webp)
+
+纯 Rust 实现的 KaTeX 兼容的数学渲染引擎，原生解析、排版 LaTeX 数学公式，支持各种环境。
+
+### [JSOS](https://jsos.dev/)
+
+![img](https://cdn.beekka.com/blogimg/asset/202606/bg2026062507.webp)
+
+基于 Webcontainer 技术，在浏览器网页上运行 Node.js 应用，数据/代码均存储在本地。

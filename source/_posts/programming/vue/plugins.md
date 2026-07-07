@@ -1040,3 +1040,7 @@ module.exports = {
 ### [vue-renderer-markdown](https://github.com/Simon-He95/vue-markdown-render)
 
 Vue 框架的 markdown 渲染组件，针对 AI 的 markdown 流式传输场景。
+
+### [markstream-vue](https://github.com/Simon-He95/markstream-vue)
+
+针对 AI 吐出的流式 markdown 的渲染库，提供 Vue 实现。
