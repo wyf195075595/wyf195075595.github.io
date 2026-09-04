@@ -258,7 +258,7 @@
             
 
   
-    <article id="post-programming/koa/markdown编辑器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-database/mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -266,7 +266,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" target="_blank">添加markdown编辑器</a>
+	  <a class="article-title" href="/2022/06/17/database/mongodb/" target="_blank">mongodb 基础知识</a>
   
     </h1>
   
@@ -274,519 +274,7 @@
 
   
   
-<a href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="1、安装依赖"><a href="#1、安装依赖" class="headerlink" title="1、安装依赖"></a>1、安装依赖</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm i markdown-it -S</span><br><span class="line">npm i react-markdown-editor-lite -S</span><br><span class="line">npm i highlight.<span class="property">js</span> -S</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2、引入依赖"><a href="#2、引入依赖" class="headerlink" title="2、引入依赖"></a>2、引入依赖</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/koa//" class="article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/koa/markdown%E7%BC%96%E8%BE%91%E5%99%A8/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/koa/koa基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/" target="_blank">koa 基础语法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="一、创建koa项目"><a href="#一、创建koa项目" class="headerlink" title="一、创建koa项目"></a>一、创建koa项目</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、新建node项目</span></span><br><span class="line">新建文件夹 进入目录 执行</span><br><span class="line">npm init</span><br><span class="line">生成package.<span class="property">json</span>文件</span><br><span class="line"><span class="comment">//2、项目引入koa</span></span><br><span class="line">npm i koa -S</span><br><span class="line"><span class="comment">//3、新建app.js</span></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">Koa</span> = <span class="built_in">require</span>(<span class="string">&#x27;koa&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> <span class="title class_">Koa</span>();</span><br><span class="line"></span><br><span class="line">app.<span class="title function_">listen</span>(<span class="number">3000</span>,<span class="function">()=&gt;</span>&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;port 3000 is running!&#x27;</span>)</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//运行 node app.js</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="二、中间件"><a href="#二、中间件" class="headerlink" title="二、中间件"></a>二、中间件</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/koa//" class="article-tag-list-link color4">koa</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/koa/koa%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/nginx" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/linux/nginx/" target="_blank">nginx 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/linux/nginx/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <blockquote>
-<p>nginx是一款自由的、开源的、高性能的HTTP服务器和反向代理服务器；同时也是一个IMAP、POP3、SMTP代理服务器；nginx可以作为一个HTTP服务器进行网站的发布处理，另外nginx可以作为反向代理进行负载均衡的实现。</p>
-</blockquote>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/linux/nginx/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">nginx</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/linux/nginx/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/linux/安装pm2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" target="_blank">pm2 进程管理</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h1 id="pm2安装"><a href="#pm2安装" class="headerlink" title="pm2安装"></a>pm2安装</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、全局安装</span><br><span class="line"></span><br><span class="line"> npm install pm2 -g</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、创建软连接</span><br><span class="line"></span><br><span class="line">ln -s /node-v12/bin/pm2  /usr/local/bin/</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、查看进程</span><br><span class="line"></span><br><span class="line">pm2 list</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><img src="https://raw.githubusercontent.com/wyf195075595/images/main/blog/pm2.png"></p>
-<p>[注意]创建软连接的源文件路径可以在安装时找到    如上图  /node-v12/bin/pm2</p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pm2</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/linux/%E5%AE%89%E8%A3%85pm2/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/markdown/Markdown基础语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" target="_blank">Markdown基础语法</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>Markdown是一种纯文本格式的标记语言。通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
-<p>相比WYSIWYG编辑器</p>
-<p><strong>优点：</strong><br> 1、因为是纯文本，所以只要支持Markdown的地方都能获得一样的编辑效果，可以让作者摆脱排版的困扰，专心写作。<br> 2、操作简单。比如:WYSIWYG编辑时标记个标题，先选中内容，再点击导航栏的标题按钮，选择几级标题。要三个步骤。而Markdown只需要在标题内容前加#即可</p>
-<p><strong>缺点：</strong><br> 1、需要记一些语法（当然，是很简单。五分钟学会）。<br> 2、有些平台不支持Markdown编辑模式。</p>
-<p>还好，简书是支持Markdown编辑模式的。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">开启方式：设置-&gt;默认编辑器-&gt;Markdown编辑器</span><br></pre></td></tr></table></figure>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/markdown//" class="article-tag-list-link color4">markdown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/markdown/Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/mongodb/mongodb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/mongodb/mongodb/" target="_blank">mongodb 基础知识</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/mongodb/mongodb/" class="archive-article-date">
+<a href="/2022/06/17/database/mongodb/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -801,7 +289,7 @@
     
     <h1 id="mongodb"><a href="#mongodb" class="headerlink" title="mongodb"></a>mongodb</h1>
     
-    <a class="article-more-a" href="/2022/06/17/programming/mongodb/mongodb/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/database/mongodb/#more">more >></a>
     
     
 
@@ -830,7 +318,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/mongodb//" class="article-tag-list-link color3">mongodb</a>
+        			<a href="/categories/database//" class="article-tag-list-link color4">database</a>
         		</li>
       		
 		</ul>
@@ -839,7 +327,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/mongodb/mongodb/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/database/mongodb/">展开全文 >></a>
     </p>
     
 
@@ -869,7 +357,7 @@
 
 
   
-    <article id="post-programming/node/node编程基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-tools/git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -877,7 +365,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" target="_blank">Nodejs 编程基础</a>
+	  <a class="article-title" href="/2022/06/17/tools/git/" target="_blank">git 配置</a>
   
     </h1>
   
@@ -885,229 +373,7 @@
 
   
   
-<a href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="编程基础"><a href="#编程基础" class="headerlink" title="编程基础"></a>编程基础</h3>
-    
-    <a class="article-more-a" href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/node/node%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/node/命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/" target="_blank">node 升级命令</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <p>// 版本查询</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<p>// 如果上面查看的版本比较低，则可以开始升级</p>
-<p>// 清除 npm cache</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
-
-<p>//升级之前还需要安装n模块，n模块是专门用来管理nodejs的版本</p>
-<p>输入npm install -g n</p>
-<p>// 如果上边命令报错，则使用下边这个</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g n --force</span><br></pre></td></tr></table></figure>
-
-<p>//升级<br>还可以直接输入n stable，升级到nodejs最新稳定的版本</p>
-<h3 id="Linux-安装-node"><a href="#Linux-安装-node" class="headerlink" title="Linux 安装 node"></a>Linux 安装 node</h3><p>网上下载安装包，然后上传至服务器，解压</p>
-<h3 id="Linux-添加环境变量"><a href="#Linux-添加环境变量" class="headerlink" title="Linux 添加环境变量"></a>Linux 添加环境变量</h3><ul>
-<li><p>修改profile文件</p>
-<p>打开文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-
-<p>添加</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_14782715/5082236">参考文章</a></p>
-</li>
-</ul>
-<h3 id="远程-执行node-脚本-自定义变量找不到"><a href="#远程-执行node-脚本-自定义变量找不到" class="headerlink" title="远程 执行node 脚本,自定义变量找不到"></a>远程 执行node 脚本,自定义变量找不到</h3><p>问题出现就是，xshell 上执行命名 运行一个js文件没有问题，但是通过nodo-ssh远程执行一个js脚本则会出现 Cannot find module xxx，因为脚本中引用了 某个全局的js依赖包，而我在etc/peofile 设置的 全局变量，在这种通过 远程指令 方式下执行会出现读取不到设置的全局变量。</p>
-<p>解决方法，在 etc/bashrc 文件中 再设置一次变量（此方式设置所有用户都能访问），或 用户HOME中的 <strong>.bashrc</strong> 文件中设置变量（此方式只此用户能访问此变量）</p>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/node/%E5%91%BD%E4%BB%A4/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-programming/npm/git" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2022/06/17/programming/npm/git/" target="_blank">git 配置</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2022/06/17/programming/npm/git/" class="archive-article-date">
+<a href="/2022/06/17/tools/git/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1129,7 +395,7 @@
 
 <h2 id="git-验证优化"><a href="#git-验证优化" class="headerlink" title="git 验证优化"></a>git 验证优化</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// clone 项目后每次拉去提交代码 需要输入密码验证</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行后 输入一次账户密码就可以不用在输入了</span></span><br><span class="line">git config credential.<span class="property">helper</span> store</span><br><span class="line"></span><br><span class="line"><span class="comment">// 后边 加 -glob 可以全局设置所有仓库，不加默认当前仓库生效</span></span><br></pre></td></tr></table></figure>
     
-    <a class="article-more-a" href="/2022/06/17/programming/npm/git/#more">more >></a>
+    <a class="article-more-a" href="/2022/06/17/tools/git/#more">more >></a>
     
     
 
@@ -1158,7 +424,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/git//" class="article-tag-list-link color4">git</a>
+        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
         		</li>
       		
 		</ul>
@@ -1167,7 +433,7 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/npm/git/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/tools/git/">展开全文 >></a>
     </p>
     
 
@@ -1197,7 +463,7 @@
 
 
   
-    <article id="post-programming/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-tools/yarn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -1205,7 +471,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
+	  <a class="article-title" href="/2022/06/17/tools/yarn/" target="_blank">npm常用命令</a>
   
     </h1>
   
@@ -1213,7 +479,703 @@
 
   
   
-<a href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
+<a href="/2022/06/17/tools/yarn/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//vecode中yarn命令报</span><br><span class="line">yarn : 无法加载文件 C:\Users\Admin\AppData\Roaming\npm\yarn.ps1,因为在此系统因为在此系统上禁止运行脚本。</span><br><span class="line"></span><br><span class="line">解决方法：</span><br><span class="line">以管理员身份运行vscode;</span><br><span class="line">执行：get-ExecutionPolicy，显示Restricted，表示状态是禁止的;</span><br><span class="line">执行：set-ExecutionPolicy RemoteSigned;</span><br><span class="line">这时再执行get-ExecutionPolicy，就显示RemoteSigned;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">yarn</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/tools/yarn/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-tools/npm" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/tools/npm/" target="_blank">npm常用命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/tools/npm/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="1、常用命令"><a href="#1、常用命令" class="headerlink" title="1、常用命令"></a>1、常用命令</h2><blockquote>
+<p>npm -v      #显示版本，检查npm 是否正确安装。</p>
+<p>npm i express  #安装express模块</p>
+<p>npm i -g express  #i全局安装express模块</p>
+<p>npm list     #列出已安装模块</p>
+<p>npm show express   #显示模块详情</p>
+<p>npm update     #升级当前目录下的项目的所有模块</p>
+<p>npm update express   #升级当前目录下的项目的指定模块</p>
+<p>npm update -g express  #升级全局安装的express模块</p>
+<p>npm uninstall express  #删除指定的模块</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/17/tools/npm/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">npm</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/tools//" class="article-tag-list-link color1">tools</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/tools/npm/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/python/python-flask" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/python/python-flask/" target="_blank">python app</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/python/python-flask/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>这一步并非必要，却十分重要。主要用于多个 python 项目时，同名依赖不同版本情况。创建虚拟环境可以隔离项目之间的依赖（也可以使用 docker 来实现项目隔离）</p>
+<h4 id="创建虚拟环境："><a href="#创建虚拟环境：" class="headerlink" title="创建虚拟环境："></a>创建虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv venv  <span class="comment"># Windows/macOS/Linux 通用命令</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="激活虚拟环境："><a href="#激活虚拟环境：" class="headerlink" title="激活虚拟环境："></a>激活虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Windows</span></span><br><span class="line">.\venv\Scripts\activate</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS/Linux</span></span><br><span class="line"><span class="built_in">source</span> venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装依赖："><a href="#安装依赖：" class="headerlink" title="安装依赖："></a>安装依赖：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install flask  <span class="comment"># 仅安装到当前虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查看已安装的包："><a href="#查看已安装的包：" class="headerlink" title="查看已安装的包："></a>查看已安装的包：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
+
+<h4 id="退出虚拟环境："><a href="#退出虚拟环境：" class="headerlink" title="退出虚拟环境："></a>退出虚拟环境：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<p>虚拟环境是 Python 开发的<strong>标准实践</strong>，虽然不是强制要求，但它能避免 90% 的环境相关问题。建议养成 “每个项目一个虚拟环境” 的习惯，从一开始就使用它！</p>
+<h2 id="依赖安装"><a href="#依赖安装" class="headerlink" title="依赖安装"></a>依赖安装</h2><h3 id="1、requirements-txt"><a href="#1、requirements-txt" class="headerlink" title="1、requirements.txt"></a>1、requirements.txt</h3><p>自动生成项目中的依赖 到 requirements.txt 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>类似于yarn 的一键安装项目依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、-pyproject-toml"><a href="#2、-pyproject-toml" class="headerlink" title="2、**pyproject.toml**"></a>2、**<code>pyproject.toml</code>**</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyproject.toml</span></span><br><span class="line">[build-system]</span><br><span class="line">requires = [<span class="string">&quot;setuptools&gt;=42&quot;</span>]</span><br><span class="line">build-backend = <span class="string">&quot;setuptools.build_meta&quot;</span></span><br><span class="line"></span><br><span class="line">[project]</span><br><span class="line">name = <span class="string">&quot;my-project&quot;</span></span><br><span class="line">version = <span class="string">&quot;0.1.0&quot;</span></span><br><span class="line">dependencies = [</span><br><span class="line">    <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">    <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>安装方式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、-setup-py（传统方法）"><a href="#3、-setup-py（传统方法）" class="headerlink" title="3、**setup.py（传统方法）**"></a>3、**<code>setup.py</code>（传统方法）**</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># setup.py</span></span><br><span class="line"><span class="keyword">from</span> setuptools <span class="keyword">import</span> setup</span><br><span class="line"></span><br><span class="line">setup(</span><br><span class="line">    name=<span class="string">&quot;my-project&quot;</span>,</span><br><span class="line">    version=<span class="string">&quot;0.1.0&quot;</span>,</span><br><span class="line">    install_requires=[</span><br><span class="line">        <span class="string">&quot;Flask&gt;=2.0.0&quot;</span>,</span><br><span class="line">        <span class="string">&quot;requests&gt;=2.28.0&quot;</span>,</span><br><span class="line">    ],</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install .  # 安装项目及其依赖</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="敏感参数配置"><a href="#敏感参数配置" class="headerlink" title="敏感参数配置"></a>敏感参数配置</h2><p>项目推荐使用 .env 文件放置，通过 dotenv 第三方模块来加载。.env 文件不提交。生产环境时可以</p>
+<ol>
+<li><p>在生产环境新建一个.env 文件</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FLASK_APP=app</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">FLASK_DEBUG=True</span></span><br><span class="line">SECRET_KEY=your-secret-key</span><br></pre></td></tr></table></figure>
+
+</li>
+<li><p>在运行环境设置环境变量</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">临时环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS</span></span><br><span class="line">export SECRET_KEY=prod_secret_key</span><br><span class="line">export FLASK_DEBUG=False</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows（PowerShell）</span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:SECRET_KEY = <span class="string">&quot;prod_secret_key&quot;</span></span></span><br><span class="line"><span class="meta prompt_">$</span><span class="language-bash"><span class="built_in">env</span>:FLASK_DEBUG = <span class="string">&quot;False&quot;</span></span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">永久环境变量</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Linux/macOS：写入 shell 配置文件（如 ~/.bashrc、~/.zshrc）</span></span><br><span class="line">echo &#x27;export SECRET_KEY=prod_secret_key&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">echo &#x27;export FLASK_DEBUG=False&#x27; &gt;&gt; ~/.bashrc</span><br><span class="line">source ~/.bashrc  # 立即生效</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Windows：通过「系统属性 → 高级 → 环境变量」图形界面配置，或使用 PowerShell 命令永久设置。</span></span><br></pre></td></tr></table></figure></li>
+<li><p>docker 容器部署</p>
+<p> docker run 命令直接传入</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -e &quot;SECRET_KEY=prod_secret&quot; -e &quot;FLASK_DEBUG=False&quot; your-image</span><br></pre></td></tr></table></figure>
+
+<p> docker-compose.yml 文件配置</p>
+ <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">your-image</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">SECRET_KEY=prod_secret</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FLASK_DEBUG=False</span></span><br><span class="line">    <span class="comment"># 或引用服务器上的 .env 文件（但需确保该文件仅在服务器存在）</span></span><br><span class="line">    <span class="attr">env_file:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">.env.prod</span>  <span class="comment"># 服务器上的生产环境变量文件</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="app项目架构"><a href="#app项目架构" class="headerlink" title="app项目架构"></a>app项目架构</h2><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">flask_project/</span><br><span class="line">│</span><br><span class="line">├── app/                 # 应用包</span><br><span class="line">│   ├── __init__.py      # 应用工厂</span><br><span class="line">│   ├── routes/          # 路由模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   ├── main.py      # 主路由</span><br><span class="line">│   │   └── api.py       # API路由</span><br><span class="line">│   ├── models/          # 业务模块</span><br><span class="line">│   ├── test/            # 测试业务模块</span><br><span class="line">│   │   ├── __init__.py</span><br><span class="line">│   │   └── test.py      # 测试业务逻辑</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── utils/          # 工具类模块</span><br><span class="line">│   │   ├── db.py       # 数据库工具类</span><br><span class="line">│   │   └── __init__.py</span><br><span class="line">│   ├── templates/       # 模板文件</span><br><span class="line">│   │   ├── index.html   # index 页面</span><br><span class="line">│   │   └── about.html   # about 页面,如果使用单页面应用，可以打包成只有一个html文件</span><br><span class="line">│   ├── static/          # 静态文件</span><br><span class="line">│   └── <span class="built_in">config</span>.py        # 配置文件</span><br><span class="line">│</span><br><span class="line">├── .env                 # 环境变量</span><br><span class="line">├── requirements.txt     # 依赖清单</span><br><span class="line">└── run.py               # 应用入口</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库集成"><a href="#数据库集成" class="headerlink" title="数据库集成"></a>数据库集成</h3><p>数据库使用的是 pymysql，连接池 dbutils.pooled_db</p>
+<p>.env 环境配置</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 数据库配置</span></span><br><span class="line"><span class="string">DB_HOST=*.*.*.*</span></span><br><span class="line"><span class="string">DB_PORT=18453</span></span><br><span class="line"><span class="string">DB_USER=root</span></span><br><span class="line"><span class="string">DB_PASSWORD=***</span></span><br><span class="line"><span class="string">DB_NAME=anjian</span></span><br><span class="line"><span class="string">DB_CHARSET=utf8mb4</span></span><br><span class="line"><span class="string">DB_AUTOCOMMIT=True</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库连接池配置</span></span><br><span class="line"><span class="string">DB_POOL_MIN_CACHED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CACHED</span> <span class="string">=</span> <span class="number">10</span></span><br><span class="line"><span class="string">DB_POOL_MAX_SHARED</span> <span class="string">=</span> <span class="number">5</span></span><br><span class="line"><span class="string">DB_POOL_MAX_CONNECTIONS</span> <span class="string">=</span> <span class="number">20</span></span><br><span class="line"><span class="string">DB_POOL_BLOCKING</span> <span class="string">=</span> <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Description: </span></span><br><span class="line"><span class="string">Author:  </span></span><br><span class="line"><span class="string">Date: 2025-07-08 17:41:42</span></span><br><span class="line"><span class="string">LastEditTime: 2025-07-09 09:50:19</span></span><br><span class="line"><span class="string">LastEditors:  </span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="comment"># app/utils/db.py</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> Generator, <span class="type">Any</span>, <span class="type">List</span>, <span class="type">Tuple</span>, <span class="type">Sequence</span>, <span class="type">Callable</span>, <span class="type">Union</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"><span class="keyword">from</span> dbutils.pooled_db <span class="keyword">import</span> PooledDB</span><br><span class="line"></span><br><span class="line">DB_CONFIG = &#123;</span><br><span class="line">    <span class="string">&quot;host&quot;</span>: os.getenv(<span class="string">&quot;DB_HOST&quot;</span>, <span class="string">&quot;localhost&quot;</span>),</span><br><span class="line">    <span class="string">&quot;port&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_PORT&quot;</span>, <span class="number">3306</span>)),</span><br><span class="line">    <span class="string">&quot;user&quot;</span>: os.getenv(<span class="string">&quot;DB_USER&quot;</span>, <span class="string">&quot;admin_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;password&quot;</span>: os.getenv(<span class="string">&quot;DB_PASSWORD&quot;</span>, <span class="string">&quot;***&quot;</span>),</span><br><span class="line">    <span class="string">&quot;database&quot;</span>: os.getenv(<span class="string">&quot;DB_NAME&quot;</span>, <span class="string">&quot;test_db&quot;</span>),</span><br><span class="line">    <span class="string">&quot;charset&quot;</span>: os.getenv(<span class="string">&quot;DB_CHARSET&quot;</span>, <span class="string">&quot;utf8mb4&quot;</span>),</span><br><span class="line">    <span class="string">&quot;autocommit&quot;</span>: os.getenv(<span class="string">&quot;DB_AUTOCOMMIT&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>,  <span class="comment"># 是否自动提交事务</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">DB_POOL_CONFIG = &#123;</span><br><span class="line">    <span class="string">&#x27;mincached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MINCACHED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 连接池中空闲连接的初始数量</span></span><br><span class="line">    <span class="string">&#x27;maxcached&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXCACHED&quot;</span>, <span class="number">10</span>)),                     <span class="comment"># 连接池中空闲连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxshared&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAXSHARED&quot;</span>, <span class="number">5</span>)),                      <span class="comment"># 共享连接的最大数量</span></span><br><span class="line">    <span class="string">&#x27;maxconnections&#x27;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_MAX_CONN_NUM&quot;</span>, <span class="number">20</span>)),             <span class="comment"># 连接池允许的最大连接数</span></span><br><span class="line">    <span class="string">&quot;blocking&quot;</span>: os.getenv(<span class="string">&quot;DB_POOL_BLOCKING&quot;</span>, <span class="string">&quot;true&quot;</span>).lower() == <span class="string">&quot;true&quot;</span>, <span class="comment"># 连接池达到最大连接数时是否阻塞</span></span><br><span class="line">    <span class="string">&quot;ping&quot;</span>: <span class="built_in">int</span>(os.getenv(<span class="string">&quot;DB_POOL_PING&quot;</span>, <span class="number">1</span>)),                           <span class="comment"># 检查连接的有效性 (0=从不，1=默认，2=每一次获得连接时，4=每一次游标执行时，7=总是)</span></span><br><span class="line">    <span class="string">&quot;maxusage&quot;</span>: <span class="literal">None</span>,                                                    <span class="comment"># 一个连接最多被重复使用的次数，None 表示无限制</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 创建数据库连接池</span></span><br><span class="line">pool = PooledDB(</span><br><span class="line">    creator=pymysql,               <span class="comment"># 使用 pymysql 作为数据库驱动</span></span><br><span class="line">    **DB_CONFIG,                   <span class="comment"># 数据库连接配置</span></span><br><span class="line">    <span class="comment">#autocommit=True,  # 自动提交事务</span></span><br><span class="line">    <span class="comment"># 连接池参数</span></span><br><span class="line">    **DB_POOL_CONFIG,              <span class="comment"># 连接池配置</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据库操作上下文管理器</span></span><br><span class="line"><span class="keyword">from</span> contextlib <span class="keyword">import</span> contextmanager</span><br><span class="line"></span><br><span class="line"><span class="meta">@contextmanager</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_db_cursor</span>(<span class="params">dict_=<span class="literal">False</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;获取数据库游标，支持字典格式返回。</span></span><br><span class="line"><span class="string">    Args:</span></span><br><span class="line"><span class="string">        dict_: 是否使用字典游标（默认 False）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="keyword">with</span> pool.connection() <span class="keyword">as</span> conn:</span><br><span class="line">            cursor_cls = pymysql.cursors.DictCursor <span class="keyword">if</span> dict_ <span class="keyword">else</span> <span class="literal">None</span></span><br><span class="line">            <span class="keyword">with</span> conn.cursor(cursor_cls) <span class="keyword">as</span> cur:</span><br><span class="line">                <span class="keyword">yield</span> cur</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Database operation failed: <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">raise</span> e</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fetch_one</span>(<span class="params">sql: <span class="built_in">str</span>,</span></span><br><span class="line"><span class="params">              params: <span class="built_in">tuple</span> | <span class="built_in">list</span> = <span class="literal">None</span>,</span></span><br><span class="line"><span class="params">              dict_: <span class="built_in">bool</span> = <span class="literal">True</span></span>) -&gt; <span class="type">Any</span> | <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">with</span> get_db_cursor(dict_) <span class="keyword">as</span> cur:</span><br><span class="line">        cur.execute(sql, params)</span><br><span class="line">        <span class="keyword">return</span> cur.fetchone()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>db.py 中的 fetch_one 方法 可以到 mudules.test.test.py 中 引入使用</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mudules.test.test.py</span></span><br><span class="line"><span class="keyword">from</span> app.utils.db <span class="keyword">import</span>  fetch_one</span><br><span class="line"></span><br><span class="line"><span class="comment"># Example usage</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">select_query_plan_file_mesures</span>():</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        data_sql = (</span><br><span class="line">            <span class="string">&quot; SELECT * from query_wztp &quot;</span></span><br><span class="line">        )</span><br><span class="line">        params = []</span><br><span class="line">        rows = fetch_one(data_sql, params, <span class="literal">True</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划：<span class="subst">&#123;rows&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> rows</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;是否跨越查询计划出错：<span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="与其他-Python-Web-框架对比"><a href="#与其他-Python-Web-框架对比" class="headerlink" title="与其他 Python Web 框架对比"></a>与其他 Python Web 框架对比</h2><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>定位</th>
+<th>优势</th>
+<th>劣势</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Django</td>
+<td>全栈框架（ batteries-included ）</td>
+<td>功能全面、安全稳定、生态丰富、后台管理强大</td>
+<td>略厚重、同步性能一般</td>
+<td>企业级应用、后台系统、API 服务</td>
+</tr>
+<tr>
+<td>Flask</td>
+<td>微框架（轻量灵活）</td>
+<td>体积小、可定制化强</td>
+<td>需手动拼接第三方库（如 ORM、表单）</td>
+<td>小应用、原型开发、API 原型</td>
+</tr>
+<tr>
+<td>FastAPI</td>
+<td>异步 API 框架</td>
+<td>异步性能优、自动生成 API 文档</td>
+<td>无内置后台管理、生态较新</td>
+<td>高并发 API 服务、实时数据接口</td>
+</tr>
+</tbody></table>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">app</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/backend/python/python-flask/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/python/包管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/python/%E5%8C%85%E7%AE%A1%E7%90%86/" target="_blank">外星人入侵</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/python/%E5%8C%85%E7%AE%A1%E7%90%86/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="python-包管理"><a href="#python-包管理" class="headerlink" title="python 包管理"></a>python 包管理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">pip设置安装源</span><br><span class="line">pip国内的一些镜像</span><br><span class="line"></span><br><span class="line">  阿里云 http://mirrors.aliyun.com/pypi/simple/ </span><br><span class="line">  中国科技大学 https://pypi.mirrors.ustc.edu.cn/simple/ </span><br><span class="line">  豆瓣(douban) http://pypi.douban.com/simple/ </span><br><span class="line">  清华大学 https://pypi.tuna.tsinghua.edu.cn/simple/ </span><br><span class="line">  中国科学技术大学 http://pypi.mirrors.ustc.edu.cn/simple/</span><br><span class="line"></span><br><span class="line">修改源方法：</span><br><span class="line"></span><br><span class="line">1)临时生效</span><br><span class="line"></span><br><span class="line">可以在使用pip的时候在后面加上-i参数，指定pip源 </span><br><span class="line">eg: pip install jieba -i https://pypi.tuna.tsinghua.edu.cn/simple</span><br><span class="line"></span><br><span class="line">2)永久生效：</span><br><span class="line"></span><br><span class="line">mkdir ~/.pip</span><br><span class="line">vim ~/.pip/pip.conf</span><br><span class="line">输入以下内容</span><br><span class="line"></span><br><span class="line">[global]</span><br><span class="line">index-url = https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/backend/python/%E5%8C%85%E7%AE%A1%E7%90%86/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">游戏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/backend/python/%E5%8C%85%E7%AE%A1%E7%90%86/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/python/python-base" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/python/python-base/" target="_blank">python基础</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/python/python-base/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <blockquote>
+<p>通用语言，脚本语言，开源语言，跨平台语言，多模型语言</p>
+<p>2000年 1.0 版本</p>
+<p>2008年 2.0 版本</p>
+<p>3.0系列 不兼容早期的2.0</p>
+</blockquote>
+    
+    <a class="article-more-a" href="/2022/06/17/backend/python/python-base/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">基础语法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/backend/python/python-base/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/python/爬虫" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/python/%E7%88%AC%E8%99%AB/" target="_blank">python 爬虫</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/python/%E7%88%AC%E8%99%AB/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="通过网络获取远程对象"><a href="#通过网络获取远程对象" class="headerlink" title="通过网络获取远程对象"></a>通过网络获取远程对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">	urlopen 用来打开并读取一个从网络获取的远程对象。因为它是一个非常通用的函数（可以轻松读取 HTML 文件、图像文件或其他任何文件流）</span><br><span class="line"><span class="comment">#python 内置库</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"></span><br><span class="line">html =urlopen(<span class="string">&#x27;http://pythonscraping.com/pages/page1.html&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(html.read())</span><br></pre></td></tr></table></figure>
+    
+    <a class="article-more-a" href="/2022/06/17/backend/python/%E7%88%AC%E8%99%AB/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">爬虫</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/backend/python/%E7%88%AC%E8%99%AB/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/node/拓展" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/node/%E6%8B%93%E5%B1%95/" target="_blank">Nodejs 主流框架</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/node/%E6%8B%93%E5%B1%95/" class="archive-article-date">
         <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
 </a>
 
@@ -1351,7 +1313,130 @@
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2022/06/17/programming/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+      <a class="article-more-a" href="/2022/06/17/backend/node/%E6%8B%93%E5%B1%95/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-backend/node/命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2022/06/17/backend/node/%E5%91%BD%E4%BB%A4/" target="_blank">node 升级命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2022/06/17/backend/node/%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2022-06-17T10:23:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-17</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <p>// 版本查询</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>// 如果上面查看的版本比较低，则可以开始升级</p>
+<p>// 清除 npm cache</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+
+<p>//升级之前还需要安装n模块，n模块是专门用来管理nodejs的版本</p>
+<p>输入npm install -g n</p>
+<p>// 如果上边命令报错，则使用下边这个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g n --force</span><br></pre></td></tr></table></figure>
+
+<p>//升级<br>还可以直接输入n stable，升级到nodejs最新稳定的版本</p>
+<h3 id="Linux-安装-node"><a href="#Linux-安装-node" class="headerlink" title="Linux 安装 node"></a>Linux 安装 node</h3><p>网上下载安装包，然后上传至服务器，解压</p>
+<h3 id="Linux-添加环境变量"><a href="#Linux-添加环境变量" class="headerlink" title="Linux 添加环境变量"></a>Linux 添加环境变量</h3><ul>
+<li><p>修改profile文件</p>
+<p>打开文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>添加</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH =&quot;$PATH:YOUR_PATH&quot;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_14782715/5082236">参考文章</a></p>
+</li>
+</ul>
+<h3 id="远程-执行node-脚本-自定义变量找不到"><a href="#远程-执行node-脚本-自定义变量找不到" class="headerlink" title="远程 执行node 脚本,自定义变量找不到"></a>远程 执行node 脚本,自定义变量找不到</h3><p>问题出现就是，xshell 上执行命名 运行一个js文件没有问题，但是通过nodo-ssh远程执行一个js脚本则会出现 Cannot find module xxx，因为脚本中引用了 某个全局的js依赖包，而我在etc/peofile 设置的 全局变量，在这种通过 远程指令 方式下执行会出现读取不到设置的全局变量。</p>
+<p>解决方法，在 etc/bashrc 文件中 再设置一次变量（此方式设置所有用户都能访问），或 用户HOME中的 <strong>.bashrc</strong> 文件中设置变量（此方式只此用户能访问此变量）</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/node//" class="article-tag-list-link color5">node</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2022/06/17/backend/node/%E5%91%BD%E4%BB%A4/">展开全文 >></a>
     </p>
     
 
@@ -1514,7 +1599,7 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
+                <a href="javascript:void(0)" class="js-tag color3">科普</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1522,11 +1607,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">科普</a>
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1538,7 +1623,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
+                <a href="javascript:void(0)" class="js-tag color3">db</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1546,15 +1635,67 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">svn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">npm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1562,7 +1703,135 @@
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">app</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">基础语法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">koa</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">插件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">electron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">基础知识</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1578,19 +1847,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">electron</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">js</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">拓展</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1606,219 +1867,11 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">koa</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">插件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实用技巧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">npm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vscode</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">WebGIS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jdbc基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kettle基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">jdbcweb基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mybatis 基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">maven基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">plugins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">springboot基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">java基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">spring基础</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">jenkins</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">ubuntu</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pm2</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">mongodb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">nvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">git</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">svn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">yarn</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">RPA</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">db</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vbs</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">低代码</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">vercel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">autofit.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">杂七杂八</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">app</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">游戏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">爬虫</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">vite</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">组件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">eslint</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">红宝书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1826,11 +1879,51 @@
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
+                <a href="javascript:void(0)" class="js-tag color5">rtsp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">音视频</a>
+                <a href="javascript:void(0)" class="js-tag color1">服务端渲染</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">react</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信小程序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">乾坤</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">vite</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">v-model</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">反编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">vue-cli</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">组件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">微信公众号</a>
               </li>
             
             <div class="clearfix"></div>
